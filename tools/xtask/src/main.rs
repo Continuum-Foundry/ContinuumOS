@@ -1,4 +1,5 @@
 mod elf;
+mod m1;
 
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
@@ -178,6 +179,8 @@ fn build_into(directory: &Path) -> Result<Value> {
         "tools/xtask/Cargo.toml",
         "tools/xtask/src/main.rs",
         "tools/xtask/src/elf.rs",
+        "tools/xtask/src/m1.rs",
+        "kernel/Cargo.toml",
         "experiments/kernel-link/Cargo.toml",
         "experiments/kernel-link/src/main.rs",
         "experiments/kernel-link/link.ld",
@@ -268,8 +271,13 @@ fn run() -> Result<()> {
             Ok(())
         }
         ["test", "--suite", "m0"] => test_m0(),
+        ["build", "--profile", "dev"] => m1::execute("build"),
+        ["iso", "--profile", "m1"] => m1::execute("iso"),
+        ["run", "--profile", "vm-baseline"] => m1::execute("run"),
+        ["test", "--suite", "m1", "--case", "iso-smoke"] => m1::execute("iso-smoke"),
+        ["test", "--suite", "m1", "--case", "iso-negative"] => m1::execute("iso-negative"),
         _ => Err(
-            "Usage: cargo xtask doctor [--profile m1] [--json] | build --profile feasibility | test --suite m0"
+            "Usage: cargo xtask doctor [--profile m1] [--json] | build --profile feasibility|dev | iso --profile m1 | run --profile vm-baseline | test --suite m0 | test --suite m1 --case iso-smoke|iso-negative"
                 .into(),
         ),
     }

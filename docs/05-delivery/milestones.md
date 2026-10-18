@@ -1,7 +1,8 @@
 # Implementation milestones and gates
 
 Status: gated execution plan. Phase 0 compile/tooling implementation and evidence
-are recorded in [the runbook](phase-0.md); runtime milestones remain uncompleted.
+are recorded in [the runbook](phase-0.md). P1-02 demonstrates minimal UEFI ISO
+kernel entry; M1 as a whole and later milestones remain uncompleted.
 Stages are evidence gates, not promised calendar dates. First build feasibility
 determines credible estimates. Do not attempt the whole OS in one coding session.
 Revision 2 prioritizes M2/M4/M5 state-preserving reload and an AI-free usable desktop.
@@ -32,7 +33,9 @@ early R16 and R18; no release reproducibility or ABI/isolation claim.
 ## M1 — Original kernel boots from ISO
 
 Execution is decomposed into [one epic and seven ordered stories](phase-1/README.md).
-All are initially Not started; the story files are plans, not evidence of implementation.
+P1-01 supplies pinned host inputs; P1-02 adds the minimal original-kernel ISO path.
+See its [runbook](phase-1/minimal-iso-runbook.md) for evidence boundaries.
+P1-03 through P1-07 remain plans, not evidence of implementation.
 
 Implement boot validation, serial output, framebuffer metadata, owned paging,
 exception handling, physical allocator and interrupt/timer baseline. Build UEFI ISO.

@@ -1,8 +1,10 @@
 # Original desktop OS: research and engineering foundation
 
 Research date: **2026-10-17**. Project name: **ContinuumOS (working name)**.
-Implementation update: **2026-10-18 — Phase 0 Windows tooling/link probes implemented;
-no OS boot or runtime demonstration**. See [Phase 0](05-delivery/phase-0.md) and its evidence.
+Implementation update: **2026-10-18 — minimal original Rust kernel entry from a
+standalone UEFI ISO demonstrated in QEMU**. See the
+[P1-02 runbook](05-delivery/phase-1/minimal-iso-runbook.md). This is not completed M1
+or a usable desktop OS. Phase 0's compile-only evidence remains separate.
 Plan revision: **2 — reconciled direction approved by the user; technical gates pending**.
 The requested project folder is named **ContinuumOS**; this is a working project name.
 
@@ -47,7 +49,8 @@ ISO packages a known system generation; an ISO is not the live update transport.
 - **Proposed default**: our engineering choice, used to make the project concrete. Validate at its gate.
 - **Experiment**: a question with an owner, procedure, and pass/fail criterion in the milestone/backlog documents.
 - **Measured**: requires build IDs, configurations, and raw evidence. Phase 0 has
-  compile/link results; guest performance and runtime behavior remain unmeasured.
+  compile/link results; P1-02 adds minimal guest entry and emulator-test exits.
+  Guest performance, full boot readiness and live updates remain unmeasured.
 
 ADRs are proposed, rather than falsely marked accepted. Their experiments let an
 implementation agent proceed with reversible work without repeatedly requesting

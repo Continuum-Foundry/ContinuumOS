@@ -41,5 +41,13 @@ M1 cold-boots the ISO with host shares/network disabled and records readiness. M
 repeats from packaged outputs. Change to an own loader if the user explicitly requires
 first-party boot ownership or loader constraints impede the tested platform.
 
+P1-02 evidence (2026-10-18): the original stable-Rust kernel reaches serial entry
+through the pinned Limine/OVMF UEFI optical route. Two fresh QEMU processes boot
+the same hashed ISO and return the expected emulator-only test exit. See the
+[runbook](../05-delivery/phase-1/minimal-iso-runbook.md) and
+[retained evidence](../../evidence/phase-1/P1-02/2026-10-18/README.md).
+This validates the minimal loader/ISO integration, not full boot metadata,
+M1 readiness, BIOS, Secure Boot or release reproducibility. Status stays Proposed.
+
 Evidence: [S25](../01-research/sources.md#s25), [S27](../01-research/sources.md#s27),
 [boot spec](../02-architecture/boot-and-platform.md).

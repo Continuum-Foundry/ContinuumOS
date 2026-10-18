@@ -21,7 +21,7 @@ worktree changes before implementation; a clean Git status is not currently assu
 | ID | Story | Depends on | Backlog coverage | Status |
 | --- | --- | --- | --- | --- |
 | P1-01 | [Supply and pin VM/ISO prerequisites](01-vm-and-packaging-prerequisites.md) | Phase 0 recheck | B01/B02 follow-up, B38 inputs | Done |
-| P1-02 | [Cold-boot the minimal original kernel ISO](02-minimal-iso-boot.md) | P1-01 | B38, B03, minimal B04 | Not started |
+| P1-02 | [Cold-boot the minimal original kernel ISO](02-minimal-iso-boot.md) | P1-01 | B38, B03, minimal B04 | Done |
 | P1-03 | [Validate boot metadata and identity](03-boot-metadata-and-diagnostics.md) | P1-02 | B04 | Not started |
 | P1-04 | [Establish exception diagnostics](04-exception-handling.md) | P1-03 | B05 exception baseline | Not started |
 | P1-05 | [Own physical frames and page tables](05-memory-ownership.md) | P1-04 | B05 memory/guards | Not started |
@@ -63,7 +63,8 @@ Keep the architectural ADRs Proposed until their documented review gates are met
 
 Store generated run artifacts in ignored `build/m1/<run-id>/`; retain a compact,
 sanitized summary and logs in `evidence/phase-1/<story-id>/<run-id>/` when implemented.
-P1-01 host prerequisite evidence is retained; no guest-run evidence exists yet. Each run must record:
+P1-01 host prerequisite evidence and P1-02 minimal guest-entry evidence are retained.
+Each run must record:
 
 - Source commit and dirty state; if dirty, a patch/source snapshot or hashes covering
   all build inputs. Record toolchain/lock/config hashes and exact upstream provenance.
@@ -79,10 +80,11 @@ to the final ISO hash in the manifest; do not try to embed an ISO's own final di
 inside itself. Each new VM launch receives a distinct host-generated boot-session
 identifier, clearly labeled as host-provided and not a security credential.
 
-## Proposed tooling, not available commands
+## Tooling and remaining proposed commands
 
-Phase 0's commands and P1-01's `doctor --profile m1` exist today. Implement and
-document these additions through the stories before treating them as runnable:
+Phase 0's commands, P1-01's `doctor --profile m1` and P1-02's build/package/run and
+named ISO tests exist today. See the [minimal ISO runbook](minimal-iso-runbook.md).
+The full Phase 1 suite remains P1-07 work:
 
 | Interface | Owner | Intended behavior |
 | --- | --- | --- |
@@ -113,5 +115,6 @@ Read [milestones](../milestones.md), [backlog](../backlog.md),
 [ADR-0002](../../04-decisions/0002-boot-and-iso.md) and
 [ADR-0013](../../04-decisions/0013-build-and-distribution.md).
 
-Continue with **P1-02** after reading the [P1-01 runbook](prerequisites-runbook.md).
-Host prerequisites are verified; M1's ISO and guest runtime gates remain unstarted.
+Continue with **P1-03** after P1-02 acceptance review and the
+[minimal ISO runbook](minimal-iso-runbook.md). Minimal ISO entry is demonstrated;
+the remaining M1 metadata, memory, exceptions and timer gates are unstarted.

@@ -1,0 +1,12 @@
+{
+  "arguments": [
+    "-osirrox",
+    "on",
+    "-indev",
+    "${WORKSPACE}/build/m1/iso-smoke-1792300209027643600-32452/continuum.iso",
+    "-extract",
+    "/",
+    "${WORKSPACE}/build/m1/iso-smoke-1792300209027643600-32452/extracted payload"
+  ],
+  "program": "${WORKSPACE}\\work/tools/iso/usr/bin/xorriso.exe"
+}

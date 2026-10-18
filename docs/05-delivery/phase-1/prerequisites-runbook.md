@@ -1,6 +1,8 @@
 # Windows M1 prerequisites
 
-P1-01 supplies host inputs only. No ISO has been packaged or booted.
+P1-01 supplies host inputs only; its retained snapshot contains no ISO boot.
+P1-02 now implements the [minimal ISO build/boot harness](minimal-iso-runbook.md)
+and records its guest evidence separately.
 The reviewed pins are in [the input lock](../../../config/m1-inputs.lock.json).
 All acquisition and extraction stays in ignored `work/`; no persistent PATH,
 Windows feature, WSL, installer, VM or physical disk change is performed.
@@ -26,8 +28,8 @@ metadata and included notices; they are not global package-manager installations
 M1 doctor verifies required file sizes and hashes **before** executing any
 version/capability query. It then checks QEMU's versioned machine, explicit CPU,
 TCG and HPET listings and xorriso's version. It does not acquire tools. M0 doctor
-retains compile-only behavior. ISO/run commands remain unavailable until P1-02;
-their implementation must call the same M1 preflight and stop on any failure.
+retains compile-only behavior. P1-02's ISO/run commands call the same M1 preflight
+and stop on any failure.
 
 `CONTINUUM_QEMU_SYSTEM_X86_64`, `CONTINUUM_XORRISO`, `CONTINUUM_OVMF_CODE` and
 `CONTINUUM_OVMF_VARS` are strict overrides with no fallback. Their contents must
@@ -68,11 +70,11 @@ requires a reviewed lock update. Paths may contain spaces.
   guest handoff compatibility is claimed. Version 0.6.5 was rejected because
   its `ptr_metadata` feature needs nightly; the failure is retained.
 
-## Proposed launch profile
+## Pinned launch profile
 
 The lock contains an argument array with explicit placeholders for the exact ISO,
 locked firmware code, fresh variable-store copy and new serial log. It is a
-configuration for P1-02, not an implemented launcher or a boot result:
+configuration used by P1-02's launcher. P1-01's descriptor check alone is not a boot result:
 
 `pc-q35-11.1,hpet=on`, TCG, `qemu64-v1,+apic`, one vCPU, 2048 MiB, standard VGA,
 headless display, COM1 file log, optical-only strict boot, no automatic reboot.

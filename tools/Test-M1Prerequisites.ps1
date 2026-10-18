@@ -1,4 +1,4 @@
-param([string]$LockPath = (Join-Path $PSScriptRoot '../config/m1-inputs.lock.json'))
+param([string]$LockPath = (Join-Path $PSScriptRoot '../config/m1-inputs.lock.json'), [switch]$Json)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $failures = [Collections.Generic.List[string]]::new()
@@ -56,4 +56,5 @@ try {
         if (-not $isoVersion.Contains($lock.xorriso_version)) { throw 'xorriso version differs from lock' }
     }
 } catch { $failures.Add($_.Exception.Message.Replace($root,'${WORKSPACE}').Replace($env:USERPROFILE,'${USERPROFILE}')) }
-[ordered]@{status=$(if ($failures.Count) {'blocked'} else {'passed'});failures=@($failures);queries=@($queries);boot_tested=$false;policy='Read-only probes; no VM launch, install, network or host feature change'}
+$report = [ordered]@{status=$(if ($failures.Count) {'blocked'} else {'passed'});failures=@($failures);queries=@($queries);boot_tested=$false;policy='Read-only probes; no VM launch, install, network or host feature change'}
+if ($Json) { $report | ConvertTo-Json -Depth 12; if ($failures.Count) { exit 1 } } else { $report }

@@ -1,0 +1,131 @@
+{
+  "boot_tested": false,
+  "build": {
+    "artifacts": [
+      {
+        "bytes": 8576,
+        "code_model": "kernel",
+        "component": "kernel-link",
+        "inspection": {
+          "dynamic_linking": false,
+          "entry": "0xffffffff80000000",
+          "executed": false,
+          "format": "ELF64-LE",
+          "machine": "x86_64",
+          "relocations": 0,
+          "segments": [
+            {
+              "address": "0xffffffff80000000",
+              "alignment": 4096,
+              "file_size": 4,
+              "flags": 5,
+              "memory_size": 4,
+              "offset": 4096
+            }
+          ],
+          "type": "ET_EXEC",
+          "unresolved_symbols": 0
+        },
+        "sha256": "8535f7c5fedf3789f0425a580fa3d63c3b35dc42ae70b37ea5492e9f06f3ccda"
+      },
+      {
+        "bytes": 9264,
+        "code_model": "small",
+        "component": "userland-link",
+        "inspection": {
+          "dynamic_linking": false,
+          "entry": "0x400000",
+          "executed": false,
+          "format": "ELF64-LE",
+          "machine": "x86_64",
+          "relocations": 0,
+          "segments": [
+            {
+              "address": "0x400000",
+              "alignment": 4096,
+              "file_size": 18,
+              "flags": 5,
+              "memory_size": 18,
+              "offset": 4096
+            }
+          ],
+          "type": "ET_EXEC",
+          "unresolved_symbols": 0
+        },
+        "sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522"
+      }
+    ],
+    "boot_tested": false,
+    "inputs": [
+      {
+        "path": "Cargo.lock",
+        "sha256": "87e685b48d370f8da6b418e28823f673e5b0da52cba46f5118be8ccbd59bc6ef"
+      },
+      {
+        "path": "Cargo.toml",
+        "sha256": "58b4f6a5c5d5fa5c410305c14fab41c468aaaf2efa77da8d5c3a7ad58bbf8cf9"
+      },
+      {
+        "path": ".cargo/config.toml",
+        "sha256": "e437136eeed0e0363b6079899143a5e69ddbeba6b449cf8c8454947bd5dc22f0"
+      },
+      {
+        "path": "rust-toolchain.toml",
+        "sha256": "ec881bd148eca89c390360fa5313ed5725514a0ffaed834f6d3e3ef60c745e18"
+      },
+      {
+        "path": "tools/xtask/Cargo.toml",
+        "sha256": "f07ff43bb2cda126bdd0722af7533322119af06aeb95a7b9978e39cdc304b428"
+      },
+      {
+        "path": "tools/xtask/src/main.rs",
+        "sha256": "68dafa25ecf47b5a716b379a98ecf96b3fe12c4bfb946224a1a4db3f91a5d3c3"
+      },
+      {
+        "path": "tools/xtask/src/elf.rs",
+        "sha256": "c061abdbff64fc458f312a40aeaf935911dbf12867c79c7a530c10574c309dcb"
+      },
+      {
+        "path": "tools/xtask/src/m1.rs",
+        "sha256": "a5da2772bda59db28cfcb022ad85d9816dee077599c51fe6561dfda3a5d94de2"
+      },
+      {
+        "path": "kernel/Cargo.toml",
+        "sha256": "5513e51e72ef05d60a5a62f8315e91f22fa2a448f044f115a423b5309ffaf1ba"
+      },
+      {
+        "path": "experiments/kernel-link/Cargo.toml",
+        "sha256": "cf2567ac07aca40b3bdd1587658ce8f5199095de43b1e41b96358e46de95264d"
+      },
+      {
+        "path": "experiments/kernel-link/src/main.rs",
+        "sha256": "194701e486bfb16929b0eae235b5eacd1817087d6447e8adf74945496b173926"
+      },
+      {
+        "path": "experiments/kernel-link/link.ld",
+        "sha256": "d04c023226e87534e865faf53a6aebced92f973d064769246dd11ac184353aa0"
+      },
+      {
+        "path": "experiments/userland-link/Cargo.toml",
+        "sha256": "0102cd3edc1d0ec5e80dcd3bcffab7f0e093d28bac00612f2d4667aed4253241"
+      },
+      {
+        "path": "experiments/userland-link/src/main.rs",
+        "sha256": "37f06c6b660551f61528e3a918083a4a830047543aa765ee7b09bd75c5390450"
+      },
+      {
+        "path": "experiments/userland-link/link.ld",
+        "sha256": "a3611a0e36bb2c7b54ffefe5447b64ebee55e79fd0418dcabfc2a18fec1cf004"
+      }
+    ],
+    "runtime_tested": false,
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+    "schema_version": 1,
+    "target": "x86_64-unknown-none"
+  },
+  "independent_llvm_inspection": true,
+  "output_path_with_spaces": true,
+  "schema_version": 1,
+  "status": "passed",
+  "two_clean_builds_identical": true
+}

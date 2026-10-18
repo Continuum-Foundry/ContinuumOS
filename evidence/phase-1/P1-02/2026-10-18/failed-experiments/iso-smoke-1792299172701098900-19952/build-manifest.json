@@ -1,0 +1,53 @@
+{
+  "assembly": "cli, hlt, in/out only; see kernel/src/main.rs",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "cf4befac01bb394efadbd5eb055facfd0606e642ff733b5c2e8e6475065d4911",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "iso-smoke",
+  "inspection": {
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "machine": "x86_64",
+    "relocations": 0,
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 409,
+        "flags": 5,
+        "memory_size": 409,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff80001000",
+        "alignment": 4096,
+        "file_size": 155,
+        "flags": 4,
+        "memory_size": 155,
+        "offset": 8192
+      },
+      {
+        "address": "0xffffffff80002000",
+        "alignment": 4096,
+        "file_size": 72,
+        "flags": 6,
+        "memory_size": 72,
+        "offset": 12288
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "7356bfaa271b568dd312c5810b11493659f84bb187e7f01c941f67690b68b590",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "d18bb0ae74156a1177bbfb69e0728cbc847fc6b8",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M Cargo.lock\n M Cargo.toml\n M tools/Test-M0.ps1\n M tools/Test-M1Prerequisites.ps1\n M tools/xtask/src/elf.rs\n M tools/xtask/src/main.rs\n?? kernel/\n?? tools/xtask/src/m1.rs"
+}

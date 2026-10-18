@@ -1,0 +1,52 @@
+{
+  "action": "iso-smoke",
+  "schema_version": 1,
+  "stages": {
+    "compile": "passed",
+    "emulator_test_exit": "passed",
+    "iso_sha256": "2ad7b1d0747b13950b064df72a22b712b9f383848b28033f25126584963a54ae",
+    "kernel_entry": "passed",
+    "package": "passed",
+    "runs": [
+      {
+        "build_id": "d2fbf861323612c8915a96aae9f6629ad6eb4526d2e1a1957ea5d6e39c2d9d38",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 3806,
+        "emulator_test_exit": 33,
+        "error": null,
+        "final_process_exit": 33,
+        "guest_shutdown_claimed": false,
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "2ad7b1d0747b13950b064df72a22b712b9f383848b28033f25126584963a54ae",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 30984,
+        "schema_version": 1,
+        "status": "passed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      {
+        "build_id": "d2fbf861323612c8915a96aae9f6629ad6eb4526d2e1a1957ea5d6e39c2d9d38",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 3816,
+        "emulator_test_exit": 33,
+        "error": null,
+        "final_process_exit": 33,
+        "guest_shutdown_claimed": false,
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "2ad7b1d0747b13950b064df72a22b712b9f383848b28033f25126584963a54ae",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 9236,
+        "schema_version": 1,
+        "status": "passed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      }
+    ]
+  },
+  "status": "passed"
+}

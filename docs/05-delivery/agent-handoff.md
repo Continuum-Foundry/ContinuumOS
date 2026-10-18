@@ -29,6 +29,17 @@ require technical evidence gates.
 
 ## Next action
 
+Repository rights and governance are defined in [LEGAL.md](../../LEGAL.md),
+[CONTRIBUTING.md](../../CONTRIBUTING.md), and [SECURITY.md](../../SECURITY.md).
+Original material is all rights reserved; external patches are paused. Preserve
+upstream terms and immutable evidence. File-based policies do not establish
+corporate ownership, a security guarantee, or enforced GitHub protections.
+
+The owner's [U.S.-only handling policy](../../EXPORT_CONTROL.md) now places remote
+pushes, uploads, sharing, and processing on hold. Earlier push authorization does
+not override it. No current GitHub, AI, host, or backup environment is certified
+as satisfying it. Keep changes local; do not bypass the installed pre-push guard.
+
 Follow [the Phase 1 epic and seven ordered stories](phase-1/README.md), starting
 with P1-03. P1-02's acceptance review is retained; P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).

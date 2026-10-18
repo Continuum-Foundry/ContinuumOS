@@ -111,7 +111,8 @@ features, license expressions, declared MSRVs, build scripts and proc macros. It
 includes host compiler/build dependencies and is not a list of shipped guest code.
 Build scripts execute on the host; a compile pass does not certify unsafe code or
 parser behavior. Slint's GPL/commercial/royalty-free choices require a distribution
-decision before adoption. No project license is selected. Full comparable scenes,
+decision before adoption. Original project material is now all rights reserved;
+see [the rights policy](../../LEGAL.md). Full comparable scenes,
 license suitability, semantics and measurements remain B36/M2, confirmed in M4.
 
 ## Phase 1 packaging and boot runbook

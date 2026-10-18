@@ -15,6 +15,11 @@ ISO packages a known system generation; an ISO is not the live update transport.
 
 ## Start here
 
+Repository policies: [rights](../LEGAL.md), [governance](../GOVERNANCE.md),
+[security](../SECURITY.md), [third-party notices](../THIRD_PARTY_NOTICES.md),
+[release gates](../RELEASE.md), and [administrative controls](05-delivery/repository-controls.md).
+The [U.S.-only handling hold](../EXPORT_CONTROL.md) currently blocks remote sharing.
+
 1. [Vision and scope](00-overview/vision-and-scope.md): user intent, assumptions, and boundaries.
 2. [Requirements](00-overview/requirements.md): identifiers, priorities, and observable outcomes.
 3. [Architecture summary](00-overview/architecture-summary.md): proposed stack and key tradeoffs.

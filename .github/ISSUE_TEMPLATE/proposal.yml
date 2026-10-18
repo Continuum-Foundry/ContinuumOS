@@ -1,0 +1,24 @@
+name: Design or process proposal
+description: Propose a bounded change tied to the project requirements.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        EXPORT_CONTROL.md currently blocks project-material uploads to unverified services.
+        Keep this proposal local until U.S.-only handling is approved.
+        Read the current handoff and contribution policy first.
+        Propose requirements and experiments; external patches are paused.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and relevant requirement
+      description: Who is affected, at which milestone, and what outcome is needed?
+    validations:
+      required: true
+  - type: textarea
+    id: experiment
+    attributes:
+      label: Proposed experiment and acceptance evidence
+      description: Include alternatives, constraints, risks, and the smallest pass/fail gate.
+    validations:
+      required: true

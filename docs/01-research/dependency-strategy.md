@@ -60,7 +60,9 @@ before executing build plugins, migrations or post-install actions in the guest.
 
 ## Licensing and supply chain
 
-Choose the first-party project license before public source release. Dependencies,
+Original project material is all rights reserved under the root LICENSE; see
+[the rights policy](../../LEGAL.md) and [third-party notices](../../THIRD_PARTY_NOTICES.md).
+Publication and distribution still require rights and obligation review. Dependencies,
 fonts, icons and sample media each need a record. Host tools and shipped guest
 components have different distribution consequences; document both without making
 unsupported legal conclusions. Preserve notices and create an SPDX-compatible

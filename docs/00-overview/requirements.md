@@ -57,7 +57,7 @@ targets, not measurements. M0–M8 are defined in [milestones](../05-delivery/mi
 | Privacy | Local logs; explicit diagnostic export | No background telemetry by default |
 | Typed actions | Versioned operations shared by UI, shortcuts and automation | Optional model proposals through identical authorization |
 | AI | Optional extension; absent from required boot/desktop path | Small-model CPU experiment after M5; no assumed NPU/LLM stack |
-| Licensing | Inventory and attribution for every dependency/font | Project license remains an open product decision |
+| Licensing | Inventory and attribution for every dependency/font | Original project material is all rights reserved; upstream terms remain separate; distribution needs rights review |
 
 ## Performance targets and accounting
 

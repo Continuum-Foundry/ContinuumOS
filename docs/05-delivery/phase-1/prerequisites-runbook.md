@@ -60,7 +60,8 @@ requires a reviewed lock update. Paths may contain spaces.
   Keep `LICENSE` and `3RDPARTY.md` with the binaries. QEMU's GPL notices,
   `COPYING.LIB`, `edk2-licenses.txt`, and the runtime packages' GPL/LGPL/GCC
   exception and other included notices remain with the local inputs. Distribution
-  source/notice obligations need release review; no project license is selected.
+  source/notice obligations need release review; original project material is now
+  all rights reserved under [the root rights policy](../../../LEGAL.md).
 - Protocol commit `3a0526b700e356f0eac1b71a77697b3fd1c707a3` pins the specification
   and C reference header. Rust `limine =0.5.0`, defaults off, with locked bitflags
   2.13.2 compiles on stable Rust 1.99.1 for `x86_64-unknown-none`. The narrow probe

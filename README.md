@@ -8,9 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="docs/05-delivery/phase-1/minimal-iso-runbook.md"><img src="https://img.shields.io/badge/UEFI_ISO-cold_boot_verified-52d6c7?style=flat-square&amp;labelColor=172334" alt="UEFI ISO: cold boot verified" /></a>
-  <a href="kernel"><img src="https://img.shields.io/badge/kernel-original_Rust-e8b899?style=flat-square&amp;labelColor=172334" alt="Kernel: original Rust" /></a>
-  <a href="docs/05-delivery/phase-1/README.md"><img src="https://img.shields.io/badge/stage-early_kernel-a6b7ff?style=flat-square&amp;labelColor=172334" alt="Stage: early kernel" /></a>
+  <code>UEFI ISO: cold boot verified</code> · <code>Original Rust kernel</code> · <code>Early kernel</code>
 </p>
 
 <p align="center">
@@ -22,6 +20,10 @@
 </p>
 
 ---
+
+> **U.S.-only handling · all rights reserved.** Uploads, pushes, external sharing,
+> and remote processing are on hold pending verified U.S.-only infrastructure.
+> Legal export classification is pending. Read [EXPORT_CONTROL.md](EXPORT_CONTROL.md).
 
 ## The idea
 
@@ -118,6 +120,11 @@ runtime support each need their own validation.
 
 ## Build and boot
 
+During the U.S.-only hold, do not run acquisition commands or use unverified remote
+services. Cargo defaults to offline mode; these commands are for a verified local
+environment with the required inputs already supplied. No new boot is claimed by
+the governance changes.
+
 The tested host is native Windows with PowerShell 7, MSVC, and the Windows SDK.
 Rust and the supplied emulator/packaging tools live under ignored `work/`.
 Follow the [setup runbook](docs/05-delivery/phase-0.md) and
@@ -181,10 +188,22 @@ For implementation work, read [AGENTS.md](AGENTS.md) and the
 at a time, preserve failed runs, and update the relevant specifications when
 experiments change a decision.
 
+## Project policies
+
+Original project material is **all rights reserved**. Third-party components keep
+their own licenses. External patches are paused pending an approved contributor
+agreement; repository access does not grant commercial or redistribution rights.
+
+[Rights and permissions](LEGAL.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) ·
+[Contribution policy](CONTRIBUTING.md) · [Governance](GOVERNANCE.md) ·
+[Code of conduct](CODE_OF_CONDUCT.md) · [Security](SECURITY.md) ·
+[Support](SUPPORT.md) · [Privacy](PRIVACY.md) · [Release gates](RELEASE.md) ·
+[U.S.-only handling](EXPORT_CONTROL.md)
+
 ---
 
 <p align="center">
   <strong>ContinuumOS</strong> is a working name. Early research and implementation.<br />
-  Project license selection remains open; upstream components retain their own licenses.<br />
+  Original project material: all rights reserved. Upstream components retain their own licenses.<br />
   <sub>A coherent desktop. Explicit boundaries. Your work, carried forward.</sub>
 </p>

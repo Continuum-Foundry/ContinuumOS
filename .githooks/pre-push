@@ -1,0 +1,5 @@
+#!/bin/sh
+printf '%s\n' 'PUSH BLOCKED: U.S.-only project handling hold is active.' >&2
+printf '%s\n' 'No remote environment is approved. Read EXPORT_CONTROL.md.' >&2
+printf '%s\n' 'Do not bypass this hold with --no-verify or another transport.' >&2
+exit 1

@@ -3,7 +3,9 @@ const path = require('node:path');
 const root = path.resolve('.');
 function walk(p) { return fs.readdirSync(p,{withFileTypes:true}).flatMap(d=>d.isDirectory()?walk(path.join(p,d.name)):[path.join(p,d.name)]); }
 const docs = walk(path.join(root,'docs'));
-const md = [...docs.filter(p=>p.endsWith('.md')), path.join(root,'AGENTS.md'), path.join(root,'CLAUDE.md'), path.join(root,'README.md')];
+const rootMarkdown = fs.readdirSync(root).filter(n=>n.endsWith('.md')).map(n=>path.join(root,n));
+const githubMarkdown = fs.existsSync(path.join(root,'.github')) ? walk(path.join(root,'.github')).filter(p=>p.endsWith('.md')) : [];
+const md = [...docs.filter(p=>p.endsWith('.md')), ...rootMarkdown, ...githubMarkdown];
 const json = docs.filter(p=>p.endsWith('.json'));
 const errors = [];
 const texts = new Map(md.map(p=>[p,fs.readFileSync(p,'utf8')]));

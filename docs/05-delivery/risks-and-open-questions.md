@@ -31,7 +31,8 @@ Likelihood/impact are qualitative judgments, not statistical estimates.
 
 ## Product choices remaining
 
-Working folder: ContinuumOS. Final identity, first-party license, visual style, target physical hardware,
+Working folder: ContinuumOS. First-party rights are reserved under the root LICENSE.
+Final identity, ownership/title review, visual style, target physical hardware,
 priority between maximum language ergonomics and shortest kernel path, accessibility
 release scope beyond semantics, network exposure, installation policy and first
 public release definition remain open. Working defaults are enough for M0–M5;

@@ -1,0 +1,31 @@
+# ADR-0013: Traceable reproducible builds and distinct output artifacts
+
+Status: Proposed. Date: 2026-10-17.
+
+## Context and decision
+
+Build through a host CLI/xtask with pinned toolchain, dependency graph, loader,
+firmware and ISO recipe. Separate kernel/userland/UI/dev/release targets. Emit ISO,
+optional disk image, update bundles, symbols, hashes, manifest and provenance.
+No toolchain versions/hashes are invented before the feasibility build.
+
+## Alternatives
+
+Manual commands are acceptable for a one-off experiment but not repeatable delivery.
+Unpinned network downloads create moving inputs. Shipping only an ISO hides source,
+symbols and compatibility metadata needed for debugging live updates.
+
+## Consequences
+
+Timestamp/order/path determinism and license inventory are continuing work. A
+reproducible binary can still contain a bug; an attestation is evidence about a build,
+not automatic security certification. Windows and Linux build parity must be tested.
+
+## Gate and reconsideration
+
+M0 records host feasibility. M8 compares two clean builds, explains differences,
+boots the exact released ISO offline and verifies dev authority is disabled. Change
+packaging tools when portability or reproducibility evidence justifies it.
+
+Evidence: [S61](../01-research/sources.md#s61), [S62](../01-research/sources.md#s62),
+[S64](../01-research/sources.md#s64), [build spec](../05-delivery/build-and-release.md).

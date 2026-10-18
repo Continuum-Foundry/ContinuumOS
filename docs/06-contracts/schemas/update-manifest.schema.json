@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:original-desktop-os:update-manifest:1",
+  "title": "Draft update plan v1; synthetic fixtures are not executable packages",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format_version": {
+      "const": 1
+    },
+    "transaction_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"
+    },
+    "boot_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"
+    },
+    "session_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "base_generation": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "target_generation": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "dependency_graph_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "persistence": {
+      "type": "string",
+      "enum": [
+        "ephemeral",
+        "durable"
+      ]
+    },
+    "update_class": {
+      "type": "string",
+      "enum": [
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ]
+    },
+    "max_checkpoint_bytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 16777216
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "service_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._/-]*$"
+          },
+          "package_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "old_epoch": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "new_epoch": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4294967295
+          },
+          "protocol": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "major": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              },
+              "minor": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "required_features": {
+                "type": "array",
+                "maxItems": 64,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._/-]*$"
+                }
+              }
+            },
+            "required": [
+              "major",
+              "minor",
+              "required_features"
+            ]
+          },
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schema_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._/-]*$"
+              },
+              "from_version": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              },
+              "to_version": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              },
+              "migration_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._/-]*$"
+              }
+            },
+            "required": [
+              "schema_id",
+              "from_version",
+              "to_version",
+              "migration_id"
+            ]
+          },
+          "write_policy": {
+            "type": "string",
+            "enum": [
+              "read-only",
+              "brokered-journal",
+              "external-effects"
+            ]
+          },
+          "rollback": {
+            "type": "string",
+            "enum": [
+              "schema-compatible",
+              "reverse-migration",
+              "forward-only"
+            ]
+          }
+        },
+        "required": [
+          "service_id",
+          "package_sha256",
+          "old_epoch",
+          "new_epoch",
+          "protocol",
+          "state",
+          "write_policy",
+          "rollback"
+        ]
+      }
+    }
+  },
+  "required": [
+    "format_version",
+    "transaction_id",
+    "boot_id",
+    "session_id",
+    "source_revision",
+    "base_generation",
+    "target_generation",
+    "dependency_graph_sha256",
+    "persistence",
+    "update_class",
+    "max_checkpoint_bytes",
+    "components"
+  ]
+}

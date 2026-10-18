@@ -1,0 +1,48 @@
+{
+  "format_version": 1,
+  "package_id": "example.editor",
+  "version": "0.1.0",
+  "source_revision": "SYNTHETIC-NOT-A-REAL-BUILD",
+  "kind": "app",
+  "entry": "bin/editor.elf",
+  "files": [
+    {
+      "path": "bin/editor.elf",
+      "bytes": 1024,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "compatibility": {
+    "kernel_abi": {
+      "major": 1,
+      "min_minor": 0
+    },
+    "required_cpu_features": [],
+    "service_protocols": [
+      {
+        "service_id": "display.surface",
+        "major": 1,
+        "min_minor": 0
+      }
+    ]
+  },
+  "capabilities": {
+    "required": [
+      "surface.own",
+      "file.user-selected"
+    ],
+    "optional": [
+      "settings.own"
+    ]
+  },
+  "limits": {
+    "memory_bytes": 67108864,
+    "stack_bytes": 1048576,
+    "max_handles": 256
+  },
+  "update": {
+    "class": "L2",
+    "state_schema": "editor.document",
+    "state_version": 1
+  }
+}

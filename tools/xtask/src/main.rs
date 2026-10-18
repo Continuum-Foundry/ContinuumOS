@@ -276,8 +276,10 @@ fn run() -> Result<()> {
         ["run", "--profile", "vm-baseline"] => m1::execute("run"),
         ["test", "--suite", "m1", "--case", "iso-smoke"] => m1::execute("iso-smoke"),
         ["test", "--suite", "m1", "--case", "iso-negative"] => m1::execute("iso-negative"),
+        ["test", "--suite", "m1", "--case", "boot-metadata"] => m1::execute("boot-metadata"),
+        ["test", "--suite", "m1", "--case", "boot-reject"] => m1::execute("boot-reject"),
         _ => Err(
-            "Usage: cargo xtask doctor [--profile m1] [--json] | build --profile feasibility|dev | iso --profile m1 | run --profile vm-baseline | test --suite m0 | test --suite m1 --case iso-smoke|iso-negative"
+            "Usage: cargo xtask doctor [--profile m1] [--json] | build --profile feasibility|dev | iso --profile m1 | run --profile vm-baseline | test --suite m0 | test --suite m1 --case iso-smoke|iso-negative|boot-metadata|boot-reject"
                 .into(),
         ),
     }

@@ -1,0 +1,59 @@
+{
+  "assembly": "cli, hlt, in/out only; see kernel/src/main.rs",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "3c3a5e7d3a3a705c8aca14c9dd464eb8337e39fe9b0e8444c3f37d9b38e451ac",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "iso-smoke",
+  "inspection": {
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "kernel_image_bounds": {
+      "all_load_memory_including_bss": true,
+      "end": "0xffffffff80010058",
+      "load_memory_end": "0xffffffff80010058",
+      "start": "0xffffffff80000000"
+    },
+    "machine": "x86_64",
+    "relocations": 0,
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 30085,
+        "flags": 5,
+        "memory_size": 30085,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff80008000",
+        "alignment": 4096,
+        "file_size": 2806,
+        "flags": 4,
+        "memory_size": 2806,
+        "offset": 36864
+      },
+      {
+        "address": "0xffffffff80009000",
+        "alignment": 4096,
+        "file_size": 27536,
+        "flags": 6,
+        "memory_size": 28760,
+        "offset": 40960
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "9296095d9d3b329da47f7b762be460e0c89a7442c148d3a39fbf1371df986390",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "be75100a634b9ab020420951c6172ebcd06b2a1f",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M docs/02-architecture/boot-and-platform.md\n M docs/04-decisions/0002-boot-and-iso.md\n M docs/05-delivery/phase-1/03-boot-metadata-and-diagnostics.md\n M docs/05-delivery/phase-1/README.md\n M docs/05-delivery/phase-1/minimal-iso-runbook.md\n M kernel/Cargo.toml\n M kernel/README.md\n M kernel/link.ld\n M kernel/src/main.rs\n M tools/xtask/src/m1.rs\n M tools/xtask/src/main.rs\n?? docs/05-delivery/phase-1/boot-metadata-runbook.md\n?? kernel/src/boot.rs\n?? kernel/src/lib.rs\n?? kernel/src/tests.rs\n?? tools/Test-P1-03.ps1\n?? tools/xtask/src/m1_cases.rs\n?? tools/xtask/src/m1_records.rs"
+}

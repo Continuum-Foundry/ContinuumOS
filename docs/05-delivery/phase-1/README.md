@@ -22,7 +22,7 @@ worktree changes before implementation; a clean Git status is not currently assu
 | --- | --- | --- | --- | --- |
 | P1-01 | [Supply and pin VM/ISO prerequisites](01-vm-and-packaging-prerequisites.md) | Phase 0 recheck | B01/B02 follow-up, B38 inputs | Done |
 | P1-02 | [Cold-boot the minimal original kernel ISO](02-minimal-iso-boot.md) | P1-01 | B38, B03, minimal B04 | Done |
-| P1-03 | [Validate boot metadata and identity](03-boot-metadata-and-diagnostics.md) | P1-02 | B04 | Not started |
+| P1-03 | [Validate boot metadata and identity](03-boot-metadata-and-diagnostics.md) | P1-02 | B04 | Done |
 | P1-04 | [Establish exception diagnostics](04-exception-handling.md) | P1-03 | B05 exception baseline | Not started |
 | P1-05 | [Own physical frames and page tables](05-memory-ownership.md) | P1-04 | B05 memory/guards | Not started |
 | P1-06 | [Establish interrupts and monotonic time](06-interrupts-and-timekeeping.md) | P1-05 | M1 subset of B06 | Not started |
@@ -115,6 +115,7 @@ Read [milestones](../milestones.md), [backlog](../backlog.md),
 [ADR-0002](../../04-decisions/0002-boot-and-iso.md) and
 [ADR-0013](../../04-decisions/0013-build-and-distribution.md).
 
-Continue with **P1-03** after P1-02 acceptance review and the
-[minimal ISO runbook](minimal-iso-runbook.md). Minimal ISO entry is demonstrated;
-the remaining M1 metadata, memory, exceptions and timer gates are unstarted.
+Continue with **P1-04** after the
+[P1-03 acceptance review](../../../evidence/phase-1/P1-03/2026-10-18/README.md) and
+[metadata runbook](boot-metadata-runbook.md). Checked metadata and session records
+are demonstrated; memory ownership, exceptions and timer gates remain unstarted.

@@ -49,5 +49,29 @@ the same hashed ISO and return the expected emulator-only test exit. See the
 This validates the minimal loader/ISO integration, not full boot metadata,
 M1 readiness, BIOS, Secure Boot or release reproducibility. Status stays Proposed.
 
+P1-03 implementation retains these pins and adds a bounded owned BootInfo boundary,
+explicit four-level paging, guest session correlation and separately identified
+metadata fixtures. See the [implementation runbook and acceptance status](../05-delivery/phase-1/boot-metadata-runbook.md).
+The initial integration experiments exposed two distinctions: the raw ELF buffer
+can occupy loader-reclaimable memory rather than loaded-segment storage, and
+OVMF's extended ACPI locator is not necessarily 16-byte aligned. Preserve the
+former as live backing and the latter as an undereferenced physical byte address.
+Do not assume base-4 ACPI mappings while negotiating base 3. These changes do not
+add owned page tables, ACPI interpretation, arbitrary-pointer recovery or full
+M1 readiness. This ADR remains Proposed pending its broader gate.
+
+P1-03's pre-completion evidence review additionally found an orphan GOT after the
+initial linker image-end marker. The link script now places GOT inputs explicitly
+inside the image, and every build cross-checks LLVM boundary symbols against all
+ELF load-segment memory extents, including BSS. Keep the superseded suite and its
+failed review distinct from the corrected acceptance evidence. No frames were
+reclaimed in that experiment; the complete non-usable map remained reserved.
+
+P1-03 review (2026-10-18): the corrected full acceptance and local evidence review
+pass, with 18 host tests and 17 bounded offline launches covering positive boots,
+metadata rejections and ISO regressions. See the
+[retained review](../../evidence/phase-1/P1-03/2026-10-18/README.md).
+The loader choice remains provisional beyond this profile; this ADR stays Proposed.
+
 Evidence: [S25](../01-research/sources.md#s25), [S27](../01-research/sources.md#s27),
 [boot spec](../02-architecture/boot-and-platform.md).

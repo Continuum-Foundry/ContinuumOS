@@ -9,6 +9,14 @@ kernel/userland link probes and dependency experiments. See the
 P1-02 adds a **minimal original Rust kernel cold-booted from a standalone UEFI ISO**
 with serial entry and emulator-only test exits. See the
 [runbook](phase-1/minimal-iso-runbook.md) and [evidence](../../evidence/phase-1/P1-02/2026-10-18/README.md).
+P1-03 adds checked, kernel-owned boot descriptors, retained backing reservations,
+version-2 session-correlated diagnostics and guest rejection cases. See the
+[metadata runbook](phase-1/boot-metadata-runbook.md) and
+[corrected acceptance review](../../evidence/phase-1/P1-03/2026-10-18/README.md).
+All loader-reclaimable memory remains live; the base-3 ACPI locator is an
+undereferenced physical byte address. Bootstrap pointer readability still trusts
+the pinned firmware/loader. Image bounds now include GOT/BSS and are audited on
+every build. No allocator, owned page tables, exceptions or clock exists yet.
 There is no complete M1 readiness, usable desktop, guest driver stack or measured
 guest performance result. All ADRs are Proposed. Example
 contracts are drafts; sample IDs/digests are synthetic. Do not report implementation
@@ -41,7 +49,8 @@ not override it. No current GitHub, AI, host, or backup environment is certified
 as satisfying it. Keep changes local; do not bypass the installed pre-push guard.
 
 Follow [the Phase 1 epic and seven ordered stories](phase-1/README.md), starting
-with P1-03. P1-02's acceptance review is retained; P1-01 has
+with P1-04. P1-03's corrected acceptance and superseded/failed experiments are
+retained; P1-02's review is unchanged, and P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).
 The remaining stories are local plans, not created Jira issues or completed
 implementation. Do not skip their evidence gates or mark all of B06 complete in M1.
@@ -49,7 +58,10 @@ implementation. Do not skip their evidence gates or mark all of B06 complete in 
 Re-run the Phase 0 acceptance commands before extending the work. B01/B02 now have
 Windows compile/link evidence; B03/B38 have P1-02's minimal UEFI optical route.
 Run `cargo xtask doctor --profile m1` against the supplied QEMU/OVMF/ISO inputs,
-then implement P1-03's checked boot metadata on the demonstrated ISO harness.
+then implement P1-04's bounded exception diagnostics on the demonstrated ISO
+harness. Preserve P1-03's internal BootInfo lifetime rules, exact build/session
+correlation and the `boot-metadata`/`boot-reject` regression cases. Do not reclaim
+loader memory or dereference ACPI tables merely because descriptors were copied.
 Follow with the hosted UI comparison in M2. Do not leap into a
 general Wasm runtime, full browser, GPU stack or custom UI language first.
 Compare Slint/minimal-custom UI through B36 before broad widget investment and
@@ -61,7 +73,7 @@ Existing MSVC/SDK were reused. QEMU/OVMF/xorriso are supplied under ignored
 `work/tools/` with [input locks](../../config/m1-inputs.lock.json). xorriso's MSYS2
 runtime needs execution outside the sandbox's named-object restriction; doctor
 reports that restriction as blocked. TCG listings pass; WHPX and virtualization
-inspection remain untested/unknown. WSL is not used. P1-02 launches bounded offline
+inspection remain untested/unknown. WSL is not used. P1-02/P1-03 launch bounded offline
 TCG VM processes and reaps them after each test.
 Keep scratch files under `work/` in this workspace and research
 deliverables under `outputs/`; later source layout is proposed in the build spec.

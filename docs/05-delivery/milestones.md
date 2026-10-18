@@ -35,7 +35,9 @@ early R16 and R18; no release reproducibility or ABI/isolation claim.
 Execution is decomposed into [one epic and seven ordered stories](phase-1/README.md).
 P1-01 supplies pinned host inputs; P1-02 adds the minimal original-kernel ISO path.
 See its [runbook](phase-1/minimal-iso-runbook.md) for evidence boundaries.
-P1-03 through P1-07 remain plans, not evidence of implementation.
+P1-03 adds [checked owned metadata and correlated boot records](phase-1/boot-metadata-runbook.md)
+with retained acceptance evidence. P1-04 through P1-07 remain plans, not evidence
+of implementation; M1 is incomplete.
 
 Implement boot validation, serial output, framebuffer metadata, owned paging,
 exception handling, physical allocator and interrupt/timer baseline. Build UEFI ISO.

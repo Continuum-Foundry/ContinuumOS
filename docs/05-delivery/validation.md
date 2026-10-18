@@ -5,7 +5,14 @@ Host validator/doctor checks, clean freestanding links and dependency compilatio
 have run. P1-02 adds minimal original-kernel entry from the actual UEFI ISO, bounded
 emulator exits and negative boot/cleanup checks; see its
 [runbook](phase-1/minimal-iso-runbook.md) and [evidence](../../evidence/phase-1/P1-02/2026-10-18/README.md).
-This is only the packaging/minimal-entry subset of T01/T02/T12.
+P1-03 adds checked owned descriptors, per-launch guest identity, resource
+summaries and bounded rejection cases; see its
+[runbook](phase-1/boot-metadata-runbook.md) and
+[review](../../evidence/phase-1/P1-03/2026-10-18/README.md).
+The corrected matrix passes 18 host tests and 17 VM launches: seven positive
+metadata boots, eight expected metadata rejections and two negative ISO boots.
+All processes are reaped. This remains a bounded subset of T01/T02/T12 supporting
+R01/R03/R17/R18 and preparatory R14 discipline, not process ABI/security completion.
 Every result must include source/build IDs, configuration and raw evidence.
 
 For M1's bounded subset, use the [Phase 1 story acceptance matrix](phase-1/07-phase-1-acceptance.md).

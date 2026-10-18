@@ -1,9 +1,11 @@
 # Ordered engineering backlog
 
 Status: B01/B02 have [Phase 0 evidence](phase-0.md). P1-02 demonstrates B03/B38's
-minimal Limine UEFI optical route and B04's serial-entry slice; checked boot metadata
-and later runtime gates remain open. B36 has preliminary reviews only.
-See the [P1-02 runbook](phase-1/minimal-iso-runbook.md).
+minimal Limine UEFI optical route. P1-03 completes B04's checked boot metadata,
+fixed diagnostics and correlated identities on that profile; see its
+[runbook](phase-1/boot-metadata-runbook.md) and
+[acceptance review](../../evidence/phase-1/P1-03/2026-10-18/README.md).
+Later runtime gates remain open. B36 has preliminary reviews only.
 Owner column means a responsibility, not an assigned
 agent/person. Read milestone gates before picking work. `→` dependencies must pass;
 tasks within a gate can share infrastructure without implying simultaneous agents.

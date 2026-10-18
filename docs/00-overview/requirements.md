@@ -105,3 +105,8 @@ The [validation matrix](../05-delivery/validation.md) maps every requirement to
 test families. The [backlog](../05-delivery/backlog.md) maps implementation work to
 milestones and requirement IDs. An implementation agent must maintain both when
 changing behavior or adding support claims.
+
+P1-03's [checked metadata acceptance](../../evidence/phase-1/P1-03/2026-10-18/README.md)
+adds boot-specific evidence for R01/R03/R17/R18 and preparatory R14 version/boundary
+discipline. The internal BootInfo is not a process or persisted ABI; this does not
+complete update diagnostics, isolation, release reproducibility or efficiency gates.

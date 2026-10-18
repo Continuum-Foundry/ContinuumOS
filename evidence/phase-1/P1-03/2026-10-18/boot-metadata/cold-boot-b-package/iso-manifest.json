@@ -1,0 +1,30 @@
+{
+  "bios_tested": false,
+  "boot_tested": false,
+  "build_flavor": "iso-smoke",
+  "build_id": "3c3a5e7d3a3a705c8aca14c9dd464eb8337e39fe9b0e8444c3f37d9b38e451ac",
+  "configuration_sha256": "e85017d4492d5f1485e88f0df76f24ce8f1448ea78168e407b8a79ad0409726a",
+  "fault": "normal",
+  "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+  "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+  "fixture": "normal",
+  "host_session_id": "632b99f4b08ecd3fdcc6f0e9c47b4c4900fbffffee9cdfd9aa6ec90de05baebe",
+  "input_lock_sha256": "40fcf8b60c102b27fa57a736944f526dd6a736c5f4768433bd12de8dabe0c2fc",
+  "iso_sha256": "bf8f3e66a312c6279c349c94d9e7c2dc676494e8572e3e199a1b7b9e0f39b4d9",
+  "kernel_sha256": "9296095d9d3b329da47f7b762be460e0c89a7442c148d3a39fbf1371df986390",
+  "module_fixture": false,
+  "payload": {
+    "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+    "boot/kernel.elf": "9296095d9d3b329da47f7b762be460e0c89a7442c148d3a39fbf1371df986390",
+    "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+    "boot/limine/limine.conf": "e85017d4492d5f1485e88f0df76f24ce8f1448ea78168e407b8a79ad0409726a",
+    "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+    "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+    "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+    "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+  },
+  "payload_extraction_verified": true,
+  "schema_version": 2,
+  "session_origin": "host; correlation only, not a security credential or reset detector",
+  "uefi_optical_catalog": true
+}

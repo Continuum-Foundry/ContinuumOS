@@ -1,8 +1,10 @@
 # Minimal original-kernel ISO (P1-02)
 
-This slice provides serial entry from a standalone x86-64 UEFI optical image.
-It does not complete M1: checked BootInfo, exception handling, owned frames/page
-tables and interrupt/timekeeping evidence remain P1-03 through P1-07.
+P1-02 established serial entry from a standalone x86-64 UEFI optical image.
+The current harness also implements P1-03's metadata and version-2 record checks;
+see its [runbook and acceptance status](boot-metadata-runbook.md). Historical
+P1-02 evidence remains unchanged. Neither story completes M1: exception handling,
+owned frames/page tables and interrupt/timekeeping remain P1-04 through P1-07.
 
 ## Commands
 
@@ -58,18 +60,22 @@ loop is enabled. Arguments are arrays; QEMU backend filenames containing commas
 are explicitly rejected. Paths containing spaces are exercised by ISO staging and
 the per-run variable-store copy.
 
-Each launch creates a new variable copy and serial file and records a host session
-ID. That ID correlates host artifacts; it is neither guest identity nor proof
-against reset. Template/copy hashes, process ID, exact arguments, deadline, raw
+Each current launch packages a new configuration with a host session ID, copied
+once into the guest. The kernel bytes/build ID remain independent of that session;
+each configuration and final ISO have their own hash. The ID is correlation, not
+a security credential or proof against reset. Each launch also creates a new
+variable copy and serial file. Template/copy hashes, process ID, arguments, deadline, raw
 logs, final ISO digest and process exit/cleanup are retained. The 30-second deadline
 is host time, not guest uptime. Logs exceeding 2 MiB fail the run and trigger cleanup.
 
-`run` observes one matching checkpoint for one second, then stops and reaps QEMU;
+`run` observes completed metadata diagnostics for one second, then reaps QEMU;
 this is reported as host cleanup, not guest shutdown. `iso-smoke` enables only the
-emulator exit device at 0xf4 and requires **both** one complete matching
-`m1.kernel_entry version=1 build=<id>` line and exit 33. It launches two fresh
-processes against the same hashed ISO with independent vars. Duplicate/mismatched
-entry, panic/rejection, missing marker, unexpected exit and timeout all fail.
+emulator exit device at 0xf4 and requires matching version-2 entry, validation,
+resource summaries, completion and exit 33. It launches two fresh processes with
+identical kernel bytes/build IDs and distinct sessions/configured ISO hashes.
+Duplicate/mismatched entry, panic/rejection, sequence errors, incomplete summaries,
+unexpected exit and timeout all fail. P1-02's historical version-1/same-ISO
+comparison remains in its retained evidence; current assertions use P1-03's contract.
 
 `iso-negative` retains two deliberately unsuccessful boot attempts: a separately
 identified kernel that halts before entry diagnostics, and a new ISO containing a
@@ -88,6 +94,6 @@ ISO payload inventory, optical catalog, serial, stderr/stdout and JSON assertion
 Retain a sanitized compact snapshot under `evidence/phase-1/P1-02/<run-id>/`.
 Keep failed runs. An early emulator exit is never sufficient for acceptance.
 
-Before marking Done, review the story's checklist against those records. Keep ADRs
-Proposed. P1-03 inherits the loader/serial/ISO harness; it still must validate and
-normalize boot descriptors and introduce bounded guest session records.
+Review each story's checklist against its own evidence and keep ADRs Proposed.
+P1-03 extends this harness with checked owned descriptors and guest session records;
+its [acceptance script](../../../tools/Test-P1-03.ps1) adds both new named cases.

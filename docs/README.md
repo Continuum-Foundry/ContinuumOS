@@ -1,9 +1,10 @@
 # Original desktop OS: research and engineering foundation
 
 Research date: **2026-10-17**. Project name: **ContinuumOS (working name)**.
-Implementation update: **2026-10-18 — minimal original Rust kernel entry from a
-standalone UEFI ISO demonstrated in QEMU**. See the
-[P1-02 runbook](05-delivery/phase-1/minimal-iso-runbook.md). This is not completed M1
+Implementation update: **2026-10-18 — original Rust kernel ISO with checked owned
+boot metadata and host-provided guest session identity demonstrated in QEMU**. See the
+[P1-03 runbook](05-delivery/phase-1/boot-metadata-runbook.md) and
+[acceptance review](../evidence/phase-1/P1-03/2026-10-18/README.md). This is not completed M1
 or a usable desktop OS. Phase 0's compile-only evidence remains separate.
 Plan revision: **2 — reconciled direction approved by the user; technical gates pending**.
 The requested project folder is named **ContinuumOS**; this is a working project name.
@@ -54,7 +55,8 @@ The [U.S.-only handling hold](../EXPORT_CONTROL.md) currently blocks remote shar
 - **Proposed default**: our engineering choice, used to make the project concrete. Validate at its gate.
 - **Experiment**: a question with an owner, procedure, and pass/fail criterion in the milestone/backlog documents.
 - **Measured**: requires build IDs, configurations, and raw evidence. Phase 0 has
-  compile/link results; P1-02 adds minimal guest entry and emulator-test exits.
+  compile/link results; P1-02 adds minimal guest entry and emulator-test exits;
+  P1-03 adds checked boot descriptors, correlated records and rejection evidence.
   Guest performance, full boot readiness and live updates remain unmeasured.
 
 ADRs are proposed, rather than falsely marked accepted. Their experiments let an

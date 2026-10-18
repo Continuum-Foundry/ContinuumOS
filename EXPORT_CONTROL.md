@@ -56,6 +56,20 @@ or standing remote-environment approval is authorized. Geographic containment
 remains unverified; these administrative exceptions are not legal clearance and
 do not waive applicable law.
 
+### One-time owner authorization — CLAUDE.md upkeep, 2026-10-18
+
+The owner instructed "commit and push to main". After being told the hold blocks
+pushes and earlier exemptions are exhausted, the owner chose "Grant exemption,
+push". This authorizes one direct push to the existing GitHub `origin/main` of the
+expanded `CLAUDE.md` operational notes and this authorization record.
+
+The authorization is exhausted by the first successful push containing this
+record. The local push guard may be bypassed for that single push invocation only
+and must remain installed afterward. No force push, release, remote build, new
+recipient, or standing remote-environment approval is authorized. Geographic
+containment remains unverified; this administrative exception is not legal
+clearance and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

@@ -12,9 +12,10 @@ interrupt/timer baseline with honest diagnostics and repeatable test exits.
 
 [Phase 0](../phase-0.md) provides compile/link probes and a local Rust toolchain.
 Its [recorded evidence](../../../evidence/phase-0/README.md) does not establish a
-bootable kernel, guest allocator, VM, clock or running UI. QEMU, OVMF and ISO tools
-were missing in that snapshot; recheck before acquiring them. Review the existing
-worktree changes before implementation; a clean Git status is not currently assumed.
+bootable kernel, guest allocator, VM, clock or running UI. P1-01 subsequently
+supplied and pinned the local QEMU, OVMF and ISO tools. Re-run prerequisites and
+review the current worktree before implementation; do not infer current state
+from Phase 0's historical snapshot.
 
 ## Ordered stories
 
@@ -39,9 +40,10 @@ mark the entire B06 task complete. B32 grows later; Phase 1 does not finish it.
   and a documented minimal assembly boundary. Keep the Phase 0 probes intact.
 - QEMU Q35, one vCPU, 2 GiB RAM, TCG, OVMF UEFI, software framebuffer metadata.
   Pin the actual versioned machine identifier and CPU profile in P1-01.
-- Limine is the provisional loader. Start from the reviewed 12.9.3 candidate and
-  pin compatible protocol/bindings before use; a failed integration needs recorded
-  evidence and an ADR update. Do not silently switch to another kernel or nightly.
+- Limine 12.9.3 and stable-compatible Rust bindings 0.5.0 are pinned and exercised
+  on the declared profile; the loader choice remains provisional beyond it.
+  A changed or failed integration needs recorded evidence and an ADR update.
+  Do not silently switch to another kernel or nightly.
 - Serial-first diagnostics, fixed storage before any allocator, 4 KiB pages, no
   general heap or FP/SIMD use. Frame allocation is not a guest UI allocator.
 - No networking, shared directories, writable guest data disk, snapshot restore,
@@ -63,7 +65,10 @@ Keep the architectural ADRs Proposed until their documented review gates are met
 
 Store generated run artifacts in ignored `build/m1/<run-id>/`; retain a compact,
 sanitized summary and logs in `evidence/phase-1/<story-id>/<run-id>/` when implemented.
-P1-01 host prerequisite evidence and P1-02 minimal guest-entry evidence are retained.
+P1-01 host prerequisites, P1-02 minimal guest entry and P1-03 checked metadata and
+identity evidence are retained. The
+[host module extraction](../../../evidence/phase-1/m1-module-refactor/2026-10-18/README.md)
+also passed the existing regression suite; it does not advance a guest story.
 Each run must record:
 
 - Source commit and dirty state; if dirty, a patch/source snapshot or hashes covering
@@ -83,7 +88,10 @@ identifier, clearly labeled as host-provided and not a security credential.
 ## Tooling and remaining proposed commands
 
 Phase 0's commands, P1-01's `doctor --profile m1` and P1-02's build/package/run and
-named ISO tests exist today. See the [minimal ISO runbook](minimal-iso-runbook.md).
+named ISO tests exist today. P1-03 adds the `boot-metadata` and `boot-reject` cases
+and the [current acceptance script](../../../tools/Test-P1-03.ps1). See the
+[minimal ISO runbook](minimal-iso-runbook.md) and
+[metadata contract](boot-metadata-runbook.md).
 The full Phase 1 suite remains P1-07 work:
 
 | Interface | Owner | Intended behavior |
@@ -93,6 +101,13 @@ The full Phase 1 suite remains P1-07 work:
 | `cargo xtask run --profile vm-baseline` | P1-02 | Fresh, bounded ISO boot with per-run artifacts |
 | `cargo xtask test --suite m1 --case <name>` | P1-02 onward | Run one named case with explicit assertions |
 | `cargo xtask test --suite m1` | P1-07 | Run the complete declared Phase 1 matrix |
+
+The host entry point is [m1.rs](../../../tools/xtask/src/m1.rs). The
+[module layout](minimal-iso-runbook.md#host-harness-source-layout) separates
+`build`, `package`, `launch` and `observe`, with `cases` orchestrating scenarios
+and `records` validating serial output. Shared helpers keep pin checks and bounded
+process execution consistent. Cases supply expected rejection outcomes to launch;
+observation owns spawning, deadlines and process cleanup.
 
 Use argument arrays rather than shell-built commands. Validate all required inputs
 before spawning a VM. Tests may use an explicitly configured emulator test-exit

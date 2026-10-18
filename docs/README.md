@@ -6,6 +6,9 @@ boot metadata and host-provided guest session identity demonstrated in QEMU**. S
 [P1-03 runbook](05-delivery/phase-1/boot-metadata-runbook.md) and
 [acceptance review](../evidence/phase-1/P1-03/2026-10-18/README.md). This is not completed M1
 or a usable desktop OS. Phase 0's compile-only evidence remains separate.
+Host maintenance: the [M1 harness module split](../evidence/phase-1/m1-module-refactor/2026-10-18/README.md)
+passed the current regression suite. Build, package, launch and observe now have
+separate modules; commands and evidence formats are preserved. Continue with P1-04.
 Plan revision: **2 — reconciled direction approved by the user; technical gates pending**.
 The requested project folder is named **ContinuumOS**; this is a working project name.
 
@@ -19,7 +22,9 @@ ISO packages a known system generation; an ISO is not the live update transport.
 Repository policies: [rights](../LEGAL.md), [governance](../GOVERNANCE.md),
 [security](../SECURITY.md), [third-party notices](../THIRD_PARTY_NOTICES.md),
 [release gates](../RELEASE.md), and [administrative controls](05-delivery/repository-controls.md).
-The [U.S.-only handling hold](../EXPORT_CONTROL.md) currently blocks remote sharing.
+The [U.S.-only handling hold](../EXPORT_CONTROL.md) blocks remote sharing except
+for the specific owner-authorized transfers recorded there; no remote environment
+is approved.
 
 1. [Vision and scope](00-overview/vision-and-scope.md): user intent, assumptions, and boundaries.
 2. [Requirements](00-overview/requirements.md): identifiers, priorities, and observable outcomes.
@@ -46,7 +51,7 @@ The [U.S.-only handling hold](../EXPORT_CONTROL.md) currently blocks remote shar
 | Live changes | [Guarantees](03-live-update/model-and-guarantees.md), [transactions](03-live-update/protocol-and-transactions.md), [state](03-live-update/state-and-compatibility.md), [recovery](03-live-update/failure-recovery-and-security.md) |
 | Interfaces | [Kernel objects and IPC](06-contracts/ipc-and-objects.md), [update format](06-contracts/update-wire-format.md), [scene protocol](06-contracts/ui-and-scene-protocol.md), [package manifest](06-contracts/package-manifest.md) |
 | Execution | [Backlog](05-delivery/backlog.md), [build and release](05-delivery/build-and-release.md), [validation](05-delivery/validation.md), [risks and open questions](05-delivery/risks-and-open-questions.md) |
-| Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md) |
+| Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md), [host module layout](05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout), [metadata runbook](05-delivery/phase-1/boot-metadata-runbook.md) |
 
 ## Status and interpretation
 
@@ -70,9 +75,11 @@ Upstream `latest` and `master` URLs are research references, not dependency pins
 
 ## Recommended first vertical slice
 
-Compare Slint with a minimal host-run custom UI core and prove resource reload while a document remains
-open. Separately boot a minimal Rust kernel from an ISO in QEMU, then bring the same
-UI primitives to its framebuffer. Establish user-mode isolation and a small
+For the hosted UI workstream, compare Slint with a minimal custom UI core and
+prove resource reload while a document remains open. The independent ISO path
+has reached P1-03's checked metadata; continue with P1-04 exception diagnostics
+and the remaining M1 gates before bringing UI primitives to the guest framebuffer.
+Establish user-mode isolation and a small
 authenticated development channel before native service replacement. This parallel
 sequence describes independent workstreams, not permission to skip their dependencies.
 

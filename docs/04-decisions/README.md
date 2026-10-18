@@ -6,6 +6,12 @@ An agent may implement its reversible gate, then record evidence and change stat
 Revision 2 records user approval of the [reconciled roadmap](../00-overview/reconciled-plan.md).
 Technical capability claims and final library selections still require gate evidence.
 
+[P1-03's acceptance review](../../evidence/phase-1/P1-03/2026-10-18/README.md)
+adds checked boot metadata and identity evidence for the declared UEFI/QEMU profile.
+The [host module-refactor regression](../../evidence/phase-1/m1-module-refactor/2026-10-18/README.md)
+preserves that demonstrated behavior. Neither completes the broader ADR gates or
+changes any record's Proposed status; P1-04 exception diagnostics remains next.
+
 | ADR | Decision | Evidence gate |
 | --- | --- | --- |
 | [0001](0001-system-language.md) | Rust foundation, narrow machine-specific boundary | Bare-metal compile, diagnostics and user ABI spike |

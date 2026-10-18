@@ -3,8 +3,16 @@
 Build with `cargo xtask build --profile dev` after dot-sourcing
 `tools/Enter-Dev.ps1`. This freestanding kernel has static boot storage and bounded
 serial diagnostics. It has no allocator, owned paging, exception/interrupt handlers,
-clock, processes, pixel rendering or desktop. See
-`docs/05-delivery/phase-1/boot-metadata-runbook.md` for the test contract and evidence.
+clock, processes, pixel rendering or desktop. See the
+[metadata runbook](../docs/05-delivery/phase-1/boot-metadata-runbook.md) for the
+test contract and evidence.
+
+The host harness starts at [m1.rs](../tools/xtask/src/m1.rs); its
+[build, package, launch and observe modules](../docs/05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout)
+handle compilation/audits, verified ISO creation, QEMU preparation and bounded
+process supervision. The [post-refactor regression review](../evidence/phase-1/m1-module-refactor/2026-10-18/README.md)
+records passing host tests and ISO cases. Next guest work is P1-04 exception
+diagnostics; this host extraction does not implement that gate.
 
 ## Loader and assembly boundary
 

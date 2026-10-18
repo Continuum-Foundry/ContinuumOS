@@ -4,6 +4,9 @@ Original project material is all rights reserved under [LICENSE](../LICENSE).
 The [U.S.-only handling hold](../EXPORT_CONTROL.md) blocks remote transfers and
 processing; [export-classification.json](export-classification.json) records
 pending legal classification and the lack of approved remote environments.
+The owner's scoped push exceptions are recorded in that policy; they authorize
+only their named transfers and do not approve a remote environment, release or
+standing exemption. The default push guard remains installed.
 Upstream notice copies under `licenses/third-party/` retain their own terms and
 original bytes; no first-party reservation overrides them.
 

@@ -2,6 +2,12 @@
 
 These are version 0.1 design drafts, not implemented or frozen ABIs.
 
+P1-03's internal `BootInfoV1` and version-2 serial diagnostics are documented in the
+[boot-metadata runbook](../05-delivery/phase-1/boot-metadata-runbook.md).
+The owned Rust value is not a persisted or process ABI, and diagnostic records do
+not implement the IPC, update or package contracts below. The host harness keeps
+their assertions in [m1/records.rs](../../tools/xtask/src/m1/records.rs).
+
 | Interface | Specification | Machine-readable material |
 | --- | --- | --- |
 | Kernel/service IPC | [Objects and IPC](ipc-and-objects.md) | Codec/ABI IDs frozen at M3, not supplied yet |

@@ -41,7 +41,8 @@ independently buildable bootable ISO. The kernel and OS architecture are authore
 here; firmware, the bootloader, and selected libraries are reused with pinned
 inputs and recorded provenance.
 
-**Today, the original kernel boots and reports serial entry.** The desktop,
+**Today, the original kernel boots, validates owned boot metadata, and reports
+diagnostics correlated to its build and host-provided session.** The desktop,
 isolation, persistent files, and live-update behavior are future evidence gates.
 
 ## What runs today
@@ -55,14 +56,17 @@ Standalone UEFI ISO
    OVMF firmware ──► Limine ──► Original Rust kernel
                                       │
                                       ▼
-                            m1.kernel_entry + build ID
+                            Entry → checked metadata → completion
+                              Build ID + host session + sequence
 ```
 
-The retained P1-02 acceptance run cold-boots the **same hashed smoke-test ISO
-twice**, using separate QEMU processes and fresh firmware variable stores. Each
-boot must produce exactly one matching kernel-entry record **and** the expected
-emulator test exit. Missing markers, incorrect identities, panics, and timeouts
-cannot count as successful boots.
+P1-03's smoke and metadata identity checks cold-boot **identical kernel bytes with
+a fresh configured ISO for each launch**, using separate QEMU processes and firmware variable stores.
+Each successful test requires matching version-2 entry, validated metadata,
+resource summaries, completion records and emulator exit 33. Expected metadata
+rejections require the exact field/reason and exit 35. Missing markers, incorrect
+identities, panics and timeouts cannot count as successful boots. Host session IDs
+provide correlation; they are not security credentials or reset detectors.
 
 | Proven in this repository | Evidence |
 | :--- | :--- |
@@ -70,11 +74,13 @@ cannot count as successful boots.
 | Native Windows emulator, ISO tooling, firmware, and loader inputs pinned by version and hash | [P1-01 review](evidence/phase-1/P1-01/2026-10-18/README.md) |
 | Original Rust kernel entry through a real UEFI optical ISO | [P1-02 acceptance](evidence/phase-1/P1-02/2026-10-18/README.md) |
 | Deliberately broken boots rejected; emulator processes cleaned up | [Failure records and acceptance criteria](evidence/phase-1/P1-02/2026-10-18/README.md#reviewed-acceptance-criteria) |
+| Checked owned boot descriptors, retained reservations, correlated records and eight metadata rejection cases | [P1-03 acceptance](evidence/phase-1/P1-03/2026-10-18/README.md) |
+| Separate host build/package/launch/observe modules; 18 host tests and 17 QEMU launches pass after extraction | [Module-refactor regression review](evidence/phase-1/m1-module-refactor/2026-10-18/README.md) |
 
 The current profile is **x86-64 · Q35 · TCG · one vCPU · 2 GiB RAM · offline**.
 It attaches the exact ISO and firmware pair, with no host shares or writable user
-data disk. Full M1 remains open: boot-metadata validation, exceptions, memory
-ownership, interrupts, and timekeeping are the next steps.
+data disk. Full M1 remains open: **P1-04 exception diagnostics is next**, followed
+by frame/page-table ownership, interrupts, timekeeping and final acceptance.
 
 ## A desktop designed for continuity
 
@@ -122,8 +128,9 @@ runtime support each need their own validation.
 
 During the U.S.-only hold, do not run acquisition commands or use unverified remote
 services. Cargo defaults to offline mode; these commands are for a verified local
-environment with the required inputs already supplied. No new boot is claimed by
-the governance changes.
+environment with the required inputs already supplied. Scoped owner push
+exceptions are recorded in [the handling policy](EXPORT_CONTROL.md); they do not
+approve a remote environment or lift the general hold.
 
 The tested host is native Windows with PowerShell 7, MSVC, and the Windows SDK.
 Rust and the supplied emulator/packaging tools live under ignored `work/`.
@@ -142,28 +149,38 @@ cargo xtask build --profile dev
 cargo xtask iso --profile m1
 cargo xtask run --profile vm-baseline
 
-# Two fresh cold boots of one exact ISO, with identity and exit assertions.
+# Two fresh configured ISOs with the same kernel and distinct sessions.
 cargo xtask test --suite m1 --case iso-smoke
+
+# Owned metadata, module/serial-only fixtures and exact rejection cases.
+cargo xtask test --suite m1 --case boot-metadata
+cargo xtask test --suite m1 --case boot-reject
 ```
 
 Each command prints its artifact directory. `run` packages a fresh ISO, observes
-the entry checkpoint, then stops and reaps QEMU; that stop is host cleanup.
-The smoke test separately checks the emulator-only exit device. Neither command
-starts an interactive desktop.
+completed metadata diagnostics for one host second, then stops and reaps QEMU;
+that stop is host cleanup. The named tests check the emulator-only exit device.
+These commands do not start an interactive desktop.
 
 The pinned xorriso runtime needs execution outside the Codex sandbox's Windows
 named-object restriction. Tool acquisition is explicit; builds do not silently
 install WSL, enable virtualization features, or modify global packages.
 
 [Complete boot runbook](docs/05-delivery/phase-1/minimal-iso-runbook.md) ·
-[Regression and negative tests](tools/Test-P1-02.ps1)
+[Metadata and identity contract](docs/05-delivery/phase-1/boot-metadata-runbook.md) ·
+[Full current regression harness](tools/Test-P1-03.ps1)
+
+Host orchestration starts at [m1.rs](tools/xtask/src/m1.rs). The
+[module layout](docs/05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout)
+separates compilation/audits, ISO packaging, QEMU preparation and process observation;
+named cases and strict serial-record checks remain separate.
 
 ## From first instruction to a living desktop
 
 | Gate | Outcome | Current state |
 | :--- | :--- | :--- |
 | **Phase 0** | Native tooling, independent links, dependency feasibility | Compile/tooling evidence retained |
-| **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | Minimal ISO entry verified; remaining gates open |
+| **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-03 accepted; P1-04–P1-07 remain open |
 | **M2** | Hosted UI comparison, accessibility foundations, resource continuity | Planned |
 | **M3** | User-mode isolation and bounded IPC | Planned |
 | **M4** | Authenticated development channel and guest resource reload | Planned |

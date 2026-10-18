@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "platform": "Microsoft Windows NT 10.0.26300.0",
+  "architecture": "X64",
+  "powershell": "7.6.5",
+  "free_bytes": 363226189824,
+  "tools": [
+    {
+      "name": "git",
+      "status": "available",
+      "path": "C:\\Program Files\\Git\\cmd\\git.exe",
+      "override": "CONTINUUM_GIT",
+      "required_for_compile": false,
+      "detail": "git version 2.55.0.windows.5"
+    },
+    {
+      "name": "gh",
+      "status": "available",
+      "path": "C:\\Program Files\\GitHub CLI\\gh.exe",
+      "override": "CONTINUUM_GH",
+      "required_for_compile": false,
+      "detail": "gh version 2.101.0 (2026-09-15)\nhttps://github.com/cli/cli/releases/tag/v2.101.0"
+    },
+    {
+      "name": "node",
+      "status": "available",
+      "path": "${USERPROFILE}\\AppData\\Local\\nvm\\v26.9.0\\node.exe",
+      "override": "CONTINUUM_NODE",
+      "required_for_compile": false,
+      "detail": "v26.9.0"
+    },
+    {
+      "name": "rustc",
+      "status": "available",
+      "path": "${WORKSPACE}\\work\\toolchains\\cargo\\bin\\rustc.exe",
+      "override": "CONTINUUM_RUSTC",
+      "required_for_compile": true,
+      "detail": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1"
+    },
+    {
+      "name": "cargo",
+      "status": "available",
+      "path": "${WORKSPACE}\\work\\toolchains\\cargo\\bin\\cargo.exe",
+      "override": "CONTINUUM_CARGO",
+      "required_for_compile": true,
+      "detail": "cargo 1.99.1 (5f94df478 2026-08-27)"
+    },
+    {
+      "name": "link",
+      "status": "available",
+      "path": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe",
+      "override": "CONTINUUM_LINK",
+      "required_for_compile": true,
+      "detail": "File version: 14.51.36257.0; host invocation is tested by the xtask build"
+    },
+    {
+      "name": "rust-lld",
+      "status": "available",
+      "path": "${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc/lib/rustlib/x86_64-pc-windows-msvc/bin/rust-lld.exe",
+      "override": "CONTINUUM_RUST_LLD",
+      "required_for_compile": true,
+      "detail": "LLD 23.1.1 (https://github.com/rust-lang/llvm-project.git 1b9c0d5ff9bbe7634aead059efe6b11a7eeba145) (compatible with GNU linkers)"
+    },
+    {
+      "name": "llvm-readobj",
+      "status": "available",
+      "path": "${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc/lib/rustlib/x86_64-pc-windows-msvc/bin/llvm-readobj.exe",
+      "override": "CONTINUUM_LLVM_READOBJ",
+      "required_for_compile": false,
+      "detail": "LLVM (http://llvm.org/):\n  LLVM version 23.1.1-rust-1.99.1-stable\n  Optimized build."
+    },
+    {
+      "name": "llvm-nm",
+      "status": "available",
+      "path": "${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc/lib/rustlib/x86_64-pc-windows-msvc/bin/llvm-nm.exe",
+      "override": "CONTINUUM_LLVM_NM",
+      "required_for_compile": false,
+      "detail": "llvm-nm, compatible with GNU nm\nLLVM (http://llvm.org/):\n  LLVM version 23.1.1-rust-1.99.1-stable\n  Optimized build."
+    },
+    {
+      "name": "qemu-system-x86_64",
+      "status": "missing",
+      "path": null,
+      "override": "CONTINUUM_QEMU_SYSTEM_X86_64",
+      "required_for_compile": false,
+      "detail": "Not found on PATH or checked standard locations"
+    },
+    {
+      "name": "xorriso",
+      "status": "missing",
+      "path": null,
+      "override": "CONTINUUM_XORRISO",
+      "required_for_compile": false,
+      "detail": "Not found on PATH or checked standard locations"
+    },
+    {
+      "name": "oscdimg",
+      "status": "missing",
+      "path": null,
+      "override": "CONTINUUM_OSCDIMG",
+      "required_for_compile": false,
+      "detail": "Not found on PATH or checked standard locations"
+    }
+  ],
+  "windows_sdk": {
+    "libraries": [
+      "C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.26100.0\\um\\x64\\kernel32.Lib",
+      "C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.26100.0\\ucrt\\x64\\ucrt.lib"
+    ],
+    "status": "available"
+  },
+  "firmware": {
+    "detail": "OVMF_CODE not found; set CONTINUUM_OVMF_CODE to an existing file",
+    "boot_tested": false,
+    "status": "missing"
+  },
+  "virtualization": {
+    "detail": "CIM access unavailable; virtualization capability is unknown",
+    "whpx": "untested",
+    "status": "blocked"
+  },
+  "wsl": {
+    "policy": "Not used or installed by Phase 0",
+    "status": "untested"
+  },
+  "guest_target": "x86_64-unknown-none",
+  "guest_core_status": "available",
+  "host_target": "x86_64-pc-windows-msvc",
+  "boot_tested": false
+}

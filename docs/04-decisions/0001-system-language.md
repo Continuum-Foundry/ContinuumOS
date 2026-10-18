@@ -27,6 +27,11 @@ C does not eliminate C in upstream firmware or host tools.
 
 ## Gate and reconsideration
 
+Phase 0 evidence (2026-10-18): Rust 1.99.1 on Windows MSVC links independent
+kernel/userland `x86_64-unknown-none` probes with different code models/layouts.
+Two clean outputs match. [Evidence and limitations](../05-delivery/phase-0.md).
+This validates a build path, not boot/runtime behavior; status remains Proposed.
+
 M0/M1: compile/link a freestanding image, boot diagnostics and exception handling.
 M3: correct user entry/return and allocator behavior. Reconsider if the target/tooling
 path blocks the agreed scope or a demonstrated Swift spike materially improves it.

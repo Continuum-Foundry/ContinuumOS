@@ -1,13 +1,18 @@
 # Ordered engineering backlog
 
-Status: unstarted. Owner column means an eventual responsibility, not an assigned
+Status: B01/B02 have [Phase 0 evidence](phase-0.md); B36/B38 have preliminary
+reviews only. Runtime tasks remain unstarted. Owner column means a responsibility, not an assigned
 agent/person. Read milestone gates before picking work. `→` dependencies must pass;
 tasks within a gate can share infrastructure without implying simultaneous agents.
+
+M1 is decomposed into [seven local Phase 1 stories](phase-1/README.md), retaining
+the Bxx identifiers below. The stories expose B03/B04's minimal serial bootstrap
+and separate B06's M1 timer baseline from its later scheduling/context work.
 
 | ID | Owner / task | Depends on | Definition of done | Requirements |
 | --- | --- | --- | --- | --- |
 | B01 | Build: inventory host and candidate tools | Docs | Paths, versions, licenses, host constraints and fallback report | R03,R16,R18 |
-| B02 | Build: pin toolchain and target/link configs | B01 | Minimal kernel/user ABI link experiments; no invented pins | R03,R14,R16 |
+| B02 | Build: pin toolchain and target/link configs | B01 | Minimal independent kernel/userland link experiments; syscall ABI remains M3 | R03,R14,R16 |
 | B03 | Platform: validate QEMU/OVMF/ISO recipe | B01,B02,B38 | Exact ISO cold-boots through declared firmware/optical path | R01,R02 |
 | B04 | Kernel: serial/boot-info diagnostics | B02,B03 | Checked metadata, fixed logging, build/boot IDs | R01,R17 |
 | B05 | Kernel: memory ownership and exceptions | B04 | Reserved ranges, allocators, guards, controlled faults | R01,R10 |
@@ -62,7 +67,8 @@ the phrase with real component dependencies when implementation layout is known.
 
 ## First coding session
 
-Do B01/B02 and the smallest B03 compile/boot path. Report exact missing tools before
-requesting installation/system changes. Hosted UI work B07 can proceed if VM setup
-is externally blocked; begin with B36. Preserve the original objective; a host-only
+Re-run B01/B02 using the [Phase 0 commands](phase-0.md), then start B03/B38's actual
+ISO path in M1. Report exact missing tools before installation/system changes.
+Hosted UI feasibility can continue if VM setup is externally blocked; begin with
+B36 rather than claiming B07 complete. Preserve the objective; a host-only
 demo is not an OS. B38 resolves packaging before B03 claims ISO success.

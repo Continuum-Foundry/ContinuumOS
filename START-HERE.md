@@ -1,5 +1,9 @@
 # Original desktop OS — research handoff
 
+Implementation update, 2026-10-18: [Phase 0 Windows build/link probes](docs/05-delivery/phase-0.md)
+and [evidence](evidence/phase-0/README.md) now exist. No ISO or guest has booted.
+The counts and validation results below describe the original research snapshot.
+
 Revision 2, reconciled 2026-10-17. Start with [the reconciled plan](docs/00-overview/reconciled-plan.md),
 [the documentation index](docs/README.md), then
 [the agent handoff](docs/05-delivery/agent-handoff.md) and

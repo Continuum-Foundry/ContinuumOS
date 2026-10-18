@@ -1,6 +1,7 @@
 # Implementation milestones and gates
 
-Status: proposed execution plan. No milestone is completed by this research task.
+Status: gated execution plan. Phase 0 compile/tooling implementation and evidence
+are recorded in [the runbook](phase-0.md); runtime milestones remain uncompleted.
 Stages are evidence gates, not promised calendar dates. First build feasibility
 determines credible estimates. Do not attempt the whole OS in one coding session.
 Revision 2 prioritizes M2/M4/M5 state-preserving reload and an AI-free usable desktop.
@@ -13,18 +14,25 @@ Rust/linker/ISO/QEMU/firmware availability and host accelerator. Pin tested vers
 and checksums; inspect licenses and guest dependency features. Select explicit
 kernel and userland targets, panic/allocation policies and build directory layout.
 
-Experiments: smallest freestanding Rust link; candidate UI/raster/font no-OS feature
-build; QEMU launch with known firmware/machine; local dev transport feasibility.
+Experiments: separate freestanding kernel/userland Rust links; candidate
+UI/raster/font no-OS feature builds; QEMU/firmware/ISO prerequisite inventory.
+The user selected Windows native first and compile/tooling-only Phase 0: actual
+ISO boot and VM launch are M1. Local dev transport execution remains M4.
 Add Slint/custom target feasibility, x86_64 crate review, and a Limine/Rust OSDev
 bootloader comparison tied to an actual ISO recipe.
 Do not install OS features, alter virtualization settings or download large toolchains
 without reporting the concrete need and respecting environment approval rules.
 
-Exit: reproducible build manifest, successful compile/link log, viable packaging/VM
-path and documented alternatives for failures. Artifact: `environment-report.json`
-and locked toolchain configuration. Supports R03, R16, R18.
+Exit: two clean probe builds, artifact inspection, source path with spaces and
+doctor override checks; locked toolchain, dependency outcomes, and an explicit
+packaging/VM prerequisite report with blockers. ISO recipes remain not boot-tested.
+Artifacts: environment/build/toolchain manifests and retained logs. Supports R03,
+early R16 and R18; no release reproducibility or ABI/isolation claim.
 
 ## M1 — Original kernel boots from ISO
+
+Execution is decomposed into [one epic and seven ordered stories](phase-1/README.md).
+All are initially Not started; the story files are plans, not evidence of implementation.
 
 Implement boot validation, serial output, framebuffer metadata, owned paging,
 exception handling, physical allocator and interrupt/timer baseline. Build UEFI ISO.

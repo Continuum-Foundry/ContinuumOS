@@ -1,6 +1,8 @@
 # Original desktop OS: research and engineering foundation
 
-Research date: **2026-10-17**. Project name: **undecided**. Status: **research complete for the scoped architecture; implementation not started**.
+Research date: **2026-10-17**. Project name: **ContinuumOS (working name)**.
+Implementation update: **2026-10-18 — Phase 0 Windows tooling/link probes implemented;
+no OS boot or runtime demonstration**. See [Phase 0](05-delivery/phase-0.md) and its evidence.
 Plan revision: **2 — reconciled direction approved by the user; technical gates pending**.
 The requested project folder is named **ContinuumOS**; this is a working project name.
 
@@ -36,6 +38,7 @@ ISO packages a known system generation; an ISO is not the live update transport.
 | Live changes | [Guarantees](03-live-update/model-and-guarantees.md), [transactions](03-live-update/protocol-and-transactions.md), [state](03-live-update/state-and-compatibility.md), [recovery](03-live-update/failure-recovery-and-security.md) |
 | Interfaces | [Kernel objects and IPC](06-contracts/ipc-and-objects.md), [update format](06-contracts/update-wire-format.md), [scene protocol](06-contracts/ui-and-scene-protocol.md), [package manifest](06-contracts/package-manifest.md) |
 | Execution | [Backlog](05-delivery/backlog.md), [build and release](05-delivery/build-and-release.md), [validation](05-delivery/validation.md), [risks and open questions](05-delivery/risks-and-open-questions.md) |
+| Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md) |
 
 ## Status and interpretation
 
@@ -43,7 +46,8 @@ ISO packages a known system generation; an ISO is not the live update transport.
 - **Verified finding**: supported by a primary source in the catalogue; not independently reproduced here.
 - **Proposed default**: our engineering choice, used to make the project concrete. Validate at its gate.
 - **Experiment**: a question with an owner, procedure, and pass/fail criterion in the milestone/backlog documents.
-- **Measured**: reserved for future results with build IDs, configurations, and raw evidence. There are none yet.
+- **Measured**: requires build IDs, configurations, and raw evidence. Phase 0 has
+  compile/link results; guest performance and runtime behavior remain unmeasured.
 
 ADRs are proposed, rather than falsely marked accepted. Their experiments let an
 implementation agent proceed with reversible work without repeatedly requesting

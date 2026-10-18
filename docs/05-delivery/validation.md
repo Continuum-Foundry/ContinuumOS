@@ -1,7 +1,13 @@
 # Validation strategy and requirement traceability
 
-Status: acceptance plan. No OS tests have been run in this research-only task.
+Status: acceptance plan with [Phase 0 compile/tooling evidence](phase-0.md).
+Host validator/doctor checks, clean freestanding links and dependency compilation
+have run; no guest runtime or OS boot tests have run.
 Every result must include source/build IDs, configuration and raw evidence.
+
+For M1's bounded subset, use the [Phase 1 story acceptance matrix](phase-1/07-phase-1-acceptance.md).
+Its guest tests have not run. [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
+pass version/capability/hash checks and rejection tests; this adds no ISO boot result.
 
 ## Requirement matrix
 

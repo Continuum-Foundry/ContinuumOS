@@ -1,0 +1,9 @@
+Captured excerpt from the first xtask compilation (tool output), not a fresh run.
+The digest formatter was corrected to format each output byte; subsequent tests pass.
+
+error[E0277]: the trait bound `Array<u8, UInt<UInt<UInt<UInt<_, B0>, B0>, B0>, B0>>: LowerHex` is not satisfied
+  --> tools\xtask\src\main.rs:11:51
+   |
+11 | fn hash(bytes: &[u8]) -> String { format!("{:x}", Sha256::digest(bytes)) }
+
+error: could not compile `xtask` (bin "xtask" test) due to 1 previous error

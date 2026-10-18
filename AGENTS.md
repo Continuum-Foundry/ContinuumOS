@@ -1,6 +1,7 @@
 # Agent entry point
 
-This workspace currently contains research and design, not an implemented OS.
+This workspace contains research/design and Phase 0 Windows build/link probes,
+not a booted or usable OS. See `docs/05-delivery/phase-0.md` and its retained evidence.
 The user approved the reconciled revision-2 roadmap. See
 `docs/00-overview/reconciled-plan.md`; individual library integrations still need validation.
 
@@ -29,7 +30,8 @@ are core interfaces; inference is optional after the first state-preserving gues
 reload. Keep the 256 MiB cold-idle target. Boot recovery and live state transfer
 are separate; a booting disk image does not prove the required ISO boots.
 
-The next implementation task is the M0 feasibility gate in
-`docs/05-delivery/milestones.md`, not the entire backlog at once. No OS tooling,
-VM, system settings, physical disks or global packages were installed or changed
-during the research task. Documentation validation used existing local tools.
+Phase 0 implements compile/tooling feasibility; actual ISO boot starts M1 in
+`docs/05-delivery/milestones.md`. Re-run the Phase 0 checks before extending it.
+Rust is workspace-local under ignored `work/toolchains/`; existing MSVC/SDK were reused.
+No VM, WSL, system setting, physical disk or global package was changed. Missing
+QEMU/OVMF/ISO tooling remains explicit; do not attempt the entire backlog at once.

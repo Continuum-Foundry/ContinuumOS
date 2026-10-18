@@ -1,7 +1,10 @@
 # Build, development and release specification
 
-Status: command/API design, not executable build instructions yet. No commands
-below are claimed to exist. M0 creates their implementation and pins real versions.
+Status: Phase 0 implements `cargo xtask doctor [--json]`,
+`cargo xtask build --profile feasibility` and `cargo xtask test --suite m0`.
+See [the executable runbook](phase-0.md). Other commands below remain proposals.
+P1-01 adds `cargo xtask doctor --profile m1 [--json]` and explicit workspace-only
+[prerequisite supply/validation](phase-1/prerequisites-runbook.md); ISO/run remain proposals.
 
 ## Proposed repository layout
 
@@ -44,6 +47,11 @@ These names are illustrative. Keep machine-readable JSON output for automation a
 human-readable diagnostics. Never convert guest-provided strings into shell commands.
 
 ## Build profiles
+
+Phase 0 uses separate experimental kernel/userland packages, independent linker
+scripts and no global guest target. Its separate dependency workspace prevents
+candidate UI libraries entering the kernel dependency graph. All probes are
+compile-only; userland entry is experimental and does not freeze syscalls.
 
 Keep Slint/custom prototype features explicit; guest configuration and hosted
 preview/interpreter support are separate. Optional inference/model assets have

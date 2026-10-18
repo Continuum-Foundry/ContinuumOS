@@ -23,6 +23,12 @@ not automatic security certification. Windows and Linux build parity must be tes
 
 ## Gate and reconsideration
 
+Phase 0 evidence (2026-10-18): workspace-local Rust/LLVM, existing MSVC/SDK,
+locked host/guest experiments, manifest/hash output, two clean probe builds and a
+source path with spaces were tested. [Runbook/evidence](../05-delivery/phase-0.md).
+Native Windows is the tested host; Linux parity and release/ISO reproducibility
+are untested. All architectural/release decisions remain Proposed.
+
 M0 records host feasibility. M8 compares two clean builds, explains differences,
 boots the exact released ISO offline and verifies dev authority is disabled. Change
 packaging tools when portability or reproducibility evidence justifies it.

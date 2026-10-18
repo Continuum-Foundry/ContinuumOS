@@ -1,0 +1,123 @@
+{
+  "boot_tested": false,
+  "build": {
+    "artifacts": [
+      {
+        "bytes": 8576,
+        "code_model": "kernel",
+        "component": "kernel-link",
+        "inspection": {
+          "dynamic_linking": false,
+          "entry": "0xffffffff80000000",
+          "executed": false,
+          "format": "ELF64-LE",
+          "machine": "x86_64",
+          "relocations": 0,
+          "segments": [
+            {
+              "address": "0xffffffff80000000",
+              "alignment": 4096,
+              "file_size": 4,
+              "flags": 5,
+              "memory_size": 4,
+              "offset": 4096
+            }
+          ],
+          "type": "ET_EXEC",
+          "unresolved_symbols": 0
+        },
+        "sha256": "8535f7c5fedf3789f0425a580fa3d63c3b35dc42ae70b37ea5492e9f06f3ccda"
+      },
+      {
+        "bytes": 9264,
+        "code_model": "small",
+        "component": "userland-link",
+        "inspection": {
+          "dynamic_linking": false,
+          "entry": "0x400000",
+          "executed": false,
+          "format": "ELF64-LE",
+          "machine": "x86_64",
+          "relocations": 0,
+          "segments": [
+            {
+              "address": "0x400000",
+              "alignment": 4096,
+              "file_size": 18,
+              "flags": 5,
+              "memory_size": 18,
+              "offset": 4096
+            }
+          ],
+          "type": "ET_EXEC",
+          "unresolved_symbols": 0
+        },
+        "sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522"
+      }
+    ],
+    "boot_tested": false,
+    "inputs": [
+      {
+        "path": "Cargo.lock",
+        "sha256": "975ec79b5856812d0417f43adc442e16cea09b3105bebf7c1a34be8b65c30203"
+      },
+      {
+        "path": "Cargo.toml",
+        "sha256": "f6ae504bb631c2e94515399dce2335a9c62a67aebe670db90f650764cf2f0462"
+      },
+      {
+        "path": ".cargo/config.toml",
+        "sha256": "e437136eeed0e0363b6079899143a5e69ddbeba6b449cf8c8454947bd5dc22f0"
+      },
+      {
+        "path": "rust-toolchain.toml",
+        "sha256": "ec881bd148eca89c390360fa5313ed5725514a0ffaed834f6d3e3ef60c745e18"
+      },
+      {
+        "path": "tools/xtask/Cargo.toml",
+        "sha256": "f07ff43bb2cda126bdd0722af7533322119af06aeb95a7b9978e39cdc304b428"
+      },
+      {
+        "path": "tools/xtask/src/main.rs",
+        "sha256": "dd5894eff98223bc6c58f56b59f36cbbf5e76909c6593cfb19d0bfce9d190d56"
+      },
+      {
+        "path": "tools/xtask/src/elf.rs",
+        "sha256": "d998c6d04c8a53f8c3071f3cb82225f1688e44b08d6c644f4b915431d955e626"
+      },
+      {
+        "path": "experiments/kernel-link/Cargo.toml",
+        "sha256": "cf2567ac07aca40b3bdd1587658ce8f5199095de43b1e41b96358e46de95264d"
+      },
+      {
+        "path": "experiments/kernel-link/src/main.rs",
+        "sha256": "194701e486bfb16929b0eae235b5eacd1817087d6447e8adf74945496b173926"
+      },
+      {
+        "path": "experiments/kernel-link/link.ld",
+        "sha256": "d04c023226e87534e865faf53a6aebced92f973d064769246dd11ac184353aa0"
+      },
+      {
+        "path": "experiments/userland-link/Cargo.toml",
+        "sha256": "0102cd3edc1d0ec5e80dcd3bcffab7f0e093d28bac00612f2d4667aed4253241"
+      },
+      {
+        "path": "experiments/userland-link/src/main.rs",
+        "sha256": "37f06c6b660551f61528e3a918083a4a830047543aa765ee7b09bd75c5390450"
+      },
+      {
+        "path": "experiments/userland-link/link.ld",
+        "sha256": "a3611a0e36bb2c7b54ffefe5447b64ebee55e79fd0418dcabfc2a18fec1cf004"
+      }
+    ],
+    "runtime_tested": false,
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+    "schema_version": 1,
+    "target": "x86_64-unknown-none"
+  },
+  "independent_llvm_inspection": true,
+  "output_path_with_spaces": true,
+  "schema_version": 1,
+  "status": "passed",
+  "two_clean_builds_identical": true
+}

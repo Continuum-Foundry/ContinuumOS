@@ -1,0 +1,609 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-18",
+  "timezone": "America/New_York",
+  "source_base_commit": "39193064188539e083e9054d889a40abce037dda",
+  "dirty_source": true,
+  "git_status": [
+    " M AGENTS.md",
+    " M README.md",
+    " M SHA256SUMS.json",
+    " M START-HERE.md",
+    " M audit/README.md",
+    " M docs/01-research/dependency-strategy.md",
+    " M docs/04-decisions/0001-system-language.md",
+    " M docs/04-decisions/0002-boot-and-iso.md",
+    " M docs/04-decisions/0013-build-and-distribution.md",
+    " M docs/05-delivery/agent-handoff.md",
+    " M docs/05-delivery/backlog.md",
+    " M docs/05-delivery/build-and-release.md",
+    " M docs/05-delivery/milestones.md",
+    " M docs/05-delivery/validation.md",
+    " M docs/README.md",
+    "?? .cargo/",
+    "?? .gitattributes",
+    "?? .gitignore",
+    "?? Cargo.lock",
+    "?? Cargo.toml",
+    "?? config/",
+    "?? docs/05-delivery/phase-0.md",
+    "?? docs/05-delivery/phase-1/",
+    "?? evidence/",
+    "?? experiments/",
+    "?? rust-toolchain.toml",
+    "?? tools/"
+  ],
+  "inputs": [
+    {
+      "sha256": "e437136eeed0e0363b6079899143a5e69ddbeba6b449cf8c8454947bd5dc22f0",
+      "path": ".cargo/config.toml",
+      "bytes": 110
+    },
+    {
+      "sha256": "60f2f1c31709109275f613a3257a43f90ed9049ff4b3c3c2dab63b4c8827a4e8",
+      "path": ".gitignore",
+      "bytes": 57
+    },
+    {
+      "sha256": "0919592fcdd20ab9ab41ba3d920e6e1af7b3fb9d266e3ca45c996af19f0e0f5a",
+      "path": "AGENTS.md",
+      "bytes": 2369
+    },
+    {
+      "sha256": "975ec79b5856812d0417f43adc442e16cea09b3105bebf7c1a34be8b65c30203",
+      "path": "Cargo.lock",
+      "bytes": 4938
+    },
+    {
+      "sha256": "f6ae504bb631c2e94515399dce2335a9c62a67aebe670db90f650764cf2f0462",
+      "path": "Cargo.toml",
+      "bytes": 364
+    },
+    {
+      "sha256": "8fe44b04cfa43a418e97797433f10d24d1939cc37a2949af008c6d0bb8005679",
+      "path": "config/m1-inputs.lock.json",
+      "bytes": 53694
+    },
+    {
+      "sha256": "a11d13aa88212381936afb7e9788b271a67fd0244fa6156c2e96e67cc4ced778",
+      "path": "docs/00-overview/architecture-summary.md",
+      "bytes": 5929
+    },
+    {
+      "sha256": "fabbf07e81e60fab37e4503ba71bf9873821683efe17f172f4c83fdc18d71aea",
+      "path": "docs/00-overview/end-to-end-scenarios.md",
+      "bytes": 3433
+    },
+    {
+      "sha256": "7394ca82f5417e26dc6ffa3f6a65ef97c94171862b20cfeb4e4519a40c39c719",
+      "path": "docs/00-overview/glossary.md",
+      "bytes": 3118
+    },
+    {
+      "sha256": "ea1266d28940d8f3bd4b55a9616dd6f9cc1f33d7f56e1b3bacbf751d1fd59736",
+      "path": "docs/00-overview/reconciled-plan.md",
+      "bytes": 4183
+    },
+    {
+      "sha256": "4c00ef1873f87a579b73256fe3cc1a171ab4e7b39c37c3c751aa9ccca370c449",
+      "path": "docs/00-overview/requirements.md",
+      "bytes": 8701
+    },
+    {
+      "sha256": "e0f31438907a130d89935da752149a87618d5a0947a4969b101d8e6b4d59e1ae",
+      "path": "docs/00-overview/vision-and-scope.md",
+      "bytes": 5284
+    },
+    {
+      "sha256": "0d16519e4849c56db97aff0752d324d75b7bc20917e1e1eeabf23b592ff2205b",
+      "path": "docs/01-research/dependency-strategy.md",
+      "bytes": 5595
+    },
+    {
+      "sha256": "e366bd78904d44316fa565a3bce6a24849591a4e7af66d96b15046b5161e7bec",
+      "path": "docs/01-research/language-evaluation.md",
+      "bytes": 5824
+    },
+    {
+      "sha256": "524a42216d6030b2ebb5a311c85087d44930f3949044e20fe16acb5549c4e6e9",
+      "path": "docs/01-research/prior-art-and-novelty.md",
+      "bytes": 4239
+    },
+    {
+      "sha256": "8ea70e98f4d8fc7df2df2212696be2ea7963da85b3e4d18d60d49d39ed52e792",
+      "path": "docs/01-research/research-method.md",
+      "bytes": 4732
+    },
+    {
+      "sha256": "9063c0f9b64b81be2b83c872c0d5a5431397a79b60bab85a488dedccd6bff68a",
+      "path": "docs/01-research/sources.md",
+      "bytes": 22209
+    },
+    {
+      "sha256": "0907eb10b7f48d157b9bd55a571ba39539a253b4ffa619d330343bc80ca61e3f",
+      "path": "docs/01-research/ui-toolkit-comparison.md",
+      "bytes": 4475
+    },
+    {
+      "sha256": "94340d9c9e81ec2f9f38c1344244dba55245adafe88c959a73022749d64b51d0",
+      "path": "docs/02-architecture/accessibility-and-internationalization.md",
+      "bytes": 4106
+    },
+    {
+      "sha256": "43128049bee5f3b8737e54977e55df9ef72d8d027016266e66e42dda283a7e3b",
+      "path": "docs/02-architecture/actions-and-optional-ai.md",
+      "bytes": 4994
+    },
+    {
+      "sha256": "1da1a59e760a4bf5670a2b96129ab2e72a6cc996d9bf1705835ca6d16415fec8",
+      "path": "docs/02-architecture/applications-and-runtime.md",
+      "bytes": 4406
+    },
+    {
+      "sha256": "2b27d52030c0dd203f789b59d0d6f3d8426e30679bb768b5ae35ba07789fc9a6",
+      "path": "docs/02-architecture/boot-and-platform.md",
+      "bytes": 4033
+    },
+    {
+      "sha256": "7cf1a74b9c4ed89c281ecb869d0825e2a9165ca1d53f7c1c955a7fd7e3b53473",
+      "path": "docs/02-architecture/boot-recovery.md",
+      "bytes": 3233
+    },
+    {
+      "sha256": "e4b58f85e2840b061d70e582e1edfb43e15cf1af667c6af8b2d258506da0b634",
+      "path": "docs/02-architecture/capabilities-and-ipc.md",
+      "bytes": 3859
+    },
+    {
+      "sha256": "1fd2d5047bf46203eacea3c01318230fa5c9c6689dec8bfddb67c1be137d5474",
+      "path": "docs/02-architecture/drivers-and-hardware.md",
+      "bytes": 4027
+    },
+    {
+      "sha256": "41b7248f453c7ae7849024b4370e7e5b2d898d107db3fbcb611fcc3a270547b2",
+      "path": "docs/02-architecture/graphics-and-compositor.md",
+      "bytes": 4697
+    },
+    {
+      "sha256": "315eb4dcf84bc61ce50b20bac8ba32a9379a15827dac78d1ad3f07b9e2a43a36",
+      "path": "docs/02-architecture/kernel-and-execution.md",
+      "bytes": 3774
+    },
+    {
+      "sha256": "91e0d2a18656af6c8411b603dfe8bdd937a8788c00ba3e4e015d30a2c90bc2d8",
+      "path": "docs/02-architecture/networking.md",
+      "bytes": 3754
+    },
+    {
+      "sha256": "62ccc0fbd23aaf865db4f937bc801dcad2886f84da206efb59e1fc5f4bd5f59c",
+      "path": "docs/02-architecture/observability-and-performance.md",
+      "bytes": 4959
+    },
+    {
+      "sha256": "7e98c718ca0b6b80fa7f962789418e6d36be8637e9a4c5470cf600f776397525",
+      "path": "docs/02-architecture/power-audio-and-lifecycle.md",
+      "bytes": 3492
+    },
+    {
+      "sha256": "9b46c08b2a13fb7116ff7152daa04ba1fc23ae6799856de66be0ec7aefb06202",
+      "path": "docs/02-architecture/security-and-trust.md",
+      "bytes": 4483
+    },
+    {
+      "sha256": "b33f40bcd7a1bc7bbe2e427b16eeda5690266ca64764edd74b25b961611b8bf5",
+      "path": "docs/02-architecture/storage-and-data.md",
+      "bytes": 4474
+    },
+    {
+      "sha256": "57ea1278c48a76fb132624bdbeb629d4022d0d1501cd33912f919d923c9f8ba4",
+      "path": "docs/02-architecture/system-layers.md",
+      "bytes": 4274
+    },
+    {
+      "sha256": "e69b34641f96064680d63e1281387522f1d0dbb385fc5398734e30deddf55f7d",
+      "path": "docs/02-architecture/ui-framework-and-design.md",
+      "bytes": 4487
+    },
+    {
+      "sha256": "e63ca1f43e9700f24766528b36374ac7e7cd8d3da17a78044c373bcf49cb2272",
+      "path": "docs/03-live-update/failure-recovery-and-security.md",
+      "bytes": 4792
+    },
+    {
+      "sha256": "64a8814ef652e56a872bfab46fc784c6e2851a56ffef351d6553c1385b65291a",
+      "path": "docs/03-live-update/model-and-guarantees.md",
+      "bytes": 4527
+    },
+    {
+      "sha256": "1672e596c6e9188f57616eb5fe215fa518d56ea2491d0be48cd2f8c665c7b11b",
+      "path": "docs/03-live-update/protocol-and-transactions.md",
+      "bytes": 5339
+    },
+    {
+      "sha256": "9e8adf5703f8f4e35395603a731607a07343a84db5bcb58079a5f28e64faa902",
+      "path": "docs/03-live-update/state-and-compatibility.md",
+      "bytes": 4589
+    },
+    {
+      "sha256": "2d80d18865e21a33c175a13c040dbdd2042e99c89fa31451fb9f14b7c9a0cc86",
+      "path": "docs/04-decisions/0001-system-language.md",
+      "bytes": 1772
+    },
+    {
+      "sha256": "d3714e02affa95e142829c31108a3efcd3aefcb90057a0e24eb46a17f2cbeecd",
+      "path": "docs/04-decisions/0002-boot-and-iso.md",
+      "bytes": 2365
+    },
+    {
+      "sha256": "a20679d98c17ae1c573de962ac6f2492a8d480f1b6c247733f2158973e0fd9de",
+      "path": "docs/04-decisions/0003-kernel-and-isolation.md",
+      "bytes": 1368
+    },
+    {
+      "sha256": "d7f368dce088dfc5e17703d4728d6d7224d66764e5c4a1b0e1bb33b0e4b99dce",
+      "path": "docs/04-decisions/0004-versioned-boundaries.md",
+      "bytes": 1382
+    },
+    {
+      "sha256": "d40468295095a948abcf29fae9a22911189a134d3297eead07fa1edb5baccee6",
+      "path": "docs/04-decisions/0005-live-update-transactions.md",
+      "bytes": 1404
+    },
+    {
+      "sha256": "e8a8d9501c2953e0fc25e78a4821f71c2f0c518b2c3f0c35a26555ef1495c649",
+      "path": "docs/04-decisions/0006-app-runtime.md",
+      "bytes": 1379
+    },
+    {
+      "sha256": "17f66e66c316fa364dd4619d243228d3c2ebb739b687e96e87ac69a9b023504e",
+      "path": "docs/04-decisions/0007-development-transport.md",
+      "bytes": 1320
+    },
+    {
+      "sha256": "9b8fec9b7587be9ce982c4632e0422e6b680d95aa0601734124d9885bcced45a",
+      "path": "docs/04-decisions/0008-rendering-path.md",
+      "bytes": 1527
+    },
+    {
+      "sha256": "4f2261a9cd2f786b08f7c98dc4487c393c8cf1ff7fddc704dd3daa35712fac97",
+      "path": "docs/04-decisions/0009-persistent-generations.md",
+      "bytes": 1702
+    },
+    {
+      "sha256": "db5c33e3af9dc05ce42003aeee496438ee3b39a28ea0e3685f41ced1603308ec",
+      "path": "docs/04-decisions/0010-capability-security.md",
+      "bytes": 1422
+    },
+    {
+      "sha256": "48c74bd8e66332cbf29f13b7ffb71e090c21aada927f0b2f58c266cf969e5544",
+      "path": "docs/04-decisions/0011-ui-authoring.md",
+      "bytes": 1660
+    },
+    {
+      "sha256": "63a671cd845f2e05468a20071d6ed5a7c684d0d52be402798fecb17433748b41",
+      "path": "docs/04-decisions/0012-network-and-crypto.md",
+      "bytes": 1415
+    },
+    {
+      "sha256": "63fc8c793db96e2ab0d75f3f9fe52dfed94cff78bf369e3110e7eac60d5e7c9e",
+      "path": "docs/04-decisions/0013-build-and-distribution.md",
+      "bytes": 1812
+    },
+    {
+      "sha256": "0a8a1a58f62a16e30e98b0b2eb301e80606453a1ebc2372c14fbd97fd1d115bc",
+      "path": "docs/04-decisions/0014-quality-and-scope.md",
+      "bytes": 1422
+    },
+    {
+      "sha256": "58c6d448b0d9341c2e768cd2d809e5db93a2ebb8193dc96c726791e1b9d69ff3",
+      "path": "docs/04-decisions/0015-typed-actions.md",
+      "bytes": 1477
+    },
+    {
+      "sha256": "b6cb928864a34511065ad757f913d0f97010bfdcde4e8b33123b8b32793afda7",
+      "path": "docs/04-decisions/0016-optional-inference.md",
+      "bytes": 1358
+    },
+    {
+      "sha256": "957194640d49df68aec0a3cbe497d3d9722b7eda9ea28f230dd6faf1a56ac231",
+      "path": "docs/04-decisions/README.md",
+      "bytes": 3051
+    },
+    {
+      "sha256": "745cc7bcbb848e0cb5bce44b340ec5836b3c643feb28f86a3cb48916e63365a4",
+      "path": "docs/05-delivery/agent-handoff.md",
+      "bytes": 5922
+    },
+    {
+      "sha256": "e7fc2b3fa5dd9c32bb47ebee014dcbf03a6fc47ead46f1bc1ed9ff48f1247a6c",
+      "path": "docs/05-delivery/backlog.md",
+      "bytes": 7377
+    },
+    {
+      "sha256": "74d1959df54cd42506b0fa47da8e366b30dc5eafec474374aa28055b65033c2c",
+      "path": "docs/05-delivery/build-and-release.md",
+      "bytes": 5991
+    },
+    {
+      "sha256": "cd44b2d82f28646115e9bd6d5cbba2a170152b6d8be96002e8fe55bb4a59feda",
+      "path": "docs/05-delivery/milestones.md",
+      "bytes": 8200
+    },
+    {
+      "sha256": "450f729ff3a70f09e3ded2742e8223081ea6c4d36f2fb9a4bb6b0d7619a580a2",
+      "path": "docs/05-delivery/phase-0.md",
+      "bytes": 9329
+    },
+    {
+      "sha256": "09a04779c1bdac292a3e7830761600891cd5ca43de9541456b3a737c0322136a",
+      "path": "docs/05-delivery/phase-1/01-vm-and-packaging-prerequisites.md",
+      "bytes": 4300
+    },
+    {
+      "sha256": "b60cbd600a24c7636a356414f3c89e0f2d737e62bca515ca1910b34f5a0e8659",
+      "path": "docs/05-delivery/phase-1/02-minimal-iso-boot.md",
+      "bytes": 3870
+    },
+    {
+      "sha256": "b571dbcd07cb7b607a726b10ff6a16d81b627f7fddcb4b37450a23f20c21c396",
+      "path": "docs/05-delivery/phase-1/03-boot-metadata-and-diagnostics.md",
+      "bytes": 3965
+    },
+    {
+      "sha256": "7121df95e82e94e46170a6e4ff36c6c2f3b1bf0eaf521c15e92acffd21d1eda9",
+      "path": "docs/05-delivery/phase-1/04-exception-handling.md",
+      "bytes": 3465
+    },
+    {
+      "sha256": "77f8e4bf7f06c8ed833d94982a7e380ad43a48c97d6141430e6f25ed2e0b1429",
+      "path": "docs/05-delivery/phase-1/05-memory-ownership.md",
+      "bytes": 4353
+    },
+    {
+      "sha256": "83583d8c18781091b7a10280ea253d2b0894239c729318e40f0b74089bd88faa",
+      "path": "docs/05-delivery/phase-1/06-interrupts-and-timekeeping.md",
+      "bytes": 4238
+    },
+    {
+      "sha256": "5711d9739330a6a8d27c78e3d08e557339e823e88dbe9c63b2c4449ec772cecb",
+      "path": "docs/05-delivery/phase-1/07-phase-1-acceptance.md",
+      "bytes": 5232
+    },
+    {
+      "sha256": "ad50d69dd83c7a6130275d4dbc233a97f40d1f096124fce05cbcc2bcba0a2443",
+      "path": "docs/05-delivery/phase-1/prerequisites-runbook.md",
+      "bytes": 5669
+    },
+    {
+      "sha256": "6b1e350be928c0c7581523dc7efc62ae633643216c5b61a2fa066e5c06757dd9",
+      "path": "docs/05-delivery/phase-1/README.md",
+      "bytes": 7546
+    },
+    {
+      "sha256": "10c96783eb8c98fe1f94b88176f493ba014398946a67dd34480e638fd09eb760",
+      "path": "docs/05-delivery/research-audit.md",
+      "bytes": 3891
+    },
+    {
+      "sha256": "a334d31c4b51b89e63acc1c56f99905642a9f8a765a645422c259434fc4cb80e",
+      "path": "docs/05-delivery/risks-and-open-questions.md",
+      "bytes": 6859
+    },
+    {
+      "sha256": "72d8867478f59325acb5726454cc78b6fa9b1263e7ca14de4bc9d7180d844c89",
+      "path": "docs/05-delivery/validation.md",
+      "bytes": 8488
+    },
+    {
+      "sha256": "6eab8880a901dc12f2765368110f5f0362307e40113bd6e23e6730cadf5fff40",
+      "path": "docs/06-contracts/actions-and-context.md",
+      "bytes": 3925
+    },
+    {
+      "sha256": "343606cefe5b73ccaa8d1883cd640acdaa6cf3c9b05f4d988e1a9c13ceaf5b17",
+      "path": "docs/06-contracts/examples/package-manifest.json",
+      "bytes": 946
+    },
+    {
+      "sha256": "c6bd71e6bfa5c92cace9f3c7b9d953c44c4eb28a4b40196f7f5cbcca73447883",
+      "path": "docs/06-contracts/examples/update-manifest.json",
+      "bytes": 1156
+    },
+    {
+      "sha256": "a2b58a134a1f7785bee0c6a7493387af3abff3ee93648186c55f9a54c0d7e22d",
+      "path": "docs/06-contracts/ipc-and-objects.md",
+      "bytes": 3947
+    },
+    {
+      "sha256": "92bdcf01115306eb0f26ea3fbc6378f95085a2c92f999b52545fe20a3b1acad9",
+      "path": "docs/06-contracts/package-manifest.md",
+      "bytes": 3461
+    },
+    {
+      "sha256": "fae998aea0dfbfb51b8e642e6da719306b7f0ab8ee6ffd10d62ecbfe59859476",
+      "path": "docs/06-contracts/README.md",
+      "bytes": 1810
+    },
+    {
+      "sha256": "de2ecb19f2d0bf2e247e9b15327ca9975a55d7625d74082a6200dc178c2c1d25",
+      "path": "docs/06-contracts/schemas/package-manifest.schema.json",
+      "bytes": 5693
+    },
+    {
+      "sha256": "0947e85031c1fadea506c95e4cc6707157097d7532d095785683f41eb6e232e4",
+      "path": "docs/06-contracts/schemas/update-manifest.schema.json",
+      "bytes": 5111
+    },
+    {
+      "sha256": "78abbd73d712f31355f3d38b4baf53ca2f09b7c2cf964c8c0f6d5b9ee4e3c9e4",
+      "path": "docs/06-contracts/ui-and-scene-protocol.md",
+      "bytes": 3744
+    },
+    {
+      "sha256": "436101ede173d8e1641fb593344d342f283b125676a96ed6881e902da75f174f",
+      "path": "docs/06-contracts/update-wire-format.md",
+      "bytes": 4157
+    },
+    {
+      "sha256": "0f7ce1750295f2da37605a2f3e9a613306abdfeecd4aea582e2b5591d72add3f",
+      "path": "docs/README.md",
+      "bytes": 6016
+    },
+    {
+      "sha256": "cd2c55bd27fe1edde01e3b7c88078b3fe3970605031d8c52b17b3c32dfd78b12",
+      "path": "experiments/boot-bindings/Cargo.lock",
+      "bytes": 608
+    },
+    {
+      "sha256": "f0294cca6f25fc709a63487b5da28d8b611cbfb8f2f7ed94fb66f565ee8b15fa",
+      "path": "experiments/boot-bindings/Cargo.toml",
+      "bytes": 177
+    },
+    {
+      "sha256": "64fe28cc2852e7a507f7a7430dc4849861e6bea89ba15a5daaeebc6d1f85091f",
+      "path": "experiments/boot-bindings/src/lib.rs",
+      "bytes": 855
+    },
+    {
+      "sha256": "ae2c7f5da67542237b111a5834db5dde2cea9cd84db8034f2d60034ad84b0fc5",
+      "path": "experiments/dependencies/Cargo.lock",
+      "bytes": 121676
+    },
+    {
+      "sha256": "06b64b5a582239c520003dcd438ab8c8f45f4e4e7c1eeabae1d13423c4e5e194",
+      "path": "experiments/dependencies/Cargo.toml",
+      "bytes": 971
+    },
+    {
+      "sha256": "ba8e73521ade2023199e668e1d350330254a8451438d6686a650720fdff0be0b",
+      "path": "experiments/dependencies/src/lib.rs",
+      "bytes": 1855
+    },
+    {
+      "sha256": "a504a23d9c05580ad5d6270d442d49084655464d6d13c368f68c9e06ced5409c",
+      "path": "experiments/dependencies/src/link.rs",
+      "bytes": 998
+    },
+    {
+      "sha256": "cf2567ac07aca40b3bdd1587658ce8f5199095de43b1e41b96358e46de95264d",
+      "path": "experiments/kernel-link/Cargo.toml",
+      "bytes": 177
+    },
+    {
+      "sha256": "d04c023226e87534e865faf53a6aebced92f973d064769246dd11ac184353aa0",
+      "path": "experiments/kernel-link/link.ld",
+      "bytes": 436
+    },
+    {
+      "sha256": "194701e486bfb16929b0eae235b5eacd1817087d6447e8adf74945496b173926",
+      "path": "experiments/kernel-link/src/main.rs",
+      "bytes": 415
+    },
+    {
+      "sha256": "0102cd3edc1d0ec5e80dcd3bcffab7f0e093d28bac00612f2d4667aed4253241",
+      "path": "experiments/userland-link/Cargo.toml",
+      "bytes": 181
+    },
+    {
+      "sha256": "a3611a0e36bb2c7b54ffefe5447b64ebee55e79fd0418dcabfc2a18fec1cf004",
+      "path": "experiments/userland-link/link.ld",
+      "bytes": 422
+    },
+    {
+      "sha256": "37f06c6b660551f61528e3a918083a4a830047543aa765ee7b09bd75c5390450",
+      "path": "experiments/userland-link/src/main.rs",
+      "bytes": 553
+    },
+    {
+      "sha256": "ec881bd148eca89c390360fa5313ed5725514a0ffaed834f6d3e3ef60c745e18",
+      "path": "rust-toolchain.toml",
+      "bytes": 132
+    },
+    {
+      "sha256": "e9ed88cc52634bafb243406468add3a3589286c0e5fb432ac149afaf9e8e422f",
+      "path": "tools/Enter-Dev.ps1",
+      "bytes": 749
+    },
+    {
+      "sha256": "aa60f39ef7057960c71a6ccfc114cbdee53661d2a84dc0d38f7668b0cb1bfe96",
+      "path": "tools/Install-Rust.ps1",
+      "bytes": 1088
+    },
+    {
+      "sha256": "6047c95ffc476e2641d45351b8693b01b80f88369f92f6aeaa46ba816103f2b3",
+      "path": "tools/Inventory.ps1",
+      "bytes": 8086
+    },
+    {
+      "sha256": "91a9c2cc9674e0f5fc957adda1fee38c7cba7e353d250bb08c1f1c6c2abad30f",
+      "path": "tools/Probe-Dependencies.ps1",
+      "bytes": 4268
+    },
+    {
+      "sha256": "1d9db6197334796bce6f41135a05486d8978a7b7aebdf1e64326407823abd908",
+      "path": "tools/Record-Evidence.ps1",
+      "bytes": 6745
+    },
+    {
+      "sha256": "b6c2a693d445e2432baf63c88f0c3da3df8801d23b885a2d5726c1009e4d7509",
+      "path": "tools/Supply-M1Prerequisites.ps1",
+      "bytes": 2688
+    },
+    {
+      "sha256": "a51318cd4c0d98b8e4d7d0f6b0ce2cf24bc9f980143aafaf2d20f9a96547c610",
+      "path": "tools/Test-Doctor.ps1",
+      "bytes": 1787
+    },
+    {
+      "sha256": "a452fe4f9a81f12c2011193b63b78f6b409d0b976d44472e17c0b2606374c6db",
+      "path": "tools/Test-M0.ps1",
+      "bytes": 1903
+    },
+    {
+      "sha256": "aab5bb8a1f3313497f2a94dd3dcf70610a5de821d5f590008d3928a1bd71dfb2",
+      "path": "tools/Test-M1Prerequisites.ps1",
+      "bytes": 3984
+    },
+    {
+      "sha256": "696034f8acef40e63c81df10dca4327438269e22b70240562c59a9a7d208cb42",
+      "path": "tools/Test-P1-01.ps1",
+      "bytes": 2803
+    },
+    {
+      "sha256": "f07ff43bb2cda126bdd0722af7533322119af06aeb95a7b9978e39cdc304b428",
+      "path": "tools/xtask/Cargo.toml",
+      "bytes": 150
+    },
+    {
+      "sha256": "d998c6d04c8a53f8c3071f3cb82225f1688e44b08d6c644f4b915431d955e626",
+      "path": "tools/xtask/src/elf.rs",
+      "bytes": 7546
+    },
+    {
+      "sha256": "13dccf898604f950eaf87ca4657d879d5d0bb8b46ea7f4495f1573b7b2a7b57f",
+      "path": "tools/xtask/src/main.rs",
+      "bytes": 10315
+    }
+  ],
+  "phase0_acceptance_run": "1792298272929",
+  "p1_tests_run": "1792298303602",
+  "dependency_recheck_run": "1792298405478",
+  "qemu_publisher_sha512_match": true,
+  "limine_binary_upstream_sha256_match": true,
+  "binding_registry_sha256_match": true,
+  "reviewed_loader_source": {
+    "sha256": "7fd17620519a6686504542e807349c2a685f19d4b2dadad66c7efad4e4e3ec46",
+    "finding": "SUPPORTED_BASE_REVISION 6; base revision <=6 accepted; narrow base3 structures reviewed",
+    "url": "https://raw.githubusercontent.com/Limine-Bootloader/Limine/v12.9.3/common/protos/limine.c"
+  },
+  "commands": [
+    "pwsh -NoProfile -File tools/Test-M0.ps1",
+    "cargo xtask doctor --profile m1 --json",
+    "pwsh -NoProfile -File tools/Test-P1-01.ps1",
+    "cargo check --locked --manifest-path experiments/boot-bindings/Cargo.toml --target x86_64-unknown-none",
+    "pwsh -NoProfile -File tools/Supply-M1Prerequisites.ps1",
+    "pwsh -NoProfile -File tools/Probe-Dependencies.ps1",
+    "node audit/check-docs.cjs"
+  ],
+  "boot_tested": false
+}

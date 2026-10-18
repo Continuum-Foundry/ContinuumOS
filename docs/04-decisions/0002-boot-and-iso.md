@@ -25,6 +25,18 @@ code from reset. An ISO needs an explicit writable data image for durable change
 
 ## Gate and reconsideration
 
+Phase 0 review (2026-10-18): Limine 12.9.3's upstream ISO recipe and Rust OSDev
+bootloader 0.11.17's disk-image path were reviewed. Neither was boot-tested.
+Native QEMU, OVMF and ISO tooling remain missing; [M1 runbook](../05-delivery/phase-0.md).
+No loader/protocol integration is accepted by this review; status remains Proposed.
+
+P1-01 review (2026-10-18): [native host inputs](../05-delivery/phase-1/prerequisites-runbook.md)
+are now supplied and locked. Limine 0.6.5 Rust bindings require nightly and were
+rejected; 0.5.0 passes the narrow stable base-revision-3 compile probe. The pinned
+loader source supports that base revision. Native xorriso executes outside the
+sandbox's MSYS2 named-object restriction. Firmware/ISO boot and actual handoff
+compatibility remain unverified; this decision stays Proposed.
+
 M1 cold-boots the ISO with host shares/network disabled and records readiness. M8
 repeats from packaged outputs. Change to an own loader if the user explicitly requires
 first-party boot ownership or loader constraints impede the tested platform.

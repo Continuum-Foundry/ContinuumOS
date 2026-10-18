@@ -1,0 +1,158 @@
+error[E0432]: unresolved import `bitflags`
+ --> work/tools/bindings/limine-0.5.0/src\modules.rs:5:5
+  |
+5 | use bitflags::bitflags;
+  |     ^^^^^^^^ use of unresolved module or unlinked crate `bitflags`
+  |
+  = help: you might be missing a crate named `bitflags`
+
+error[E0432]: unresolved import `bitflags`
+ --> work/tools/bindings/limine-0.5.0/src\mp.rs:5:5
+  |
+5 | use bitflags::bitflags;
+  |     ^^^^^^^^ use of unresolved module or unlinked crate `bitflags`
+  |
+  = help: you might be missing a crate named `bitflags`
+
+error[E0425]: cannot find type `ModuleFlags` in this scope
+  --> work/tools/bindings/limine-0.5.0/src\modules.rs:38:12
+   |
+38 |     flags: ModuleFlags,
+   |            ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `ModuleFlags` in this scope
+  --> work/tools/bindings/limine-0.5.0/src\modules.rs:88:46
+   |
+88 |     pub const fn with_flags(mut self, flags: ModuleFlags) -> Self {
+   |                                              ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `ModuleFlags` in this scope
+  --> work/tools/bindings/limine-0.5.0/src\modules.rs:96:40
+   |
+96 |     pub fn set_flags(&mut self, flags: ModuleFlags) {
+   |                                        ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `ModuleFlags` in this scope
+   --> work/tools/bindings/limine-0.5.0/src\modules.rs:110:28
+    |
+110 |     pub fn flags(&self) -> ModuleFlags {
+    |                            ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `RequestFlags` in module `mp`
+   --> work/tools/bindings/limine-0.5.0/src\request.rs:421:16
+    |
+421 |     flags: mp::RequestFlags,
+    |                ^^^^^^^^^^^^ not found in `mp`
+    |
+help: consider importing this type alias
+    |
+  3 + use crate::smp::RequestFlags;
+    |
+help: if you import `RequestFlags`, refer to it directly
+    |
+421 -     flags: mp::RequestFlags,
+421 +     flags: RequestFlags,
+    |
+
+error[E0433]: cannot find `RequestFlags` in `mp`
+   --> work/tools/bindings/limine-0.5.0/src\request.rs:429:24
+    |
+429 |             flags: mp::RequestFlags::empty(),
+    |                        ^^^^^^^^^^^^ could not find `RequestFlags` in `mp`
+    |
+help: consider importing this type alias
+    |
+  3 + use crate::smp::RequestFlags;
+    |
+help: if you import `RequestFlags`, refer to it directly
+    |
+429 -             flags: mp::RequestFlags::empty(),
+429 +             flags: RequestFlags::empty(),
+    |
+
+error[E0425]: cannot find type `RequestFlags` in module `mp`
+   --> work/tools/bindings/limine-0.5.0/src\request.rs:436:13
+    |
+436 |         mp::RequestFlags,
+    |             ^^^^^^^^^^^^ not found in `mp`
+    |
+help: consider importing this type alias
+    |
+  3 + use crate::smp::RequestFlags;
+    |
+help: if you import `RequestFlags`, refer to it directly
+    |
+436 -         mp::RequestFlags,
+436 +         RequestFlags,
+    |
+
+error[E0425]: cannot find type `RequestFlags` in module `mp`
+   --> work/tools/bindings/limine-0.5.0/src\request.rs:444:32
+    |
+444 |     pub fn flags(&self) -> mp::RequestFlags {
+    |                                ^^^^^^^^^^^^ not found in `mp`
+    |
+help: consider importing this type alias
+    |
+  3 + use crate::smp::RequestFlags;
+    |
+help: if you import `RequestFlags`, refer to it directly
+    |
+444 -     pub fn flags(&self) -> mp::RequestFlags {
+444 +     pub fn flags(&self) -> RequestFlags {
+    |
+
+error[E0425]: cannot find type `ResponseFlags` in module `mp`
+   --> work/tools/bindings/limine-0.5.0/src\response.rs:164:16
+    |
+164 |     flags: mp::ResponseFlags,
+    |                ^^^^^^^^^^^^^ not found in `mp`
+    |
+help: consider importing this type alias
+    |
+  3 + use crate::smp::ResponseFlags;
+    |
+help: if you import `ResponseFlags`, refer to it directly
+    |
+164 -     flags: mp::ResponseFlags,
+164 +     flags: ResponseFlags,
+    |
+
+error[E0425]: cannot find type `ResponseFlags` in module `mp`
+   --> work/tools/bindings/limine-0.5.0/src\response.rs:183:32
+    |
+183 |     pub fn flags(&self) -> mp::ResponseFlags {
+    |                                ^^^^^^^^^^^^^ not found in `mp`
+    |
+help: consider importing this type alias
+    |
+  3 + use crate::smp::ResponseFlags;
+    |
+help: if you import `ResponseFlags`, refer to it directly
+    |
+183 -     pub fn flags(&self) -> mp::ResponseFlags {
+183 +     pub fn flags(&self) -> ResponseFlags {
+    |
+
+error[E0425]: cannot find type `RequestFlags` in module `mp`
+  --> work/tools/bindings/limine-0.5.0/src\smp.rs:20:29
+   |
+20 | pub type RequestFlags = mp::RequestFlags;
+   |                             ^^^^^^^^^^^^ not found in `mp`
+
+error[E0425]: cannot find type `ResponseFlags` in module `mp`
+  --> work/tools/bindings/limine-0.5.0/src\smp.rs:27:30
+   |
+27 | pub type ResponseFlags = mp::ResponseFlags;
+   |                              ^^^^^^^^^^^^^ not found in `mp`
+
+error[E0433]: cannot find type `ModuleFlags` in this scope
+  --> work/tools/bindings/limine-0.5.0/src\modules.rs:48:20
+   |
+48 |             flags: ModuleFlags::empty(),
+   |                    ^^^^^^^^^^^ use of undeclared type `ModuleFlags`
+
+error: aborting due to 15 previous errors
+
+Some errors have detailed explanations: E0425, E0432, E0433.
+For more information about an error, try `rustc --explain E0425`.

@@ -27,7 +27,9 @@ Dependencies are candidates until pinned, compiled and exercised in our environm
 | Vello variant | Renderer research only | Select exact variant, backend, guest portability and memory/driver costs | [S54](sources.md#s54) |
 | xorriso | Host ISO packaging | Tested platform availability and pinned boot recipe; no guest dependency | [S62](sources.md#s62) |
 
-No dependency lockfile is supplied by this research.
+The original research supplied no lockfile. Phase 0 now supplies separate host and
+dependency-experiment lockfiles plus a [compile/tooling report](../05-delivery/phase-0.md).
+These do not admit the candidates to a production kernel or UI stack.
 Slint, Burn and the alternative bootloader are candidates, not new mandatory guest dependencies. Inventing hashes or version
 pins without a build would create false reproducibility. M0 produces the real
 toolchain lock and dependency inventory.

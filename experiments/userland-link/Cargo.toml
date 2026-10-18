@@ -1,0 +1,11 @@
+[package]
+name = "userland-link"
+version = "0.1.0"
+edition.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "userland-link"
+path = "src/main.rs"
+test = false
+bench = false

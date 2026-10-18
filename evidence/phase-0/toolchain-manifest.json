@@ -1,0 +1,107 @@
+{
+  "dirty_source": true,
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "source_base_commit": "39193064188539e083e9054d889a40abce037dda",
+  "host": "x86_64-pc-windows-msvc",
+  "guest": "x86_64-unknown-none",
+  "boot_candidates": {
+    "rust_osdev": {
+      "license": "MIT OR Apache-2.0",
+      "source_reviewed": true,
+      "build_tested": false,
+      "needs_nightly": true,
+      "iso_path": "unverified",
+      "version": "0.11.17",
+      "source": "https://crates.io/crates/bootloader/0.11.17"
+    },
+    "limine": {
+      "downloaded": false,
+      "url": "https://github.com/Limine-Bootloader/Limine/releases/download/v12.9.3/limine-binary.zip",
+      "upstream_reported_sha256": "1bdbbcda650c5dba9b1eca5833d598137bf11bd6289bc89b6bcc4f8f112fa676",
+      "boot_tested": false,
+      "version": "12.9.3",
+      "license": "BSD-2-Clause; redistribution notices must be verified from archive"
+    }
+  },
+  "source_identity": "Build input hashes in m0-results.json and dependency-report.json; not a committed build",
+  "rust_distribution_manifest": {
+    "sha256": "fb152be80975c194aa5fc684b2aec3a6e14e2b855efe2faa4e5f8ae6e590f463",
+    "url": "https://static.rust-lang.org/dist/channel-rust-1.99.1.toml"
+  },
+  "schema_version": 1,
+  "installation_scope": "workspace-local; no persistent PATH or Windows feature changes",
+  "installed_executables": [
+    {
+      "path": "bin/rustc.exe",
+      "sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72"
+    },
+    {
+      "path": "bin/cargo.exe",
+      "sha256": "aa5b8980be3681899fde765ba47e2ed361463ae9dd8ee7cd1963c18d23743a0f"
+    },
+    {
+      "path": "lib/rustlib/x86_64-pc-windows-msvc/bin/rust-lld.exe",
+      "sha256": "53d7ea9474ddbb0f0eda351f2dace3259e77f1175537f64d321c232bc8d29b68"
+    },
+    {
+      "path": "lib/rustlib/x86_64-pc-windows-msvc/bin/llvm-readobj.exe",
+      "sha256": "3fc1f512f1a1316fd522435beaa09c23d13c8a8c3d70a608d3b985964597fd81"
+    },
+    {
+      "path": "lib/rustlib/x86_64-pc-windows-msvc/bin/llvm-nm.exe",
+      "sha256": "d775010e06ebf4a7436c9f2df0c719d57102b2da32f3d2a6a9ed8dc15a68096e"
+    }
+  ],
+  "bootstrap": {
+    "version": "1.29.1",
+    "sha256": "6f4bef66261261fcb43131be8720bab817d403a09edec7455c371974b90bdb7e",
+    "url": "https://static.rust-lang.org/rustup/archive/1.29.1/x86_64-pc-windows-msvc/rustup-init.exe",
+    "license": "MIT OR Apache-2.0"
+  },
+  "timezone": "America/New_York",
+  "distributions": [
+    {
+      "sha256": "4adb46c3707dee790682f7769d86983841148111695f561c843c33daa2af0c9b",
+      "package": "pkg.cargo.target.x86_64-pc-windows-msvc",
+      "url": "https://static.rust-lang.org/dist/2026-10-15/cargo-1.99.1-x86_64-pc-windows-msvc.tar.xz"
+    },
+    {
+      "sha256": "61b0ce740983240f48ceab73b6a1306a6c25bd7c92dc8135e47e8401b16d9b32",
+      "package": "pkg.llvm-tools-preview.target.x86_64-pc-windows-msvc",
+      "url": "https://static.rust-lang.org/dist/2026-10-15/llvm-tools-1.99.1-x86_64-pc-windows-msvc.tar.xz"
+    },
+    {
+      "sha256": "4fe09430ded40b8b3092b49f0a651178eb1f8154ef4d1f1a73f2a3595b2d956f",
+      "package": "pkg.rust-std.target.x86_64-pc-windows-msvc",
+      "url": "https://static.rust-lang.org/dist/2026-10-15/rust-std-1.99.1-x86_64-pc-windows-msvc.tar.xz"
+    },
+    {
+      "sha256": "ae62c0c5ea47af55eb432dabc8f4a92c1815965633fc3ecf4056c02948f302cf",
+      "package": "pkg.rust-std.target.x86_64-unknown-none",
+      "url": "https://static.rust-lang.org/dist/2026-10-15/rust-std-1.99.1-x86_64-unknown-none.tar.xz"
+    },
+    {
+      "sha256": "7da83c2af1f209606b0160f25174d2867c7c7b73667c32c9e5fbcef4f5f45348",
+      "package": "pkg.rustc.target.x86_64-pc-windows-msvc",
+      "url": "https://static.rust-lang.org/dist/2026-10-15/rustc-1.99.1-x86_64-pc-windows-msvc.tar.xz"
+    },
+    {
+      "sha256": "1a4d309df5ecacbefe5798c092a03f9d00aa9e1cbc65673c4ace1367c7a25989",
+      "package": "pkg.rustfmt-preview.target.x86_64-pc-windows-msvc",
+      "url": "https://static.rust-lang.org/dist/2026-10-15/rustfmt-1.99.1-x86_64-pc-windows-msvc.tar.xz"
+    }
+  ],
+  "recorded_date": "2026-10-18",
+  "vm": {
+    "firmware_sha256": null,
+    "machine": "q35; pin versioned machine identifier after tool supply",
+    "boot_tested": false,
+    "ram_mib": 2048,
+    "network": false,
+    "host_shares": false,
+    "vcpus": 1,
+    "qemu_version": null,
+    "accelerator": "tcg planned; not executed"
+  },
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\r\nbinary: rustc\r\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\r\ncommit-date: 2026-10-13\r\nhost: x86_64-pc-windows-msvc\r\nrelease: 1.99.1\r\nLLVM version: 23.1.1"
+}

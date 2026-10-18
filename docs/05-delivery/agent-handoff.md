@@ -3,8 +3,11 @@
 ## Current state
 
 This workspace contains an architecture/research library and agent entry points.
-There is **no implemented kernel, executable build system, VM demo, boot-tested ISO,
-guest driver stack or measured performance result**. All ADRs are Proposed. Example
+Phase 0 adds a native Windows Cargo/xtask build system, independent freestanding
+kernel/userland link probes and dependency experiments. See the
+[runbook](phase-0.md) and [evidence](../../evidence/phase-0/README.md).
+There is **no boot-tested kernel, VM demo, boot-tested ISO, guest driver stack or
+measured guest performance result**. All ADRs are Proposed. Example
 contracts are drafts; sample IDs/digests are synthetic. Do not report implementation
 progress from directory names or document completeness.
 The user approved the [revision-2 reconciled direction](../00-overview/reconciled-plan.md).
@@ -23,17 +26,27 @@ require technical evidence gates.
 
 ## Next action
 
-Execute B01/B02 in M0: inspect actual tools, cross-compilation path, package features,
-linker and VM/ISO feasibility. Generate real environment/toolchain records. Then
-build the smallest original-kernel ISO and hosted UI slice. Do not leap into a
+Follow [the Phase 1 epic and seven ordered stories](phase-1/README.md), starting
+with P1-02. P1-01 now has [host prerequisite evidence](phase-1/prerequisites-runbook.md).
+The remaining stories are local plans, not created Jira issues or completed
+implementation. Do not skip their evidence gates or mark all of B06 complete in M1.
+
+Re-run the Phase 0 acceptance commands before extending the work. B01/B02 now have
+Windows compile/link evidence; B38 remains open. Run `cargo xtask doctor --profile m1`
+against the supplied QEMU/OVMF/ISO inputs, then build the smallest original-kernel ISO in M1.
+Follow with the hosted UI comparison in M2. Do not leap into a
 general Wasm runtime, full browser, GPU stack or custom UI language first.
 Compare Slint/minimal-custom UI through B36 before broad widget investment and
 resolve the actual ISO path through B38. Typed actions are required; optional AI
 B39 follows the first live-reload demo and never gates the AI-free core.
 
-The research PATH check found Node/Git/WSL launchers but not Rust/Cargo/QEMU. Verify
-again; absence from PATH is not proof of absence from the machine. Do not infer that
-WSL is configured. Keep scratch files under `work/` in this workspace and research
+Rust 1.99.1 is installed only in `work/toolchains/`; dot-source `tools/Enter-Dev.ps1`.
+Existing MSVC/SDK were reused. QEMU/OVMF/xorriso are supplied under ignored
+`work/tools/` with [input locks](../../config/m1-inputs.lock.json). xorriso's MSYS2
+runtime needs execution outside the sandbox's named-object restriction; doctor
+reports that restriction as blocked. TCG listings pass; WHPX and virtualization
+inspection remain untested/unknown. WSL is not used. No VM has been launched.
+Keep scratch files under `work/` in this workspace and research
 deliverables under `outputs/`; later source layout is proposed in the build spec.
 
 ## Preserve these constraints

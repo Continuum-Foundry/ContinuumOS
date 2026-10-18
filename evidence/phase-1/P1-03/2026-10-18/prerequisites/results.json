@@ -1,0 +1,36 @@
+{
+  "boot_tested": false,
+  "cases": [
+    {
+      "observed": "passed",
+      "case": "baseline",
+      "status": "passed"
+    },
+    {
+      "observed": "passed",
+      "case": "valid_override",
+      "status": "passed"
+    },
+    {
+      "observed": "blocked",
+      "case": "invalid_override",
+      "status": "passed"
+    },
+    {
+      "observed": "blocked",
+      "case": "corrupted_firmware",
+      "status": "passed"
+    },
+    {
+      "observed": "blocked",
+      "case": "missing_runtime",
+      "status": "passed"
+    },
+    {
+      "observed": "blocked",
+      "case": "missing_lock",
+      "status": "passed"
+    }
+  ],
+  "status": "passed"
+}

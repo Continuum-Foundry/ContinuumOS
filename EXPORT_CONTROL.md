@@ -21,11 +21,28 @@ record. It does not approve later uploads, other recipients, or other services.
 The local push guard may be bypassed for that invocation only and must remain
 installed afterward. No standing remote environment approval is created.
 
+### Additional one-time owner authorization — P1-03, 2026-10-18
+
+After being told that the U.S.-only hold blocks new GitHub uploads and the earlier
+exception is exhausted, the owner instructed: "override, do the push, another
+exemption". This authorizes one push of the completed P1-03 implementation,
+sanitized retained evidence and accompanying documentation to the existing
+GitHub `origin/codex/p1-03-boot-metadata-validation`, followed by creation of its
+pull request against `main`, including the prepared PR text and metadata.
+
+The push authorization is exhausted by the first successful push containing this
+record; the PR authorization is exhausted by creation of that one pull request.
+The local push guard may be bypassed for that single push invocation and must
+remain installed afterward. No other upload, merge, release, remote build or
+standing remote approval is authorized. Geographic containment remains unverified;
+this administrative exception is not legal clearance or a foreign-transfer
+authorization and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material
 until its full handling has been verified to satisfy this policy, except for the
-single owner-authorized push recorded above. The current
+specific owner-authorized transfers recorded above. The current
 local device, storage, AI session, GitHub account, and existing copies have **not**
 been verified as meeting that requirement. Do not infer location from a timezone,
 IP address, billing address, repository visibility, vendor nationality, or a U.S.
@@ -71,7 +88,7 @@ can be bypassed and do not stop other tools, existing clones, services, backups,
 or network traffic. They do not implement geographic enforcement. A fresh clone
 does not automatically install a hooks path. Do not bypass the hold with
 `--no-verify`, alternate clients, archives, or another transport, except for the
-single invocation expressly authorized above.
+specific invocations expressly authorized above.
 
 Repository Cargo configuration defaults to offline mode as a second local
 guardrail; it does not restrict arbitrary build scripts, other tools, or network

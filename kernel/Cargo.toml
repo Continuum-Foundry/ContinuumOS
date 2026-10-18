@@ -18,3 +18,4 @@ limine = { version = "=0.5.0", default-features = false }
 default = []
 emulator-test = []
 fault-before-entry = ["emulator-test"]
+boot-inject = ["emulator-test"]

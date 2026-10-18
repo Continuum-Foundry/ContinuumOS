@@ -1,0 +1,18 @@
+{
+  "arguments": [
+    "-as",
+    "mkisofs",
+    "-R",
+    "-r",
+    "-J",
+    "--efi-boot",
+    "boot/limine/limine-uefi-cd.bin",
+    "-efi-boot-part",
+    "--efi-boot-image",
+    "--protective-msdos-label",
+    "/cygdrive/c/Users/archi/Documents/ContinuumOS/build/m1/run-1792345904537412600-33412/cold-boot-a-package/iso root with spaces",
+    "-o",
+    "/cygdrive/c/Users/archi/Documents/ContinuumOS/build/m1/run-1792345904537412600-33412/cold-boot-a-package/continuum.iso"
+  ],
+  "program": "${WORKSPACE}\\work/tools/iso/usr/bin/xorriso.exe"
+}

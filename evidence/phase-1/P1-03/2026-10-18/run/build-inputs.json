@@ -1,0 +1,37 @@
+{
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+  "flags": [
+    "code-model=kernel",
+    "relocation-model=static",
+    "link-arg=--build-id=none",
+    "link-arg=-Tkernel/link.ld",
+    "remap-path-prefix=/continuum"
+  ],
+  "flavor": "normal",
+  "profile": "kernel-dev",
+  "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+  "schema_version": 1,
+  "sources": {
+    ".cargo/config.toml": "edca149321ded860b2cb2ff4b0c05268fa25a8f3b5138d4915737c1f622c208b",
+    "Cargo.lock": "87e685b48d370f8da6b418e28823f673e5b0da52cba46f5118be8ccbd59bc6ef",
+    "Cargo.toml": "7c466df429cc7e2ef5368d50709f938dda69fb6ae55a5487f61c581073e07175",
+    "config/m1-inputs.lock.json": "40fcf8b60c102b27fa57a736944f526dd6a736c5f4768433bd12de8dabe0c2fc",
+    "kernel/Cargo.toml": "2bdf0afd918c72e8aafe1e983cf1217f8b0c8e1ea1ca4557acbd9f5e946977e5",
+    "kernel/README.md": "4b6132ccbd5269f6ad18ade5b13f7737bea262ce8485e33bae87d7bd89761688",
+    "kernel/link.ld": "70579b5ce770491b5d62861f9cb4ee66b9e56d5adf78ba4489c760f686cf0222",
+    "kernel/src/boot.rs": "1e7373b903d1a3b4cc5f143f201c9cb64158fe8304694f29e7ffaff8f006cf41",
+    "kernel/src/lib.rs": "dfc7b27ae74058d6e31ba6a573e574beb09c2441dffdfaf8e959111674776c45",
+    "kernel/src/main.rs": "2d14a3c31993b6acc3953f4eecf059975c4b4ed0a8ed60be76e40a4281cceeef",
+    "kernel/src/tests.rs": "804822c9b35283fb1b741fceb9c36c725ab361f7c71b988ef75f29f71958ba58",
+    "rust-toolchain.toml": "ec881bd148eca89c390360fa5313ed5725514a0ffaed834f6d3e3ef60c745e18",
+    "tools/Test-M1Prerequisites.ps1": "fab68bd837ec590064d941f51e4595591799060eddf5a9444d58bc8215f7c3a3",
+    "tools/Test-P1-03.ps1": "9f0f6ebb6b8b174a4145ceec957d37690a5211b29d95947fe582efc01ebb3900",
+    "tools/xtask/Cargo.toml": "485b1c4b52db5cae8c6792e80a8ae5145ab62786a32c5ed4838e6b352a9df14b",
+    "tools/xtask/src/elf.rs": "c061abdbff64fc458f312a40aeaf935911dbf12867c79c7a530c10574c309dcb",
+    "tools/xtask/src/m1.rs": "d1afcc7264ee1eadb1f9800fbf02401483b0ca1abd4a06ca7cd108bfda5e39de",
+    "tools/xtask/src/m1_cases.rs": "ed1370d4c1948af4c5d23e12861510fb0da09fb13e193980aa2874f9dc6e9306",
+    "tools/xtask/src/m1_records.rs": "fee34be94f7faae605fd9c7b04fcf43dc2db72787b0b7cc876f1d03ad6498130",
+    "tools/xtask/src/main.rs": "7e8ea019a9bf1fc64336c92bd7a7d2d46a0291dd334572a3aadb16fb47241ce0"
+  },
+  "target": "x86_64-unknown-none"
+}

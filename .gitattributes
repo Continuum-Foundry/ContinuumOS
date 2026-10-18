@@ -3,6 +3,7 @@
 *.iso -text
 # Frozen evidence includes original serial/JSON line endings and tool whitespace.
 /evidence/phase-1/P1-02/** -text -whitespace
+/evidence/phase-1/P1-03/** -text -whitespace
 # Verbatim upstream terms are hashed in legal/notice-provenance.json.
 /licenses/third-party/** -text -whitespace
 /.githooks/* text eol=lf

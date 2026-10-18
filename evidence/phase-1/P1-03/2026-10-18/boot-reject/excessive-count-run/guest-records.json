@@ -1,0 +1,35 @@
+{
+  "complete": false,
+  "records": [
+    {
+      "event": "m1.kernel_entry",
+      "fields": {
+        "build": "73d7b067a53271b98b7c5a8d42f9d438374207ac7b97873e1be0cf6cdc7267ff",
+        "fixture": "excessive-count",
+        "outcome": "ok",
+        "seq": "0",
+        "session": "bd233975a48c862fd7015eddeda1ed43e0d82659a7a897b28cebbe5375e96e36",
+        "session_origin": "host",
+        "stage": "entry",
+        "version": "2"
+      }
+    },
+    {
+      "event": "m1.boot_rejected",
+      "fields": {
+        "build": "73d7b067a53271b98b7c5a8d42f9d438374207ac7b97873e1be0cf6cdc7267ff",
+        "field": "memory",
+        "outcome": "rejected",
+        "reason": "capacity",
+        "seq": "1",
+        "session": "bd233975a48c862fd7015eddeda1ed43e0d82659a7a897b28cebbe5375e96e36",
+        "session_origin": "host",
+        "stage": "metadata",
+        "version": "2"
+      }
+    }
+  ],
+  "rejected": true,
+  "schema_version": 2,
+  "validated": false
+}

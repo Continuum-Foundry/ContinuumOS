@@ -1,0 +1,35 @@
+{
+  "complete": false,
+  "records": [
+    {
+      "event": "m1.kernel_entry",
+      "fields": {
+        "build": "73d7b067a53271b98b7c5a8d42f9d438374207ac7b97873e1be0cf6cdc7267ff",
+        "fixture": "framebuffer-range",
+        "outcome": "ok",
+        "seq": "0",
+        "session": "a091410cbe18618a2e2e7524e8c35487e4386b1ffbe5bc64cb9e8e407630f8c2",
+        "session_origin": "host",
+        "stage": "entry",
+        "version": "2"
+      }
+    },
+    {
+      "event": "m1.boot_rejected",
+      "fields": {
+        "build": "73d7b067a53271b98b7c5a8d42f9d438374207ac7b97873e1be0cf6cdc7267ff",
+        "field": "framebuffer",
+        "outcome": "rejected",
+        "reason": "range",
+        "seq": "1",
+        "session": "a091410cbe18618a2e2e7524e8c35487e4386b1ffbe5bc64cb9e8e407630f8c2",
+        "session_origin": "host",
+        "stage": "metadata",
+        "version": "2"
+      }
+    }
+  ],
+  "rejected": true,
+  "schema_version": 2,
+  "validated": false
+}

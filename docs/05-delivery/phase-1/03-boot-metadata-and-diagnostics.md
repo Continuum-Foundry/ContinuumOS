@@ -1,6 +1,6 @@
 # P1-03 — Validate boot metadata and establish identity
 
-Issue type: Story. Epic: P1. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P1. Status: Done. Owner: Unassigned.
 Depends on: P1-02 Done. Suggested labels: `phase-1`, `boot`, `diagnostics`.
 Backlog: B04. Requirements: R01/R03/R17/R18; preparatory R14 interface discipline.
 Test families: T01/T02; no process ABI or security-completeness claim.
@@ -35,14 +35,14 @@ so later memory code cannot mistake arbitrary loader metadata for usable resourc
 
 ## Acceptance criteria
 
-- [ ] Normal ISO boots produce `m1.boot_info_validated` and checked resource summaries.
-- [ ] Two fresh VM launches have distinct session IDs and the same build ID for the
+- [x] Normal ISO boots produce `m1.boot_info_validated` and checked resource summaries.
+- [x] Two fresh VM launches have distinct session IDs and the same build ID for the
   same kernel; each run keeps one immutable session ID across all checkpoints.
-- [ ] Missing required responses, unsupported protocol revision, arithmetic overflow,
+- [x] Missing required responses, unsupported protocol revision, arithmetic overflow,
   excessive counts and truncated strings produce bounded rejection diagnostics.
-- [ ] A missing optional framebuffer is reported accurately; invalid pitch/format/
+- [x] A missing optional framebuffer is reported accurately; invalid pitch/format/
   range fixtures cannot reach memory ownership or a false ready marker.
-- [ ] Host manifest maps build/session identities to the final ISO hash; no circular
+- [x] Host manifest maps build/session identities to the final ISO hash; no circular
   self-hashing scheme or claimed kernel uptime is introduced.
 
 ## Tests and evidence
@@ -64,4 +64,11 @@ allocation ownership and preserve every live reservation.
 Sources: [boot/platform contract](../../02-architecture/boot-and-platform.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
 
-Implementation revision: Not implemented. Evidence: None. Review: Pending.
+Implementation revision: working tree on `codex/p1-03-boot-metadata-validation`,
+source base `be75100`; exact build inputs/source snapshots and hashes are retained.
+Runbook: [metadata commands, reservations and limits](boot-metadata-runbook.md).
+Evidence: [2026-10-18 acceptance review](../../../evidence/phase-1/P1-03/2026-10-18/README.md).
+Review: Codex checked all five criteria against the corrected final acceptance:
+18 host tests and 17 bounded VM launches with their expected outcomes and cleanup.
+The earlier suite was superseded after the image-boundary review finding. No
+external review is implied. Done for this story; M1 and later gates remain open.

@@ -14,6 +14,9 @@ use std::{
 const TARGET: &str = "x86_64-unknown-none";
 const LIMIT: u64 = 2 * 1024 * 1024;
 const DEADLINE: Duration = Duration::from_secs(30);
+#[path = "m1_records.rs"]
+mod records;
+use records::Expected;
 
 fn read(path: &Path) -> Result<Vec<u8>> {
     fs::read(path).map_err(|e| format!("{}: {e}", path.display()))
@@ -198,6 +201,7 @@ enum Flavor {
     Normal,
     Smoke,
     NoEntry,
+    Inject,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -205,6 +209,7 @@ impl Flavor {
             Self::Normal => "normal",
             Self::Smoke => "iso-smoke",
             Self::NoEntry => "fault-before-entry",
+            Self::Inject => "boot-inject",
         }
     }
     fn features(self) -> &'static str {
@@ -212,29 +217,91 @@ impl Flavor {
             Self::Normal => "",
             Self::Smoke => "emulator-test",
             Self::NoEntry => "fault-before-entry",
+            Self::Inject => "boot-inject",
         }
     }
 }
 fn audit_requests(bytes: &[u8], inspection: &Value) -> Result<()> {
     let words = |a: &[u64]| a.iter().flat_map(|v| v.to_le_bytes()).collect::<Vec<_>>();
-    let mut area = words(&[
+    let locate = |needle: Vec<u8>| -> Result<usize> {
+        let positions = bytes
+            .windows(needle.len())
+            .enumerate()
+            .filter(|(_, b)| *b == needle)
+            .map(|(i, _)| i)
+            .collect::<Vec<_>>();
+        if positions.len() != 1 || positions[0] % 8 != 0 {
+            return Err("Expected one aligned request marker".into());
+        }
+        Ok(positions[0])
+    };
+    let start = locate(words(&[
         0xf6b8f4b39de7d1ae,
         0xfab91a6940fcb9cf,
         0x785c6ed015d3e316,
         0x181e920a7852b9d9,
-    ]);
-    area.extend(words(&[0xf9562b2d5c95a6c8, 0x6a7b384944536bdc, 3]));
-    area.extend(words(&[0xadc0e0531bb10d03, 0x9572709f31764c62]));
-    let positions = bytes
-        .windows(area.len())
-        .enumerate()
-        .filter(|(_, b)| *b == area.as_slice())
-        .map(|(i, _)| i)
-        .collect::<Vec<_>>();
-    if positions.len() != 1 || positions[0] % 8 != 0 {
-        return Err("Expected one aligned retained base-3 request region".into());
+    ]))?;
+    let end = locate(words(&[0xadc0e0531bb10d03, 0x9572709f31764c62]))?;
+    if end <= start || end - start > 4096 {
+        return Err("Invalid request region extent".into());
     }
-    let start = positions[0] as u64;
+    let expected = [
+        (0x48dcf1cb8ad2b852, 0x63984e959a98244b),
+        (0x67cf3d9d378a806f, 0xe304acdfc50c3c62),
+        (0x71ba76863cc55f63, 0xb2644a48c516a487),
+        (0xad97e90e83f1ed67, 0x31eb5d1c5ff23b69),
+        (0x3e7e279702be32af, 0xca1c4f3bd1280cee),
+        (0x9d5827dcd881dd75, 0xa3148604f6fab11b),
+        (0xc5e77b6b397e7b43, 0x27637845accdcf3c),
+        (0xf55038d8e2a1202f, 0x279426fcf5f59740),
+        (0x95c1a0edab0944cb, 0xa4e5cb3842f7488a),
+    ];
+    let word = |i: usize| -> Result<u64> {
+        Ok(u64::from_le_bytes(
+            bytes
+                .get(i..i + 8)
+                .ok_or("Truncated request")?
+                .try_into()
+                .unwrap(),
+        ))
+    };
+    let mut seen = [false; 9];
+    let mut base = false;
+    let mut at = start + 32;
+    while at < end {
+        let first = word(at)?;
+        if first == 0 {
+            at += 8;
+            continue;
+        }
+        if first == 0xf9562b2d5c95a6c8 && word(at + 8)? == 0x6a7b384944536bdc {
+            if base || word(at + 16)? != 3 {
+                return Err("Invalid/duplicate base revision".into());
+            }
+            base = true;
+            at += 24;
+            continue;
+        }
+        if first != 0xc7b1dd30df4c8b88 || word(at + 8)? != 0x0a82e883a194f07b {
+            return Err("Unknown request bytes".into());
+        }
+        let id = (word(at + 16)?, word(at + 24)?);
+        let i = expected
+            .iter()
+            .position(|&v| v == id)
+            .ok_or("Unexpected request ID")?;
+        if seen[i] || word(at + 32)? != if i == 8 { 1 } else { 0 } || word(at + 40)? != 0 {
+            return Err("Invalid request revision/response/duplicate".into());
+        }
+        seen[i] = true;
+        if i == 8 && (word(at + 48)? != 0 || word(at + 56)? != 0 || word(at + 64)? != 0) {
+            return Err("Paging must be four-level only".into());
+        }
+        at += if i == 8 { 72 } else { 48 };
+    }
+    if at != end || !base || seen.iter().any(|&v| !v) {
+        return Err("Missing required retained requests".into());
+    }
     if !inspection["segments"]
         .as_array()
         .ok_or("Missing segments")?
@@ -242,14 +309,73 @@ fn audit_requests(bytes: &[u8], inspection: &Value) -> Result<()> {
         .any(|s| {
             s["flags"] == 6
                 && s["offset"].as_u64().is_some_and(|o| {
-                    start >= o
-                        && start + area.len() as u64 <= o + s["file_size"].as_u64().unwrap_or(0)
+                    start as u64 >= o
+                        && (end + 16) as u64 <= o + s["file_size"].as_u64().unwrap_or(0)
                 })
         })
     {
         return Err("Requests are not in a file-backed RW load segment".into());
     }
     Ok(())
+}
+// Cross-check independent LLVM symbols against ELF program headers. Linker
+// orphans following __image_end must never escape the explicit kernel range.
+fn audit_image_bounds(text: &str, inspection: &Value) -> Result<Value> {
+    let mut values = BTreeMap::new();
+    let mut name = None;
+    for line in text.lines().map(str::trim) {
+        if let Some(field) = line.strip_prefix("Name: ") {
+            name = match field.split_whitespace().next() {
+                Some(n @ ("__image_start" | "__image_end")) => Some(n),
+                _ => None,
+            };
+        }
+        if let Some(value) = line.strip_prefix("Value: ") {
+            if let Some(n) = name.take() {
+                let value = u64::from_str_radix(
+                    value.strip_prefix("0x").ok_or("Invalid image symbol")?,
+                    16,
+                )
+                .map_err(|_| "Invalid image symbol")?;
+                if values.insert(n, value).is_some() {
+                    return Err("Duplicate image boundary symbol".into());
+                }
+            }
+        }
+    }
+    let start = *values.get("__image_start").ok_or("Missing image start")?;
+    let end = *values.get("__image_end").ok_or("Missing image end")?;
+    let mut minimum = u64::MAX;
+    let mut maximum = 0;
+    for segment in inspection["segments"]
+        .as_array()
+        .ok_or("Missing load segments")?
+    {
+        let address = u64::from_str_radix(
+            segment["address"]
+                .as_str()
+                .ok_or("Missing load address")?
+                .strip_prefix("0x")
+                .ok_or("Invalid load address")?,
+            16,
+        )
+        .map_err(|_| "Invalid load address")?;
+        let size = segment["memory_size"]
+            .as_u64()
+            .ok_or("Missing load memory size")?;
+        if size != 0 {
+            minimum = minimum.min(address);
+            maximum = maximum.max(address.checked_add(size).ok_or("Load memory overflow")?);
+        }
+    }
+    if start != minimum || end <= start || end < maximum {
+        return Err(
+            "Kernel image symbols do not cover all PT_LOAD memory including BSS/orphans".into(),
+        );
+    }
+    Ok(
+        json!({"start":format!("{start:#x}"),"end":format!("{end:#x}"),"load_memory_end":format!("{maximum:#x}"),"all_load_memory_including_bss":true}),
+    )
 }
 fn audit_disassembly(text: &str) -> Result<()> {
     for line in text.lines() {
@@ -289,6 +415,7 @@ fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         ".cargo/config.toml",
         "config/m1-inputs.lock.json",
         "tools/Test-M1Prerequisites.ps1",
+        "tools/Test-P1-03.ps1",
     ] {
         sources.insert(p.into(), digest(&root().join(p))?);
     }
@@ -312,6 +439,8 @@ fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             "rustc",
             "--locked",
             "-p",
+            "continuum-kernel",
+            "--bin",
             "continuum-kernel",
             "--target",
             TARGET,
@@ -356,7 +485,7 @@ fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     capture(&mut c, dir, "kernel-build", 180)?;
     let bytes = read(&dir.join(format!("cargo/{TARGET}/kernel-dev/continuum-kernel")))?;
     fs::write(dir.join("kernel.elf"), &bytes).map_err(|e| e.to_string())?;
-    let inspection = elf::inspect(&bytes, "continuum-kernel")?;
+    let mut inspection = elf::inspect(&bytes, "continuum-kernel")?;
     audit_requests(&bytes, &inspection)?;
     for (name, args) in [
         (
@@ -375,6 +504,9 @@ fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     ] {
         let mut cmd = Command::new(llvm.join(format!("{name}.exe")));
         let text = capture(cmd.args(args).arg(dir.join("kernel.elf")), dir, name, 30)?;
+        if name == "llvm-readobj" {
+            inspection["kernel_image_bounds"] = audit_image_bounds(&text, &inspection)?;
+        }
         if name == "llvm-nm" && !text.trim().is_empty() {
             return Err("LLVM found undefined symbols".into());
         }
@@ -396,13 +528,18 @@ fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     write_json(&dir.join("build-manifest.json"), &manifest)?;
     Ok(manifest)
 }
-fn config(missing: bool) -> String {
+fn config(missing: bool, session: &str, fixture: &str, module: bool) -> String {
     format!(
-        "timeout: 0\nserial: yes\nverbose: yes\nremember_last_entry: no\n/ContinuumOS\n    protocol: limine\n    path: boot():/boot/{}\n",
+        "timeout: 0\nserial: yes\nverbose: yes\nremember_last_entry: no\n/ContinuumOS\n    protocol: limine\n    path: boot():/boot/{}\n    cmdline: session={session} fixture={fixture}\n{}",
         if missing {
             "nonexistent.elf"
         } else {
             "kernel.elf"
+        },
+        if module {
+            "    module_path: boot():/boot/fixture.bin\n    module_string: p1-03-fixture\n"
+        } else {
+            ""
         }
     )
 }
@@ -420,7 +557,14 @@ fn iso_path(path: &Path) -> Result<String> {
         &s[3..]
     ))
 }
-fn package(dir: &Path, build_dir: &Path, manifest: &Value, missing: bool) -> Result<Value> {
+fn package(
+    dir: &Path,
+    build_dir: &Path,
+    manifest: &Value,
+    missing: bool,
+    fixture: &str,
+    module: bool,
+) -> Result<Value> {
     let pins = preflight(dir, "package-preflight")?;
     let stage = dir.join("iso root with spaces");
     let files = [
@@ -460,7 +604,35 @@ fn package(dir: &Path, build_dir: &Path, manifest: &Value, missing: bool) -> Res
         fs::copy(source, &target).map_err(|e| e.to_string())?;
         payload.insert(name.to_string(), digest(&target)?);
     }
-    fs::write(stage.join("boot/limine/limine.conf"), config(missing)).map_err(|e| e.to_string())?;
+    // Generated before configuration/packaging; the kernel build is independent.
+    let session = hash(
+        format!(
+            "{}:{}:{}",
+            dir.display(),
+            std::process::id(),
+            SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .map_err(|e| e.to_string())?
+                .as_nanos()
+        )
+        .as_bytes(),
+    );
+    fs::write(
+        stage.join("boot/limine/limine.conf"),
+        config(missing, &session, fixture, module),
+    )
+    .map_err(|e| e.to_string())?;
+    if module {
+        fs::write(
+            stage.join("boot/fixture.bin"),
+            b"P1-03 immutable module fixture\n",
+        )
+        .map_err(|e| e.to_string())?;
+        payload.insert(
+            "boot/fixture.bin".into(),
+            digest(&stage.join("boot/fixture.bin"))?,
+        );
+    }
     payload.insert(
         "boot/limine/limine.conf".into(),
         digest(&stage.join("boot/limine/limine.conf"))?,
@@ -522,56 +694,18 @@ fn package(dir: &Path, build_dir: &Path, manifest: &Value, missing: bool) -> Res
             return Err(format!("ISO payload mismatch: {name}"));
         }
     }
-    let report = json!({"schema_version":1,"build_id":manifest["build_id"],"kernel_sha256":manifest["kernel_sha256"],"iso_sha256":digest(&iso)?,"payload":payload,"uefi_optical_catalog":true,"payload_extraction_verified":true,"fault":if missing {"missing-configured-kernel"} else {"none"},"input_lock_sha256":digest(&root().join("config/m1-inputs.lock.json"))?,"firmware_code_sha256":digest(pins.file("firmware_code")?)?,"firmware_vars_template_sha256":digest(pins.file("firmware_vars")?)?,"bios_tested":false,"boot_tested":false});
+    let report = json!({"schema_version":2,"build_id":manifest["build_id"],"kernel_sha256":manifest["kernel_sha256"],"host_session_id":session,"session_origin":"host; correlation only, not a security credential or reset detector","fixture":fixture,"module_fixture":module,"build_flavor":manifest["flavor"],"configuration_sha256":payload["boot/limine/limine.conf"],"iso_sha256":digest(&iso)?,"payload":payload,"uefi_optical_catalog":true,"payload_extraction_verified":true,"fault":if missing {"missing-configured-kernel"} else {fixture},"input_lock_sha256":digest(&root().join("config/m1-inputs.lock.json"))?,"firmware_code_sha256":digest(pins.file("firmware_code")?)?,"firmware_vars_template_sha256":digest(pins.file("firmware_vars")?)?,"bios_tested":false,"boot_tested":false});
     write_json(&dir.join("iso-manifest.json"), &report)?;
     Ok(report)
 }
 
-// A line is accepted only as a complete record from a new per-process log.
-fn checkpoint(serial: &[u8], id: &str) -> Result<bool> {
-    if serial.len() as u64 > LIMIT {
-        return Err("Serial output limit exceeded".into());
-    }
-    let expected = format!("m1.kernel_entry version=1 build={id}");
-    let mut count = 0;
-    for line in serial.split_inclusive(|b| *b == b'\n') {
-        if line.last() != Some(&b'\n') {
-            continue;
-        }
-        let line = std::str::from_utf8(line)
-            .map_err(|_| "Non-UTF8 serial record")?
-            .trim_end_matches(['\r', '\n']);
-        if line.starts_with("m1.kernel_entry") {
-            if line != expected {
-                return Err("Kernel build identity/record mismatch".into());
-            }
-            count += 1;
-        }
-        if line.starts_with("m1.panic")
-            || line.starts_with("m1.protocol_rejected")
-            || line.starts_with("m1.serial_failed")
-        {
-            return Err(format!("Guest rejection: {line}"));
-        }
-    }
-    if count > 1 {
-        return Err("Duplicate kernel entry".into());
-    }
-    Ok(count == 1)
-}
-fn assertions(serial: &[u8], id: &str, code: Option<i32>, timed_out: bool) -> Result<()> {
-    if timed_out {
-        return Err("Guest deadline exceeded".into());
-    }
-    if !checkpoint(serial, id)? {
-        return Err("Missing complete kernel-entry checkpoint".into());
-    }
-    if code != Some(33) {
-        return Err(format!("Expected emulator test exit 33, got {code:?}"));
-    }
-    Ok(())
-}
-fn observe(c: &mut Command, dir: &Path, id: &str, test: bool, deadline: Duration) -> Result<Value> {
+fn observe(
+    c: &mut Command,
+    dir: &Path,
+    expected: Expected<'_>,
+    test: bool,
+    deadline: Duration,
+) -> Result<Value> {
     let serial = dir.join("serial.log");
     // Reserve a brand-new path. QEMU opens/truncates this file for this process.
     fs::File::create_new(&serial).map_err(|e| e.to_string())?;
@@ -595,13 +729,13 @@ fn observe(c: &mut Command, dir: &Path, id: &str, test: bool, deadline: Duration
                 break None;
             }
         };
-        match checkpoint(&bytes, id) {
-            Ok(true) => {
+        match records::check(&bytes, expected, false) {
+            Ok(progress) if progress.ready() => {
                 if seen_at.is_none() {
                     seen_at = Some(Instant::now());
                 }
             }
-            Ok(false) => {}
+            Ok(_) => {}
             Err(e) => {
                 error = Some(e);
                 break None;
@@ -634,19 +768,25 @@ fn observe(c: &mut Command, dir: &Path, id: &str, test: bool, deadline: Duration
     let checked = if let Some(e) = error {
         Err(e)
     } else if test {
-        assertions(&bytes, id, code, timeout)
+        records::assertions(&bytes, expected, code, timeout)
     } else if !stopped || timeout {
         Err("Normal observation exited unexpectedly or timed out".into())
     } else {
-        checkpoint(&bytes, id).and_then(|found| {
-            if found {
+        records::check(&bytes, expected, true).and_then(|progress| {
+            if progress.ready() {
                 Ok(())
             } else {
                 Err("Checkpoint missing".into())
             }
         })
     };
-    let report = json!({"schema_version":1,"status":if checked.is_ok(){"passed"}else{"failed"},"error":checked.err(),"build_id":id,"pid":pid,"deadline_ms":deadline.as_millis(),"timed_out":timeout,"kernel_entry_observed":checkpoint(&bytes,id).unwrap_or(false),"emulator_test_exit":if test {code}else{None},"final_process_exit":final_status.code(),"host_stopped_after_checkpoint":stopped,"cleanup_reaped":true,"elapsed_host_ms":start.elapsed().as_millis(),"guest_shutdown_claimed":false});
+    let report = json!({"schema_version":1,"status":if checked.is_ok(){"passed"}else{"failed"},"error":checked.err(),"build_id":expected.build,"host_session_id":expected.session,"fixture":expected.fixture,"pid":pid,"deadline_ms":deadline.as_millis(),"timed_out":timeout,"kernel_entry_observed":bytes.split(|b| *b == b'\n').any(|l| l.starts_with(b"m1.kernel_entry ")),"emulator_test_exit":if test {code}else{None},"final_process_exit":final_status.code(),"host_stopped_after_checkpoint":stopped,"cleanup_reaped":true,"elapsed_host_ms":start.elapsed().as_millis(),"guest_shutdown_claimed":false});
+    if let Ok(progress) = records::check(&bytes, expected, true) {
+        write_json(
+            &dir.join("guest-records.json"),
+            &json!({"schema_version":2,"validated":progress.validated,"complete":progress.complete,"rejected":progress.rejected,"records":progress.records}),
+        )?;
+    }
     write_json(&dir.join("run-result.json"), &report)?;
     Ok(report)
 }
@@ -698,22 +838,30 @@ fn launch(dir: &Path, iso_dir: &Path, image: &Value, test: bool) -> Result<Value
         return Err("QEMU backend paths containing commas are unsupported".into());
     }
     let id = image["build_id"].as_str().ok_or("Missing build identity")?;
-    let session_seed = format!(
-        "{}:{}:{}",
-        dir.display(),
-        std::process::id(),
-        SystemTime::now()
-            .duration_since(UNIX_EPOCH)
-            .map_err(|e| e.to_string())?
-            .as_nanos()
-    );
+    let session = image["host_session_id"]
+        .as_str()
+        .ok_or("Missing packaged session")?;
+    let fixture = image["fixture"]
+        .as_str()
+        .ok_or("Missing packaged fixture")?;
     write_json(
         &dir.join("launch-manifest.json"),
-        &json!({"schema_version":1,"build_id":id,"iso_sha256":image["iso_sha256"],"host_session_id":hash(session_seed.as_bytes()),"session_origin":"host; correlation only, not guest identity or reset detection","firmware_code_sha256":digest(pins.file("firmware_code")?)?,"vars_template_sha256":before,"vars_copy_before_sha256":before,"vm":pins.lock["vm"],"test_device":test,"arguments":args.iter().map(|a|sanitize(a)).collect::<Vec<_>>()}),
+        &json!({"schema_version":2,"build_id":id,"iso_sha256":image["iso_sha256"],"configuration_sha256":image["configuration_sha256"],"fixture":fixture,"host_session_id":session,"session_origin":"host; correlation only, not a security credential or reset detector","firmware_code_sha256":digest(pins.file("firmware_code")?)?,"vars_template_sha256":before,"vars_copy_before_sha256":before,"vm":pins.lock["vm"],"test_device":test,"arguments":args.iter().map(|a|sanitize(a)).collect::<Vec<_>>()}),
     )?;
     let mut c = Command::new(pins.file("qemu")?);
     c.args(&args);
-    let mut report = observe(&mut c, dir, id, test, DEADLINE)?;
+    let mut report = observe(
+        &mut c,
+        dir,
+        Expected {
+            build: id,
+            session,
+            fixture,
+            rejection: rejection(fixture),
+        },
+        test,
+        DEADLINE,
+    )?;
     report["vars_copy_after_sha256"] = json!(digest(&vars)?);
     report["iso_sha256"] = image["iso_sha256"].clone();
     report["iso_unchanged_after_run"] = json!(digest(&iso)? == image["iso_sha256"]);
@@ -755,139 +903,34 @@ fn plain_console(bytes: &[u8]) -> String {
     }
     output
 }
+#[path = "m1_cases.rs"]
+mod cases;
+use cases::rejection;
 pub fn execute(action: &str) -> Result<()> {
-    let dir = fresh(action)?;
-    println!("M1 artifacts: {}", dir.display());
-    let result: Result<Value> = (|| {
-        let flavor = if action == "iso-smoke" {
-            Flavor::Smoke
-        } else if action == "iso-negative" {
-            Flavor::NoEntry
-        } else {
-            Flavor::Normal
-        };
-        // Fail before build/package work if packaging/VM prerequisites are blocked.
-        if action != "build" {
-            preflight(&dir, "initial-preflight")?;
-        }
-        let manifest = build(&dir, flavor)?;
-        if action == "build" {
-            return Ok(json!({"compile":"passed","package":"not_run","kernel_entry":"not_run"}));
-        }
-        let image = package(&dir, &dir, &manifest, false)?;
-        if action == "iso" {
-            return Ok(
-                json!({"compile":"passed","package":"passed","kernel_entry":"not_run","iso_sha256":image["iso_sha256"]}),
-            );
-        }
-        if action == "iso-negative" {
-            let run = subdir(&dir, "no-entry-run")?;
-            let no_entry = launch(&run, &dir, &image, true)?;
-            if no_entry["status"] != "failed"
-                || no_entry["timed_out"] != true
-                || no_entry["kernel_entry_observed"] != false
-                || no_entry["cleanup_reaped"] != true
-            {
-                return Err("No-entry fixture did not fail with a clean timeout".into());
-            }
-            let bad_dir = subdir(&dir, "bad-config-package")?;
-            // A smoke-capable payload ensures ignoring the bad loader path
-            // cannot pass this negative test by executing the NoEntry fixture.
-            let good_build = subdir(&dir, "bad-config-kernel")?;
-            let good_manifest = build(&good_build, Flavor::Smoke)?;
-            let bad_image = package(&bad_dir, &good_build, &good_manifest, true)?;
-            let run = subdir(&dir, "bad-config-run")?;
-            let bad = launch(&run, &bad_dir, &bad_image, true)?;
-            if bad["status"] != "failed"
-                || bad["kernel_entry_observed"] != false
-                || bad["cleanup_reaped"] != true
-            {
-                return Err("Missing configured kernel was not rejected".into());
-            }
-            let diagnostic = plain_console(&read_log(&run.join("serial.log"))?);
-            if !diagnostic.contains(
-                "PANIC: limine: Failed to open executable with path `boot():/boot/nonexistent.elf`",
-            ) {
-                return Err("Missing the actual Limine missing-executable diagnostic".into());
-            }
-            return Ok(
-                json!({"compile":"passed","package":"passed","negative_assertions":"passed","no_entry":no_entry,"missing_configured_kernel":bad,"positive_boot":false}),
-            );
-        }
-        let a = launch(
-            &subdir(&dir, "cold-boot-a")?,
-            &dir,
-            &image,
-            action == "iso-smoke",
-        )?;
-        accepted(&a)?;
-        if action == "iso-smoke" {
-            let b = launch(&subdir(&dir, "cold-boot-b")?, &dir, &image, true)?;
-            accepted(&b)?;
-            Ok(
-                json!({"compile":"passed","package":"passed","kernel_entry":"passed","emulator_test_exit":"passed","iso_sha256":image["iso_sha256"],"runs":[a,b]}),
-            )
-        } else {
-            Ok(
-                json!({"compile":"passed","package":"passed","kernel_entry":"observed","host_cleanup":"passed","run":a}),
-            )
-        }
-    })();
-    match result {
-        Ok(stages) => {
-            write_json(
-                &dir.join("result.json"),
-                &json!({"schema_version":1,"action":action,"status":"passed","stages":stages}),
-            )?;
-            println!("{action}: passed; {}", dir.display());
-            Ok(())
-        }
-        Err(e) => {
-            write_json(
-                &dir.join("result.json"),
-                &json!({"schema_version":1,"action":action,"status":"failed","error":sanitize(&e)}),
-            )?;
-            Err(format!("{e}; artifacts retained at {}", dir.display()))
-        }
-    }
+    cases::execute(action)
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
     #[test]
-    fn rejects_false_success() {
-        let good = b"m1.kernel_entry version=1 build=abc\n";
-        assert!(assertions(good, "abc", Some(33), false).is_ok());
-        for (bytes, id, code, timeout) in [
-            (&b""[..], "abc", Some(33), false),
-            (&good[..], "abc", Some(0), false),
-            (&good[..], "abc", Some(35), false),
-            (&good[..], "abc", None, false),
-            (&good[..], "other", Some(33), false),
-            (&good[..], "abc", Some(33), true),
-            (
-                &b"m1.kernel_entry version=1 build=abc"[..],
-                "abc",
-                Some(33),
-                false,
-            ),
-            (
-                &b"m1.kernel_entry version=1 build=abc\nm1.kernel_entry version=1 build=abc\n"[..],
-                "abc",
-                Some(33),
-                false,
-            ),
-            (
-                &b"m1.kernel_entry version=1 build=abc\nm1.panic version=1\n"[..],
-                "abc",
-                Some(33),
-                false,
-            ),
-        ] {
-            assert!(assertions(bytes, id, code, timeout).is_err());
-        }
-        assert!(checkpoint(&vec![b'x'; LIMIT as usize + 1], "abc").is_err());
+    fn image_bounds_include_bss_and_orphan_load_memory() {
+        let image = json!({"segments":[{"address":"0x1000","file_size":256,"memory_size":512}]});
+        let symbols = "Symbol {\n Name: __image_start (1)\n Value: 0x1000\n}\nSymbol {\n Name: __image_end (2)\n Value: 0x1200\n}";
+        assert!(audit_image_bounds(symbols, &image).is_ok());
+        // Orphan GOT after the old marker, or BSS omitted by using file_size.
+        assert!(audit_image_bounds(&symbols.replace("0x1200", "0x1160"), &image).is_err());
+        assert!(
+            audit_image_bounds(&symbols.replace("Value: 0x1000", "Value: 0x1001"), &image).is_err()
+        );
+        assert!(audit_image_bounds("", &image).is_err());
+        assert!(
+            audit_image_bounds(
+                &format!("{symbols}\nName: __image_end\nValue: 0x1200"),
+                &image
+            )
+            .is_err()
+        );
     }
     #[test]
     fn rejects_missing_and_changed_inputs() {
@@ -949,8 +992,8 @@ mod tests {
             ("exit-without-marker", "exit 33", "Missing complete"),
             (
                 "marker-wrong-exit",
-                "[IO.File]::WriteAllText($args[0], 'm1.kernel_entry version=1 build=abc' + [char]10); exit 0",
-                "Expected emulator",
+                "[IO.File]::WriteAllText($args[0], 'm1.kernel_entry version=2 build=abc session=def session_origin=host seq=0 stage=entry outcome=ok fixture=normal' + [char]10); exit 0",
+                "Missing complete",
             ),
             ("timeout", "Start-Sleep -Seconds 10", "deadline"),
             (
@@ -966,7 +1009,19 @@ mod tests {
             c.args(["-NoProfile", "-File"])
                 .arg(&fixture)
                 .arg(dir.join("serial.log"));
-            let r = observe(&mut c, &dir, "abc", true, Duration::from_secs(3)).unwrap();
+            let r = observe(
+                &mut c,
+                &dir,
+                Expected {
+                    build: "abc",
+                    session: "def",
+                    fixture: "normal",
+                    rejection: None,
+                },
+                true,
+                Duration::from_secs(3),
+            )
+            .unwrap();
             assert_eq!(r["status"], "failed");
             assert_eq!(r["cleanup_reaped"], true);
             assert!(r["error"].as_str().unwrap().contains(expected), "{r}");

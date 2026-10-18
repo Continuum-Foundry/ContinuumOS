@@ -32,6 +32,23 @@ Include build ID, image generation, boot arguments, framebuffer pitch/format/siz
 memory ranges and reserved modules. Record boot ID once; uptime uses a monotonic
 clock initialized by the kernel, not the desktop process start time.
 
+P1-03 implements an internal, allocation-free `BootInfoV1` boundary and version-2
+serial record contract; see the [runbook and current evidence status](../05-delivery/phase-1/boot-metadata-runbook.md).
+The demonstrated loader remains pinned at base revision 3 with four-level paging.
+Required handoff responses fail closed; optional framebuffer/module/ACPI absence
+is explicit. Owned copies and retained backing reservations are separate: no
+loader stack, GDT, page table or other loader-reclaimable frame is released here.
+Raw ELF backing may be loader-reclaimable; loaded kernel segments use their
+executable-address response and linker bounds, including BSS. Non-usable memory
+descriptors may overlap; usable and loader-reclaimable descriptors may not.
+
+Bootstrap response/map readability remains a trusted loader/firmware prerequisite.
+Bounds and canonical-address checks do not prove arbitrary pointer mappings.
+The base-3 ACPI locator is physical and has no assumed alignment; recording it
+does not establish that the table is mapped or its checksum valid. P1-06 owns
+table mapping/parsing. Session IDs originate on the host and are copied once;
+they provide correlation, not entropy, uptime, security identity or reset proof.
+
 Framebuffer pitch may exceed width × bytes-per-pixel. Pixel channel ordering and
 memory cache policy are explicit. Reserve mapped framebuffer/MMIO ranges. After
 firmware handoff, use memory access and later our display driver, not firmware

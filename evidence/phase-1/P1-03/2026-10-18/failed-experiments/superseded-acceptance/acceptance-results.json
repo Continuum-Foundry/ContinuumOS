@@ -1,0 +1,155 @@
+{
+  "schema_version": 2,
+  "story": "P1-03",
+  "status": "passed",
+  "commands": [
+    {
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "formatting.log",
+      "name": "formatting",
+      "executable": "cargo"
+    },
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-M0.ps1"
+      ],
+      "exit_code": 0,
+      "log": "m0.log",
+      "name": "m0",
+      "executable": "pwsh"
+    },
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Probe-Dependencies.ps1"
+      ],
+      "exit_code": 0,
+      "log": "dependencies.log",
+      "name": "dependencies",
+      "executable": "pwsh"
+    },
+    {
+      "arguments": [
+        "test",
+        "--locked",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "exit_code": 0,
+      "log": "kernel-host.log",
+      "name": "kernel-host",
+      "executable": "cargo"
+    },
+    {
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--profile",
+        "m1",
+        "--json"
+      ],
+      "exit_code": 0,
+      "log": "doctor.log",
+      "name": "doctor",
+      "executable": "cargo"
+    },
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-P1-01.ps1"
+      ],
+      "exit_code": 0,
+      "log": "prerequisites.log",
+      "name": "prerequisites",
+      "executable": "pwsh"
+    },
+    {
+      "arguments": [
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "exit_code": 0,
+      "log": "run.log",
+      "name": "run",
+      "executable": "cargo"
+    },
+    {
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-smoke"
+      ],
+      "exit_code": 0,
+      "log": "iso-smoke.log",
+      "name": "iso-smoke",
+      "executable": "cargo"
+    },
+    {
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-negative"
+      ],
+      "exit_code": 0,
+      "log": "iso-negative.log",
+      "name": "iso-negative",
+      "executable": "cargo"
+    },
+    {
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "boot-metadata"
+      ],
+      "exit_code": 0,
+      "log": "boot-metadata.log",
+      "name": "boot-metadata",
+      "executable": "cargo"
+    },
+    {
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "boot-reject"
+      ],
+      "exit_code": 0,
+      "log": "boot-reject.log",
+      "name": "boot-reject",
+      "executable": "cargo"
+    }
+  ],
+  "runs": {
+    "boot-metadata": "${WORKSPACE}\\build/m1\\boot-metadata-1792346157931048800-14456",
+    "iso-negative": "${WORKSPACE}\\build/m1\\iso-negative-1792346027222387600-39828",
+    "dependencies": "${WORKSPACE}\\work\\dependency-probes\\1792345875884",
+    "iso-smoke": "${WORKSPACE}\\build/m1\\iso-smoke-1792345960558367500-32588",
+    "run": "${WORKSPACE}\\build/m1\\run-1792345904537412600-33412",
+    "boot-reject": "${WORKSPACE}\\build/m1\\boot-reject-1792346309935655400-27152",
+    "prerequisites": "${WORKSPACE}\\build\\m1\\p1-01-tests-1792345895399",
+    "m0": "${WORKSPACE}\\work\\acceptance\\1792345818682"
+  }
+}

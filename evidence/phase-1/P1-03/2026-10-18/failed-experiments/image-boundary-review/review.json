@@ -1,0 +1,14 @@
+{
+  "acceptance": "acceptance-p1-03-1792345817176",
+  "load_memory_end": "0xffffffff800100f8",
+  "memory_reclaimed": 0,
+  "schema_version": 1,
+  "source_build_id": "9bfd728348fb5032475f397f5a5ada991554120b94fde394b111926bd1732495",
+  "finding": "Orphan GOT followed __image_end; explicit kernel range omitted 160 loaded bytes",
+  "requires_new_acceptance": true,
+  "omitted_bytes": 160,
+  "status": "failed",
+  "image_end": "0xffffffff80010058",
+  "fix": "Place GOT inputs before BSS/end; independently audit symbols against all ELF PT_LOAD memory extents",
+  "automatic_suite_status": "passed"
+}

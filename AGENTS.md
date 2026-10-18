@@ -1,7 +1,8 @@
 # Agent entry point
 
-This workspace contains research/design and Phase 0 Windows build/link probes,
-not a booted or usable OS. See `docs/05-delivery/phase-0.md` and its retained evidence.
+This workspace contains research/design, Phase 0 Windows build/link probes and
+P1-02's minimal original Rust kernel ISO entry. It is not a usable OS or completed
+M1. See `docs/05-delivery/phase-1/minimal-iso-runbook.md` and retained evidence.
 The user approved the reconciled revision-2 roadmap. See
 `docs/00-overview/reconciled-plan.md`; individual library integrations still need validation.
 
@@ -33,5 +34,7 @@ are separate; a booting disk image does not prove the required ISO boots.
 Phase 0 implements compile/tooling feasibility; actual ISO boot starts M1 in
 `docs/05-delivery/milestones.md`. Re-run the Phase 0 checks before extending it.
 Rust is workspace-local under ignored `work/toolchains/`; existing MSVC/SDK were reused.
-No VM, WSL, system setting, physical disk or global package was changed. Missing
-QEMU/OVMF/ISO tooling remains explicit; do not attempt the entire backlog at once.
+Pinned QEMU/OVMF/ISO tools are workspace-local under ignored `work/tools/`.
+P1-02 launches bounded offline QEMU processes; no WSL, system setting, physical
+disk or global package was changed. xorriso needs execution outside the sandbox's
+MSYS2 named-object restriction. Do not attempt the entire backlog at once.

@@ -116,6 +116,10 @@ license suitability, semantics and measurements remain B36/M2, confirmed in M4.
 
 ## Phase 1 packaging and boot runbook
 
+This section records Phase 0's starting point and proposed recipe. P1-01 later
+supplied the tools; P1-02 now implements and demonstrates the minimal ISO route.
+Use the current [minimal ISO runbook](phase-1/minimal-iso-runbook.md) for execution.
+
 The baseline remains Q35, one vCPU, 2 GiB RAM, TCG, software display, UEFI,
 network disabled and no host shares. WHPX is untested. QEMU, OVMF and xorriso are
 missing in the recorded environment, so their versions/hashes are intentionally

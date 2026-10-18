@@ -18,7 +18,7 @@ fn range(bytes: &[u8], offset: u64, size: u64) -> Result<(), String> {
     Ok(())
 }
 
-// A deliberately narrow validator for our two static ELF64 probes, not a guest loader.
+// A narrow validator for the static ELF64 probes and initial kernel, not a guest loader.
 pub fn inspect(bytes: &[u8], component: &str) -> Result<Value, String> {
     if bytes.get(..7) != Some(b"\x7fELF\x02\x01\x01") {
         return Err("Expected ELF64 little-endian version 1".into());
@@ -30,6 +30,7 @@ pub fn inspect(bytes: &[u8], component: &str) -> Result<Value, String> {
     let entry = read(24, 8)?;
     let expected = match component {
         "kernel-link" => 0xffff_ffff_8000_0000,
+        "continuum-kernel" => 0xffff_ffff_8000_0000,
         "userland-link" => 0x400000,
         _ => return Err("Unknown component".into()),
     };

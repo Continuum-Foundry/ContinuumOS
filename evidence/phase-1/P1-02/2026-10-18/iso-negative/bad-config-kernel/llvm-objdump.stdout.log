@@ -1,0 +1,160 @@
+
+${WORKSPACE}\build/m1\iso-negative-1792300262184098500-29412\bad-config-kernel\kernel.elf:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+ffffffff80000000 <kernel_entry>:
+ffffffff80000000:      	pushq	%rax
+ffffffff80000001:      	cli
+ffffffff80000002:      	movw	$0x3f9, %dx     # imm = 0x3F9
+ffffffff80000006:      	xorl	%eax, %eax
+ffffffff80000008:      	outb	%al, %dx
+ffffffff80000009:      	movw	$0x3fb, %dx     # imm = 0x3FB
+ffffffff8000000d:      	movb	$-0x80, %al
+ffffffff8000000f:      	outb	%al, %dx
+ffffffff80000010:      	movw	$0x3f8, %dx     # imm = 0x3F8
+ffffffff80000014:      	movb	$0x1, %al
+ffffffff80000016:      	outb	%al, %dx
+ffffffff80000017:      	movw	$0x3f9, %dx     # imm = 0x3F9
+ffffffff8000001b:      	xorl	%eax, %eax
+ffffffff8000001d:      	outb	%al, %dx
+ffffffff8000001e:      	movw	$0x3fb, %dx     # imm = 0x3FB
+ffffffff80000022:      	movb	$0x3, %al
+ffffffff80000024:      	outb	%al, %dx
+ffffffff80000025:      	movw	$0x3fa, %dx     # imm = 0x3FA
+ffffffff80000029:      	movb	$-0x39, %al
+ffffffff8000002b:      	outb	%al, %dx
+ffffffff8000002c:      	movw	$0x3fc, %dx     # imm = 0x3FC
+ffffffff80000030:      	movb	$0x3, %al
+ffffffff80000032:      	outb	%al, %dx
+ffffffff80000033:      	movq	$-0x7fffdfe0, %rdi # imm = 0x80002020
+ffffffff8000003a:      	callq	0xffffffff800001b0 <_RNvMCs5d9EI26d4gV_6limineNtB2_12BaseRevision12is_supported>
+ffffffff8000003f:      	testb	%al, %al
+ffffffff80000041:      	je	0xffffffff800000d4 <kernel_entry+0xd4>
+ffffffff80000047:      	movq	$-0x7fffefff, %rsi # imm = 0x80001001
+ffffffff8000004e:      	movq	$-0x7fffeffe, %rdi # imm = 0x80001002
+ffffffff80000055:      	movzbl	(%rsi), %ecx
+ffffffff80000058:      	movq	%rdi, %rsi
+ffffffff8000005b:      	movl	$0x1, %edi
+ffffffff80000060:      	movw	$0x3fd, %dx     # imm = 0x3FD
+ffffffff80000064:      	inb	%dx, %al
+ffffffff80000065:      	testb	$0x20, %al
+ffffffff80000067:      	jne	0xffffffff80000090 <kernel_entry+0x90>
+ffffffff80000069:      	cmpl	$0x186a0, %edi  # imm = 0x186A0
+ffffffff8000006f:      	movl	%edi, %edx
+ffffffff80000071:      	pause
+ffffffff80000073:      	adcl	$0x0, %edx
+ffffffff80000076:      	cmpl	$0x186a0, %edi  # imm = 0x186A0
+ffffffff8000007c:      	movl	%edx, %edi
+ffffffff8000007e:      	jb	0xffffffff80000060 <kernel_entry+0x60>
+ffffffff80000080:      	jmp	0xffffffff800000b6 <kernel_entry+0xb6>
+ffffffff80000082:      	nopw	%cs:(%rax,%rax)
+ffffffff80000090:      	xorl	%edi, %edi
+ffffffff80000092:      	cmpq	$-0x7fffef9d, %rsi # imm = 0x80001063
+ffffffff80000099:      	setne	%dil
+ffffffff8000009d:      	addq	%rsi, %rdi
+ffffffff800000a0:      	movl	%eax, %r8d
+ffffffff800000a3:      	movl	%ecx, %eax
+ffffffff800000a5:      	movw	$0x3f8, %dx     # imm = 0x3F8
+ffffffff800000a9:      	outb	%al, %dx
+ffffffff800000aa:      	movl	%r8d, %eax
+ffffffff800000ad:      	cmpq	$-0x7fffef9d, %rsi # imm = 0x80001063
+ffffffff800000b4:      	jne	0xffffffff80000055 <kernel_entry+0x55>
+ffffffff800000b6:      	testb	$0x20, %al
+ffffffff800000b8:      	je	0xffffffff800000e5 <kernel_entry+0xe5>
+ffffffff800000ba:      	movw	$0xf4, %dx
+ffffffff800000be:      	movl	$0x10, %eax
+ffffffff800000c3:      	outl	%eax, %dx
+ffffffff800000c4:      	nopw	%cs:(%rax,%rax)
+ffffffff800000d0:      	cli
+ffffffff800000d1:      	hlt
+ffffffff800000d2:      	jmp	0xffffffff800000d0 <kernel_entry+0xd0>
+ffffffff800000d4:      	movl	$0x1f, %esi
+ffffffff800000d9:      	movq	$-0x7fffef9d, %rdi # imm = 0x80001063
+ffffffff800000e0:      	callq	0xffffffff80000100 <_RNvCs7AGgFjyZMAE_16continuum_kernel4fail>
+ffffffff800000e5:      	movl	$0x1b, %esi
+ffffffff800000ea:      	movq	$-0x7fffef7e, %rdi # imm = 0x80001082
+ffffffff800000f1:      	callq	0xffffffff80000100 <_RNvCs7AGgFjyZMAE_16continuum_kernel4fail>
+ffffffff800000f6:      	int3
+ffffffff800000f7:      	int3
+ffffffff800000f8:      	int3
+ffffffff800000f9:      	int3
+ffffffff800000fa:      	int3
+ffffffff800000fb:      	int3
+ffffffff800000fc:      	int3
+ffffffff800000fd:      	int3
+ffffffff800000fe:      	int3
+ffffffff800000ff:      	int3
+
+ffffffff80000100 <_RNvCs7AGgFjyZMAE_16continuum_kernel4fail>:
+ffffffff80000100:      	pushq	%r14
+ffffffff80000102:      	pushq	%rbx
+ffffffff80000103:      	pushq	%rax
+ffffffff80000104:      	movq	%rsi, %rbx
+ffffffff80000107:      	movq	%rdi, %r14
+ffffffff8000010a:      	movl	$0x1, %esi
+ffffffff8000010f:      	movq	$-0x7ffff000, %rdi # imm = 0x80001000
+ffffffff80000116:      	callq	0xffffffff80000140 <_RNvCs7AGgFjyZMAE_16continuum_kernel6serial>
+ffffffff8000011b:      	movq	%r14, %rdi
+ffffffff8000011e:      	movq	%rbx, %rsi
+ffffffff80000121:      	callq	0xffffffff80000140 <_RNvCs7AGgFjyZMAE_16continuum_kernel6serial>
+ffffffff80000126:      	movw	$0xf4, %dx
+ffffffff8000012a:      	movl	$0x11, %eax
+ffffffff8000012f:      	outl	%eax, %dx
+ffffffff80000130:      	cli
+ffffffff80000131:      	hlt
+ffffffff80000132:      	jmp	0xffffffff80000130 <_RNvCs7AGgFjyZMAE_16continuum_kernel4fail+0x30>
+ffffffff80000134:      	int3
+ffffffff80000135:      	int3
+ffffffff80000136:      	int3
+ffffffff80000137:      	int3
+ffffffff80000138:      	int3
+ffffffff80000139:      	int3
+ffffffff8000013a:      	int3
+ffffffff8000013b:      	int3
+ffffffff8000013c:      	int3
+ffffffff8000013d:      	int3
+ffffffff8000013e:      	int3
+ffffffff8000013f:      	int3
+
+ffffffff80000140 <_RNvCs7AGgFjyZMAE_16continuum_kernel6serial>:
+ffffffff80000140:      	addq	%rdi, %rsi
+ffffffff80000143:      	leaq	0x1(%rdi), %r8
+ffffffff80000147:      	movzbl	(%rdi), %ecx
+ffffffff8000014a:      	movq	%r8, %rdi
+ffffffff8000014d:      	movl	$0x1, %r8d
+ffffffff80000153:      	nopw	%cs:(%rax,%rax)
+ffffffff80000160:      	movw	$0x3fd, %dx     # imm = 0x3FD
+ffffffff80000164:      	inb	%dx, %al
+ffffffff80000165:      	testb	$0x20, %al
+ffffffff80000167:      	jne	0xffffffff80000190 <_RNvCs7AGgFjyZMAE_16continuum_kernel6serial+0x50>
+ffffffff80000169:      	cmpl	$0x186a0, %r8d  # imm = 0x186A0
+ffffffff80000170:      	movl	%r8d, %eax
+ffffffff80000173:      	pause
+ffffffff80000175:      	adcl	$0x0, %eax
+ffffffff80000178:      	cmpl	$0x186a0, %r8d  # imm = 0x186A0
+ffffffff8000017f:      	movl	%eax, %r8d
+ffffffff80000182:      	jb	0xffffffff80000160 <_RNvCs7AGgFjyZMAE_16continuum_kernel6serial+0x20>
+ffffffff80000184:      	jmp	0xffffffff800001a9 <_RNvCs7AGgFjyZMAE_16continuum_kernel6serial+0x69>
+ffffffff80000186:      	nopw	%cs:(%rax,%rax)
+ffffffff80000190:      	xorl	%r8d, %r8d
+ffffffff80000193:      	cmpq	%rsi, %rdi
+ffffffff80000196:      	setne	%r8b
+ffffffff8000019a:      	addq	%rdi, %r8
+ffffffff8000019d:      	movl	%ecx, %eax
+ffffffff8000019f:      	movw	$0x3f8, %dx     # imm = 0x3F8
+ffffffff800001a3:      	outb	%al, %dx
+ffffffff800001a4:      	cmpq	%rsi, %rdi
+ffffffff800001a7:      	jne	0xffffffff80000147 <_RNvCs7AGgFjyZMAE_16continuum_kernel6serial+0x7>
+ffffffff800001a9:      	retq
+ffffffff800001aa:      	int3
+ffffffff800001ab:      	int3
+ffffffff800001ac:      	int3
+ffffffff800001ad:      	int3
+ffffffff800001ae:      	int3
+ffffffff800001af:      	int3
+
+ffffffff800001b0 <_RNvMCs5d9EI26d4gV_6limineNtB2_12BaseRevision12is_supported>:
+ffffffff800001b0:      	cmpq	$0x0, 0x10(%rdi)
+ffffffff800001b5:      	sete	%al
+ffffffff800001b8:      	retq

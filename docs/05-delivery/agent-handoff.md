@@ -6,8 +6,11 @@ This workspace contains an architecture/research library and agent entry points.
 Phase 0 adds a native Windows Cargo/xtask build system, independent freestanding
 kernel/userland link probes and dependency experiments. See the
 [runbook](phase-0.md) and [evidence](../../evidence/phase-0/README.md).
-There is **no boot-tested kernel, VM demo, boot-tested ISO, guest driver stack or
-measured guest performance result**. All ADRs are Proposed. Example
+P1-02 adds a **minimal original Rust kernel cold-booted from a standalone UEFI ISO**
+with serial entry and emulator-only test exits. See the
+[runbook](phase-1/minimal-iso-runbook.md) and [evidence](../../evidence/phase-1/P1-02/2026-10-18/README.md).
+There is no complete M1 readiness, usable desktop, guest driver stack or measured
+guest performance result. All ADRs are Proposed. Example
 contracts are drafts; sample IDs/digests are synthetic. Do not report implementation
 progress from directory names or document completeness.
 The user approved the [revision-2 reconciled direction](../00-overview/reconciled-plan.md).
@@ -27,17 +30,19 @@ require technical evidence gates.
 ## Next action
 
 Follow [the Phase 1 epic and seven ordered stories](phase-1/README.md), starting
-with P1-02. P1-01 now has [host prerequisite evidence](phase-1/prerequisites-runbook.md).
+with P1-03. P1-02's acceptance review is retained; P1-01 has
+[host prerequisite evidence](phase-1/prerequisites-runbook.md).
 The remaining stories are local plans, not created Jira issues or completed
 implementation. Do not skip their evidence gates or mark all of B06 complete in M1.
 
 Re-run the Phase 0 acceptance commands before extending the work. B01/B02 now have
-Windows compile/link evidence; B38 remains open. Run `cargo xtask doctor --profile m1`
-against the supplied QEMU/OVMF/ISO inputs, then build the smallest original-kernel ISO in M1.
+Windows compile/link evidence; B03/B38 have P1-02's minimal UEFI optical route.
+Run `cargo xtask doctor --profile m1` against the supplied QEMU/OVMF/ISO inputs,
+then implement P1-03's checked boot metadata on the demonstrated ISO harness.
 Follow with the hosted UI comparison in M2. Do not leap into a
 general Wasm runtime, full browser, GPU stack or custom UI language first.
 Compare Slint/minimal-custom UI through B36 before broad widget investment and
-resolve the actual ISO path through B38. Typed actions are required; optional AI
+preserve the actual ISO path demonstrated through B38. Typed actions are required; optional AI
 B39 follows the first live-reload demo and never gates the AI-free core.
 
 Rust 1.99.1 is installed only in `work/toolchains/`; dot-source `tools/Enter-Dev.ps1`.
@@ -45,7 +50,8 @@ Existing MSVC/SDK were reused. QEMU/OVMF/xorriso are supplied under ignored
 `work/tools/` with [input locks](../../config/m1-inputs.lock.json). xorriso's MSYS2
 runtime needs execution outside the sandbox's named-object restriction; doctor
 reports that restriction as blocked. TCG listings pass; WHPX and virtualization
-inspection remain untested/unknown. WSL is not used. No VM has been launched.
+inspection remain untested/unknown. WSL is not used. P1-02 launches bounded offline
+TCG VM processes and reaps them after each test.
 Keep scratch files under `work/` in this workspace and research
 deliverables under `outputs/`; later source layout is proposed in the build spec.
 

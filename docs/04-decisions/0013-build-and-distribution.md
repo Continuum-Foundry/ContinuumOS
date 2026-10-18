@@ -33,5 +33,14 @@ M0 records host feasibility. M8 compares two clean builds, explains differences,
 boots the exact released ISO offline and verifies dev authority is disabled. Change
 packaging tools when portability or reproducibility evidence justifies it.
 
+P1-02 evidence (2026-10-18): separate original-kernel dev builds, UEFI optical
+packaging, extracted-payload hash checks, per-process boot artifacts and bounded
+offline smoke/negative tests extend xtask. The final ISO digest is recorded after
+packaging; the embedded build ID hashes prior inputs, avoiding circular hashing.
+See the [runbook](../05-delivery/phase-1/minimal-iso-runbook.md).
+Native MSYS2 xorriso needs its documented execution context and explicit Windows
+path translation. ISO byte reproducibility and Linux parity remain untested;
+this decision stays Proposed.
+
 Evidence: [S61](../01-research/sources.md#s61), [S62](../01-research/sources.md#s62),
 [S64](../01-research/sources.md#s64), [build spec](../05-delivery/build-and-release.md).

@@ -2,9 +2,11 @@
 
 Status: Phase 0 implements `cargo xtask doctor [--json]`,
 `cargo xtask build --profile feasibility` and `cargo xtask test --suite m0`.
-See [the executable runbook](phase-0.md). Other commands below remain proposals.
+See [the executable runbook](phase-0.md).
 P1-01 adds `cargo xtask doctor --profile m1 [--json]` and explicit workspace-only
-[prerequisite supply/validation](phase-1/prerequisites-runbook.md); ISO/run remain proposals.
+[prerequisite supply/validation](phase-1/prerequisites-runbook.md). P1-02 implements
+dev kernel build, M1 ISO, bounded baseline run and named ISO smoke/negative tests;
+see [its runbook](phase-1/minimal-iso-runbook.md). Other commands remain proposals.
 
 ## Proposed repository layout
 
@@ -26,8 +28,8 @@ dist/               ignored verified release artifacts
 ```
 
 The research workspace uses `work/` for scratch files and `outputs/` for deliverables.
-The proposed source layout is for later implementation; no empty kernel directories
-are created to imply code exists.
+`kernel/` now contains P1-02's minimal original Rust kernel. Other future source
+directories are not created to imply implementation.
 
 ## Tooling API proposal
 

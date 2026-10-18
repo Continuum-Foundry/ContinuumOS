@@ -1,5 +1,5 @@
 [workspace]
-members = ["tools/xtask", "experiments/kernel-link", "experiments/userland-link"]
+members = ["tools/xtask", "experiments/kernel-link", "experiments/userland-link", "kernel"]
 default-members = ["tools/xtask"]
 exclude = ["experiments/dependencies"]
 resolver = "2"
@@ -16,3 +16,6 @@ debug = 2
 strip = false
 lto = false
 codegen-units = 1
+
+[profile.kernel-dev]
+inherits = "feasibility"

@@ -1,3 +1,5 @@
 * text=auto eol=lf
 *.elf -text
 *.iso -text
+# Frozen evidence includes original serial/JSON line endings and tool whitespace.
+/evidence/phase-1/P1-02/** -text -whitespace

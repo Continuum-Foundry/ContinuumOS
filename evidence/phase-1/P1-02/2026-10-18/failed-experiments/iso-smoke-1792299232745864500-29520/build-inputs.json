@@ -1,0 +1,30 @@
+{
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+  "flags": [
+    "code-model=kernel",
+    "relocation-model=static",
+    "link-arg=--build-id=none",
+    "link-arg=-Tkernel/link.ld",
+    "remap-path-prefix=/continuum"
+  ],
+  "flavor": "iso-smoke",
+  "profile": "kernel-dev",
+  "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+  "schema_version": 1,
+  "sources": {
+    ".cargo/config.toml": "e437136eeed0e0363b6079899143a5e69ddbeba6b449cf8c8454947bd5dc22f0",
+    "Cargo.lock": "87e685b48d370f8da6b418e28823f673e5b0da52cba46f5118be8ccbd59bc6ef",
+    "Cargo.toml": "58b4f6a5c5d5fa5c410305c14fab41c468aaaf2efa77da8d5c3a7ad58bbf8cf9",
+    "config/m1-inputs.lock.json": "8fe44b04cfa43a418e97797433f10d24d1939cc37a2949af008c6d0bb8005679",
+    "kernel/Cargo.toml": "5513e51e72ef05d60a5a62f8315e91f22fa2a448f044f115a423b5309ffaf1ba",
+    "kernel/link.ld": "5df47a99bec864ddee13b223a543715a322c79be5179715072fbabf45c66fa54",
+    "kernel/src/main.rs": "0a13f6410776167b71dcab79b152d5662f530fdbb4cf329e2e3931dec8823a3f",
+    "rust-toolchain.toml": "ec881bd148eca89c390360fa5313ed5725514a0ffaed834f6d3e3ef60c745e18",
+    "tools/Test-M1Prerequisites.ps1": "fab68bd837ec590064d941f51e4595591799060eddf5a9444d58bc8215f7c3a3",
+    "tools/xtask/Cargo.toml": "f07ff43bb2cda126bdd0722af7533322119af06aeb95a7b9978e39cdc304b428",
+    "tools/xtask/src/elf.rs": "5a584cb84aad677e5e9c6bb3ca4e34bbadb0c4097fefe0647b700a0f34b01c02",
+    "tools/xtask/src/m1.rs": "5a4eb11dbaa4a4afba055e6249b74a1bd578abd8cba933fb06d0753649ad1e4f",
+    "tools/xtask/src/main.rs": "0b78975e947d3e8393eaf704a6db2f8dd65eb287c3ef098acfdd9c7bd1963b7a"
+  },
+  "target": "x86_64-unknown-none"
+}

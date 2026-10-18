@@ -1,6 +1,6 @@
 # P1-02 — Cold-boot a minimal original Rust kernel from ISO
 
-Issue type: Story. Epic: P1. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P1. Status: Done. Owner: Codex.
 Depends on: P1-01 Done. Suggested labels: `phase-1`, `boot`, `kernel`, `build`.
 Backlog: B38, B03, minimal serial slice of B04. Requirements: R01/R02/R03/R16/R17.
 Test families: T01/T02/T12, limited to packaging and minimal boot.
@@ -33,14 +33,14 @@ kernel through UEFI so later kernel work starts from a demonstrated boot path.
 
 ## Acceptance criteria
 
-- [ ] The real kernel links independently with a manifest identifying first-party
+- [x] The real kernel links independently with a manifest identifying first-party
   sources, loader/protocol versions, code model, entry and assembly boundary.
-- [ ] ISO inspection finds the intended UEFI optical boot entry and expected files.
-- [ ] A fresh VM boots the exact hashed ISO and logs `m1.kernel_entry` from our kernel.
-- [ ] Manifest/serial build identities match; an old or unrelated boot log is rejected.
-- [ ] Network, shares, snapshot restore and direct-kernel loading are absent from
+- [x] ISO inspection finds the intended UEFI optical boot entry and expected files.
+- [x] A fresh VM boots the exact hashed ISO and logs `m1.kernel_entry` from our kernel.
+- [x] Manifest/serial build identities match; an old or unrelated boot log is rejected.
+- [x] Network, shares, snapshot restore and direct-kernel loading are absent from
   the captured arguments. No other guest boot disk is attached.
-- [ ] Success, failure and timeout all leave logs and terminate/reap the VM process.
+- [x] Success, failure and timeout all leave logs and terminate/reap the VM process.
   An early emulator exit without the marker never passes.
 
 ## Tests and evidence
@@ -63,4 +63,9 @@ BIOS, USB installation and alternate loaders remain unsupported. P1-03 inherits 
 working serial/packaging harness and boot handoff, not a mature kernel.
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
 
-Implementation revision: Not implemented. Evidence: None. Review: Pending.
+Implementation revision: working tree on `codex/p1-02-minimal-iso-boot`, source
+base `d18bb0a`; exact build inputs/hashes are retained per artifact.
+Evidence: [2026-10-18 acceptance review](../../../evidence/phase-1/P1-02/2026-10-18/README.md).
+Runbook: [minimal ISO commands and limits](minimal-iso-runbook.md).
+Review: Codex checked all six criteria against the retained final acceptance run;
+Done for this minimal UEFI/ISO route, not complete M1. No external review is implied.

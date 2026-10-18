@@ -1,0 +1,50 @@
+{
+  "source_dirty": true,
+  "artifacts": [
+    {
+      "path": "build/m1/run-1792300167703765600-28088/continuum.iso",
+      "sha256": "d24803ba5084e96006a7b9eae88c41db6edd1a19eec1b7890a0b11e4fc22ff6a",
+      "bytes": 5120000
+    },
+    {
+      "path": "build/m1/run-1792300167703765600-28088/kernel.elf",
+      "sha256": "fafd790ed87eedc032bd8527f8e53c864f804cae08ec086c3a38d0d74e0983ce",
+      "bytes": 1067320
+    },
+    {
+      "path": "build/m1/iso-smoke-1792300209027643600-32452/continuum.iso",
+      "sha256": "2ad7b1d0747b13950b064df72a22b712b9f383848b28033f25126584963a54ae",
+      "bytes": 5120000
+    },
+    {
+      "path": "build/m1/iso-smoke-1792300209027643600-32452/kernel.elf",
+      "sha256": "e2356a24dba43705804ea8370efb2f9b0b83258ea5bf66b1a70926c138d9928f",
+      "bytes": 1067480
+    },
+    {
+      "path": "build/m1/iso-negative-1792300262184098500-29412/continuum.iso",
+      "sha256": "28904b5d9d19cb2babc6839c9c19044c1e120b178b5122305a3119ae32fd7408",
+      "bytes": 5117952
+    },
+    {
+      "path": "build/m1/iso-negative-1792300262184098500-29412/kernel.elf",
+      "sha256": "0284bbdd9ab0f5ca3637fa844516f5035ef4333b39b6ead40ff49135238191e6",
+      "bytes": 1066120
+    },
+    {
+      "path": "build/m1/iso-negative-1792300262184098500-29412/bad-config-kernel/kernel.elf",
+      "sha256": "e2356a24dba43705804ea8370efb2f9b0b83258ea5bf66b1a70926c138d9928f",
+      "bytes": 1067480
+    },
+    {
+      "path": "build/m1/iso-negative-1792300262184098500-29412/bad-config-package/continuum.iso",
+      "sha256": "0f86627690efd9c937b9312aeb870c07b74093e8379ee9dd9012a162e7868510",
+      "bytes": 5120000
+    }
+  ],
+  "source_commit": "d18bb0ae74156a1177bbfb69e0728cbc847fc6b8",
+  "source_identity": "Per-build build-inputs.json hashes verified against the current source; docs and evidence are working-tree changes",
+  "schema_version": 1,
+  "branch": "codex/p1-02-minimal-iso-boot",
+  "limits": "Binaries stay in ignored build/m1; retained text is sanitized. This is not a release or ISO reproducibility result."
+}

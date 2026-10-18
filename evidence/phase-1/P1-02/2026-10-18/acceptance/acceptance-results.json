@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "commands": [
+    {
+      "executable": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-M0.ps1"
+      ],
+      "name": "m0",
+      "log": "m0.log",
+      "exit_code": 0
+    },
+    {
+      "executable": "cargo",
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--profile",
+        "m1",
+        "--json"
+      ],
+      "name": "doctor",
+      "log": "doctor.log",
+      "exit_code": 0
+    },
+    {
+      "executable": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-P1-01.ps1"
+      ],
+      "name": "prerequisites",
+      "log": "prerequisites.log",
+      "exit_code": 0
+    },
+    {
+      "executable": "cargo",
+      "arguments": [
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "name": "run",
+      "log": "run.log",
+      "exit_code": 0
+    },
+    {
+      "executable": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-smoke"
+      ],
+      "name": "iso-smoke",
+      "log": "iso-smoke.log",
+      "exit_code": 0
+    },
+    {
+      "executable": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-negative"
+      ],
+      "name": "iso-negative",
+      "log": "iso-negative.log",
+      "exit_code": 0
+    }
+  ],
+  "runs": {
+    "run": "${WORKSPACE}\\build/m1\\run-1792300167703765600-28088",
+    "iso-smoke": "${WORKSPACE}\\build/m1\\iso-smoke-1792300209027643600-32452",
+    "prerequisites": "${WORKSPACE}\\build\\m1\\p1-01-tests-1792300159962",
+    "iso-negative": "${WORKSPACE}\\build/m1\\iso-negative-1792300262184098500-29412",
+    "m0": "${WORKSPACE}\\work\\acceptance\\1792300106381"
+  }
+}

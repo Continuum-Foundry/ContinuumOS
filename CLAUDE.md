@@ -1,8 +1,134 @@
 # Claude entry point
 
-Read [AGENTS.md](AGENTS.md), then [the documentation index](docs/README.md).
-That is the shared source of project instructions for all coding agents.
-Do not maintain a second, divergent architecture here.
+[AGENTS.md](AGENTS.md) and [docs/README.md](docs/README.md) are the shared source
+of project instructions for all coding agents. Read them first. This file adds
+only operational notes for Claude Code: commands, layout and pitfalls. Do not
+record architecture or decisions here; put those in the specs and ADRs.
 
-The handoff includes proposed ADRs, contracts, experiments, acceptance tests,
-risks, and an ordered backlog. There is no implemented kernel or tested ISO yet.
+## Current state (verify before relying on it)
+
+- Original `no_std` Rust kernel (`kernel/`) cold-boots from a standalone UEFI ISO
+  via Limine under QEMU/OVMF and emits versioned serial records. P1-02 (entry) and
+  P1-03 (checked boot metadata) have retained evidence.
+- **Next story: P1-04 exception handling**
+  ([story](docs/05-delivery/phase-1/04-exception-handling.md)). Then P1-05 memory
+  ownership, P1-06 interrupts/timekeeping, P1-07 Phase 1 acceptance.
+- No allocator, owned page tables, IDT, clock, processes, rendering or desktop.
+  All ADRs are *Proposed*. Never describe more than the evidence shows.
+- Check `git log --oneline -10` and the
+  [agent handoff](docs/05-delivery/agent-handoff.md) at session start. Other
+  agents (Codex) also commit here, so this summary may be stale.
+
+## Hard rules
+
+- **Never push, open PRs, upload, or send project material to remote services.**
+  [EXPORT_CONTROL.md](EXPORT_CONTROL.md) puts a U.S.-only handling hold on all of
+  them. `.githooks/pre-push` blocks pushes. Never use `--no-verify` or another
+  transport. Past owner exemptions were one-time and are exhausted. A new
+  exemption must come explicitly from the owner and be recorded in EXPORT_CONTROL.md.
+- Cargo is `offline = true`. Do not fetch crates, install global packages, enable
+  WSL, or change Windows settings. Tools are pinned under ignored `work/`.
+- Do not change pinned versions (Rust `1.99.1`, Limine 12.9.3, `limine` crate
+  `=0.5.0`, QEMU/OVMF in `config/m1-inputs.lock.json`) without a documented experiment.
+- Do not edit retained evidence snapshots under `evidence/`. Add a new dated
+  directory, and keep failed runs.
+- Original material is all rights reserved. Keep third-party notices and record
+  provenance for anything copied or adapted ([LEGAL.md](LEGAL.md)).
+- Work one story at a time, on a local topic branch.
+
+## Environment
+
+Windows host, MSVC target only (`check_pin` rejects other hosts). Every command
+runs from the repo root in a PowerShell session that has dot-sourced:
+
+```powershell
+. ./tools/Enter-Dev.ps1   # sets CARGO_HOME/RUSTUP_HOME to work/toolchains, CARGO_TARGET_DIR=build/cargo
+```
+
+Without it, `cargo` is not on PATH. Shell state does not persist between tool
+calls, so dot-source it inside every PowerShell command.
+
+**PowerShell 7 (`pwsh`) is required but was not installed as of 2026-10-18** (only
+Windows PowerShell 5.1). Effects: the `tools/*.ps1` harnesses that call `pwsh`
+fail, and so does the xtask test
+`m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped`
+(error "program not found"). Set `CONTINUUM_PWSH` to an existing `pwsh.exe`, or
+ask the user to install PowerShell 7. Do not install it yourself. A failure of
+that one test without `pwsh` is environmental. Report it as such, not as a regression.
+
+**xorriso (MSYS2) needs execution outside the sandbox** because of a named-object
+restriction. ISO packaging, `run` and `test --suite m1` therefore need
+`dangerouslyDisableSandbox: true` on that one command. Ask the user if unsure, and
+never change host settings to work around it.
+
+## Commands
+
+```powershell
+# Fast checks (no VM)
+cargo fmt --all -- --check
+cargo test --locked -p xtask                     # host harness unit tests
+cargo test --locked -p continuum-kernel --lib    # allocation-free kernel library on host
+node audit/check-docs.cjs                        # doc links/structure; must report "errors": []
+node audit/check-governance.cjs
+pwsh -NoProfile -File audit/validate-contracts.ps1
+
+# Kernel / ISO / VM (bounded, offline QEMU; artifacts go to build/m1/<label>-<time>-<pid>/)
+cargo xtask doctor --profile m1
+cargo xtask build --profile dev                  # Cargo profile kernel-dev
+cargo xtask iso --profile m1
+cargo xtask run --profile vm-baseline
+cargo xtask test --suite m1 --case iso-smoke     # also: iso-negative, boot-metadata, boot-reject
+
+# Full story acceptance (slow; writes build/m1/acceptance-*)
+pwsh -NoProfile -File tools/Test-M0.ps1
+pwsh -NoProfile -File tools/Test-P1-03.ps1       # latest story harness; copy its pattern for P1-04
+```
+
+`cargo xtask` is an alias for `run --locked --package xtask --` (`.cargo/config.toml`).
+The full `test --suite m1` without `--case` stays unavailable until P1-07.
+
+## Layout
+
+| Path | What it is |
+| :--- | :--- |
+| `kernel/src/main.rs` | Entry point (`kernel_entry`), Limine requests, serial, test exits |
+| `kernel/src/boot.rs`, `lib.rs`, `tests.rs` | Owned `BootInfoV1` validation; host-testable library |
+| `kernel/link.ld` | Kernel linker script; request markers, RX/R segments |
+| `tools/xtask/src/main.rs` | CLI, Phase 0 build/link probes, pin checks |
+| `tools/xtask/src/m1.rs` + `m1/` | M1 harness: `build` (compile + ELF/disasm audits), `package` (ISO), `launch` (QEMU), `observe` (process supervision), `records` (serial contract), `cases`, `inputs`, `process`, `support` |
+| `tools/xtask/src/elf.rs` | Independent ELF inspection |
+| `tools/*.ps1` | Doctor, supply, acceptance and evidence-retention scripts |
+| `experiments/` | Phase 0 link/dependency probes (`dependencies` is excluded from the workspace) |
+| `config/m1-inputs.lock.json` | Pinned QEMU/OVMF/Limine/xorriso inputs and hashes |
+| `docs/` | Specs, ADRs (`04-decisions`), contracts (`06-contracts`), delivery/stories (`05-delivery`) |
+| `evidence/` | Immutable sanitized evidence per story/date |
+| `work/`, `build/` | Ignored: toolchains, tools, scratch, build output |
+
+## Kernel conventions
+
+- Features: `emulator-test` (writes 0x10 → QEMU exit 33 on success, 0x11 → exit 35
+  on rejection via isa-debug-exit port 0xf4), `fault-before-entry`, `boot-inject`.
+  Ordinary builds must reject test fixtures.
+- Serial records are a versioned contract (currently version 2: build ID, session
+  ID, sequence, stage, outcome) validated by `m1/records.rs`. If you change the
+  format, bump the version and update the runbook and records validator together.
+- No heap, no formatting of panic arguments, bounded loops only. Each `unsafe`
+  block and each piece of assembly gets a comment stating its assumption. Assembly
+  stays narrowly scoped and documented (see `kernel/README.md`).
+- Build audits reject FP/SIMD code in the kernel. Use explicit schemas at
+  replaceable boundaries, never Rust memory layout.
+- Every xtask source file is hashed into the build identity, so harness edits
+  change build IDs. That is expected.
+
+## Finishing a story
+
+1. Implement against the story's acceptance criteria. Add host tests and named
+   positive and negative VM cases (success requires the exact marker sequence plus
+   the expected exit code; timeouts, panics and early exits never count).
+2. Add `tools/Test-P1-0N.ps1` modelled on `Test-P1-03.ps1`.
+3. Update the runbook, story file, `kernel/README.md`, the agent handoff, and any
+   affected spec/ADR in the same change. Keep ADRs Proposed.
+4. Retain sanitized evidence under `evidence/phase-1/P1-0N/<date>/`, with a README
+   and `SHA256SUMS.json`.
+5. Run `node audit/check-docs.cjs` and `node audit/check-governance.cjs`.
+6. Commit locally. Do not push.

@@ -1,5 +1,6 @@
 //! Strict version-2 guest record assertions. Firmware/loader output is separate.
-use super::{LIMIT, Result};
+use super::process::LIMIT;
+use crate::Result;
 use serde_json::{Value, json};
 use std::collections::BTreeMap;
 

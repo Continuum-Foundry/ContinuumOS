@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "vm_launches": 17,
+  "distinct_host_sessions": 17,
+  "launches": [
+    {
+      "exit": null,
+      "run": "cold-boot-a-run",
+      "session_id": "099e0574caf3f6fdaea0b5a0f17ecb82a78cd877897a9a49f5d31060ee483fe8",
+      "cleanup_reaped": true,
+      "iso_sha256": "eee7bfb376cad0b046985d004d243c20e1be99aa7d01a6bb50297a2f648bed80",
+      "status": "passed",
+      "case": "run",
+      "build_id": "5fdec03978227c1539bf3a40066f2a0f2453638fa0094b8be6c2dd1db69d54eb"
+    },
+    {
+      "exit": 33,
+      "run": "cold-boot-a-run",
+      "session_id": "6a477db9dc4352c7ca06b19c82bd02b753a54350a3cf3e63c487aa068252b4f9",
+      "cleanup_reaped": true,
+      "iso_sha256": "e327404008300890a2259dd01b747d1ea36128ebbb00f65eee19e2ff28e8d48e",
+      "status": "passed",
+      "case": "iso-smoke",
+      "build_id": "773a6b53c9ef9c15e6980bca9e574f14ffa1e4bb80bb8cbdf4c7bb2cc5fa1348"
+    },
+    {
+      "exit": 33,
+      "run": "cold-boot-b-run",
+      "session_id": "923be4bdf356e6ab51dfc72c5c89b9cc833c00c1bd83222fcf0b2c0fd5dd921e",
+      "cleanup_reaped": true,
+      "iso_sha256": "d18ea1de3e7ec99c21f70eec440db6fd9818a321fa92cfa918df558fa4f0887f",
+      "status": "passed",
+      "case": "iso-smoke",
+      "build_id": "773a6b53c9ef9c15e6980bca9e574f14ffa1e4bb80bb8cbdf4c7bb2cc5fa1348"
+    },
+    {
+      "exit": null,
+      "run": "bad-config-run",
+      "session_id": "c851cd939771a46432a6db2083e17047ad12137e8be189e8a6d5549d357aadbc",
+      "cleanup_reaped": true,
+      "iso_sha256": "ebef76f4bb6cd372203cf9ca8b67e8cfd0cd732d1d7eb04db14e317dbd42602b",
+      "status": "failed",
+      "case": "iso-negative",
+      "build_id": "773a6b53c9ef9c15e6980bca9e574f14ffa1e4bb80bb8cbdf4c7bb2cc5fa1348"
+    },
+    {
+      "exit": null,
+      "run": "no-entry-run",
+      "session_id": "c7082cd0622bf16c4e2599364abaf93a2924e6ac4aeb81828172c551d006379d",
+      "cleanup_reaped": true,
+      "iso_sha256": "cd1970b2d5d1b190a8b6b2d58bdcc5ef642352210d6f5436a2e7784d46685536",
+      "status": "failed",
+      "case": "iso-negative",
+      "build_id": "88aae4cbdc763251cd96d2232ab017fc7d708c35feba696e3c7c079c6cd31fdd"
+    },
+    {
+      "exit": 33,
+      "run": "cold-boot-a-run",
+      "session_id": "62d845a7f5c9e17e372f19ef836e9ee1a2b8b904affd8b9e1210b7a25d64e83b",
+      "cleanup_reaped": true,
+      "iso_sha256": "b375bf9373df1b9c7c32a11edc3508f9337514b38b3aa4359da05a67e3ca5946",
+      "status": "passed",
+      "case": "boot-metadata",
+      "build_id": "773a6b53c9ef9c15e6980bca9e574f14ffa1e4bb80bb8cbdf4c7bb2cc5fa1348"
+    },
+    {
+      "exit": 33,
+      "run": "cold-boot-b-run",
+      "session_id": "2667dd097537337e14dfdadbdf874b21e000ac6dcffe4d25344ab21ce5543ee7",
+      "cleanup_reaped": true,
+      "iso_sha256": "b712b90ef21373b3740be6d9ddaddbfff88410b0d1994be5c62c82b80e12a5f8",
+      "status": "passed",
+      "case": "boot-metadata",
+      "build_id": "773a6b53c9ef9c15e6980bca9e574f14ffa1e4bb80bb8cbdf4c7bb2cc5fa1348"
+    },
+    {
+      "exit": 33,
+      "run": "module-run",
+      "session_id": "6f122cee0f6a04e4c0c377f55d2511143f3e6a6665aae059e18003399ed7eb87",
+      "cleanup_reaped": true,
+      "iso_sha256": "5c0107d1231c8af4927c19f77fa3b34952df036c9c30da035743a32be5bcb913",
+      "status": "passed",
+      "case": "boot-metadata",
+      "build_id": "773a6b53c9ef9c15e6980bca9e574f14ffa1e4bb80bb8cbdf4c7bb2cc5fa1348"
+    },
+    {
+      "exit": 33,
+      "run": "serial-only-run",
+      "session_id": "75ab557795e1cf6fbcb2cf4edbebb4c6ee0c9873637d42a8a6d3d532289dfcb5",
+      "cleanup_reaped": true,
+      "iso_sha256": "c2e72bfe1e8aacf2dede9854469dd4fd3bb8ff4fb0787a8566d7503cfd901de0",
+      "status": "passed",
+      "case": "boot-metadata",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    },
+    {
+      "exit": 35,
+      "run": "excessive-count-run",
+      "session_id": "d38f160af032f0f76f042177c4a111860c2006391ee32d64bddb68bf3f7ec943",
+      "cleanup_reaped": true,
+      "iso_sha256": "1612cd473af07b92e5fec89938347e02fc5088b25940b73ab9fef6336d9463ce",
+      "status": "passed",
+      "case": "boot-reject",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    },
+    {
+      "exit": 35,
+      "run": "framebuffer-format-run",
+      "session_id": "e9cd354741b34cda82fbd64539f727d8129e8a97e675a459fd6d5478eb4962c5",
+      "cleanup_reaped": true,
+      "iso_sha256": "9014578b01213dbc8396c0772ad4bad3c4642579b9904fa1a2af6881a02e9d3f",
+      "status": "passed",
+      "case": "boot-reject",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    },
+    {
+      "exit": 35,
+      "run": "framebuffer-pitch-run",
+      "session_id": "33b90028e2336ca2a2667321e6ae38994717eb76c8eb679caff6e1661f4befd3",
+      "cleanup_reaped": true,
+      "iso_sha256": "de5f324a7070d36741547e06f145e91a81973b3c9f11b68db43229d2d5716742",
+      "status": "passed",
+      "case": "boot-reject",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    },
+    {
+      "exit": 35,
+      "run": "framebuffer-range-run",
+      "session_id": "346027484f3fbe44bd20a13499b1d0e942e91782e1f8d63a16757feceaec0cfd",
+      "cleanup_reaped": true,
+      "iso_sha256": "d84ddea31e2529b2033f02cd907cf3a0533d344179edc04a94f130fc19be30ef",
+      "status": "passed",
+      "case": "boot-reject",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    },
+    {
+      "exit": 35,
+      "run": "missing-required-run",
+      "session_id": "c20edd452531f96c6fbeaa9bcf030d8a995d3918397499d3c0cb6b071cdf61f4",
+      "cleanup_reaped": true,
+      "iso_sha256": "3d08eaff69dd2550a4c0da2ab679019919fde1780e71c50902f57b70f6c6526b",
+      "status": "passed",
+      "case": "boot-reject",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    },
+    {
+      "exit": 35,
+      "run": "range-overflow-run",
+      "session_id": "0adffcf24e5cab8bb45eb06eaacc31d5fc6a47394e0ca87dd409c0f8d2ff1e27",
+      "cleanup_reaped": true,
+      "iso_sha256": "1dd09f9b05a57700a6bd6d470322c312e98dc4473edd62d7fbe4bae8ab84b826",
+      "status": "passed",
+      "case": "boot-reject",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    },
+    {
+      "exit": 35,
+      "run": "unsupported-revision-run",
+      "session_id": "68dd604a3e39c6616c21a07f318a55ba7757fabbeb7665d0e1e670a7b2039266",
+      "cleanup_reaped": true,
+      "iso_sha256": "3fa4db67102329fb938baaca9ad94ff684dfc1291fc1f00a61ece9d2d64ef077",
+      "status": "passed",
+      "case": "boot-reject",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    },
+    {
+      "exit": 35,
+      "run": "unterminated-string-run",
+      "session_id": "81da4005627a353b1af2cc2ca5d799b74cfbc912c6a1f3adf475f290717da0af",
+      "cleanup_reaped": true,
+      "iso_sha256": "048a30f116ee9d5513662669cb557255a9ec07ee82c1a5b31a50c185dd6eee43",
+      "status": "passed",
+      "case": "boot-reject",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    }
+  ],
+  "all_processes_reaped": true,
+  "reviewer": "Codex; local self-review, not external review",
+  "expected_iso_boot_failures": 2,
+  "requirements": [
+    "R01",
+    "R03",
+    "R17",
+    "R18"
+  ],
+  "status": "passed",
+  "builds": [
+    {
+      "kernel_sha256": "b4918820c09d2551069cc037444eb170a06148afee83215e3606401936a9d235",
+      "flavor": "normal",
+      "source_dirty": true,
+      "case": "run",
+      "image_bounds_checked": true,
+      "source_commit": "5d87f81a27545b359e1c00038eebe2e6ef2d0701",
+      "build_id": "5fdec03978227c1539bf3a40066f2a0f2453638fa0094b8be6c2dd1db69d54eb"
+    },
+    {
+      "kernel_sha256": "22fc20f726cc34c279a4051a88a9eded37e2e6dff11eaf396d269a6b8d4f3a6d",
+      "flavor": "iso-smoke",
+      "source_dirty": true,
+      "case": "iso-smoke",
+      "image_bounds_checked": true,
+      "source_commit": "5d87f81a27545b359e1c00038eebe2e6ef2d0701",
+      "build_id": "773a6b53c9ef9c15e6980bca9e574f14ffa1e4bb80bb8cbdf4c7bb2cc5fa1348"
+    },
+    {
+      "kernel_sha256": "e3c4489f77593e9ea1b1a62245a79cc4598ce1713cdeb0d45ebae6c0a95b2b30",
+      "flavor": "fault-before-entry",
+      "source_dirty": true,
+      "case": "iso-negative",
+      "image_bounds_checked": true,
+      "source_commit": "5d87f81a27545b359e1c00038eebe2e6ef2d0701",
+      "build_id": "88aae4cbdc763251cd96d2232ab017fc7d708c35feba696e3c7c079c6cd31fdd"
+    },
+    {
+      "kernel_sha256": "22fc20f726cc34c279a4051a88a9eded37e2e6dff11eaf396d269a6b8d4f3a6d",
+      "flavor": "iso-smoke",
+      "source_dirty": true,
+      "case": "iso-negative",
+      "image_bounds_checked": true,
+      "source_commit": "5d87f81a27545b359e1c00038eebe2e6ef2d0701",
+      "build_id": "773a6b53c9ef9c15e6980bca9e574f14ffa1e4bb80bb8cbdf4c7bb2cc5fa1348"
+    },
+    {
+      "kernel_sha256": "22fc20f726cc34c279a4051a88a9eded37e2e6dff11eaf396d269a6b8d4f3a6d",
+      "flavor": "iso-smoke",
+      "source_dirty": true,
+      "case": "boot-metadata",
+      "image_bounds_checked": true,
+      "source_commit": "5d87f81a27545b359e1c00038eebe2e6ef2d0701",
+      "build_id": "773a6b53c9ef9c15e6980bca9e574f14ffa1e4bb80bb8cbdf4c7bb2cc5fa1348"
+    },
+    {
+      "kernel_sha256": "9079e992c7aa9506616c896543c47682bcfc59a1dde326d72c8504018bd08bde",
+      "flavor": "boot-inject",
+      "source_dirty": true,
+      "case": "boot-metadata",
+      "image_bounds_checked": true,
+      "source_commit": "5d87f81a27545b359e1c00038eebe2e6ef2d0701",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    },
+    {
+      "kernel_sha256": "9079e992c7aa9506616c896543c47682bcfc59a1dde326d72c8504018bd08bde",
+      "flavor": "boot-inject",
+      "source_dirty": true,
+      "case": "boot-reject",
+      "image_bounds_checked": true,
+      "source_commit": "5d87f81a27545b359e1c00038eebe2e6ef2d0701",
+      "build_id": "b57e821a3377e378943884f0802a8ae3097548110addd3135040d305e8299ef1"
+    }
+  ],
+  "acceptance_criteria": {
+    "fresh_immutable_sessions_same_kernel": true,
+    "bounded_required_revision_arithmetic_count_string_rejections": true,
+    "optional_framebuffer_and_invalid_framebuffer_cases": true,
+    "normal_checked_summaries": true,
+    "host_manifest_maps_final_iso": true
+  },
+  "guest_uptime_claimed": false,
+  "positive_metadata_boots": 7,
+  "preparatory_contract_discipline": "R14; internal BootInfo only, no external ABI",
+  "expected_metadata_rejections": 8
+}

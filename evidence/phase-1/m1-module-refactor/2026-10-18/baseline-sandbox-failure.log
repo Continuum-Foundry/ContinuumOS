@@ -1,0 +1,22 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling typenum v1.20.1
+   Compiling zmij v1.0.23
+   Compiling serde_core v1.0.229
+   Compiling const-oid v0.10.2
+   Compiling serde_json v1.0.154
+   Compiling cpufeatures v0.3.1
+   Compiling memchr v2.8.3
+   Compiling itoa v1.0.18
+   Compiling cfg-if v1.0.5
+   Compiling hybrid-array v0.4.15
+   Compiling crypto-common v0.2.2
+   Compiling block-buffer v0.12.1
+error: failed to run custom build command for `zmij v1.0.23`
+
+Caused by:
+  could not execute process `${WORKSPACE}\work\acceptance\1792348073355\host cargo with spaces\debug\build\zmij-f01f35a6034cff6d\build-script-build` (never executed)
+
+Caused by:
+  An Application Control policy has blocked this file. (os error 4551)
+warning: build failed, waiting for other jobs to finish...

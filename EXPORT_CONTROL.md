@@ -38,6 +38,24 @@ standing remote approval is authorized. Geographic containment remains unverifie
 this administrative exception is not legal clearance or a foreign-transfer
 authorization and does not waive applicable law.
 
+### Two scoped owner authorizations — M1 module refactor and README upkeep, 2026-10-18
+
+The owner instructed: "push directly to main (i give you an exemption to do so)
+and then update all of the repo ReadMEs as needed then push directly to main
+again (i give you an exemption to do so again)". This authorizes two successive
+direct pushes to the existing GitHub `origin/main`: first the completed M1 host
+module refactor, sanitized verification evidence, accompanying runbook and this
+authorization record; then the needed repository README updates.
+
+These are exceptions to the administrative transfer hold and ordinary topic-branch
+review procedure. Review is local agent self-review, not independent approval.
+Each authorization is exhausted by its corresponding first successful push. The
+local push guard may be bypassed for those two push invocations only and must
+remain installed afterward. No force push, release, remote build, new recipient,
+or standing remote-environment approval is authorized. Geographic containment
+remains unverified; these administrative exceptions are not legal clearance and
+do not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

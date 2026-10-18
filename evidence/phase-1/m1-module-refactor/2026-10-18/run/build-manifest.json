@@ -1,0 +1,59 @@
+{
+  "assembly": "cli, hlt, in/out only; see kernel/src/main.rs",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "5fdec03978227c1539bf3a40066f2a0f2453638fa0094b8be6c2dd1db69d54eb",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "normal",
+  "inspection": {
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "kernel_image_bounds": {
+      "all_load_memory_including_bss": true,
+      "end": "0xffffffff80010058",
+      "load_memory_end": "0xffffffff80010058",
+      "start": "0xffffffff80000000"
+    },
+    "machine": "x86_64",
+    "relocations": 0,
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 30037,
+        "flags": 5,
+        "memory_size": 30037,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff80008000",
+        "alignment": 4096,
+        "file_size": 2806,
+        "flags": 4,
+        "memory_size": 2806,
+        "offset": 36864
+      },
+      {
+        "address": "0xffffffff80009000",
+        "alignment": 4096,
+        "file_size": 27536,
+        "flags": 6,
+        "memory_size": 28760,
+        "offset": 40960
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "b4918820c09d2551069cc037444eb170a06148afee83215e3606401936a9d235",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "5d87f81a27545b359e1c00038eebe2e6ef2d0701",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M docs/05-delivery/phase-1/minimal-iso-runbook.md\n M tools/xtask/src/m1.rs\n D tools/xtask/src/m1_cases.rs\n D tools/xtask/src/m1_records.rs\n M tools/xtask/src/main.rs\n?? tools/xtask/src/m1/"
+}

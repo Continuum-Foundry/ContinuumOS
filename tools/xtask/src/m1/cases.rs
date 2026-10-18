@@ -1,5 +1,15 @@
 //! Named story tests; every launch gets its own immutable configured ISO.
-use super::*;
+use super::{
+    build::{Flavor, build},
+    inputs::preflight,
+    launch::launch,
+    package::package,
+    process::read_log,
+    support::{fresh, json_read, subdir},
+};
+use crate::{Result, sanitize, write_json};
+use serde_json::{Value, json};
+use std::path::Path;
 
 const REJECTIONS: &[(&str, &str, &str)] = &[
     ("missing-required", "hhdm", "missing"),
@@ -11,7 +21,7 @@ const REJECTIONS: &[(&str, &str, &str)] = &[
     ("framebuffer-format", "framebuffer", "format"),
     ("framebuffer-range", "framebuffer", "range"),
 ];
-pub(super) fn rejection(fixture: &str) -> Option<(&'static str, &'static str)> {
+fn rejection(fixture: &str) -> Option<(&'static str, &'static str)> {
     REJECTIONS
         .iter()
         .find(|(name, _, _)| *name == fixture)
@@ -30,7 +40,7 @@ fn boot_run(
     let packaged = subdir(dir, &format!("{label}-package"))?;
     let image = package(&packaged, build_dir, manifest, missing, fixture, module)?;
     let run = subdir(dir, &format!("{label}-run"))?;
-    let mut report = launch(&run, &packaged, &image, test)?;
+    let mut report = launch(&run, &packaged, &image, test, rejection(fixture))?;
     report["package"] = image;
     report["artifact_directory"] = json!(sanitize(&run.to_string_lossy()));
     if report["status"] == "passed" && rejection(fixture).is_none() {
@@ -209,4 +219,31 @@ pub(super) fn execute(action: &str) -> Result<()> {
             Err(format!("{e}; artifacts retained at {}", dir.display()))
         }
     }
+}
+
+fn accepted(r: &Value) -> Result<()> {
+    if r["status"] == "passed" {
+        Ok(())
+    } else {
+        Err(format!("VM failed: {}", r["error"]))
+    }
+}
+fn plain_console(bytes: &[u8]) -> String {
+    let mut output = String::new();
+    let text = String::from_utf8_lossy(bytes);
+    let mut chars = text.chars();
+    while let Some(c) = chars.next() {
+        if c == '\u{1b}' {
+            if chars.next() == Some('[') {
+                for c in chars.by_ref() {
+                    if ('@'..='~').contains(&c) {
+                        break;
+                    }
+                }
+            }
+        } else {
+            output.push(c);
+        }
+    }
+    output
 }

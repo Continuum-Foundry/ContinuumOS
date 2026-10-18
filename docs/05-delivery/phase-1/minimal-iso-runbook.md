@@ -35,6 +35,23 @@ Smoke builds enable `emulator-test`; negative builds enable `fault-before-entry`
 These are different recorded build identities. No latest-log or latest-ISO cache
 is used. The complete future `test --suite m1` remains unavailable until P1-07.
 
+## Host harness source layout
+
+`tools/xtask/src/m1.rs` is the CLI entry point. Its `m1/` modules separate
+kernel compilation and binary audits (`build`), fresh configuration and verified
+ISO construction (`package`), pinned QEMU preparation (`launch`), and guest
+process supervision and reporting (`observe`). `observe` keeps spawning and
+owning the child together so early errors still kill and reap the process.
+
+`cases` orchestrates the named scenarios and supplies expected rejection outcomes;
+`records` validates the version-2 serial contract. Shared `inputs`, `process` and
+`support` modules handle prerequisite/pin checks, bounded host commands and
+artifact file operations. The command names, manifest schemas and evidence paths
+are preserved. Source moves change the build identity because all xtask sources
+are hashed; session identity remains independent of the kernel build.
+The [module-refactor regression review](../../../evidence/phase-1/m1-module-refactor/2026-10-18/README.md)
+records the post-split acceptance run and build identities.
+
 ## Packaging and cold boots
 
 Every package and launch passes the same strict M1 prerequisite checks as doctor,

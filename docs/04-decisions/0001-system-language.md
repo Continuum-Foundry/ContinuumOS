@@ -33,6 +33,10 @@ Two clean outputs match. [Evidence and limitations](../05-delivery/phase-0.md).
 This validates a build path, not boot/runtime behavior; status remains Proposed.
 
 M0/M1: compile/link a freestanding image, boot diagnostics and exception handling.
+P1-04's [CPU/unsafe review](../05-delivery/phase-1/exception-diagnostics-runbook.md)
+documents stable-Rust fatal exception wrappers and generated-code checks. Stack
+guards, double-fault integration and later user ABI/allocator gates remain open;
+this does not change the Proposed status.
 M3: correct user entry/return and allocator behavior. Reconsider if the target/tooling
 path blocks the agreed scope or a demonstrated Swift spike materially improves it.
 

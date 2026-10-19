@@ -1,4 +1,4 @@
-//! Strict version-2 guest record assertions. Firmware/loader output is separate.
+//! Strict version-3 guest record assertions. Firmware/loader output is separate.
 use super::process::LIMIT;
 use crate::Result;
 use serde_json::{Value, json};
@@ -10,6 +10,7 @@ pub(super) struct Expected<'a> {
     pub session: &'a str,
     pub fixture: &'a str,
     pub rejection: Option<(&'a str, &'a str)>,
+    pub fault_rip: Option<u64>,
 }
 #[derive(Default)]
 pub(super) struct Progress {
@@ -17,11 +18,13 @@ pub(super) struct Progress {
     pub validated: bool,
     pub complete: bool,
     pub rejected: bool,
+    pub exceptions: bool,
+    pub fatal: bool,
     pub records: Vec<Value>,
 }
 impl Progress {
     pub fn ready(&self) -> bool {
-        self.complete || self.rejected
+        self.complete || self.rejected || self.fatal
     }
 }
 pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> Result<Progress> {
@@ -32,6 +35,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
     let mut sequence = 0u64;
     let (mut regions, mut modules, mut framebuffers, mut reservations, mut acpi) = (0, 0, 0, 0, 0);
     let (mut want_regions, mut want_modules, mut want_framebuffers, mut want_acpi) = (0, 0, 0, 0);
+    let mut runtime = None;
     for line in serial.split_inclusive(|b| *b == b'\n') {
         if !line.starts_with(b"m1.") {
             continue;
@@ -77,7 +81,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
             )
             .map_err(|_| format!("Invalid hexadecimal guest field {key}"))
         };
-        if get("version")? != "2"
+        if get("version")? != "3"
             || get("build")? != expected.build
             || get("session")? != expected.session
             || get("session_origin")? != "host"
@@ -92,6 +96,15 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
             return Err("Guest record after terminal outcome".into());
         }
         let (stage, outcome) = (get("stage")?, get("outcome")?);
+        if get("emergency")?
+            != if expected.fixture == "exception-emergency" && event == "m1.exception" {
+                "true"
+            } else {
+                "false"
+            }
+        {
+            return Err("Unexpected emergency logging state".into());
+        }
         match event {
             "m1.kernel_entry" => {
                 if p.entry
@@ -156,7 +169,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
             }
             "m1.memory_region" | "m1.module" | "m1.framebuffer" | "m1.acpi_locator"
             | "m1.reservation" => {
-                if !p.validated || stage != "summary" || outcome != "ok" {
+                if !p.validated || p.exceptions || stage != "summary" || outcome != "ok" {
                     return Err("Resource before validation".into());
                 }
                 if event != "m1.acpi_locator" {
@@ -233,16 +246,94 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     return Err("Excess resource records".into());
                 }
             }
-            "m1.boot_complete" => {
+            "m1.exceptions_ready" => {
                 if !p.validated
-                    || stage != "boot"
+                    || p.exceptions
+                    || stage != "exceptions"
                     || outcome != "ok"
-                    || get("reclaimed_bytes")? != "0"
                     || (regions, modules, framebuffers, acpi)
                         != (want_regions, want_modules, want_framebuffers, want_acpi)
                     || reservations < 2 + modules + framebuffers
                 {
                     return Err("Incomplete resource/reservation summary".into());
+                }
+                if number("idt_entries")? != 256
+                    || number("stack_bytes")? != 65536
+                    || get("double_ist")? != "1"
+                    || get("nmi_ist")? != "2"
+                    || get("guards")? != "false"
+                    || get("if")? != "false"
+                {
+                    return Err("Invalid exception setup".into());
+                }
+                let bases = [hex("runtime_base")?, hex("double_base")?, hex("nmi_base")?];
+                for (i, &base) in bases.iter().enumerate() {
+                    if base < 0xffff800000000000
+                        || base % 4096 != 0
+                        || base.checked_add(65536).is_none()
+                        || bases[..i]
+                            .iter()
+                            .any(|&b| base < b + 65536 && b < base + 65536)
+                    {
+                        return Err("Invalid/overlapping exception stacks".into());
+                    }
+                }
+                runtime = Some(bases[0]);
+                p.exceptions = true;
+            }
+            "m1.exception" | "m1.panic" => {
+                let rip = expected.fault_rip.ok_or("Unexpected fatal diagnostic")?;
+                let panic = expected.fixture == "panic";
+                if !p.exceptions
+                    || outcome != "fatal"
+                    || hex("rip")? != rip
+                    || event != if panic { "m1.panic" } else { "m1.exception" }
+                    || stage != if panic { "panic" } else { "exceptions" }
+                {
+                    return Err("Wrong fatal context or symbolized RIP".into());
+                }
+                let rsp = hex("rsp")?;
+                let base = runtime.ok_or("Missing runtime stack")?;
+                if rsp < base || rsp >= base + 65536 {
+                    return Err("Fault outside owned runtime stack".into());
+                }
+                if panic {
+                    if get("vector")? != "none"
+                        || get("reason")? != "panic"
+                        || number("location_line")? == 0
+                        || hex("error")? != 0
+                        || hex("address")? != 0
+                    {
+                        return Err("Wrong panic context".into());
+                    }
+                } else {
+                    let page = expected.fixture == "exception-page-fault";
+                    if number("vector")? != if page { 14 } else { 6 }
+                        || hex("error")? != 0
+                        || hex("address")? != if page { 0x400000000000 } else { 0 }
+                        || hex("cs")? != 8
+                        || hex("flags")? & 0x200 != 0
+                    {
+                        return Err("Wrong exception vector/error/address/privilege".into());
+                    }
+                    let frame = hex("frame")?;
+                    if frame < base
+                        || frame.checked_add(56).is_none_or(|end| end > base + 65536)
+                        || frame % 8 != 0
+                    {
+                        return Err("Invalid exception frame range".into());
+                    }
+                }
+                p.fatal = true;
+            }
+            "m1.boot_complete" => {
+                if !p.exceptions
+                    || expected.fault_rip.is_some()
+                    || stage != "boot"
+                    || outcome != "ok"
+                    || get("reclaimed_bytes")? != "0"
+                {
+                    return Err("Unexpected boot completion".into());
                 }
                 p.complete = true;
             }
@@ -265,7 +356,16 @@ pub(super) fn assertions(
     if !p.ready() {
         return Err("Missing complete guest outcome".into());
     }
-    let exit = if expected.rejection.is_some() { 35 } else { 33 };
+    if expected.fault_rip.is_some() && !p.fatal {
+        return Err("Missing expected fatal outcome".into());
+    }
+    let exit = if expected.fault_rip.is_some() {
+        37
+    } else if expected.rejection.is_some() {
+        35
+    } else {
+        33
+    };
     if code != Some(exit) {
         return Err(format!("Expected emulator exit {exit}, got {code:?}"));
     }
@@ -277,7 +377,7 @@ mod tests {
     use super::*;
     fn line(event: &str, seq: usize, stage: &str, outcome: &str, detail: &str) -> String {
         format!(
-            "{event} version=2 build=abc session=def session_origin=host seq={seq} stage={stage} outcome={outcome} {detail}\n"
+            "{event} version=3 build=abc session=def session_origin=host seq={seq} stage={stage} outcome={outcome} emergency=false {detail}\n"
         )
     }
     fn good() -> String {
@@ -310,7 +410,14 @@ mod tests {
                 "ok",
                 "base=0x2000 bytes=0x1000 reason=Kernel retained=true",
             )
-            + &line("m1.boot_complete", 5, "boot", "ok", "reclaimed_bytes=0")
+            + &line(
+                "m1.exceptions_ready",
+                5,
+                "exceptions",
+                "ok",
+                "idt_entries=256 runtime_base=0xffffffff80010000 double_base=0xffffffff80020000 nmi_base=0xffffffff80030000 stack_bytes=65536 double_ist=1 nmi_ist=2 guards=false if=false",
+            )
+            + &line("m1.boot_complete", 6, "boot", "ok", "reclaimed_bytes=0")
     }
     #[test]
     fn rejects_false_or_incomplete_success() {
@@ -319,6 +426,7 @@ mod tests {
             session: "def",
             fixture: "normal",
             rejection: None,
+            fault_rip: None,
         };
         let good = good();
         assert!(assertions(good.as_bytes(), e, Some(33), false).is_ok());
@@ -326,7 +434,7 @@ mod tests {
             good.replace("session=def", "session=other"),
             good.replace("build=abc", "build=other"),
             good.replace("seq=2", "seq=1"),
-            good.replace("version=2", "version=1"),
+            good.replace("version=3", "version=1"),
             good.clone() + &line("m1.panic", 6, "panic", "rejected", "reason=panic"),
             good.clone() + &line("m1.kernel_entry", 6, "entry", "ok", "fixture=normal"),
             good.replace("regions=1", "regions=2"),
@@ -355,6 +463,7 @@ mod tests {
             session: "def",
             fixture: "missing-required",
             rejection: Some(("required", "missing")),
+            fault_rip: None,
         };
         let rejected = line(
             "m1.kernel_entry",
@@ -403,5 +512,82 @@ mod tests {
             )
             .is_err()
         );
+    }
+    #[test]
+    fn fatal_requires_exact_hardware_context_symbol_and_exit() {
+        for (fixture, event, stage, detail) in [
+            (
+                "exception-invalid-opcode",
+                "m1.exception",
+                "exceptions",
+                "vector=6 rip=0xffffffff80000010 error=0x0 address=0x0 rsp=0xffffffff8001ff00 cs=0x8 flags=0x2 frame=0xffffffff8001fec8",
+            ),
+            (
+                "exception-page-fault",
+                "m1.exception",
+                "exceptions",
+                "vector=14 rip=0xffffffff80000010 error=0x0 address=0x400000000000 rsp=0xffffffff8001ff00 cs=0x8 flags=0x2 frame=0xffffffff8001fec0",
+            ),
+            (
+                "panic",
+                "m1.panic",
+                "panic",
+                "vector=none rip=0xffffffff80000010 error=0x0 address=0x0 rsp=0xffffffff8001ff00 location_line=1 reason=panic",
+            ),
+            (
+                "exception-emergency",
+                "m1.exception",
+                "exceptions",
+                "vector=6 rip=0xffffffff80000010 error=0x0 address=0x0 rsp=0xffffffff8001ff00 cs=0x8 flags=0x2 frame=0xffffffff8001fec8",
+            ),
+        ] {
+            let expected = Expected {
+                build: "abc",
+                session: "def",
+                fixture,
+                rejection: None,
+                fault_rip: Some(0xffffffff80000010),
+            };
+            let prefix = good()
+                .lines()
+                .take(6)
+                .collect::<Vec<_>>()
+                .join("\n")
+                .replace("fixture=normal", &format!("fixture={fixture}"))
+                + "\n";
+            let terminal = line(event, 6, stage, "fatal", detail);
+            let terminal = if fixture == "exception-emergency" {
+                terminal.replace("emergency=false", "emergency=true")
+            } else {
+                terminal
+            };
+            let log = prefix.clone() + &terminal;
+            assert!(
+                assertions(log.as_bytes(), expected, Some(37), false).is_ok(),
+                "{log}"
+            );
+            for bad in [
+                prefix,
+                log.replace("rip=0xffffffff80000010", "rip=0xffffffff80000011"),
+                log.replace("error=0x0", "error=0x1"),
+                log.replace("rsp=0xffffffff8001ff00", "rsp=0x1000"),
+                log.replace("outcome=fatal", "outcome=ok"),
+                log.replace("seq=6", "seq=7"),
+                log.replace(
+                    "double_base=0xffffffff80020000",
+                    "double_base=0xffffffff80010000",
+                ),
+                log.clone() + &line("m1.boot_complete", 7, "boot", "ok", "reclaimed_bytes=0"),
+            ] {
+                assert!(
+                    assertions(bad.as_bytes(), expected, Some(37), false).is_err(),
+                    "{bad}"
+                );
+            }
+            for code in [None, Some(0), Some(33), Some(35)] {
+                assert!(assertions(log.as_bytes(), expected, code, false).is_err());
+            }
+            assert!(assertions(log.as_bytes(), expected, Some(37), true).is_err());
+        }
     }
 }

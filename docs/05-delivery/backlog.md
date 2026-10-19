@@ -6,6 +6,10 @@ fixed diagnostics and correlated identities on that profile; see its
 [runbook](phase-1/boot-metadata-runbook.md) and
 [acceptance review](../../evidence/phase-1/P1-03/2026-10-18/README.md).
 Later runtime gates remain open. B36 has preliminary reviews only.
+P1-04 implements B05's fatal exception subset; see its
+[runbook and acceptance status](phase-1/exception-diagnostics-runbook.md).
+Frame ownership, page tables, guards and actual double-fault integration remain
+P1-05; B05 as a whole is not complete.
 Owner column means a responsibility, not an assigned
 agent/person. Read milestone gates before picking work. `→` dependencies must pass;
 tasks within a gate can share infrastructure without implying simultaneous agents.

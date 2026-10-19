@@ -66,6 +66,19 @@ pub(super) fn launch(
     let fixture = image["fixture"]
         .as_str()
         .ok_or("Missing packaged fixture")?;
+    let symbol = match fixture {
+        "exception-invalid-opcode" | "exception-emergency" => Some("diagnostic_invalid_opcode"),
+        "exception-page-fault" => Some("diagnostic_page_fault_site"),
+        "panic" => Some("diagnostic_panic_report"),
+        _ => None,
+    };
+    let fault_rip = symbol
+        .map(|s| {
+            image["diagnostic_sites"][s]
+                .as_u64()
+                .ok_or("Missing fault symbol")
+        })
+        .transpose()?;
     write_json(
         &dir.join("launch-manifest.json"),
         &json!({"schema_version":2,"build_id":id,"iso_sha256":image["iso_sha256"],"configuration_sha256":image["configuration_sha256"],"fixture":fixture,"host_session_id":session,"session_origin":"host; correlation only, not a security credential or reset detector","firmware_code_sha256":digest(pins.file("firmware_code")?)?,"vars_template_sha256":before,"vars_copy_before_sha256":before,"vm":pins.lock["vm"],"test_device":test,"arguments":args.iter().map(|a|sanitize(a)).collect::<Vec<_>>()}),
@@ -80,6 +93,7 @@ pub(super) fn launch(
             session,
             fixture,
             rejection,
+            fault_rip,
         },
         test,
         DEADLINE,

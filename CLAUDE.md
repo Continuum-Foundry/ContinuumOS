@@ -10,10 +10,11 @@ record architecture or decisions here; put those in the specs and ADRs.
 - Original `no_std` Rust kernel (`kernel/`) cold-boots from a standalone UEFI ISO
   via Limine under QEMU/OVMF and emits versioned serial records. P1-02 (entry) and
   P1-03 (checked boot metadata) have retained evidence.
-- **Next story: P1-04 exception handling**
-  ([story](docs/05-delivery/phase-1/04-exception-handling.md)). Then P1-05 memory
-  ownership, P1-06 interrupts/timekeeping, P1-07 Phase 1 acceptance.
-- No allocator, owned page tables, IDT, clock, processes, rendering or desktop.
+- P1-04 adds owned fatal exception entry and static stacks; check its
+  [story and review status](docs/05-delivery/phase-1/04-exception-handling.md).
+  Next after acceptance: P1-05 memory ownership, then P1-06 interrupts/timekeeping,
+  P1-07 Phase 1 acceptance. Actual double-fault/guard integration remains P1-05.
+- No allocator, owned page tables, clock, processes, rendering or desktop.
   All ADRs are *Proposed*. Never describe more than the evidence shows.
 - Check `git log --oneline -10` and the
   [agent handoff](docs/05-delivery/agent-handoff.md) at session start. Other
@@ -48,18 +49,14 @@ runs from the repo root in a PowerShell session that has dot-sourced:
 Without it, `cargo` is not on PATH. Shell state does not persist between tool
 calls, so dot-source it inside every PowerShell command.
 
-**PowerShell 7 (`pwsh`) is required but was not installed as of 2026-10-18** (only
-Windows PowerShell 5.1). Effects: the `tools/*.ps1` harnesses that call `pwsh`
-fail, and so does the xtask test
-`m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped`
-(error "program not found"). Set `CONTINUUM_PWSH` to an existing `pwsh.exe`, or
-ask the user to install PowerShell 7. Do not install it yourself. A failure of
-that one test without `pwsh` is environmental. Report it as such, not as a regression.
+**PowerShell 7 (`pwsh`) is required.** It is available from the bundled Codex
+runtime in the 2026-10-19 session; verify discovery in a fresh environment.
+If absent, point `CONTINUUM_PWSH` to an existing executable; do not install globally.
 
 **xorriso (MSYS2) needs execution outside the sandbox** because of a named-object
 restriction. ISO packaging, `run` and `test --suite m1` therefore need
-`dangerouslyDisableSandbox: true` on that one command. Ask the user if unsure, and
-never change host settings to work around it.
+the execution tool's per-command sandbox escalation. Never change host settings
+to work around it.
 
 ## Commands
 
@@ -81,7 +78,7 @@ cargo xtask test --suite m1 --case iso-smoke     # also: iso-negative, boot-meta
 
 # Full story acceptance (slow; writes build/m1/acceptance-*)
 pwsh -NoProfile -File tools/Test-M0.ps1
-pwsh -NoProfile -File tools/Test-P1-03.ps1       # latest story harness; copy its pattern for P1-04
+pwsh -NoProfile -File tools/Test-P1-04.ps1       # current story harness and prior regressions
 ```
 
 `cargo xtask` is an alias for `run --locked --package xtask --` (`.cargo/config.toml`).
@@ -109,8 +106,8 @@ The full `test --suite m1` without `--case` stays unavailable until P1-07.
 - Features: `emulator-test` (writes 0x10 → QEMU exit 33 on success, 0x11 → exit 35
   on rejection via isa-debug-exit port 0xf4), `fault-before-entry`, `boot-inject`.
   Ordinary builds must reject test fixtures.
-- Serial records are a versioned contract (currently version 2: build ID, session
-  ID, sequence, stage, outcome) validated by `m1/records.rs`. If you change the
+- Serial records are a versioned contract (currently version 3: build ID, session
+  ID, sequence, stage, outcome, emergency flag) validated by `m1/records.rs`. If you change the
   format, bump the version and update the runbook and records validator together.
 - No heap, no formatting of panic arguments, bounded loops only. Each `unsafe`
   block and each piece of assembly gets a comment stating its assumption. Assembly

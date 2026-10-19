@@ -1,6 +1,6 @@
 # P1-04 — Establish bounded kernel exception diagnostics
 
-Issue type: Story. Epic: P1. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P1. Status: Done. Owner: Codex.
 Depends on: P1-03 Done. Suggested labels: `phase-1`, `kernel`, `fault-handling`.
 Backlog: exception subset of B05. Requirements: R01/R03/R17; early R10 groundwork.
 Test families: T01/T02; guest faults are mandatory evidence.
@@ -30,12 +30,12 @@ tables so a kernel fault produces usable evidence rather than an unexplained res
 
 ## Acceptance criteria
 
-- [ ] Normal boot reaches `m1.exceptions_ready` without disturbing existing markers.
-- [ ] Deliberate invalid-opcode and unmapped-access cases produce the expected
+- [x] Normal boot reaches `m1.exceptions_ready` without disturbing existing markers.
+- [x] Deliberate invalid-opcode and unmapped-access cases produce the expected
   distinguishable vector/context and terminate as expected faults, not normal boots.
-- [ ] Panic and emergency reporting operate without heap allocation or scheduler help.
-- [ ] No unexplained reset or triple fault is counted as a passing diagnostic test.
-- [ ] Assembly/unsafe boundaries have review notes against the actual CPU contract;
+- [x] Panic and emergency reporting operate without heap allocation or scheduler help.
+- [x] No unexplained reset or triple fault is counted as a passing diagnostic test.
+- [x] Assembly/unsafe boundaries have review notes against the actual CPU contract;
   no FP/SIMD reliance is introduced by entry or reporting code.
 
 ## Tests and evidence
@@ -57,4 +57,9 @@ Sources: [kernel contract](../../02-architecture/kernel-and-execution.md),
 [CPU source catalogue entry](../../01-research/sources.md#s30).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
 
-Implementation revision: Not implemented. Evidence: None. Review: Pending.
+Implementation: [runbook and CPU/unsafe review](exception-diagnostics-runbook.md).
+Evidence: [2026-10-19 acceptance](../../../evidence/phase-1/P1-04/2026-10-19/README.md).
+Review: Codex local self-review passed all criteria, 19 host tests and 21 VM launches.
+The [final formatting check](../../../evidence/phase-1/P1-04/2026-10-19-formatting/README.md)
+covers the final EOF-only assembly cleanup, unchanged entry wrappers and one additional real fault launch.
+Actual double-fault entry/guard integration remains P1-05; M1 remains incomplete.

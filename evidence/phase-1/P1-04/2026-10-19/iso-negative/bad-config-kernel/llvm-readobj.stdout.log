@@ -1,0 +1,1889 @@
+
+File: ${WORKSPACE}\build/m1\iso-negative-1792452463585769000-6392\bad-config-kernel\kernel.elf
+Format: elf64-x86-64
+Arch: x86_64
+AddressSize: 64bit
+LoadName: <Not found>
+ElfHeader {
+  Ident {
+    Magic: (7F 45 4C 46)
+    Class: 64-bit (0x2)
+    DataEncoding: LittleEndian (0x1)
+    FileVersion: 1
+    OS/ABI: GNU/Linux (0x3)
+    ABIVersion: 0
+    Unused: (00 00 00 00 00 00 00)
+  }
+  Type: Executable (0x2)
+  Machine: EM_X86_64 (0x3E)
+  Version: 1
+  Entry: 0xFFFFFFFF80000000
+  ProgramHeaderOffset: 0x40
+  SectionHeaderOffset: 0x1691E8
+  Flags [ (0x0)
+  ]
+  HeaderSize: 64
+  ProgramHeaderEntrySize: 56
+  ProgramHeaderCount: 3
+  SectionHeaderEntrySize: 64
+  SectionHeaderCount: 17
+  StringTableSectionIndex: 15
+}
+Sections [
+  Section {
+    Index: 0
+    Name:  (0)
+    Type: SHT_NULL (0x0)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x0
+    Size: 0
+    Link: 0
+    Info: 0
+    AddressAlignment: 0
+    EntrySize: 0
+  }
+  Section {
+    Index: 1
+    Name: .text (1)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x6)
+      SHF_ALLOC (0x2)
+      SHF_EXECINSTR (0x4)
+    ]
+    Address: 0xFFFFFFFF80000000
+    Offset: 0x1000
+    Size: 32821
+    Link: 0
+    Info: 0
+    AddressAlignment: 4096
+    EntrySize: 0
+  }
+  Section {
+    Index: 2
+    Name: .rodata (7)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x32)
+      SHF_ALLOC (0x2)
+      SHF_MERGE (0x10)
+      SHF_STRINGS (0x20)
+    ]
+    Address: 0xFFFFFFFF80009000
+    Offset: 0xA000
+    Size: 3691
+    Link: 0
+    Info: 0
+    AddressAlignment: 4096
+    EntrySize: 0
+  }
+  Section {
+    Index: 3
+    Name: .limine_requests (15)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x200003)
+      SHF_ALLOC (0x2)
+      SHF_GNU_RETAIN (0x200000)
+      SHF_WRITE (0x1)
+    ]
+    Address: 0xFFFFFFFF8000A000
+    Offset: 0xB000
+    Size: 528
+    Link: 0
+    Info: 0
+    AddressAlignment: 4096
+    EntrySize: 0
+  }
+  Section {
+    Index: 4
+    Name: .data (32)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x3)
+      SHF_ALLOC (0x2)
+      SHF_WRITE (0x1)
+    ]
+    Address: 0xFFFFFFFF8000B000
+    Offset: 0xC000
+    Size: 23544
+    Link: 0
+    Info: 0
+    AddressAlignment: 4096
+    EntrySize: 0
+  }
+  Section {
+    Index: 5
+    Name: .bss (38)
+    Type: SHT_NOBITS (0x8)
+    Flags [ (0x3)
+      SHF_ALLOC (0x2)
+      SHF_WRITE (0x1)
+    ]
+    Address: 0xFFFFFFFF80011000
+    Offset: 0x11BF8
+    Size: 208896
+    Link: 0
+    Info: 0
+    AddressAlignment: 4096
+    EntrySize: 0
+  }
+  Section {
+    Index: 6
+    Name: .debug_loc (43)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x11BF8
+    Size: 160511
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 7
+    Name: .debug_abbrev (54)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x38EF7
+    Size: 9135
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 8
+    Name: .debug_info (68)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x3B2A6
+    Size: 397557
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 9
+    Name: .debug_aranges (80)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x9C39B
+    Size: 15680
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 10
+    Name: .debug_ranges (95)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0xA00DB
+    Size: 125200
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 11
+    Name: .debug_str (109)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x30)
+      SHF_MERGE (0x10)
+      SHF_STRINGS (0x20)
+    ]
+    Address: 0x0
+    Offset: 0xBE9EB
+    Size: 490980
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 1
+  }
+  Section {
+    Index: 12
+    Name: .debug_frame (120)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x1367D0
+    Size: 33712
+    Link: 0
+    Info: 0
+    AddressAlignment: 8
+    EntrySize: 0
+  }
+  Section {
+    Index: 13
+    Name: .debug_line (133)
+    Type: SHT_PROGBITS (0x1)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x13EB80
+    Size: 161612
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 14
+    Name: .symtab (145)
+    Type: SHT_SYMTAB (0x2)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x1662D0
+    Size: 4128
+    Link: 16
+    Info: 123
+    AddressAlignment: 8
+    EntrySize: 24
+  }
+  Section {
+    Index: 15
+    Name: .shstrtab (153)
+    Type: SHT_STRTAB (0x3)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x1672F0
+    Size: 171
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+  Section {
+    Index: 16
+    Name: .strtab (163)
+    Type: SHT_STRTAB (0x3)
+    Flags [ (0x0)
+    ]
+    Address: 0x0
+    Offset: 0x16739B
+    Size: 7753
+    Link: 0
+    Info: 0
+    AddressAlignment: 1
+    EntrySize: 0
+  }
+]
+ProgramHeaders [
+  ProgramHeader {
+    Type: PT_LOAD (0x1)
+    Offset: 0x1000
+    VirtualAddress: 0xFFFFFFFF80000000
+    PhysicalAddress: 0xFFFFFFFF80000000
+    FileSize: 32821
+    MemSize: 32821
+    Flags [ (0x5)
+      PF_R (0x4)
+      PF_X (0x1)
+    ]
+    Alignment: 4096
+  }
+  ProgramHeader {
+    Type: PT_LOAD (0x1)
+    Offset: 0xA000
+    VirtualAddress: 0xFFFFFFFF80009000
+    PhysicalAddress: 0xFFFFFFFF80009000
+    FileSize: 3691
+    MemSize: 3691
+    Flags [ (0x4)
+      PF_R (0x4)
+    ]
+    Alignment: 4096
+  }
+  ProgramHeader {
+    Type: PT_LOAD (0x1)
+    Offset: 0xB000
+    VirtualAddress: 0xFFFFFFFF8000A000
+    PhysicalAddress: 0xFFFFFFFF8000A000
+    FileSize: 27640
+    MemSize: 237568
+    Flags [ (0x6)
+      PF_R (0x4)
+      PF_W (0x2)
+    ]
+    Alignment: 4096
+  }
+]
+NeededLibraries [
+]
+Relocations [
+]
+Symbols [
+  Symbol {
+    Name:  (0)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: None (0x0)
+    Other: 0
+    Section: Undefined (0x0)
+  }
+  Symbol {
+    Name: continuum_kernel.66a73ec4e1e63cdb-cgu.0 (1)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions13RUNTIME_STACK (41)
+    Value: 0xFFFFFFFF80022000
+    Size: 65536
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .bss (0x5)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions3run (107)
+    Value: 0xFFFFFFFF80003CA0
+    Size: 228
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_0 (162)
+    Value: 0xFFFFFFFF80001FC2
+    Size: 9
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_common (174)
+    Value: 0xFFFFFFFF80002092
+    Size: 19
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_1 (191)
+    Value: 0xFFFFFFFF80001FCB
+    Size: 9
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_2 (203)
+    Value: 0xFFFFFFFF80001FD4
+    Size: 9
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_3 (215)
+    Value: 0xFFFFFFFF80001FDD
+    Size: 9
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_4 (227)
+    Value: 0xFFFFFFFF80001FE6
+    Size: 9
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_5 (239)
+    Value: 0xFFFFFFFF80001FEF
+    Size: 9
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_6 (251)
+    Value: 0xFFFFFFFF80001FF8
+    Size: 9
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_7 (263)
+    Value: 0xFFFFFFFF80002001
+    Size: 9
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_8 (275)
+    Value: 0xFFFFFFFF8000200A
+    Size: 7
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_9 (287)
+    Value: 0xFFFFFFFF80002011
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_10 (299)
+    Value: 0xFFFFFFFF80002017
+    Size: 4
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_11 (312)
+    Value: 0xFFFFFFFF8000201B
+    Size: 4
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_12 (325)
+    Value: 0xFFFFFFFF8000201F
+    Size: 4
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_13 (338)
+    Value: 0xFFFFFFFF80002023
+    Size: 4
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_14 (351)
+    Value: 0xFFFFFFFF80002027
+    Size: 4
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_15 (364)
+    Value: 0xFFFFFFFF8000202B
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_16 (377)
+    Value: 0xFFFFFFFF80002031
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_17 (390)
+    Value: 0xFFFFFFFF80002037
+    Size: 4
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_18 (403)
+    Value: 0xFFFFFFFF8000203B
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_19 (416)
+    Value: 0xFFFFFFFF80002041
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_20 (429)
+    Value: 0xFFFFFFFF80002047
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_21 (442)
+    Value: 0xFFFFFFFF8000204D
+    Size: 4
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_22 (455)
+    Value: 0xFFFFFFFF80002051
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_23 (468)
+    Value: 0xFFFFFFFF80002057
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_24 (481)
+    Value: 0xFFFFFFFF8000205D
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_25 (494)
+    Value: 0xFFFFFFFF80002063
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_26 (507)
+    Value: 0xFFFFFFFF80002069
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_27 (520)
+    Value: 0xFFFFFFFF8000206F
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_28 (533)
+    Value: 0xFFFFFFFF80002075
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_29 (546)
+    Value: 0xFFFFFFFF8000207B
+    Size: 4
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_30 (559)
+    Value: 0xFFFFFFFF8000207F
+    Size: 4
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_31 (572)
+    Value: 0xFFFFFFFF80002083
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions8dispatch (585)
+    Value: 0xFFFFFFFF80004170
+    Size: 307
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvMs4_Cs2dRSkeYg7FU_16continuum_kernelNtB6_10BootInfoV112reservationsNCNvCs8Oq6LyVCGud_16continuum_kernel12kernel_entrys0_0EB1b_ (645)
+    Value: 0xFFFFFFFF800020D0
+    Size: 1274
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel9BOOT_INFO (777)
+    Value: 0xFFFFFFFF8000B000
+    Size: 23160
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .data (0x4)
+  }
+  Symbol {
+    Name: _RNvXsM_Cs2dRSkeYg7FU_16continuum_kernelNtB5_17ReservationReasonNtNtCsbQJWu2zlgTK_4core3fmt5Debug3fmt (824)
+    Value: 0xFFFFFFFF80004B00
+    Size: 29
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel8LOG_BUSY (926)
+    Value: 0xFFFFFFFF80011060
+    Size: 1
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .bss (0x5)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel4emit (972)
+    Value: 0xFFFFFFFF80003810
+    Size: 654
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel5fatal (1014)
+    Value: 0xFFFFFFFF80003AA0
+    Size: 180
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot4loadNtB2_14RawFramebufferEB4_ (1057)
+    Value: 0xFFFFFFFF800025D0
+    Size: 534
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot4span (1132)
+    Value: 0xFFFFFFFF80004540
+    Size: 527
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot4loadNtB2_4PairEB4_ (1181)
+    Value: 0xFFFFFFFF800027F0
+    Size: 421
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot4loadNtB2_5ArrayEB4_ (1245)
+    Value: 0xFFFFFFFF800029A0
+    Size: 432
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot4loadNtB2_9RawRegionEB4_ (1310)
+    Value: 0xFFFFFFFF80002B50
+    Size: 487
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot4loadhEB4_ (1379)
+    Value: 0xFFFFFFFF80002D40
+    Size: 328
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot4loadyEB4_ (1434)
+    Value: 0xFFFFFFFF80002E90
+    Size: 413
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot6stringKj100_EB4_ (1489)
+    Value: 0xFFFFFFFF80003030
+    Size: 686
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot6stringKj400_EB4_ (1551)
+    Value: 0xFFFFFFFF800032E0
+    Size: 726
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot7numericyEB4_ (1613)
+    Value: 0xFFFFFFFF800035C0
+    Size: 169
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot9bootstrapNtB2_9RawRegionEB4_ (1671)
+    Value: 0xFFFFFFFF80003670
+    Size: 223
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvNtCs8Oq6LyVCGud_16continuum_kernel4boot9bootstrapyEB4_ (1745)
+    Value: 0xFFFFFFFF80003750
+    Size: 177
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions5panic (1805)
+    Value: 0xFFFFFFFF80003E60
+    Size: 150
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel3LOG (1862)
+    Value: 0xFFFFFFFF80011008
+    Size: 88
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .bss (0x5)
+  }
+  Symbol {
+    Name: _RNvXs1i_NtCsbQJWu2zlgTK_4core3fmtReNtB6_7Display3fmtCs8Oq6LyVCGud_16continuum_kernel (1903)
+    Value: 0xFFFFFFFF80004AE0
+    Size: 18
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel10FATAL_BUSY (1989)
+    Value: 0xFFFFFFFF80011000
+    Size: 1
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .bss (0x5)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel6serial (2038)
+    Value: 0xFFFFFFFF80003C30
+    Size: 106
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel6record (2082)
+    Value: 0xFFFFFFFF80003B60
+    Size: 65
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel6reject (2126)
+    Value: 0xFFFFFFFF80003BB0
+    Size: 116
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions7install (2170)
+    Value: 0xFFFFFFFF80003F00
+    Size: 620
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions12DOUBLE_STACK (2229)
+    Value: 0xFFFFFFFF80012000
+    Size: 65536
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .bss (0x5)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions9NMI_STACK (2294)
+    Value: 0xFFFFFFFF80034000
+    Size: 65536
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .bss (0x5)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions4mode (2355)
+    Value: 0xFFFFFFFF80003D90
+    Size: 200
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions5start (2411)
+    Value: 0xFFFFFFFF80003EF8
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions3TSS (2468)
+    Value: 0xFFFFFFFF80010A78
+    Size: 104
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .data (0x4)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions3GDT (2523)
+    Value: 0xFFFFFFFF80032000
+    Size: 40
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .bss (0x5)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel10exceptions3IDT (2578)
+    Value: 0xFFFFFFFF80032028
+    Size: 4096
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .bss (0x5)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot4file (2633)
+    Value: 0xFFFFFFFF800042B0
+    Size: 656
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot5array (2682)
+    Value: 0xFFFFFFFF80004750
+    Size: 680
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot8required (2732)
+    Value: 0xFFFFFFFF80004A00
+    Size: 209
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXs_Cs8Oq6LyVCGud_16continuum_kernelNtB4_6RecordNtNtCsbQJWu2zlgTK_4core3fmt5Write9write_str (2785)
+    Value: 0xFFFFFFFF80004B20
+    Size: 65
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvYNtCs8Oq6LyVCGud_16continuum_kernel6RecordNtNtCsbQJWu2zlgTK_4core3fmt5Write10write_charB4_ (2880)
+    Value: 0xFFFFFFFF80004B70
+    Size: 247
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvYNtCs8Oq6LyVCGud_16continuum_kernel6RecordNtNtCsbQJWu2zlgTK_4core3fmt5Write9write_fmtB4_ (2975)
+    Value: 0xFFFFFFFF80004C70
+    Size: 18
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel4BASE (3068)
+    Value: 0xFFFFFFFF8000A020
+    Size: 24
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot4HHDM (3110)
+    Value: 0xFFFFFFFF8000A0C8
+    Size: 48
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot6MEMORY (3159)
+    Value: 0xFFFFFFFF8000A128
+    Size: 48
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot6PAGING (3210)
+    Value: 0xFFFFFFFF8000A158
+    Size: 72
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot12EXEC_ADDRESS (3261)
+    Value: 0xFFFFFFFF8000A038
+    Size: 48
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot9EXEC_FILE (3319)
+    Value: 0xFFFFFFFF8000A1D0
+    Size: 48
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot7MODULES (3373)
+    Value: 0xFFFFFFFF8000A1A0
+    Size: 48
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot12FRAMEBUFFERS (3425)
+    Value: 0xFFFFFFFF8000A068
+    Size: 48
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot4ACPI (3483)
+    Value: 0xFFFFFFFF8000A098
+    Size: 48
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvNtCs8Oq6LyVCGud_16continuum_kernel4boot6LOADER (3532)
+    Value: 0xFFFFFFFF8000A0F8
+    Size: 48
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel3END (3583)
+    Value: 0xFFFFFFFF8000A200
+    Size: 16
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvCs8Oq6LyVCGud_16continuum_kernel5START (3624)
+    Value: 0xFFFFFFFF8000A000
+    Size: 32
+    Binding: Local (0x0)
+    Type: Object (0x1)
+    Other: 0
+    Section: .limine_requests (0x3)
+  }
+  Symbol {
+    Name: _RNvCs5fGHjzWXRav_7___rustc17rust_begin_unwind (4998)
+    Value: 0xFFFFFFFF80003808
+    Size: 6
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other [ (0x2)
+      STV_HIDDEN (0x2)
+    ]
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: limine.3cb5a80baa16f8e3-cgu.0 (3667)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: bitflags.3ac6505fd3cdefb6-cgu.0 (3697)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: continuum_kernel.19e69629368009c4-cgu.0 (3729)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: _RNvXsX_NtNtCsbQJWu2zlgTK_4core3str4iterINtB5_5SplitcENtNtNtNtB9_4iter6traits8iterator8Iterator4nextCs2dRSkeYg7FU_16continuum_kernel (3769)
+    Value: 0xFFFFFFFF80006730
+    Size: 324
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: core.8a083036f959898a-cgu.0 (3902)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: _RNvNvMsa_NtCsbQJWu2zlgTK_4core3fmtNtB7_9Formatter12pad_integral12write_prefix (3930)
+    Value: 0xFFFFFFFF80007850
+    Size: 86
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.161 (4009)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.000 (4052)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.168 (4095)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.003 (4138)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.186 (4181)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.203 (4224)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.214 (4267)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.221 (4310)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.223 (4353)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.227 (4396)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.234 (4439)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.242 (4482)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.245 (4525)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: memcpy (5473)
+    Value: 0xFFFFFFFF80007D80
+    Size: 47
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other [ (0x2)
+      STV_HIDDEN (0x2)
+    ]
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.292 (4568)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.296 (4611)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.300 (4654)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.309 (4697)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: memcmp (5749)
+    Value: 0xFFFFFFFF80007DB0
+    Size: 208
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other [ (0x2)
+      STV_HIDDEN (0x2)
+    ]
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.023 (4740)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: _RNCNvNtNtCsgAZEfjhU0at_17compiler_builtins3mem5impls13compare_bytess1_0B7_.llvm.2074388861103626067 (7652)
+    Value: 0xFFFFFFFF80007E80
+    Size: 367
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other [ (0x2)
+      STV_HIDDEN (0x2)
+    ]
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.316 (4783)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.321 (4826)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.337 (4869)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: memset (5466)
+    Value: 0xFFFFFFFF80007FF0
+    Size: 69
+    Binding: Local (0x0)
+    Type: Function (0x2)
+    Other [ (0x2)
+      STV_HIDDEN (0x2)
+    ]
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.342 (4912)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: compiler_builtins.c14fd42a371af03b-cgu.379 (4955)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: File (0x4)
+    Other: 0
+    Section: Absolute (0xFFF1)
+  }
+  Symbol {
+    Name: kernel_entry (5045)
+    Value: 0xFFFFFFFF80000000
+    Size: 8081
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_start (5058)
+    Value: 0xFFFFFFFF80001F94
+    Size: 17
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_load_gdt (5074)
+    Value: 0xFFFFFFFF80001FA5
+    Size: 29
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_unexpected (5093)
+    Value: 0xFFFFFFFF80002089
+    Size: 9
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: diagnostic_invalid_opcode (5114)
+    Value: 0xFFFFFFFF800020A5
+    Size: 2
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: diagnostic_page_fault (5140)
+    Value: 0xFFFFFFFF800020A7
+    Size: 15
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: diagnostic_page_fault_site (5162)
+    Value: 0xFFFFFFFF800020B1
+    Size: 0
+    Binding: Global (0x1)
+    Type: None (0x0)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: diagnostic_panic_report (5189)
+    Value: 0xFFFFFFFF800020B6
+    Size: 19
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: exception_vectors (5213)
+    Value: 0xFFFFFFFF80009000
+    Size: 0
+    Binding: Global (0x1)
+    Type: None (0x0)
+    Other: 0
+    Section: .rodata (0x2)
+  }
+  Symbol {
+    Name: _RNvXsC_NtNtCsbQJWu2zlgTK_4core3fmt3numyNtB7_8LowerHex3fmt (5231)
+    Value: 0xFFFFFFFF80007A80
+    Size: 97
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvMs4_Cs2dRSkeYg7FU_16continuum_kernelNtB5_10BootInfoV17regions (5290)
+    Value: 0xFFFFFFFF80005D10
+    Size: 48
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtNtCsbQJWu2zlgTK_4core5slice5index16slice_index_fail (5356)
+    Value: 0xFFFFFFFF800076A0
+    Size: 200
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs2dRSkeYg7FU_16continuum_kernel13virtual_range (5414)
+    Value: 0xFFFFFFFF80005150
+    Size: 193
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtNtCsbQJWu2zlgTK_4core3str8converts9from_utf8 (5480)
+    Value: 0xFFFFFFFF800074A0
+    Size: 503
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXsd_NtNtNtCsbQJWu2zlgTK_4core3fmt3num3impyNtB9_7Display3fmt (5531)
+    Value: 0xFFFFFFFF80007C10
+    Size: 261
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXsg_NtCsbQJWu2zlgTK_4core3fmtbNtB5_7Display3fmt (5595)
+    Value: 0xFFFFFFFF80007D20
+    Size: 50
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXs8_NtCsbQJWu2zlgTK_4core3fmtNtB5_9ArgumentsNtB5_7Display3fmt (5647)
+    Value: 0xFFFFFFFF80007AF0
+    Size: 23
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCsbQJWu2zlgTK_4core3fmt5write (5713)
+    Value: 0xFFFFFFFF80006EC0
+    Size: 445
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXs8_NtNtNtCsbQJWu2zlgTK_4core3fmt3num3impmNtB9_7Display3fmt (5756)
+    Value: 0xFFFFFFFF80007B10
+    Size: 249
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs2dRSkeYg7FU_16continuum_kernel8revision (5820)
+    Value: 0xFFFFFFFF800054D0
+    Size: 43
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs2dRSkeYg7FU_16continuum_kernel9from_hhdm (5866)
+    Value: 0xFFFFFFFF80005500
+    Size: 447
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXs2_NtNtNtCsbQJWu2zlgTK_4core3ops8function5implsQNvYyNtNtBb_3cmp3Ord3cmpINtB7_6FnOnceTRyB1p_EE9call_onceCs2dRSkeYg7FU_16continuum_kernel (5913)
+    Value: 0xFFFFFFFF80006720
+    Size: 12
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvCs2dRSkeYg7FU_16continuum_kernel5count (6054)
+    Value: 0xFFFFFFFF80005220
+    Size: 47
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXsi_NtCsbQJWu2zlgTK_4core3fmteNtB5_7Display3fmt (6097)
+    Value: 0xFFFFFFFF80007D60
+    Size: 18
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvMsa_NtCsbQJWu2zlgTK_4core3fmtNtB5_9Formatter9write_str (6149)
+    Value: 0xFFFFFFFF80006EB0
+    Size: 13
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvMCs5d9EI26d4gV_6limineNtB2_12BaseRevision12is_supported (6208)
+    Value: 0xFFFFFFFF80004C90
+    Size: 9
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvMCs2dRSkeYg7FU_16continuum_kernelNtB2_5Range3new (6268)
+    Value: 0xFFFFFFFF800056C0
+    Size: 86
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvMCs2dRSkeYg7FU_16continuum_kernelNtB2_5Range8physical (6321)
+    Value: 0xFFFFFFFF80005720
+    Size: 147
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvMs4_Cs2dRSkeYg7FU_16continuum_kernelNtB5_10BootInfoV115validate_memory (6379)
+    Value: 0xFFFFFFFF80005A20
+    Size: 741
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCsbQJWu2zlgTK_4core9panicking18panic_bounds_check (6454)
+    Value: 0xFFFFFFFF8000707D
+    Size: 61
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: __image_start (6510)
+    Value: 0xFFFFFFFF80000000
+    Size: 0
+    Binding: Global (0x1)
+    Type: None (0x0)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: __image_end (6524)
+    Value: 0xFFFFFFFF80044000
+    Size: 0
+    Binding: Global (0x1)
+    Type: None (0x0)
+    Other: 0
+    Section: .bss (0x5)
+  }
+  Symbol {
+    Name: _RNvCs2dRSkeYg7FU_16continuum_kernel8identity (6536)
+    Value: 0xFFFFFFFF80005250
+    Size: 626
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvMs4_Cs2dRSkeYg7FU_16continuum_kernelNtB5_10BootInfoV18validate (6582)
+    Value: 0xFFFFFFFF80005D40
+    Size: 2527
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXsi_NtNtNtCsbQJWu2zlgTK_4core3fmt3num3impjNtB9_7Display3fmt (6649)
+    Value: 0xFFFFFFFF80007C10
+    Size: 261
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXs3_NtNtNtCsbQJWu2zlgTK_4core3fmt3num3imptNtB9_7Display3fmt (6713)
+    Value: 0xFFFFFFFF80007980
+    Size: 242
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXNtNtNtCsbQJWu2zlgTK_4core3fmt3num3imphNtB6_7Display3fmt (6777)
+    Value: 0xFFFFFFFF800078F0
+    Size: 144
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNvNtCsbQJWu2zlgTK_4core5slice20copy_from_slice_impl17len_mismatch_fail (6838)
+    Value: 0xFFFFFFFF800078B0
+    Size: 64
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXsb_NtCsbQJWu2zlgTK_4core3fmtNtB5_9FormatterNtB5_5Write9write_str (6913)
+    Value: 0xFFFFFFFF80006EB0
+    Size: 13
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtNtCsbQJWu2zlgTK_4core5slice6memchr14memchr_aligned (6983)
+    Value: 0xFFFFFFFF80007770
+    Size: 215
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvXs6_NtNtCsbQJWu2zlgTK_4core3fmt3numjNtB7_8LowerHex3fmt (7040)
+    Value: 0xFFFFFFFF80007A80
+    Size: 97
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvMs4_Cs2dRSkeYg7FU_16continuum_kernelNtB6_10BootInfoV17coveredNCNvB2_8validate0EB6_ (7099)
+    Value: 0xFFFFFFFF80004CA0
+    Size: 524
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvMs4_Cs2dRSkeYg7FU_16continuum_kernelNtB6_10BootInfoV17coveredNCNvB2_8validates0_0EB6_ (7187)
+    Value: 0xFFFFFFFF80004EB0
+    Size: 334
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RINvMs4_Cs2dRSkeYg7FU_16continuum_kernelNtB6_10BootInfoV17coveredNCNvB2_8validates_0EB6_ (7278)
+    Value: 0xFFFFFFFF80005000
+    Size: 334
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvMs3_Cs2dRSkeYg7FU_16continuum_kernelNtB5_11Framebuffer8validate (7368)
+    Value: 0xFFFFFFFF800057C0
+    Size: 608
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtCsbQJWu2zlgTK_4core9panicking9panic_fmt (7436)
+    Value: 0xFFFFFFFF800070C0
+    Size: 44
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvMsa_NtCsbQJWu2zlgTK_4core3fmtNtB5_9Formatter12pad_integral (7482)
+    Value: 0xFFFFFFFF80006880
+    Size: 916
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvNtNtCsbQJWu2zlgTK_4core3str5count14do_count_chars (7545)
+    Value: 0xFFFFFFFF800070F0
+    Size: 930
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+  Symbol {
+    Name: _RNvMsa_NtCsbQJWu2zlgTK_4core3fmtNtB5_9Formatter3pad (7599)
+    Value: 0xFFFFFFFF80006C20
+    Size: 647
+    Binding: Global (0x1)
+    Type: Function (0x2)
+    Other: 0
+    Section: .text (0x1)
+  }
+]

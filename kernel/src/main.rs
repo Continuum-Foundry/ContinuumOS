@@ -2,12 +2,14 @@
 #![no_main]
 
 mod boot;
+mod exceptions;
 use continuum_kernel::{BootInfoV1, Error, Text, identity};
 use core::{
     arch::asm,
     cell::UnsafeCell,
     fmt::{self, Write},
     panic::PanicInfo,
+    sync::atomic::{AtomicBool, Ordering},
 };
 use limine::{
     BaseRevision,
@@ -98,6 +100,8 @@ static LOG: Local<LogState> = Local(UnsafeCell::new(LogState {
     sequence: 0,
 }));
 static BOOT_INFO: Local<BootInfoV1> = Local(UnsafeCell::new(BootInfoV1::EMPTY));
+static LOG_BUSY: AtomicBool = AtomicBool::new(false);
+static FATAL_BUSY: AtomicBool = AtomicBool::new(false);
 struct Record {
     bytes: [u8; 512],
     len: usize,
@@ -120,7 +124,31 @@ fn failure_exit() -> ! {
     halt()
 }
 fn record(event: &str, stage: &str, outcome: &str, detail: fmt::Arguments<'_>) {
-    // P1-04 owns exception entry; no interrupt or other CPU logs in this story.
+    if LOG_BUSY.swap(true, Ordering::SeqCst) {
+        fatal(event, stage, detail);
+    }
+    emit(event, stage, outcome, false, detail);
+    LOG_BUSY.store(false, Ordering::SeqCst);
+}
+fn fatal(event: &str, stage: &str, detail: fmt::Arguments<'_>) -> ! {
+    // A second reporting fault never acquires a lock or recursively formats.
+    if FATAL_BUSY.swap(true, Ordering::SeqCst) {
+        let _ = serial(b"\nm1.emergency_failed\n");
+        failure_exit();
+    }
+    let emergency = LOG_BUSY.swap(true, Ordering::SeqCst);
+    if emergency {
+        let _ = serial(b"\n");
+    }
+    emit(event, stage, "fatal", emergency, detail);
+    #[cfg(feature = "emulator-test")]
+    test_exit(0x12);
+    #[cfg(not(feature = "emulator-test"))]
+    halt()
+}
+fn emit(event: &str, stage: &str, outcome: &str, emergency: bool, detail: fmt::Arguments<'_>) {
+    // Single CPU; session is immutable after initialization. No reference into
+    // LOG survives formatting or port IO; fatal reentry never resumes old code.
     let state = unsafe { LOG.0.get().read() };
     let Some(next) = state.sequence.checked_add(1) else {
         failure_exit()
@@ -137,7 +165,7 @@ fn record(event: &str, stage: &str, outcome: &str, detail: fmt::Arguments<'_>) {
         bytes: [0; 512],
         len: 0,
     };
-    if write!(&mut line, "{event} version=2 build={} session={session} session_origin=host seq={} stage={stage} outcome={outcome} {detail}\n",
+    if write!(&mut line, "{event} version=3 build={} session={session} session_origin=host seq={} stage={stage} outcome={outcome} emergency={emergency} {detail}\n",
         env!("CONTINUUM_BUILD_ID"), state.sequence).is_err() || !serial(&line.bytes[..line.len]) {
         failure_exit();
     }
@@ -195,7 +223,9 @@ pub extern "C" fn kernel_entry() -> ! {
         reject(e);
     }
     #[cfg(not(feature = "boot-inject"))]
-    if fixture != "normal" {
+    if fixture != "normal"
+        && !(cfg!(feature = "exception-test") && exceptions::mode(fixture).is_some())
+    {
         reject(continuum_kernel::error("fixture", "disabled"));
     }
     if let Err(e) = info.validate() {
@@ -293,25 +323,10 @@ pub extern "C" fn kernel_entry() -> ! {
             ),
         )
     });
-    record(
-        "m1.boot_complete",
-        "boot",
-        "ok",
-        format_args!("reclaimed_bytes=0"),
-    );
-    #[cfg(feature = "emulator-test")]
-    test_exit(0x10);
-    #[cfg(not(feature = "emulator-test"))]
-    halt()
+    exceptions::start(exceptions::mode(fixture).unwrap_or(0))
 }
 
 #[panic_handler]
-fn panic(_: &PanicInfo<'_>) -> ! {
-    record(
-        "m1.panic",
-        "panic",
-        "rejected",
-        format_args!("reason=panic"),
-    );
-    failure_exit()
+fn panic(info: &PanicInfo<'_>) -> ! {
+    exceptions::panic(info)
 }

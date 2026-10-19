@@ -1,0 +1,1197 @@
+{
+  "complete": false,
+  "exceptions_ready": true,
+  "fatal": true,
+  "records": [
+    {
+      "event": "m1.kernel_entry",
+      "fields": {
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "emergency": "false",
+        "fixture": "exception-invalid-opcode",
+        "outcome": "ok",
+        "seq": "0",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "entry",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.boot_info_validated",
+      "fields": {
+        "acpi": "locator-only",
+        "boot_info": "1",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "emergency": "false",
+        "framebuffers": "1",
+        "hhdm": "0xffff800000000000",
+        "mode": "framebuffer",
+        "modules": "0",
+        "outcome": "ok",
+        "regions": "33",
+        "seq": "1",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "metadata",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x0",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0xa0000",
+        "emergency": "false",
+        "index": "0",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "2",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x100000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x700000",
+        "emergency": "false",
+        "index": "1",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "3",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x800000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x8000",
+        "emergency": "false",
+        "index": "2",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "4",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x808000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x3000",
+        "emergency": "false",
+        "index": "3",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "5",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x80b000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x1000",
+        "emergency": "false",
+        "index": "4",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "6",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x80c000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x5000",
+        "emergency": "false",
+        "index": "5",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "7",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x811000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0xef000",
+        "emergency": "false",
+        "index": "6",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "8",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x900000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0xe80000",
+        "emergency": "false",
+        "index": "7",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "9",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x1780000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x7871a000",
+        "emergency": "false",
+        "index": "8",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "10",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x79e9a000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x1d2000",
+        "emergency": "false",
+        "index": "9",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "11",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7a06c000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x1b00000",
+        "emergency": "false",
+        "index": "10",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "12",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7bb6c000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x59000",
+        "emergency": "false",
+        "index": "11",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "13",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7bbc5000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x44000",
+        "emergency": "false",
+        "index": "12",
+        "kind": "6",
+        "outcome": "ok",
+        "seq": "14",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7bc09000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x20000",
+        "emergency": "false",
+        "index": "13",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "15",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7bc29000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x24f7000",
+        "emergency": "false",
+        "index": "14",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "16",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7e120000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x921000",
+        "emergency": "false",
+        "index": "15",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "17",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7ea41000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0xc1000",
+        "emergency": "false",
+        "index": "16",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "18",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7eb02000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x9eb000",
+        "emergency": "false",
+        "index": "17",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "19",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f4ed000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x100000",
+        "emergency": "false",
+        "index": "18",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "20",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f5ed000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x100000",
+        "emergency": "false",
+        "index": "19",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "21",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f6ed000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x80000",
+        "emergency": "false",
+        "index": "20",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "22",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f76d000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x12000",
+        "emergency": "false",
+        "index": "21",
+        "kind": "2",
+        "outcome": "ok",
+        "seq": "23",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f77f000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x80000",
+        "emergency": "false",
+        "index": "22",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "24",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f7ff000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x6b1000",
+        "emergency": "false",
+        "index": "23",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "25",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7feb0000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x4000",
+        "emergency": "false",
+        "index": "24",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "26",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7feb4000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x2000",
+        "emergency": "false",
+        "index": "25",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "27",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7feb6000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x3e000",
+        "emergency": "false",
+        "index": "26",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "28",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7fef4000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x84000",
+        "emergency": "false",
+        "index": "27",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "29",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7ff78000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x88000",
+        "emergency": "false",
+        "index": "28",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "30",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x80000000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x3e8000",
+        "emergency": "false",
+        "index": "29",
+        "kind": "7",
+        "outcome": "ok",
+        "seq": "31",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0xe0000000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x10000000",
+        "emergency": "false",
+        "index": "30",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "32",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0xffc00000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x400000",
+        "emergency": "false",
+        "index": "31",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "33",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0xfd00000000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x300000000",
+        "emergency": "false",
+        "index": "32",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "34",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.framebuffer",
+      "fields": {
+        "base": "0x80000000",
+        "blue": "8:0",
+        "bpp": "32",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x3e8000",
+        "cache": "loader-mapping",
+        "emergency": "false",
+        "green": "8:8",
+        "height": "800",
+        "index": "0",
+        "outcome": "ok",
+        "pitch": "5120",
+        "red": "8:16",
+        "seq": "35",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3",
+        "width": "1280"
+      }
+    },
+    {
+      "event": "m1.acpi_locator",
+      "fields": {
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "emergency": "false",
+        "outcome": "ok",
+        "physical": "0x7f77e014",
+        "seq": "36",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "table_validated": "false",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7bbc5000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x44000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Kernel",
+        "retained": "true",
+        "seq": "37",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x79f02000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x1699d0",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "ExecutableFile",
+        "retained": "true",
+        "seq": "38",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x80000000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x3e8000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Framebuffer",
+        "retained": "true",
+        "seq": "39",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x800000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x8000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "40",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x80b000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x1000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "41",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x811000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0xef000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "42",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x900000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0xe80000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "43",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x79e9a000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x1d2000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "44",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7bb6c000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x59000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "45",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7bbc5000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x44000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "46",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7bc09000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x20000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "47",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7e120000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x921000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "48",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7ea41000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0xc1000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "49",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7eb02000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x9eb000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "50",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f4ed000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x100000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "51",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f5ed000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x100000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "52",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f6ed000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x80000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "53",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f76d000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x12000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "54",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f77f000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x80000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "55",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f7ff000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x6b1000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "56",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7feb0000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x4000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "57",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7feb4000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x2000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "58",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7feb6000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x3e000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "59",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7fef4000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x84000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "60",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7ff78000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x88000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "61",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x80000000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x3e8000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "62",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0xe0000000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x10000000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "63",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0xffc00000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x400000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "64",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0xfd00000000",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x300000000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "65",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f77e014",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "bytes": "0x24",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "66",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.exceptions_ready",
+      "fields": {
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "double_base": "0xffffffff80012000",
+        "double_ist": "1",
+        "emergency": "false",
+        "guards": "false",
+        "idt_entries": "256",
+        "if": "false",
+        "nmi_base": "0xffffffff80034000",
+        "nmi_ist": "2",
+        "outcome": "ok",
+        "runtime_base": "0xffffffff80022000",
+        "seq": "67",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stack_bytes": "65536",
+        "stage": "exceptions",
+        "version": "3"
+      }
+    },
+    {
+      "event": "m1.exception",
+      "fields": {
+        "address": "0x0",
+        "build": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+        "cs": "0x8",
+        "emergency": "false",
+        "error": "0x0",
+        "flags": "0x10093",
+        "frame": "0xffffffff80031f58",
+        "outcome": "fatal",
+        "rip": "0xffffffff800020b5",
+        "rsp": "0xffffffff80031f98",
+        "seq": "68",
+        "session": "f013b302c6756908deb14f94d034c4810c6e441fa5922ce9ff9df61b57c91b01",
+        "session_origin": "host",
+        "stage": "exceptions",
+        "vector": "6",
+        "version": "3"
+      }
+    }
+  ],
+  "rejected": false,
+  "schema_version": 3,
+  "validated": true
+}

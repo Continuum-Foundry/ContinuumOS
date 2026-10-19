@@ -4,6 +4,8 @@ These are version 0.1 design drafts, not implemented or frozen ABIs.
 
 P1-03's internal `BootInfoV1` and version-2 serial diagnostics are documented in the
 [boot-metadata runbook](../05-delivery/phase-1/boot-metadata-runbook.md).
+P1-04's [exception extension](../05-delivery/phase-1/exception-diagnostics-runbook.md)
+updates the diagnostic records to version 3 with setup/fatal events and an emergency flag.
 The owned Rust value is not a persisted or process ABI, and diagnostic records do
 not implement the IPC, update or package contracts below. The host harness keeps
 their assertions in [m1/records.rs](../../tools/xtask/src/m1/records.rs).

@@ -128,6 +128,9 @@ Platform description and power/configuration interfaces. Use: discover interrupt
 ### S30
 [Intel architecture manuals](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html) — I.
 Authoritative CPU architecture source for paging, protection, interrupts and multiprocessor support. Use: first-party low-level implementation rules.
+P1-04 review, 2026-10-19: [Volume 3A revision 090](https://cdrdv2-public.intel.com/874249/253668-090-sdm-vol-3a.pdf),
+sections 7.13–7.14, 10.2 and 10.7, supplies the fatal-entry frame, IDT/IST and TSS contract.
+Implementation/measurement boundaries are in the [exception runbook](../05-delivery/phase-1/exception-diagnostics-runbook.md).
 
 ### S31
 [ELF program headers](https://refspecs.linuxfoundation.org/elf/gabi4%2B/ch5.pheader.html) — I.

@@ -1,10 +1,11 @@
 # Minimal original-kernel ISO (P1-02)
 
 P1-02 established serial entry from a standalone x86-64 UEFI optical image.
-The current harness also implements P1-03's metadata and version-2 record checks;
-see its [runbook and acceptance status](boot-metadata-runbook.md). Historical
-P1-02 evidence remains unchanged. Neither story completes M1: exception handling,
-owned frames/page tables and interrupt/timekeeping remain P1-04 through P1-07.
+The current harness also implements P1-03's metadata and P1-04's version-3 fatal
+diagnostics; see the [metadata runbook](boot-metadata-runbook.md) and
+[exception runbook](exception-diagnostics-runbook.md). Historical evidence remains
+unchanged. M1 still needs owned frames/page tables, stack guards, double-fault
+integration and interrupt/timekeeping through P1-05–P1-07.
 
 ## Commands
 
@@ -44,7 +45,7 @@ process supervision and reporting (`observe`). `observe` keeps spawning and
 owning the child together so early errors still kill and reap the process.
 
 `cases` orchestrates the named scenarios and supplies expected rejection outcomes;
-`records` validates the version-2 serial contract. Shared `inputs`, `process` and
+`records` validates the version-3 serial contract. Shared `inputs`, `process` and
 `support` modules handle prerequisite/pin checks, bounded host commands and
 artifact file operations. The command names, manifest schemas and evidence paths
 are preserved. Source moves change the build identity because all xtask sources
@@ -87,7 +88,7 @@ is host time, not guest uptime. Logs exceeding 2 MiB fail the run and trigger cl
 
 `run` observes completed metadata diagnostics for one second, then reaps QEMU;
 this is reported as host cleanup, not guest shutdown. `iso-smoke` enables only the
-emulator exit device at 0xf4 and requires matching version-2 entry, validation,
+emulator exit device at 0xf4 and requires matching version-3 entry, validation,
 resource summaries, completion and exit 33. It launches two fresh processes with
 identical kernel bytes/build IDs and distinct sessions/configured ISO hashes.
 Duplicate/mismatched entry, panic/rejection, sequence errors, incomplete summaries,

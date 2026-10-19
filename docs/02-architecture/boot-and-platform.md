@@ -34,6 +34,8 @@ clock initialized by the kernel, not the desktop process start time.
 
 P1-03 implements an internal, allocation-free `BootInfoV1` boundary and version-2
 serial record contract; see the [runbook and current evidence status](../05-delivery/phase-1/boot-metadata-runbook.md).
+P1-04 extends the current diagnostic contract to version 3 and owns exception
+tables/static stacks; see its [runbook](../05-delivery/phase-1/exception-diagnostics-runbook.md).
 The demonstrated loader remains pinned at base revision 3 with four-level paging.
 Required handoff responses fail closed; optional framebuffer/module/ACPI absence
 is explicit. Owned copies and retained backing reservations are separate: no

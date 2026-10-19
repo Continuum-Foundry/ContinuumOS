@@ -41,8 +41,9 @@ independently buildable bootable ISO. The kernel and OS architecture are authore
 here; firmware, the bootloader, and selected libraries are reused with pinned
 inputs and recorded provenance.
 
-**Today, the original kernel boots, validates owned boot metadata, and reports
-diagnostics correlated to its build and host-provided session.** The desktop,
+**Today, the original kernel boots, validates owned boot metadata, installs owned
+exception tables and reports bounded fatal diagnostics correlated to its build
+and host-provided session.** The desktop,
 isolation, persistent files, and live-update behavior are future evidence gates.
 
 ## What runs today
@@ -56,7 +57,7 @@ Standalone UEFI ISO
    OVMF firmware ──► Limine ──► Original Rust kernel
                                       │
                                       ▼
-                            Entry → checked metadata → completion
+                     Entry → checked metadata → exception setup → completion
                               Build ID + host session + sequence
 ```
 
@@ -67,6 +68,8 @@ resource summaries, completion records and emulator exit 33. Expected metadata
 rejections require the exact field/reason and exit 35. Missing markers, incorrect
 identities, panics and timeouts cannot count as successful boots. Host session IDs
 provide correlation; they are not security credentials or reset detectors.
+P1-04 extends the current record contract to version 3 and adds real invalid-opcode,
+page-fault, panic and held-logger tests, each requiring its exact fatal context and exit 37.
 
 | Proven in this repository | Evidence |
 | :--- | :--- |
@@ -76,11 +79,15 @@ provide correlation; they are not security credentials or reset detectors.
 | Deliberately broken boots rejected; emulator processes cleaned up | [Failure records and acceptance criteria](evidence/phase-1/P1-02/2026-10-18/README.md#reviewed-acceptance-criteria) |
 | Checked owned boot descriptors, retained reservations, correlated records and eight metadata rejection cases | [P1-03 acceptance](evidence/phase-1/P1-03/2026-10-18/README.md) |
 | Separate host build/package/launch/observe modules; 18 host tests and 17 QEMU launches pass after extraction | [Module-refactor regression review](evidence/phase-1/m1-module-refactor/2026-10-18/README.md) |
+| Owned exception tables/static stacks and bounded fatal diagnostics; 19 host tests and 21 VM launches pass | [P1-04 acceptance](evidence/phase-1/P1-04/2026-10-19/README.md) |
+
+The [final source formatting check](evidence/phase-1/P1-04/2026-10-19-formatting/README.md)
+adds one passing fault launch after an EOF-only assembly cleanup.
 
 The current profile is **x86-64 · Q35 · TCG · one vCPU · 2 GiB RAM · offline**.
 It attaches the exact ISO and firmware pair, with no host shares or writable user
-data disk. Full M1 remains open: **P1-04 exception diagnostics is next**, followed
-by frame/page-table ownership, interrupts, timekeeping and final acceptance.
+data disk. Full M1 remains open: **P1-05 memory ownership is next**, including
+stack guards and actual double-fault entry, then interrupts/timekeeping and final acceptance.
 
 ## A desktop designed for continuity
 
@@ -155,6 +162,12 @@ cargo xtask test --suite m1 --case iso-smoke
 # Owned metadata, module/serial-only fixtures and exact rejection cases.
 cargo xtask test --suite m1 --case boot-metadata
 cargo xtask test --suite m1 --case boot-reject
+
+# Actual fatal diagnostics; expected fault exits are separate from normal boot.
+cargo xtask test --suite m1 --case exception-invalid-opcode
+cargo xtask test --suite m1 --case exception-page-fault
+cargo xtask test --suite m1 --case panic
+cargo xtask test --suite m1 --case exception-emergency
 ```
 
 Each command prints its artifact directory. `run` packages a fresh ISO, observes
@@ -168,7 +181,8 @@ install WSL, enable virtualization features, or modify global packages.
 
 [Complete boot runbook](docs/05-delivery/phase-1/minimal-iso-runbook.md) ·
 [Metadata and identity contract](docs/05-delivery/phase-1/boot-metadata-runbook.md) ·
-[Full current regression harness](tools/Test-P1-03.ps1)
+[Fatal exception contract](docs/05-delivery/phase-1/exception-diagnostics-runbook.md) ·
+[Full current regression harness](tools/Test-P1-04.ps1)
 
 Host orchestration starts at [m1.rs](tools/xtask/src/m1.rs). The
 [module layout](docs/05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout)
@@ -180,7 +194,7 @@ named cases and strict serial-record checks remain separate.
 | Gate | Outcome | Current state |
 | :--- | :--- | :--- |
 | **Phase 0** | Native tooling, independent links, dependency feasibility | Compile/tooling evidence retained |
-| **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-03 accepted; P1-04–P1-07 remain open |
+| **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-04 accepted; P1-05–P1-07 remain open |
 | **M2** | Hosted UI comparison, accessibility foundations, resource continuity | Planned |
 | **M3** | User-mode isolation and bounded IPC | Planned |
 | **M4** | Authenticated development channel and guest resource reload | Planned |

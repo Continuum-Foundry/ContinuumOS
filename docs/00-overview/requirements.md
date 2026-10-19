@@ -110,3 +110,8 @@ P1-03's [checked metadata acceptance](../../evidence/phase-1/P1-03/2026-10-18/RE
 adds boot-specific evidence for R01/R03/R17/R18 and preparatory R14 version/boundary
 discipline. The internal BootInfo is not a process or persisted ABI; this does not
 complete update diagnostics, isolation, release reproducibility or efficiency gates.
+
+P1-04's [accepted fatal diagnostics](../../evidence/phase-1/P1-04/2026-10-19/README.md)
+extend R01/R03/R17 evidence with actual kernel exceptions and bounded panic/emergency
+output, plus R18 source/evidence review. This is early R10 groundwork; guard and
+double-fault integration, user containment and broader M1 remain later gates.

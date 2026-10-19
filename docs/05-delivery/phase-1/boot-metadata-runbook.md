@@ -3,7 +3,10 @@
 Implementation acceptance passed on 2026-10-18; see the
 [retained review](../../../evidence/phase-1/P1-03/2026-10-18/README.md).
 This slice extends the original Rust kernel and standalone UEFI optical route;
-it does not complete M1. P1-04 exception diagnostics is the next ordered story.
+it does not complete M1. The current [P1-04 exception runbook](exception-diagnostics-runbook.md)
+extends diagnostics to version 3, adds an emergency flag and requires an exception
+setup checkpoint before completion. Version-2 descriptions below document P1-03's
+historical contract; its retained evidence is unchanged.
 
 ## Run
 

@@ -15,6 +15,12 @@ All processes are reaped. This remains a bounded subset of T01/T02/T12 supportin
 R01/R03/R17/R18 and preparatory R14 discipline, not process ABI/security completion.
 Every result must include source/build IDs, configuration and raw evidence.
 
+P1-04 extends T01/T02 and R01/R03/R17 with the
+[fatal exception matrix](phase-1/exception-diagnostics-runbook.md): actual invalid
+opcode, non-present read, Rust panic and an invalid opcode with the logger gate
+held. Exact symbolized contexts and exit 37 are required. Stack-guard/double-fault
+integration, process containment and broader M1 acceptance remain unrun gates.
+
 For M1's bounded subset, use the [Phase 1 story acceptance matrix](phase-1/07-phase-1-acceptance.md).
 Its later guest gates remain unrun. [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
 pass version/capability/hash checks and rejection tests; this adds no ISO boot result.

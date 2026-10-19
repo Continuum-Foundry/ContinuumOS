@@ -1,0 +1,215 @@
+{
+  "schema_version": 2,
+  "story": "P1-04",
+  "status": "passed",
+  "commands": [
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "name": "formatting",
+      "log": "formatting.log"
+    },
+    {
+      "executable": "pwsh",
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-M0.ps1"
+      ],
+      "name": "m0",
+      "log": "m0.log"
+    },
+    {
+      "executable": "pwsh",
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Probe-Dependencies.ps1"
+      ],
+      "name": "dependencies",
+      "log": "dependencies.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "test",
+        "--locked",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "name": "kernel-host",
+      "log": "kernel-host.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--profile",
+        "m1",
+        "--json"
+      ],
+      "name": "doctor",
+      "log": "doctor.log"
+    },
+    {
+      "executable": "pwsh",
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-P1-01.ps1"
+      ],
+      "name": "prerequisites",
+      "log": "prerequisites.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "name": "run",
+      "log": "run.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-smoke"
+      ],
+      "name": "iso-smoke",
+      "log": "iso-smoke.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-negative"
+      ],
+      "name": "iso-negative",
+      "log": "iso-negative.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "boot-metadata"
+      ],
+      "name": "boot-metadata",
+      "log": "boot-metadata.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "boot-reject"
+      ],
+      "name": "boot-reject",
+      "log": "boot-reject.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "exception-invalid-opcode"
+      ],
+      "name": "exception-invalid-opcode",
+      "log": "exception-invalid-opcode.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "exception-page-fault"
+      ],
+      "name": "exception-page-fault",
+      "log": "exception-page-fault.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "panic"
+      ],
+      "name": "panic",
+      "log": "panic.log"
+    },
+    {
+      "executable": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "exception-emergency"
+      ],
+      "name": "exception-emergency",
+      "log": "exception-emergency.log"
+    }
+  ],
+  "runs": {
+    "exception-invalid-opcode": "${WORKSPACE}\\build/m1\\exception-invalid-opcode-1792453036450994000-29220",
+    "exception-page-fault": "${WORKSPACE}\\build/m1\\exception-page-fault-1792453078299551400-34632",
+    "panic": "${WORKSPACE}\\build/m1\\panic-1792453121259682100-26540",
+    "m0": "${WORKSPACE}\\work\\acceptance\\1792452229321",
+    "prerequisites": "${WORKSPACE}\\build\\m1\\p1-01-tests-1792452306305",
+    "boot-reject": "${WORKSPACE}\\build/m1\\boot-reject-1792452781820616500-26884",
+    "exception-emergency": "${WORKSPACE}\\build/m1\\exception-emergency-1792453155476205900-8840",
+    "iso-negative": "${WORKSPACE}\\build/m1\\iso-negative-1792452463585769000-6392",
+    "dependencies": "${WORKSPACE}\\work\\dependency-probes\\1792452268241",
+    "boot-metadata": "${WORKSPACE}\\build/m1\\boot-metadata-1792452626871899500-23348",
+    "run": "${WORKSPACE}\\build/m1\\run-1792452323590821300-31024",
+    "iso-smoke": "${WORKSPACE}\\build/m1\\iso-smoke-1792452373200949300-26720"
+  }
+}

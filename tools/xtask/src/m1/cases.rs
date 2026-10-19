@@ -87,6 +87,9 @@ fn perform(action: &str, dir: &Path) -> Result<Value> {
         "iso-smoke" | "boot-metadata" => Flavor::Smoke,
         "iso-negative" => Flavor::NoEntry,
         "boot-reject" => Flavor::Inject,
+        "exception-invalid-opcode" | "exception-page-fault" | "panic" | "exception-emergency" => {
+            Flavor::Exceptions
+        }
         _ => Flavor::Normal,
     };
     let manifest = build(dir, flavor)?;
@@ -96,6 +99,13 @@ fn perform(action: &str, dir: &Path) -> Result<Value> {
     if action == "iso" {
         let image = package(dir, dir, &manifest, false, "normal", false)?;
         return Ok(json!({"compile":"passed","package":"passed","boot":"not_run","image":image}));
+    }
+    if flavor == Flavor::Exceptions {
+        let run = boot_run(dir, action, dir, &manifest, action, false, true, false)?;
+        accepted(&run)?;
+        return Ok(
+            json!({"compile":"passed","package":"passed","expected_fatal":"passed","positive_boot":false,"run":run}),
+        );
     }
     if action == "iso-negative" {
         let no_entry = boot_run(

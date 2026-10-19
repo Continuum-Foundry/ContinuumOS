@@ -1,7 +1,8 @@
 # Agent entry point
 
 This workspace contains research/design, Phase 0 Windows build/link probes and
-the minimal original Rust kernel ISO with P1-03's checked metadata and identity.
+the minimal original Rust kernel ISO with checked metadata, identity and P1-04's
+fatal exception baseline. Check the story's acceptance review before continuing.
 It is not a usable OS or completed M1. See
 `docs/05-delivery/phase-1/boot-metadata-runbook.md` and retained evidence.
 The user approved the reconciled revision-2 roadmap. See

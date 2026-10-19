@@ -32,6 +32,7 @@ pub(super) enum Flavor {
     Smoke,
     NoEntry,
     Inject,
+    Exceptions,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -40,6 +41,7 @@ impl Flavor {
             Self::Smoke => "iso-smoke",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
+            Self::Exceptions => "exception-test",
         }
     }
     fn features(self) -> &'static str {
@@ -48,6 +50,7 @@ impl Flavor {
             Self::Smoke => "emulator-test",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
+            Self::Exceptions => "exception-test",
         }
     }
 }
@@ -246,6 +249,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         "config/m1-inputs.lock.json",
         "tools/Test-M1Prerequisites.ps1",
         "tools/Test-P1-03.ps1",
+        "tools/Test-P1-04.ps1",
     ] {
         sources.insert(p.into(), digest(&root().join(p))?);
     }
@@ -336,6 +340,34 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         let text = capture(cmd.args(args).arg(dir.join("kernel.elf")), dir, name, 30)?;
         if name == "llvm-readobj" {
             inspection["kernel_image_bounds"] = audit_image_bounds(&text, &inspection)?;
+            let mut sites = serde_json::Map::new();
+            let mut symbol = None;
+            for line in text.lines().map(str::trim) {
+                if let Some(name) = line.strip_prefix("Name: ") {
+                    symbol = name.split_whitespace().next().filter(|name| {
+                        [
+                            "diagnostic_invalid_opcode",
+                            "diagnostic_page_fault_site",
+                            "diagnostic_panic_report",
+                        ]
+                        .contains(name)
+                    });
+                }
+                if let (Some(name), Some(value)) = (symbol, line.strip_prefix("Value: 0x")) {
+                    sites.insert(
+                        name.into(),
+                        json!(
+                            u64::from_str_radix(value, 16)
+                                .map_err(|_| "Invalid diagnostic symbol")?
+                        ),
+                    );
+                    symbol = None;
+                }
+            }
+            if sites.len() != 3 {
+                return Err("Missing diagnostic symbols".into());
+            }
+            inspection["diagnostic_sites"] = Value::Object(sites);
         }
         if name == "llvm-nm" && !text.trim().is_empty() {
             return Err("LLVM found undefined symbols".into());
@@ -354,7 +386,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             .current_dir(root())
             .args(["status", "--porcelain=v1"]),
     )?;
-    let manifest = json!({"schema_version":1,"build_id":id,"flavor":flavor.name(),"source_commit":commit,"source_dirty":!dirty.is_empty(),"source_status":dirty,"source_identity":"build-inputs.json contains hashes of all build source inputs","kernel_sha256":hash(&bytes),"inspection":inspection,"loader":"12.9.3","binding":"limine =0.5.0; defaults off","protocol_commit":"3a0526b700e356f0eac1b71a77697b3fd1c707a3","base_revision":3,"entry_boundary":"SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed","assembly":"cli, hlt, in/out only; see kernel/src/main.rs","boot_tested":false});
+    let manifest = json!({"schema_version":1,"build_id":id,"flavor":flavor.name(),"source_commit":commit,"source_dirty":!dirty.is_empty(),"source_status":dirty,"source_identity":"build-inputs.json contains hashes of all build source inputs","kernel_sha256":hash(&bytes),"inspection":inspection,"loader":"12.9.3","binding":"limine =0.5.0; defaults off","protocol_commit":"3a0526b700e356f0eac1b71a77697b3fd1c707a3","base_revision":3,"entry_boundary":"SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed","assembly":"fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md","boot_tested":false});
     write_json(&dir.join("build-manifest.json"), &manifest)?;
     Ok(manifest)
 }

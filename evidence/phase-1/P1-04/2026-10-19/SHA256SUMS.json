@@ -1,0 +1,4005 @@
+{
+  "algorithm": "SHA-256",
+  "files": [
+    {
+      "sha256": "84f6d783132c5348a903defbe0b8f5c8edb31ca3dea239bc8dd78590beb36de6",
+      "bytes": 5073,
+      "path": "acceptance/acceptance-results.json"
+    },
+    {
+      "sha256": "fdb4dcd07afa9aff9f255badbd75740d2202f02f483c12b98a5ee66e218a56fa",
+      "bytes": 317,
+      "path": "acceptance/boot-metadata.log"
+    },
+    {
+      "sha256": "b9c8db33aa17890e0ea301859921247e26cce9d82577d9b8e60e550acf623cda",
+      "bytes": 309,
+      "path": "acceptance/boot-reject.log"
+    },
+    {
+      "sha256": "9559fcc04de26a0e0ec4a6456696914d016cc961ae75a5d3b5b3f6572eef3ba0",
+      "bytes": 336,
+      "path": "acceptance/dependencies.log"
+    },
+    {
+      "sha256": "f22d6c4801d447b35bed9cb998c6c32671022a4bb0bab28b37781dd6c000ff6c",
+      "bytes": 31074,
+      "path": "acceptance/doctor.log"
+    },
+    {
+      "sha256": "df6736a6d760426aacb5f8ca4eb9db80dc9d547652ccf91d1371ccb2b6ffc0b1",
+      "bytes": 339,
+      "path": "acceptance/exception-emergency.log"
+    },
+    {
+      "sha256": "9ee1ad213f7dfca3e1e523bf7ffa4c9a51cf5b3080e9ccd4319ca623d10d4893",
+      "bytes": 361,
+      "path": "acceptance/exception-invalid-opcode.log"
+    },
+    {
+      "sha256": "786fe3a3ed8d85f39284d433586e8c72af4574b2afc615bc2049444d41067a37",
+      "bytes": 345,
+      "path": "acceptance/exception-page-fault.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "acceptance/formatting.log"
+    },
+    {
+      "sha256": "fb956bfb64fdd6ad88dc5747c5fb65d58b723e99b9eed4b059d876d9f8bd23ed",
+      "bytes": 311,
+      "path": "acceptance/iso-negative.log"
+    },
+    {
+      "sha256": "5f8a67637742bc1942fa92118793d8b8f38efdb4760fe169fee9dbd985369a3e",
+      "bytes": 301,
+      "path": "acceptance/iso-smoke.log"
+    },
+    {
+      "sha256": "3c16595cf5bcf68dc90c5d011ad50605a45a89c8107c0cbf2de0ed818bf6a562",
+      "bytes": 1123,
+      "path": "acceptance/kernel-host.log"
+    },
+    {
+      "sha256": "ee8eabcdb0052b6f522855177eab98fe999f5571382ac423e87e4ddd032a2a8b",
+      "bytes": 65,
+      "path": "acceptance/m0.log"
+    },
+    {
+      "sha256": "2e4f0e3318bef3cb6ed93a360c9337711bb3138f87c38397662802df041a067a",
+      "bytes": 285,
+      "path": "acceptance/panic.log"
+    },
+    {
+      "sha256": "b38f0bfe35e9bff8de94f270261e3361dec2b9f948ae80a4ba2c0407e541b7cc",
+      "bytes": 70,
+      "path": "acceptance/prerequisites.log"
+    },
+    {
+      "sha256": "a5cd35c54348bed0fc9c392addbccee1439cee82ae0c25696f7282f6626346b4",
+      "bytes": 4119,
+      "path": "acceptance/retention-procedure.ps1"
+    },
+    {
+      "sha256": "37d5361690952f40a03a5a0968c079e87ca16684240778ccfdbde4de281cccda",
+      "bytes": 6722,
+      "path": "acceptance/review-procedure.ps1"
+    },
+    {
+      "sha256": "ada23cee407bdd4a6b7f5d1c1aa2fdc9ddb98d549ceb66ef351da15314d538ce",
+      "bytes": 276,
+      "path": "acceptance/run.log"
+    },
+    {
+      "sha256": "66c77404e9c5a763486f7c6a3f2474a76ae575e637a3e269f139c43293a974e9",
+      "bytes": 3556,
+      "path": "boot-metadata/build-inputs.json"
+    },
+    {
+      "sha256": "0ef0aac95a58a5ef05fec371debfb9132a6d61c83070d45fe3775feb84184b7f",
+      "bytes": 3078,
+      "path": "boot-metadata/build-manifest.json"
+    },
+    {
+      "sha256": "4c70cacc327d6e87554226c9081efbfae2a9ef7a3badf25908a85ccdeb571afa",
+      "bytes": 364,
+      "path": "boot-metadata/cold-boot-a-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "0ced9bf96677d9265bfc5683518dbf997f85dca0bcfc34f26a8975934df2bf82",
+      "bytes": 921,
+      "path": "boot-metadata/cold-boot-a-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-a-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "d0aaf273c863747f1bc61a354a9e79b1ba8a7d56ad97221d6a7b654556ea9cc1",
+      "bytes": 2078,
+      "path": "boot-metadata/cold-boot-a-package/iso-manifest.json"
+    },
+    {
+      "sha256": "6f15bf83921feb2be2952a2cd476b9cbd6c1fea766dc53f4156ac0243669d6b7",
+      "bytes": 244,
+      "path": "boot-metadata/cold-boot-a-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "42a0183966fa368bbc80ec7cbcfd29ab4cadeccc0ae545e894e72e48d86b0068",
+      "bytes": 641,
+      "path": "boot-metadata/cold-boot-a-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-metadata/cold-boot-a-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-metadata/cold-boot-a-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-a-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "72f11fe871682a518d675c93abbafa184f0d472786c13787ec5701abfd3bacae",
+      "bytes": 24843,
+      "path": "boot-metadata/cold-boot-a-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "54ec1b905b25259ae68799f8d93d83e6ba7b3d58811cd006775db1ecfb90d94f",
+      "bytes": 229,
+      "path": "boot-metadata/cold-boot-a-package/staged-limine.conf"
+    },
+    {
+      "sha256": "7d412b848650cce8c00240abb040545cd05442be816e63ac4a825afa6c20f7cf",
+      "bytes": 502,
+      "path": "boot-metadata/cold-boot-a-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "3ccd8a926f3d16be52f66ac97ab2953011eed78a1ac85e77e23fe32ad2871fd4",
+      "bytes": 790,
+      "path": "boot-metadata/cold-boot-a-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-a-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "1a947be9c4d1907ac4135aa329ec89cda6bc6285af15a8d1c294c3bfb65038be",
+      "bytes": 3529,
+      "path": "boot-metadata/cold-boot-a-run/case-result.json"
+    },
+    {
+      "sha256": "d63505ea8f2d1b28965c3e13cc2820522f6a1d4bd4acf7c676ce2b40b45ee2a0",
+      "bytes": 35914,
+      "path": "boot-metadata/cold-boot-a-run/guest-records.json"
+    },
+    {
+      "sha256": "ca6d929eb24cdd4aa048928ff10930777d6271e181bc6041bc82bfdb934fb864",
+      "bytes": 2965,
+      "path": "boot-metadata/cold-boot-a-run/launch-manifest.json"
+    },
+    {
+      "sha256": "68d45cb37d953d2f080485956163ba7e192d1f3426de8786a43cf8beb841fd59",
+      "bytes": 1049,
+      "path": "boot-metadata/cold-boot-a-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-a-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-a-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-metadata/cold-boot-a-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-a-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "72f11fe871682a518d675c93abbafa184f0d472786c13787ec5701abfd3bacae",
+      "bytes": 24843,
+      "path": "boot-metadata/cold-boot-a-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "7b59fc7941559d27f96ee0c28f82862e4eee57c141b4b2c0b1781c6d508936c2",
+      "bytes": 755,
+      "path": "boot-metadata/cold-boot-a-run/run-result.json"
+    },
+    {
+      "sha256": "94622c133577e7e3c45f432e1cf0cadbafb965e12597171e79f0a2504909e533",
+      "bytes": 23855,
+      "path": "boot-metadata/cold-boot-a-run/serial.log"
+    },
+    {
+      "sha256": "42b7000d5638340535d1cbcb2c992db5b5f11053a02d1a43f63fcf50c3ef41c7",
+      "bytes": 364,
+      "path": "boot-metadata/cold-boot-b-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "04ddfe0dbf72206dde56711d918cda7f1ecb5d91101f9fd6991f3792ef2331d3",
+      "bytes": 921,
+      "path": "boot-metadata/cold-boot-b-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-b-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "a4854ef1640f4b2e4d25eed000685486405bcc2be2421ee67bfc3b603a40bc41",
+      "bytes": 2078,
+      "path": "boot-metadata/cold-boot-b-package/iso-manifest.json"
+    },
+    {
+      "sha256": "7a65cd6ada822b77f065c3293ab313b57bb9f9c816237e9cd6b1010fb7e235ca",
+      "bytes": 244,
+      "path": "boot-metadata/cold-boot-b-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "f993514a9bbc8265b19d9edd5741c190f362a67a77d5ec05ecbf7f1153b00a2e",
+      "bytes": 641,
+      "path": "boot-metadata/cold-boot-b-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-metadata/cold-boot-b-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-metadata/cold-boot-b-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-b-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "f49bec1624a267a37261850ffec960496c45c6f27e56a79c3872e5f36a1911e8",
+      "bytes": 24843,
+      "path": "boot-metadata/cold-boot-b-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "975574076cb20f25f34a0deaa074de7012ddfcc39695ae27292e7423b34d03af",
+      "bytes": 229,
+      "path": "boot-metadata/cold-boot-b-package/staged-limine.conf"
+    },
+    {
+      "sha256": "0ecede10aa75d458a325af71d9cf7f871ecef5346d1ba044688694b7a3ab1b6c",
+      "bytes": 502,
+      "path": "boot-metadata/cold-boot-b-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "821813c0f0137483d8a7424dcbd46b57808b903cfaf5bacb09cb69e40571a56c",
+      "bytes": 790,
+      "path": "boot-metadata/cold-boot-b-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-b-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "1e6ff1533278a79793c83399c85d64d52d8f9f4e826cd31409653a2be191a00d",
+      "bytes": 3529,
+      "path": "boot-metadata/cold-boot-b-run/case-result.json"
+    },
+    {
+      "sha256": "7ea0ac3f7dd7f04d360dcc8f405e86441de7d51bb9bfb28a73315d93b4328f15",
+      "bytes": 35914,
+      "path": "boot-metadata/cold-boot-b-run/guest-records.json"
+    },
+    {
+      "sha256": "15c1f4c0bfd3a0d66d42d2b3dc3ea17e4ad153094f600a80c6fff453010e15b8",
+      "bytes": 2965,
+      "path": "boot-metadata/cold-boot-b-run/launch-manifest.json"
+    },
+    {
+      "sha256": "17673d08af81bd35632a0b42eea834510628afc3624bf7d11d7917c60ed5b7c1",
+      "bytes": 1049,
+      "path": "boot-metadata/cold-boot-b-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-b-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-b-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-metadata/cold-boot-b-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/cold-boot-b-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "boot-metadata/cold-boot-b-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "b9824879673817826c452a3a6d9c843bf72b683aeb53404311c969c31bf37ae6",
+      "bytes": 755,
+      "path": "boot-metadata/cold-boot-b-run/run-result.json"
+    },
+    {
+      "sha256": "9fa61e9b06a30b64230454f5c666b546649c5ec3e2cc4d89709499471da94504",
+      "bytes": 23855,
+      "path": "boot-metadata/cold-boot-b-run/serial.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-metadata/initial-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/initial-preflight.stderr.log"
+    },
+    {
+      "sha256": "32e6786300763db4e1695346c4bd69d66752fe317a8271ec0ad9c582bfda472d",
+      "bytes": 24843,
+      "path": "boot-metadata/initial-preflight.stdout.log"
+    },
+    {
+      "sha256": "f284bac73f4d6c99a342c3a24c54fd63162e8929c2e2e926c0601bc68131693c",
+      "bytes": 3558,
+      "path": "boot-metadata/injection-kernel/build-inputs.json"
+    },
+    {
+      "sha256": "6c5a6d7373053107d893aabf1218ad19f56ee6d14849bcd2ef0ffe800a5669d4",
+      "bytes": 3112,
+      "path": "boot-metadata/injection-kernel/build-manifest.json"
+    },
+    {
+      "sha256": "d7524a74db7a7b48e90b6b473ba67e82877ed21955b024a27d3d3289a2b83447",
+      "bytes": 705,
+      "path": "boot-metadata/injection-kernel/kernel-build.command.json"
+    },
+    {
+      "sha256": "05c4f578fd18f64f7e1355285f435566e11231f2ba641d98d0cd7bdbdef68461",
+      "bytes": 193,
+      "path": "boot-metadata/injection-kernel/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/injection-kernel/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "7b836c6c9aed143ebbf7d39c720e74dbc0818e05ed423b74409c33b9a4681459",
+      "bytes": 300,
+      "path": "boot-metadata/injection-kernel/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/injection-kernel/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/injection-kernel/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "df877a7bc985ef6825efb39822e6e4897b3d0264322188e01fd293285df84013",
+      "bytes": 328,
+      "path": "boot-metadata/injection-kernel/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/injection-kernel/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "2a8010f030d4d09c544c610755ecae705fa75ea1ea0d15bc5727d4a8eea1605f",
+      "bytes": 471853,
+      "path": "boot-metadata/injection-kernel/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "d2a017e93929130903714e22ecce0383231240a5307dd6d633c498971b5df904",
+      "bytes": 405,
+      "path": "boot-metadata/injection-kernel/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/injection-kernel/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "c9d2b17413f4a21682e4bd71f5ab50526572c76544ec05223136af27c6813768",
+      "bytes": 41682,
+      "path": "boot-metadata/injection-kernel/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "1b867d549186f6b140babeed6f654d6044496b7256983ddb4c11c71331cebe7f",
+      "bytes": 689,
+      "path": "boot-metadata/kernel-build.command.json"
+    },
+    {
+      "sha256": "213f47af6c6a690b2f85ebfcd6db5346298a531dee3d3501a57f32bd90adf69e",
+      "bytes": 193,
+      "path": "boot-metadata/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "c4f16d24f17afe4b1e23da3c67a1f1ee02004cd6b3720dd94eba8e02e0178061",
+      "bytes": 282,
+      "path": "boot-metadata/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "48702a57a2b68e7214fb16357e1c45df3529e7b253993312d3e42940774e1837",
+      "bytes": 310,
+      "path": "boot-metadata/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "c2e13bd12e591965ebf3f0ff7f1dc213fda3a34c125481748cc2b92aedf34665",
+      "bytes": 461511,
+      "path": "boot-metadata/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "539376341c0f3236ce93ff1351cfa74bab3892214ed8eac2b631970279965bf8",
+      "bytes": 387,
+      "path": "boot-metadata/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "e86398759dc90d10ab8c05926ad6aaf9652a526a857abff7446f5d8ed640126f",
+      "bytes": 41432,
+      "path": "boot-metadata/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "b5ec8b50c5ef599e0565752652c690b8d95196ae111c5a95b4206ffdad2bceba",
+      "bytes": 354,
+      "path": "boot-metadata/module-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "1f1f7b94511988a6023b941eac51c3e63205d7aae500b4fc0de81addf8116755",
+      "bytes": 911,
+      "path": "boot-metadata/module-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/module-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "6d60847f7c4808049b1a0d96617fb17d4b640d70cf49240bde9539d09b5bf6e7",
+      "bytes": 2169,
+      "path": "boot-metadata/module-package/iso-manifest.json"
+    },
+    {
+      "sha256": "bf3e928a686270e3afed8eff37578124f098aaa2d8d750ee193b5c29d43eb218",
+      "bytes": 239,
+      "path": "boot-metadata/module-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "950cb0a55722ca3090cddab0d1bfddb699aeeabe240e3c1d05eb3264f58f502d",
+      "bytes": 636,
+      "path": "boot-metadata/module-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-metadata/module-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-metadata/module-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/module-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "f49bec1624a267a37261850ffec960496c45c6f27e56a79c3872e5f36a1911e8",
+      "bytes": 24843,
+      "path": "boot-metadata/module-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "6493cf79c8c0f6d59441ff42d009375cc0bd6fca8a5dca41d464d0756c211300",
+      "bytes": 304,
+      "path": "boot-metadata/module-package/staged-limine.conf"
+    },
+    {
+      "sha256": "0969cde26487c1d826707183c57d978d11933e31ad4d0f579feb5dd8cbd6b24b",
+      "bytes": 492,
+      "path": "boot-metadata/module-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "1776e86135ea3960c6a7b62d97134b027ea7e6c92cbf181b5a0c2f9dfeafc07a",
+      "bytes": 775,
+      "path": "boot-metadata/module-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/module-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "e80a70c73b3827bc90dc5e05095fc34517ca41a0797a3a56c1e69e945aaaf68c",
+      "bytes": 3617,
+      "path": "boot-metadata/module-run/case-result.json"
+    },
+    {
+      "sha256": "8e0bf82e7e84d20d6625a998c0eee47df89e4c5b91cde99d94617cb0fc3e41da",
+      "bytes": 39025,
+      "path": "boot-metadata/module-run/guest-records.json"
+    },
+    {
+      "sha256": "040f00ecd46fbe28a79e7d8c9351bbc44c3ce5ccd378723024dd9ed96124f799",
+      "bytes": 2950,
+      "path": "boot-metadata/module-run/launch-manifest.json"
+    },
+    {
+      "sha256": "eb723cae77a29a76a49f8a30f442633535c3524634864e7556cdeb378a3157cc",
+      "bytes": 1034,
+      "path": "boot-metadata/module-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/module-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/module-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-metadata/module-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/module-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "f49bec1624a267a37261850ffec960496c45c6f27e56a79c3872e5f36a1911e8",
+      "bytes": 24843,
+      "path": "boot-metadata/module-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "7be2dacd65e99595391f99ed74270bc1db57bc4ef4d7ef672c727f36b7347224",
+      "bytes": 755,
+      "path": "boot-metadata/module-run/run-result.json"
+    },
+    {
+      "sha256": "64646ef8a288ec9d6312da77d76266080dd81539fc695355ac667fa38ba6cbaf",
+      "bytes": 26092,
+      "path": "boot-metadata/module-run/serial.log"
+    },
+    {
+      "sha256": "b5db65f7702d7ca780c144219b3000efb365cdc48233e659dc05eb57a826f753",
+      "bytes": 16382,
+      "path": "boot-metadata/result.json"
+    },
+    {
+      "sha256": "4e5662f24579900e1f236a2024a3aaafbe12f26687a9157050f8ff075f296dbd",
+      "bytes": 364,
+      "path": "boot-metadata/serial-only-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "fcb877f9eaeb28d88f9d1bceb4e8ebdbfb0b8c1050d170808545a21121347f21",
+      "bytes": 921,
+      "path": "boot-metadata/serial-only-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/serial-only-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "19147987a8869c5ba589bbdcfa16dfc889b11701f4cc8c691081f4f7f284ae89",
+      "bytes": 2090,
+      "path": "boot-metadata/serial-only-package/iso-manifest.json"
+    },
+    {
+      "sha256": "7a2f0432797a5dad8e6394f32de18d9a7b9276057f3c65b6af1ed48b943e3042",
+      "bytes": 244,
+      "path": "boot-metadata/serial-only-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "c7b36c66b8015dbe4565cd358074d922ef95e3752989c4e2c8cbf6c5e86a83d0",
+      "bytes": 641,
+      "path": "boot-metadata/serial-only-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-metadata/serial-only-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-metadata/serial-only-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/serial-only-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "461b9f766018ca47ad6c7effa74388a35dcd5e7c501bd1e26473b236eb5f11ff",
+      "bytes": 24843,
+      "path": "boot-metadata/serial-only-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "8762fe6fd300e265eab0294127e57b1a97c910e8d52a671ea3d12d7f1d47aef3",
+      "bytes": 234,
+      "path": "boot-metadata/serial-only-package/staged-limine.conf"
+    },
+    {
+      "sha256": "1b0fd52e486bc27b17e99bd21867da640424505feb77bdd1be7c9cd6667a0c00",
+      "bytes": 502,
+      "path": "boot-metadata/serial-only-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "5bd55c9bc532adfc659c16679811af5697db0534c84c1151f20e6a406f67165a",
+      "bytes": 790,
+      "path": "boot-metadata/serial-only-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/serial-only-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "00f8e701b400d3273873f3d1f4a8916bb28f627e702a375a8e00281d44ca7e01",
+      "bytes": 3546,
+      "path": "boot-metadata/serial-only-run/case-result.json"
+    },
+    {
+      "sha256": "abf3115449c9b2c3261bb6788e6e34421936d42ee6f2c020c997cc9205cee5f2",
+      "bytes": 34707,
+      "path": "boot-metadata/serial-only-run/guest-records.json"
+    },
+    {
+      "sha256": "4c62b79013178e3bcb2c68e632cf71539a65332b11ca7b2595d550955fb4ea0f",
+      "bytes": 2970,
+      "path": "boot-metadata/serial-only-run/launch-manifest.json"
+    },
+    {
+      "sha256": "f19b8a51f2ff6a87af5445b217c7f1c5d03035b8f9721cd9958732e0a1bad176",
+      "bytes": 1049,
+      "path": "boot-metadata/serial-only-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/serial-only-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/serial-only-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-metadata/serial-only-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-metadata/serial-only-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "72f11fe871682a518d675c93abbafa184f0d472786c13787ec5701abfd3bacae",
+      "bytes": 24843,
+      "path": "boot-metadata/serial-only-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "ac40ecc91c7aa087478d09aaa42326e4a3cdc6a2f2ef3d914d6b0b46814ab965",
+      "bytes": 760,
+      "path": "boot-metadata/serial-only-run/run-result.json"
+    },
+    {
+      "sha256": "3998d803a183bed0b9749f4c0e23d0956730c6b7eee23c69d79edb26bee2df8a",
+      "bytes": 23194,
+      "path": "boot-metadata/serial-only-run/serial.log"
+    },
+    {
+      "sha256": "f284bac73f4d6c99a342c3a24c54fd63162e8929c2e2e926c0601bc68131693c",
+      "bytes": 3558,
+      "path": "boot-reject/build-inputs.json"
+    },
+    {
+      "sha256": "6c5a6d7373053107d893aabf1218ad19f56ee6d14849bcd2ef0ffe800a5669d4",
+      "bytes": 3112,
+      "path": "boot-reject/build-manifest.json"
+    },
+    {
+      "sha256": "04136fdc843db5d81a00493085af4a3f286864a3aec561b86a60a765be144a58",
+      "bytes": 368,
+      "path": "boot-reject/excessive-count-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "6c4340ca5e5d5fd27e6c4d3a51d97febd89c1cb85c74172b7e9f7a4ab7b74ea0",
+      "bytes": 925,
+      "path": "boot-reject/excessive-count-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/excessive-count-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "14432469a8c52e2aa15e5b88bcc32ea782a322bdd62a08c3ef3c48697f670fef",
+      "bytes": 2098,
+      "path": "boot-reject/excessive-count-package/iso-manifest.json"
+    },
+    {
+      "sha256": "910f82ca695ac974206a7b6dd0080b933b96ecb15fb8a8ca76fa508518d82009",
+      "bytes": 246,
+      "path": "boot-reject/excessive-count-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "a656f1c62bafa79b2e504f3ddb88affa9ac6f41a5b872be4e059789a31f580f7",
+      "bytes": 643,
+      "path": "boot-reject/excessive-count-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-reject/excessive-count-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/excessive-count-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/excessive-count-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "461b9f766018ca47ad6c7effa74388a35dcd5e7c501bd1e26473b236eb5f11ff",
+      "bytes": 24843,
+      "path": "boot-reject/excessive-count-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "1ed150556ba36291a2f96746f76b414b9feb5437d06a717f3af8086fc0cf8a3b",
+      "bytes": 238,
+      "path": "boot-reject/excessive-count-package/staged-limine.conf"
+    },
+    {
+      "sha256": "74c92cd9adee9205bc1de7e89a0360e21a7f401c814f2dab80d20e986b1704a7",
+      "bytes": 506,
+      "path": "boot-reject/excessive-count-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "e6fbf0a5d887baf627e9b39e9522bdceb7863042b56bbd1ce81690aff2bcf303",
+      "bytes": 796,
+      "path": "boot-reject/excessive-count-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/excessive-count-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "0a4996ba230628d0a689901b36b52dab663f4db283c74f5d609ae34696edb14a",
+      "bytes": 3054,
+      "path": "boot-reject/excessive-count-run/case-result.json"
+    },
+    {
+      "sha256": "d19f0d92c19afdc348c3ec294de8d5f776d77542ab3257ad83021ae3151f124c",
+      "bytes": 1066,
+      "path": "boot-reject/excessive-count-run/guest-records.json"
+    },
+    {
+      "sha256": "e84bab6a33ddad28fc23909a9730a0ee683de17a49d3d5d2bda33acd9956a5e0",
+      "bytes": 2980,
+      "path": "boot-reject/excessive-count-run/launch-manifest.json"
+    },
+    {
+      "sha256": "1925c6d00dba6d9e0938def34994676ef8d7cdb4d431915d0bf32680fcc85c71",
+      "bytes": 1055,
+      "path": "boot-reject/excessive-count-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/excessive-count-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/excessive-count-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/excessive-count-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/excessive-count-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "f49bec1624a267a37261850ffec960496c45c6f27e56a79c3872e5f36a1911e8",
+      "bytes": 24843,
+      "path": "boot-reject/excessive-count-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "41b80e0a863a7f98653c0728244cd08bcc698cb96edba1dabc534d1c5aea2c23",
+      "bytes": 764,
+      "path": "boot-reject/excessive-count-run/run-result.json"
+    },
+    {
+      "sha256": "8fdfdff3cd8e2ffe48a8af62c5ce1b81c48a1c3e23e6d15bfd4bc3a123ff195e",
+      "bytes": 4181,
+      "path": "boot-reject/excessive-count-run/serial.log"
+    },
+    {
+      "sha256": "9a5cf5923cd2a6ce4b70482da1c771be219f93437f2384da4ed046ea8f83d9d8",
+      "bytes": 374,
+      "path": "boot-reject/framebuffer-format-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "abc76b01e8d96552db99a82f9a1b7d5c1fae019ee329cca91b41f1f55a4b699a",
+      "bytes": 931,
+      "path": "boot-reject/framebuffer-format-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-format-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "4b786ef2939b7f07ca400f684c2a115c3aecd4e67a187630ef21cf139a8aa075",
+      "bytes": 2104,
+      "path": "boot-reject/framebuffer-format-package/iso-manifest.json"
+    },
+    {
+      "sha256": "9c2ded519166c30bd25592a99f057812e2084c2b447fe06002cf5d3692c26b45",
+      "bytes": 249,
+      "path": "boot-reject/framebuffer-format-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "d53fd81a18288c247bbb66f8f62bf86be5bab067a575773e30affa55bd224c46",
+      "bytes": 646,
+      "path": "boot-reject/framebuffer-format-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-reject/framebuffer-format-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/framebuffer-format-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-format-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "boot-reject/framebuffer-format-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "62ba86f21b70ada6fda368beda4e338b1097acf3a46aac5cbc108bc70f50804c",
+      "bytes": 241,
+      "path": "boot-reject/framebuffer-format-package/staged-limine.conf"
+    },
+    {
+      "sha256": "8060ceb1de00c7633e0fe083ea6451357ff055fbfb3f45348837ea306298e467",
+      "bytes": 512,
+      "path": "boot-reject/framebuffer-format-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "ef0ff6536f267c96d5e1659aaa46009fcb3508b348ae13322b12b9c1c50b9009",
+      "bytes": 805,
+      "path": "boot-reject/framebuffer-format-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-format-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "c3fd360a383c5809d1acdb84d4d0c30f92b13d8eece99cce3c1b78e451775410",
+      "bytes": 3066,
+      "path": "boot-reject/framebuffer-format-run/case-result.json"
+    },
+    {
+      "sha256": "a439ab42ae62eeda26241ea557fda8a5becd64d8cf5e1e52c7a61d7f0387b427",
+      "bytes": 1072,
+      "path": "boot-reject/framebuffer-format-run/guest-records.json"
+    },
+    {
+      "sha256": "8ff9040c1aacffcfd7eac8d18e74bb3403a82ae1f78f60dc61284c03703efbf6",
+      "bytes": 2992,
+      "path": "boot-reject/framebuffer-format-run/launch-manifest.json"
+    },
+    {
+      "sha256": "7b836ae28cff7a40cd666e0c30d48e28b8625bca3080b8ae1967fc6cda91d80b",
+      "bytes": 1064,
+      "path": "boot-reject/framebuffer-format-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-format-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-format-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/framebuffer-format-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-format-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "72f11fe871682a518d675c93abbafa184f0d472786c13787ec5701abfd3bacae",
+      "bytes": 24843,
+      "path": "boot-reject/framebuffer-format-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "74e597d6c2bf8e1add4805b5fd063153b227c3a400e9f6a28f46f7b5a4f7af5d",
+      "bytes": 767,
+      "path": "boot-reject/framebuffer-format-run/run-result.json"
+    },
+    {
+      "sha256": "8ee1b8867f92e8973c789b6e55c8a3825f085e5981bae7515fc3595a4d773ac4",
+      "bytes": 4187,
+      "path": "boot-reject/framebuffer-format-run/serial.log"
+    },
+    {
+      "sha256": "b51c70f8cd850926a0e5b0dcb7ec545a68e46c113e5aa7381d3e8f2aebc45e80",
+      "bytes": 372,
+      "path": "boot-reject/framebuffer-pitch-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "9d39d8d56fe12c1eb82ea9f65dc98f388e43beebfefc766798201a9b2dfe8f04",
+      "bytes": 929,
+      "path": "boot-reject/framebuffer-pitch-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-pitch-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "bddfedd1f455c659032a63135296de95d508f5cbd1a6a8612f14540b3221a005",
+      "bytes": 2102,
+      "path": "boot-reject/framebuffer-pitch-package/iso-manifest.json"
+    },
+    {
+      "sha256": "6c45ab2baa8d73baf274b5ee98b3b2567ab8feb289faef3cd12f3d2b1d13ea00",
+      "bytes": 248,
+      "path": "boot-reject/framebuffer-pitch-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "ffdb0c27adfd4dfc1a3fa8e869f347b453cf88dc8e1019a10b924934de94aec5",
+      "bytes": 645,
+      "path": "boot-reject/framebuffer-pitch-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-reject/framebuffer-pitch-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/framebuffer-pitch-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-pitch-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "72f11fe871682a518d675c93abbafa184f0d472786c13787ec5701abfd3bacae",
+      "bytes": 24843,
+      "path": "boot-reject/framebuffer-pitch-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "f6c18c720d0bd646523ac0363354f808743efa4994cc78b974c89ffcb1b4fa8c",
+      "bytes": 240,
+      "path": "boot-reject/framebuffer-pitch-package/staged-limine.conf"
+    },
+    {
+      "sha256": "98368abc660504be6eaa0497689943300bf39c8d98ba53add9dd1abd1ff02d3b",
+      "bytes": 510,
+      "path": "boot-reject/framebuffer-pitch-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "f50b360bd36156f63af5651e0cd5b9a9bd7fe875b2f84b7bd7ec0c73b3d5b9f3",
+      "bytes": 802,
+      "path": "boot-reject/framebuffer-pitch-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-pitch-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "ee917b6df5f94d1e3d7aa91cde6da67861713b334b9264b310a94aa5fc610f23",
+      "bytes": 3062,
+      "path": "boot-reject/framebuffer-pitch-run/case-result.json"
+    },
+    {
+      "sha256": "d961d90a75ae11bc826162cac7ef8246c29e99c23091b6b59d885bf51ae1c6ef",
+      "bytes": 1070,
+      "path": "boot-reject/framebuffer-pitch-run/guest-records.json"
+    },
+    {
+      "sha256": "868bdc349081406f8b14dbffc031ed5592a0e48d810b1701b926152111b34ccb",
+      "bytes": 2988,
+      "path": "boot-reject/framebuffer-pitch-run/launch-manifest.json"
+    },
+    {
+      "sha256": "8579e96d181071f23781b139dce158b0a6c0a06c007b0eff1b668bf21f00265d",
+      "bytes": 1061,
+      "path": "boot-reject/framebuffer-pitch-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-pitch-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-pitch-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/framebuffer-pitch-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-pitch-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "32e6786300763db4e1695346c4bd69d66752fe317a8271ec0ad9c582bfda472d",
+      "bytes": 24843,
+      "path": "boot-reject/framebuffer-pitch-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "b9a00a324b2513b78ea80ecbdd120d5cf923d2aac73cc99344f41f237cb54b20",
+      "bytes": 766,
+      "path": "boot-reject/framebuffer-pitch-run/run-result.json"
+    },
+    {
+      "sha256": "fae0db1f08e8c87dab4eebdba3dae3f8e7b9a9b8d168ffde1a4716b83ad0c97c",
+      "bytes": 4185,
+      "path": "boot-reject/framebuffer-pitch-run/serial.log"
+    },
+    {
+      "sha256": "c975bbf575e6bb1e2b559cadcd1d5bc96e60448e16cf1f51680af2f431b786cd",
+      "bytes": 372,
+      "path": "boot-reject/framebuffer-range-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "48fc17bfc870bbac26efbc44ac48cd82e284f8622c56a7f0e972a51995c52154",
+      "bytes": 929,
+      "path": "boot-reject/framebuffer-range-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-range-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "fc6d27e0518a2c9d4e8100cd387a55055f9cb61b397abcbee9e44e2fd454c46a",
+      "bytes": 2102,
+      "path": "boot-reject/framebuffer-range-package/iso-manifest.json"
+    },
+    {
+      "sha256": "fbca70fdcece7660466bd848f50b9b10ef7484a32a4e048be90091b985b57684",
+      "bytes": 248,
+      "path": "boot-reject/framebuffer-range-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "f15cecc11ef008cd510009439bf8f6966eb40848be5dbc25fd182f27cb84894c",
+      "bytes": 645,
+      "path": "boot-reject/framebuffer-range-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-reject/framebuffer-range-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/framebuffer-range-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-range-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "bf8269f3a5f013108e0220f8e0fa22491e1aac698b411c2ae012e50e0cfa4750",
+      "bytes": 24843,
+      "path": "boot-reject/framebuffer-range-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "fb9072866fff6fac270a89e93673c333d36b9e6993b54e8ea522598448f88826",
+      "bytes": 240,
+      "path": "boot-reject/framebuffer-range-package/staged-limine.conf"
+    },
+    {
+      "sha256": "7ed24b61dbac271a594d05277bfa87587f5c2eb36419872333f7453fe0a3eca9",
+      "bytes": 510,
+      "path": "boot-reject/framebuffer-range-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "3be3e05b77ba925f414c1514c81a45f6d6a9beb5426311151699c970a326418d",
+      "bytes": 802,
+      "path": "boot-reject/framebuffer-range-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-range-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "03b043e82c0293a28ee2e90df22091b9a0476eb1e959f64438e597a1ecc1473b",
+      "bytes": 3062,
+      "path": "boot-reject/framebuffer-range-run/case-result.json"
+    },
+    {
+      "sha256": "1f6df8b5d48ba068d917f83dcb424a0c77c93d5ffa4950f59b296d958913130a",
+      "bytes": 1070,
+      "path": "boot-reject/framebuffer-range-run/guest-records.json"
+    },
+    {
+      "sha256": "0233dbafa5e969faf38d747e447b1a1e497c73289f9d738a7c3b54069e02df82",
+      "bytes": 2988,
+      "path": "boot-reject/framebuffer-range-run/launch-manifest.json"
+    },
+    {
+      "sha256": "c0390dd6c31b9a936f9dc7de0ae5cfd871d5067620ad9858c0ede037e3de2f2d",
+      "bytes": 1061,
+      "path": "boot-reject/framebuffer-range-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-range-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-range-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/framebuffer-range-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/framebuffer-range-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "boot-reject/framebuffer-range-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "ed8729f5b48e657387410fdf4862e0a3f1eae4afcc91523a25a63c75781b2113",
+      "bytes": 766,
+      "path": "boot-reject/framebuffer-range-run/run-result.json"
+    },
+    {
+      "sha256": "dc32edfe06c7dd84f94704ed64a709082d157f39df368646d3237b591bcd942d",
+      "bytes": 4185,
+      "path": "boot-reject/framebuffer-range-run/serial.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/initial-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/initial-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "boot-reject/initial-preflight.stdout.log"
+    },
+    {
+      "sha256": "4767723b8bd12d4f485c09ac982dbed689ab43489533847db8c0e8c26d85918f",
+      "bytes": 685,
+      "path": "boot-reject/kernel-build.command.json"
+    },
+    {
+      "sha256": "db42c21bc0fbea6ae7d63053b3920d56df6bd451fb09c8a24d7171fe21386418",
+      "bytes": 193,
+      "path": "boot-reject/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "7889840dd0d881a97d2bfb229aed48a51d9685d34fed1c7594ad4938a16b6ba0",
+      "bytes": 280,
+      "path": "boot-reject/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "3ea3cf3ffff931c0b300a2250fc58730688650b7ddc7ebbad70859913fc679dd",
+      "bytes": 308,
+      "path": "boot-reject/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "7345057d6190b040802ca6f718d0388388131d45689b4df785ac518b78f8bdec",
+      "bytes": 471834,
+      "path": "boot-reject/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "a7570793e17436bc28068acc5519efe2d94ce1f5cd50a598a87f463d84a5fe30",
+      "bytes": 385,
+      "path": "boot-reject/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "12eef3f3b9c2eab307c111ae0085194553de31f63e9cb6b53f5744ec8a84e6ac",
+      "bytes": 41663,
+      "path": "boot-reject/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "8ccc8d9f66462b7a05f0facf97bec748077a441da72831ed1fc942e9aa76e327",
+      "bytes": 370,
+      "path": "boot-reject/missing-required-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "e3b0852a336cf582a46baded423168bc2b26f95001bdb554a625cd949ad04b92",
+      "bytes": 927,
+      "path": "boot-reject/missing-required-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/missing-required-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "f548aec61c8eb2bc0d86baa347140d7767be920a6c5f93e9668d707a2416433a",
+      "bytes": 2100,
+      "path": "boot-reject/missing-required-package/iso-manifest.json"
+    },
+    {
+      "sha256": "31ca7aa182eaade73048fd22ab1557a152b276352f44d08857e9092b7088ee7d",
+      "bytes": 247,
+      "path": "boot-reject/missing-required-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "d92830f5f7a5d3b04e9a48597e3dcbc37d436da8cbdd7a78b376f7555e4e22fd",
+      "bytes": 644,
+      "path": "boot-reject/missing-required-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-reject/missing-required-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/missing-required-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/missing-required-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "f49bec1624a267a37261850ffec960496c45c6f27e56a79c3872e5f36a1911e8",
+      "bytes": 24843,
+      "path": "boot-reject/missing-required-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "fb04c7b02f57940968b8caf11fdf1f1455692e1c7a95d60891d16d25dd8fa856",
+      "bytes": 239,
+      "path": "boot-reject/missing-required-package/staged-limine.conf"
+    },
+    {
+      "sha256": "d22fccd12c82bf31a8aa84bd196daf3d63af0c73eabf9c3a711df908dddebeed",
+      "bytes": 508,
+      "path": "boot-reject/missing-required-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "4832551ca48489f4c441dca478b02bb4565658cac1002ddf55a4f32bcec26714",
+      "bytes": 799,
+      "path": "boot-reject/missing-required-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/missing-required-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "3acc0d8771bbb95c7f6f6cb8a7bdebe15aafee10bdb259e296d828a2234ab078",
+      "bytes": 3058,
+      "path": "boot-reject/missing-required-run/case-result.json"
+    },
+    {
+      "sha256": "c444e8a7fe4963ed7f66331c5d98e2727d68ba96d319242f86b3f7efe4e5676d",
+      "bytes": 1064,
+      "path": "boot-reject/missing-required-run/guest-records.json"
+    },
+    {
+      "sha256": "d94c5d4d1fe107c72ed2d29853db4b52e457edb922a71006996f9103bcc7ff97",
+      "bytes": 2984,
+      "path": "boot-reject/missing-required-run/launch-manifest.json"
+    },
+    {
+      "sha256": "124a3e7bcf2b44fa111b7440432d0bd70932d6276b8fbdbea550efe94822b20f",
+      "bytes": 1058,
+      "path": "boot-reject/missing-required-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/missing-required-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/missing-required-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/missing-required-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/missing-required-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "32e6786300763db4e1695346c4bd69d66752fe317a8271ec0ad9c582bfda472d",
+      "bytes": 24843,
+      "path": "boot-reject/missing-required-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "2137f3c99932e4068d227b61c33fd4d0a37471622bb7ced48b6035fc71081045",
+      "bytes": 765,
+      "path": "boot-reject/missing-required-run/run-result.json"
+    },
+    {
+      "sha256": "b2e2ec74a622c607b6d258f81d780cad51dc6902bb4e9b2bd86f050a56fe5fc7",
+      "bytes": 4179,
+      "path": "boot-reject/missing-required-run/serial.log"
+    },
+    {
+      "sha256": "94b5171078a02554c3c0c5ca90bbcbcd1296522a72f442341df6b9f41e967a2d",
+      "bytes": 366,
+      "path": "boot-reject/range-overflow-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "65e6941f9e6c758616878b1c3a7e7ac06de092ffe8f122399dd14b96e6a13c7e",
+      "bytes": 923,
+      "path": "boot-reject/range-overflow-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/range-overflow-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "8ff1f2430170008917208e0b3b3e9d6fcbdf747e87581a133ea5cb1bdad4b4ef",
+      "bytes": 2096,
+      "path": "boot-reject/range-overflow-package/iso-manifest.json"
+    },
+    {
+      "sha256": "97f9450c815859682a09b8fbffee3fd84da97889176de0a970fa07e0c78cd4a7",
+      "bytes": 245,
+      "path": "boot-reject/range-overflow-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "0e84a820071cbdce60029d660a4e3d1809f31dc6e47ea62c98a781e34521070d",
+      "bytes": 642,
+      "path": "boot-reject/range-overflow-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-reject/range-overflow-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/range-overflow-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/range-overflow-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "72f11fe871682a518d675c93abbafa184f0d472786c13787ec5701abfd3bacae",
+      "bytes": 24843,
+      "path": "boot-reject/range-overflow-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "5c4b20d784b45d81aacfc9caa41f1e81e0e4cd9a4d4ade6401d8d8e9cc103747",
+      "bytes": 237,
+      "path": "boot-reject/range-overflow-package/staged-limine.conf"
+    },
+    {
+      "sha256": "424cb1e123c809a75387077c9bdfad3412291692ff3e36a1d9530e4ddeed2af5",
+      "bytes": 504,
+      "path": "boot-reject/range-overflow-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "7a79b31755d9559a35635bf9965e5d80c99f1c278011fde8dec3a5c0e4bd2fad",
+      "bytes": 793,
+      "path": "boot-reject/range-overflow-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/range-overflow-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "e88127367e2c3a5e6bfd6a5245ad7cfca777ccb25b078ff6f23e72fba41aff07",
+      "bytes": 3050,
+      "path": "boot-reject/range-overflow-run/case-result.json"
+    },
+    {
+      "sha256": "0bdfead1e6c510127be325975eba45bf94b2aad564fc5eaad6736e5b7a72360a",
+      "bytes": 1065,
+      "path": "boot-reject/range-overflow-run/guest-records.json"
+    },
+    {
+      "sha256": "6adfc90bba90e7058011219e74a843643a4ee741176c8647f887abd5ffa4b5e4",
+      "bytes": 2976,
+      "path": "boot-reject/range-overflow-run/launch-manifest.json"
+    },
+    {
+      "sha256": "9233416dcc669b7fe330bc8f8002b91fae26804224ffcaaad2f24b14b90c4b6f",
+      "bytes": 1052,
+      "path": "boot-reject/range-overflow-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/range-overflow-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/range-overflow-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/range-overflow-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/range-overflow-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "boot-reject/range-overflow-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "bb4055e25ec5dc644e96e81ef4c8d4c52097486e8009c3c59dd961bbdf5b9c0c",
+      "bytes": 763,
+      "path": "boot-reject/range-overflow-run/run-result.json"
+    },
+    {
+      "sha256": "18b4e637348acafb1c7beab182d2ac664d2792c851fc979a3aa470c40f7882fc",
+      "bytes": 4180,
+      "path": "boot-reject/range-overflow-run/serial.log"
+    },
+    {
+      "sha256": "a14e0a2628fd414d3042ced26f9110df5501343dfa2109c9bbb762b53e0d2106",
+      "bytes": 29758,
+      "path": "boot-reject/result.json"
+    },
+    {
+      "sha256": "43e619b5a6806ee11a4729a7f8bb18806790d0761b1130817c964942e3c0a05e",
+      "bytes": 378,
+      "path": "boot-reject/unsupported-revision-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "86c9ecbf530ae60983e91bc8d7254901b4bbc92df2a4ccee478cbf97f4fa7085",
+      "bytes": 935,
+      "path": "boot-reject/unsupported-revision-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unsupported-revision-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "7b936b2bf04e0e551a86a4caf38da0fa86a597b781e713f440b0c084e73de725",
+      "bytes": 2108,
+      "path": "boot-reject/unsupported-revision-package/iso-manifest.json"
+    },
+    {
+      "sha256": "815b5ceac4c4a7cd45f83b0ef4bc217bb2f5bba43e22a61eb1ecdcc616c91c7f",
+      "bytes": 251,
+      "path": "boot-reject/unsupported-revision-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "53b3ad5aa6a7041e156f250336e777aaa4029c22b0f284a8234c8e211dce3aef",
+      "bytes": 648,
+      "path": "boot-reject/unsupported-revision-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-reject/unsupported-revision-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/unsupported-revision-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unsupported-revision-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "boot-reject/unsupported-revision-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "63ab0f77bfb98dd2a5f2b8da143468cbba8c8a05e727b83f7499da7f4d110e82",
+      "bytes": 243,
+      "path": "boot-reject/unsupported-revision-package/staged-limine.conf"
+    },
+    {
+      "sha256": "66b85b9ccd083f6cd0d018d14089fb946f6c35842557ced44cc5a0ef93f949e2",
+      "bytes": 516,
+      "path": "boot-reject/unsupported-revision-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "b0bf75fbd1c1689b90711a2955f287ff61bbd6c6c5ddcdc65f4703ce6d049406",
+      "bytes": 811,
+      "path": "boot-reject/unsupported-revision-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unsupported-revision-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "78fe3b4e76563ef75cc1aaf7a03d9fc2898ed961aa17e67f103cdaeb78e3e860",
+      "bytes": 3074,
+      "path": "boot-reject/unsupported-revision-run/case-result.json"
+    },
+    {
+      "sha256": "35d375b47cda0d35d4a34ec22b4559d409e06644c036f0c36f0482496d625d0a",
+      "bytes": 1071,
+      "path": "boot-reject/unsupported-revision-run/guest-records.json"
+    },
+    {
+      "sha256": "8ef9946b4fb28ffb549bb08dfafc3e4ca7c93fafaacb4cd0089c5f51a57b3451",
+      "bytes": 3000,
+      "path": "boot-reject/unsupported-revision-run/launch-manifest.json"
+    },
+    {
+      "sha256": "d289c96279b854403101539e3d73875607c9fb1a0ab4ec0edbaa571f73775d18",
+      "bytes": 1070,
+      "path": "boot-reject/unsupported-revision-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unsupported-revision-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unsupported-revision-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/unsupported-revision-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unsupported-revision-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "72f11fe871682a518d675c93abbafa184f0d472786c13787ec5701abfd3bacae",
+      "bytes": 24843,
+      "path": "boot-reject/unsupported-revision-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "f9a761f96a6687dc9f5b9495ff7a8330e90f7a97344ed28ac880ab7d01d30dbd",
+      "bytes": 769,
+      "path": "boot-reject/unsupported-revision-run/run-result.json"
+    },
+    {
+      "sha256": "90d5622455686482406d17ce3ca716f2bafcd99a72ad3eeae799dee0a56e068b",
+      "bytes": 4186,
+      "path": "boot-reject/unsupported-revision-run/serial.log"
+    },
+    {
+      "sha256": "80bcef3edbce12b065f45f4f37ec47c88180d7f0b176edc7a251f252a3e4e510",
+      "bytes": 376,
+      "path": "boot-reject/unterminated-string-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "ad16036ded65b473d93739d2a0b23dbe10f7ec7ae2d1ccee6eb38dae801a8e06",
+      "bytes": 933,
+      "path": "boot-reject/unterminated-string-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unterminated-string-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "beb6ef862bfc633b948de4a4f28456177f017cc820183089fb6493ffad44bb6c",
+      "bytes": 2106,
+      "path": "boot-reject/unterminated-string-package/iso-manifest.json"
+    },
+    {
+      "sha256": "0173fe115ff650db3e2645768933c65c1381d67846bfed40284f334dfc0fce0e",
+      "bytes": 250,
+      "path": "boot-reject/unterminated-string-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "d3bda855082457b5a14a0394ead1a8785fd2c8355f5e9d743e857acd26764e6a",
+      "bytes": 647,
+      "path": "boot-reject/unterminated-string-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "boot-reject/unterminated-string-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/unterminated-string-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unterminated-string-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "72f11fe871682a518d675c93abbafa184f0d472786c13787ec5701abfd3bacae",
+      "bytes": 24843,
+      "path": "boot-reject/unterminated-string-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "b29d91090b9e8ad6639cca799065ecf534186ae0219c685466812ed1ab7e6e94",
+      "bytes": 242,
+      "path": "boot-reject/unterminated-string-package/staged-limine.conf"
+    },
+    {
+      "sha256": "8e29110087a2d191d03e4afa3e113fdc6f5c5cf4ff4ea029bd2c18e774cffa02",
+      "bytes": 514,
+      "path": "boot-reject/unterminated-string-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "a0e9d1eded13eb6c6509cc1f9d0c124a4add2b5961c8268e235d984ab73bb077",
+      "bytes": 808,
+      "path": "boot-reject/unterminated-string-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unterminated-string-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "c5c2fdb9611bfc41e78d9ccfcd951fbf26914de987dd917abc0c73eae8df245d",
+      "bytes": 3070,
+      "path": "boot-reject/unterminated-string-run/case-result.json"
+    },
+    {
+      "sha256": "6d0fbed7f3b6920296db8ba3159225e321a6e4aa55d7b889f91d8aa730b5b0d8",
+      "bytes": 1083,
+      "path": "boot-reject/unterminated-string-run/guest-records.json"
+    },
+    {
+      "sha256": "c9951a0d592332a7d542ecebed6cac5570c8dc1b7149f3bc88446d271c5e42f5",
+      "bytes": 2996,
+      "path": "boot-reject/unterminated-string-run/launch-manifest.json"
+    },
+    {
+      "sha256": "eeda82ff0989ccbcdf0d55a36cca2ae0160dbf93f8955cc0882236e29f23466f",
+      "bytes": 1067,
+      "path": "boot-reject/unterminated-string-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unterminated-string-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unterminated-string-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "boot-reject/unterminated-string-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "boot-reject/unterminated-string-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "32e6786300763db4e1695346c4bd69d66752fe317a8271ec0ad9c582bfda472d",
+      "bytes": 24843,
+      "path": "boot-reject/unterminated-string-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "bcfcc95d2d7dfb40764587dda2e84403fc6f92b97f60b16eba20e9f1056b70bd",
+      "bytes": 768,
+      "path": "boot-reject/unterminated-string-run/run-result.json"
+    },
+    {
+      "sha256": "3d9a9d3f515e59fc36f916f220c4158ed8515a2b0bb39c455b18733e2ae48a9d",
+      "bytes": 4198,
+      "path": "boot-reject/unterminated-string-run/serial.log"
+    },
+    {
+      "sha256": "b683b40ff1f7a3f9b0f4c3bdf5dead5d282b2c8f2c81c7b5fcb194d82ad2b199",
+      "bytes": 63,
+      "path": "dependencies/architecture-compile.log"
+    },
+    {
+      "sha256": "96a49aec839aff99750fd7f63bca6554b109d487de0aa3d3ac631a6836c458e5",
+      "bytes": 63,
+      "path": "dependencies/architecture-link.log"
+    },
+    {
+      "sha256": "b43d23339b8f16bb18a601157051f707536c27db65778f425088058ba9e2eca2",
+      "bytes": 204681,
+      "path": "dependencies/dependency-report.json"
+    },
+    {
+      "sha256": "b9b6c27e2995e96dd804cb58197c2ec905b916c1138314d48b970677c01a8eb0",
+      "bytes": 63,
+      "path": "dependencies/font-compile.log"
+    },
+    {
+      "sha256": "7b41cf656d031c1c8b0a487893da7ece5a6fd59d34514ee734ebc64af918d8b8",
+      "bytes": 333,
+      "path": "dependencies/font-link.log"
+    },
+    {
+      "sha256": "9734a162fe79a81129734c0d07eb59bc7662b5fd6e2861d7ae69d3abde89d691",
+      "bytes": 63,
+      "path": "dependencies/raster-compile.log"
+    },
+    {
+      "sha256": "7b41cf656d031c1c8b0a487893da7ece5a6fd59d34514ee734ebc64af918d8b8",
+      "bytes": 333,
+      "path": "dependencies/raster-link.log"
+    },
+    {
+      "sha256": "21b8bddd90b444bb5bd8119e698add3e7fadbf1006d0545c6818dcf66f7579bd",
+      "bytes": 63,
+      "path": "dependencies/shaping-compile.log"
+    },
+    {
+      "sha256": "7b41cf656d031c1c8b0a487893da7ece5a6fd59d34514ee734ebc64af918d8b8",
+      "bytes": 333,
+      "path": "dependencies/shaping-link.log"
+    },
+    {
+      "sha256": "0fef6a33491feddef3971767c96486f4bab9c9e6efb2c72eb4ee692b9c0f2b66",
+      "bytes": 63,
+      "path": "dependencies/toolkit-compile.log"
+    },
+    {
+      "sha256": "7b41cf656d031c1c8b0a487893da7ece5a6fd59d34514ee734ebc64af918d8b8",
+      "bytes": 333,
+      "path": "dependencies/toolkit-link.log"
+    },
+    {
+      "sha256": "446b5ff2ba4836f851753d464294a2622daaee2659cf88c2a267c9adc590b72c",
+      "bytes": 330182,
+      "path": "evidence-index.json"
+    },
+    {
+      "sha256": "6cb9c1c39b5e5a469b03ec684009ed0ebc22efb96bad9ab334bf28a69fec724c",
+      "bytes": 3561,
+      "path": "exception-emergency/build-inputs.json"
+    },
+    {
+      "sha256": "da4b9742785dc9dece68f38fe2c2fed1e89590746150edd548472f8e3453dce1",
+      "bytes": 3134,
+      "path": "exception-emergency/build-manifest.json"
+    },
+    {
+      "sha256": "4fdfab94e3021390dff02ac3ddc940903bd868ec45729ddd276ae5f7ee3f41c2",
+      "bytes": 390,
+      "path": "exception-emergency/exception-emergency-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "ca35334722f4cad5601f490175c8dc33641346fb102b0e990d0d66dbc970c387",
+      "bytes": 947,
+      "path": "exception-emergency/exception-emergency-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/exception-emergency-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "6e3505f2f56cf4f3e374a1c30b7a19f12c8762ee93e6826fb9e3f693f43f1701",
+      "bytes": 2109,
+      "path": "exception-emergency/exception-emergency-package/iso-manifest.json"
+    },
+    {
+      "sha256": "d89037c6556af566ba3bb759166c6d43c3bd04f23033e633ad417f1fdb8d787a",
+      "bytes": 257,
+      "path": "exception-emergency/exception-emergency-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "9d9944019324b72b24024a6cf0978667c395280b1bbd102d5d3b5a4ed9a7b690",
+      "bytes": 654,
+      "path": "exception-emergency/exception-emergency-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "exception-emergency/exception-emergency-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "exception-emergency/exception-emergency-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/exception-emergency-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "bf8269f3a5f013108e0220f8e0fa22491e1aac698b411c2ae012e50e0cfa4750",
+      "bytes": 24843,
+      "path": "exception-emergency/exception-emergency-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "a915342132fb739eb7b08bbb8bacd78d687bc99f74b4da3da8b1cc771f3ed321",
+      "bytes": 242,
+      "path": "exception-emergency/exception-emergency-package/staged-limine.conf"
+    },
+    {
+      "sha256": "41f2f401c0f17b90fcd418d0101e3f042359ee68cb53a0a7aece2f5bdae7032e",
+      "bytes": 528,
+      "path": "exception-emergency/exception-emergency-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "4941180db6c41bbf8cbf54dbe9b17f29524a577b9a53dbfb4d1bfde0e305cc44",
+      "bytes": 829,
+      "path": "exception-emergency/exception-emergency-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/exception-emergency-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "b3a3c2ff88f30dff0c5415a3bbaee8d4136ffd09bbe34cacc31b1fe08f3a0b1f",
+      "bytes": 3586,
+      "path": "exception-emergency/exception-emergency-run/case-result.json"
+    },
+    {
+      "sha256": "d7541ddc4edbb72ffbb78c8ff34180edb78fff44933d0520a9f051bdaa1a2081",
+      "bytes": 36134,
+      "path": "exception-emergency/exception-emergency-run/guest-records.json"
+    },
+    {
+      "sha256": "d60105c465c37ca965dcdcf3c06deb34f8c7abe940ce1a7994373a2d5cb942ed",
+      "bytes": 3017,
+      "path": "exception-emergency/exception-emergency-run/launch-manifest.json"
+    },
+    {
+      "sha256": "2fdb5f29e7e326e3f274d390e80b118285a6ab960fc778d83b024e95b17b0496",
+      "bytes": 1088,
+      "path": "exception-emergency/exception-emergency-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/exception-emergency-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/exception-emergency-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "exception-emergency/exception-emergency-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/exception-emergency-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "exception-emergency/exception-emergency-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "bd169f4174b261ae0328e08a81f11cd7ec8cbae4106046ac029931362bc6be35",
+      "bytes": 768,
+      "path": "exception-emergency/exception-emergency-run/run-result.json"
+    },
+    {
+      "sha256": "edeb84704f96bbd961db6d0379da37835f5087d1b6cd14e4bd4ba65c045ce82b",
+      "bytes": 23978,
+      "path": "exception-emergency/exception-emergency-run/serial.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "exception-emergency/initial-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/initial-preflight.stderr.log"
+    },
+    {
+      "sha256": "461b9f766018ca47ad6c7effa74388a35dcd5e7c501bd1e26473b236eb5f11ff",
+      "bytes": 24843,
+      "path": "exception-emergency/initial-preflight.stdout.log"
+    },
+    {
+      "sha256": "2310f406401bed6a59e10f0f6d666a7868bcce6f26b3f3b7998e2468112b85c4",
+      "bytes": 695,
+      "path": "exception-emergency/kernel-build.command.json"
+    },
+    {
+      "sha256": "ada25c82e0b621d40fde569929f01d02b6690119602d8d7591da8017b0e30be7",
+      "bytes": 193,
+      "path": "exception-emergency/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "14b43805eda88a90a47b6bfcc01cfc06b4c84b3d28cfeecdeb26732a8f406763",
+      "bytes": 287,
+      "path": "exception-emergency/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "600f5327476384277745426350855e9d595f59837a910bc4dbfe4b5e3808ea2e",
+      "bytes": 315,
+      "path": "exception-emergency/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "0ac37f5809054ed50edc0a6ec2314b64c56b28721702a08df9877beeaaee37da",
+      "bytes": 462989,
+      "path": "exception-emergency/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "ae0a05c8dd5bcc8704525ec6f699121964d74cb98026be96f7eb30a162754f6b",
+      "bytes": 392,
+      "path": "exception-emergency/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-emergency/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "16de32caed3cfcc18ccb8771d6947748b999d7bde3dc416d25a7f8729663032c",
+      "bytes": 41214,
+      "path": "exception-emergency/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "bf34f308e3acaaa74c4a0f491b81b925c50d1a8de0e9616df621eef01ddbe7e2",
+      "bytes": 4101,
+      "path": "exception-emergency/result.json"
+    },
+    {
+      "sha256": "6cb9c1c39b5e5a469b03ec684009ed0ebc22efb96bad9ab334bf28a69fec724c",
+      "bytes": 3561,
+      "path": "exception-invalid-opcode/build-inputs.json"
+    },
+    {
+      "sha256": "da4b9742785dc9dece68f38fe2c2fed1e89590746150edd548472f8e3453dce1",
+      "bytes": 3134,
+      "path": "exception-invalid-opcode/build-manifest.json"
+    },
+    {
+      "sha256": "5457a69364edd1aa19fdd97f6564ed6912d24a8c5fc4087e1aadb88659a14318",
+      "bytes": 412,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "c0686fa6fa650feae872d63701ca6fcceb828256c7a8d0b649a980ba3f50d618",
+      "bytes": 969,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "d75343c46077cef34e97eb2a6e72731be36cf24f7b54e9b7e4415db145a53726",
+      "bytes": 2119,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/iso-manifest.json"
+    },
+    {
+      "sha256": "ef31c796bea40345aa1b229af01d9b3fa785202a9eac8ebea79f27b2cc059b8f",
+      "bytes": 268,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "6e63e84c188fb23e68e00f14c1c60a365caae513a3b7f0d907c0a228738a9d91",
+      "bytes": 665,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "bf8269f3a5f013108e0220f8e0fa22491e1aac698b411c2ae012e50e0cfa4750",
+      "bytes": 24843,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "b89d59253d6cdc58f9fe424305b1e7cce5a666297ce041608d4a45c03a28be58",
+      "bytes": 247,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/staged-limine.conf"
+    },
+    {
+      "sha256": "0e2f34ad335b8245ea533fe65f51f545db74e067c0d040a92af280d72d2a7521",
+      "bytes": 550,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "90bc73648f7f1ad7e614804b8fcf1ba188a5c78347d185009d645c704144b448",
+      "bytes": 862,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "439300d6e6f49064dcb511e8795070873467b5c09c6330c4ea532c514b9a1169",
+      "bytes": 3612,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/case-result.json"
+    },
+    {
+      "sha256": "e327fb3cf209f25718ffe62a3e6b618f4a7277411a9e799bc0060ef98227f29c",
+      "bytes": 36140,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/guest-records.json"
+    },
+    {
+      "sha256": "f878152f36a8f0c66a21220e1474d7c2e181650cbd12612d7efd8a5895382c5d",
+      "bytes": 3055,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/launch-manifest.json"
+    },
+    {
+      "sha256": "08280c16e4c29285cbc311715a88c991a8ea0c54c5235d51f4bce847c31b58af",
+      "bytes": 1121,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "461b9f766018ca47ad6c7effa74388a35dcd5e7c501bd1e26473b236eb5f11ff",
+      "bytes": 24843,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "19ad36020527b8b075af562fcd8f2413beef3850f7767a0518dbeadbcd5aac1e",
+      "bytes": 773,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/run-result.json"
+    },
+    {
+      "sha256": "ebb2257ad1bc5392aa42cffe0ffe6dbc73215355c9e0a3b9b6381a5c86dab8ba",
+      "bytes": 23983,
+      "path": "exception-invalid-opcode/exception-invalid-opcode-run/serial.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "exception-invalid-opcode/initial-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/initial-preflight.stderr.log"
+    },
+    {
+      "sha256": "32e6786300763db4e1695346c4bd69d66752fe317a8271ec0ad9c582bfda472d",
+      "bytes": 24843,
+      "path": "exception-invalid-opcode/initial-preflight.stdout.log"
+    },
+    {
+      "sha256": "08ee2e575a5c5914310a8903c83b0ec8e6b956146685368f4d1c684b9ab0ab90",
+      "bytes": 701,
+      "path": "exception-invalid-opcode/kernel-build.command.json"
+    },
+    {
+      "sha256": "be5572c7a91ae53c967337fd344f6b8e9e5c79f297b31f20bcd4e8a88fcbbd77",
+      "bytes": 193,
+      "path": "exception-invalid-opcode/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "83e5edb53717745f81c8a3180a4614d6e61405802829072e869214a02e30a6a4",
+      "bytes": 293,
+      "path": "exception-invalid-opcode/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "3fcb58d10c78a178a1f83c5fb219e5cc4fa6ccd44eb2f7158c0a258418bdf5ec",
+      "bytes": 321,
+      "path": "exception-invalid-opcode/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "5b05862995754a94e7ff8573161d6e9bd38edb379f2e8df7b58357e425abe81c",
+      "bytes": 462995,
+      "path": "exception-invalid-opcode/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "7ca6f151643f59a2ccce4ef30e237409ff2dd635266b157ded3f18e263894ce8",
+      "bytes": 398,
+      "path": "exception-invalid-opcode/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-invalid-opcode/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "6cd8620f0378f7746f55d7c0fbafeb27fbbd52adbbcdc53a99f9eb56023f1e28",
+      "bytes": 41220,
+      "path": "exception-invalid-opcode/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "0cb3ff0c5f7fd1b2cd84d023b9c0f0cb52783ff98ca9253a4208dfdd560be3d9",
+      "bytes": 4132,
+      "path": "exception-invalid-opcode/result.json"
+    },
+    {
+      "sha256": "6cb9c1c39b5e5a469b03ec684009ed0ebc22efb96bad9ab334bf28a69fec724c",
+      "bytes": 3561,
+      "path": "exception-page-fault/build-inputs.json"
+    },
+    {
+      "sha256": "da4b9742785dc9dece68f38fe2c2fed1e89590746150edd548472f8e3453dce1",
+      "bytes": 3134,
+      "path": "exception-page-fault/build-manifest.json"
+    },
+    {
+      "sha256": "455fc6d34c7afe9ae81ed47b88cc9140cb701781ed8d98c91cc58788779feecd",
+      "bytes": 396,
+      "path": "exception-page-fault/exception-page-fault-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "804755dfe8e82039951e3c63791890facd5b96f4bce9d546e70432f82a6f3ae1",
+      "bytes": 953,
+      "path": "exception-page-fault/exception-page-fault-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/exception-page-fault-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "5f79fa3ade1f998ac6de6ef501253f0674c8899bbd676aa3567c7df47b378631",
+      "bytes": 2111,
+      "path": "exception-page-fault/exception-page-fault-package/iso-manifest.json"
+    },
+    {
+      "sha256": "985778c95db196f811f9a4e200bf30d5b3ef863a18ab70d9e20fbeef0485ba44",
+      "bytes": 260,
+      "path": "exception-page-fault/exception-page-fault-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "0264193934d1e4b2548cbb8061acdbaf637da61bff99f3c3104678e633e57fa4",
+      "bytes": 657,
+      "path": "exception-page-fault/exception-page-fault-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "exception-page-fault/exception-page-fault-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "exception-page-fault/exception-page-fault-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/exception-page-fault-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "f49bec1624a267a37261850ffec960496c45c6f27e56a79c3872e5f36a1911e8",
+      "bytes": 24843,
+      "path": "exception-page-fault/exception-page-fault-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "9742bc544d405fabad5e9464bcc33d4f28fc31a2dd057b206cb4ef6fb5bdcd7a",
+      "bytes": 243,
+      "path": "exception-page-fault/exception-page-fault-package/staged-limine.conf"
+    },
+    {
+      "sha256": "31c1c10d5f57d9483380d3df538d868ba0f906355ee0117e1bc5e73056524643",
+      "bytes": 534,
+      "path": "exception-page-fault/exception-page-fault-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "a04d725d7d68b1f76ad9e705feabd7a70de758d315614b13e3b75f8c1ecb7967",
+      "bytes": 838,
+      "path": "exception-page-fault/exception-page-fault-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/exception-page-fault-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "4f7c0ad88a7ada35c5a4fb09b6fd1a732c4e6fb7f6990af1f0861e1e1962cde3",
+      "bytes": 3591,
+      "path": "exception-page-fault/exception-page-fault-run/case-result.json"
+    },
+    {
+      "sha256": "de66872afd2ea38326575350414b3b5229dfa9fb8bb6aa84d93a6c97401e2e23",
+      "bytes": 36148,
+      "path": "exception-page-fault/exception-page-fault-run/guest-records.json"
+    },
+    {
+      "sha256": "4799df2ba7fb73131ea26cd6f2c9ef359e890f744aa783c01cb179ef45b8c5f4",
+      "bytes": 3027,
+      "path": "exception-page-fault/exception-page-fault-run/launch-manifest.json"
+    },
+    {
+      "sha256": "900f37343eab6808253c1c21f143640ebab794dcc4059937f876e56816538cd9",
+      "bytes": 1097,
+      "path": "exception-page-fault/exception-page-fault-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/exception-page-fault-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/exception-page-fault-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "exception-page-fault/exception-page-fault-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/exception-page-fault-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "461b9f766018ca47ad6c7effa74388a35dcd5e7c501bd1e26473b236eb5f11ff",
+      "bytes": 24843,
+      "path": "exception-page-fault/exception-page-fault-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "a6ba45c28595ab59b8707d4b6358d12ed354aa2b0875b7e26e07b339bffdfb9d",
+      "bytes": 768,
+      "path": "exception-page-fault/exception-page-fault-run/run-result.json"
+    },
+    {
+      "sha256": "82e936bd1854a55598a0a468c8b8fd85ffb0ed575dabf0667d00fd09fbf4c1c6",
+      "bytes": 23991,
+      "path": "exception-page-fault/exception-page-fault-run/serial.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "exception-page-fault/initial-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/initial-preflight.stderr.log"
+    },
+    {
+      "sha256": "bf8269f3a5f013108e0220f8e0fa22491e1aac698b411c2ae012e50e0cfa4750",
+      "bytes": 24843,
+      "path": "exception-page-fault/initial-preflight.stdout.log"
+    },
+    {
+      "sha256": "5aa6e43486a5b56197271d1d7cf9ba3cbf9a912329d9c78d9c43d0910d219ebc",
+      "bytes": 697,
+      "path": "exception-page-fault/kernel-build.command.json"
+    },
+    {
+      "sha256": "f6921c90c23088514378e542eb2ee761a77308575d0bd0db80d9d03b33e950fb",
+      "bytes": 193,
+      "path": "exception-page-fault/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "5769454bf2f0ea9b1d9c122586bc8e9953d3b6d089bbe7c16d165a248b16407a",
+      "bytes": 289,
+      "path": "exception-page-fault/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "f42e6ca94dce4710a1f738d3c0730c60b8365af48be887ba8e6a044a1a2c6079",
+      "bytes": 317,
+      "path": "exception-page-fault/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "197e2c89ad588461734f472f421b1e62c2096900ac37eba622893eb1413142b0",
+      "bytes": 462991,
+      "path": "exception-page-fault/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "0fda23296c455343cedf14611e56c7269ce3251c00ffa09cfc0a2506bc155e6b",
+      "bytes": 394,
+      "path": "exception-page-fault/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "exception-page-fault/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "240ae44553cd3375d7f13d2206f0b9b404c85de40c20d734572e3718be8c57fc",
+      "bytes": 41216,
+      "path": "exception-page-fault/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "26aa00317e42ef48e9f0489367fa41337634d878b47716fa3839417706e9c507",
+      "bytes": 4107,
+      "path": "exception-page-fault/result.json"
+    },
+    {
+      "sha256": "da55a4a1397a7745ebe868fa4e10bfa7a836b21b51546807bcb8410bdc2446b1",
+      "bytes": 3457,
+      "path": "failed-experiments/build-1792452128073765700-26988/build-inputs.json"
+    },
+    {
+      "sha256": "748b77b7c46b43953f36343ee3d145c359e4e5cb6659447f177188cfefac8c66",
+      "bytes": 642,
+      "path": "failed-experiments/build-1792452128073765700-26988/kernel-build.command.json"
+    },
+    {
+      "sha256": "27aed4ee094c9f195a79647377a82c40fded4f597bca648375c7834f1000b801",
+      "bytes": 1393,
+      "path": "failed-experiments/build-1792452128073765700-26988/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "failed-experiments/build-1792452128073765700-26988/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "f9e1eb9e047ad1e5a3361d42782e1f288334ad3d4e8518109e8449bc90270375",
+      "bytes": 173,
+      "path": "failed-experiments/build-1792452128073765700-26988/result.json"
+    },
+    {
+      "sha256": "ac6bbed44ceda9dab24a75068bdb0549dbffd7d57fd981afe07891746f96fccd",
+      "bytes": 249,
+      "path": "failed-experiments/marker-wrong-exit-1792452097885445800-3960/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "failed-experiments/marker-wrong-exit-1792452097885445800-3960/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "failed-experiments/marker-wrong-exit-1792452097885445800-3960/qemu.stdout.log"
+    },
+    {
+      "sha256": "ff4a88133fc0b44e490e92bc6ed71e4e0e2a8dd9e92ed80949bbdddd13d4eb31",
+      "bytes": 460,
+      "path": "failed-experiments/marker-wrong-exit-1792452097885445800-3960/run-result.json"
+    },
+    {
+      "sha256": "f47235a86b3f9aafe7eafc2d2ba55f298db17e32e872e6f21c1931ed45b17e12",
+      "bytes": 112,
+      "path": "failed-experiments/marker-wrong-exit-1792452097885445800-3960/serial.log"
+    },
+    {
+      "sha256": "66c77404e9c5a763486f7c6a3f2474a76ae575e637a3e269f139c43293a974e9",
+      "bytes": 3556,
+      "path": "iso-negative/bad-config-kernel/build-inputs.json"
+    },
+    {
+      "sha256": "0ef0aac95a58a5ef05fec371debfb9132a6d61c83070d45fe3775feb84184b7f",
+      "bytes": 3078,
+      "path": "iso-negative/bad-config-kernel/build-manifest.json"
+    },
+    {
+      "sha256": "68948eeb8c1d6ab6e719aae11f776d5c5fe39927301069eadbdcb185d790cb31",
+      "bytes": 706,
+      "path": "iso-negative/bad-config-kernel/kernel-build.command.json"
+    },
+    {
+      "sha256": "c634ccfd7d0dd7ab8d5576f15c163ba391748e25fdb99a00f4ac5f5792dac294",
+      "bytes": 193,
+      "path": "iso-negative/bad-config-kernel/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-kernel/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "fc0a02683144e4b5f76d22a2a5c21bc610cc3c8b8a04c8fbecee2c9dd2bd8920",
+      "bytes": 299,
+      "path": "iso-negative/bad-config-kernel/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-kernel/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-kernel/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "1f84c4e54ed599c8d648ed8cbaf005e6868b65cc0ca7f1cca19fc24c9cca27af",
+      "bytes": 327,
+      "path": "iso-negative/bad-config-kernel/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-kernel/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "8528689eeaa8d2b3e2487b0174e767d959691a9df7ef4c4829f890c97e2d478a",
+      "bytes": 461527,
+      "path": "iso-negative/bad-config-kernel/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "0daa49c5fb2759ec3ac2c711ffc5dd831160050e0b8cd2884cde500d51f5e727",
+      "bytes": 404,
+      "path": "iso-negative/bad-config-kernel/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-kernel/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "e2cf571ef047082420bd4ee36de1ea13157d706d5635bf5c98e9b0bfa9133fe4",
+      "bytes": 41448,
+      "path": "iso-negative/bad-config-kernel/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "a0a4a45680015b0bc1423431e74847c7fab2b74f2e8c441aab53731baa8389b1",
+      "bytes": 358,
+      "path": "iso-negative/bad-config-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "af7f62a10008af66310a14f80f694095e86b52557cb280abefca51bb801b8037",
+      "bytes": 915,
+      "path": "iso-negative/bad-config-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "dcefb90883a3f7ef25a3cf5ff99585f81eec8adfe8d842066ef85d4f89fa3a02",
+      "bytes": 2097,
+      "path": "iso-negative/bad-config-package/iso-manifest.json"
+    },
+    {
+      "sha256": "ecf902174ab7e0f416615ceaccb0307b282fedfe806e745c78e6c24dddcfb324",
+      "bytes": 241,
+      "path": "iso-negative/bad-config-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "fe7e596642f8211f0124dcfc4b3546e17dd2053d67d0c78a0eba6bbe3b017bd8",
+      "bytes": 638,
+      "path": "iso-negative/bad-config-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "iso-negative/bad-config-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "iso-negative/bad-config-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "32e6786300763db4e1695346c4bd69d66752fe317a8271ec0ad9c582bfda472d",
+      "bytes": 24843,
+      "path": "iso-negative/bad-config-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "dfc2733abf79581fdc9ee3d17844754f981d4a8e6f9896d95b2ada9774b563ad",
+      "bytes": 234,
+      "path": "iso-negative/bad-config-package/staged-limine.conf"
+    },
+    {
+      "sha256": "abd7756c214552e0a130415f1ad3a91cbd4289065957799ab114f77e98f36419",
+      "bytes": 496,
+      "path": "iso-negative/bad-config-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "531ee39beb66a00b9250cc403fcabdfc0d4b937c994adb8ab139baf31cfa36df",
+      "bytes": 781,
+      "path": "iso-negative/bad-config-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "e0b0523a25bb736caca35a14a7a7d0a88264f9ec173e42e7da5f087838120b46",
+      "bytes": 3062,
+      "path": "iso-negative/bad-config-run/case-result.json"
+    },
+    {
+      "sha256": "ef783c85d1b4689c679d4bdcf352aa368daec1edceffe504620a47fa1c26e141",
+      "bytes": 154,
+      "path": "iso-negative/bad-config-run/guest-records.json"
+    },
+    {
+      "sha256": "7ef72b2fd242e4c219efa2b219be90efcce7dfd925a05c8be56f39ca95d7ca25",
+      "bytes": 2956,
+      "path": "iso-negative/bad-config-run/launch-manifest.json"
+    },
+    {
+      "sha256": "e0d606028dabcba33de5cc3da197dbea860a466cc201d4272367f490a6ee41f4",
+      "bytes": 1040,
+      "path": "iso-negative/bad-config-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "iso-negative/bad-config-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/bad-config-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "bf8269f3a5f013108e0220f8e0fa22491e1aac698b411c2ae012e50e0cfa4750",
+      "bytes": 24843,
+      "path": "iso-negative/bad-config-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "92a000842a966e8af0b7991b69ca3ac2a3e10e95dad85c2e6db13623557a678b",
+      "bytes": 778,
+      "path": "iso-negative/bad-config-run/run-result.json"
+    },
+    {
+      "sha256": "1b5e999c101d05ff9309f6fea77abde6ed817e75abad29208fa85c7b815cc78a",
+      "bytes": 3446,
+      "path": "iso-negative/bad-config-run/serial.log"
+    },
+    {
+      "sha256": "47725c29e0df42b94e0cc6f32077c519b0bc01d962138f4072eac74ae882e1c9",
+      "bytes": 3565,
+      "path": "iso-negative/build-inputs.json"
+    },
+    {
+      "sha256": "72eea9b8979128a0b96ca968117f5d96f285dbc7fcb225e9f6a377072e9b772d",
+      "bytes": 3006,
+      "path": "iso-negative/build-manifest.json"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "iso-negative/initial-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/initial-preflight.stderr.log"
+    },
+    {
+      "sha256": "bf8269f3a5f013108e0220f8e0fa22491e1aac698b411c2ae012e50e0cfa4750",
+      "bytes": 24843,
+      "path": "iso-negative/initial-preflight.stdout.log"
+    },
+    {
+      "sha256": "1c5f515239ab276d64a5f37ba20668f18885930db3a784dd3551dee3f663c038",
+      "bytes": 692,
+      "path": "iso-negative/kernel-build.command.json"
+    },
+    {
+      "sha256": "1b1d9b2651aa5272b65cca365f754df6a94ae294ac65f8a5226aa82ca88b9a6b",
+      "bytes": 193,
+      "path": "iso-negative/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "3f4a76a104b32d484fa8f77ca7def4d5d3f490feb0db686f727c4ac230ba7809",
+      "bytes": 280,
+      "path": "iso-negative/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "9481cf6e9a3437c2a6af658bb776385cf165edeb9a42194eaaf51b3a4f1e5e21",
+      "bytes": 308,
+      "path": "iso-negative/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "cb85251653a25d9a42c9ae309e810181774b8e83da0d9b1a8462f95294a9aae1",
+      "bytes": 126769,
+      "path": "iso-negative/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "56fd73fb78e4327e2851e315ece7dfbb87a6d854ed49ea49d507205c9573b282",
+      "bytes": 385,
+      "path": "iso-negative/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "da418965ab345a9b75d5ebd383d1c7d499aa84405c4773da10efa1d371c8e56c",
+      "bytes": 30758,
+      "path": "iso-negative/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "bdf83a95a826df3c597fa2d61c32d06c127c12b10904509a4e5d35f5de1f0d7d",
+      "bytes": 354,
+      "path": "iso-negative/no-entry-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "eadfea8ed6a779d6dea9e12a839ef5ddb9024ec464c0c75a3a6366213ce36532",
+      "bytes": 911,
+      "path": "iso-negative/no-entry-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/no-entry-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "2f9a1eb54f940ed40596312b92d37f6481534b8cf28307ffcd499036d5bcb4a4",
+      "bytes": 2087,
+      "path": "iso-negative/no-entry-package/iso-manifest.json"
+    },
+    {
+      "sha256": "8b9abdfc902074ac12930517d9bdb088b1db781dbb9feca5adcdd0f39decea4a",
+      "bytes": 239,
+      "path": "iso-negative/no-entry-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "436b16cb796e8923c79090073e81e13be9a625c3315fc53c6f61e9ba1156e687",
+      "bytes": 636,
+      "path": "iso-negative/no-entry-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "iso-negative/no-entry-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "iso-negative/no-entry-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/no-entry-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "f49bec1624a267a37261850ffec960496c45c6f27e56a79c3872e5f36a1911e8",
+      "bytes": 24843,
+      "path": "iso-negative/no-entry-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "b3a45931d08cce31a6a7574d5037248ff3fdb32ebcaa6484b3e26f71ed54aef1",
+      "bytes": 229,
+      "path": "iso-negative/no-entry-package/staged-limine.conf"
+    },
+    {
+      "sha256": "0f2d8c6b34104c948b92058e7c5850e9bd1bde8e3f6ce1b86202e11ceeae21ee",
+      "bytes": 492,
+      "path": "iso-negative/no-entry-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "992c2ac181d3fb5b1f758d405968362d8a57ee46d5946dab716f219bef0b6ddc",
+      "bytes": 775,
+      "path": "iso-negative/no-entry-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/no-entry-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "7575dc0b2e551683180ab9b9a51d64034a51fcd84a6cc8316d1d986ef597049e",
+      "bytes": 3050,
+      "path": "iso-negative/no-entry-run/case-result.json"
+    },
+    {
+      "sha256": "ef783c85d1b4689c679d4bdcf352aa368daec1edceffe504620a47fa1c26e141",
+      "bytes": 154,
+      "path": "iso-negative/no-entry-run/guest-records.json"
+    },
+    {
+      "sha256": "83d98e00cf74ef6c1895a7c6d75b0410150006113782dd027e8a186b1747b5ae",
+      "bytes": 2950,
+      "path": "iso-negative/no-entry-run/launch-manifest.json"
+    },
+    {
+      "sha256": "4d8423b750ab2132a51760cc7a6488ff38d1bbd264704ef98fcd89990ab40918",
+      "bytes": 1034,
+      "path": "iso-negative/no-entry-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/no-entry-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/no-entry-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "iso-negative/no-entry-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-negative/no-entry-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "461b9f766018ca47ad6c7effa74388a35dcd5e7c501bd1e26473b236eb5f11ff",
+      "bytes": 24843,
+      "path": "iso-negative/no-entry-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "d9befddad08e23017857e8a5a41bf5a2ff9539233c7330261acf9e71168c1910",
+      "bytes": 778,
+      "path": "iso-negative/no-entry-run/run-result.json"
+    },
+    {
+      "sha256": "f89863dbf34c72c5e1d45181d2a4909104ab6cac8f85fa8524da26ec19fb501b",
+      "bytes": 3648,
+      "path": "iso-negative/no-entry-run/serial.log"
+    },
+    {
+      "sha256": "32a1af682749049ee41eb7ff580a3fcb15dcfb3b38d892c7d46d57e72700b7ed",
+      "bytes": 6820,
+      "path": "iso-negative/result.json"
+    },
+    {
+      "sha256": "66c77404e9c5a763486f7c6a3f2474a76ae575e637a3e269f139c43293a974e9",
+      "bytes": 3556,
+      "path": "iso-smoke/build-inputs.json"
+    },
+    {
+      "sha256": "d50d0433b67421169de586cd686cb35dd048d6f75b026c4b0e3543ac620acd0a",
+      "bytes": 2683,
+      "path": "iso-smoke/build-manifest.json"
+    },
+    {
+      "sha256": "8cbe9d5e95fbfb5bbaa839c7e1676914ae509a1cba1725f475267dfdf5da1db8",
+      "bytes": 356,
+      "path": "iso-smoke/cold-boot-a-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "1cb4c7682eb6832987f01a195e91822dfa98f2f41e543a75931c4b7532808788",
+      "bytes": 913,
+      "path": "iso-smoke/cold-boot-a-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-a-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "287f722579df97547fd0e8bf0a042dc4d738ce2d4822ec6b14750b7946a152f5",
+      "bytes": 2078,
+      "path": "iso-smoke/cold-boot-a-package/iso-manifest.json"
+    },
+    {
+      "sha256": "cc081c14e7981e3edc236760a4043d4e2cc8915dc5dc5cdf67a53ada942973b7",
+      "bytes": 240,
+      "path": "iso-smoke/cold-boot-a-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "b194b501b1317d21d28b1160bc85f8fade247aa5a0c842092cf3c3009914f8a6",
+      "bytes": 637,
+      "path": "iso-smoke/cold-boot-a-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "iso-smoke/cold-boot-a-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "iso-smoke/cold-boot-a-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-a-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "32e6786300763db4e1695346c4bd69d66752fe317a8271ec0ad9c582bfda472d",
+      "bytes": 24843,
+      "path": "iso-smoke/cold-boot-a-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "7a9956871bcad253e863cbe9555255ec3b7b953f259e9905a457a64c29c42bd0",
+      "bytes": 229,
+      "path": "iso-smoke/cold-boot-a-package/staged-limine.conf"
+    },
+    {
+      "sha256": "1ad57e51b65ec0653ebde6e102357052eb8182bd658714ef1aa22237086b02ff",
+      "bytes": 494,
+      "path": "iso-smoke/cold-boot-a-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "2231c01808af9837a1d1d533986ed8446f46b9660126c891c8047a4ac78ba79d",
+      "bytes": 778,
+      "path": "iso-smoke/cold-boot-a-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-a-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "9612231b87708fb28a12dd45320f7a73aaea8db9b6c31fa2a815b5e3f78d82d8",
+      "bytes": 3525,
+      "path": "iso-smoke/cold-boot-a-run/case-result.json"
+    },
+    {
+      "sha256": "c8746f78178838a5fa110ba3ac8795aa71c2309dca68c4b03f0b4c78a67f6694",
+      "bytes": 35914,
+      "path": "iso-smoke/cold-boot-a-run/guest-records.json"
+    },
+    {
+      "sha256": "6d943f85d48a4e98e5d4acdae79c4d2003f5760f5817ae3184219aa483a8e015",
+      "bytes": 2953,
+      "path": "iso-smoke/cold-boot-a-run/launch-manifest.json"
+    },
+    {
+      "sha256": "b0a3d00dbf24bdf80e98cd85f7522190eddb9f5b131be9b91466d8a6d1932f16",
+      "bytes": 1037,
+      "path": "iso-smoke/cold-boot-a-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-a-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-a-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "iso-smoke/cold-boot-a-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-a-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "f49bec1624a267a37261850ffec960496c45c6f27e56a79c3872e5f36a1911e8",
+      "bytes": 24843,
+      "path": "iso-smoke/cold-boot-a-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "50b31ede81ec596c705db0f4fd6d08592cd7cef385297e59dc2c648c2a9fb996",
+      "bytes": 755,
+      "path": "iso-smoke/cold-boot-a-run/run-result.json"
+    },
+    {
+      "sha256": "fb804924955b063228418701bfeb9a0d73e590744e52ded1996b32957d067691",
+      "bytes": 23855,
+      "path": "iso-smoke/cold-boot-a-run/serial.log"
+    },
+    {
+      "sha256": "aadd83c6c9a169f4706ebfca74d91107dd8c28edfc4ea295fd618379ceae6a8e",
+      "bytes": 356,
+      "path": "iso-smoke/cold-boot-b-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "3da8437c98bc38a0cdeac19fb72f4b87cbc19505b4db4f68ecf9627c98ea431c",
+      "bytes": 913,
+      "path": "iso-smoke/cold-boot-b-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-b-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "5af6d8edb18ea59e986281e6a0b15804456cc2a3a5bed16a10340b623ada763d",
+      "bytes": 2078,
+      "path": "iso-smoke/cold-boot-b-package/iso-manifest.json"
+    },
+    {
+      "sha256": "ae095f194adab9ebc6a82a7107c27671fcada727761c06dff5071e90b2ce834c",
+      "bytes": 240,
+      "path": "iso-smoke/cold-boot-b-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "c967e261ed479b3dfc243cab65e74c716482298b78a0ab286e0dfd8c92710abd",
+      "bytes": 637,
+      "path": "iso-smoke/cold-boot-b-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "iso-smoke/cold-boot-b-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "iso-smoke/cold-boot-b-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-b-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "72f11fe871682a518d675c93abbafa184f0d472786c13787ec5701abfd3bacae",
+      "bytes": 24843,
+      "path": "iso-smoke/cold-boot-b-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "15bd6ed22598e0202fb9a04f5dde7040d92f26f37d0adb384664a8c7ed0b2d90",
+      "bytes": 229,
+      "path": "iso-smoke/cold-boot-b-package/staged-limine.conf"
+    },
+    {
+      "sha256": "414eb0de6b6cb9b6e8a7de81361289e961e2341d4bb274b135f1cf5c7c994e44",
+      "bytes": 494,
+      "path": "iso-smoke/cold-boot-b-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "fc10b7bb38374427bea6f801b992c79d96fb1ee60a872eae7a21ee82b55989ed",
+      "bytes": 778,
+      "path": "iso-smoke/cold-boot-b-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-b-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "a737238aaf707d6271107c048c4fc23d3672e1141153b092fdeb3d64e6f3c18f",
+      "bytes": 3526,
+      "path": "iso-smoke/cold-boot-b-run/case-result.json"
+    },
+    {
+      "sha256": "0018be0c94767deaaefad522f1f23d9ec8498a64c04a5ef3ad9fe3b85a8665fd",
+      "bytes": 35914,
+      "path": "iso-smoke/cold-boot-b-run/guest-records.json"
+    },
+    {
+      "sha256": "e65d8be9c33125208b1d8f3cfa0f27f0a6cd5eb7f1b89a7948dde0607ffd7031",
+      "bytes": 2953,
+      "path": "iso-smoke/cold-boot-b-run/launch-manifest.json"
+    },
+    {
+      "sha256": "feed7b1fdb8db8813e0745ee649a245d16ab51bdc29a424b13fa1272e92d749e",
+      "bytes": 1037,
+      "path": "iso-smoke/cold-boot-b-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-b-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-b-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "iso-smoke/cold-boot-b-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/cold-boot-b-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "iso-smoke/cold-boot-b-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "4202f71e07ff2573be41f880e8ab0b1189fcfebf3c70fd2beedb54cb45def376",
+      "bytes": 756,
+      "path": "iso-smoke/cold-boot-b-run/run-result.json"
+    },
+    {
+      "sha256": "a2a7c1c8b875edbb06f1e1de3dc71b5e444fe022aa922ca4f481d7be30529463",
+      "bytes": 23855,
+      "path": "iso-smoke/cold-boot-b-run/serial.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "iso-smoke/initial-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/initial-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "iso-smoke/initial-preflight.stdout.log"
+    },
+    {
+      "sha256": "598c11c30cee2c90cd9b4ba4ada70967c726e36fbc2c5e32cd68d161e1182c69",
+      "bytes": 685,
+      "path": "iso-smoke/kernel-build.command.json"
+    },
+    {
+      "sha256": "83b0f395ede6a09a985bff3542f586c672dceaaf87e8409a679ef0cace5f7ab3",
+      "bytes": 193,
+      "path": "iso-smoke/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "8515ef857d5e83af2148720f0f8772972b2b227030569a93e510a1f874bf8187",
+      "bytes": 278,
+      "path": "iso-smoke/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "308994ab9fc1637c15c706f6f578c3ffaa859d8d65e7800b64dd21b99cbab51f",
+      "bytes": 306,
+      "path": "iso-smoke/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "dd19060362f25f3ca409940064e41f4dbbb390795403e97cef56d70bbbf2bfab",
+      "bytes": 461507,
+      "path": "iso-smoke/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "0e18ff91a091ec3a4f6bf0fd5d491be035292892b865a0535194c725075e637e",
+      "bytes": 383,
+      "path": "iso-smoke/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "iso-smoke/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "be53cf2888283ceef4d380bd031944ea531a1445e7938fadec439de72205ca38",
+      "bytes": 41428,
+      "path": "iso-smoke/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "9b8adbf9db2ca7b626787d7696e1a344f1f3ff30efe966c3347883a3b43aa243",
+      "bytes": 8312,
+      "path": "iso-smoke/result.json"
+    },
+    {
+      "sha256": "e95193dc47679a6d3c94e34f38bb2bafb33ae0db601a1b7f09805830dd3cb781",
+      "bytes": 175,
+      "path": "m0/acceptance-results.json"
+    },
+    {
+      "sha256": "9e24d0ea18478147f41107498b26502a80ad45eb021c63db5e9418ff5703d697",
+      "bytes": 284,
+      "path": "m0/compile-tests.log"
+    },
+    {
+      "sha256": "1ebf584262b40173a0140ab90d458dfe63bbd699571b8712797a27eafcc1e028",
+      "bytes": 258,
+      "path": "m0/doctor-tests.json"
+    },
+    {
+      "sha256": "f8ddb18f61c8137220962d2234ec1e6103acbe1a548c867bde4d68cae848b658",
+      "bytes": 1209,
+      "path": "m0/host-tests.log"
+    },
+    {
+      "sha256": "603f492635e9de73930d3d7476275631f57a852065c1c1f9b84faaa42c5634ab",
+      "bytes": 887,
+      "path": "m0/source-path-spaces.log"
+    },
+    {
+      "sha256": "6cb9c1c39b5e5a469b03ec684009ed0ebc22efb96bad9ab334bf28a69fec724c",
+      "bytes": 3561,
+      "path": "panic/build-inputs.json"
+    },
+    {
+      "sha256": "da4b9742785dc9dece68f38fe2c2fed1e89590746150edd548472f8e3453dce1",
+      "bytes": 3134,
+      "path": "panic/build-manifest.json"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "panic/initial-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/initial-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "panic/initial-preflight.stdout.log"
+    },
+    {
+      "sha256": "ba7b55752af3b77fef9442ddeccf132f6c6ef4af9ac43599c066d982de8a0139",
+      "bytes": 682,
+      "path": "panic/kernel-build.command.json"
+    },
+    {
+      "sha256": "bee582afc988999ad1578decfc64a11d8ec39e6521a1a914cd3e5df840417103",
+      "bytes": 193,
+      "path": "panic/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "280abc0e7f45e01883f2335872aca6684fb724b6750a20400b7b82389ba6239f",
+      "bytes": 274,
+      "path": "panic/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "7c28b40d04677058a9d5940909fc6e69bba8ab1329e9144867e5ef9b25a52b0c",
+      "bytes": 302,
+      "path": "panic/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "168b5e52b2ddf43fa94ce7145c323f5be458b3c1b0cec2dcc33656c9a54925be",
+      "bytes": 462976,
+      "path": "panic/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "5e6b28b737865e09045b6d87be694d36a28a5bb7808aace2a78a9474c91e458e",
+      "bytes": 379,
+      "path": "panic/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "e1801c0bb1d476a4884ea513ea7eacb901b105a2e8b22fd1f8888be989121bf8",
+      "bytes": 41201,
+      "path": "panic/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "832399d1d9bf851e10846db8cfe10d36e54ffbf58cef6d4c68383c03a9cb9ac1",
+      "bytes": 336,
+      "path": "panic/panic-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "17f7b2fbc670d4c25cbeb553882626f203ddc8b70e55f407c3648bfe4d4c8445",
+      "bytes": 893,
+      "path": "panic/panic-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/panic-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "5b2e4cfdf69db2ff9ef75fee1c001e59d65de7a8942f7b708acf1b0a3defdce5",
+      "bytes": 2081,
+      "path": "panic/panic-package/iso-manifest.json"
+    },
+    {
+      "sha256": "5ce8c929acf9baf3ecd0f76c80ac26997b0fd37e9f6ca9b354ac12bc4377c927",
+      "bytes": 230,
+      "path": "panic/panic-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "40f50d8b61f915ca0b856cd4ad59a8d8b97d142481df09ebe9004c34b11d89a5",
+      "bytes": 627,
+      "path": "panic/panic-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "panic/panic-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "panic/panic-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/panic-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "72f11fe871682a518d675c93abbafa184f0d472786c13787ec5701abfd3bacae",
+      "bytes": 24843,
+      "path": "panic/panic-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "df89e21a0dd02e1196b578fcde1dbdabdcf2c3283d56c04173730b2262494d24",
+      "bytes": 228,
+      "path": "panic/panic-package/staged-limine.conf"
+    },
+    {
+      "sha256": "11b45b31238fc7f7f61a0736fe4d00ebd178e83b3d7967d9759b9892252a559b",
+      "bytes": 474,
+      "path": "panic/panic-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "5a1d58ff0964799e14a0a97088141ef81d790838caef4b97a5940f8d3739ba4f",
+      "bytes": 748,
+      "path": "panic/panic-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/panic-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "a00eaa06c386aa54e3b0106db8e85eebe19e006f865c6f1793d4faa8dc81e5ca",
+      "bytes": 3517,
+      "path": "panic/panic-run/case-result.json"
+    },
+    {
+      "sha256": "1370047b1d4d3b0a6ee90e527e8717aee01ade81c920b4fccb92fc1a5be002e4",
+      "bytes": 36086,
+      "path": "panic/panic-run/guest-records.json"
+    },
+    {
+      "sha256": "9c66cfe1c83f222f7ace141bd0f0d9530530c1257da74826c02407d38d48888a",
+      "bytes": 2922,
+      "path": "panic/panic-run/launch-manifest.json"
+    },
+    {
+      "sha256": "ec36da11e157b71bffe381bc286c40d2b8f614d7f09f24b50a32f7d867294c92",
+      "bytes": 1007,
+      "path": "panic/panic-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/panic-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/panic-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "panic/panic-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "panic/panic-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "32e6786300763db4e1695346c4bd69d66752fe317a8271ec0ad9c582bfda472d",
+      "bytes": 24843,
+      "path": "panic/panic-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "656a44604bf8eea37544720ddf453daeb76311619b20149b6ceae34d09107b73",
+      "bytes": 754,
+      "path": "panic/panic-run/run-result.json"
+    },
+    {
+      "sha256": "30c34ad7541a9c386f6a167548775406788e51632b4ad5560286af78b44fd75d",
+      "bytes": 23943,
+      "path": "panic/panic-run/serial.log"
+    },
+    {
+      "sha256": "54bf9e6271e3c523a78f34430c0db0c8f2ab6a7d76d53fd9bf215806ee6ef599",
+      "bytes": 4018,
+      "path": "panic/result.json"
+    },
+    {
+      "sha256": "461b9f766018ca47ad6c7effa74388a35dcd5e7c501bd1e26473b236eb5f11ff",
+      "bytes": 24843,
+      "path": "prerequisites/baseline.json"
+    },
+    {
+      "sha256": "3bad055fb6f594fe815b599de196d89b7b2054854d2a451a713f73b3d3d0761c",
+      "bytes": 280,
+      "path": "prerequisites/corrupted_firmware.json"
+    },
+    {
+      "sha256": "d8009ed9a5410680174ec3a812e6ed6a3c9206bd59a2488c37cb9d1731aba521",
+      "bytes": 308,
+      "path": "prerequisites/invalid_override.json"
+    },
+    {
+      "sha256": "cee0942783de709a26ba569a950846416bb01be6bc242e1d7c9cf51e3afe2ebb",
+      "bytes": 272,
+      "path": "prerequisites/missing_lock.json"
+    },
+    {
+      "sha256": "abdf5669bd728aa3b6c93c27db9cbe7ae835698b6c2c6ad1c09ed922dd38baf7",
+      "bytes": 325,
+      "path": "prerequisites/missing_runtime.json"
+    },
+    {
+      "sha256": "7d3b99bfde66da7fb5add827e8ea0d0f3d1ecc30d027f99e7b2ec6ab86f54207",
+      "bytes": 53716,
+      "path": "prerequisites/missing-runtime.lock.json"
+    },
+    {
+      "sha256": "2249a6a52667fa8c70abfc0fe6c3161f6bf11f354995fb2934584925a16bbb59",
+      "bytes": 693,
+      "path": "prerequisites/results.json"
+    },
+    {
+      "sha256": "461b9f766018ca47ad6c7effa74388a35dcd5e7c501bd1e26473b236eb5f11ff",
+      "bytes": 24843,
+      "path": "prerequisites/valid_override.json"
+    },
+    {
+      "sha256": "2a0588652e3d6b62ea69794f586753bbb84df3a488b08143193ad2842e114b3b",
+      "bytes": 6648,
+      "path": "README.md"
+    },
+    {
+      "sha256": "d153ebb4cfc255d480196b15cca6e35c7a940266d1f5db441b17fdcd408dd9ce",
+      "bytes": 40808,
+      "path": "review.json"
+    },
+    {
+      "sha256": "ae253636d5a787243d6ef358ed8db53d3ae7a472be98a4e24b7e7ddc05444d8a",
+      "bytes": 3553,
+      "path": "run/build-inputs.json"
+    },
+    {
+      "sha256": "267a84c26a0045546e156df90ef4f555ad1009dde77df576aa7c898f0699ea62",
+      "bytes": 2680,
+      "path": "run/build-manifest.json"
+    },
+    {
+      "sha256": "a5f6ba6d4b1b490363973e8dc5e65cef603f735e3eca731feb3bb224fcccca79",
+      "bytes": 344,
+      "path": "run/cold-boot-a-package/extract-payload.command.json"
+    },
+    {
+      "sha256": "48655ce8c0fbbe14d57eb7a56e7478a69edf239d51178db610d7c608b90a62db",
+      "bytes": 901,
+      "path": "run/cold-boot-a-package/extract-payload.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/cold-boot-a-package/extract-payload.stdout.log"
+    },
+    {
+      "sha256": "28fee5b6722af92dde6d71948ece491d4c26157b0a035bfbd9adaa5b4eed8a51",
+      "bytes": 2075,
+      "path": "run/cold-boot-a-package/iso-manifest.json"
+    },
+    {
+      "sha256": "861020034ff8a31d3a7c24c780c25c2783234ea067f102dc54abaef93e6a8928",
+      "bytes": 234,
+      "path": "run/cold-boot-a-package/optical-catalog.command.json"
+    },
+    {
+      "sha256": "11e71cf0775ab4bdc80016e144342f5e09b42932ca85dfb22d9f7d2454283869",
+      "bytes": 631,
+      "path": "run/cold-boot-a-package/optical-catalog.stderr.log"
+    },
+    {
+      "sha256": "d1174ea3906739ff848115a3dd1bbd7b986ed0b8ff495afb3dfcd276d1b76137",
+      "bytes": 270,
+      "path": "run/cold-boot-a-package/optical-catalog.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "run/cold-boot-a-package/package-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/cold-boot-a-package/package-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "run/cold-boot-a-package/package-preflight.stdout.log"
+    },
+    {
+      "sha256": "4999e13fa5bf173736a7330a54b0994fc8cd44c8b475675dcefd90242dd98632",
+      "bytes": 229,
+      "path": "run/cold-boot-a-package/staged-limine.conf"
+    },
+    {
+      "sha256": "7bd6430f055904ab4d54f258ffb738cd3cd4437671a4c28a61a848db3f8131b0",
+      "bytes": 482,
+      "path": "run/cold-boot-a-package/xorriso-package.command.json"
+    },
+    {
+      "sha256": "c1a88f4f975194872246ede87d8e6053d27afae556d07375108a8912ad81ecd6",
+      "bytes": 760,
+      "path": "run/cold-boot-a-package/xorriso-package.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/cold-boot-a-package/xorriso-package.stdout.log"
+    },
+    {
+      "sha256": "3dd3b022cfdd8cd67e4303f6ce13fe43ca6be70d549451307b5f5ff1ac6fe0be",
+      "bytes": 3516,
+      "path": "run/cold-boot-a-run/case-result.json"
+    },
+    {
+      "sha256": "8ee8ae22a2a5b8843e027304b712f3a05882b988e9ced5f0cbb1f17a99916971",
+      "bytes": 35914,
+      "path": "run/cold-boot-a-run/guest-records.json"
+    },
+    {
+      "sha256": "1ae86602904798c66c3d5b407e9fdc21e4b5104e3bcd6913524bd43be8e433c5",
+      "bytes": 2875,
+      "path": "run/cold-boot-a-run/launch-manifest.json"
+    },
+    {
+      "sha256": "4c394dd37dbd67c4332cafa0251b57dd9bd35234e445ee735cb5906f656ad341",
+      "bytes": 958,
+      "path": "run/cold-boot-a-run/qemu.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/cold-boot-a-run/qemu.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/cold-boot-a-run/qemu.stdout.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "run/cold-boot-a-run/run-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/cold-boot-a-run/run-preflight.stderr.log"
+    },
+    {
+      "sha256": "461b9f766018ca47ad6c7effa74388a35dcd5e7c501bd1e26473b236eb5f11ff",
+      "bytes": 24843,
+      "path": "run/cold-boot-a-run/run-preflight.stdout.log"
+    },
+    {
+      "sha256": "229eb373e659769e8aaa8ff565e93c2827e6e5322c617eed7ab37595b374f7a3",
+      "bytes": 755,
+      "path": "run/cold-boot-a-run/run-result.json"
+    },
+    {
+      "sha256": "c16539646868486480c9be8db5c7f2bd7c16934262998e85b6480f9da2629014",
+      "bytes": 23855,
+      "path": "run/cold-boot-a-run/serial.log"
+    },
+    {
+      "sha256": "bcff48fee9a047e73750aa78dbef0d05b9bda405f27a22b38e7087642f064afc",
+      "bytes": 141,
+      "path": "run/initial-preflight.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/initial-preflight.stderr.log"
+    },
+    {
+      "sha256": "dcffe77b06afcfccd0996670399ee9c2327125a5bcbb52b98516d85fe3dccd49",
+      "bytes": 24843,
+      "path": "run/initial-preflight.stdout.log"
+    },
+    {
+      "sha256": "9a536adaa871f923734c88c17c2fc7075f08667c7a21f9a6455641fc170e6548",
+      "bytes": 640,
+      "path": "run/kernel-build.command.json"
+    },
+    {
+      "sha256": "9c6e888d9ca2f4195d57a34599df1c33423e82f90b48a511e0749e0b77d56b74",
+      "bytes": 193,
+      "path": "run/kernel-build.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/kernel-build.stdout.log"
+    },
+    {
+      "sha256": "43b050af3c8e857de5bcf8d08d229fa91cd1f27a1e08fbea7a75084c7fadccdd",
+      "bytes": 272,
+      "path": "run/llvm-nm.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/llvm-nm.stderr.log"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/llvm-nm.stdout.log"
+    },
+    {
+      "sha256": "818bc137668bdb51233085ca3c351f7c2a0ddccb7820d4e04198430021394486",
+      "bytes": 300,
+      "path": "run/llvm-objdump.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/llvm-objdump.stderr.log"
+    },
+    {
+      "sha256": "03100ed568e647c315b5b5290f853d9799239e87a6812684153f22a0e3fa0012",
+      "bytes": 460809,
+      "path": "run/llvm-objdump.stdout.log"
+    },
+    {
+      "sha256": "919b7ec10a5aa62a374d46ee4f9d3416347205867dd1f8fa1c5d169db06916a2",
+      "bytes": 377,
+      "path": "run/llvm-readobj.command.json"
+    },
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "path": "run/llvm-readobj.stderr.log"
+    },
+    {
+      "sha256": "3df18bbefac4aabd65c1185a690592b0d5a554a4c31707a3235e143367b70260",
+      "bytes": 41422,
+      "path": "run/llvm-readobj.stdout.log"
+    },
+    {
+      "sha256": "148bf30dc1422dc01f4befdf62e1fd4dfc880a426a905583f08b702e1d3d6a09",
+      "bytes": 4018,
+      "path": "run/result.json"
+    },
+    {
+      "sha256": "edca149321ded860b2cb2ff4b0c05268fa25a8f3b5138d4915737c1f622c208b",
+      "bytes": 211,
+      "path": "source/.cargo/config.toml"
+    },
+    {
+      "sha256": "87e685b48d370f8da6b418e28823f673e5b0da52cba46f5118be8ccbd59bc6ef",
+      "bytes": 5440,
+      "path": "source/Cargo.lock"
+    },
+    {
+      "sha256": "7c466df429cc7e2ef5368d50709f938dda69fb6ae55a5487f61c581073e07175",
+      "bytes": 446,
+      "path": "source/Cargo.toml"
+    },
+    {
+      "sha256": "40fcf8b60c102b27fa57a736944f526dd6a736c5f4768433bd12de8dabe0c2fc",
+      "bytes": 52234,
+      "path": "source/config/m1-inputs.lock.json"
+    },
+    {
+      "sha256": "c2853606ae9827dc59e7461666e507430e696e8bd664f8bd036e5da519a11c20",
+      "bytes": 441,
+      "path": "source/kernel/Cargo.toml"
+    },
+    {
+      "sha256": "70579b5ce770491b5d62861f9cb4ee66b9e56d5adf78ba4489c760f686cf0222",
+      "bytes": 624,
+      "path": "source/kernel/link.ld"
+    },
+    {
+      "sha256": "30aa7a5bcea83a9cd3fb40aa8468b6b752dcc6e8aee3ed47993e2e8632bb7a38",
+      "bytes": 4904,
+      "path": "source/kernel/README.md"
+    },
+    {
+      "sha256": "1e7373b903d1a3b4cc5f143f201c9cb64158fe8304694f29e7ffaff8f006cf41",
+      "bytes": 12451,
+      "path": "source/kernel/src/boot.rs"
+    },
+    {
+      "sha256": "0c6b7c4a086802653bf86b980247a60eff897e7e0231ebcfa2ba276636b8986e",
+      "bytes": 6278,
+      "path": "source/kernel/src/exception-entry.S"
+    },
+    {
+      "sha256": "2505669ba20b470665d994672fc545cac2d46bdf2e98753b563ba8ae71f722f4",
+      "bytes": 7550,
+      "path": "source/kernel/src/exceptions.rs"
+    },
+    {
+      "sha256": "dfc7b27ae74058d6e31ba6a573e574beb09c2441dffdfaf8e959111674776c45",
+      "bytes": 14382,
+      "path": "source/kernel/src/lib.rs"
+    },
+    {
+      "sha256": "49458aafdaa14bb6ad6f6947384c96face4b5d716d4555c426fd054bedcb45d6",
+      "bytes": 10006,
+      "path": "source/kernel/src/main.rs"
+    },
+    {
+      "sha256": "804822c9b35283fb1b741fceb9c36c725ab361f7c71b988ef75f29f71958ba58",
+      "bytes": 9699,
+      "path": "source/kernel/src/tests.rs"
+    },
+    {
+      "sha256": "ec881bd148eca89c390360fa5313ed5725514a0ffaed834f6d3e3ef60c745e18",
+      "bytes": 132,
+      "path": "source/rust-toolchain.toml"
+    },
+    {
+      "sha256": "fab68bd837ec590064d941f51e4595591799060eddf5a9444d58bc8215f7c3a3",
+      "bytes": 4109,
+      "path": "source/tools/Test-M1Prerequisites.ps1"
+    },
+    {
+      "sha256": "9f0f6ebb6b8b174a4145ceec957d37690a5211b29d95947fe582efc01ebb3900",
+      "bytes": 2774,
+      "path": "source/tools/Test-P1-03.ps1"
+    },
+    {
+      "sha256": "c47959c0d706a87bcbe91d29f91c5915bf1ad54d7c58cf6bfa76a67679c24568",
+      "bytes": 2854,
+      "path": "source/tools/Test-P1-04.ps1"
+    },
+    {
+      "sha256": "485b1c4b52db5cae8c6792e80a8ae5145ab62786a32c5ed4838e6b352a9df14b",
+      "bytes": 180,
+      "path": "source/tools/xtask/Cargo.toml"
+    },
+    {
+      "sha256": "c061abdbff64fc458f312a40aeaf935911dbf12867c79c7a530c10574c309dcb",
+      "bytes": 7601,
+      "path": "source/tools/xtask/src/elf.rs"
+    },
+    {
+      "sha256": "bcefcac1f6df23243b37523ba168b8a03b868202b76ba8010fd24f5d3e98846b",
+      "bytes": 271,
+      "path": "source/tools/xtask/src/m1.rs"
+    },
+    {
+      "sha256": "451a0d88cf6e97fd507b5f52bf6d279b320e044de595d0e36c200a837e972848",
+      "bytes": 15855,
+      "path": "source/tools/xtask/src/m1/build.rs"
+    },
+    {
+      "sha256": "88e77e4d96093d3eb513a2dda6a9d88cbc7442bab16d14621935d354c7e2aadf",
+      "bytes": 9133,
+      "path": "source/tools/xtask/src/m1/cases.rs"
+    },
+    {
+      "sha256": "f6f67708b09672e3138f9c6e6b9c06023206c230236136e35e674a4a805466b8",
+      "bytes": 4364,
+      "path": "source/tools/xtask/src/m1/inputs.rs"
+    },
+    {
+      "sha256": "9c6791f7fff95847a3b59edc3a4abcdaebb17a00b9e5eaa9cf7fa48a930b2513",
+      "bytes": 4408,
+      "path": "source/tools/xtask/src/m1/launch.rs"
+    },
+    {
+      "sha256": "87147cf881d576d690770bb6c4c634f4614db18b71d0c7e0d5d8d2e65a86817e",
+      "bytes": 5750,
+      "path": "source/tools/xtask/src/m1/observe.rs"
+    },
+    {
+      "sha256": "7518c81f112e70d70dfb6f52759493882ab4411a368ae27acb8bfebe4b345fad",
+      "bytes": 7107,
+      "path": "source/tools/xtask/src/m1/package.rs"
+    },
+    {
+      "sha256": "68806588a94568e8b97b52cece4e769640e2745733c3603fdc3dab4eb6fffa75",
+      "bytes": 3068,
+      "path": "source/tools/xtask/src/m1/process.rs"
+    },
+    {
+      "sha256": "548b644d6fa45dd55c0ba74f509eaf4fba48ec35a580fca666cd45261cd4da1b",
+      "bytes": 22910,
+      "path": "source/tools/xtask/src/m1/records.rs"
+    },
+    {
+      "sha256": "5d56f4ae46432c4643d211e8db4bdf2a97363be593850bd9b8d6975701224f4c",
+      "bytes": 1052,
+      "path": "source/tools/xtask/src/m1/support.rs"
+    },
+    {
+      "sha256": "1c1763057716b679c6e7047d1351532fcfe6739b710aae1bc04204c7903d0fc5",
+      "bytes": 11657,
+      "path": "source/tools/xtask/src/main.rs"
+    }
+  ]
+}

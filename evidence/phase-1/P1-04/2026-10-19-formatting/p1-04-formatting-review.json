@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "change": "Exactly one EOF newline removed; assembler tokens unchanged",
+  "old_build_id": "8292d32448480d7b1b099fc1a93f26a71ec3252aa9881ef592f1bb224b643cf6",
+  "new_build_id": "69849596921f4adf12d12352e93b97d1fa5a2d19de7b7bac2fd1cf5a611a6e71",
+  "changed_inputs": [
+    "kernel/src/exception-entry.S"
+  ],
+  "entry_wrappers_identical": [
+    "exception_start",
+    "exception_load_gdt",
+    "exception_0",
+    "exception_1",
+    "exception_2",
+    "exception_3",
+    "exception_4",
+    "exception_5",
+    "exception_6",
+    "exception_7",
+    "exception_8",
+    "exception_9",
+    "exception_10",
+    "exception_11",
+    "exception_12",
+    "exception_13",
+    "exception_14",
+    "exception_15",
+    "exception_16",
+    "exception_17",
+    "exception_18",
+    "exception_19",
+    "exception_20",
+    "exception_21",
+    "exception_22",
+    "exception_23",
+    "exception_24",
+    "exception_25",
+    "exception_26",
+    "exception_27",
+    "exception_28",
+    "exception_29",
+    "exception_30",
+    "exception_31",
+    "exception_unexpected",
+    "exception_common",
+    "diagnostic_invalid_opcode",
+    "diagnostic_page_fault",
+    "diagnostic_page_fault_site",
+    "diagnostic_panic_report"
+  ],
+  "segments": [
+    {
+      "flags": 5,
+      "address": "0xffffffff80000000",
+      "bytes": 32933,
+      "bytes_identical": false,
+      "old_sha256": "1c954eee9e9c02e0e1f30e8e3e81801e841c1464328b0ed7f46cbd5c77d98abc",
+      "new_sha256": "d5bb438e0e4fbfa08209200df85e5531212598515b12621e489a3b196e392055",
+      "equal_after_normalizing_only_embedded_build_id": false
+    },
+    {
+      "flags": 4,
+      "address": "0xffffffff80009000",
+      "bytes": 3803,
+      "bytes_identical": false,
+      "old_sha256": "39703d7e6ce43762fc9ceed00d3548d6e598f72f09f03f46e25c9177bd790dc6",
+      "new_sha256": "7115757a931b5cdcf75476b9df9f0c3be29620e936606dbd6d6280bc2789260a",
+      "equal_after_normalizing_only_embedded_build_id": false
+    },
+    {
+      "flags": 6,
+      "address": "0xffffffff8000a000",
+      "bytes": 27640,
+      "bytes_identical": false,
+      "old_sha256": "b8e60369885bd385b4095a6dd32a80ac572f5aab56c0853db57a485959968859",
+      "new_sha256": "220bde4a5bc458c9ebc3f22da7a3e81ec112bc17d2d88c9ef3ad4dc99bed0827",
+      "equal_after_normalizing_only_embedded_build_id": false
+    }
+  ],
+  "actual_guest_case": "exception-invalid-opcode",
+  "guest": "passed",
+  "limits": "Full 19-host/21-VM acceptance remains the preceding frozen source snapshot. This follow-up validates the formatting-only final source, unchanged CPU entry wrappers and one actual fault. Entire ELF/text bytes are not identical: the source-derived build ID changes Rust constant placement/data-address operands."
+}

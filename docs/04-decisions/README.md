@@ -10,7 +10,9 @@ Technical capability claims and final library selections still require gate evid
 adds checked boot metadata and identity evidence for the declared UEFI/QEMU profile.
 The [host module-refactor regression](../../evidence/phase-1/m1-module-refactor/2026-10-18/README.md)
 preserves that demonstrated behavior. Neither completes the broader ADR gates or
-changes any record's Proposed status; P1-04 exception diagnostics remains next.
+changes any record's Proposed status. P1-04 now adds
+[fatal exception entry](../05-delivery/phase-1/exception-diagnostics-runbook.md);
+memory/guard integration remains P1-05.
 
 | ADR | Decision | Evidence gate |
 | --- | --- | --- |

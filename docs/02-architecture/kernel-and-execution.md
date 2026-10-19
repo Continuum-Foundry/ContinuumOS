@@ -59,6 +59,12 @@ privilege transitions, canonical address checks and interrupt-state handling.
 
 ## Failure behavior
 
+P1-04 implements the bootstrap fatal-only baseline described in the
+[exception runbook](../05-delivery/phase-1/exception-diagnostics-runbook.md):
+owned GDT/TSS/IDT, static runtime and IST stacks, and bounded version-3 serial
+records. Stack guards and actual double-fault integration remain P1-05 gates;
+the user/process behavior below is still proposed.
+
 User page faults kill or suspend only the offending process and notify its supervisor.
 Device service faults trigger class-specific recovery. Kernel faults enter a bounded
 panic path with serial output, build/boot IDs and crash context; automatic reboot is

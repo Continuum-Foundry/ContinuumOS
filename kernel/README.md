@@ -1,9 +1,11 @@
-# Original Rust kernel: ISO entry, checked metadata and fatal diagnostics
+# Original Rust kernel: ISO entry, checked metadata and owned memory
 
 Build with `cargo xtask build --profile dev` after dot-sourcing
 `tools/Enter-Dev.ps1`. This freestanding kernel has static boot storage and bounded
-serial diagnostics and owned exception tables. It has no allocator, owned paging, external IRQ handlers,
-clock, processes, pixel rendering or desktop. See the
+serial diagnostics and owned exception tables. P1-05 adds a bounded physical-frame
+allocator, owned paging and guarded runtime/IST stacks; check its
+[memory runbook and acceptance status](../docs/05-delivery/phase-1/memory-ownership-runbook.md).
+It has no general heap, external IRQ handlers, clock, processes, pixel rendering or desktop. See the
 [metadata runbook](../docs/05-delivery/phase-1/boot-metadata-runbook.md) for the
 test contract and evidence.
 
@@ -13,7 +15,7 @@ handle compilation/audits, verified ISO creation, QEMU preparation and bounded
 process supervision. The [post-refactor regression review](../evidence/phase-1/m1-module-refactor/2026-10-18/README.md)
 records passing host tests and ISO cases. P1-04's
 [exception runbook](../docs/05-delivery/phase-1/exception-diagnostics-runbook.md)
-documents the fatal-only entry boundary and deferred stack-guard integration.
+documents the fatal-only entry boundary. P1-05 preserves that entry while switching mappings.
 
 ## Loader and assembly boundary
 
@@ -27,13 +29,18 @@ ELF closure, every required request, request revisions and disassembly.
 Limine enters ring 0 with paging active, IF/DF clear, SysV without FP/SIMD, and an
 aligned stack of at least 64 KiB. `kernel_entry` never returns. The loader stack,
 and page tables remain reserved. P1-04 switches to an owned static runtime stack,
-GDT/TSS/IDT and separate double-fault/NMI stacks. No frame is reclaimed, no firmware boot service is
+GDT/TSS/IDT and separate double-fault/NMI stacks. P1-05 switches CR3, enables WP/NX,
+removes kernel direct-map aliases and guards both ends of each stack. No loader frame is reclaimed, no firmware boot service is
 called, and no native Rust memory layout becomes an external ABI.
 
 First-party assembly includes table/segment loads, a one-way stack switch and
 fatal exception wrappers in [exception-entry.S](src/exception-entry.S), alongside
 `cli`, `hlt`, COM1 byte `in`/`out`, and test-only 32-bit `out` to port 0xf4.
 The runbook reviews stack alignment, frame layout, clobbers and unsafe assumptions.
+P1-05 adds CR0/CR3/CR4, EFER, CPUID and INVLPG operations plus explicit fault wrappers
+in [memory-entry.S](src/memory-entry.S). The fixed allocator and checked mapping
+builder are host-testable in [memory.rs](src/memory.rs); the unsafe guest adapter
+is isolated in [paging.rs](src/paging.rs).
 UART interrupts stay disabled. Each byte has a bounded
 100,000-iteration poll, not a measured guest timeout. Record construction uses a
 512-byte stack buffer and integer/core formatting, never a heap or panic arguments.
@@ -51,7 +58,8 @@ Trusted firmware/loader supply readable bootstrap response/map objects. Numeric
 pointer checks do not prove arbitrary mappings. Once the map validates, every
 metadata read checks loader-memory backing. Preserve all loader-reclaimable,
 ACPI, unknown and other non-usable ranges, plus explicit kernel/raw-ELF/module/
-framebuffer reservations. P1-05 must establish allocation ownership later.
+framebuffer reservations. Only eligible kind-0 RAM becomes allocatable after
+subtracting these reservations; no loader memory is reclaimed.
 
 Framebuffers are validated as packed RGB 24/32-bit descriptors; no rendering or
 EDID/mode traversal occurs. The base-3 physical ACPI locator is never dereferenced.
@@ -60,9 +68,10 @@ are documented in the runbook.
 
 ## Diagnostics and test-only behavior
 
-Version-3 records include build ID, host-provided session ID, sequence, stage,
+Version-4 records include build ID, host-provided session ID, sequence, stage,
 outcome and emergency-logger state. Early failures say `session=unavailable`. Normal boot emits one entry,
-`m1.boot_info_validated`, resource/reservation summaries, `m1.exceptions_ready` and `m1.boot_complete`,
+`m1.boot_info_validated`, resource/reservation summaries, `m1.exceptions_ready`,
+`m1.memory_switch`, bounded frame checks, `m1.memory_ready` and `m1.boot_complete`,
 then halts. There is no guest uptime or secure random identity claim.
 
 `emulator-test` writes 0x10 (QEMU exit 33) after complete success or 0x11 (exit 35)
@@ -74,5 +83,6 @@ physical-machine shutdown or malicious-loader fault containment.
 
 `exception-test` adds actual invalid-opcode/page-fault/panic and held-logger fault
 fixtures. Fatal handlers report then halt or use the explicit test device. No
-unresolved exception returns to its caller. Guards and a real double-fault entry
-test remain P1-05 work; no arbitrary-fault recovery is established.
+unresolved exception returns to its caller. `memory-test` adds explicit ownership,
+eight-frame exhaustion, guard/RO/NX fault and real double-fault/IST cases. Check
+the story's review before continuing to P1-06; no arbitrary-fault recovery is established.

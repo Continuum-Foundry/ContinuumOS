@@ -75,3 +75,9 @@ The loader choice remains provisional beyond this profile; this ADR stays Propos
 
 Evidence: [S25](../01-research/sources.md#s25), [S27](../01-research/sources.md#s27),
 [boot spec](../02-architecture/boot-and-platform.md).
+
+P1-05 retains this same loader/firmware/ISO route and boot-data lifetime policy,
+then replaces loader mappings with owned four-level tables. Only eligible RAM
+has a direct mapping; all loader memory is retained and ACPI is not dereferenced.
+See the [memory implementation and acceptance status](../05-delivery/phase-1/memory-ownership-runbook.md).
+The broader M1/M8 gates remain open and this ADR stays Proposed.

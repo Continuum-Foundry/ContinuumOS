@@ -1,0 +1,19 @@
+Development tooling observations, 2026-10-19
+
+Two early attempts to rewrite/format records.rs while a compiler invocation was
+using source files reported Windows error 1224: "The requested operation cannot
+be performed on a file with a user-mapped section open." One tool result read
+"Error writing files: io error" with that message. Formatting was retried after
+the concurrent compiler finished, and the final acceptance formatting check passed.
+This is a transcription of the tool observations, not a saved raw stderr file.
+No host security setting was changed and no guest result is inferred from it.
+
+An early normal build compiled but failed its independent symbol audit because
+diagnostic_nx_page was removed by link garbage collection. The final adapter also
+inspects that page's RW/NX mapping in ordinary builds, retaining the exact symbol.
+The failed build's captured logs, inventory and result are retained separately.
+
+The first full-acceptance attempt failed before host tests executed because
+Windows Application Control blocked the rebuilt test executable (error 4551).
+The unchanged executable ran successfully on retry. Its original failure log is
+retained separately; no cause beyond the reported policy block is asserted.

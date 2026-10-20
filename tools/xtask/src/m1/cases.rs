@@ -90,6 +90,12 @@ fn perform(action: &str, dir: &Path) -> Result<Value> {
         "exception-invalid-opcode" | "exception-page-fault" | "panic" | "exception-emergency" => {
             Flavor::Exceptions
         }
+        "memory-ownership"
+        | "memory-exhaustion"
+        | "guard-fault"
+        | "write-protect-fault"
+        | "execute-disable-fault"
+        | "emergency-stack" => Flavor::Memory,
         _ => Flavor::Normal,
     };
     let manifest = build(dir, flavor)?;
@@ -100,11 +106,21 @@ fn perform(action: &str, dir: &Path) -> Result<Value> {
         let image = package(dir, dir, &manifest, false, "normal", false)?;
         return Ok(json!({"compile":"passed","package":"passed","boot":"not_run","image":image}));
     }
-    if flavor == Flavor::Exceptions {
+    if flavor == Flavor::Exceptions
+        || (flavor == Flavor::Memory
+            && !["memory-ownership", "memory-exhaustion"].contains(&action))
+    {
         let run = boot_run(dir, action, dir, &manifest, action, false, true, false)?;
         accepted(&run)?;
         return Ok(
             json!({"compile":"passed","package":"passed","expected_fatal":"passed","positive_boot":false,"run":run}),
+        );
+    }
+    if flavor == Flavor::Memory {
+        let run = boot_run(dir, action, dir, &manifest, action, false, true, false)?;
+        accepted(&run)?;
+        return Ok(
+            json!({"compile":"passed","package":"passed","memory":"passed","positive_boot":true,"run":run}),
         );
     }
     if action == "iso-negative" {

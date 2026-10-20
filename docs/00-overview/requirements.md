@@ -114,4 +114,11 @@ complete update diagnostics, isolation, release reproducibility or efficiency ga
 P1-04's [accepted fatal diagnostics](../../evidence/phase-1/P1-04/2026-10-19/README.md)
 extend R01/R03/R17 evidence with actual kernel exceptions and bounded panic/emergency
 output, plus R18 source/evidence review. This is early R10 groundwork; guard and
-double-fault integration, user containment and broader M1 remain later gates.
+double-fault integration were later gates at that review. User containment and
+broader M1 remain later gates.
+
+P1-05's [accepted memory ownership](../../evidence/phase-1/P1-05/2026-10-19/README.md)
+extends R01/R03/R17/R18 and early R10 evidence with owned CR3 mappings, frame
+reservation/zeroing/reuse, enforced WP/NX, guards and actual double-fault/IST entry.
+It does not establish user isolation, a general heap, measured desktop efficiency
+or complete M1 readiness.

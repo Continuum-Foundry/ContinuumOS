@@ -1,0 +1,29 @@
+{
+  "arguments": [
+    "rustc",
+    "--locked",
+    "-p",
+    "continuum-kernel",
+    "--bin",
+    "continuum-kernel",
+    "--target",
+    "x86_64-unknown-none",
+    "--profile",
+    "kernel-dev",
+    "--target-dir",
+    "${WORKSPACE}\\build/m1\\iso-negative-1792455221345725100-37404\\bad-config-kernel\\cargo",
+    "--features",
+    "emulator-test",
+    "--",
+    "-C",
+    "code-model=kernel",
+    "-C",
+    "relocation-model=static",
+    "-C",
+    "link-arg=--build-id=none",
+    "-C",
+    "link-arg=-T${WORKSPACE}\\kernel/link.ld",
+    "--remap-path-prefix=${WORKSPACE}=/continuum"
+  ],
+  "program": "${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc\\bin\\cargo.exe"
+}

@@ -1,6 +1,6 @@
 # P1-05 — Own physical frames and page tables
 
-Issue type: Story. Epic: P1. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P1. Status: Done. Owner: Codex.
 Depends on: P1-04 Done. Suggested labels: `phase-1`, `kernel`, `memory`.
 Backlog: memory/guard subset of B05. Requirements: R01/R03; early R10/R17 support.
 Test families: T02/T03; no userspace isolation claim.
@@ -35,16 +35,16 @@ the kernel can allocate pages without overwriting firmware, its own state or dev
 
 ## Acceptance criteria
 
-- [ ] Normal boot reaches `m1.memory_ready` on owned page tables and stacks.
-- [ ] No allocated frame overlaps a reservation or another live allocation; each
+- [x] Normal boot reaches `m1.memory_ready` on owned page tables and stacks.
+- [x] No allocated frame overlaps a reservation or another live allocation; each
   newly supplied frame is zeroed and correctly aligned.
-- [ ] Invalid/double frees, out-of-range addresses, overlapping maps, range overflow,
+- [x] Invalid/double frees, out-of-range addresses, overlapping maps, range overflow,
   metadata capacity exhaustion and allocation exhaustion have explicit outcomes.
-- [ ] Guest mapping inspection and actual protection-fault tests establish text/data
+- [x] Guest mapping inspection and actual protection-fault tests establish text/data
   permissions, NX behavior and stack guards; host PTE fixtures alone do not pass.
-- [ ] Stack-guard/emergency-stack fault tests produce bounded P1-04 diagnostics.
+- [x] Stack-guard/emergency-stack fault tests produce bounded P1-04 diagnostics.
   The controlled double-fault case uses its emergency stack and does not reset QEMU.
-- [ ] Exceptions and prior ISO/identity checkpoints still work after the mapping switch.
+- [x] Exceptions and prior ISO/identity checkpoints still work after the mapping switch.
 
 ## Tests and evidence
 
@@ -68,4 +68,9 @@ Sources: [kernel contract](../../02-architecture/kernel-and-execution.md),
 [boot reservations](../../02-architecture/boot-and-platform.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
 
-Implementation revision: Not implemented. Evidence: None. Review: Pending.
+Implementation revision: fixed frame bitmaps, owned four-level page tables and
+guarded runtime/IST mappings implemented on `codex/p1-05-memory-ownership`.
+The [2026-10-19 acceptance review](../../../evidence/phase-1/P1-05/2026-10-19/README.md)
+passes all six criteria with 23 host tests and 27 selected ISO launches. See the
+[memory runbook](memory-ownership-runbook.md) for capacities and unsafe review.
+Review is local Codex self-review, not independent approval. M1 remains incomplete.

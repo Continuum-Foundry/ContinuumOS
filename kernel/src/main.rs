@@ -3,6 +3,7 @@
 
 mod boot;
 mod exceptions;
+mod paging;
 use continuum_kernel::{BootInfoV1, Error, Text, identity};
 use core::{
     arch::asm,
@@ -165,7 +166,7 @@ fn emit(event: &str, stage: &str, outcome: &str, emergency: bool, detail: fmt::A
         bytes: [0; 512],
         len: 0,
     };
-    if write!(&mut line, "{event} version=3 build={} session={session} session_origin=host seq={} stage={stage} outcome={outcome} emergency={emergency} {detail}\n",
+    if write!(&mut line, "{event} version=4 build={} session={session} session_origin=host seq={} stage={stage} outcome={outcome} emergency={emergency} {detail}\n",
         env!("CONTINUUM_BUILD_ID"), state.sequence).is_err() || !serial(&line.bytes[..line.len]) {
         failure_exit();
     }
@@ -225,6 +226,7 @@ pub extern "C" fn kernel_entry() -> ! {
     #[cfg(not(feature = "boot-inject"))]
     if fixture != "normal"
         && !(cfg!(feature = "exception-test") && exceptions::mode(fixture).is_some())
+        && !(cfg!(feature = "memory-test") && paging::mode(fixture).is_some())
     {
         reject(continuum_kernel::error("fixture", "disabled"));
     }
@@ -323,7 +325,11 @@ pub extern "C" fn kernel_entry() -> ! {
             ),
         )
     });
-    exceptions::start(exceptions::mode(fixture).unwrap_or(0))
+    exceptions::start(
+        exceptions::mode(fixture)
+            .or_else(|| paging::mode(fixture))
+            .unwrap_or(0),
+    )
 }
 
 #[panic_handler]

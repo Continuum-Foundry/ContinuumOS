@@ -3,7 +3,7 @@
 .type exception_start,@function
 exception_start:
     cli
-    lea rsp, [rip + {runtime} + 65536]
+    lea rsp, [rip + {runtime} + 69632]
     xor ebp, ebp
     call {run}
     ud2

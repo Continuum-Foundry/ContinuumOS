@@ -12,9 +12,10 @@ record architecture or decisions here; put those in the specs and ADRs.
   P1-03 (checked boot metadata) have retained evidence.
 - P1-04 adds owned fatal exception entry and static stacks; check its
   [story and review status](docs/05-delivery/phase-1/04-exception-handling.md).
-  Next after acceptance: P1-05 memory ownership, then P1-06 interrupts/timekeeping,
-  P1-07 Phase 1 acceptance. Actual double-fault/guard integration remains P1-05.
-- No allocator, owned page tables, clock, processes, rendering or desktop.
+  P1-05 adds owned frames/page tables, WP/NX, guards and actual double-fault entry;
+  check its [story/review status](docs/05-delivery/phase-1/05-memory-ownership.md).
+  Next after P1-05 acceptance: P1-06 interrupts/timekeeping, then P1-07 acceptance.
+- No general heap, clock, processes, rendering or desktop.
   All ADRs are *Proposed*. Never describe more than the evidence shows.
 - Check `git log --oneline -10` and the
   [agent handoff](docs/05-delivery/agent-handoff.md) at session start. Other
@@ -78,7 +79,7 @@ cargo xtask test --suite m1 --case iso-smoke     # also: iso-negative, boot-meta
 
 # Full story acceptance (slow; writes build/m1/acceptance-*)
 pwsh -NoProfile -File tools/Test-M0.ps1
-pwsh -NoProfile -File tools/Test-P1-04.ps1       # current story harness and prior regressions
+pwsh -NoProfile -File tools/Test-P1-05.ps1       # current story harness and prior regressions
 ```
 
 `cargo xtask` is an alias for `run --locked --package xtask --` (`.cargo/config.toml`).

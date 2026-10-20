@@ -1,0 +1,352 @@
+{
+  "schema_version": 2,
+  "story": "P1-05",
+  "status": "passed",
+  "commands": [
+    {
+      "name": "formatting",
+      "log": "formatting.log",
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "m0",
+      "log": "m0.log",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-M0.ps1"
+      ],
+      "exit_code": 0,
+      "executable": "pwsh"
+    },
+    {
+      "name": "dependencies",
+      "log": "dependencies.log",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Probe-Dependencies.ps1"
+      ],
+      "exit_code": 0,
+      "executable": "pwsh"
+    },
+    {
+      "name": "kernel-host",
+      "log": "kernel-host.log",
+      "arguments": [
+        "test",
+        "--locked",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "doctor",
+      "log": "doctor.log",
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--profile",
+        "m1",
+        "--json"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "prerequisites",
+      "log": "prerequisites.log",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-P1-01.ps1"
+      ],
+      "exit_code": 0,
+      "executable": "pwsh"
+    },
+    {
+      "name": "run",
+      "log": "run.log",
+      "arguments": [
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "iso-smoke",
+      "log": "iso-smoke.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-smoke"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "iso-negative",
+      "log": "iso-negative.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-negative"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "boot-metadata",
+      "log": "boot-metadata.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "boot-metadata"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "boot-reject",
+      "log": "boot-reject.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "boot-reject"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "exception-invalid-opcode",
+      "log": "exception-invalid-opcode.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "exception-invalid-opcode"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "exception-page-fault",
+      "log": "exception-page-fault.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "exception-page-fault"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "panic",
+      "log": "panic.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "panic"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "exception-emergency",
+      "log": "exception-emergency.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "exception-emergency"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "memory-ownership",
+      "log": "memory-ownership.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "memory-ownership"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "memory-exhaustion",
+      "log": "memory-exhaustion.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "memory-exhaustion"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "guard-fault",
+      "log": "guard-fault.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "guard-fault"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "write-protect-fault",
+      "log": "write-protect-fault.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "write-protect-fault"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "execute-disable-fault",
+      "log": "execute-disable-fault.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "execute-disable-fault"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "emergency-stack",
+      "log": "emergency-stack.log",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "emergency-stack"
+      ],
+      "exit_code": 0,
+      "executable": "cargo"
+    },
+    {
+      "name": "repeat-run",
+      "arguments": [
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "executable": "cargo",
+      "log": "repeat-run.log",
+      "exit_code": 0
+    },
+    {
+      "name": "repeat-iso-smoke",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-smoke"
+      ],
+      "executable": "cargo",
+      "log": "repeat-iso-smoke.log",
+      "exit_code": 0
+    },
+    {
+      "name": "repeat-iso-negative",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-negative"
+      ],
+      "executable": "cargo",
+      "log": "repeat-iso-negative.log",
+      "exit_code": 0
+    }
+  ],
+  "runs": {
+    "boot-metadata": "${WORKSPACE}\\build/m1\\boot-metadata-1792454733060035700-32404",
+    "run": "${WORKSPACE}\\build/m1\\run-1792455114472962100-30476",
+    "emergency-stack": "${WORKSPACE}\\build/m1\\emergency-stack-1792455352806242200-33748",
+    "prerequisites": "${WORKSPACE}\\build\\m1\\p1-01-tests-1792454517672",
+    "memory-exhaustion": "${WORKSPACE}\\build/m1\\memory-exhaustion-1792455164748966600-27856",
+    "write-protect-fault": "${WORKSPACE}\\build/m1\\write-protect-fault-1792455244594052700-27360",
+    "dependencies": "${WORKSPACE}\\work\\dependency-probes\\1792454502322",
+    "panic": "${WORKSPACE}\\build/m1\\panic-1792455058816999900-13248",
+    "memory-ownership": "${WORKSPACE}\\build/m1\\memory-ownership-1792455124017875600-31544",
+    "iso-smoke": "${WORKSPACE}\\build/m1\\iso-smoke-1792455155668125700-29060",
+    "iso-negative": "${WORKSPACE}\\build/m1\\iso-negative-1792455221345725100-37404",
+    "exception-invalid-opcode": "${WORKSPACE}\\build/m1\\exception-invalid-opcode-1792454995130007400-34476",
+    "execute-disable-fault": "${WORKSPACE}\\build/m1\\execute-disable-fault-1792455289856068500-36512",
+    "exception-page-fault": "${WORKSPACE}\\build/m1\\exception-page-fault-1792455028793449900-33188",
+    "exception-emergency": "${WORKSPACE}\\build/m1\\exception-emergency-1792455090807512700-36412",
+    "guard-fault": "${WORKSPACE}\\build/m1\\guard-fault-1792455204865185100-36936",
+    "m0": "${WORKSPACE}\\work\\acceptance\\1792454445050",
+    "boot-reject": "${WORKSPACE}\\build/m1\\boot-reject-1792454822071607900-35768"
+  },
+  "original_acceptance": "build/m1/acceptance-p1-05-1792454443713",
+  "superseded_runs": {
+    "iso-negative": "${WORKSPACE}\\build/m1\\iso-negative-1792454619387463400-36628",
+    "iso-smoke": "${WORKSPACE}\\build/m1\\iso-smoke-1792454565774009700-33932",
+    "run": "${WORKSPACE}\\build/m1\\run-1792454525240559600-19956"
+  },
+  "correction": "Kernel README is included in the input hash inventory. Updated documentation changed that input during early cases; repeat the affected cases without changing executable source. Original observations remain retained and do not count toward the final selected matrix."
+}

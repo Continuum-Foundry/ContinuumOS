@@ -4,8 +4,9 @@ P1-02 established serial entry from a standalone x86-64 UEFI optical image.
 The current harness also implements P1-03's metadata and P1-04's version-3 fatal
 diagnostics; see the [metadata runbook](boot-metadata-runbook.md) and
 [exception runbook](exception-diagnostics-runbook.md). Historical evidence remains
-unchanged. M1 still needs owned frames/page tables, stack guards, double-fault
-integration and interrupt/timekeeping through P1-05–P1-07.
+unchanged. P1-05 adds [owned frames/page tables, stack guards and double-fault
+integration](memory-ownership-runbook.md) with version-4 diagnostics; check that
+story's acceptance status. M1 still needs interrupt/timekeeping and P1-07 acceptance.
 
 ## Commands
 

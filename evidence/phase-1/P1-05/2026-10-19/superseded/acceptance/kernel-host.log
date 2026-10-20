@@ -1,0 +1,20 @@
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\${WORKSPACE}\build\cargo\debug\incremental\continuum_kernel-1g3nq2ly5ro5p\s-hnde3pjpm5-06vjax9-working`
+
+warning: `continuum-kernel` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s
+     Running unittests src\lib.rs (build\cargo\debug\deps\continuum_kernel-172e592285f33fd1.exe)
+
+running 10 tests
+test tests::exact_host_session_configuration ... ok
+test memory::tests::mapping_conflicts_capacity_and_permissions ... ok
+test tests::ranges_and_address_translations ... ok
+test tests::owned_text_checks_termination_encoding_and_boundaries ... ok
+test tests::required_revision_and_capacities_fail_closed ... ok
+test tests::reservations_cover_live_kernel_loader_module_and_acpi_storage ... ok
+test tests::framebuffer_arithmetic_pitch_formats_and_backing ... ok
+test memory::tests::reservations_edges_holes_and_exhaustion ... ok
+test memory::tests::malformed_capacity_and_all_reserved ... ok
+test tests::memory_map_alignment_order_and_protocol_overlap_rules ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

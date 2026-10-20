@@ -62,8 +62,10 @@ privilege transitions, canonical address checks and interrupt-state handling.
 P1-04 implements the bootstrap fatal-only baseline described in the
 [exception runbook](../05-delivery/phase-1/exception-diagnostics-runbook.md):
 owned GDT/TSS/IDT, static runtime and IST stacks, and bounded version-3 serial
-records. Stack guards and actual double-fault integration remain P1-05 gates;
-the user/process behavior below is still proposed.
+records. P1-05 implements owned frame allocation/page tables, WP/NX enforcement,
+guarded stacks and controlled actual double-fault integration; check the
+[memory runbook and acceptance status](../05-delivery/phase-1/memory-ownership-runbook.md).
+The user/process behavior below is still proposed.
 
 User page faults kill or suspend only the offending process and notify its supervisor.
 Device service faults trigger class-specific recovery. Kernel faults enter a bounded

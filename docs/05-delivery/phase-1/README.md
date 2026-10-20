@@ -25,7 +25,7 @@ from Phase 0's historical snapshot.
 | P1-02 | [Cold-boot the minimal original kernel ISO](02-minimal-iso-boot.md) | P1-01 | B38, B03, minimal B04 | Done |
 | P1-03 | [Validate boot metadata and identity](03-boot-metadata-and-diagnostics.md) | P1-02 | B04 | Done |
 | P1-04 | [Establish exception diagnostics](04-exception-handling.md) | P1-03 | B05 exception baseline | Done |
-| P1-05 | [Own physical frames and page tables](05-memory-ownership.md) | P1-04 | B05 memory/guards | Not started |
+| P1-05 | [Own physical frames and page tables](05-memory-ownership.md) | P1-04 | B05 memory/guards | Done |
 | P1-06 | [Establish interrupts and monotonic time](06-interrupts-and-timekeeping.md) | P1-05 | M1 subset of B06 | Not started |
 | P1-07 | [Run and review Phase 1 acceptance](07-phase-1-acceptance.md) | P1-01 through P1-06 | M1, early B32 | Not started |
 
@@ -133,6 +133,6 @@ Read [milestones](../milestones.md), [backlog](../backlog.md),
 P1-04 builds on the
 [P1-03 acceptance review](../../../evidence/phase-1/P1-03/2026-10-18/README.md) and
 [metadata runbook](boot-metadata-runbook.md). Checked metadata and session records
-are demonstrated. See the [exception runbook](exception-diagnostics-runbook.md)
-and P1-04 acceptance status before P1-05; memory ownership, guards, actual
-double-fault entry and timer gates remain later work.
+are demonstrated. P1-05's [accepted memory ownership](../../../evidence/phase-1/P1-05/2026-10-19/README.md)
+adds owned page tables, enforced permissions, stack guards and actual double-fault
+entry. Continue with P1-06 interrupts/timekeeping; M1 remains incomplete.

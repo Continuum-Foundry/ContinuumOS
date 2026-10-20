@@ -36,6 +36,12 @@ P1-03 implements an internal, allocation-free `BootInfoV1` boundary and version-
 serial record contract; see the [runbook and current evidence status](../05-delivery/phase-1/boot-metadata-runbook.md).
 P1-04 extends the current diagnostic contract to version 3 and owns exception
 tables/static stacks; see its [runbook](../05-delivery/phase-1/exception-diagnostics-runbook.md).
+P1-05 adds owned CR3 mappings, frame bitmaps, guarded stacks and version-4 records;
+see its [memory runbook and acceptance status](../05-delivery/phase-1/memory-ownership-runbook.md).
+Only eligible ordinary RAM has a direct mapping after the switch; kernel aliases,
+loader data, framebuffer, modules and ACPI backing are absent. Their owned
+descriptors and physical reservations remain retained. Later code must explicitly
+map validated ACPI/device ranges before use.
 The demonstrated loader remains pinned at base revision 3 with four-level paging.
 Required handoff responses fail closed; optional framebuffer/module/ACPI absence
 is explicit. Owned copies and retained backing reservations are separate: no

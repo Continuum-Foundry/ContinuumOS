@@ -1,5 +1,6 @@
 #![no_std]
 //! Internal, owned boot handoff. This is neither a wire format nor an allocator.
+pub mod memory;
 
 pub const MAX_REGIONS: usize = 512;
 pub const MAX_MODULES: usize = 16;

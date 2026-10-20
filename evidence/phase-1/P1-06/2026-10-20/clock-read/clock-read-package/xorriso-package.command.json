@@ -1,0 +1,18 @@
+{
+  "arguments": [
+    "-as",
+    "mkisofs",
+    "-R",
+    "-r",
+    "-J",
+    "--efi-boot",
+    "boot/limine/limine-uefi-cd.bin",
+    "-efi-boot-part",
+    "--efi-boot-image",
+    "--protective-msdos-label",
+    "${WORKSPACE}/build/m1/clock-read-1792457954176104200-41744/clock-read-package/iso root with spaces",
+    "-o",
+    "${WORKSPACE}/build/m1/clock-read-1792457954176104200-41744/clock-read-package/continuum.iso"
+  ],
+  "program": "${WORKSPACE}\\work/tools/iso/usr/bin/xorriso.exe"
+}

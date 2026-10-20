@@ -1,6 +1,6 @@
 # Architecture decision records
 
-All records dated **2026-10-17**. Status **Proposed** means a documented working
+Initial records dated **2026-10-17**; later records carry their own dates. Status **Proposed** means a documented working
 default for implementation experiments, not user acceptance and not a verified result.
 An agent may implement its reversible gate, then record evidence and change status.
 Revision 2 records user approval of the [reconciled roadmap](../00-overview/reconciled-plan.md).
@@ -33,6 +33,7 @@ Check its story review; no whole-OS or user-mode isolation gate is implied.
 | [0014](0014-quality-and-scope.md) | Correctness gates and measured efficiency | Gate evidence and workload baseline |
 | [0015](0015-typed-actions.md) | Shared typed actions and scoped context | UI/automation parity, rights/revision/reload tests |
 | [0016](0016-optional-inference.md) | Optional isolated inference after baseline | Small-model quota/crash tests; no core release dependency |
+| [0017](0017-bootstrap-timekeeping.md) | ACPI-discovered xAPIC/HPET bootstrap uptime | Real timer delivery, monotonic reads, masks, idle and failure diagnostics |
 
 ## Lifecycle
 

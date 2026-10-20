@@ -1,6 +1,6 @@
 # P1-06 — Establish interrupts and monotonic kernel uptime
 
-Issue type: Story. Epic: P1. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P1. Status: Done. Owner: Codex (local implementation/self-review).
 Depends on: P1-05 Done. Suggested labels: `phase-1`, `kernel`, `interrupts`, `clock`.
 Backlog: M1 interrupt/timer subset of B06. Requirements: R01/R03/R17; early R09/R10 support.
 Test families: T01/T02/T04, single-core baseline only.
@@ -34,18 +34,18 @@ clock so later scheduling and no-reboot demonstrations have a trustworthy baseli
 
 ## Acceptance criteria
 
-- [ ] Normal boot reaches `m1.timer_ready`; progress is established by at least
+- [x] Normal boot reaches `m1.timer_ready`; progress is established by at least
   100 delivered timer interrupts in a bounded guest run.
-- [ ] At least 100 kernel uptime reads across delivered interrupts never decrease;
+- [x] At least 100 kernel uptime reads across delivered interrupts never decrease;
   progress and effective resolution are reported without wall-clock equivalence.
-- [ ] Serial/session identity remains unchanged during the run; a fresh VM launch
+- [x] Serial/session identity remains unchanged during the run; a fresh VM launch
   starts a new boot session and a newly initialized uptime epoch.
-- [ ] Masking the timer suppresses its delivered-event count while the polling test
+- [x] Masking the timer suppresses its delivered-event count while the polling test
   remains responsive; restoring it resumes delivery. Do not require interrupt-backed
   uptime progress while the interrupt is intentionally masked.
-- [ ] Repeated halt/wakeup cycles return to the same kernel continuation. Exceptions
+- [x] Repeated halt/wakeup cycles return to the same kernel continuation. Exceptions
   remain diagnosable after interrupt delivery is enabled.
-- [ ] Malformed ACPI fixtures, unsupported discovery and calibration failure produce
+- [x] Malformed ACPI fixtures, unsupported discovery and calibration failure produce
   an explicit rejection instead of guessed MMIO addresses or timer values.
 
 ## Tests and evidence
@@ -67,4 +67,6 @@ Sources: [kernel contract](../../02-architecture/kernel-and-execution.md),
 [CPU source](../../01-research/sources.md#s30).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
 
-Implementation revision: Not implemented. Evidence: None. Review: Pending.
+Implementation revision: allocation-free ACPI/xAPIC/HPET adapter and version-5
+guest/host diagnostics. See the [runbook](interrupts-timekeeping-runbook.md).
+Evidence: [2026-10-20 acceptance](../../../evidence/phase-1/P1-06/2026-10-20/README.md). Review: local Codex self-review passes all six criteria; not independent approval. M1 remains incomplete.

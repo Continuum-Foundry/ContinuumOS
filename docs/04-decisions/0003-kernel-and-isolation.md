@@ -40,5 +40,10 @@ M3 proves user/kernel isolation, process faults, bounded IPC and no global lock 
 across user waits. If costs are excessive, optimize measured paths/shared bulk data
 before broadening privilege. Any architecture reversal needs a new ADR.
 
+P1-06's bounded interrupt/timekeeping experiment is recorded in
+[ADR-0017](0017-bootstrap-timekeeping.md) and its linked acceptance status. It
+adds returning entry and delivered-tick uptime without scheduling, FP context,
+SMP or a change to this ADR's Proposed status.
+
 Evidence: [S14](../01-research/sources.md#s14), [S19](../01-research/sources.md#s19),
 [layers](../02-architecture/system-layers.md).

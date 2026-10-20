@@ -73,7 +73,7 @@ P1-04 extends the current record contract to version 3 and adds real invalid-opc
 page-fault, panic and held-logger tests, each requiring its exact fatal context and exit 37.
 P1-05 extends the current contract to version 4 and requires owned memory readiness
 before completion or any expected fatal case. Guest inspection and actual faults
-check frame ownership/zeroing, WP/NX, guards and double-fault IST entry.
+check frame ownership/zeroing, WP/NX, guards and double-fault IST entry. P1-06 adds version-5 ACPI/timer records, returning interrupts, calibrated delivered-tick uptime and idle continuation.
 
 | Proven in this repository | Evidence |
 | :--- | :--- |
@@ -85,14 +85,15 @@ check frame ownership/zeroing, WP/NX, guards and double-fault IST entry.
 | Separate host build/package/launch/observe modules; 18 host tests and 17 QEMU launches pass after extraction | [Module-refactor regression review](evidence/phase-1/m1-module-refactor/2026-10-18/README.md) |
 | Owned exception tables/static stacks and bounded fatal diagnostics; 19 host tests and 21 VM launches pass | [P1-04 acceptance](evidence/phase-1/P1-04/2026-10-19/README.md) |
 | Owned frames/page tables, enforced WP/NX, guarded stacks and real double-fault entry; 23 host tests and 27 selected launches pass | [P1-05 acceptance](evidence/phase-1/P1-05/2026-10-19/README.md) |
+| Validated ACPI/xAPIC/HPET, real timer delivery/masking, monotonic uptime, registers and idle wakeups; 27 host tests and 36 selected launches pass | [P1-06 acceptance](evidence/phase-1/P1-06/2026-10-20/README.md) |
 
 The [final source formatting check](evidence/phase-1/P1-04/2026-10-19-formatting/README.md)
 adds one passing fault launch after an EOF-only assembly cleanup.
 
 The current profile is **x86-64 · Q35 · TCG · one vCPU · 2 GiB RAM · offline**.
 It attaches the exact ISO and firmware pair, with no host shares or writable user
-data disk. Full M1 remains open: **P1-06 interrupts/timekeeping is next**, followed
-by P1-07's final acceptance. There is no general heap or user-mode isolation yet.
+data disk. Full M1 remains open: **P1-06 interrupts/timekeeping passes**; continue
+with P1-07's final acceptance. There is no general heap or user-mode isolation yet.
 
 ## A desktop designed for continuity
 
@@ -187,7 +188,7 @@ install WSL, enable virtualization features, or modify global packages.
 [Complete boot runbook](docs/05-delivery/phase-1/minimal-iso-runbook.md) ·
 [Metadata and identity contract](docs/05-delivery/phase-1/boot-metadata-runbook.md) ·
 [Fatal exception contract](docs/05-delivery/phase-1/exception-diagnostics-runbook.md) ·
-[Full current regression harness](tools/Test-P1-05.ps1)
+[Full current regression harness](tools/Test-P1-06.ps1)
 
 Host orchestration starts at [m1.rs](tools/xtask/src/m1.rs). The
 [module layout](docs/05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout)
@@ -199,7 +200,7 @@ named cases and strict serial-record checks remain separate.
 | Gate | Outcome | Current state |
 | :--- | :--- | :--- |
 | **Phase 0** | Native tooling, independent links, dependency feasibility | Compile/tooling evidence retained |
-| **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-05 accepted; P1-06–P1-07 remain open |
+| **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-06 accepted; P1-07 remains open |
 | **M2** | Hosted UI comparison, accessibility foundations, resource continuity | Planned |
 | **M3** | User-mode isolation and bounded IPC | Planned |
 | **M4** | Authenticated development channel and guest resource reload | Planned |

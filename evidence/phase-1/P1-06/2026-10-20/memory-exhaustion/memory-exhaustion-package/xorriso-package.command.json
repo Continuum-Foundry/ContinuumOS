@@ -1,0 +1,18 @@
+{
+  "arguments": [
+    "-as",
+    "mkisofs",
+    "-R",
+    "-r",
+    "-J",
+    "--efi-boot",
+    "boot/limine/limine-uefi-cd.bin",
+    "-efi-boot-part",
+    "--efi-boot-image",
+    "--protective-msdos-label",
+    "${WORKSPACE}/build/m1/memory-exhaustion-1792457731441323600-37028/memory-exhaustion-package/iso root with spaces",
+    "-o",
+    "${WORKSPACE}/build/m1/memory-exhaustion-1792457731441323600-37028/memory-exhaustion-package/continuum.iso"
+  ],
+  "program": "${WORKSPACE}\\work/tools/iso/usr/bin/xorriso.exe"
+}

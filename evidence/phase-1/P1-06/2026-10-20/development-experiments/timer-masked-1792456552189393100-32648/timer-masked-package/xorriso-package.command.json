@@ -1,0 +1,18 @@
+{
+  "arguments": [
+    "-as",
+    "mkisofs",
+    "-R",
+    "-r",
+    "-J",
+    "--efi-boot",
+    "boot/limine/limine-uefi-cd.bin",
+    "-efi-boot-part",
+    "--efi-boot-image",
+    "--protective-msdos-label",
+    "${WORKSPACE}/build/m1/timer-masked-1792456552189393100-32648/timer-masked-package/iso root with spaces",
+    "-o",
+    "${WORKSPACE}/build/m1/timer-masked-1792456552189393100-32648/timer-masked-package/continuum.iso"
+  ],
+  "program": "${WORKSPACE}\\work/tools/iso/usr/bin/xorriso.exe"
+}

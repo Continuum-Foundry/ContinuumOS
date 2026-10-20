@@ -1,0 +1,8 @@
+P1-06 development observations, transcribed from this chat's tool results (not raw logs).
+- The initial local branch write was sandbox-denied. Approved execution created codex/p1-06-interrupts-timekeeping from 0311184. The unrelated .gitignore edit was preserved.
+- Phase 0 pre-extension acceptance: work/acceptance/1792456104409. Dependency probes: work/dependency-probes/1792456182046. Both passed. The sandboxed M1 doctor failed at xorriso's documented MSYS2 named-object restriction; the established execution context passed (work/p1-06-doctor.json).
+- The first timer ISO rejected field=hpet reason=unsupported, before timer setup. Its raw guest log is retained. QEMU uses GAS bit width zero; parser now admits zero/64 and independently requires 64-bit HPET capability.
+- Development timer-progress, timer-masked and timer-exception passed on evolving source inventories. They are development evidence, excluded from the final selected matrix.
+- One cargo fmt invocation returned Windows error 1224 (file with user-mapped section open). The unchanged retry completed. No host security setting changed.
+- The first interrupt-entry artifact-audit implementation failed to compile because the iterator collected Result<String,&str> into Result<Vec<_>,String>. It was corrected with a String error conversion before any artifact audit was claimed.
+- During the full matrix's early normal/smoke work, final review tightened the full APIC base-address mask, explicit PAT feature check and exact six-LVT scope. The source-selection script repeats every case with a stale input inventory and retains superseded artifacts; only final matching builds count.

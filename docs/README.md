@@ -1,8 +1,8 @@
 # Original desktop OS: research and engineering foundation
 
 Research date: **2026-10-17**. Project name: **ContinuumOS (working name)**.
-Implementation update: **2026-10-19 — original Rust kernel ISO with checked owned
-boot metadata, host session identity and fatal exception diagnostics demonstrated
+Implementation update: **2026-10-20 — original Rust kernel ISO with checked owned
+boot metadata, host session identity, fatal diagnostics and timer/uptime demonstrated
 in QEMU**. See the [exception runbook](05-delivery/phase-1/exception-diagnostics-runbook.md) and
 [P1-04 acceptance review](../evidence/phase-1/P1-04/2026-10-19/README.md). This is not completed M1
 or a usable desktop OS. Phase 0's compile-only evidence remains separate.
@@ -13,7 +13,7 @@ separate modules; commands and evidence formats are preserved. P1-04 now adds
 Its local acceptance review passes. P1-05 now implements
 [memory ownership and guarded mappings](05-delivery/phase-1/memory-ownership-runbook.md);
 its [local acceptance review passes](../evidence/phase-1/P1-05/2026-10-19/README.md).
-Continue with P1-06 interrupts/timekeeping.
+P1-06 now adds [interrupts and monotonic uptime](05-delivery/phase-1/interrupts-timekeeping-runbook.md); its [local acceptance passes](../evidence/phase-1/P1-06/2026-10-20/README.md). Continue with P1-07.
 Plan revision: **2 — reconciled direction approved by the user; technical gates pending**.
 The requested project folder is named **ContinuumOS**; this is a working project name.
 
@@ -83,7 +83,7 @@ Upstream `latest` and `master` URLs are research references, not dependency pins
 For the hosted UI workstream, compare Slint with a minimal custom UI core and
 prove resource reload while a document remains open. The independent ISO path
 has reached checked metadata, fatal diagnostics and P1-05 owned mappings.
-Complete P1-06–P1-07 before bringing UI primitives
+Complete P1-07 before bringing UI primitives
 to the guest framebuffer.
 Establish user-mode isolation and a small
 authenticated development channel before native service replacement. This parallel

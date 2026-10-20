@@ -350,6 +350,13 @@ Documents supported language features and concurrency limits. Use: focused bound
 [x86_64 crate](https://docs.rs/x86_64/latest/x86_64/) — O.
 CPU register/instruction/paging abstractions. Use: candidate architecture mechanism; our mapping, ownership, interrupt and safety obligations remain explicit.
 
+### S84
+[Intel IA-PC HPET specification 1.0a](https://www.intel.com/content/dam/www/public/us/en/documents/technical-specifications/software-developers-hpet-spec-1-0a.pdf) — O, reviewed 2026-10-19.
+Register widths, counter period/capabilities, main-counter configuration and section
+3.2.4 ACPI table. Use: P1-06's checked reference/calibration experiment, not a
+precision, wall-time or physical-platform claim. See the
+[implementation runbook](../05-delivery/phase-1/interrupts-timekeeping-runbook.md).
+
 ## Access limitations
 
 Redox book direct access returned 403. A TinyGo runtime URL and a Linux DMA guide

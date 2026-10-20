@@ -2,9 +2,9 @@
 
 This workspace contains research/design, Phase 0 Windows build/link probes and
 the minimal original Rust kernel ISO with checked metadata, identity, fatal
-diagnostics and P1-05 memory ownership. Check the story's acceptance review before continuing.
+diagnostics, P1-05 memory ownership and P1-06 timer/uptime. Check the story's acceptance review before continuing.
 It is not a usable OS or completed M1. See
-`docs/05-delivery/phase-1/memory-ownership-runbook.md` and retained evidence.
+`docs/05-delivery/phase-1/interrupts-timekeeping-runbook.md` and retained evidence.
 The user approved the reconciled revision-2 roadmap. See
 `docs/00-overview/reconciled-plan.md`; individual library integrations still need validation.
 

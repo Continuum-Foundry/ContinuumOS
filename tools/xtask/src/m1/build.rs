@@ -34,6 +34,7 @@ pub(super) enum Flavor {
     Inject,
     Exceptions,
     Memory,
+    Timer,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -44,6 +45,7 @@ impl Flavor {
             Self::Inject => "boot-inject",
             Self::Exceptions => "exception-test",
             Self::Memory => "memory-test",
+            Self::Timer => "timer-test",
         }
     }
     fn features(self) -> &'static str {
@@ -54,6 +56,7 @@ impl Flavor {
             Self::Inject => "boot-inject",
             Self::Exceptions => "exception-test",
             Self::Memory => "memory-test",
+            Self::Timer => "timer-test",
         }
     }
 }
@@ -254,6 +257,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         "tools/Test-P1-03.ps1",
         "tools/Test-P1-04.ps1",
         "tools/Test-P1-05.ps1",
+        "tools/Test-P1-06.ps1",
     ] {
         sources.insert(p.into(), digest(&root().join(p))?);
     }
@@ -382,6 +386,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         }
         if name == "llvm-objdump" {
             audit_disassembly(&text)?;
+            inspection["returning_interrupt_entry"] = audit_interrupt_entry(&text)?;
         }
     }
     let commit = output(
@@ -397,6 +402,64 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     let manifest = json!({"schema_version":1,"build_id":id,"flavor":flavor.name(),"source_commit":commit,"source_dirty":!dirty.is_empty(),"source_status":dirty,"source_identity":"build-inputs.json contains hashes of all build source inputs","kernel_sha256":hash(&bytes),"inspection":inspection,"loader":"12.9.3","binding":"limine =0.5.0; defaults off","protocol_commit":"3a0526b700e356f0eac1b71a77697b3fd1c707a3","base_revision":3,"entry_boundary":"SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed","assembly":"fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md","boot_tested":false});
     write_json(&dir.join("build-manifest.json"), &manifest)?;
     Ok(manifest)
+}
+
+fn audit_interrupt_entry(text: &str) -> Result<Value> {
+    let normalized = text.replace("\r\n", "\n");
+    let text = normalized.as_str();
+    let registers = [
+        "rax", "rcx", "rdx", "rbx", "rbp", "rsi", "rdi", "r8", "r9", "r10", "r11", "r12", "r13",
+        "r14", "r15",
+    ];
+    for name in ["timer_vector", "spurious_vector"] {
+        let marker = format!("<{name}>:\n");
+        let body = text
+            .split_once(&marker)
+            .ok_or("Missing returning interrupt entry")?
+            .1
+            .split("\n\n")
+            .next()
+            .unwrap();
+        let instructions = body
+            .lines()
+            .map(|l| {
+                l.split_once(':')
+                    .map(|(_, v)| v.split_whitespace().collect::<Vec<_>>().join(" "))
+                    .ok_or_else(|| "Malformed entry disassembly".to_string())
+            })
+            .collect::<Result<Vec<_>>>()?;
+        if instructions.len() != 37 {
+            return Err("Unexpected interrupt entry instruction count".into());
+        }
+        for (i, register) in registers.iter().enumerate() {
+            if instructions[i] != format!("pushq %{register}")
+                || instructions[35 - i] != format!("popq %{register}")
+            {
+                return Err("Interrupt entry does not preserve all GPRs".into());
+            }
+        }
+        if instructions[15] != "cld"
+            || instructions[16] != "movq %rsp, %rbx"
+            || instructions[17] != "andq $-0x10, %rsp"
+            || !instructions[19].starts_with("callq ")
+            || instructions[20] != "movq %rbx, %rsp"
+            || instructions[36] != "iretq"
+            || instructions[18]
+                != format!(
+                    "movl ${}, %edi",
+                    if name == "timer_vector" {
+                        "0x40"
+                    } else {
+                        "0xff"
+                    }
+                )
+        {
+            return Err("Invalid interrupt ABI boundary".into());
+        }
+    }
+    Ok(
+        json!({"gprs":15,"df_cleared_before_rust":true,"sysv_alignment":16,"return":"iretq","vectors":[64,255]}),
+    )
 }
 
 #[cfg(test)]

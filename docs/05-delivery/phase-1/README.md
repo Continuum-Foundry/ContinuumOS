@@ -26,7 +26,7 @@ from Phase 0's historical snapshot.
 | P1-03 | [Validate boot metadata and identity](03-boot-metadata-and-diagnostics.md) | P1-02 | B04 | Done |
 | P1-04 | [Establish exception diagnostics](04-exception-handling.md) | P1-03 | B05 exception baseline | Done |
 | P1-05 | [Own physical frames and page tables](05-memory-ownership.md) | P1-04 | B05 memory/guards | Done |
-| P1-06 | [Establish interrupts and monotonic time](06-interrupts-and-timekeeping.md) | P1-05 | M1 subset of B06 | Not started |
+| P1-06 | [Establish interrupts and monotonic time](06-interrupts-and-timekeeping.md) | P1-05 | M1 subset of B06 | Done |
 | P1-07 | [Run and review Phase 1 acceptance](07-phase-1-acceptance.md) | P1-01 through P1-06 | M1, early B32 | Not started |
 
 Work through this order, one accepted story at a time. Host-only preparation can
@@ -135,4 +135,4 @@ P1-04 builds on the
 [metadata runbook](boot-metadata-runbook.md). Checked metadata and session records
 are demonstrated. P1-05's [accepted memory ownership](../../../evidence/phase-1/P1-05/2026-10-19/README.md)
 adds owned page tables, enforced permissions, stack guards and actual double-fault
-entry. Continue with P1-06 interrupts/timekeeping; M1 remains incomplete.
+entry. P1-06 [interrupts/timekeeping acceptance](../../../evidence/phase-1/P1-06/2026-10-20/README.md) now passes. Continue with P1-07; M1 remains incomplete.

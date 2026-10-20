@@ -1,0 +1,425 @@
+{
+  "schema_version": 2,
+  "story": "P1-06",
+  "status": "passed",
+  "commands": [
+    {
+      "exit_code": 0,
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "log": "formatting.log",
+      "executable": "cargo",
+      "name": "formatting"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-M0.ps1"
+      ],
+      "log": "m0.log",
+      "executable": "pwsh",
+      "name": "m0"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Probe-Dependencies.ps1"
+      ],
+      "log": "dependencies.log",
+      "executable": "pwsh",
+      "name": "dependencies"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "test",
+        "--locked",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "log": "kernel-host.log",
+      "executable": "cargo",
+      "name": "kernel-host"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--profile",
+        "m1",
+        "--json"
+      ],
+      "log": "doctor.log",
+      "executable": "cargo",
+      "name": "doctor"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-P1-01.ps1"
+      ],
+      "log": "prerequisites.log",
+      "executable": "pwsh",
+      "name": "prerequisites"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "log": "run.log",
+      "executable": "cargo",
+      "name": "run"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-smoke"
+      ],
+      "log": "iso-smoke.log",
+      "executable": "cargo",
+      "name": "iso-smoke"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "iso-negative"
+      ],
+      "log": "iso-negative.log",
+      "executable": "cargo",
+      "name": "iso-negative"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "boot-metadata"
+      ],
+      "log": "boot-metadata.log",
+      "executable": "cargo",
+      "name": "boot-metadata"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "boot-reject"
+      ],
+      "log": "boot-reject.log",
+      "executable": "cargo",
+      "name": "boot-reject"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "exception-invalid-opcode"
+      ],
+      "log": "exception-invalid-opcode.log",
+      "executable": "cargo",
+      "name": "exception-invalid-opcode"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "exception-page-fault"
+      ],
+      "log": "exception-page-fault.log",
+      "executable": "cargo",
+      "name": "exception-page-fault"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "panic"
+      ],
+      "log": "panic.log",
+      "executable": "cargo",
+      "name": "panic"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "exception-emergency"
+      ],
+      "log": "exception-emergency.log",
+      "executable": "cargo",
+      "name": "exception-emergency"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "memory-ownership"
+      ],
+      "log": "memory-ownership.log",
+      "executable": "cargo",
+      "name": "memory-ownership"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "memory-exhaustion"
+      ],
+      "log": "memory-exhaustion.log",
+      "executable": "cargo",
+      "name": "memory-exhaustion"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "guard-fault"
+      ],
+      "log": "guard-fault.log",
+      "executable": "cargo",
+      "name": "guard-fault"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "write-protect-fault"
+      ],
+      "log": "write-protect-fault.log",
+      "executable": "cargo",
+      "name": "write-protect-fault"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "execute-disable-fault"
+      ],
+      "log": "execute-disable-fault.log",
+      "executable": "cargo",
+      "name": "execute-disable-fault"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "emergency-stack"
+      ],
+      "log": "emergency-stack.log",
+      "executable": "cargo",
+      "name": "emergency-stack"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "timer-progress"
+      ],
+      "log": "timer-progress.log",
+      "executable": "cargo",
+      "name": "timer-progress"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "timer-masked"
+      ],
+      "log": "timer-masked.log",
+      "executable": "cargo",
+      "name": "timer-masked"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "clock-read"
+      ],
+      "log": "clock-read.log",
+      "executable": "cargo",
+      "name": "clock-read"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "idle-wakeup"
+      ],
+      "log": "idle-wakeup.log",
+      "executable": "cargo",
+      "name": "idle-wakeup"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "timer-exception"
+      ],
+      "log": "timer-exception.log",
+      "executable": "cargo",
+      "name": "timer-exception"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "acpi-corrupt"
+      ],
+      "log": "acpi-corrupt.log",
+      "executable": "cargo",
+      "name": "acpi-corrupt"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "timer-unsupported"
+      ],
+      "log": "timer-unsupported.log",
+      "executable": "cargo",
+      "name": "timer-unsupported"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "timer-calibration"
+      ],
+      "log": "timer-calibration.log",
+      "executable": "cargo",
+      "name": "timer-calibration"
+    }
+  ],
+  "runs": {
+    "exception-page-fault": "${WORKSPACE}\\build/m1\\exception-page-fault-1792457598872661200-16332",
+    "emergency-stack": "${WORKSPACE}\\build/m1\\emergency-stack-1792457857741817900-21276",
+    "guard-fault": "${WORKSPACE}\\build/m1\\guard-fault-1792457761540673400-36460",
+    "memory-exhaustion": "${WORKSPACE}\\build/m1\\memory-exhaustion-1792457731441323600-37028",
+    "idle-wakeup": "${WORKSPACE}\\build/m1\\idle-wakeup-1792458005464976900-32920",
+    "exception-invalid-opcode": "${WORKSPACE}\\build/m1\\exception-invalid-opcode-1792457568265058000-41268",
+    "timer-exception": "${WORKSPACE}\\build/m1\\timer-exception-1792458034689974500-43872",
+    "exception-emergency": "${WORKSPACE}\\build/m1\\exception-emergency-1792457658902633000-43640",
+    "m0": "${WORKSPACE}\\work\\acceptance\\1792456994231",
+    "dependencies": "${WORKSPACE}\\work\\dependency-probes\\1792457021582",
+    "write-protect-fault": "${WORKSPACE}\\build/m1\\write-protect-fault-1792457790877836800-28828",
+    "timer-progress": "${WORKSPACE}\\build/m1\\timer-progress-1792457888141093900-35608",
+    "acpi-corrupt": "${WORKSPACE}\\build/m1\\acpi-corrupt-1792458063681109400-33524",
+    "timer-masked": "${WORKSPACE}\\build/m1\\timer-masked-1792457921613926000-40308",
+    "prerequisites": "${WORKSPACE}\\build\\m1\\p1-01-tests-1792457037043",
+    "iso-smoke": "${WORKSPACE}\\build/m1\\iso-smoke-1792457074699137300-42444",
+    "timer-unsupported": "${WORKSPACE}\\build/m1\\timer-unsupported-1792458096164928500-37840",
+    "timer-calibration": "${WORKSPACE}\\build/m1\\timer-calibration-1792458127280459500-38976",
+    "iso-negative": "${WORKSPACE}\\build/m1\\iso-negative-1792457126547578500-42872",
+    "run": "${WORKSPACE}\\build/m1\\run-1792457042565061700-32340",
+    "clock-read": "${WORKSPACE}\\build/m1\\clock-read-1792457954176104200-41744",
+    "execute-disable-fault": "${WORKSPACE}\\build/m1\\execute-disable-fault-1792457820962892500-42228",
+    "boot-metadata": "${WORKSPACE}\\build/m1\\boot-metadata-1792457255408280500-29236",
+    "boot-reject": "${WORKSPACE}\\build/m1\\boot-reject-1792457418920572300-39728",
+    "memory-ownership": "${WORKSPACE}\\build/m1\\memory-ownership-1792457692046043400-42620",
+    "panic": "${WORKSPACE}\\build/m1\\panic-1792457630985536500-40700"
+  }
+}

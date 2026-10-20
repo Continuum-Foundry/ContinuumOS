@@ -155,6 +155,8 @@ unsafe fn install() {
                 },
             );
         }
+        (*IDT.0.get())[64] = Gate::new(crate::timer::timer_vector as *const () as u64, 0);
+        (*IDT.0.get())[255] = Gate::new(crate::timer::spurious_vector as *const () as u64, 0);
         exception_load_gdt(&TablePointer {
             limit: (size_of::<[u64; 5]>() - 1) as u16,
             base: GDT.0.get() as u64,
@@ -197,6 +199,15 @@ extern "C" fn run(mode: u64) -> ! {
         _ => {}
     }
     let _ = mode;
+    crate::timer::establish(mode).unwrap_or_else(|e| {
+        record(
+            "m1.platform_rejected",
+            "timer",
+            "rejected",
+            format_args!("field={} reason={}", e.field, e.reason),
+        );
+        crate::failure_exit()
+    });
     record(
         "m1.boot_complete",
         "boot",
@@ -206,7 +217,7 @@ extern "C" fn run(mode: u64) -> ! {
     #[cfg(feature = "emulator-test")]
     crate::test_exit(0x10);
     #[cfg(not(feature = "emulator-test"))]
-    crate::halt()
+    crate::timer::idle()
 }
 
 #[repr(C)]

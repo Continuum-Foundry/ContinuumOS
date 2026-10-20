@@ -98,7 +98,7 @@ pub(super) fn observe(
     if let Ok(progress) = records::check(&bytes, expected, true) {
         write_json(
             &dir.join("guest-records.json"),
-            &json!({"schema_version":4,"memory_ready":progress.memory,"exceptions_ready":progress.exceptions,"fatal":progress.fatal,"validated":progress.validated,"complete":progress.complete,"rejected":progress.rejected,"records":progress.records}),
+            &json!({"schema_version":5,"timer_ready":progress.timer,"memory_ready":progress.memory,"exceptions_ready":progress.exceptions,"fatal":progress.fatal,"validated":progress.validated,"complete":progress.complete,"rejected":progress.rejected,"records":progress.records}),
         )?;
     }
     write_json(&dir.join("run-result.json"), &report)?;
@@ -116,7 +116,7 @@ mod tests {
             ("exit-without-marker", "exit 33", "Missing complete"),
             (
                 "marker-wrong-exit",
-                "[IO.File]::WriteAllText($args[0], 'm1.kernel_entry version=4 build=abc session=def session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=normal' + [char]10); exit 0",
+                "[IO.File]::WriteAllText($args[0], 'm1.kernel_entry version=5 build=abc session=def session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=normal' + [char]10); exit 0",
                 "Missing complete",
             ),
             ("timeout", "Start-Sleep -Seconds 10", "deadline"),

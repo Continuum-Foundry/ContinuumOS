@@ -67,7 +67,9 @@ pub(super) fn launch(
         .as_str()
         .ok_or("Missing packaged fixture")?;
     let symbol = match fixture {
-        "exception-invalid-opcode" | "exception-emergency" => Some("diagnostic_invalid_opcode"),
+        "exception-invalid-opcode" | "exception-emergency" | "timer-exception" => {
+            Some("diagnostic_invalid_opcode")
+        }
         "exception-page-fault" => Some("diagnostic_page_fault_site"),
         "panic" => Some("diagnostic_panic_report"),
         "guard-fault" => Some("diagnostic_guard_site"),

@@ -241,8 +241,7 @@ fn audit_disassembly(text: &str) -> Result<()> {
     }
     Ok(())
 }
-pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
-    check_pin()?;
+pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
     let mut sources = BTreeMap::new();
     for p in ["kernel", "tools/xtask"] {
         collect(&root().join(p), &mut sources)?;
@@ -258,9 +257,15 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         "tools/Test-P1-04.ps1",
         "tools/Test-P1-05.ps1",
         "tools/Test-P1-06.ps1",
+        "tools/Test-P1-07.ps1",
     ] {
         sources.insert(p.into(), digest(&root().join(p))?);
     }
+    Ok(sources)
+}
+pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
+    check_pin()?;
+    let sources = source_inputs()?;
     let compiler = rust_version()?;
     let sysroot = output(Command::new(tool("rustc")?).args(["--print", "sysroot"]))?;
     let llvm = Path::new(&sysroot).join("lib/rustlib/x86_64-pc-windows-msvc/bin");

@@ -124,3 +124,9 @@ It does not establish user isolation, a general heap, measured desktop efficienc
 or complete M1 readiness.
 
 P1-06's [accepted timer baseline](../../evidence/phase-1/P1-06/2026-10-20/README.md) extends R01/R03/R17/R18 evidence with validated ACPI/device mappings, returning interrupts, calibrated delivered-tick uptime and idle continuation. Fresh-epoch and failure cases are retained. R09/R10 remain early groundwork; no measured performance, isolation, scheduler, wall-time or live-update guarantee follows.
+
+P1-07 adds an ordered final `m1.ready` checkpoint and aggregate acceptance harness
+for R01/R02/R03/R17/R18. Its [local review is blocked](../../evidence/phase-1/P1-07/2026-10-20/README.md):
+the first full attempt exposed GPT nondeterminism, and host Smart App Control
+refuses current rebuilt test execution. Corrected independent guest evidence does
+not complete M1, R16 release reproducibility or any broader product requirement.

@@ -80,7 +80,6 @@ fn halt() -> ! {
         }
     }
 }
-#[cfg(feature = "emulator-test")]
 fn test_exit(value: u32) -> ! {
     // Emulator-only ABI: configured isa-debug-exit, 32-bit write to port 0xf4.
     unsafe {
@@ -229,6 +228,7 @@ pub extern "C" fn kernel_entry() -> ! {
     }
     #[cfg(not(feature = "boot-inject"))]
     if fixture != "normal"
+        && fixture != "acceptance-exit"
         && !(cfg!(feature = "exception-test") && exceptions::mode(fixture).is_some())
         && !(cfg!(feature = "memory-test") && paging::mode(fixture).is_some())
         && !(cfg!(feature = "timer-test") && timer::mode(fixture).is_some())
@@ -334,7 +334,7 @@ pub extern "C" fn kernel_entry() -> ! {
         exceptions::mode(fixture)
             .or_else(|| paging::mode(fixture))
             .or_else(|| timer::mode(fixture))
-            .unwrap_or(0),
+            .unwrap_or(if fixture == "acceptance-exit" { 100 } else { 0 }),
     )
 }
 

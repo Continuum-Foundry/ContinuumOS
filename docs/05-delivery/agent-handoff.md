@@ -56,8 +56,15 @@ pushes, uploads, sharing, and processing on hold. Earlier push authorization doe
 not override it. No current GitHub, AI, host, or backup environment is certified
 as satisfying it. Keep changes local; do not bypass the installed pre-push guard.
 
-Follow [the Phase 1 epic and seven ordered stories](phase-1/README.md), starting
-with P1-07 after [P1-06's accepted timer review](../../evidence/phase-1/P1-06/2026-10-20/README.md).
+Follow [the Phase 1 epic and seven ordered stories](phase-1/README.md). P1-06 is
+accepted, but P1-07 is **Blocked** by Windows Smart App Control refusing the
+rebuilt xtask host-test executable (4551), including outside the sandbox.
+The [blocked local review](../../evidence/phase-1/P1-07/2026-10-20/README.md)
+records the failed first ISO comparison, fixed GPT recipe and independent guest
+regressions. The owner requested approval under the existing policy; no approval
+or signing credential is available. Do not disable policy or treat partial guest
+checks as a passing gate. Resolve authorized execution, then rerun the complete
+`cargo xtask test --suite m1` and explicitly review all 33 rows/42 launches.
 P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).
@@ -67,7 +74,7 @@ implementation. Do not skip their evidence gates or mark all of B06 complete in 
 Re-run the Phase 0 acceptance commands before extending the work. B01/B02 now have
 Windows compile/link evidence; B03/B38 have P1-02's minimal UEFI optical route.
 Run `cargo xtask doctor --profile m1` against the supplied QEMU/OVMF/ISO inputs,
-then confirm P1-06's interrupt/timekeeping acceptance review before P1-07. Preserve
+then confirm P1-06's interrupt/timekeeping review and P1-07's current blocker. Preserve
 the owned runtime/IST stacks, GDT/TSS/IDT, exception text mappings and the six
 memory/protection cases, including actual double-fault entry. Only eligible
 ordinary RAM has a direct mapping; ACPI, modules, framebuffer and loader backing

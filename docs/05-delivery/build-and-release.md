@@ -6,7 +6,10 @@ See [the executable runbook](phase-0.md).
 P1-01 adds `cargo xtask doctor --profile m1 [--json]` and explicit workspace-only
 [prerequisite supply/validation](phase-1/prerequisites-runbook.md). P1-02 implements
 dev kernel build, M1 ISO, bounded baseline run and named ISO smoke/negative tests;
-see [its runbook](phase-1/minimal-iso-runbook.md). Other commands remain proposals.
+see [its runbook](phase-1/minimal-iso-runbook.md). P1-07 implements the complete
+`cargo xtask test --suite m1` aggregator; its [acceptance review](../../evidence/phase-1/P1-07/2026-10-20/README.md)
+is blocked by host application-control policy. See the [runbook](phase-1/acceptance-runbook.md).
+Other commands remain proposals.
 
 ## Proposed repository layout
 

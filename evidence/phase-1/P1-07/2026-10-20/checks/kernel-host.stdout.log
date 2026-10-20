@@ -1,0 +1,19 @@
+
+running 14 tests
+test platform::tests::rsdp_revision_signature_and_both_checksums ... ok
+test platform::tests::acpi_boundaries_and_checksums ... ok
+test memory::tests::mapping_conflicts_capacity_and_permissions ... ok
+test platform::tests::clock_wrap_overflow_and_calibration ... ok
+test platform::tests::topology_and_hpet_fail_closed ... ok
+test tests::exact_host_session_configuration ... ok
+test memory::tests::reservations_edges_holes_and_exhaustion ... ok
+test tests::ranges_and_address_translations ... ok
+test tests::owned_text_checks_termination_encoding_and_boundaries ... ok
+test tests::required_revision_and_capacities_fail_closed ... ok
+test tests::framebuffer_arithmetic_pitch_formats_and_backing ... ok
+test memory::tests::malformed_capacity_and_all_reserved ... ok
+test tests::reservations_cover_live_kernel_loader_module_and_acpi_storage ... ok
+test tests::memory_map_alignment_order_and_protocol_overlap_rules ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

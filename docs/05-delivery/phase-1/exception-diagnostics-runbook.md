@@ -28,7 +28,8 @@ pwsh -NoProfile -File tools/Test-P1-04.ps1
 The acceptance script also checks formatting, Phase 0, dependency probes, kernel
 library tests, M1 prerequisites and all five existing run/ISO/metadata cases.
 Every VM is bounded, offline, no-reboot and reaped by the existing observer.
-The full `test --suite m1` remains reserved for P1-07.
+The full `test --suite m1` is implemented in P1-07; see its
+[runbook and acceptance status](acceptance-runbook.md).
 
 ## CPU contract and entry review
 

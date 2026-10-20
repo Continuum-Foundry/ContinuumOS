@@ -58,7 +58,7 @@ Standalone UEFI ISO
    OVMF firmware ──► Limine ──► Original Rust kernel
                                       │
                                       ▼
-                     Entry → checked metadata → exceptions → owned memory → completion
+                     Entry → checked metadata → exceptions → owned memory → timer → ready
                               Build ID + host session + sequence
 ```
 
@@ -92,8 +92,10 @@ adds one passing fault launch after an EOF-only assembly cleanup.
 
 The current profile is **x86-64 · Q35 · TCG · one vCPU · 2 GiB RAM · offline**.
 It attaches the exact ISO and firmware pair, with no host shares or writable user
-data disk. Full M1 remains open: **P1-06 interrupts/timekeeping passes**; continue
-with P1-07's final acceptance. There is no general heap or user-mode isolation yet.
+data disk. Full M1 remains open: **P1-06 interrupts/timekeeping passes**;
+[P1-07's implemented acceptance gate](docs/05-delivery/phase-1/acceptance-runbook.md)
+is [blocked by host application control](evidence/phase-1/P1-07/2026-10-20/README.md).
+Partial guest checks do not close M1. There is no general heap or user-mode isolation yet.
 
 ## A desktop designed for continuity
 
@@ -204,7 +206,7 @@ named cases and strict serial-record checks remain separate.
 | Gate | Outcome | Current state |
 | :--- | :--- | :--- |
 | **Phase 0** | Native tooling, independent links, dependency feasibility | Compile/tooling evidence retained |
-| **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-06 accepted; P1-07 remains open |
+| **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-06 accepted; P1-07 blocked by host test execution policy |
 | **M2** | Hosted UI comparison, accessibility foundations, resource continuity | Planned |
 | **M3** | User-mode isolation and bounded IPC | Planned |
 | **M4** | Authenticated development channel and guest resource reload | Planned |

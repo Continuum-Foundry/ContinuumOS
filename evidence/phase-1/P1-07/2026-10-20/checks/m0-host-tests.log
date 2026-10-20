@@ -1,0 +1,24 @@
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\${WORKSPACE}\build\cargo\debug\incremental\xtask-1rutk25oecbi3\s-hnedustxd3-1392v55-working`
+
+warning: `xtask` (bin "xtask" test) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s
+     Running unittests src\main.rs (build\cargo\debug\deps\xtask-6deec9c2c1c021ff.exe)
+
+running 14 tests
+test elf::tests::rejects_unsafe_or_host_linked_images ... ok
+test elf::tests::valid_static_probe ... ok
+test m1::build::tests::rejects_vector_and_fp_code ... ok
+test m1::build::tests::image_bounds_include_bss_and_orphan_load_memory ... ok
+test m1::package::tests::windows_paths_are_translated_without_shell_quoting ... ok
+test m1::records::tests::expected_rejection_needs_exact_error_and_exit_and_no_ready_marker ... ok
+test m1::suite::tests::iso_comparison_rejects_unexplained_changes ... ok
+test m1::inputs::tests::rejects_missing_and_changed_inputs ... ok
+test elf::tests::truncation_and_overflow ... ok
+test m1::records::tests::protection_and_real_double_fault_require_owned_context ... ok
+test m1::records::tests::fatal_requires_exact_hardware_context_symbol_and_exit ... ok
+test m1::records::tests::rejects_false_or_incomplete_success ... ok
+test m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped ... ok
+test m1::inputs::tests::locked_kernel_loader_and_firmware_inputs_fail_closed ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 25.35s
+

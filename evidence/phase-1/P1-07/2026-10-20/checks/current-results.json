@@ -1,0 +1,38 @@
+[
+  {
+    "arguments": [
+      "fmt",
+      "--all",
+      "--check"
+    ],
+    "exit_code": 0,
+    "executable": "cargo",
+    "name": "format"
+  },
+  {
+    "arguments": [
+      "audit/check-docs.cjs"
+    ],
+    "exit_code": 0,
+    "executable": "node",
+    "name": "docs"
+  },
+  {
+    "arguments": [
+      "-NoProfile",
+      "-File",
+      "audit/validate-contracts.ps1"
+    ],
+    "exit_code": 0,
+    "executable": "pwsh",
+    "name": "contracts"
+  },
+  {
+    "arguments": [
+      "audit/check-governance.cjs"
+    ],
+    "exit_code": 0,
+    "executable": "node",
+    "name": "governance"
+  }
+]

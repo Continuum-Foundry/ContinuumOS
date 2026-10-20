@@ -15,6 +15,19 @@ Manual commands are acceptable for a one-off experiment but not repeatable deliv
 Unpinned network downloads create moving inputs. Shipping only an ISO hides source,
 symbols and compatibility metadata needed for debugging live updates.
 
+## P1-07 packaging experiment — 2026-10-20
+
+The [blocked local gate](../../evidence/phase-1/P1-07/2026-10-20/README.md) produced
+byte-identical normal kernels in two clean target directories, including a path
+with spaces. Both actual ISOs booted, but the first whole-ISO comparison rejected
+generated GPT GUIDs/CRCs beyond the deliberately different host sessions. The
+recipe now fixes volume/file dates and the experimental GPT disk GUID. Repackaging
+the original trees then matched every ISO byte after session normalization.
+This isolated result is not release reproducibility or completed M1 acceptance:
+Smart App Control blocks the current host tests and the corrected full gate must
+be rerun. The [runbook](../05-delivery/phase-1/acceptance-runbook.md) defines the
+comparison and records that real ISO hashes remain distinct. Status stays Proposed.
+
 ## Consequences
 
 Timestamp/order/path determinism and license inventory are continuing work. A

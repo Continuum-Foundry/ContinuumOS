@@ -4,8 +4,6 @@ use crate::{Result, root, sanitize, write_json};
 use serde_json::{Value, json};
 use std::{fs, path::Path, process::Command, time::Duration};
 
-const DEADLINE: Duration = Duration::from_secs(30);
-
 pub(super) fn launch(
     dir: &Path,
     iso_dir: &Path,
@@ -14,6 +12,12 @@ pub(super) fn launch(
     rejection: Option<(&str, &str)>,
 ) -> Result<Value> {
     let pins = preflight(dir, "run-preflight")?;
+    let deadline = Duration::from_millis(
+        pins.lock["vm"]["deadline_ms"]
+            .as_u64()
+            .filter(|v| *v > 0 && *v <= 30000)
+            .ok_or("Invalid locked VM deadline")?,
+    );
     if digest(&root().join("config/m1-inputs.lock.json"))? != image["input_lock_sha256"]
         || digest(pins.file("firmware_code")?)? != image["firmware_code_sha256"]
         || digest(pins.file("firmware_vars")?)? != image["firmware_vars_template_sha256"]
@@ -102,7 +106,7 @@ pub(super) fn launch(
             fault_rip,
         },
         test,
-        DEADLINE,
+        deadline,
     )?;
     report["vars_copy_after_sha256"] = json!(digest(&vars)?);
     report["iso_sha256"] = image["iso_sha256"].clone();

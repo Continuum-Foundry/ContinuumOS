@@ -17,6 +17,7 @@ pub(super) struct Progress {
     pub entry: bool,
     pub validated: bool,
     pub complete: bool,
+    pub boot_complete: bool,
     pub rejected: bool,
     pub exceptions: bool,
     pub fatal: bool,
@@ -650,12 +651,24 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
             "m1.boot_complete" => {
                 if !p.memory
                     || !p.timer
+                    || p.boot_complete
                     || expected.fault_rip.is_some()
                     || stage != "boot"
                     || outcome != "ok"
                     || get("reclaimed_bytes")? != "0"
                 {
                     return Err("Unexpected boot completion".into());
+                }
+                p.boot_complete = true;
+            }
+            "m1.ready" => {
+                if !p.boot_complete
+                    || stage != "ready"
+                    || outcome != "ok"
+                    || get("baseline")? != "boot-memory-timer"
+                    || get("reclaimed_bytes")? != "0"
+                {
+                    return Err("Unexpected final readiness".into());
                 }
                 p.complete = true;
             }
@@ -813,6 +826,13 @@ mod tests {
                 "ticks=100 uptime_ns=1000000000 reads=100 changes=100 halts=100 registers=true spurious=0",
             )
             + &line("m1.boot_complete", 120, "boot", "ok", "reclaimed_bytes=0")
+            + &line(
+                "m1.ready",
+                121,
+                "ready",
+                "ok",
+                "baseline=boot-memory-timer reclaimed_bytes=0",
+            )
     }
     #[test]
     fn rejects_false_or_incomplete_success() {
@@ -830,6 +850,20 @@ mod tests {
             good.replace("build=abc", "build=other"),
             good.replace("seq=2", "seq=1"),
             good.replace("version=5", "version=1"),
+            good.lines()
+                .filter(|l| !l.starts_with("m1.ready "))
+                .collect::<Vec<_>>()
+                .join("\n")
+                + "\n",
+            good.replace("m1.boot_complete", "m1.ready"),
+            good.clone()
+                + &line(
+                    "m1.ready",
+                    122,
+                    "ready",
+                    "ok",
+                    "baseline=boot-memory-timer reclaimed_bytes=0",
+                ),
             good.clone() + &line("m1.panic", 6, "panic", "rejected", "reason=panic"),
             good.clone() + &line("m1.kernel_entry", 6, "entry", "ok", "fixture=normal"),
             good.replace("regions=1", "regions=2"),

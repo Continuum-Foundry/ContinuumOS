@@ -1,0 +1,100 @@
+{
+  "status": "passed",
+  "stages": {
+    "rows": [
+      {
+        "status": "passed",
+        "case": "run"
+      },
+      {
+        "status": "passed",
+        "case": "iso-smoke"
+      },
+      {
+        "status": "passed",
+        "case": "iso-negative"
+      },
+      {
+        "status": "passed",
+        "case": "boot-metadata"
+      },
+      {
+        "status": "passed",
+        "case": "boot-reject"
+      },
+      {
+        "status": "passed",
+        "case": "exception-invalid-opcode"
+      },
+      {
+        "status": "passed",
+        "case": "exception-page-fault"
+      },
+      {
+        "status": "passed",
+        "case": "panic"
+      },
+      {
+        "status": "passed",
+        "case": "exception-emergency"
+      },
+      {
+        "status": "passed",
+        "case": "memory-ownership"
+      },
+      {
+        "status": "passed",
+        "case": "memory-exhaustion"
+      },
+      {
+        "status": "passed",
+        "case": "guard-fault"
+      },
+      {
+        "status": "passed",
+        "case": "write-protect-fault"
+      },
+      {
+        "status": "passed",
+        "case": "execute-disable-fault"
+      },
+      {
+        "status": "passed",
+        "case": "emergency-stack"
+      },
+      {
+        "status": "passed",
+        "case": "timer-progress"
+      },
+      {
+        "status": "passed",
+        "case": "timer-masked"
+      },
+      {
+        "status": "passed",
+        "case": "clock-read"
+      },
+      {
+        "status": "passed",
+        "case": "idle-wakeup"
+      },
+      {
+        "status": "passed",
+        "case": "timer-exception"
+      },
+      {
+        "status": "passed",
+        "case": "acpi-corrupt"
+      },
+      {
+        "status": "passed",
+        "case": "timer-unsupported"
+      },
+      {
+        "status": "passed",
+        "case": "timer-calibration"
+      }
+    ]
+  },
+  "scope": "Independent guest regressions only; complete M1 acceptance BLOCKED"
+}

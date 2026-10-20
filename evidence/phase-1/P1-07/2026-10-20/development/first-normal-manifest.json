@@ -1,0 +1,78 @@
+{
+  "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "c5bbc0dccbd7733d0b230478edb0cae1a02c455523fa2ab2eeb27d2d53d79ea5",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "normal",
+  "inspection": {
+    "diagnostic_sites": {
+      "diagnostic_double_site": 18446744071562076891,
+      "diagnostic_guard_site": 18446744071562076866,
+      "diagnostic_invalid_opcode": 18446744071562076453,
+      "diagnostic_nx_page": 18446744071562145792,
+      "diagnostic_page_fault_site": 18446744071562076465,
+      "diagnostic_panic_report": 18446744071562076470,
+      "diagnostic_write_site": 18446744071562076871
+    },
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "kernel_image_bounds": {
+      "all_load_memory_including_bss": true,
+      "end": "0xffffffff809a5000",
+      "load_memory_end": "0xffffffff809a5000",
+      "start": "0xffffffff80000000"
+    },
+    "machine": "x86_64",
+    "relocations": 0,
+    "returning_interrupt_entry": {
+      "df_cleared_before_rust": true,
+      "gprs": 15,
+      "return": "iretq",
+      "sysv_alignment": 16,
+      "vectors": [
+        64,
+        255
+      ]
+    },
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 63413,
+        "flags": 5,
+        "memory_size": 63413,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff80010000",
+        "alignment": 4096,
+        "file_size": 6267,
+        "flags": 4,
+        "memory_size": 6267,
+        "offset": 69632
+      },
+      {
+        "address": "0xffffffff80012000",
+        "alignment": 4096,
+        "file_size": 294232,
+        "flags": 6,
+        "memory_size": 10039296,
+        "offset": 77824
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "64fbc6098eed9cbc39799d24541450a42a300ac0b8cd0897ccda087e04903a33",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "0c3933b58a9edf056f6c303058d44d3930ebfa4b",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M config/m1-inputs.lock.json\n M docs/05-delivery/phase-1/07-phase-1-acceptance.md\n M docs/05-delivery/phase-1/README.md\n M kernel/src/exceptions.rs\n M kernel/src/main.rs\n M tools/xtask/src/m1.rs\n M tools/xtask/src/m1/build.rs\n M tools/xtask/src/m1/cases.rs\n M tools/xtask/src/m1/launch.rs\n M tools/xtask/src/m1/package.rs\n M tools/xtask/src/m1/records.rs\n M tools/xtask/src/main.rs\n?? docs/05-delivery/phase-1/acceptance-runbook.md\n?? tools/Review-P1-07.ps1\n?? tools/Test-P1-07.ps1\n?? tools/xtask/src/m1/suite.rs"
+}

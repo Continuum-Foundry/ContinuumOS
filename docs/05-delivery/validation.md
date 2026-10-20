@@ -27,10 +27,14 @@ R01/R03/R17/R18 evidence through [accepted timer/uptime tests](../../evidence/ph
 real delivery/acknowledgement, 100 monotonic reads, fresh epochs, masks,
 register/DF sentinels, halt continuations and post-delivery diagnostics. This
 supports early R09/R10 groundwork without measuring performance or completing
-isolation. P1-07 remains open.
+isolation. P1-07 adds the aggregate suite, final readiness and clean ISO comparison,
+but [acceptance is blocked](../../evidence/phase-1/P1-07/2026-10-20/README.md) by
+Smart App Control refusing current host-test execution. Earlier host checks and
+independent guest regressions are explicitly partial evidence.
 
 For M1's bounded subset, use the [Phase 1 story acceptance matrix](phase-1/07-phase-1-acceptance.md).
-Final M1 acceptance remains unrun. [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
+Final M1 acceptance was attempted and remains blocked; it has not passed.
+[P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
 pass version/capability/hash checks and rejection tests; this adds no ISO boot result.
 
 ## Requirement matrix

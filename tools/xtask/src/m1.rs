@@ -1,4 +1,4 @@
-//! Minimal ISO integration; this is not a guest ELF loader or full M1 suite.
+//! Offline ISO integration and the bounded M1 acceptance matrix.
 mod build;
 mod cases;
 mod inputs;
@@ -7,6 +7,7 @@ mod observe;
 mod package;
 mod process;
 mod records;
+mod suite;
 mod support;
 
 pub fn execute(action: &str) -> crate::Result<()> {

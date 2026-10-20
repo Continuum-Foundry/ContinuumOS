@@ -27,7 +27,7 @@ fn rejection(fixture: &str) -> Option<(&'static str, &'static str)> {
         .find(|(name, _, _)| *name == fixture)
         .map(|(_, field, reason)| (*field, *reason))
 }
-fn boot_run(
+pub(super) fn boot_run(
     dir: &Path,
     label: &str,
     build_dir: &Path,
@@ -79,7 +79,10 @@ fn compare_identity(a: &Value, b: &Value) -> Result<Value> {
         json!({"same_build_id":true,"same_kernel_bytes":true,"distinct_host_and_guest_sessions":true,"distinct_configuration_isos":true}),
     )
 }
-fn perform(action: &str, dir: &Path) -> Result<Value> {
+pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
+    if action == "suite" {
+        return super::suite::perform(dir);
+    }
     if action != "build" {
         preflight(dir, "initial-preflight")?;
     }
@@ -275,7 +278,7 @@ pub(super) fn execute(action: &str) -> Result<()> {
     }
 }
 
-fn accepted(r: &Value) -> Result<()> {
+pub(super) fn accepted(r: &Value) -> Result<()> {
     if r["status"] == "passed" {
         Ok(())
     } else {

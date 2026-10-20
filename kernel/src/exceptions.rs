@@ -214,6 +214,18 @@ extern "C" fn run(mode: u64) -> ! {
         "ok",
         format_args!("reclaimed_bytes=0"),
     );
+    record(
+        "m1.ready",
+        "ready",
+        "ok",
+        format_args!("baseline=boot-memory-timer reclaimed_bytes=0"),
+    );
+    // Explicit acceptance configuration only. The normal build has no injected
+    // faults; its ordinary fixture continues into idle. Port 0xf4 requires the
+    // declared emulator device and is not physical shutdown support.
+    if mode == 100 {
+        crate::test_exit(0x10);
+    }
     #[cfg(feature = "emulator-test")]
     crate::test_exit(0x10);
     #[cfg(not(feature = "emulator-test"))]

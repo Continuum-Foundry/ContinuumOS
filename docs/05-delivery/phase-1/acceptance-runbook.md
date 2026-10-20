@@ -13,7 +13,10 @@ MSYS2 sandbox restriction. All outputs stay local under ignored `build/m1/suite-
 The command fails on any missing or failed row; it never retries a failed VM.
 The story and its explicit evidence review determine acceptance status.
 The [2026-10-20 local review](../../../evidence/phase-1/P1-07/2026-10-20/README.md)
-is **Blocked** by Smart App Control refusing the current xtask host-test binary.
+is **Blocked** after Smart App Control refused the xtask host-test binary.
+The subsequent [authorized development-signing rollout](../windows-development-signing.md)
+is incomplete: its replacement base enforces, but the exact-hash tool supplement
+awaits Windows elevation and pinned compiler/Cargo execution remains blocked.
 Approval under the existing policy was requested, not achieved. Independent guest
 checks and earlier host tests do not waive this row or establish final acceptance.
 

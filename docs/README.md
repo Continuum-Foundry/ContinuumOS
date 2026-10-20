@@ -15,8 +15,12 @@ Its local acceptance review passes. P1-05 now implements
 its [local acceptance review passes](../evidence/phase-1/P1-05/2026-10-19/README.md).
 P1-06 now adds [interrupts and monotonic uptime](05-delivery/phase-1/interrupts-timekeeping-runbook.md); its [local acceptance passes](../evidence/phase-1/P1-06/2026-10-20/README.md).
 P1-07 implements the [full acceptance command](05-delivery/phase-1/acceptance-runbook.md),
-but its [review is blocked](../evidence/phase-1/P1-07/2026-10-20/README.md) by Windows
+but its [initial review was blocked](../evidence/phase-1/P1-07/2026-10-20/README.md) by Windows
 Smart App Control refusing the rebuilt host-test executable. M1 remains incomplete.
+The owner authorized [local development signing and an App Control development policy](05-delivery/windows-development-signing.md)
+on this Windows installation to address recurring host execution blocks. The
+replacement base is enforcing, but the pinned-tool supplement awaits Windows
+elevation; compiler execution and full acceptance remain blocked.
 Plan revision: **2 — reconciled direction approved by the user; technical gates pending**.
 The requested project folder is named **ContinuumOS**; this is a working project name.
 

@@ -243,7 +243,7 @@ fn audit_disassembly(text: &str) -> Result<()> {
 }
 pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
     let mut sources = BTreeMap::new();
-    for p in ["kernel", "tools/xtask"] {
+    for p in ["kernel", "tools/xtask", "tools/windows"] {
         collect(&root().join(p), &mut sources)?;
     }
     for p in [
@@ -252,6 +252,9 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         "rust-toolchain.toml",
         ".cargo/config.toml",
         "config/m1-inputs.lock.json",
+        "tools/Enter-Dev.ps1",
+        "tools/Test-M0.ps1",
+        "tools/Probe-Dependencies.ps1",
         "tools/Test-M1Prerequisites.ps1",
         "tools/Test-P1-03.ps1",
         "tools/Test-P1-04.ps1",

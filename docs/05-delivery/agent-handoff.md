@@ -57,12 +57,17 @@ not override it. No current GitHub, AI, host, or backup environment is certified
 as satisfying it. Keep changes local; do not bypass the installed pre-push guard.
 
 Follow [the Phase 1 epic and seven ordered stories](phase-1/README.md). P1-06 is
-accepted, but P1-07 is **Blocked** by Windows Smart App Control refusing the
-rebuilt xtask host-test executable (4551), including outside the sandbox.
+accepted, but P1-07 is **Blocked**. Its initial blocker was Windows Smart App
+Control refusing the rebuilt xtask host-test executable (4551), including outside the sandbox.
 The [blocked local review](../../evidence/phase-1/P1-07/2026-10-20/README.md)
 records the failed first ISO comparison, fixed GPT recipe and independent guest
-regressions. The owner requested approval under the existing policy; no approval
-or signing credential is available. Do not disable policy or treat partial guest
+regressions. The owner subsequently authorized a private development signer and
+replacement development App Control policy on **this Windows installation**; see
+the [setup and lifecycle runbook](windows-development-signing.md). Check its local
+deployment/preflight results before assuming execution is unblocked. The replacement
+base is enforcing; Windows canceled UAC for the prepared exact-hash tool supplement,
+so pinned Cargo/compiler execution and the clean-build preflights remain blocked.
+The compiler wrapper is prepared but uncompiled/untested. Do not treat partial guest
 checks as a passing gate. Resolve authorized execution, then rerun the complete
 `cargo xtask test --suite m1` and explicitly review all 33 rows/42 launches.
 P1-03's corrected acceptance and superseded/failed experiments are

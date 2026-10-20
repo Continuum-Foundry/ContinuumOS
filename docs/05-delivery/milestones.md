@@ -38,7 +38,8 @@ See its [runbook](phase-1/minimal-iso-runbook.md) for evidence boundaries.
 P1-03 adds [checked owned metadata and correlated boot records](phase-1/boot-metadata-runbook.md)
 with retained acceptance evidence. P1-04 adds
 [fatal exception diagnostics](phase-1/exception-diagnostics-runbook.md).
-P1-05 through P1-07 remain plans; M1 is incomplete.
+P1-05 implements [owned frames/mappings and guards](phase-1/memory-ownership-runbook.md);
+check its acceptance review. P1-06/P1-07 remain plans; M1 is incomplete.
 
 Implement boot validation, serial output, framebuffer metadata, owned paging,
 exception handling, physical allocator and interrupt/timer baseline. Build UEFI ISO.

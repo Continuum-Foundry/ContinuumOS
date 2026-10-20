@@ -18,8 +18,11 @@ Every result must include source/build IDs, configuration and raw evidence.
 P1-04 extends T01/T02 and R01/R03/R17 with the
 [fatal exception matrix](phase-1/exception-diagnostics-runbook.md): actual invalid
 opcode, non-present read, Rust panic and an invalid opcode with the logger gate
-held. Exact symbolized contexts and exit 37 are required. Stack-guard/double-fault
-integration, process containment and broader M1 acceptance remain unrun gates.
+held. Exact symbolized contexts and exit 37 are required. P1-05 adds T03 memory
+ownership, zeroing/reuse, checked mapping and actual guard/RO/NX/double-fault cases;
+see its [runbook and acceptance status](phase-1/memory-ownership-runbook.md).
+This extends R01/R03/R17/R18 and early R10 groundwork. Process containment,
+interrupt/timekeeping and broader M1 acceptance remain later gates.
 
 For M1's bounded subset, use the [Phase 1 story acceptance matrix](phase-1/07-phase-1-acceptance.md).
 Its later guest gates remain unrun. [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)

@@ -70,6 +70,10 @@ pub(super) fn launch(
         "exception-invalid-opcode" | "exception-emergency" => Some("diagnostic_invalid_opcode"),
         "exception-page-fault" => Some("diagnostic_page_fault_site"),
         "panic" => Some("diagnostic_panic_report"),
+        "guard-fault" => Some("diagnostic_guard_site"),
+        "write-protect-fault" => Some("diagnostic_write_site"),
+        "execute-disable-fault" => Some("diagnostic_nx_page"),
+        "emergency-stack" => Some("diagnostic_double_site"),
         _ => None,
     };
     let fault_rip = symbol

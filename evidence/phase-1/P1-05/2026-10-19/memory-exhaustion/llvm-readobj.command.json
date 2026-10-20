@@ -1,0 +1,12 @@
+{
+  "arguments": [
+    "--file-headers",
+    "--program-headers",
+    "--sections",
+    "--symbols",
+    "--relocations",
+    "--needed-libs",
+    "${WORKSPACE}\\build/m1\\memory-exhaustion-1792455164748966600-27856\\kernel.elf"
+  ],
+  "program": "${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc\\lib/rustlib/x86_64-pc-windows-msvc/bin\\llvm-readobj.exe"
+}

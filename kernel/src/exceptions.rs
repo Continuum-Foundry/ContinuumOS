@@ -7,10 +7,17 @@ use core::{
 };
 
 #[repr(C, align(4096))]
-struct Stack([u8; 65536]);
-static RUNTIME_STACK: Local<Stack> = Local(core::cell::UnsafeCell::new(Stack([0; 65536])));
-static DOUBLE_STACK: Local<Stack> = Local(core::cell::UnsafeCell::new(Stack([0; 65536])));
-static NMI_STACK: Local<Stack> = Local(core::cell::UnsafeCell::new(Stack([0; 65536])));
+struct Stack([u8; 73728]);
+static RUNTIME_STACK: Local<Stack> = Local(core::cell::UnsafeCell::new(Stack([0; 73728])));
+static DOUBLE_STACK: Local<Stack> = Local(core::cell::UnsafeCell::new(Stack([0; 73728])));
+static NMI_STACK: Local<Stack> = Local(core::cell::UnsafeCell::new(Stack([0; 73728])));
+pub fn stacks() -> [u64; 3] {
+    [
+        RUNTIME_STACK.0.get() as u64,
+        DOUBLE_STACK.0.get() as u64,
+        NMI_STACK.0.get() as u64,
+    ]
+}
 
 #[repr(C, packed)]
 struct TablePointer {
@@ -111,10 +118,10 @@ unsafe fn install() {
     // Single CPU, IF clear, one-time initialization; only raw writes until loaded.
     unsafe {
         let tss = TSS.0.get();
-        addr_of_mut!((*tss).rsp).write_unaligned([RUNTIME_STACK.0.get() as u64 + 65536, 0, 0]);
+        addr_of_mut!((*tss).rsp).write_unaligned([RUNTIME_STACK.0.get() as u64 + 69632, 0, 0]);
         addr_of_mut!((*tss).ist).write_unaligned([
-            DOUBLE_STACK.0.get() as u64 + 65536,
-            NMI_STACK.0.get() as u64 + 65536,
+            DOUBLE_STACK.0.get() as u64 + 69632,
+            NMI_STACK.0.get() as u64 + 69632,
             0,
             0,
             0,
@@ -169,11 +176,14 @@ extern "C" fn run(mode: u64) -> ! {
         "ok",
         format_args!(
             "idt_entries=256 runtime_base={:#x} double_base={:#x} nmi_base={:#x} stack_bytes=65536 double_ist=1 nmi_ist=2 guards=false if=false",
-            RUNTIME_STACK.0.get() as u64,
-            DOUBLE_STACK.0.get() as u64,
-            NMI_STACK.0.get() as u64
+            RUNTIME_STACK.0.get() as u64 + 4096,
+            DOUBLE_STACK.0.get() as u64 + 4096,
+            NMI_STACK.0.get() as u64 + 4096
         ),
     );
+    // Switch while already running on the final runtime stack. The two end
+    // pages of every stack are excluded from the new mapping, including aliases.
+    crate::paging::establish(mode).unwrap_or_else(|e| crate::reject(e));
     #[cfg(feature = "exception-test")]
     match mode {
         1 => unsafe { diagnostic_invalid_opcode() },

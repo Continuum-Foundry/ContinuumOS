@@ -3,6 +3,9 @@
 Implementation: original Rust kernel with a narrow stable `global_asm!` boundary.
 Acceptance is tracked in the [story](04-exception-handling.md). This does not
 complete M1 or prove arbitrary-fault recovery, process isolation or stack guards.
+This document describes P1-04's retained version-3 baseline. The current P1-05
+[memory integration](memory-ownership-runbook.md) adds version 4, guards and real
+double-fault/IST tests; check its acceptance status before continuing.
 The [2026-10-19 local acceptance review](../../../evidence/phase-1/P1-04/2026-10-19/README.md)
 passes 19 host tests and 21 VM launches, including all four new fatal cases.
 The [final source formatting check](../../../evidence/phase-1/P1-04/2026-10-19-formatting/README.md)

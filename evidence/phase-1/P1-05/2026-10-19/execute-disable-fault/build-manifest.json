@@ -1,0 +1,68 @@
+{
+  "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "f85c04a0987bb03c2d0c3c1f059f07792138991022d7627cedbef59d0b2f152f",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "memory-test",
+  "inspection": {
+    "diagnostic_sites": {
+      "diagnostic_double_site": 18446744071562076418,
+      "diagnostic_guard_site": 18446744071562076393,
+      "diagnostic_invalid_opcode": 18446744071562076357,
+      "diagnostic_nx_page": 18446744071562129408,
+      "diagnostic_page_fault_site": 18446744071562076369,
+      "diagnostic_panic_report": 18446744071562076374,
+      "diagnostic_write_site": 18446744071562076398
+    },
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "kernel_image_bounds": {
+      "all_load_memory_including_bss": true,
+      "end": "0xffffffff80990000",
+      "load_memory_end": "0xffffffff80990000",
+      "start": "0xffffffff80000000"
+    },
+    "machine": "x86_64",
+    "relocations": 0,
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 48245,
+        "flags": 5,
+        "memory_size": 48245,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff8000c000",
+        "alignment": 4096,
+        "file_size": 4919,
+        "flags": 4,
+        "memory_size": 4919,
+        "offset": 53248
+      },
+      {
+        "address": "0xffffffff8000e000",
+        "alignment": 4096,
+        "file_size": 293960,
+        "flags": 6,
+        "memory_size": 9969664,
+        "offset": 61440
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "23254c3ec409e827ccb5ff9099f0d3667477341adeff804c8c414793df5cf4a6",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "fdf931cca8e0d2165be2b8b2c910da5c960f976f",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M .gitattributes\n M .gitignore\n M AGENTS.md\n M CLAUDE.md\n M docs/02-architecture/boot-and-platform.md\n M docs/02-architecture/kernel-and-execution.md\n M docs/04-decisions/0001-system-language.md\n M docs/04-decisions/0002-boot-and-iso.md\n M docs/04-decisions/0003-kernel-and-isolation.md\n M docs/04-decisions/README.md\n M docs/05-delivery/agent-handoff.md\n M docs/05-delivery/backlog.md\n M docs/05-delivery/milestones.md\n M docs/05-delivery/phase-1/05-memory-ownership.md\n M docs/05-delivery/phase-1/README.md\n M docs/05-delivery/phase-1/boot-metadata-runbook.md\n M docs/05-delivery/phase-1/exception-diagnostics-runbook.md\n M docs/05-delivery/phase-1/minimal-iso-runbook.md\n M docs/05-delivery/validation.md\n M docs/README.md\n M kernel/Cargo.toml\n M kernel/README.md\n M kernel/link.ld\n M kernel/src/exception-entry.S\n M kernel/src/exceptions.rs\n M kernel/src/lib.rs\n M kernel/src/main.rs\n M tools/xtask/src/m1/build.rs\n M tools/xtask/src/m1/cases.rs\n M tools/xtask/src/m1/launch.rs\n M tools/xtask/src/m1/observe.rs\n M tools/xtask/src/m1/records.rs\n M tools/xtask/src/main.rs\n?? docs/05-delivery/phase-1/memory-ownership-runbook.md\n?? kernel/src/memory-entry.S\n?? kernel/src/memory.rs\n?? kernel/src/paging.rs\n?? tools/Test-P1-05.ps1"
+}

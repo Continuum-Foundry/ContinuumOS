@@ -18,7 +18,10 @@ undereferenced physical byte address. Bootstrap pointer readability still trusts
 the pinned firmware/loader. Image bounds now include GOT/BSS and are audited on
 every build. P1-04 adds owned exception tables, static runtime/double-fault/NMI
 stacks and fatal diagnostics; see the [exception runbook](phase-1/exception-diagnostics-runbook.md)
-for its acceptance status and CPU/unsafe review. No allocator, owned page tables or clock exists yet.
+for its acceptance status and CPU/unsafe review. P1-05 implements bounded physical
+frames, owned page tables, guarded runtime/IST stacks and enforced WP/NX; check the
+[memory runbook and story review](phase-1/memory-ownership-runbook.md) before continuing.
+The current serial contract is version 4. No general heap or clock exists yet.
 There is no complete M1 readiness, usable desktop, guest driver stack or measured
 guest performance result. All ADRs are Proposed. Example
 contracts are drafts; sample IDs/digests are synthetic. Do not report implementation
@@ -51,7 +54,8 @@ not override it. No current GitHub, AI, host, or backup environment is certified
 as satisfying it. Keep changes local; do not bypass the installed pre-push guard.
 
 Follow [the Phase 1 epic and seven ordered stories](phase-1/README.md), starting
-with P1-05 after P1-04's acceptance review passes. P1-03's corrected acceptance and superseded/failed experiments are
+with P1-06 after [P1-05's accepted memory review](../../evidence/phase-1/P1-05/2026-10-19/README.md).
+P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).
 The remaining stories are local plans, not created Jira issues or completed
@@ -60,10 +64,13 @@ implementation. Do not skip their evidence gates or mark all of B06 complete in 
 Re-run the Phase 0 acceptance commands before extending the work. B01/B02 now have
 Windows compile/link evidence; B03/B38 have P1-02's minimal UEFI optical route.
 Run `cargo xtask doctor --profile m1` against the supplied QEMU/OVMF/ISO inputs,
-then follow P1-05's memory ownership gate on the demonstrated ISO
-harness after confirming P1-04's review. Preserve the owned runtime/IST stacks,
-GDT/TSS/IDT and exception text mappings; add guard and actual double-fault entry
-tests before claiming that integration gate. Preserve P1-03's internal BootInfo lifetime rules, exact build/session
+then confirm P1-05's memory ownership acceptance review before P1-06. Preserve
+the owned runtime/IST stacks, GDT/TSS/IDT, exception text mappings and the six
+memory/protection cases, including actual double-fault entry. Only eligible
+ordinary RAM has a direct mapping; ACPI, modules, framebuffer and loader backing
+remain physically reserved but unmapped. P1-06 must explicitly map validated
+ACPI/device ranges with appropriate cache policy before use.
+Preserve P1-03's internal BootInfo lifetime rules, exact build/session
 correlation and the `boot-metadata`/`boot-reject` regression cases. Do not reclaim
 loader memory or dereference ACPI tables merely because descriptors were copied.
 Follow with the hosted UI comparison in M2. Do not leap into a

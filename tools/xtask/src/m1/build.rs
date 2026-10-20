@@ -33,6 +33,7 @@ pub(super) enum Flavor {
     NoEntry,
     Inject,
     Exceptions,
+    Memory,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -42,6 +43,7 @@ impl Flavor {
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
             Self::Exceptions => "exception-test",
+            Self::Memory => "memory-test",
         }
     }
     fn features(self) -> &'static str {
@@ -51,6 +53,7 @@ impl Flavor {
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
             Self::Exceptions => "exception-test",
+            Self::Memory => "memory-test",
         }
     }
 }
@@ -250,6 +253,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         "tools/Test-M1Prerequisites.ps1",
         "tools/Test-P1-03.ps1",
         "tools/Test-P1-04.ps1",
+        "tools/Test-P1-05.ps1",
     ] {
         sources.insert(p.into(), digest(&root().join(p))?);
     }
@@ -349,6 +353,10 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                             "diagnostic_invalid_opcode",
                             "diagnostic_page_fault_site",
                             "diagnostic_panic_report",
+                            "diagnostic_guard_site",
+                            "diagnostic_write_site",
+                            "diagnostic_nx_page",
+                            "diagnostic_double_site",
                         ]
                         .contains(name)
                     });
@@ -364,7 +372,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     symbol = None;
                 }
             }
-            if sites.len() != 3 {
+            if sites.len() != 7 {
                 return Err("Missing diagnostic symbols".into());
             }
             inspection["diagnostic_sites"] = Value::Object(sites);

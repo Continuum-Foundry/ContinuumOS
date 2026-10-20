@@ -7,6 +7,9 @@ it does not complete M1. The current [P1-04 exception runbook](exception-diagnos
 extends diagnostics to version 3, adds an emergency flag and requires an exception
 setup checkpoint before completion. Version-2 descriptions below document P1-03's
 historical contract; its retained evidence is unchanged.
+P1-05's [memory integration](memory-ownership-runbook.md) uses version 4 and owned
+page tables/guarded stacks. The reservation and loader-lifetime rules below are
+preserved; check that story's acceptance review before proceeding.
 
 ## Run
 

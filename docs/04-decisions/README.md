@@ -12,7 +12,8 @@ The [host module-refactor regression](../../evidence/phase-1/m1-module-refactor/
 preserves that demonstrated behavior. Neither completes the broader ADR gates or
 changes any record's Proposed status. P1-04 now adds
 [fatal exception entry](../05-delivery/phase-1/exception-diagnostics-runbook.md);
-memory/guard integration remains P1-05.
+P1-05 adds [owned mappings and guard integration](../05-delivery/phase-1/memory-ownership-runbook.md).
+Check its story review; no whole-OS or user-mode isolation gate is implied.
 
 | ADR | Decision | Evidence gate |
 | --- | --- | --- |

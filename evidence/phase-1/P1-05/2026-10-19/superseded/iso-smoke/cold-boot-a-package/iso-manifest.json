@@ -1,0 +1,39 @@
+{
+  "bios_tested": false,
+  "boot_tested": false,
+  "build_flavor": "iso-smoke",
+  "build_id": "ced3e6649cbcb2cb07cba73907e731fdaaeae60bf0adcb1ac1bcb287e72f8fe7",
+  "configuration_sha256": "6f390789ad3634db9ff8279378c6944c00283e0f2380f898f3a0c6d55e1a4ca1",
+  "diagnostic_sites": {
+    "diagnostic_double_site": 18446744071562076402,
+    "diagnostic_guard_site": 18446744071562076377,
+    "diagnostic_invalid_opcode": 18446744071562076341,
+    "diagnostic_nx_page": 18446744071562129408,
+    "diagnostic_page_fault_site": 18446744071562076353,
+    "diagnostic_panic_report": 18446744071562076358,
+    "diagnostic_write_site": 18446744071562076382
+  },
+  "fault": "normal",
+  "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+  "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+  "fixture": "normal",
+  "host_session_id": "03bdefcaa3c24264bd8b8466d2276694156c38a7ab52334eee16a73a7e2518ba",
+  "input_lock_sha256": "40fcf8b60c102b27fa57a736944f526dd6a736c5f4768433bd12de8dabe0c2fc",
+  "iso_sha256": "0522c43c3e8c1cb692dff8c6e1304dfd1a01e911a2864185e37a4a02dcac1942",
+  "kernel_sha256": "cf62a60d9a1a9d2bd88ff293b01eaaa455b180ac26b7dc08350231ceee94f67c",
+  "module_fixture": false,
+  "payload": {
+    "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+    "boot/kernel.elf": "cf62a60d9a1a9d2bd88ff293b01eaaa455b180ac26b7dc08350231ceee94f67c",
+    "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+    "boot/limine/limine.conf": "6f390789ad3634db9ff8279378c6944c00283e0f2380f898f3a0c6d55e1a4ca1",
+    "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+    "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+    "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+    "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+  },
+  "payload_extraction_verified": true,
+  "schema_version": 2,
+  "session_origin": "host; correlation only, not a security credential or reset detector",
+  "uefi_optical_catalog": true
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "story": "P1-05",
+  "status": "failed",
+  "commands": [
+    {
+      "exit_code": 0,
+      "log": "formatting.log",
+      "executable": "cargo",
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "name": "formatting"
+    },
+    {
+      "exit_code": 1,
+      "log": "m0.log",
+      "executable": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\Test-M0.ps1"
+      ],
+      "name": "m0"
+    }
+  ],
+  "runs": {},
+  "error": "m0 failed (1); see ${WORKSPACE}\\build\\m1\\acceptance-p1-05-1792454399054\\m0.log"
+}

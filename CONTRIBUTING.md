@@ -45,6 +45,9 @@ Use the required execution context for MSYS2; do not change Windows features or
 install global packages to bypass a failure.
 
 Keep downloaded tools, binaries, and scratch output in ignored `work/` and `build/`.
+Follow the [compact evidence policy](docs/05-delivery/evidence-retention.md) and run
+`node audit/check-repository-hygiene.cjs` after staging. Do not force-add full run
+trees, repeated tool dumps or source snapshots to make ignored output visible.
 Retain compact sanitized evidence and failed runs without rewriting old snapshots.
 Never submit credentials, customer data, raw environment dumps, or unrelated
 personal paths. Report vulnerabilities through [SECURITY.md](SECURITY.md).

@@ -125,6 +125,23 @@ new recipient or standing remote-environment approval is authorized. Geographic
 containment remains unverified; this administrative exception is not legal
 clearance or a finding of U.S.-only handling and does not waive applicable law.
 
+### One-time owner authorization — repository hygiene, 2026-10-20
+
+After confirming P1-06 was merged, the owner requested inspection of excessive
+logs/artifacts, a switch to `main`, needed `.gitignore` updates and a direct push
+to `main`. This authorizes one direct push to the existing GitHub `origin/main`
+of the repository-hygiene audit, ignore rules, compact-evidence policy/checks and
+this authorization record. Existing frozen evidence is preserved; no additional
+raw run bundle or binary/ISO upload is included.
+
+This is a scoped exception to the administrative transfer hold and ordinary
+topic-branch procedure. It is exhausted by the first successful push containing
+this record. The local push guard may be bypassed for that invocation only and
+must remain installed afterward. No history rewrite, force push, merge, release,
+remote build or standing remote-environment approval is authorized. Geographic
+containment remains unverified; this exception is not legal clearance or a
+finding of U.S.-only handling and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

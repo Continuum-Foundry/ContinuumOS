@@ -65,6 +65,10 @@ Keep the architectural ADRs Proposed until their documented review gates are met
 
 Store generated run artifacts in ignored `build/m1/<run-id>/`; retain a compact,
 sanitized summary and logs in `evidence/phase-1/<story-id>/<run-id>/` when implemented.
+Apply the [compact evidence policy](../evidence-retention.md): new bundles have
+4 MiB/200-file/256-KiB-per-file defaults, and generated logs/source copies are
+ignored until deliberately selected. Preserve required raw outcomes and failures;
+deduplicate reports by build/input identity rather than copying entire run trees.
 P1-01 host prerequisites, P1-02 minimal guest entry and P1-03 checked metadata and
 identity evidence are retained. The
 [host module extraction](../../../evidence/phase-1/m1-module-refactor/2026-10-18/README.md)

@@ -6,6 +6,40 @@
 /.local/
 *.user
 /website/
+/company-website/
+
+# Generated diagnostics stay local. Deliberately promote compact, frozen evidence.
+*.log
+/evidence/**/source/
+
+# Build products and VM state are artifacts, not source inputs.
+*.elf
+*.iso
+*.o
+*.obj
+*.pdb
+*.ilk
+*.rlib
+*.rmeta
+*.qcow2
+*.vhd
+*.vhdx
+*.vmdk
+*.fd
+*.dmp
+
+# Local dependency caches and editor/OS scratch files.
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.cache/
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
 
 # Local credentials and signing material never belong in source control.
 .env

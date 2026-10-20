@@ -12,6 +12,10 @@ Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other
 coding agents should use the same documents. `CLAUDE.md` points to this entry point.
 
+Before retaining new evidence, follow `docs/05-delivery/evidence-retention.md`.
+Keep full generated logs/source copies local; stage a compact reviewed bundle and
+run `node audit/check-repository-hygiene.cjs`. Preserve historical frozen evidence.
+
 Preserve the user's central intent: an original desktop OS, modern languages,
 excellent and efficient UI, live development without VM reboot for supported
 changes, and a separately buildable bootable ISO. Do not replace the project with

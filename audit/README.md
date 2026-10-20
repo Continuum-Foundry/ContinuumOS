@@ -33,3 +33,10 @@ retains its latest regression results and an `evidence-index.json` with raw and
 retained hashes. The governance audit checks `SHA256SUMS.json` evidence indexes;
 that separate retention index must also be verified when handling its artifacts.
 Historical evidence and its READMEs remain snapshots of their recorded runs.
+
+After staging changes, run `node audit/check-repository-hygiene.cjs` to check the
+Git index for generated artifacts, missing committed evidence and new-bundle size
+limits. Existing evidence is fingerprinted and preserved. See the
+[retention policy](../docs/05-delivery/evidence-retention.md). The audit's integration
+tests run with `node --test audit/check-repository-hygiene.test.cjs`; temporary Git
+repositories stay under ignored `work/hygiene-tests/` for inspection.

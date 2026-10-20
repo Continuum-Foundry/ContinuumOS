@@ -36,7 +36,8 @@ Historical evidence and its READMEs remain snapshots of their recorded runs.
 
 After staging changes, run `node audit/check-repository-hygiene.cjs` to check the
 Git index for generated artifacts, missing committed evidence and new-bundle size
-limits. Existing evidence is fingerprinted and preserved. See the
+limits. Existing tracked metadata is fingerprinted; historical ignored logs/source
+copies are [local-only](../evidence/README.md) after the owner's untracking request. See the
 [retention policy](../docs/05-delivery/evidence-retention.md). The audit's integration
 tests run with `node --test audit/check-repository-hygiene.test.cjs`; temporary Git
 repositories stay under ignored `work/hygiene-tests/` for inspection.

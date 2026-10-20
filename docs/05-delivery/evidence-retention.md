@@ -32,11 +32,13 @@ targets. If essential evidence does not fit, revise its representation or docume
 an explicit policy change before adding it; do not silently raise the limit.
 Large local artifacts remain local; this policy grants no remote upload permission.
 
-Existing accepted evidence is preserved byte for byte. Its Git-index fingerprints
-are recorded in `audit/repository-hygiene-baseline.json`; that baseline permits
-the historical size without allowing new files to accumulate inside old bundles.
-Changing it needs an intentional archival/retention decision, not regeneration
-on every check. No Git history rewrite or evidence deletion is part of this change.
+The owner's subsequent cleanup removes every previously tracked file matching
+`.gitignore`: 2774 logs/source-copy files, about 63 MiB. Local copies and the earlier
+Git revision are preserved; see the [availability notice](../../evidence/README.md).
+Historical READMEs/checksum files remain original snapshots and can reference
+paths absent from a fresh checkout. The baseline records this one explicit migration
+and fingerprints the remaining metadata. Do not regenerate it to admit new bulk.
+No physical file deletion or Git history rewrite is performed.
 
 ## Before committing
 
@@ -53,10 +55,11 @@ on every check. No Git history rewrite or evidence deletion is part of this chan
    ```
 
 The hygiene check reads the **Git index**, rejects generated output outside
-evidence, enforces new-bundle budgets, protects historical bundle fingerprints
-and requires each frozen manifest member to be tracked. A local ignored log cannot
-satisfy that last check. Governance separately validates retained bytes against
-checksums. The report goes to ignored `work/repository-hygiene-results.json`.
+evidence, enforces new-bundle budgets, protects historical metadata fingerprints
+and requires each new frozen manifest member to be tracked. The declared historical
+migration is the only exception; an ignored local log cannot satisfy a new bundle's
+manifest. Governance separately reports local-only historical members and verifies
+their bytes when present. The report goes to ignored `work/repository-hygiene-results.json`.
 The `.githooks/pre-commit` hook runs this check automatically where the repository's
 `core.hooksPath=.githooks` is installed. It needs Node on PATH and fails a commit
 when hygiene checks fail. Hooks are local safeguards, not server enforcement;

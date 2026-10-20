@@ -142,6 +142,21 @@ remote build or standing remote-environment approval is authorized. Geographic
 containment remains unverified; this exception is not legal clearance or a
 finding of U.S.-only handling and does not waive applicable law.
 
+### One-time owner authorization — untrack ignored artifacts, 2026-10-20
+
+Continuing the requested direct-to-main cleanup, the owner instructed "remove the
+files and DIRs you gitignored from the repo". This authorizes untracking the
+matching historical logs/source copies while preserving local bytes and existing
+Git history, updating retention/check metadata to identify local-only evidence,
+and one direct push of that cleanup to the existing GitHub `origin/main`.
+No new raw artifacts or binaries are uploaded.
+
+The authorization is exhausted by its first successful push. The handling-hold
+hook may be bypassed for that invocation only and must remain installed afterward.
+No force push, history rewrite, release, remote build or standing approval is
+authorized. Geographic containment remains unverified; this administrative
+exception is not legal clearance or a finding of U.S.-only handling.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

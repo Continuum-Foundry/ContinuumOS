@@ -1,8 +1,0 @@
-[alias]
-xtask = "run --locked --package xtask --"
-
-# No global build.target: xtask is a Windows host program.
-
-# U.S.-only handling hold: do not fetch project dependencies over the network.
-[net]
-offline = true

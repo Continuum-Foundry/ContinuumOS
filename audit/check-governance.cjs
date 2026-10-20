@@ -2,9 +2,11 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
+const {localOnlyHistorical} = require('./check-repository-hygiene.cjs');
 const root = path.resolve('.');
 const errors = [];
-const checked = {requiredFiles: 0, evidenceFiles: 0, noticeFiles: 0, registryPackages: 0};
+const checked = {requiredFiles: 0, evidenceFiles: 0, localOnlyEvidenceFiles: 0, localOnlyEvidenceVerifiedLocally: 0, noticeFiles: 0, registryPackages: 0};
+const retention = JSON.parse(fs.readFileSync(path.join(root,'audit/repository-hygiene-baseline.json'),'utf8'));
 function assert(condition, message) { if (!condition) errors.push(message); }
 function resolveInside(base, name) {
   const resolved = path.resolve(base, name);
@@ -86,6 +88,17 @@ if (!errors.length) {
     assert(manifest.algorithm === 'SHA-256', `Unexpected evidence checksum algorithm: ${index}`);
     for (const entry of manifest.files) {
       const absolute = resolveInside(path.dirname(index),entry.path);
+      const relative = path.relative(root,absolute).replaceAll('\\','/');
+      if (localOnlyHistorical(relative,retention)) {
+        checked.localOnlyEvidenceFiles++;
+        // Verify copies when present, but never pretend a fresh checkout has them.
+        if (fs.existsSync(absolute)) {
+          assert(digest(absolute) === entry.sha256, `Local historical evidence changed: ${relative}`);
+          if (entry.bytes !== undefined) assert(fs.statSync(absolute).size === entry.bytes, `Local historical evidence size changed: ${relative}`);
+          checked.localOnlyEvidenceVerifiedLocally++;
+        }
+        continue;
+      }
       assert(fs.existsSync(absolute), `Missing frozen evidence: ${entry.path}`);
       if (fs.existsSync(absolute)) {
         assert(digest(absolute) === entry.sha256, `Frozen evidence changed: ${path.relative(root,absolute)}`);
@@ -96,7 +109,7 @@ if (!errors.length) {
   }
 }
 const report = {status:errors.length ? 'failed':'passed', ...checked, errors,
-  limits:'Does not inspect remote GitHub enforcement, authenticate publishers, clear distribution rights, or run kernel/VM tests'};
+  limits:'Historical local-only logs/source require preserved local copies or the recorded earlier Git revision. Does not inspect remote GitHub enforcement, authenticate publishers, clear distribution rights, or run kernel/VM tests'};
 fs.mkdirSync(path.join(root,'work'),{recursive:true});
 fs.writeFileSync(path.join(root,'work/governance-audit-results.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));

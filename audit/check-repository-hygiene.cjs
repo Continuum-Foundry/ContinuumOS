@@ -25,12 +25,21 @@ function bundleOf(name) {
   const parts=name.split('/');
   return parts[1]==='phase-0' ? 'evidence/phase-0' : parts.slice(0,Math.min(4,parts.length-1)).join('/');
 }
+// This exception is limited to the owner-authorized migration of frozen bundles.
+// Their remaining index fingerprints prevent editing a manifest to hide new data.
+function localOnlyHistorical(name, baseline) {
+  return !!baseline.untracking && name.startsWith('evidence/') &&
+    (name.endsWith('.log') || name.includes('/source/')) &&
+    baseline.bundles.some(b=>b.path===bundleOf(name) && b.local_only_files>0);
+}
 function audit(root) {
   const files=snapshot(root), tracked=new Set(files.map(e=>e.path)), errors=[];
   const baseline=JSON.parse(git(root,['show',':audit/repository-hygiene-baseline.json']));
   const groups=new Map();
   for(const file of files) {
-    if(file.path.startsWith('evidence/')) {
+    if(file.path==='evidence/README.md') {
+      if(file.bytes>LIMITS.fileBytes) errors.push('Evidence availability notice exceeds 256 KiB');
+    } else if(file.path.startsWith('evidence/')) {
       const bundle=bundleOf(file.path);
       if(!groups.has(bundle)) groups.set(bundle,[]);
       groups.get(bundle).push(file);
@@ -59,14 +68,14 @@ function audit(root) {
     for(const entry of manifest.files) {
       const target=path.posix.normalize(path.posix.join(parent,entry.path));
       if(!target.startsWith(parent+'/') || !tracked.has(target)) {
-        errors.push(`Frozen evidence member missing from Git index: ${target}`);
+        if(!target.startsWith(parent+'/') || !localOnlyHistorical(target,baseline)) errors.push(`Frozen evidence member missing from Git index: ${target}`);
       } else if(!baseline.bundles.some(b=>b.path===bundleOf(file.path))) {
         const bytes=cp.execFileSync('git',['show',`:${target}`],{cwd:root,maxBuffer:16*1024*1024});
         if(crypto.createHash('sha256').update(bytes).digest('hex')!==entry.sha256 || (entry.bytes!==undefined && bytes.length!==entry.bytes)) errors.push(`Frozen evidence checksum differs from staged bytes: ${target}`);
       }
     }
   }
-  return {status:errors.length?'failed':'passed',scope:'Git index; existing frozen bundles preserved, new evidence bounded',limits:LIMITS,trackedFiles:files.length,trackedBytes:files.reduce((s,e)=>s+e.bytes,0),logFiles:files.filter(e=>e.path.endsWith('.log')).length,logBytes:files.filter(e=>e.path.endsWith('.log')).reduce((s,e)=>s+e.bytes,0),bundles,errors};
+  return {status:errors.length?'failed':'passed',scope:'Git index; historical metadata protected, declared historical logs/source copies local-only, new evidence bounded',limits:LIMITS,trackedFiles:files.length,trackedBytes:files.reduce((s,e)=>s+e.bytes,0),logFiles:files.filter(e=>e.path.endsWith('.log')).length,logBytes:files.filter(e=>e.path.endsWith('.log')).reduce((s,e)=>s+e.bytes,0),bundles,errors};
 }
 if(require.main===module) {
   const root=process.cwd(),report=audit(root);
@@ -78,4 +87,4 @@ if(require.main===module) {
   } else console.log(JSON.stringify(report,null,2));
   process.exitCode=report.errors.length?1:0;
 }
-module.exports={audit,snapshot,fingerprint,bundleOf};
+module.exports={audit,snapshot,fingerprint,bundleOf,localOnlyHistorical};

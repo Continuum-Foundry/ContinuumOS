@@ -59,3 +59,21 @@ test('a force-added stray log is rejected outside evidence',()=>{
   const r=repository();r.write('session.log','scratch');r.stage('session.log');
   assert.ok(audit(r.root).errors.some(e=>e.includes('Generated artifact tracked outside evidence')));
 });
+test('the declared historical untracking exception never applies to new bundles',()=>{
+  const r=repository(),b='evidence/phase-1/P1-06/fixture';
+  r.write(`${b}/serial.log`,'historical raw record\r\n');
+  r.write(`${b}/review.json`,'{}');manifest(r,b,['serial.log','review.json']);r.stage(b);
+  r.git('rm','--cached','--quiet','--',`${b}/serial.log`);
+  const entries=snapshot(r.root).filter(e=>e.path.startsWith(b+'/'));
+  r.write('audit/repository-hygiene-baseline.json',JSON.stringify({untracking:{from_revision:'recorded'},bundles:[{path:b,files:entries.length,index_fingerprint:fingerprint(entries),local_only_files:1}]}));
+  r.stage('audit/repository-hygiene-baseline.json');
+  assert.equal(audit(r.root).status,'passed');
+  // The same metadata check passes without a local raw file, without claiming its bytes were verified.
+  fs.unlinkSync(path.join(r.root,b,'serial.log'));
+  assert.equal(audit(r.root).status,'passed');
+  const next='evidence/phase-1/P1-07/fixture';
+  r.write(`${next}/serial.log`,'new record');manifest(r,next,['serial.log']);
+  assert.ok(audit(r.root).errors.some(e=>e.includes('missing from Git index')));
+  r.git('rm','--cached','--quiet','--',`${b}/review.json`);
+  assert.ok(audit(r.root).errors.some(e=>e.includes('Historical evidence changed')));
+});

@@ -2,6 +2,7 @@
 *.elf -text
 *.iso -text
 # Frozen evidence includes original serial/JSON line endings and tool whitespace.
+/evidence/phase-1/P1-01/** -text -whitespace
 /evidence/phase-1/P1-02/** -text -whitespace
 /evidence/phase-1/P1-03/** -text -whitespace
 /evidence/phase-1/P1-04/** -text -whitespace

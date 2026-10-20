@@ -60,6 +60,10 @@ is approved.
 
 ## Status and interpretation
 
+The owner's [evidence cleanup](../evidence/README.md) leaves historical logs and
+source copies local-only. Original reviews describe the pre-cleanup bundles;
+current metadata checks do not prove unavailable raw records on a fresh checkout.
+
 - **User requirement**: derived from the conversation. Only the user can change the core intent.
 - **Verified finding**: supported by a primary source in the catalogue; not independently reproduced here.
 - **Proposed default**: our engineering choice, used to make the project concrete. Validate at its gate.

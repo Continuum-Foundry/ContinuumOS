@@ -1,68 +1,124 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "recorded_date": "2026-10-20",
   "source_commit": "8581f87ad3c73f2b6bbdf3cd89b9d347fc64531e",
-  "policy": "Immutable existing evidence only; do not regenerate to admit new bulk",
+  "policy": "Historical metadata only after owner-authorized untracking; do not regenerate to admit new bulk",
   "bundles": [
     {
       "path": "evidence/phase-0",
-      "files": 32,
-      "bytes": 253173,
-      "index_fingerprint": "4cb983124a02b593add27733bcdaae49c9a9c2dcbc1729e138f7b15fd4be6f16"
+      "files": 14,
+      "bytes": 230961,
+      "index_fingerprint": "de3e28de878e23d87eab0b382c63319202c25903833425133bdf7d8c6ded42c8",
+      "original_files": 32,
+      "original_bytes": 253173,
+      "original_index_fingerprint": "4cb983124a02b593add27733bcdaae49c9a9c2dcbc1729e138f7b15fd4be6f16",
+      "local_only_files": 18
     },
     {
       "path": "evidence/phase-1/P1-01/2026-10-18",
-      "files": 46,
-      "bytes": 472318,
-      "index_fingerprint": "a081b2438beac5966a15ee316af9244022a51e753df0b03ecbe6208dd7936bc4"
+      "files": 27,
+      "bytes": 456887,
+      "index_fingerprint": "f5b0f8b1fe5ae89272bed7b15ba64bdc8879f5f091964c86d59cf78f7c864b2e",
+      "original_files": 46,
+      "original_bytes": 472318,
+      "original_index_fingerprint": "a081b2438beac5966a15ee316af9244022a51e753df0b03ecbe6208dd7936bc4",
+      "local_only_files": 19
     },
     {
       "path": "evidence/phase-1/P1-02/2026-10-18",
-      "files": 280,
-      "bytes": 1096699,
-      "index_fingerprint": "1f9f619d26f95b48e2d0cc66ab90be87fe361860aecf5dcb1ec71145d43707af"
+      "files": 125,
+      "bytes": 491506,
+      "index_fingerprint": "a5c5ce050d7019d51740d5cf00398a8dcc3205a69d11257a498b2e9b0a44c0ce",
+      "original_files": 280,
+      "original_bytes": 1096699,
+      "original_index_fingerprint": "1f9f619d26f95b48e2d0cc66ab90be87fe361860aecf5dcb1ec71145d43707af",
+      "local_only_files": 155
     },
     {
       "path": "evidence/phase-1/P1-03/2026-10-18",
-      "files": 745,
-      "bytes": 7146511,
-      "index_fingerprint": "b2ce42c75e3a37a37dcd99712affbdd995f1731bb494e0ef70e4118865267b53"
+      "files": 334,
+      "bytes": 1302138,
+      "index_fingerprint": "8ef26f83831be23f5dc20a6bbce80651fba328f6633e792b80801dea007f17b6",
+      "original_files": 745,
+      "original_bytes": 7146511,
+      "original_index_fingerprint": "b2ce42c75e3a37a37dcd99712affbdd995f1731bb494e0ef70e4118865267b53",
+      "local_only_files": 411
     },
     {
       "path": "evidence/phase-1/P1-04/2026-10-19-formatting",
-      "files": 49,
-      "bytes": 767202,
-      "index_fingerprint": "c5c977ec7bc73e83484016f3047f6bd5bfd1b9e6e3496837be260b30448a7d70"
+      "files": 25,
+      "bytes": 155041,
+      "index_fingerprint": "78235f34489664f8e2019d126701e6ff0d20e6ed93319f3d691bf5fd258dedbb",
+      "original_files": 49,
+      "original_bytes": 767202,
+      "original_index_fingerprint": "c5c977ec7bc73e83484016f3047f6bd5bfd1b9e6e3496837be260b30448a7d70",
+      "local_only_files": 24
     },
     {
       "path": "evidence/phase-1/P1-04/2026-10-19",
-      "files": 801,
-      "bytes": 8800332,
-      "index_fingerprint": "69f1313f4be6721eb5545ad247afce06de4fd03b58ce2ab06a67b926dd6ac221"
+      "files": 359,
+      "bytes": 1689440,
+      "index_fingerprint": "09e9a1699bff6d8d48934a7d7b650085d6f321f9ddef058c81e271e9f4804583",
+      "original_files": 801,
+      "original_bytes": 8800332,
+      "original_index_fingerprint": "69f1313f4be6721eb5545ad247afce06de4fd03b58ce2ab06a67b926dd6ac221",
+      "local_only_files": 442
     },
     {
       "path": "evidence/phase-1/P1-05/2026-10-19-publication",
       "files": 5,
       "bytes": 222499,
-      "index_fingerprint": "ae83dcf0f430ab6c490da08db044ce8344f6bb92ee46d587d2428f551296874c"
+      "index_fingerprint": "ae83dcf0f430ab6c490da08db044ce8344f6bb92ee46d587d2428f551296874c",
+      "original_files": 5,
+      "original_bytes": 222499,
+      "original_index_fingerprint": "ae83dcf0f430ab6c490da08db044ce8344f6bb92ee46d587d2428f551296874c",
+      "local_only_files": 0
     },
     {
       "path": "evidence/phase-1/P1-05/2026-10-19",
-      "files": 1299,
-      "bytes": 20513811,
-      "index_fingerprint": "d39c3813fb99d8732d6bddb7954bdc044ebaff6d3db847391883807b08cb1421"
+      "files": 578,
+      "bytes": 2752674,
+      "index_fingerprint": "53cbae355202c16d820a4c08050813967a9e5ed8d9c8324f2d628bba8cec6028",
+      "original_files": 1299,
+      "original_bytes": 20513811,
+      "original_index_fingerprint": "d39c3813fb99d8732d6bddb7954bdc044ebaff6d3db847391883807b08cb1421",
+      "local_only_files": 721
     },
     {
       "path": "evidence/phase-1/P1-06/2026-10-20",
-      "files": 1762,
-      "bytes": 39184527,
-      "index_fingerprint": "a46651419fbf578a3c33bee3e1611c956660483a79ef2a487e2914a07b8a745d"
+      "files": 782,
+      "bytes": 5089165,
+      "index_fingerprint": "7ee250fb451d9e67f6791e35e8287aae5c6919e5f0575dbdca984ea3e9ada8d8",
+      "original_files": 1762,
+      "original_bytes": 39184527,
+      "original_index_fingerprint": "a46651419fbf578a3c33bee3e1611c956660483a79ef2a487e2914a07b8a745d",
+      "local_only_files": 980
     },
     {
       "path": "evidence/phase-1/m1-module-refactor/2026-10-18",
-      "files": 23,
-      "bytes": 112158,
-      "index_fingerprint": "79ff57e45674e1d13800a9062abb50de4a0ccb793dd678685fbbbd7b17dbd3f9"
+      "files": 19,
+      "bytes": 108703,
+      "index_fingerprint": "3aeb504dd18d1f79d5b65e7a2544120648439db309c43dbeeda29b3d25347617",
+      "original_files": 23,
+      "original_bytes": 112158,
+      "original_index_fingerprint": "79ff57e45674e1d13800a9062abb50de4a0ccb793dd678685fbbbd7b17dbd3f9",
+      "local_only_files": 4
     }
-  ]
+  ],
+  "untracking": {
+    "date": "2026-10-20",
+    "from_revision": "7e4df4212378bd2ae35efa85386bbf301b0483b4",
+    "reason": "Owner requested removal of all tracked gitignored files; local copies preserved",
+    "files": 2774,
+    "bytes": 66070239,
+    "removed_path_blob_fingerprint": "c9709ea9152ecc16ac51e7d1cedb359b45ef18ee3602e4fc415547967a8e7d66",
+    "metadata_repairs": [
+      {
+        "path": "evidence/phase-1/P1-01/2026-10-18/package-metadata/xorriso-1.5.8.2-1.txt",
+        "reason": "Restore original frozen CRLF bytes in Git, previously normalized without P1-01 -text attributes",
+        "prior_blob": "6da1c96291417443849b467c928117b3bb63a1dd",
+        "restored_blob": "a42367cc95f7cf4e35374575003ac86fe977ebc1"
+      }
+    ]
+  }
 }

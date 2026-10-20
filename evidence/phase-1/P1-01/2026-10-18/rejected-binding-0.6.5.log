@@ -1,9 +1,0 @@
-error[E0554]: `#![feature]` may not be used on the stable release channel
- --> work/tools/bindings/limine-0.6.5/src/lib.rs:6:1
-  |
-6 | #![feature(ptr_metadata)]
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^
-
-error: aborting due to 1 previous error
-
-For more information about this error, try `rustc --explain E0554`.

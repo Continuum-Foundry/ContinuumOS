@@ -97,6 +97,10 @@ with P1-07's final acceptance. There is no general heap or user-mode isolation y
 
 ## A desktop designed for continuity
 
+Historical logs and copied source trees were [removed from Git tracking](evidence/README.md)
+at the owner's request. Reviews and manifests remain; raw artifacts require the
+preserved local copies or the recorded earlier Git revision.
+
 These are engineering goals, each with an explicit acceptance gate.
 
 | Principle | What it means |

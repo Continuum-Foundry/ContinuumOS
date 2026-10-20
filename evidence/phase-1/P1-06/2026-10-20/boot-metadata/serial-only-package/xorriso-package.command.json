@@ -1,0 +1,18 @@
+{
+  "arguments": [
+    "-as",
+    "mkisofs",
+    "-R",
+    "-r",
+    "-J",
+    "--efi-boot",
+    "boot/limine/limine-uefi-cd.bin",
+    "-efi-boot-part",
+    "--efi-boot-image",
+    "--protective-msdos-label",
+    "${WORKSPACE}/build/m1/boot-metadata-1792457255408280500-29236/serial-only-package/iso root with spaces",
+    "-o",
+    "${WORKSPACE}/build/m1/boot-metadata-1792457255408280500-29236/serial-only-package/continuum.iso"
+  ],
+  "program": "${WORKSPACE}\\work/tools/iso/usr/bin/xorriso.exe"
+}

@@ -96,6 +96,8 @@ fn perform(action: &str, dir: &Path) -> Result<Value> {
         | "write-protect-fault"
         | "execute-disable-fault"
         | "emergency-stack" => Flavor::Memory,
+        "timer-progress" | "timer-masked" | "clock-read" | "idle-wakeup" | "timer-exception"
+        | "acpi-corrupt" | "timer-unsupported" | "timer-calibration" => Flavor::Timer,
         _ => Flavor::Normal,
     };
     let manifest = build(dir, flavor)?;
@@ -105,6 +107,32 @@ fn perform(action: &str, dir: &Path) -> Result<Value> {
     if action == "iso" {
         let image = package(dir, dir, &manifest, false, "normal", false)?;
         return Ok(json!({"compile":"passed","package":"passed","boot":"not_run","image":image}));
+    }
+    if flavor == Flavor::Timer {
+        let a = boot_run(dir, action, dir, &manifest, action, false, true, false)?;
+        accepted(&a)?;
+        let mut runs = vec![a];
+        if action == "clock-read" {
+            let b = boot_run(
+                dir,
+                "fresh-epoch",
+                dir,
+                &manifest,
+                action,
+                false,
+                true,
+                false,
+            )?;
+            accepted(&b)?;
+            let identities = compare_identity(&runs[0], &b)?;
+            runs.push(b);
+            return Ok(
+                json!({"compile":"passed","package":"passed","timer":"passed","identities":identities,"runs":runs}),
+            );
+        }
+        return Ok(
+            json!({"compile":"passed","package":"passed","timer":"passed","positive_boot": !["acpi-corrupt","timer-unsupported","timer-calibration","timer-exception"].contains(&action),"runs":runs}),
+        );
     }
     if flavor == Flavor::Exceptions
         || (flavor == Flavor::Memory

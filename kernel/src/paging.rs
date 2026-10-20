@@ -65,6 +65,44 @@ fn invalidate(v: u64) {
         asm!("invlpg [{}]", in(reg) v, options(nostack, preserves_flags));
     }
 }
+/// Bootstrap only, IF clear. Copy firmware ACPI bytes through a short-lived RO/NX
+/// WB window, never through a loader pointer. No reference escapes the mapping.
+pub fn copy_acpi(base: u64, output: &mut [u8]) -> Result<()> {
+    let info = unsafe { &*crate::BOOT_INFO.0.get() };
+    continuum_kernel::platform::acpi_range(info.regions(), base, output.len() as u64)?;
+    let tables = unsafe { &mut *TABLES.0.get() };
+    let mut at = 0;
+    while at < output.len() {
+        let p = base + at as u64;
+        let offset = (p % PAGE) as usize;
+        let count = (4096 - offset).min(output.len() - at);
+        tables.map(
+            VirtAddr(SCRATCH),
+            PhysAddr(p & !(PAGE - 1)),
+            Permission::ReadOnly,
+        )?;
+        invalidate(SCRATCH);
+        for i in 0..count {
+            output[at + i] =
+                unsafe { ((SCRATCH + offset as u64 + i as u64) as *const u8).read_volatile() };
+        }
+        tables.unmap(VirtAddr(SCRATCH))?;
+        invalidate(SCRATCH);
+        at += count;
+    }
+    Ok(())
+}
+pub fn device(base: u64, slot: u64) -> Result<u64> {
+    let info = unsafe { &*crate::BOOT_INFO.0.get() };
+    continuum_kernel::platform::device_range(info.regions(), base)?;
+    need(slot < 3)?;
+    let v = SCRATCH + PAGE * (slot + 1);
+    let tables = unsafe { &mut *TABLES.0.get() };
+    tables.map(VirtAddr(v), PhysAddr(base), Permission::Device)?;
+    invalidate(v);
+    need(tables.inspect(VirtAddr(v))? & !(0x20 | 0x40) == base | NX | 0x1b)?;
+    Ok(v)
+}
 fn zero(p: PhysAddr, hhdm: u64) -> Result<()> {
     let address = hhdm.checked_add(p.0).ok_or(error("zero", "overflow"))?;
     continuum_kernel::virtual_range(address, PAGE, "zero")?;

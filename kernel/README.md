@@ -5,7 +5,10 @@ Build with `cargo xtask build --profile dev` after dot-sourcing
 serial diagnostics and owned exception tables. P1-05 adds a bounded physical-frame
 allocator, owned paging and guarded runtime/IST stacks; check its
 [memory runbook and acceptance status](../docs/05-delivery/phase-1/memory-ownership-runbook.md).
-It has no general heap, external IRQ handlers, clock, processes, pixel rendering or desktop. See the
+P1-06 adds validated ACPI, masked controller startup, a returning local APIC timer,
+HPET calibration and monotonic delivered-tick uptime. See the
+[timekeeping runbook](../docs/05-delivery/phase-1/interrupts-timekeeping-runbook.md)
+for acceptance status and limits. It has no general heap, processes, pixel rendering or desktop. See the
 [metadata runbook](../docs/05-delivery/phase-1/boot-metadata-runbook.md) for the
 test contract and evidence.
 
@@ -62,17 +65,20 @@ framebuffer reservations. Only eligible kind-0 RAM becomes allocatable after
 subtracting these reservations; no loader memory is reclaimed.
 
 Framebuffers are validated as packed RGB 24/32-bit descriptors; no rendering or
-EDID/mode traversal occurs. The base-3 physical ACPI locator is never dereferenced.
+EDID/mode traversal occurs. P1-03 records the base-3 physical ACPI locator without dereferencing it; P1-06
+checks its ACPI backing and explicitly maps table pages read-only before copying.
 It has no assumed alignment or checksum validity. Full limitations and capacities
 are documented in the runbook.
 
 ## Diagnostics and test-only behavior
 
-Version-4 records include build ID, host-provided session ID, sequence, stage,
+Version-5 records include build ID, host-provided session ID, sequence, stage,
 outcome and emergency-logger state. Early failures say `session=unavailable`. Normal boot emits one entry,
 `m1.boot_info_validated`, resource/reservation summaries, `m1.exceptions_ready`,
-`m1.memory_switch`, bounded frame checks, `m1.memory_ready` and `m1.boot_complete`,
-then halts. There is no guest uptime or secure random identity claim.
+`m1.memory_switch`, bounded frame checks, `m1.memory_ready`, ACPI/calibration/timer
+checkpoints, 100 clock samples, timer progress and `m1.boot_complete`,
+then idles with STI/HLT. Uptime counts delivered interrupts at the calibrated
+resolution; it is distinct from wall/host time. Session identity is not secure randomness.
 
 `emulator-test` writes 0x10 (QEMU exit 33) after complete success or 0x11 (exit 35)
 after rejection; fatal diagnostics use 0x12 (exit 37). `fault-before-entry` halts before diagnostics. `boot-inject`
@@ -86,3 +92,9 @@ fixtures. Fatal handlers report then halt or use the explicit test device. No
 unresolved exception returns to its caller. `memory-test` adds explicit ownership,
 eight-frame exhaustion, guard/RO/NX fault and real double-fault/IST cases. Check
 the story's review before continuing to P1-06; no arbitrary-fault recovery is established.
+
+P1-06 adds all-GPR returning wrappers and a register/DF/idle sentinel in
+[timer-entry.S](src/timer-entry.S), byte parsers in [platform.rs](src/platform.rs),
+and the hardware adapter in [timer.rs](src/timer.rs). No FP/SIMD context support
+or scheduling is introduced. The timer handler only increments a bounded atomic
+counter and acknowledges the LAPIC; spurious delivery returns without EOI.

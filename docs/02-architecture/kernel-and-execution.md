@@ -75,3 +75,15 @@ optional and must not masquerade as successful live updating.
 The kernel is nonreloadable initially. Keep booting and debugging it straightforward.
 Any future livepatch mechanism needs a separate ADR, CPU-wide consistency model,
 state proof/validation and failure strategy.
+
+## P1-06 timer baseline
+
+The [interrupt/timekeeping implementation](../05-delivery/phase-1/interrupts-timekeeping-runbook.md)
+adds ACPI-discovered xAPIC/HPET, explicit UC device mappings, masked PIC/IOAPIC/LVT
+startup, all-GPR interrupt return and a single-writer atomic event counter. Only
+the periodic LAPIC timer is enabled. Spurious interrupts return without EOI;
+timer delivery performs one acknowledgement and no logging or allocation.
+Checked uptime counts delivered ticks at the calibrated resolution, and can lag
+elapsed time while interrupts are masked/coalesced. It is not wall time or a
+scheduler deadline clock. Read the story review before treating its gate as passed.
+Scheduling, FP/SIMD context, SMP and user isolation remain later work.

@@ -1,0 +1,3229 @@
+{
+  "complete": true,
+  "exceptions_ready": true,
+  "fatal": false,
+  "memory_ready": true,
+  "records": [
+    {
+      "event": "m1.kernel_entry",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "fixture": "serial-only",
+        "outcome": "ok",
+        "seq": "0",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "entry",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.boot_info_validated",
+      "fields": {
+        "acpi": "locator-only",
+        "boot_info": "1",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "framebuffers": "0",
+        "hhdm": "0xffff800000000000",
+        "mode": "serial-only",
+        "modules": "0",
+        "outcome": "ok",
+        "regions": "33",
+        "seq": "1",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "metadata",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x0",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0xa0000",
+        "emergency": "false",
+        "index": "0",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "2",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x100000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x700000",
+        "emergency": "false",
+        "index": "1",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "3",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x800000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x8000",
+        "emergency": "false",
+        "index": "2",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "4",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x808000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x3000",
+        "emergency": "false",
+        "index": "3",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "5",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x80b000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x1000",
+        "emergency": "false",
+        "index": "4",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "6",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x80c000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x5000",
+        "emergency": "false",
+        "index": "5",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "7",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x811000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0xef000",
+        "emergency": "false",
+        "index": "6",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "8",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x900000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0xe80000",
+        "emergency": "false",
+        "index": "7",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "9",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x1780000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x77d28000",
+        "emergency": "false",
+        "index": "8",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "10",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x794a8000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x28000",
+        "emergency": "false",
+        "index": "9",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "11",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x794d0000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x9a5000",
+        "emergency": "false",
+        "index": "10",
+        "kind": "6",
+        "outcome": "ok",
+        "seq": "12",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x79e75000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x1f7000",
+        "emergency": "false",
+        "index": "11",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "13",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7a06c000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x1b00000",
+        "emergency": "false",
+        "index": "12",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "14",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7bb6c000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0xbd000",
+        "emergency": "false",
+        "index": "13",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "15",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7bc29000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x24f7000",
+        "emergency": "false",
+        "index": "14",
+        "kind": "0",
+        "outcome": "ok",
+        "seq": "16",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7e120000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x921000",
+        "emergency": "false",
+        "index": "15",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "17",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7ea41000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0xc1000",
+        "emergency": "false",
+        "index": "16",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "18",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7eb02000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x9eb000",
+        "emergency": "false",
+        "index": "17",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "19",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f4ed000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x100000",
+        "emergency": "false",
+        "index": "18",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "20",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f5ed000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x100000",
+        "emergency": "false",
+        "index": "19",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "21",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f6ed000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x80000",
+        "emergency": "false",
+        "index": "20",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "22",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f76d000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x12000",
+        "emergency": "false",
+        "index": "21",
+        "kind": "2",
+        "outcome": "ok",
+        "seq": "23",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f77f000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x80000",
+        "emergency": "false",
+        "index": "22",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "24",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7f7ff000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x6b1000",
+        "emergency": "false",
+        "index": "23",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "25",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7feb0000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x4000",
+        "emergency": "false",
+        "index": "24",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "26",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7feb4000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x2000",
+        "emergency": "false",
+        "index": "25",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "27",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7feb6000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x3e000",
+        "emergency": "false",
+        "index": "26",
+        "kind": "5",
+        "outcome": "ok",
+        "seq": "28",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7fef4000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x84000",
+        "emergency": "false",
+        "index": "27",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "29",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x7ff78000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x88000",
+        "emergency": "false",
+        "index": "28",
+        "kind": "3",
+        "outcome": "ok",
+        "seq": "30",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0x80000000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x3e8000",
+        "emergency": "false",
+        "index": "29",
+        "kind": "7",
+        "outcome": "ok",
+        "seq": "31",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0xe0000000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x10000000",
+        "emergency": "false",
+        "index": "30",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "32",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0xffc00000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x400000",
+        "emergency": "false",
+        "index": "31",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "33",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_region",
+      "fields": {
+        "base": "0xfd00000000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x300000000",
+        "emergency": "false",
+        "index": "32",
+        "kind": "1",
+        "outcome": "ok",
+        "seq": "34",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.acpi_locator",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "outcome": "ok",
+        "physical": "0x7f77e014",
+        "seq": "35",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "table_validated": "false",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x794d0000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x9a5000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Kernel",
+        "retained": "true",
+        "seq": "36",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x79e75000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x1f69e8",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "ExecutableFile",
+        "retained": "true",
+        "seq": "37",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x800000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x8000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "38",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x80b000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x1000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "39",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x811000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0xef000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "40",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x900000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0xe80000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "41",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x794a8000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x28000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "42",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x794d0000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x9a5000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "43",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x79e75000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x1f7000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "44",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7bb6c000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0xbd000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "45",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7e120000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x921000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "46",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7ea41000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0xc1000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "47",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7eb02000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x9eb000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "48",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f4ed000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x100000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "49",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f5ed000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x100000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "50",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f6ed000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x80000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "51",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f76d000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x12000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "52",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f77f000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x80000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "53",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f7ff000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x6b1000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "54",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7feb0000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x4000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "55",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7feb4000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x2000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "56",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7feb6000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x3e000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "LoaderLive",
+        "retained": "true",
+        "seq": "57",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7fef4000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x84000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "58",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7ff78000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x88000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "59",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x80000000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x3e8000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "60",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0xe0000000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x10000000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "61",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0xffc00000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x400000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "62",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0xfd00000000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x300000000",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Firmware",
+        "retained": "true",
+        "seq": "63",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.reservation",
+      "fields": {
+        "base": "0x7f77e014",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "bytes": "0x24",
+        "emergency": "false",
+        "outcome": "ok",
+        "reason": "Acpi",
+        "retained": "true",
+        "seq": "64",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "summary",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.exceptions_ready",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "double_base": "0xffffffff8005c000",
+        "double_ist": "1",
+        "emergency": "false",
+        "guards": "false",
+        "idt_entries": "256",
+        "if": "false",
+        "nmi_base": "0xffffffff80082000",
+        "nmi_ist": "2",
+        "outcome": "ok",
+        "runtime_base": "0xffffffff8006e000",
+        "seq": "65",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stack_bytes": "65536",
+        "stage": "exceptions",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.memory_switch",
+      "fields": {
+        "after": "0x79574000",
+        "before": "0x7bb95000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "eligible_frames": "509126",
+        "emergency": "false",
+        "kernel_pages": "2463",
+        "mapped_direct_frames": "509126",
+        "outcome": "ok",
+        "physical_limit": "0x100000000",
+        "reclaimed_bytes": "0",
+        "seq": "66",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "memory",
+        "table_capacity": "2304",
+        "table_pages": "1009",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.frame_test",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "index": "0",
+        "outcome": "ok",
+        "physical": "0x1000",
+        "reserved": "false",
+        "seq": "67",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "memory",
+        "unique": "true",
+        "version": "5",
+        "zeroed": "true"
+      }
+    },
+    {
+      "event": "m1.frame_test",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "index": "1",
+        "outcome": "ok",
+        "physical": "0x2000",
+        "reserved": "false",
+        "seq": "68",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "memory",
+        "unique": "true",
+        "version": "5",
+        "zeroed": "true"
+      }
+    },
+    {
+      "event": "m1.frame_test",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "index": "2",
+        "outcome": "ok",
+        "physical": "0x3000",
+        "reserved": "false",
+        "seq": "69",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "memory",
+        "unique": "true",
+        "version": "5",
+        "zeroed": "true"
+      }
+    },
+    {
+      "event": "m1.frame_test",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "index": "3",
+        "outcome": "ok",
+        "physical": "0x4000",
+        "reserved": "false",
+        "seq": "70",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "memory",
+        "unique": "true",
+        "version": "5",
+        "zeroed": "true"
+      }
+    },
+    {
+      "event": "m1.frame_test",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "index": "4",
+        "outcome": "ok",
+        "physical": "0x5000",
+        "reserved": "false",
+        "seq": "71",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "memory",
+        "unique": "true",
+        "version": "5",
+        "zeroed": "true"
+      }
+    },
+    {
+      "event": "m1.frame_test",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "index": "5",
+        "outcome": "ok",
+        "physical": "0x6000",
+        "reserved": "false",
+        "seq": "72",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "memory",
+        "unique": "true",
+        "version": "5",
+        "zeroed": "true"
+      }
+    },
+    {
+      "event": "m1.frame_test",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "index": "6",
+        "outcome": "ok",
+        "physical": "0x7000",
+        "reserved": "false",
+        "seq": "73",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "memory",
+        "unique": "true",
+        "version": "5",
+        "zeroed": "true"
+      }
+    },
+    {
+      "event": "m1.frame_test",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "index": "7",
+        "outcome": "ok",
+        "physical": "0x8000",
+        "reserved": "false",
+        "seq": "74",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "memory",
+        "unique": "true",
+        "version": "5",
+        "zeroed": "true"
+      }
+    },
+    {
+      "event": "m1.memory_ready",
+      "fields": {
+        "aliases": "0",
+        "allocated": "0",
+        "batch": "8",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "conflict": "rejected",
+        "cr3": "0x79574000",
+        "direct_audited": "true",
+        "double_free": "rejected",
+        "emergency": "false",
+        "exhaustion": "not-requested",
+        "guards": "6",
+        "image_audited": "true",
+        "invalid_free": "rejected",
+        "invalidation": "passed",
+        "nx": "true",
+        "outcome": "ok",
+        "reuse_zero": "true",
+        "seq": "75",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "memory",
+        "supervisor": "true",
+        "test_quota": "0",
+        "version": "5",
+        "wp": "true"
+      }
+    },
+    {
+      "event": "m1.acpi_ready",
+      "fields": {
+        "apic": "0xfee00000",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "checksums": "true",
+        "emergency": "false",
+        "hpet": "0xfed00000",
+        "ioapic": "0xfec00000",
+        "outcome": "ok",
+        "ranges": "true",
+        "rsdp": "0x7f77e014",
+        "seq": "76",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "tables": "6",
+        "version": "5",
+        "xsdt": "0x7f77d0e8"
+      }
+    },
+    {
+      "event": "m1.timer_calibrated",
+      "fields": {
+        "apic_elapsed": "1256050",
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "cache": "uc",
+        "divide": "16",
+        "emergency": "false",
+        "hpet_ticks": "2000060",
+        "initial": "628006",
+        "outcome": "ok",
+        "period_fs": "10000000",
+        "resolution_ns": "9999997",
+        "seq": "77",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.timer_ready",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "epoch": "kernel",
+        "lvt": "timer-only",
+        "outcome": "ok",
+        "pic": "masked",
+        "resolution_ns": "9999997",
+        "seq": "78",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "spurious": "255",
+        "stage": "timer",
+        "ticks": "0",
+        "uptime_ns": "0",
+        "vector": "64",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "0",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "79",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "1",
+        "uptime_ns": "9999997",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "1",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "80",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "2",
+        "uptime_ns": "19999994",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "2",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "81",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "3",
+        "uptime_ns": "29999991",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "3",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "82",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "4",
+        "uptime_ns": "39999988",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "4",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "83",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "5",
+        "uptime_ns": "49999985",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "5",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "84",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "6",
+        "uptime_ns": "59999982",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "6",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "85",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "7",
+        "uptime_ns": "69999979",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "7",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "86",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "8",
+        "uptime_ns": "79999976",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "8",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "87",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "9",
+        "uptime_ns": "89999973",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "9",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "88",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "10",
+        "uptime_ns": "99999970",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "10",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "89",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "11",
+        "uptime_ns": "109999967",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "11",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "90",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "12",
+        "uptime_ns": "119999964",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "12",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "91",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "13",
+        "uptime_ns": "129999961",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "13",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "92",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "14",
+        "uptime_ns": "139999958",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "14",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "93",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "15",
+        "uptime_ns": "149999955",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "15",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "94",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "16",
+        "uptime_ns": "159999952",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "16",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "95",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "17",
+        "uptime_ns": "169999949",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "17",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "96",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "18",
+        "uptime_ns": "179999946",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "18",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "97",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "19",
+        "uptime_ns": "189999943",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "19",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "98",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "20",
+        "uptime_ns": "199999940",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "20",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "99",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "21",
+        "uptime_ns": "209999937",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "21",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "100",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "22",
+        "uptime_ns": "219999934",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "22",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "101",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "23",
+        "uptime_ns": "229999931",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "23",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "102",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "24",
+        "uptime_ns": "239999928",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "24",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "103",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "25",
+        "uptime_ns": "249999925",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "25",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "104",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "26",
+        "uptime_ns": "259999922",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "26",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "105",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "27",
+        "uptime_ns": "269999919",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "27",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "106",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "28",
+        "uptime_ns": "279999916",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "28",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "107",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "29",
+        "uptime_ns": "289999913",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "29",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "108",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "30",
+        "uptime_ns": "299999910",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "30",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "109",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "31",
+        "uptime_ns": "309999907",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "31",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "110",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "32",
+        "uptime_ns": "319999904",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "32",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "111",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "33",
+        "uptime_ns": "329999901",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "33",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "112",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "34",
+        "uptime_ns": "339999898",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "34",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "113",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "35",
+        "uptime_ns": "349999895",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "35",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "114",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "36",
+        "uptime_ns": "359999892",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "36",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "115",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "37",
+        "uptime_ns": "369999889",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "37",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "116",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "38",
+        "uptime_ns": "379999886",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "38",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "117",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "39",
+        "uptime_ns": "389999883",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "39",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "118",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "40",
+        "uptime_ns": "399999880",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "40",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "119",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "41",
+        "uptime_ns": "409999877",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "41",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "120",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "42",
+        "uptime_ns": "419999874",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "42",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "121",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "43",
+        "uptime_ns": "429999871",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "43",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "122",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "44",
+        "uptime_ns": "439999868",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "44",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "123",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "45",
+        "uptime_ns": "449999865",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "45",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "124",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "46",
+        "uptime_ns": "459999862",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "46",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "125",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "47",
+        "uptime_ns": "469999859",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "47",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "126",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "48",
+        "uptime_ns": "479999856",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "48",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "127",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "49",
+        "uptime_ns": "489999853",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "49",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "128",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "50",
+        "uptime_ns": "499999850",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "50",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "129",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "51",
+        "uptime_ns": "509999847",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "51",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "130",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "52",
+        "uptime_ns": "519999844",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "52",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "131",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "53",
+        "uptime_ns": "529999841",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "53",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "132",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "54",
+        "uptime_ns": "539999838",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "54",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "133",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "55",
+        "uptime_ns": "549999835",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "55",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "134",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "56",
+        "uptime_ns": "559999832",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "56",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "135",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "57",
+        "uptime_ns": "569999829",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "57",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "136",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "58",
+        "uptime_ns": "579999826",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "58",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "137",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "59",
+        "uptime_ns": "589999823",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "59",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "138",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "60",
+        "uptime_ns": "599999820",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "60",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "139",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "61",
+        "uptime_ns": "609999817",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "61",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "140",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "62",
+        "uptime_ns": "619999814",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "62",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "141",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "63",
+        "uptime_ns": "629999811",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "63",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "142",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "64",
+        "uptime_ns": "639999808",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "64",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "143",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "65",
+        "uptime_ns": "649999805",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "65",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "144",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "66",
+        "uptime_ns": "659999802",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "66",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "145",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "67",
+        "uptime_ns": "669999799",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "67",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "146",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "68",
+        "uptime_ns": "679999796",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "68",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "147",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "69",
+        "uptime_ns": "689999793",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "69",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "148",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "70",
+        "uptime_ns": "699999790",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "70",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "149",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "71",
+        "uptime_ns": "709999787",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "71",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "150",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "72",
+        "uptime_ns": "719999784",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "72",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "151",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "73",
+        "uptime_ns": "729999781",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "73",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "152",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "74",
+        "uptime_ns": "739999778",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "74",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "153",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "75",
+        "uptime_ns": "749999775",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "75",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "154",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "76",
+        "uptime_ns": "759999772",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "76",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "155",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "77",
+        "uptime_ns": "769999769",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "77",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "156",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "78",
+        "uptime_ns": "779999766",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "78",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "157",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "79",
+        "uptime_ns": "789999763",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "79",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "158",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "80",
+        "uptime_ns": "799999760",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "80",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "159",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "81",
+        "uptime_ns": "809999757",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "81",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "160",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "82",
+        "uptime_ns": "819999754",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "82",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "161",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "83",
+        "uptime_ns": "829999751",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "83",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "162",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "84",
+        "uptime_ns": "839999748",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "84",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "163",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "85",
+        "uptime_ns": "849999745",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "85",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "164",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "86",
+        "uptime_ns": "859999742",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "86",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "165",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "87",
+        "uptime_ns": "869999739",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "87",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "166",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "88",
+        "uptime_ns": "879999736",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "88",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "167",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "89",
+        "uptime_ns": "889999733",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "89",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "168",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "90",
+        "uptime_ns": "899999730",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "90",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "169",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "91",
+        "uptime_ns": "909999727",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "91",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "170",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "92",
+        "uptime_ns": "919999724",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "92",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "171",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "93",
+        "uptime_ns": "929999721",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "93",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "172",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "94",
+        "uptime_ns": "939999718",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "94",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "173",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "95",
+        "uptime_ns": "949999715",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "95",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "174",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "96",
+        "uptime_ns": "959999712",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "96",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "175",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "97",
+        "uptime_ns": "969999709",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "97",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "176",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "98",
+        "uptime_ns": "979999706",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "98",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "177",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "99",
+        "uptime_ns": "989999703",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.clock_sample",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "continuation": "true",
+        "emergency": "false",
+        "index": "99",
+        "outcome": "ok",
+        "registers": "true",
+        "seq": "178",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "timer",
+        "ticks": "100",
+        "uptime_ns": "999999700",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.timer_progress",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "changes": "100",
+        "emergency": "false",
+        "halts": "100",
+        "outcome": "ok",
+        "reads": "100",
+        "registers": "true",
+        "seq": "179",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "spurious": "0",
+        "stage": "timer",
+        "ticks": "100",
+        "uptime_ns": "999999700",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.boot_complete",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "outcome": "ok",
+        "reclaimed_bytes": "0",
+        "seq": "180",
+        "session": "add50b0c8b8001eb9b48fbb5226a278f3163a6a0487d21575fdf6c4dec188f16",
+        "session_origin": "host",
+        "stage": "boot",
+        "version": "5"
+      }
+    }
+  ],
+  "rejected": false,
+  "schema_version": 5,
+  "timer_ready": true,
+  "validated": true
+}

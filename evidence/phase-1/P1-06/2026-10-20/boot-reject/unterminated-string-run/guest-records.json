@@ -1,0 +1,41 @@
+{
+  "complete": false,
+  "exceptions_ready": false,
+  "fatal": false,
+  "memory_ready": false,
+  "records": [
+    {
+      "event": "m1.kernel_entry",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "fixture": "unterminated-string",
+        "outcome": "ok",
+        "seq": "0",
+        "session": "541c01387070f80894530c8e4738e647dcb329b8d62248e35059d9c9033da544",
+        "session_origin": "host",
+        "stage": "entry",
+        "version": "5"
+      }
+    },
+    {
+      "event": "m1.boot_rejected",
+      "fields": {
+        "build": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+        "emergency": "false",
+        "field": "executable_path",
+        "outcome": "rejected",
+        "reason": "unterminated",
+        "seq": "1",
+        "session": "541c01387070f80894530c8e4738e647dcb329b8d62248e35059d9c9033da544",
+        "session_origin": "host",
+        "stage": "metadata",
+        "version": "5"
+      }
+    }
+  ],
+  "rejected": true,
+  "schema_version": 5,
+  "timer_ready": false,
+  "validated": false
+}

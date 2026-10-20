@@ -168,6 +168,7 @@ pub enum Permission {
     ReadExecute,
     ReadOnly,
     ReadWrite,
+    Device,
 }
 impl Permission {
     pub fn bits(self) -> u64 {
@@ -176,6 +177,7 @@ impl Permission {
                 Self::ReadExecute => 0,
                 Self::ReadOnly => NX,
                 Self::ReadWrite => WRITE | NX,
+                Self::Device => WRITE | NX | 0x18, // PAT index 3, verified UC by adapter
             }
     }
 }

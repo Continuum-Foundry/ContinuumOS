@@ -21,11 +21,16 @@ opcode, non-present read, Rust panic and an invalid opcode with the logger gate
 held. Exact symbolized contexts and exit 37 are required. P1-05 adds T03 memory
 ownership, zeroing/reuse, checked mapping and actual guard/RO/NX/double-fault cases;
 see its [runbook and acceptance status](phase-1/memory-ownership-runbook.md).
-This extends R01/R03/R17/R18 and early R10 groundwork. Process containment,
-interrupt/timekeeping and broader M1 acceptance remain later gates.
+This extends R01/R03/R17/R18 and early R10 groundwork. Process containment and
+broader M1 acceptance remain later gates. P1-06 adds T01/T02/T04 and
+R01/R03/R17/R18 evidence through [accepted timer/uptime tests](../../evidence/phase-1/P1-06/2026-10-20/README.md):
+real delivery/acknowledgement, 100 monotonic reads, fresh epochs, masks,
+register/DF sentinels, halt continuations and post-delivery diagnostics. This
+supports early R09/R10 groundwork without measuring performance or completing
+isolation. P1-07 remains open.
 
 For M1's bounded subset, use the [Phase 1 story acceptance matrix](phase-1/07-phase-1-acceptance.md).
-Its later guest gates remain unrun. [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
+Final M1 acceptance remains unrun. [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
 pass version/capability/hash checks and rejection tests; this adds no ISO boot result.
 
 ## Requirement matrix

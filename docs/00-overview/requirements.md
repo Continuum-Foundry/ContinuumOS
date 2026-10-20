@@ -122,3 +122,5 @@ extends R01/R03/R17/R18 and early R10 evidence with owned CR3 mappings, frame
 reservation/zeroing/reuse, enforced WP/NX, guards and actual double-fault/IST entry.
 It does not establish user isolation, a general heap, measured desktop efficiency
 or complete M1 readiness.
+
+P1-06's [accepted timer baseline](../../evidence/phase-1/P1-06/2026-10-20/README.md) extends R01/R03/R17/R18 evidence with validated ACPI/device mappings, returning interrupts, calibrated delivered-tick uptime and idle continuation. Fresh-epoch and failure cases are retained. R09/R10 remain early groundwork; no measured performance, isolation, scheduler, wall-time or live-update guarantee follows.

@@ -4,6 +4,7 @@
 mod boot;
 mod exceptions;
 mod paging;
+mod timer;
 use continuum_kernel::{BootInfoV1, Error, Text, identity};
 use core::{
     arch::asm,
@@ -87,8 +88,8 @@ fn test_exit(value: u32) -> ! {
     }
     halt()
 }
-// Single CPU with IF clear. Copy state before formatting; no mutable reference
-// into diagnostic state remains live while output is attempted.
+// Single CPU. Timer/spurious handlers never log or touch this state. Copy it
+// before formatting; no reference into diagnostic state survives output.
 #[derive(Clone, Copy)]
 struct LogState {
     session: Text<65>,
@@ -132,6 +133,9 @@ fn record(event: &str, stage: &str, outcome: &str, detail: fmt::Arguments<'_>) {
     LOG_BUSY.store(false, Ordering::SeqCst);
 }
 fn fatal(event: &str, stage: &str, detail: fmt::Arguments<'_>) -> ! {
+    unsafe {
+        asm!("cli", options(nomem, nostack));
+    }
     // A second reporting fault never acquires a lock or recursively formats.
     if FATAL_BUSY.swap(true, Ordering::SeqCst) {
         let _ = serial(b"\nm1.emergency_failed\n");
@@ -166,7 +170,7 @@ fn emit(event: &str, stage: &str, outcome: &str, emergency: bool, detail: fmt::A
         bytes: [0; 512],
         len: 0,
     };
-    if write!(&mut line, "{event} version=4 build={} session={session} session_origin=host seq={} stage={stage} outcome={outcome} emergency={emergency} {detail}\n",
+    if write!(&mut line, "{event} version=5 build={} session={session} session_origin=host seq={} stage={stage} outcome={outcome} emergency={emergency} {detail}\n",
         env!("CONTINUUM_BUILD_ID"), state.sequence).is_err() || !serial(&line.bytes[..line.len]) {
         failure_exit();
     }
@@ -227,6 +231,7 @@ pub extern "C" fn kernel_entry() -> ! {
     if fixture != "normal"
         && !(cfg!(feature = "exception-test") && exceptions::mode(fixture).is_some())
         && !(cfg!(feature = "memory-test") && paging::mode(fixture).is_some())
+        && !(cfg!(feature = "timer-test") && timer::mode(fixture).is_some())
     {
         reject(continuum_kernel::error("fixture", "disabled"));
     }
@@ -328,6 +333,7 @@ pub extern "C" fn kernel_entry() -> ! {
     exceptions::start(
         exceptions::mode(fixture)
             .or_else(|| paging::mode(fixture))
+            .or_else(|| timer::mode(fixture))
             .unwrap_or(0),
     )
 }

@@ -39,7 +39,7 @@ P1-03 adds [checked owned metadata and correlated boot records](phase-1/boot-met
 with retained acceptance evidence. P1-04 adds
 [fatal exception diagnostics](phase-1/exception-diagnostics-runbook.md).
 P1-05 implements [owned frames/mappings and guards](phase-1/memory-ownership-runbook.md);
-check its acceptance review. P1-06/P1-07 remain plans; M1 is incomplete.
+check its acceptance review. P1-06 [interrupt/timekeeping acceptance](../../evidence/phase-1/P1-06/2026-10-20/README.md) passes on the pinned single-core profile. P1-07 remains open; M1 is incomplete.
 
 Implement boot validation, serial output, framebuffer metadata, owned paging,
 exception handling, physical allocator and interrupt/timer baseline. Build UEFI ISO.

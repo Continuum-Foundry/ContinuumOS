@@ -1,4 +1,4 @@
-//! Strict version-4 guest record assertions. Firmware/loader output is separate.
+//! Strict version-5 guest record assertions. Firmware/loader output is separate.
 use super::process::LIMIT;
 use crate::Result;
 use serde_json::{Value, json};
@@ -21,6 +21,7 @@ pub(super) struct Progress {
     pub exceptions: bool,
     pub fatal: bool,
     pub memory: bool,
+    pub timer: bool,
     pub records: Vec<Value>,
 }
 impl Progress {
@@ -43,6 +44,14 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
     let mut armed = None;
     let mut usable = Vec::new();
     let mut reserved_ranges = Vec::new();
+    let mut physical_regions = Vec::new();
+    let mut discovery = false;
+    let mut calibrated = None;
+    let mut timer_ready = false;
+    let mut samples = 0;
+    let mut last_ticks = 0u64;
+    let mut last_ns = 0u64;
+    let mut masked = false;
     for line in serial.split_inclusive(|b| *b == b'\n') {
         if !line.starts_with(b"m1.") {
             continue;
@@ -88,7 +97,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
             )
             .map_err(|_| format!("Invalid hexadecimal guest field {key}"))
         };
-        if get("version")? != "4"
+        if get("version")? != "5"
             || get("build")? != expected.build
             || get("session")? != expected.session
             || get("session_origin")? != "host"
@@ -191,6 +200,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                             return Err("Memory index mismatch".into());
                         }
                         regions += 1;
+                        physical_regions.push((hex("base")?, hex("bytes")?, number("kind")?));
                         if number("kind")? == 0 {
                             usable.push((hex("base")?, hex("bytes")?));
                         }
@@ -405,6 +415,172 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                 }
                 armed = Some(target);
             }
+            "m1.acpi_ready" => {
+                let devices = [hex("apic")?, hex("ioapic")?, hex("hpet")?];
+                for (i, &d) in devices.iter().enumerate() {
+                    if d == 0
+                        || d % 4096 != 0
+                        || d.checked_add(4096).is_none_or(|e| e > 1u64 << 32)
+                        || devices[..i].contains(&d)
+                        || physical_regions
+                            .iter()
+                            .any(|&(b, n, k)| k != 1 && d < b + n && b < d + 4096)
+                    {
+                        return Err("Unsafe MMIO discovery".into());
+                    }
+                }
+                if !p.memory
+                    || discovery
+                    || stage != "timer"
+                    || outcome != "ok"
+                    || get("checksums")? != "true"
+                    || get("ranges")? != "true"
+                    || number("tables")? == 0
+                    || number("tables")? > 128
+                    || hex("rsdp")? == 0
+                    || hex("xsdt")? == 0
+                    || hex("apic")? == hex("hpet")?
+                    || hex("apic")? % 4096 != 0
+                    || hex("hpet")? % 4096 != 0
+                {
+                    return Err("Invalid ACPI discovery".into());
+                }
+                discovery = true;
+            }
+            "m1.timer_calibrated" => {
+                let elapsed = number("apic_elapsed")? as u64;
+                let ticks = number("hpet_ticks")? as u64;
+                let fs = number("period_fs")? as u64;
+                if !discovery
+                    || calibrated.is_some()
+                    || timer_ready
+                    || stage != "timer"
+                    || outcome != "ok"
+                    || get("cache")? != "uc"
+                    || number("divide")? != 16
+                    || fs == 0
+                    || fs > 100_000_000
+                    || elapsed == 0
+                    || elapsed >= u32::MAX as u64
+                {
+                    return Err("Invalid timer calibration".into());
+                }
+                let ns = ticks as u128 * fs as u128 / 1_000_000;
+                if !(10_000_000..=100_000_000).contains(&ns) {
+                    return Err("Invalid calibration window".into());
+                }
+                let initial = elapsed as u128 * 10_000_000 / ns;
+                let resolution = ns * initial / elapsed as u128;
+                if initial == 0
+                    || initial > u32::MAX as u128
+                    || number("initial")? as u128 != initial
+                    || number("resolution_ns")? as u128 != resolution
+                    || resolution == 0
+                {
+                    return Err("Incorrect timer conversion".into());
+                }
+                calibrated = Some(resolution as u64);
+            }
+            "m1.timer_ready" => {
+                if calibrated.is_none()
+                    || timer_ready
+                    || stage != "timer"
+                    || outcome != "ok"
+                    || number("vector")? != 64
+                    || number("spurious")? != 255
+                    || number("ticks")? != 0
+                    || number("uptime_ns")? != 0
+                    || Some(number("resolution_ns")? as u64) != calibrated
+                    || get("epoch")? != "kernel"
+                    || get("pic")? != "masked"
+                    || get("lvt")? != "timer-only"
+                {
+                    return Err("Invalid timer epoch".into());
+                }
+                timer_ready = true;
+            }
+            "m1.clock_sample" => {
+                let ticks = number("ticks")? as u64;
+                let ns = number("uptime_ns")? as u64;
+                if !timer_ready
+                    || p.timer
+                    || samples >= 100
+                    || stage != "timer"
+                    || outcome != "ok"
+                    || number("index")? != samples
+                    || ticks <= last_ticks
+                    || ns <= last_ns
+                    || ticks.checked_mul(calibrated.unwrap()) != Some(ns)
+                    || get("continuation")? != "true"
+                    || get("registers")? != "true"
+                {
+                    return Err("Invalid monotonic timer sample".into());
+                }
+                samples += 1;
+                last_ticks = ticks;
+                last_ns = ns;
+            }
+            "m1.timer_masked" => {
+                let before = number("before")? as u64;
+                let after = number("after")? as u64;
+                let resumed = number("resumed")? as u64;
+                if expected.fixture != "timer-masked"
+                    || samples != 100
+                    || masked
+                    || p.timer
+                    || stage != "timer"
+                    || outcome != "ok"
+                    || before < last_ticks
+                    || before != after
+                    || resumed <= after
+                    || number("hpet_ticks")? == 0
+                    || get("responsive")? != "true"
+                {
+                    return Err("Invalid timer masking interval".into());
+                }
+                last_ticks = resumed;
+                masked = true;
+            }
+            "m1.timer_progress" => {
+                let ticks = number("ticks")? as u64;
+                let ns = number("uptime_ns")? as u64;
+                if !timer_ready
+                    || p.timer
+                    || samples != 100
+                    || ticks < 100
+                    || ticks < last_ticks
+                    || ns < last_ns
+                    || ticks.checked_mul(calibrated.unwrap()) != Some(ns)
+                    || stage != "timer"
+                    || outcome != "ok"
+                    || number("reads")? != 100
+                    || number("changes")? != 100
+                    || number("halts")? != 100
+                    || get("registers")? != "true"
+                    || (expected.fixture == "timer-masked" && !masked)
+                {
+                    return Err("Missing timer progress/idle evidence".into());
+                }
+                number("spurious")?;
+                p.timer = true;
+            }
+            "m1.platform_rejected" => {
+                let want = match expected.fixture {
+                    "acpi-corrupt" => ("acpi", "checksum"),
+                    "timer-unsupported" => ("hpet", "missing"),
+                    "timer-calibration" => ("timer", "calibration"),
+                    _ => return Err("Unexpected platform rejection".into()),
+                };
+                if !p.memory
+                    || timer_ready
+                    || stage != "timer"
+                    || outcome != "rejected"
+                    || (get("field")?, get("reason")?) != want
+                {
+                    return Err("Wrong platform rejection".into());
+                }
+                p.rejected = true;
+            }
             "m1.exception" | "m1.panic" => {
                 let rip = expected.fault_rip.ok_or("Unexpected fatal diagnostic")?;
                 let panic = expected.fixture == "panic";
@@ -414,6 +590,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || (!double_fault && hex("rip")? != rip)
                     || event != if panic { "m1.panic" } else { "m1.exception" }
                     || stage != if panic { "panic" } else { "exceptions" }
+                    || (expected.fixture == "timer-exception" && !p.timer)
                 {
                     return Err("Wrong fatal context or symbolized RIP".into());
                 }
@@ -451,7 +628,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                         || hex("error")? != err
                         || hex("address")? != address
                         || hex("cs")? != 8
-                        || hex("flags")? & 0x200 != 0
+                        || (hex("flags")? & 0x200 != 0) != (expected.fixture == "timer-exception")
                     {
                         return Err("Wrong exception vector/error/address/privilege".into());
                     }
@@ -472,6 +649,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
             }
             "m1.boot_complete" => {
                 if !p.memory
+                    || !p.timer
                     || expected.fault_rip.is_some()
                     || stage != "boot"
                     || outcome != "ok"
@@ -505,7 +683,9 @@ pub(super) fn assertions(
     }
     let exit = if expected.fault_rip.is_some() {
         37
-    } else if expected.rejection.is_some() {
+    } else if expected.rejection.is_some()
+        || ["acpi-corrupt", "timer-unsupported", "timer-calibration"].contains(&expected.fixture)
+    {
         35
     } else {
         33
@@ -521,7 +701,7 @@ mod tests {
     use super::*;
     fn line(event: &str, seq: usize, stage: &str, outcome: &str, detail: &str) -> String {
         format!(
-            "{event} version=4 build=abc session=def session_origin=host seq={seq} stage={stage} outcome={outcome} emergency=false {detail}\n"
+            "{event} version=5 build=abc session=def session_origin=host seq={seq} stage={stage} outcome={outcome} emergency=false {detail}\n"
         )
     }
     fn good() -> String {
@@ -589,7 +769,50 @@ mod tests {
                 "ok",
                 "cr3=0x3000 wp=true nx=true supervisor=true image_audited=true direct_audited=true guards=6 aliases=0 batch=8 reuse_zero=true invalid_free=rejected double_free=rejected conflict=rejected invalidation=passed exhaustion=not-requested allocated=0 test_quota=0",
             )
-            + &line("m1.boot_complete", 16, "boot", "ok", "reclaimed_bytes=0")
+            + &line(
+                "m1.acpi_ready",
+                16,
+                "timer",
+                "ok",
+                "rsdp=0x1000 xsdt=0x2000 tables=2 apic=0xfee00000 ioapic=0xfec00000 hpet=0xfed00000 checksums=true ranges=true",
+            )
+            + &line(
+                "m1.timer_calibrated",
+                17,
+                "timer",
+                "ok",
+                "apic_elapsed=1250000 hpet_ticks=2000000 period_fs=10000000 divide=16 initial=625000 resolution_ns=10000000 cache=uc",
+            )
+            + &line(
+                "m1.timer_ready",
+                18,
+                "timer",
+                "ok",
+                "vector=64 spurious=255 ticks=0 uptime_ns=0 resolution_ns=10000000 epoch=kernel pic=masked lvt=timer-only",
+            )
+            + &(0..100)
+                .map(|i| {
+                    line(
+                        "m1.clock_sample",
+                        19 + i,
+                        "timer",
+                        "ok",
+                        &format!(
+                            "index={i} ticks={} uptime_ns={} continuation=true registers=true",
+                            i + 1,
+                            (i + 1) * 10000000
+                        ),
+                    )
+                })
+                .collect::<String>()
+            + &line(
+                "m1.timer_progress",
+                119,
+                "timer",
+                "ok",
+                "ticks=100 uptime_ns=1000000000 reads=100 changes=100 halts=100 registers=true spurious=0",
+            )
+            + &line("m1.boot_complete", 120, "boot", "ok", "reclaimed_bytes=0")
     }
     #[test]
     fn rejects_false_or_incomplete_success() {
@@ -606,7 +829,7 @@ mod tests {
             good.replace("session=def", "session=other"),
             good.replace("build=abc", "build=other"),
             good.replace("seq=2", "seq=1"),
-            good.replace("version=4", "version=1"),
+            good.replace("version=5", "version=1"),
             good.clone() + &line("m1.panic", 6, "panic", "rejected", "reason=panic"),
             good.clone() + &line("m1.kernel_entry", 6, "entry", "ok", "fixture=normal"),
             good.replace("regions=1", "regions=2"),
@@ -619,6 +842,13 @@ mod tests {
             good.replace("physical=0x17000", "physical=0x2000"),
             good.replace("allocated=0", "allocated=1"),
             good.replace("cr3=0x3000", "cr3=0x4000"),
+            good.replace("resolution_ns=10000000", "resolution_ns=9999999"),
+            good.replace("uptime_ns=1000000000", "uptime_ns=999999999"),
+            good.replace("index=99 ticks=100", "index=99 ticks=99"),
+            good.replace("epoch=kernel", "epoch=host"),
+            good.replace("halts=100", "halts=99"),
+            good.replace("registers=true", "registers=false"),
+            good.replace("ioapic=0xfec00000", "ioapic=0x10000"),
             good.replace("session=def", "session=def session=def"),
             good[..good.len() - 1].into(),
             String::new(),

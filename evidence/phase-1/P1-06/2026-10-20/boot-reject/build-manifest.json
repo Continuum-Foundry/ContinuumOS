@@ -1,0 +1,78 @@
+{
+  "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "3e2f55ac8ab65d736961e95b32c88763d3fb17f1e0f8a01558043bc9471910ec",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "boot-inject",
+  "inspection": {
+    "diagnostic_sites": {
+      "diagnostic_double_site": 18446744071562077499,
+      "diagnostic_guard_site": 18446744071562077474,
+      "diagnostic_invalid_opcode": 18446744071562077061,
+      "diagnostic_nx_page": 18446744071562145792,
+      "diagnostic_page_fault_site": 18446744071562077073,
+      "diagnostic_panic_report": 18446744071562077078,
+      "diagnostic_write_site": 18446744071562077479
+    },
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "kernel_image_bounds": {
+      "all_load_memory_including_bss": true,
+      "end": "0xffffffff809a5000",
+      "load_memory_end": "0xffffffff809a5000",
+      "start": "0xffffffff80000000"
+    },
+    "machine": "x86_64",
+    "relocations": 0,
+    "returning_interrupt_entry": {
+      "df_cleared_before_rust": true,
+      "gprs": 15,
+      "return": "iretq",
+      "sysv_alignment": 16,
+      "vectors": [
+        64,
+        255
+      ]
+    },
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 64517,
+        "flags": 5,
+        "memory_size": 64517,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff80010000",
+        "alignment": 4096,
+        "file_size": 6515,
+        "flags": 4,
+        "memory_size": 6515,
+        "offset": 69632
+      },
+      {
+        "address": "0xffffffff80012000",
+        "alignment": 4096,
+        "file_size": 294232,
+        "flags": 6,
+        "memory_size": 10039296,
+        "offset": 77824
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "9bf4502540e072d7c78e1d9eb76a656e653d7adce6b41851a14df34e9d518d71",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "031118485986a153f30ada5f33f3429becf16f5a",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M .gitignore\n M audit/check-docs.cjs\n M docs/01-research/sources.md\n M docs/02-architecture/boot-and-platform.md\n M docs/02-architecture/kernel-and-execution.md\n M docs/04-decisions/0003-kernel-and-isolation.md\n M docs/04-decisions/README.md\n M docs/05-delivery/phase-1/06-interrupts-and-timekeeping.md\n M docs/05-delivery/phase-1/README.md\n M kernel/Cargo.toml\n M kernel/README.md\n M kernel/src/exceptions.rs\n M kernel/src/lib.rs\n M kernel/src/main.rs\n M kernel/src/memory.rs\n M kernel/src/paging.rs\n M tools/xtask/src/m1/build.rs\n M tools/xtask/src/m1/cases.rs\n M tools/xtask/src/m1/launch.rs\n M tools/xtask/src/m1/observe.rs\n M tools/xtask/src/m1/records.rs\n M tools/xtask/src/main.rs\n?? docs/04-decisions/0017-bootstrap-timekeeping.md\n?? docs/05-delivery/phase-1/interrupts-timekeeping-runbook.md\n?? kernel/src/platform.rs\n?? kernel/src/timer-entry.S\n?? kernel/src/timer.rs\n?? tools/Test-P1-06.ps1"
+}

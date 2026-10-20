@@ -107,6 +107,24 @@ new recipient or standing remote-environment approval is authorized. Geographic
 containment remains unverified; this administrative exception is not legal
 clearance or a finding of U.S.-only handling and does not waive applicable law.
 
+### One-time owner authorization — P1-06, 2026-10-20
+
+The owner instructed: "make pr, i give you an exemption" after completion of
+P1-06 on its local topic branch. This authorizes one push of the completed P1-06
+implementation, sanitized retained evidence, accompanying documentation and this
+authorization record to the existing GitHub
+`origin/codex/p1-06-interrupts-timekeeping`, followed by creation of its pull
+request against `main`, including the prepared PR text and metadata. The unrelated
+pre-existing `.gitignore` edit is excluded.
+
+The push authorization is exhausted by the first successful push containing this
+record; the PR authorization is exhausted by creation of that one pull request.
+The local push guard may be bypassed for that single push invocation only and
+must remain installed afterward. No merge, force push, release, remote build,
+new recipient or standing remote-environment approval is authorized. Geographic
+containment remains unverified; this administrative exception is not legal
+clearance or a finding of U.S.-only handling and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

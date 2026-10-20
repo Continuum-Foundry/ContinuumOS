@@ -42,6 +42,11 @@ Only eligible ordinary RAM has a direct mapping after the switch; kernel aliases
 loader data, framebuffer, modules and ACPI backing are absent. Their owned
 descriptors and physical reservations remain retained. Later code must explicitly
 map validated ACPI/device ranges before use.
+P1-06's [timekeeping runbook](../05-delivery/phase-1/interrupts-timekeeping-runbook.md)
+defines the implemented ACPI-only RO copy window, bounded table parsers and three
+supervisor UC device mappings. Discovery does not reclaim firmware/loader memory.
+It supports the pinned single-IOAPIC xAPIC/64-bit HPET route and rejects unsupported
+table/cache/controller/calibration inputs. Check its acceptance status separately.
 The demonstrated loader remains pinned at base revision 3 with four-level paging.
 Required handoff responses fail closed; optional framebuffer/module/ACPI absence
 is explicit. Owned copies and retained backing reservations are separate: no

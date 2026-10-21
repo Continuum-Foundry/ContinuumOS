@@ -131,3 +131,8 @@ for R01/R02/R03/R17/R18. Its [complete local review passes](../../evidence/phase
 kernels match; both actual ISOs boot and differ only in the declared session field.
 The earlier GPT and host-execution failures remain preserved. This does not complete
 R16 release reproducibility or any broader product requirement.
+
+P2-01's [local prerequisite acceptance](../../evidence/phase-2/P2-01/2026-10-20/README.md)
+adds R03/R18 host infrastructure and early R09/R16 profile/provenance setup.
+Fresh offline compile/link/signing/doctor checks and 23 headless lifecycle cases
+do not establish rendered UI, reload continuity or guest performance.

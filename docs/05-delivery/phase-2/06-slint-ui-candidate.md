@@ -1,0 +1,62 @@
+# P2-06 — Build the bounded Slint UI candidate
+
+Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Depends on: P2-04 Done. Suggested labels: `phase-2`, `slint`, `comparison`.
+Backlog: B07/B08 Slint candidate, B36. Requirements: R08/R09/R15/R18;
+hosted R04 feasibility. Test families: hosted T05/T09/T10.
+
+## User story
+
+As a toolkit reviewer, I need the same workflows implemented with Slint so a
+reusable toolkit can compete on evidence with the custom candidate.
+
+## Implementation scope
+
+1. Inspect the locally pinned Slint candidate and current authoritative API/license
+   material before relying on it. Record exact version, checksums, feature closure,
+   host build/compiler dependencies and shipped runtime dependencies separately.
+   Any dependency acquisition follows the repository's existing handling rules.
+2. Build the P2-02 scenes using the same P2-03 state/action model and P2-04 fonts and
+   script corpus. Use software rendering and a small platform/window adapter for
+   the shared surface/input boundary. Do not depend on guest winit/LinuxKMS/browser
+   services or require Slint to export the custom SceneCommit tree.
+3. Identify allocation, time/event-loop, font, input, clipboard and semantics hooks;
+   map toolkit focus/semantic identities to logical IDs. Audit single-thread-only
+   assumptions and keep rendering callbacks outside IRQ/kernel execution.
+4. Test hosted token/layout pathways, including interpreter-backed preview only if
+   supported by the exact configuration. Keep hosted interpreter, hosted compiled
+   UI and freestanding AOT feature sets distinct. Include a compiled behavior variant
+   for comparison; preview is not evidence of native behavior replacement.
+5. Add the same counters and reference scenarios as the custom candidate. Inventory
+   effect/script/semantic limitations, adapter effort and a concrete completion path.
+   Record intended OS/API distribution and applicable license options/open questions;
+   do not infer license suitability merely from use on a custom OS.
+
+## Acceptance criteria
+
+- [ ] Slint renders and operates the shared corpus through the common model/surface
+  boundary using pinned software-renderer inputs and explicit host-only adapters.
+- [ ] Text, focus, semantics, scale, rich-effect and fallback outcomes use the same
+  rules as the custom candidate; unsupported cases remain in the comparison table.
+- [ ] Hosted interpreter/AOT and proposed guest feature configurations are separately
+  identified with no transitive host dependency mislabeled as guest-compatible.
+- [ ] Tokens/layout and compiled-behavior pathways are identified with real API tests
+  or recorded failures; no guest interpreter or live replacement result is implied.
+- [ ] Metrics, platform hooks, maintenance cost and distribution-term questions are
+  reproducible inputs to P2-07/P2-08 and the provisional selection gate.
+
+## Tests and evidence
+
+Run identical scene/input/text/semantics fixtures, missing resources, invalid layout,
+focus removal and bounded list/caches. Retain feature graphs, platform hook mappings,
+selected images, raw counters and adapter failure traces. State when semantics are
+toolkit-native, adapter-derived or unavailable; screenshots cannot fill that gap.
+
+## Exclusions and handoff
+
+No full Slint port into the kernel, guest runtime claim or automatic license choice.
+If the candidate is infeasible, preserve a bounded reproducible rejection for P2-09;
+do not silently weaken requirements to obtain a comparison pass. Sources:
+[UI comparison](../../01-research/ui-toolkit-comparison.md),
+[ADR-0011](../../04-decisions/0011-ui-authoring.md).
+Apply the [epic definition of done](README.md#evidence-and-story-completion).

@@ -1,0 +1,200 @@
+{
+  "forced_timeout": 1,
+  "schema_version": 1,
+  "reaped": 15,
+  "reviewer": "Codex local self-review; not independent approval",
+  "successful": 13,
+  "launched": 15,
+  "timezone": "America/New_York",
+  "acceptance": "build/m2/P2-01/acceptance-1792552927687",
+  "host_tests": 15,
+  "story": "P2-01",
+  "baseline": "build/m2/P2-01/prerequisites-1792553076270",
+  "cases": [
+    {
+      "outcome": "exited-zero",
+      "sha256": "036d13052809b34c6fc94f51690c23570192319df61d19c786d419ff957abaa8",
+      "case": "m2-comparison-hd-1.0",
+      "cleanup": "reaped",
+      "retained": "cases/m2-comparison-hd-1.0.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "21af2e67f65fcf7e09bdeb2e31ab97cc7da524d9d4572e764eca5d0185ca2366",
+      "case": "m2-comparison-hd-1.5",
+      "cleanup": "reaped",
+      "retained": "cases/m2-comparison-hd-1.5.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "79d98bb0dbe78e14335b4f581e50a087cac6f90f28e93708fb28989cc1ba8ef0",
+      "case": "m2-comparison-hd-2.0",
+      "cleanup": "reaped",
+      "retained": "cases/m2-comparison-hd-2.0.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "614fb0764c8dfbe9618bbf98149c784612cc8fa2301a9b1b6d6bb8679c4ae8e3",
+      "case": "m2-comparison-full-hd-1.0",
+      "cleanup": "reaped",
+      "retained": "cases/m2-comparison-full-hd-1.0.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "3da08630a03054b32743b76415f647bc7766e25f02ecd6911a39b9c0314859a1",
+      "case": "m2-comparison-full-hd-1.5",
+      "cleanup": "reaped",
+      "retained": "cases/m2-comparison-full-hd-1.5.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "599aade41fc1c6de43a9fe0d22ae8479cc2e665eaaff00dea2cbe76da31022fd",
+      "case": "m2-comparison-full-hd-2.0",
+      "cleanup": "reaped",
+      "retained": "cases/m2-comparison-full-hd-2.0.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "5a7ae6dd11f4d9efe2cf3219a2a4df245d5d56fa95a85ca27b76281200c64834",
+      "case": "m2-diagnostic-hd-1.0",
+      "cleanup": "reaped",
+      "retained": "cases/m2-diagnostic-hd-1.0.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "a13b429011348f4254a8dc6176f683cfdf274d041529757d6de6be603e08f088",
+      "case": "m2-diagnostic-hd-1.5",
+      "cleanup": "reaped",
+      "retained": "cases/m2-diagnostic-hd-1.5.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "25eb169e2c32aab5e1fc493ac5c7d0c5b442cec634c09321a81cbfec60d35221",
+      "case": "m2-diagnostic-hd-2.0",
+      "cleanup": "reaped",
+      "retained": "cases/m2-diagnostic-hd-2.0.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "9d485dd7c802e860d46418fef7d26c2751fb22cf11b94b7b558d083d88ba1588",
+      "case": "m2-diagnostic-full-hd-1.0",
+      "cleanup": "reaped",
+      "retained": "cases/m2-diagnostic-full-hd-1.0.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "f4c5f676c4a2b2d36203ffe4d92dbbb63b34b147efcd46c2b83848fcdba4ff1a",
+      "case": "m2-diagnostic-full-hd-1.5",
+      "cleanup": "reaped",
+      "retained": "cases/m2-diagnostic-full-hd-1.5.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "d9f4ee2b76a64cc07187f9aa75f988fc4177487e9b33cb1851f1a52a64f4873e",
+      "case": "m2-diagnostic-full-hd-2.0",
+      "cleanup": "reaped",
+      "retained": "cases/m2-diagnostic-full-hd-2.0.json"
+    },
+    {
+      "outcome": "exited-nonzero",
+      "sha256": "e349b1ca660aec2d47a520ea7a675a23e76430ba14425f50f7a32dfb807b4afe",
+      "case": "nonzero",
+      "cleanup": "reaped",
+      "retained": "cases/nonzero.json"
+    },
+    {
+      "outcome": "timeout",
+      "sha256": "6f566febb08a614b01b6cd60b43ef6afcab59e1d0040b0dbc9e89c917f4e26e0",
+      "case": "timeout",
+      "cleanup": "reaped",
+      "retained": "cases/timeout.json"
+    },
+    {
+      "outcome": "exited-zero",
+      "sha256": "bac1d25710c84d9ce14a98a32fdea178897fa17c553c3dfb62176abf3821819c",
+      "case": "paths-with-spaces",
+      "cleanup": "reaped",
+      "retained": "cases/paths-with-spaces.json"
+    },
+    {
+      "outcome": "validation-rejected",
+      "sha256": "6df4a6cf684a31a5377465f1752ab1c43424bc1c6a39a0ce62b6bae0d1a749c3",
+      "case": "invalid-scale",
+      "cleanup": "not-launched",
+      "retained": "cases/invalid-scale.json"
+    },
+    {
+      "outcome": "validation-rejected",
+      "sha256": "35c6f7c99c95fdb3b090ea56794bf346795f36d2ef89509751b250bc2f917eed",
+      "case": "invalid-profile",
+      "cleanup": "not-launched",
+      "retained": "cases/invalid-profile.json"
+    },
+    {
+      "outcome": "validation-rejected",
+      "sha256": "5648c7e805a2ac3b5326ea0e8d6f8e07199a2cfb675c5a5ba46ac915abdac1ee",
+      "case": "missing-config",
+      "cleanup": "not-launched",
+      "retained": "cases/missing-config.json"
+    },
+    {
+      "outcome": "validation-rejected",
+      "sha256": "52299a51fa8fc9c746e4966a16bc21a564ff19e7ae7bbde6571e86b7b322281f",
+      "case": "invalid-size",
+      "cleanup": "not-launched",
+      "retained": "cases/invalid-size.json"
+    },
+    {
+      "outcome": "validation-rejected",
+      "sha256": "50577a6db35f558f34f3ce9efaa5ca1d99f20baa7bbe96c8e9dc2c59e98efc99",
+      "case": "missing-input",
+      "cleanup": "not-launched",
+      "retained": "cases/missing-input.json"
+    },
+    {
+      "outcome": "validation-rejected",
+      "sha256": "28088af21cccedd5011b9e2277f19a518bd74e405ffdb45bcd172ec99de36e59",
+      "case": "checksum-mismatch",
+      "cleanup": "not-launched",
+      "retained": "cases/checksum-mismatch.json"
+    },
+    {
+      "outcome": "validation-rejected",
+      "sha256": "6d2378c8f206472fd7903c51fab003ed34114e759bc38f0b56b39a2676e0e0e8",
+      "case": "unknown-field",
+      "cleanup": "not-launched",
+      "retained": "cases/unknown-field.json"
+    },
+    {
+      "outcome": "validation-rejected",
+      "sha256": "1e611e16d019e518b744993a50bef8df168be0a37b9a8fc7d18212905998ec66",
+      "case": "invalid-timeout",
+      "cleanup": "not-launched",
+      "retained": "cases/invalid-timeout.json"
+    }
+  ],
+  "status": "passed",
+  "date": "2026-10-20",
+  "rejected_before_launch": 8,
+  "checks": [
+    "All ten prerequisite commands exit zero",
+    "Current implementation hashes match prerequisite snapshot and M0 inputs",
+    "All 23 case/result hashes and current signed executable hashes verified",
+    "Both build profiles and six resolution/scale configurations checked",
+    "Prelaunch rejection, nonzero exit, timeout and reaping verified",
+    "Pinned Cargo locks unchanged; existing package/notice metadata recorded",
+    "P1-07 review and P1-05/P1-06 boundaries reviewed; no VM or kernel change"
+  ],
+  "limits": [
+    "No window/rendering, UI performance, guest measurement or reload",
+    "Four allocator-dependent final-link probes remain blocked; P2-07 owns closure",
+    "Cached adapter/image/tracing facilities are inventory only; no adoption or new feature graph",
+    "Fonts/corpus/tolerances are P2-02/P2-04 work",
+    "Sandbox certificate-store failure retained; existing signer used outside sandbox"
+  ],
+  "expected_nonzero": 1,
+  "harness_source_sha256": "f9cab441b008dec7b92fe3e4a227cf4e3325245587bcf009e7e03bd224056eab",
+  "retention": "Full runs and logs stay local; selected traces sanitized only for workspace/user paths",
+  "m0_artifacts_verified_from_bytes": true,
+  "review_script_sha256": "d895db62364110881e594ef60684448a95176e2b3dc67ba269af4306799d1725"
+}

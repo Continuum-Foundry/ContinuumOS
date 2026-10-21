@@ -17,7 +17,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Doctor tests failed' }
     $space = Join-Path $run 'source workspace with spaces'
     New-Item -ItemType Directory -Force $space | Out-Null
-    foreach ($part in 'Cargo.toml','Cargo.lock','rust-toolchain.toml','.cargo','tools','kernel','experiments/kernel-link','experiments/userland-link') {
+    foreach ($part in 'Cargo.toml','Cargo.lock','rust-toolchain.toml','.cargo','tools','config','fixtures/m2','kernel','experiments/kernel-link','experiments/userland-link') {
         $destination = Join-Path $space $part
         New-Item -ItemType Directory -Force (Split-Path $destination) | Out-Null
         Copy-Item -LiteralPath (Join-Path $root $part) -Destination $destination -Recurse

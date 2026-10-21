@@ -1,5 +1,6 @@
 mod elf;
 mod m1;
+mod m2;
 
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
@@ -179,6 +180,9 @@ fn build_into(directory: &Path) -> Result<Value> {
         "tools/xtask/Cargo.toml",
         "tools/xtask/src/main.rs",
         "tools/xtask/src/elf.rs",
+        "tools/xtask/src/m2.rs",
+        "config/m2-profiles.json",
+        "fixtures/m2/runner-input.txt",
         "tools/xtask/src/m1.rs",
         "tools/xtask/src/m1/build.rs",
         "tools/xtask/src/m1/cases.rs",
@@ -269,6 +273,8 @@ fn run() -> Result<()> {
         .collect::<Vec<_>>()
         .as_slice()
     {
+        ["hosted", "--config", config, "--profile", profile, "--scale", scale, "--case", case] => m2::execute(config, profile, scale, case),
+        ["hosted-probe", case, input] => m2::probe(case, input),
         ["doctor"] => doctor(false, false),
         ["doctor", "--json"] => doctor(true, false),
         ["doctor", "--profile", "m1"] => doctor(false, true),

@@ -1,0 +1,1460 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-18",
+  "qemu_version": "11.1.0 (v11.1.0-12130-ge470268ff4)",
+  "xorriso_version": "1.5.8.pl02",
+  "limine_version": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "binding": "limine =0.5.0, defaults off; base revision 3; experiments/boot-bindings/Cargo.lock",
+  "vm": {
+    "deadline_ms": 30000,
+    "machine": "pc-q35-11.1",
+    "cpu": "qemu64-v1",
+    "accelerator": "tcg",
+    "vcpus": 1,
+    "ram_mib": 2048,
+    "hpet": true,
+    "local_apic": "CPU APIC capability retained; guest register discovery pending",
+    "secure_boot": false,
+    "firmware_format": "raw pflash: 3653632-byte code + 540672-byte fresh vars = 4 MiB",
+    "arguments": [
+      "-machine",
+      "pc-q35-11.1,hpet=on",
+      "-accel",
+      "tcg",
+      "-cpu",
+      "qemu64-v1,+apic",
+      "-smp",
+      "1",
+      "-m",
+      "2048",
+      "-nic",
+      "none",
+      "-monitor",
+      "none",
+      "-display",
+      "none",
+      "-vga",
+      "std",
+      "-parallel",
+      "none",
+      "-serial",
+      "file:<new-run>/serial.log",
+      "-no-reboot",
+      "-boot",
+      "order=d,strict=on",
+      "-drive",
+      "if=pflash,format=raw,unit=0,readonly=on,file=<locked-code>",
+      "-drive",
+      "if=pflash,format=raw,unit=1,file=<fresh-vars-copy>",
+      "-drive",
+      "file=<exact-iso>,media=cdrom,readonly=on,format=raw"
+    ],
+    "launch_implemented": true,
+    "disabled_endpoints": "QMP/GDB omitted (disabled by default); monitor explicitly none; no networking or shares"
+  },
+  "files": [
+    {
+      "id": "qemu",
+      "path": "work/tools/qemu/qemu-system-x86_64.exe",
+      "bytes": 25457048,
+      "sha256": "47d57a6072e0bb3bd98f87926eb129eb1736dfe818c67b3b81ef7ce4edd0b3cd",
+      "override": "CONTINUUM_QEMU_SYSTEM_X86_64"
+    },
+    {
+      "id": "work\\tools\\qemu\\$PLUGINSDIR\\LangDLL.dll",
+      "path": "work/tools/qemu/$PLUGINSDIR/LangDLL.dll",
+      "bytes": 8704,
+      "sha256": "1a3b738901baf1c82b37c7ee683cc31f2fabb518941eb876e3ef2257ff49653b",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\$PLUGINSDIR\\nsDialogs.dll",
+      "path": "work/tools/qemu/$PLUGINSDIR/nsDialogs.dll",
+      "bytes": 14336,
+      "sha256": "3564ce8b510acfe456f7135e0c1ac1f71cfa39c787909192be8f8ed40dcbe305",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\$PLUGINSDIR\\System.dll",
+      "path": "work/tools/qemu/$PLUGINSDIR/System.dll",
+      "bytes": 28672,
+      "sha256": "54167ae0968e05910ef8dcd8bbc345afe3dad810fd3c9d2d3f47ad4caffc456d",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\brlapi-0.8.dll",
+      "path": "work/tools/qemu/brlapi-0.8.dll",
+      "bytes": 115200,
+      "sha256": "de4dcc2ed566e5f900eac322007a55a39cc51a5e157211df5e4f366e095b965a",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libaom.dll",
+      "path": "work/tools/qemu/libaom.dll",
+      "bytes": 9424346,
+      "sha256": "bc6feb90adf4a423f89b34ae975642024461c2f624019443ca3886309a69f3c3",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libatk-1.0-0.dll",
+      "path": "work/tools/qemu/libatk-1.0-0.dll",
+      "bytes": 159478,
+      "sha256": "e705edd64fc3ba7da51b942e0331d55ebaeebad467d782be6b218be349384ee2",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libavif-16.dll",
+      "path": "work/tools/qemu/libavif-16.dll",
+      "bytes": 335578,
+      "sha256": "47afa7f14e332e220325c8d6fc837064fbc0fdcbfc3901dfc340fbb93102300e",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libbrotlicommon.dll",
+      "path": "work/tools/qemu/libbrotlicommon.dll",
+      "bytes": 143429,
+      "sha256": "ca7bc06ead80259971badf2cd0bfc688db9154dad65f139f49a38b4be9976f97",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libbrotlidec.dll",
+      "path": "work/tools/qemu/libbrotlidec.dll",
+      "bytes": 62461,
+      "sha256": "a142dc6cfa77cb907028aa9426f486f3d8de37855e8db2ae2894147908121881",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libbrotlienc.dll",
+      "path": "work/tools/qemu/libbrotlienc.dll",
+      "bytes": 788364,
+      "sha256": "50c3aca8abcf0d5576f0b62dbd608be285246f8fd1b48ef87d58fa6b8b744e5f",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libbz2-1.dll",
+      "path": "work/tools/qemu/libbz2-1.dll",
+      "bytes": 100964,
+      "sha256": "b79cd3a7102e359ef6324e98966a67939e58ec2b651ae2847cae84a4dfa453f7",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libcacard-0.dll",
+      "path": "work/tools/qemu/libcacard-0.dll",
+      "bytes": 109915,
+      "sha256": "16aadf1283fdcb0c74abb84faaec11dcfdb315e5e073d047273414b11b3d94d6",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libcairo-2.dll",
+      "path": "work/tools/qemu/libcairo-2.dll",
+      "bytes": 1247164,
+      "sha256": "c474166543aed18b389b20122ca2741189504994dafd86cd5ed121e95bd82ce4",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libcairo-gobject-2.dll",
+      "path": "work/tools/qemu/libcairo-gobject-2.dll",
+      "bytes": 35639,
+      "sha256": "faf68e5929b89461ad58c5d26c549cde07bc06b368fb89ace82923df645c9bd5",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libcapstone.dll",
+      "path": "work/tools/qemu/libcapstone.dll",
+      "bytes": 8022840,
+      "sha256": "191098a054c186ecc8e1063f109bef0b07450b48c0ca9bce5d89f23cf2df2f71",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libcrypto-3-x64.dll",
+      "path": "work/tools/qemu/libcrypto-3-x64.dll",
+      "bytes": 5495118,
+      "sha256": "4d2e724eb852f78ec0adbd1b7265325f79f503c9572658a26434f27f0cedb051",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libcurl-4.dll",
+      "path": "work/tools/qemu/libcurl-4.dll",
+      "bytes": 1226963,
+      "sha256": "3d302f9690e810fdfd950254e2f0663d0ff768737f350c602a4ed3a06e9b6b2b",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libdatrie-1.dll",
+      "path": "work/tools/qemu/libdatrie-1.dll",
+      "bytes": 35033,
+      "sha256": "2f784872e6404e57847201fe1e7e591bd5b5be4a319ef38ebcb36014ac7f385d",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libdav1d-7.dll",
+      "path": "work/tools/qemu/libdav1d-7.dll",
+      "bytes": 1931258,
+      "sha256": "29385f5f9b9f8c945eac3366403f529b3bd4bd59aa6eb492e043ffd2d82268c0",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libdb-6.2.dll",
+      "path": "work/tools/qemu/libdb-6.2.dll",
+      "bytes": 1534932,
+      "sha256": "4035b713d0b127c87a6f369950fe9fde052f042438e5a7cf53df0959a8349c90",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libdeflate.dll",
+      "path": "work/tools/qemu/libdeflate.dll",
+      "bytes": 99228,
+      "sha256": "3f3fc3a73bc3623dc93b37bb321c484d3731d93006fd01c0495d15711826eb44",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libEGL_vulkan_secondaries.dll",
+      "path": "work/tools/qemu/libEGL_vulkan_secondaries.dll",
+      "bytes": 261632,
+      "sha256": "fb0fdf92968926680f068cfbdc14dec6547f4a36beee7f1ed93d67ab26d7a51a",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libEGL.dll",
+      "path": "work/tools/qemu/libEGL.dll",
+      "bytes": 261632,
+      "sha256": "da93c851b7e2e1614787dcd59bcebb61126e3905fa8e196ba57de44811ce251b",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libepoxy-0.dll",
+      "path": "work/tools/qemu/libepoxy-0.dll",
+      "bytes": 1771389,
+      "sha256": "8e7d48294d79eb5b1f44cd7c2a637239d8ddcdabaedea12bf9fb7ca919d1a37a",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libexpat-1.dll",
+      "path": "work/tools/qemu/libexpat-1.dll",
+      "bytes": 237567,
+      "sha256": "1ace13a4460a04cccb4b1e532af98a8e4610581f7ed55413a5ccb615e7d1e1ca",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libfdt-1.dll",
+      "path": "work/tools/qemu/libfdt-1.dll",
+      "bytes": 42010,
+      "sha256": "bc6e57d01be355f7ede6576a86cddefab8e61160e4c123bbc1b2802df4a453ef",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libfeature_support.dll",
+      "path": "work/tools/qemu/libfeature_support.dll",
+      "bytes": 326656,
+      "sha256": "f85e6c34d20760180c4e84f926b3321afddd58625b8170078b6853492fdf47fe",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libffi-8.dll",
+      "path": "work/tools/qemu/libffi-8.dll",
+      "bytes": 40945,
+      "sha256": "390e4bf8abd037abd0e1dd1f311606715e43f8efe812e5c5b8775acf2cb2f21e",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libfontconfig-1.dll",
+      "path": "work/tools/qemu/libfontconfig-1.dll",
+      "bytes": 508462,
+      "sha256": "bed1827dbb226483026b2b33127866ce173aa2423d89ae7da6f88d6328792ec9",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libfreetype-6.dll",
+      "path": "work/tools/qemu/libfreetype-6.dll",
+      "bytes": 790651,
+      "sha256": "bbb3e6390ee229c867ef31f10e42a49a61a92e434a11d40c6139a2608ebc6194",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libfribidi-0.dll",
+      "path": "work/tools/qemu/libfribidi-0.dll",
+      "bytes": 156403,
+      "sha256": "84930fd86a3b46b62794a3bbaff21fbbaeaade5ff7cdc70be7f717ad29af87ed",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgcc_s_seh-1.dll",
+      "path": "work/tools/qemu/libgcc_s_seh-1.dll",
+      "bytes": 150998,
+      "sha256": "b37c1770c8ca092700875845b34918803ee6311573eba1c32ff4b1166e4a0e1e",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgdk_pixbuf-2.0-0.dll",
+      "path": "work/tools/qemu/libgdk_pixbuf-2.0-0.dll",
+      "bytes": 362253,
+      "sha256": "de8c9155341167121f1890224a152da4d283753bac74a0325dee770d76ce30ab",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgdk-3-0.dll",
+      "path": "work/tools/qemu/libgdk-3-0.dll",
+      "bytes": 1384574,
+      "sha256": "2deedc5411a5b452f1aa35347984fef6293ac87a17c54a7676a81547b19362fd",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgio-2.0-0.dll",
+      "path": "work/tools/qemu/libgio-2.0-0.dll",
+      "bytes": 1913623,
+      "sha256": "50a134823cd2f5849f3d43889077164a16f5fc79ec8a9f26e8af77ef3e9906ca",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libGLESv1_CM.dll",
+      "path": "work/tools/qemu/libGLESv1_CM.dll",
+      "bytes": 28672,
+      "sha256": "1fa5c6f2d7d6aaf8a48742a44ff2776f7fe388cd2688f1a20afc4e86e171c95e",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libGLESv2_vulkan_secondaries.dll",
+      "path": "work/tools/qemu/libGLESv2_vulkan_secondaries.dll",
+      "bytes": 11610112,
+      "sha256": "145deba3953b135e53ad224b4253f091ad1a28d1ecfc6f275449f245d27d8c92",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libGLESv2_with_capture.dll",
+      "path": "work/tools/qemu/libGLESv2_with_capture.dll",
+      "bytes": 13489664,
+      "sha256": "9682f155f14a51347bc34f865a537b4e7ef5fedcb6177222ec34f8d063de1e6c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libGLESv2.dll",
+      "path": "work/tools/qemu/libGLESv2.dll",
+      "bytes": 11627008,
+      "sha256": "50ec0a8e4b060fa3a965bf922dd244752122c794bff2b0a851a5f4780e254add",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libglib-2.0-0.dll",
+      "path": "work/tools/qemu/libglib-2.0-0.dll",
+      "bytes": 1566649,
+      "sha256": "7b5c19f5540857ec2288323f3b1654cbe5655fc3ea21417a25da69bece489eec",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgmodule-2.0-0.dll",
+      "path": "work/tools/qemu/libgmodule-2.0-0.dll",
+      "bytes": 26748,
+      "sha256": "8dbef9e9647d773433cddfdfba84fd34dd699955c78cceea6ff7d7fc45efc495",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgmp-10.dll",
+      "path": "work/tools/qemu/libgmp-10.dll",
+      "bytes": 679747,
+      "sha256": "37248cda33845e7c5c35a574e57da762dd0a8268f0270d179f30a33746809681",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgnutls-30.dll",
+      "path": "work/tools/qemu/libgnutls-30.dll",
+      "bytes": 2316158,
+      "sha256": "aca67ef2c8429557e9ac3a02ad313e9fdad35a1416972a248f0a205f83d39fbd",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgobject-2.0-0.dll",
+      "path": "work/tools/qemu/libgobject-2.0-0.dll",
+      "bytes": 359475,
+      "sha256": "912936c8782605f29db0abfd528aeecbc550c45782ae14d7e2f0aa0c4809136f",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgraphite2.dll",
+      "path": "work/tools/qemu/libgraphite2.dll",
+      "bytes": 167155,
+      "sha256": "063a9ad34a5ec87d038b4646660957395224ecf2cf707917256b7d251a7c5f57",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgstapp-1.0-0.dll",
+      "path": "work/tools/qemu/libgstapp-1.0-0.dll",
+      "bytes": 100140,
+      "sha256": "0ac57076a157071327736d483a97a8d7e81a0b2ccd0b187525787c8643f48b1d",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgstbase-1.0-0.dll",
+      "path": "work/tools/qemu/libgstbase-1.0-0.dll",
+      "bytes": 546663,
+      "sha256": "000711b65a0c39c879f3d73be442754b9297a8092894a309b19eea04e78b8722",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgstreamer-1.0-0.dll",
+      "path": "work/tools/qemu/libgstreamer-1.0-0.dll",
+      "bytes": 1481894,
+      "sha256": "e20ce49a194f891022503b7bbcb0608ca0526ab6c909452b70ec50b11b61dfcd",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libgtk-3-0.dll",
+      "path": "work/tools/qemu/libgtk-3-0.dll",
+      "bytes": 7165030,
+      "sha256": "e2cc2698e2e04214e04b18d685550b76558423ebdb2b0a0782171876fe13eb9c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libharfbuzz-0.dll",
+      "path": "work/tools/qemu/libharfbuzz-0.dll",
+      "bytes": 1530181,
+      "sha256": "cbc66233d9291f499aa38f6991f6e74570950502d8913df852d35a90f6da861b",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libhogweed-7.dll",
+      "path": "work/tools/qemu/libhogweed-7.dll",
+      "bytes": 275389,
+      "sha256": "8a4785b98e5418c32035f570904f65360c89825358702954b53c77ee2df8c97d",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libhwy.dll",
+      "path": "work/tools/qemu/libhwy.dll",
+      "bytes": 88615,
+      "sha256": "4cd65f4bb3c123471a23f3eed734adbb31522b012c2c1776640d9634fbeb623c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libiconv-2.dll",
+      "path": "work/tools/qemu/libiconv-2.dll",
+      "bytes": 1143148,
+      "sha256": "7a282a854e01be726c6cccfe46f548c716aa45b3014818468253aaa4efbcd067",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libidn2-0.dll",
+      "path": "work/tools/qemu/libidn2-0.dll",
+      "bytes": 247081,
+      "sha256": "9880b52651a0247640a2531d777380f7c35fac7efa7e3979b265ddcb78db8642",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libintl-8.dll",
+      "path": "work/tools/qemu/libintl-8.dll",
+      "bytes": 298731,
+      "sha256": "0537c3dd2378218508ebe3cc416d72a99ee2d24ae1c5525e23458f32544ef861",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libjack64.dll",
+      "path": "work/tools/qemu/libjack64.dll",
+      "bytes": 312511,
+      "sha256": "34065f120befc2ebf913754a0d8fdd54c4bb3fa09bea4a79ffa369fe5cf1cd28",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libjbig-0.dll",
+      "path": "work/tools/qemu/libjbig-0.dll",
+      "bytes": 62083,
+      "sha256": "275a827ba6839d47cfdbe059db1b1b403a92ff26e2b76a29362915487868bef2",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libjpeg-8.dll",
+      "path": "work/tools/qemu/libjpeg-8.dll",
+      "bytes": 967968,
+      "sha256": "b564d34adaca83e73af0e2231719dd0198ea6cd074c64b2ba85bfd7182f27db7",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libjsoncpp-26.dll",
+      "path": "work/tools/qemu/libjsoncpp-26.dll",
+      "bytes": 281584,
+      "sha256": "bb0d8799fca2da9738b87397c0eae726cf5507d1d684db546b73003215365d08",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libjxl_cms.dll",
+      "path": "work/tools/qemu/libjxl_cms.dll",
+      "bytes": 147921,
+      "sha256": "6d822a9ac8288fda334b460cbe008716c7b6e9b20e160b9b6ca23871506f0a00",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libjxl.dll",
+      "path": "work/tools/qemu/libjxl.dll",
+      "bytes": 6218625,
+      "sha256": "d8d1ba0ba4c12ae74a15d44e06a798eafe18842dde71130653dd982dab5fe2a1",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\liblcms2-2.dll",
+      "path": "work/tools/qemu/liblcms2-2.dll",
+      "bytes": 456345,
+      "sha256": "dc241cbdf2d295846ec564c1eb3c01639d43c0d72415a8758e65d71df31cc0ba",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libLerc.dll",
+      "path": "work/tools/qemu/libLerc.dll",
+      "bytes": 804265,
+      "sha256": "6887fb5aeabf382a835a4cb693025e8d48d9c90e82ca4eae5d2d8ffb70c6ca9a",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\liblz4.dll",
+      "path": "work/tools/qemu/liblz4.dll",
+      "bytes": 158649,
+      "sha256": "35f917274bca8f19677ba66f1b3cc3c83568c3249fc43215fc16e76439c8e856",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\liblzma-5.dll",
+      "path": "work/tools/qemu/liblzma-5.dll",
+      "bytes": 191836,
+      "sha256": "dc9edb9bd83b0371fe68d96cb3e70cd17b7a5aba958326a18f8210cb812432e9",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\liblzo2-2.dll",
+      "path": "work/tools/qemu/liblzo2-2.dll",
+      "bytes": 155548,
+      "sha256": "7c34ad01e75c97c6636a2f609089a85abdb50b75e13c5fda731352ec8aa053e9",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libncursesw6.dll",
+      "path": "work/tools/qemu/libncursesw6.dll",
+      "bytes": 548227,
+      "sha256": "946a84047652d337349d4880fdfe88e81d64dcd36d5b042b0a28d0b185be45c8",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libnettle-9.dll",
+      "path": "work/tools/qemu/libnettle-9.dll",
+      "bytes": 360977,
+      "sha256": "208002d990684946c7923a87022bedea588fef8e31286598c08805e37be2a95a",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libnfs-16.dll",
+      "path": "work/tools/qemu/libnfs-16.dll",
+      "bytes": 361411,
+      "sha256": "d6210876b2ecf7b6016c360bee32f4e16af3e808046e2e7a99c58a02a6984eed",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libnspr4.dll",
+      "path": "work/tools/qemu/libnspr4.dll",
+      "bytes": 335552,
+      "sha256": "bbdb3f57a653a6614e9fe6e9510179e478f66649c6526f76bb0cb6b43d49fba0",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libopus-0.dll",
+      "path": "work/tools/qemu/libopus-0.dll",
+      "bytes": 500112,
+      "sha256": "90aa25a0a6525d7da48a7ae8dd3306e45b0c28ce09a73d2a02b56cd95418d5be",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\liborc-0.4-0.dll",
+      "path": "work/tools/qemu/liborc-0.4-0.dll",
+      "bytes": 479279,
+      "sha256": "6386359f54e38acc3517774d3f74b72f06f51ad4eb946b6085a7295820456992",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libp11-kit-0.dll",
+      "path": "work/tools/qemu/libp11-kit-0.dll",
+      "bytes": 1594910,
+      "sha256": "ada3949f3763db47a754eec56388f3305c41c259eb3bbae188a820fd01c5445b",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libpango-1.0-0.dll",
+      "path": "work/tools/qemu/libpango-1.0-0.dll",
+      "bytes": 434535,
+      "sha256": "078881c139e7dd422c4cb5f9c43b939712eb7ad4f3d7d25c41639873e8aec6d6",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libpangocairo-1.0-0.dll",
+      "path": "work/tools/qemu/libpangocairo-1.0-0.dll",
+      "bytes": 83118,
+      "sha256": "b9f800abeafd27c07dc9f9fa4a41bb614564038ce7ac5753ca6c60c1d7d555cc",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libpangoft2-1.0-0.dll",
+      "path": "work/tools/qemu/libpangoft2-1.0-0.dll",
+      "bytes": 111841,
+      "sha256": "38602e75c85e149bf7294bccb8792f54299daed45509a8ac4b3a18e3921ec56e",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libpangowin32-1.0-0.dll",
+      "path": "work/tools/qemu/libpangowin32-1.0-0.dll",
+      "bytes": 111376,
+      "sha256": "2fb6d21cce830182c9d4bf22015dec9abbb0846ebce828ca0a5d4cefc74e46c6",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libpcre2-8-0.dll",
+      "path": "work/tools/qemu/libpcre2-8-0.dll",
+      "bytes": 717955,
+      "sha256": "a499fb8a7eff453d6e4f0842576bc5171d40a1505d8f7f13fff6cee51b738a62",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libpixman-1-0.dll",
+      "path": "work/tools/qemu/libpixman-1-0.dll",
+      "bytes": 740378,
+      "sha256": "55ce45825eb8e825c635416171be4736147a6b0b690469f545d8c4ae8e85b4a3",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libplc4.dll",
+      "path": "work/tools/qemu/libplc4.dll",
+      "bytes": 22514,
+      "sha256": "014449ff3f1ba191f9879b2db9ec93915d198a65e159cfffdaa9d78d8c5560e9",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libplds4.dll",
+      "path": "work/tools/qemu/libplds4.dll",
+      "bytes": 19281,
+      "sha256": "8ee6e210d94e9bfc95a30fb8bafa15be6b6b16c5b220db8816b7b5e056e97cdb",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libpng16-16.dll",
+      "path": "work/tools/qemu/libpng16-16.dll",
+      "bytes": 264269,
+      "sha256": "3737838ee8d6b893df7bdabf7439775371a57dce7e17ee6b35586023c64bd9ab",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libpsl-5.dll",
+      "path": "work/tools/qemu/libpsl-5.dll",
+      "bytes": 105304,
+      "sha256": "b31fc70eda598a39b65fe2736d815518db0652d641346f75eac40c2a0499b058",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\librav1e.dll",
+      "path": "work/tools/qemu/librav1e.dll",
+      "bytes": 3527680,
+      "sha256": "6fe18e4a040c471dc13bcea44ecd2c6a3c040971542c6b798627e4c787056acb",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libsasl2-3.dll",
+      "path": "work/tools/qemu/libsasl2-3.dll",
+      "bytes": 167600,
+      "sha256": "ea10d3aa40ccb6a385af666173b3364fc41f39dfbdc90aa8f2f1d8071cb63537",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libsharpyuv-0.dll",
+      "path": "work/tools/qemu/libsharpyuv-0.dll",
+      "bytes": 53757,
+      "sha256": "ab0c9f61dc69b6bcdff1011e215f8d5fd6e5096aba9be3386ab87f217fbbeffe",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libslirp-0.dll",
+      "path": "work/tools/qemu/libslirp-0.dll",
+      "bytes": 217294,
+      "sha256": "098093db72095516c877c371942444a508aaa3c546de563bd2ea36ba2e88a646",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libsnappy.dll",
+      "path": "work/tools/qemu/libsnappy.dll",
+      "bytes": 55237,
+      "sha256": "a0692c93212898f29d072d611184828ccaf7add78137fbe977a8504fcc278c21",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libspice-server-1.dll",
+      "path": "work/tools/qemu/libspice-server-1.dll",
+      "bytes": 1198840,
+      "sha256": "23bc03b20fefe99123759c79c59a83b4402a55529c99f3d5dcd1fe1445cb2b33",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libssh.dll",
+      "path": "work/tools/qemu/libssh.dll",
+      "bytes": 626451,
+      "sha256": "4e872f2b9329edfb3112c433a2c4c98efc915d0bca2b1b935a58e45e37ce0a3b",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libssh2-1.dll",
+      "path": "work/tools/qemu/libssh2-1.dll",
+      "bytes": 271318,
+      "sha256": "ee7fe3e749859334c99e9261689481dd879811122598d22585421f95d29fc7ae",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libssl-3-x64.dll",
+      "path": "work/tools/qemu/libssl-3-x64.dll",
+      "bytes": 994446,
+      "sha256": "b0aaaab67558716ea8cb03516d0e83ab92d1c0e3ddfc774c466032053f8b2331",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libssp-0.dll",
+      "path": "work/tools/qemu/libssp-0.dll",
+      "bytes": 43432,
+      "sha256": "cf6037efa19fd9cbd59402741e201e325bb10f44aca16c56aeff8a7c188178d1",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libstdc++-6.dll",
+      "path": "work/tools/qemu/libstdc++-6.dll",
+      "bytes": 2661299,
+      "sha256": "887c21dbe2a211ac4d1a790e4f608b7dee27fae12352856963004e7a715d2e6c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libSvtAv1Enc-4.dll",
+      "path": "work/tools/qemu/libSvtAv1Enc-4.dll",
+      "bytes": 7573028,
+      "sha256": "c4d9e2ae03f80d43c0a16d1461503e1768b160cdba9f3fe9e95e339f69fc2b24",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libsystre-0.dll",
+      "path": "work/tools/qemu/libsystre-0.dll",
+      "bytes": 14593,
+      "sha256": "2aa59d15365f676356a25c941744d1b75406b426b1fde24ad609b7002a3d85e1",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libtasn1-6.dll",
+      "path": "work/tools/qemu/libtasn1-6.dll",
+      "bytes": 113467,
+      "sha256": "95821132a7d4ea90f7c37540118ad1459809ff23162d6dc3d5600b15755a644b",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libthai-0.dll",
+      "path": "work/tools/qemu/libthai-0.dll",
+      "bytes": 72294,
+      "sha256": "5d741974fdec19e0f6cddbcdb539428af0c7392740a056634714c2884157fdb9",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libtiff-6.dll",
+      "path": "work/tools/qemu/libtiff-6.dll",
+      "bytes": 625178,
+      "sha256": "47fe69165bf8e211aaa84224f51f145dc894e330fe7ca167f7c99419e0c8c894",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libtre-5.dll",
+      "path": "work/tools/qemu/libtre-5.dll",
+      "bytes": 100574,
+      "sha256": "5833b2b1f62b67d8b4b3881f1bc05f42b0dee1a9f10cef897cdf44d74d094fdf",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libu2f-emu-0.dll",
+      "path": "work/tools/qemu/libu2f-emu-0.dll",
+      "bytes": 103045,
+      "sha256": "09cec929ca4f74fb06250b80367a374c7c1b8000aeb8e71e00e7323ba053a759",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libunistring-5.dll",
+      "path": "work/tools/qemu/libunistring-5.dll",
+      "bytes": 2251328,
+      "sha256": "b91e2850d3668d4931056a8f4d35783b8ec3eea3735485108a936a072cd16071",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libusb-1.0.dll",
+      "path": "work/tools/qemu/libusb-1.0.dll",
+      "bytes": 246863,
+      "sha256": "9858e2381221619e26a78a2824e5970c2a7ec48cdb75071c19eb7b61baa268e2",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libusbredirparser-1.dll",
+      "path": "work/tools/qemu/libusbredirparser-1.dll",
+      "bytes": 66480,
+      "sha256": "085806c137047cc195608509b1fa935dfcfa633877b4780e6e23fb5e3e0a86cf",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libvirglrenderer-1.dll",
+      "path": "work/tools/qemu/libvirglrenderer-1.dll",
+      "bytes": 881380,
+      "sha256": "df0d6a26ca2328ac54ebc3efb5d03f3315c5bf39a999505d08bc76890e07be6c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libvk_swiftshader.dll",
+      "path": "work/tools/qemu/libvk_swiftshader.dll",
+      "bytes": 8521728,
+      "sha256": "d4d9ac7d3215880a8ac24b5a57f4695f12aff7ef1c2e6f84a1211fad9560a058",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libVkICD_mock_icd.dll",
+      "path": "work/tools/qemu/libVkICD_mock_icd.dll",
+      "bytes": 210944,
+      "sha256": "94934ad4f273c2261cff08a2790094923098662f44e9f86c3e2788bbea8da636",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libwebp-7.dll",
+      "path": "work/tools/qemu/libwebp-7.dll",
+      "bytes": 749724,
+      "sha256": "c6c21a10f8cfe13270832e64640b82709e1d87b956b5f15af435a6c25acd6bbf",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libwebpdemux-2.dll",
+      "path": "work/tools/qemu/libwebpdemux-2.dll",
+      "bytes": 25726,
+      "sha256": "10fd43e1820a03dea175e3c4a7c96ba0463d41971f4ec75dbd375d10b585446a",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libwinpthread-1.dll",
+      "path": "work/tools/qemu/libwinpthread-1.dll",
+      "bytes": 64419,
+      "sha256": "d54ed5baa6d339e28fe18c0106caffd110ac42612908593e07211d7bb48f5e79",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libyuv.dll",
+      "path": "work/tools/qemu/libyuv.dll",
+      "bytes": 1009713,
+      "sha256": "13ce09a22df9396cae847cb474614a5337c7b2e1a3c5c2d949c771c7297ccad0",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\libzstd.dll",
+      "path": "work/tools/qemu/libzstd.dll",
+      "bytes": 1218273,
+      "sha256": "b95c223a9548a9ecf51377c962e0bc8f0c51eb0c6f67a296dbc885996f0dd40d",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\nss3.dll",
+      "path": "work/tools/qemu/nss3.dll",
+      "bytes": 1408181,
+      "sha256": "fff93a74e524ee09376f007373d16d2705fb21a0b3886404c9a7c27865cace73",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\nssutil3.dll",
+      "path": "work/tools/qemu/nssutil3.dll",
+      "bytes": 172668,
+      "sha256": "31adbd22bb5df93334c8d013cc8814192e21f64500b4113f682fbe8ddfb2c79f",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\SDL2_image.dll",
+      "path": "work/tools/qemu/SDL2_image.dll",
+      "bytes": 136769,
+      "sha256": "af7bdfa2a2333291776297e85acdecf7801bde20b4025229de304a3d1555a2ef",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\SDL2.dll",
+      "path": "work/tools/qemu/SDL2.dll",
+      "bytes": 2412441,
+      "sha256": "47a3b27654832d9f7e5719c88078210a3dbfd6407b559c5a3c4eb8ab7d0ebdb6",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\qemu\\zlib1.dll",
+      "path": "work/tools/qemu/zlib1.dll",
+      "bytes": 128488,
+      "sha256": "93e9243a44c29200eeacaf9658efe2558581770e4b11ca4b500e18e424a6e3b5",
+      "override": null
+    },
+    {
+      "id": "firmware_code",
+      "path": "work/tools/qemu/share/edk2-x86_64-code.fd",
+      "bytes": 3653632,
+      "sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+      "override": "CONTINUUM_OVMF_CODE"
+    },
+    {
+      "id": "firmware_vars",
+      "path": "work/tools/qemu/share/edk2-i386-vars.fd",
+      "bytes": 540672,
+      "sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+      "override": "CONTINUUM_OVMF_VARS"
+    },
+    {
+      "id": "COPYING",
+      "path": "work/tools/qemu/COPYING",
+      "bytes": 17880,
+      "sha256": "dd3ce02338c3a48abb6ba59b48809f7108a8bd242cb0cc8be90daafa30707c28",
+      "override": null
+    },
+    {
+      "id": "COPYING.LIB",
+      "path": "work/tools/qemu/COPYING.LIB",
+      "bytes": 26415,
+      "sha256": "31c90ce76b6f5aab90a205851e71d5c27e31c0aa3d7017a4383b98a6fe3f1faa",
+      "override": null
+    },
+    {
+      "id": "share/edk2-licenses.txt",
+      "path": "work/tools/qemu/share/edk2-licenses.txt",
+      "bytes": 42903,
+      "sha256": "1ddeaed2e7d2e9ecb960bdfc1b8ee45387aff70d056d985d145949af3951657c",
+      "override": null
+    },
+    {
+      "id": "share/firmware/60-edk2-x86_64.json",
+      "path": "work/tools/qemu/share/firmware/60-edk2-x86_64.json",
+      "bytes": 718,
+      "sha256": "f6756761629339223e398bad85cff8dace5310e9c88876052a0784b16ba7ff5d",
+      "override": null
+    },
+    {
+      "id": "xorriso",
+      "path": "work/tools/iso/usr/bin/xorriso.exe",
+      "bytes": 1733606,
+      "sha256": "4569636899f301e2dd6402545ff0f7ac265d0d4e2d0f7f39278b2e0791e3962b",
+      "override": "CONTINUUM_XORRISO"
+    },
+    {
+      "id": "msys-2.0.dll",
+      "path": "build\\m1\\p1-01-tests-1792538914872\\missing-msys-2.0.dll",
+      "bytes": 3376257,
+      "sha256": "d3b5324eef7fe377c3412bd8d9f5c526ba1136940e34105436b15e5f1ae90717",
+      "override": null
+    },
+    {
+      "id": "msys-atomic-1.dll",
+      "path": "work/tools/iso/usr/bin/msys-atomic-1.dll",
+      "bytes": 28418,
+      "sha256": "79685fbd51f8e9fe308acb20d361605741a0089998c82b3dc96c9bad3f17dad0",
+      "override": null
+    },
+    {
+      "id": "msys-bz2-1.dll",
+      "path": "work/tools/iso/usr/bin/msys-bz2-1.dll",
+      "bytes": 67277,
+      "sha256": "1082896c71da5e62dfd8e421fba35fa3123e6e1e2782381c08258917117b51cd",
+      "override": null
+    },
+    {
+      "id": "msys-charset-1.dll",
+      "path": "work/tools/iso/usr/bin/msys-charset-1.dll",
+      "bytes": 9423,
+      "sha256": "b70c0101b93d2c530fddbc0df1daab5fb1f723e59ca8e475f0ffb36c8c8befd9",
+      "override": null
+    },
+    {
+      "id": "msys-formw6.dll",
+      "path": "work/tools/iso/usr/bin/msys-formw6.dll",
+      "bytes": 63494,
+      "sha256": "a246ce01a44b6e5303303f94b88319359228a38f5e7da4915b2b519eed18fe6b",
+      "override": null
+    },
+    {
+      "id": "msys-gcc_s-seh-1.dll",
+      "path": "work/tools/iso/usr/bin/msys-gcc_s-seh-1.dll",
+      "bytes": 141537,
+      "sha256": "59b816ee2880c2140ac8d7726f59e4e7435e309f272a80fd590d3130215f77f5",
+      "override": null
+    },
+    {
+      "id": "msys-gomp-1.dll",
+      "path": "work/tools/iso/usr/bin/msys-gomp-1.dll",
+      "bytes": 270490,
+      "sha256": "feb6ce94840808921e0f9491b12624a65c1bf8ef293c435b08d3d54ab538cc1b",
+      "override": null
+    },
+    {
+      "id": "msys-history8.dll",
+      "path": "work/tools/iso/usr/bin/msys-history8.dll",
+      "bytes": 42573,
+      "sha256": "369215e1ad0f5006ceb70fa70676018792a9fb98fa03f90636c4e685e009b0db",
+      "override": null
+    },
+    {
+      "id": "msys-iconv-2.dll",
+      "path": "work/tools/iso/usr/bin/msys-iconv-2.dll",
+      "bytes": 1103690,
+      "sha256": "50012969ed96a5232220185d2fc1ac1e3abe5790f6b3027f4fc3c4cad3fd38f0",
+      "override": null
+    },
+    {
+      "id": "msys-menuw6.dll",
+      "path": "work/tools/iso/usr/bin/msys-menuw6.dll",
+      "bytes": 31519,
+      "sha256": "f3b4a368aed2914a5d0c66626f2502b0ef88d97e1ca16f318d53b34acec55129",
+      "override": null
+    },
+    {
+      "id": "msys-ncurses++w6.dll",
+      "path": "work/tools/iso/usr/bin/msys-ncurses++w6.dll",
+      "bytes": 67120,
+      "sha256": "8755b5e3220272ba6fde2fe1a1ff8d594031f2b55ee44eb1f2494591136e491e",
+      "override": null
+    },
+    {
+      "id": "msys-ncursesw6.dll",
+      "path": "work/tools/iso/usr/bin/msys-ncursesw6.dll",
+      "bytes": 353237,
+      "sha256": "aef26ffbcd20ee5781c3a5e81265390494090e13561a13336d000d9d5f9a84cb",
+      "override": null
+    },
+    {
+      "id": "msys-panelw6.dll",
+      "path": "work/tools/iso/usr/bin/msys-panelw6.dll",
+      "bytes": 14784,
+      "sha256": "5130de686b4abbbfbfe28b1deaf8399d6cb655a76555f0540430218236a8bb9e",
+      "override": null
+    },
+    {
+      "id": "msys-quadmath-0.dll",
+      "path": "work/tools/iso/usr/bin/msys-quadmath-0.dll",
+      "bytes": 379634,
+      "sha256": "7d4904d91caf7fd96a999296c743fce6f478d01851688cade69bead51100100c",
+      "override": null
+    },
+    {
+      "id": "msys-readline8.dll",
+      "path": "work/tools/iso/usr/bin/msys-readline8.dll",
+      "bytes": 286879,
+      "sha256": "0c7c38f1b76e087add0faca414659c3d25008a893dd4b185604a4183bb68132b",
+      "override": null
+    },
+    {
+      "id": "msys-stdc++-6.dll",
+      "path": "work/tools/iso/usr/bin/msys-stdc++-6.dll",
+      "bytes": 2338400,
+      "sha256": "be5745a191d1fa4813ac662f550bc48c568ee63915829a20ada4e1be7f625fdc",
+      "override": null
+    },
+    {
+      "id": "msys-ticw6.dll",
+      "path": "work/tools/iso/usr/bin/msys-ticw6.dll",
+      "bytes": 64883,
+      "sha256": "1ee7b84d87810aecc4372eb668915c5c2520bbe058043980c4e7b50fa14f2663",
+      "override": null
+    },
+    {
+      "id": "msys-z.dll",
+      "path": "work/tools/iso/usr/bin/msys-z.dll",
+      "bytes": 91648,
+      "sha256": "f548bb1632160282c3853415182d695c655d0eb7c12aa42a0538161898694b6f",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\3RDPARTY.md",
+      "path": "work/tools/limine/limine-binary/3RDPARTY.md",
+      "bytes": 89220,
+      "sha256": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\BOOTAA64.EFI",
+      "path": "work/tools/limine/limine-binary/BOOTAA64.EFI",
+      "bytes": 327680,
+      "sha256": "7bb2659066a08c903d7854a67c10be2ee6ecf52bec74cdd81a0603d1cc9a30e9",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\BOOTIA32.EFI",
+      "path": "work/tools/limine/limine-binary/BOOTIA32.EFI",
+      "bytes": 397312,
+      "sha256": "09ef6821836d913fa7b17149547edfb048cbad3726f3ed2e8c06dd2f0de19564",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\BOOTLOONGARCH64.EFI",
+      "path": "work/tools/limine/limine-binary/BOOTLOONGARCH64.EFI",
+      "bytes": 360448,
+      "sha256": "8d9e12ccb6d84e2f95dd28630962a547d978c0bacbc741f9557b8e35ecf10529",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\BOOTRISCV64.EFI",
+      "path": "work/tools/limine/limine-binary/BOOTRISCV64.EFI",
+      "bytes": 294912,
+      "sha256": "e496d73d15492a2e06f9456be4345d03288f2e14bde479596de054267d20a7c9",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\BOOTX64.EFI",
+      "path": "work/tools/limine/limine-binary/BOOTX64.EFI",
+      "bytes": 376832,
+      "sha256": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\LICENSE",
+      "path": "work/tools/limine/limine-binary/LICENSE",
+      "bytes": 1297,
+      "sha256": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-bios-cd.bin",
+      "path": "work/tools/limine/limine-binary/limine-bios-cd.bin",
+      "bytes": 26624,
+      "sha256": "4384c85cd22fdc40787978a1b8b6e722be71ddc1b914ceafab0e8b80e15fe521",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-bios-hdd.h",
+      "path": "work/tools/limine/limine-binary/limine-bios-hdd.h",
+      "bytes": 150260,
+      "sha256": "4ce14ec318bae22676fc405db7d8593b83a71620ab95f3b79962dae5b0a7e63d",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-bios-pxe.bin",
+      "path": "work/tools/limine/limine-binary/limine-bios-pxe.bin",
+      "bytes": 23633,
+      "sha256": "1f56f9bad853250e9c4d5d8e8591129b280b89b6e5961bc6d7a9b63b9326856f",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-bios.sys",
+      "path": "work/tools/limine/limine-binary/limine-bios.sys",
+      "bytes": 333800,
+      "sha256": "67ba6238aaaa34d5e2c6206932b979f6115fd427b8203aca06c88c3a36a5b0ab",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-tool-windows-x86\\COPYING.MinGW-w64-runtime.txt",
+      "path": "work/tools/limine/limine-binary/limine-tool-windows-x86/COPYING.MinGW-w64-runtime.txt",
+      "bytes": 12155,
+      "sha256": "1db8da07b436c68833c0673ffee3d9fcb2526047f3820b81661865dfedc79a1f",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-tool-windows-x86\\limine.exe",
+      "path": "work/tools/limine/limine-binary/limine-tool-windows-x86/limine.exe",
+      "bytes": 95744,
+      "sha256": "a3d5a187fcd81021cf79efaec65515bbe9b49c23d2305f6c886695a8d2b7d4d4",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-uefi-cd.bin",
+      "path": "work/tools/limine/limine-binary/limine-uefi-cd.bin",
+      "bytes": 3145728,
+      "sha256": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine.c",
+      "path": "work/tools/limine/limine-binary/limine.c",
+      "bytes": 69088,
+      "sha256": "a1305ff41117039cccce435ffb43c671acecbd8f396f3e84357c07ea1258bd33",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\Makefile",
+      "path": "work/tools/limine/limine-binary/Makefile",
+      "bytes": 260,
+      "sha256": "bf65c6e9e26c9ec7a0e07054ad3cf7206e394cc12871f438c8b8b0e088a57ae2",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine-protocol\\LICENSE",
+      "path": "work/tools/limine-protocol/LICENSE",
+      "bytes": 659,
+      "sha256": "e2b1c35814afb22acbddf7ff567d2b05a467e503628ffea62752bc1f3fa2595c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine-protocol\\limine.h",
+      "path": "work/tools/limine-protocol/limine.h",
+      "bytes": 17709,
+      "sha256": "0aadf2633c85d8cb145344c968add158aeb1deb68af567d55ba8431c492b6d4c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine-protocol\\PROTOCOL.md",
+      "path": "work/tools/limine-protocol/PROTOCOL.md",
+      "bytes": 80094,
+      "sha256": "9e69fdd01af4c31f419f1e06a74c7371e4cd8f14021d9c49dd3a4fa9f2359cac",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\.cargo_vcs_info.json",
+      "path": "work/tools/bindings/limine-0.5.0/.cargo_vcs_info.json",
+      "bytes": 94,
+      "sha256": "63e786fc8d19b9707812aa8b0f669a5f8c5e9700759851c7b8340a843d689b01",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\.github\\workflows\\rust.yml",
+      "path": "work/tools/bindings/limine-0.5.0/.github/workflows/rust.yml",
+      "bytes": 1158,
+      "sha256": "56dd427750c41cde59ed076f181c19154cb21b26c1be56ab9843991b7fbce50a",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\.gitignore",
+      "path": "work/tools/bindings/limine-0.5.0/.gitignore",
+      "bytes": 155,
+      "sha256": "7c14698f140d4a31c9dc8d10b84ddc6f60de953ff14e12dce4f802433d863cf1",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\Cargo.toml",
+      "path": "work/tools/bindings/limine-0.5.0/Cargo.toml",
+      "bytes": 1031,
+      "sha256": "3446ca252b73e7cd36c988ebe32dfce8ca2f74aa9f4fa9bd25e3d6bf3e1a0934",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\Cargo.toml.orig",
+      "path": "work/tools/bindings/limine-0.5.0/Cargo.toml.orig",
+      "bytes": 549,
+      "sha256": "67b9f5b2eb67b867457f40df901ba82e479f83ebfe7f9aabe737ab0286897e7a",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\CHANGELOG.md",
+      "path": "work/tools/bindings/limine-0.5.0/CHANGELOG.md",
+      "bytes": 3349,
+      "sha256": "c207343b654d90f97fb1459eb10d9e3e80121aba49bb7b95275b5251e8fca008",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\LICENSE-APACHE",
+      "path": "work/tools/bindings/limine-0.5.0/LICENSE-APACHE",
+      "bytes": 11361,
+      "sha256": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\LICENSE-MIT",
+      "path": "work/tools/bindings/limine-0.5.0/LICENSE-MIT",
+      "bytes": 1088,
+      "sha256": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\README.md",
+      "path": "work/tools/bindings/limine-0.5.0/README.md",
+      "bytes": 1301,
+      "sha256": "53fcbe4bebdc5fae0e52ad895f26afee9cae4965d28e8c18de144edd375e5d7d",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\rust-toolchain.toml",
+      "path": "work/tools/bindings/limine-0.5.0/rust-toolchain.toml",
+      "bytes": 49,
+      "sha256": "607927a22b330e2f984fd18878dccd419fb002b823a27bf2ddd74a66098de242",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\file.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/file.rs",
+      "bytes": 5950,
+      "sha256": "1148889a30f1dc165428ceff24d96d9793d37a017bcf3036a58cdcf35789e80c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\firmware_type.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/firmware_type.rs",
+      "bytes": 537,
+      "sha256": "bb17b52cdc66896072b99e3097bd71c42313e0a49ee5b28c53699f16a72335ee",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\framebuffer.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/framebuffer.rs",
+      "bytes": 6945,
+      "sha256": "c6cdbf417fdd45706e68c7934a9ac1935aa5d2f4de05830b3795c5f2e5b2bb8c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\lib.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/lib.rs",
+      "bytes": 4612,
+      "sha256": "78f8fcbedcc3d54a4261b16c4be366afcd4d46b1b334c9c0215561d2f136cd99",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\memory_map.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/memory_map.rs",
+      "bytes": 1948,
+      "sha256": "f91dfe43cd374eebc37f394d5101277e01f3937a21f63f2d635efab56b58a7a8",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\modules.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/modules.rs",
+      "bytes": 3631,
+      "sha256": "cf11466e9aca2852d9facc095c33967b8a421974efc5e6fb381e0a4ee4a6f264",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\mp.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/mp.rs",
+      "bytes": 3654,
+      "sha256": "2c712be53c15ef1ba10b64cc55ee5eeb58bb55e74bfdb0f27310bfac71c72b18",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\paging.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/paging.rs",
+      "bytes": 1668,
+      "sha256": "05942bb80b713fa0fe96e7cdeecf9dbbc46e104b1deaac28f72665a20c63d50b",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\request.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/request.rs",
+      "bytes": 27656,
+      "sha256": "f0689df1507230f219ce866e7df5420e88d3574fa542c2c9ff6d16c1811d1474",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\response.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/response.rs",
+      "bytes": 14982,
+      "sha256": "be8e8927b3e6db747ac96c31cdcacbfb7f2b125c7fede0db208ef90673cd81b7",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\smp.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/smp.rs",
+      "bytes": 909,
+      "sha256": "c1df4a3b4f03a27df19338eaee57b0b574dc2663ede2340dc41a8cc3b910230c",
+      "override": null
+    },
+    {
+      "id": "work/tools/qemu/share/vgabios-stdvga.bin",
+      "bytes": 39424,
+      "override": null,
+      "path": "work/tools/qemu/share/vgabios-stdvga.bin",
+      "sha256": "e8fc9e55790dbe3cb31f019a3deb57206ba6c54f5e581adb2ab2677a9d391472"
+    },
+    {
+      "id": "work/tools/qemu/share/kvmvapic.bin",
+      "bytes": 9216,
+      "override": null,
+      "path": "work/tools/qemu/share/kvmvapic.bin",
+      "sha256": "cdf057a71b07e3b52b19cbe210bdefa59250d01a9810b960f7fe1f98eed95a27"
+    },
+    {
+      "id": "work/tools/iso/usr/share/licenses/gcc-libs/RUNTIME.LIBRARY.EXCEPTION",
+      "bytes": 3324,
+      "override": null,
+      "path": "work/tools/iso/usr/share/licenses/gcc-libs/RUNTIME.LIBRARY.EXCEPTION",
+      "sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74"
+    },
+    {
+      "id": "work/tools/iso/usr/share/licenses/ncurses/LICENSE",
+      "bytes": 1447,
+      "override": null,
+      "path": "work/tools/iso/usr/share/licenses/ncurses/LICENSE",
+      "sha256": "708999f95527e1ffa670c6fce288c6c600cb477dd04afcc1171422b3dd4ee226"
+    },
+    {
+      "id": "work/tools/iso/usr/share/licenses/zlib/LICENSE",
+      "bytes": 1002,
+      "override": null,
+      "path": "work/tools/iso/usr/share/licenses/zlib/LICENSE",
+      "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2"
+    }
+  ],
+  "acquisitions": [
+    {
+      "bytes": 1664082,
+      "path": "work/downloads/p1-01/7z2604-x64.exe",
+      "sha256": "d54bf805f9f3704d1e8db2fa3498ae7ef2df0312b40b558e7c71c734430a665d",
+      "url": "https://github.com/ip7z/7zip/releases/download/26.04/7z2604-x64.exe"
+    },
+    {
+      "bytes": 602624,
+      "path": "work/downloads/p1-01/7zr.exe",
+      "sha256": "256feca8e274e5da655e2a284fabafd9f554365eb164862089dacd4e8276d282",
+      "url": "https://github.com/ip7z/7zip/releases/download/26.04/7zr.exe"
+    },
+    {
+      "bytes": 1082211,
+      "path": "work/downloads/p1-01/gcc-libs-15.3.0-1-x86_64.pkg.tar.zst",
+      "sha256": "0d99a122c453c05ae21ba3dcea910f2e0d93d38ae067c677a112a315b0f3cec5",
+      "url": "https://repo.msys2.org/msys/x86_64/gcc-libs-15.3.0-1-x86_64.pkg.tar.zst"
+    },
+    {
+      "bytes": 30786,
+      "path": "work/downloads/p1-01/libbz2-1.0.8-4-x86_64.pkg.tar.zst",
+      "sha256": "89fb0e1478b22b80effda55ab4ae7549388d01245d3841a096d8a2d63236c2a1",
+      "url": "https://repo.msys2.org/msys/x86_64/libbz2-1.0.8-4-x86_64.pkg.tar.zst"
+    },
+    {
+      "bytes": 718353,
+      "path": "work/downloads/p1-01/libiconv-1.19-1-x86_64.pkg.tar.zst",
+      "sha256": "0fa55ea2a6ccf97cf8c58b24b2615815e15e16e6e4e888091c263c2c83c5313d",
+      "url": "https://repo.msys2.org/msys/x86_64/libiconv-1.19-1-x86_64.pkg.tar.zst"
+    },
+    {
+      "bytes": 388090,
+      "path": "work/downloads/p1-01/libreadline-8.3.006-1-x86_64.pkg.tar.zst",
+      "sha256": "29e25c50bf6cd7a5e6f2253af76f54fe3c1a915313c7c18e98bedaa665c6adea",
+      "url": "https://repo.msys2.org/msys/x86_64/libreadline-8.3.006-1-x86_64.pkg.tar.zst"
+    },
+    {
+      "bytes": 22403,
+      "path": "work/downloads/p1-01/limine-0.5.0.crate",
+      "sha256": "af6d2ee42712e7bd2c787365cd1dab06ef59a61becbf87bec7b32b970bd2594b",
+      "url": "https://static.crates.io/crates/limine/limine-0.5.0.crate"
+    },
+    {
+      "bytes": 2062228,
+      "path": "work/downloads/p1-01/limine-binary.zip",
+      "sha256": "1bdbbcda650c5dba9b1eca5833d598137bf11bd6289bc89b6bcc4f8f112fa676",
+      "url": "https://github.com/Limine-Bootloader/Limine/releases/download/v12.9.3/limine-binary.zip"
+    },
+    {
+      "bytes": 2068768,
+      "path": "work/downloads/p1-01/msys2-runtime-3.6.11-4-x86_64.pkg.tar.zst",
+      "sha256": "7b1c4b625483ceff9a87f2dfcf3659704dc3da655a0ad414ecb7d9175e7d3ba0",
+      "url": "https://repo.msys2.org/msys/x86_64/msys2-runtime-3.6.11-4-x86_64.pkg.tar.zst"
+    },
+    {
+      "bytes": 1286284,
+      "path": "work/downloads/p1-01/ncurses-6.6-2-x86_64.pkg.tar.zst",
+      "sha256": "828c92f09b17f00d3b49362fcfa4affa58e5e50e238f290ea36eb7a690da3acb",
+      "url": "https://repo.msys2.org/msys/x86_64/ncurses-6.6-2-x86_64.pkg.tar.zst"
+    },
+    {
+      "bytes": 206615928,
+      "path": "work/downloads/p1-01/qemu-w64-setup-20260811.exe",
+      "sha256": "f98a8aeb5f7faea9765b6dee28316c266cd179d80354a2fed8e50176f9a2e59f",
+      "url": "https://qemu.weilnetz.de/w64/qemu-w64-setup-20260811.exe"
+    },
+    {
+      "bytes": 158,
+      "path": "work/downloads/p1-01/qemu-w64-setup-20260811.sha512",
+      "sha256": "a160b60c5a6a782e6405651968ac932c60b8c4576503979ec259fb35fb7e9b46",
+      "url": "https://qemu.weilnetz.de/w64/qemu-w64-setup-20260811.sha512"
+    },
+    {
+      "bytes": 1077141,
+      "path": "work/downloads/p1-01/xorriso-1.5.8.2-1-x86_64.pkg.tar.zst",
+      "sha256": "d97aed8ea0be8a247af5487aa3fc0790fcf488da9fc5c4964e7d73e5542b1036",
+      "url": "https://repo.msys2.org/msys/x86_64/xorriso-1.5.8.2-1-x86_64.pkg.tar.zst"
+    },
+    {
+      "bytes": 52245,
+      "path": "work/downloads/p1-01/zlib-1.3.2-1-x86_64.pkg.tar.zst",
+      "sha256": "a04aa79996c57f0db936be66cf94326d7e67e9cd8dbffe4cf6e97693d0a1d9ef",
+      "url": "https://repo.msys2.org/msys/x86_64/zlib-1.3.2-1-x86_64.pkg.tar.zst"
+    }
+  ]
+}

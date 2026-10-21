@@ -1,0 +1,13 @@
+   Compiling xtask v0.1.0 (${WORKSPACE}\tools\xtask)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.25s
+     Running `build\cargo\debug\xtask.exe test --suite m1`
+M1 artifacts: ${WORKSPACE}\build/m1\suite-1792532726225181200-52940
+M1 suite: format
+M1 suite: m0
+xtask: check: exit Some(1); see ${WORKSPACE}\build/m1\suite-1792532726225181200-52940\m0; artifacts retained at ${WORKSPACE}\build/m1\suite-1792532726225181200-52940
+error: process didn't exit successfully: `build\cargo\debug\xtask.exe test --suite m1` (exit code: 1)
+Exception: ${WORKSPACE}\tools\Test-P1-07.ps1:7
+Line |
+   7 |  … ODE -ne 0) { throw 'P1-07 failed; retain the reported M1 artifacts' }
+     |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | P1-07 failed; retain the reported M1 artifacts

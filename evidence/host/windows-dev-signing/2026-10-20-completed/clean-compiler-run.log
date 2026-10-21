@@ -1,0 +1,5 @@
+   Compiling xtask v0.0.0 (${WORKSPACE}\work\acceptance\signing-79dfd717794847a6b5540ce15ffaec41\source workspace with spaces)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.04s
+     Running `pwsh -NoProfile -File ${WORKSPACE}\tools\windows\Invoke-DevExecutable.ps1 "${WORKSPACE}\work\acceptance\signing-79dfd717794847a6b5540ce15ffaec41\host cargo with spaces\debug\xtask.exe" "space argument" --flag ""`
+compiler-signing-passed
+error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\tools\windows\Invoke-DevExecutable.ps1 "${WORKSPACE}\work\acceptance\signing-79dfd717794847a6b5540ce15ffaec41\host cargo with spaces\debug\xtask.exe" "space argument" --flag ""` (exit code: 23)

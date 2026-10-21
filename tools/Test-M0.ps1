@@ -5,6 +5,10 @@ $run = Join-Path $root ("work/acceptance/" + [DateTimeOffset]::UtcNow.ToUnixTime
 New-Item -ItemType Directory -Force $run | Out-Null
 Push-Location $root
 try {
+    if ($env:CONTINUUM_DEV_SIGNING -eq '1') {
+        & pwsh -NoProfile -File (Join-Path $PSScriptRoot 'windows/Test-DevSigning.ps1') *> (Join-Path $run 'host-signing-preflight.log')
+        if ($LASTEXITCODE -ne 0) { throw 'Host signing/execution preflight failed; resolve it before acceptance.' }
+    }
     & cargo test --locked -p xtask *> (Join-Path $run 'host-tests.log')
     if ($LASTEXITCODE -ne 0) { throw 'Host tests failed' }
     & cargo xtask test --suite m0 *> (Join-Path $run 'compile-tests.log')

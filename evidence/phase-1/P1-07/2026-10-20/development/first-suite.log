@@ -1,0 +1,19 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.15s
+     Running `build\cargo\debug\xtask.exe test --suite m1`
+M1 artifacts: ${WORKSPACE}\build/m1\suite-1792532218089714300-19176
+M1 suite: format
+M1 suite: m0
+M1 suite: dependencies
+M1 suite: kernel-host
+M1 suite: doctor
+M1 suite: prerequisites
+M1 suite: docs
+M1 suite: contracts
+M1 suite: governance
+xtask: Unexplained ISO differences beyond session bytes; artifacts retained at ${WORKSPACE}\build/m1\suite-1792532218089714300-19176
+error: process didn't exit successfully: `build\cargo\debug\xtask.exe test --suite m1` (exit code: 1)
+Exception: ${WORKSPACE}\tools\Test-P1-07.ps1:7
+Line |
+   7 |  … ODE -ne 0) { throw 'P1-07 failed; retain the reported M1 artifacts' }
+     |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | P1-07 failed; retain the reported M1 artifacts

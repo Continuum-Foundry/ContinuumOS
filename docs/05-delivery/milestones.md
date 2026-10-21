@@ -2,7 +2,8 @@
 
 Status: gated execution plan. Phase 0 compile/tooling implementation and evidence
 are recorded in [the runbook](phase-0.md). P1-02 demonstrates minimal UEFI ISO
-kernel entry; M1 as a whole and later milestones remain uncompleted.
+kernel entry; M1's declared experimental baseline now passes local acceptance.
+Later milestones remain uncompleted.
 Stages are evidence gates, not promised calendar dates. First build feasibility
 determines credible estimates. Do not attempt the whole OS in one coding session.
 Revision 2 prioritizes M2/M4/M5 state-preserving reload and an AI-free usable desktop.
@@ -39,7 +40,10 @@ P1-03 adds [checked owned metadata and correlated boot records](phase-1/boot-met
 with retained acceptance evidence. P1-04 adds
 [fatal exception diagnostics](phase-1/exception-diagnostics-runbook.md).
 P1-05 implements [owned frames/mappings and guards](phase-1/memory-ownership-runbook.md);
-check its acceptance review. P1-06 [interrupt/timekeeping acceptance](../../evidence/phase-1/P1-06/2026-10-20/README.md) passes on the pinned single-core profile. P1-07 remains open; M1 is incomplete.
+check its acceptance review. P1-06 [interrupt/timekeeping acceptance](../../evidence/phase-1/P1-06/2026-10-20/README.md) passes on the pinned single-core profile.
+P1-07's [complete local review](../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+passes 33 rows and 42 launches, including both clean artifacts and six final normal
+boots. This closes the declared experimental M1 gate, not later product/runtime gates.
 
 Implement boot validation, serial output, framebuffer metadata, owned paging,
 exception handling, physical allocator and interrupt/timer baseline. Build UEFI ISO.

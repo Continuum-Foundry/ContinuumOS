@@ -62,4 +62,6 @@ Evidence: [2026-10-19 acceptance](../../../evidence/phase-1/P1-04/2026-10-19/REA
 Review: Codex local self-review passed all criteria, 19 host tests and 21 VM launches.
 The [final formatting check](../../../evidence/phase-1/P1-04/2026-10-19-formatting/README.md)
 covers the final EOF-only assembly cleanup, unchanged entry wrappers and one additional real fault launch.
-Actual double-fault entry/guard integration remains P1-05; M1 remains incomplete.
+At this story's review, double-fault/guard integration remained P1-05 and M1 was
+incomplete. See [P1-07's later complete review](../../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+for the current experimental-baseline acceptance.

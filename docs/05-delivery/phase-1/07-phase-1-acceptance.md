@@ -1,6 +1,6 @@
 # P1-07 — Run and review the Phase 1 acceptance gate
 
-Issue type: Story. Epic: P1. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P1. Status: Done. Owner: Codex (local implementation/review).
 Depends on: P1-01 through P1-06 Done, including deferred integration cases.
 Suggested labels: `phase-1`, `acceptance`, `evidence`.
 Backlog: M1 gate and early B32 harness. Requirements: R01/R02/R03/R18;
@@ -53,15 +53,15 @@ declared kernel baseline and exposes every remaining limitation before Phase 2/3
 
 ## Acceptance criteria
 
-- [ ] Every row has raw evidence and an explicit result; no required case is waived silently.
-- [ ] Final offline boots use the exact final ISO hashes and pinned firmware/configuration.
-- [ ] Timeout policy is fixed in the VM profile before the suite runs. Extending a
+- [x] Every row has raw evidence and an explicit result; no required case is waived silently.
+- [x] Final offline boots use the exact final ISO hashes and pinned firmware/configuration.
+- [x] Timeout policy is fixed in the VM profile before the suite runs. Extending a
   deadline after a failure creates a separately identified run and preserves the failure.
-- [ ] The harness distinguishes expected fault exit, normal success, firmware failure,
+- [x] The harness distinguishes expected fault exit, normal success, firmware failure,
   timeout, unexpected crash/reset and host cleanup. No VM process remains running.
-- [ ] Source identity, notices, assembly boundary and all upstream trust assumptions
+- [x] Source identity, notices, assembly boundary and all upstream trust assumptions
   are reviewable; no whole-OS security or release reproducibility claim is implied.
-- [ ] Review finds story criteria satisfied and updates the index/handoff consistently.
+- [x] Review finds story criteria satisfied and updates the index/handoff consistently.
   If any criterion is blocked, M1 remains incomplete and the blocker is named.
 
 ## Completion boundaries and next work
@@ -76,4 +76,12 @@ user-mode isolation and complete scheduling/context policy before guest UI/servi
 Use the [epic evidence rules](README.md#evidence-and-story-completion) and existing
 [validation strategy](../validation.md) to write the review.
 
-Implementation revision: Not implemented. Evidence: None. Review: Pending.
+Implementation: aggregate harness and final readiness checkpoint implemented on
+`codex/p1-07-phase-1-acceptance`. The [complete local review](../../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+passes all six criteria: 33 rows, 42 launches and 28 Rust host tests. Five normal
+cold boots and the second clean ISO boot pass; the only ISO differences are the
+declared session bytes. The owner-authorized development signer/policy resolves
+host execution. The initial GPT and host-policy failures remain in the immutable
+[blocked review](../../../evidence/phase-1/P1-07/2026-10-20/README.md).
+M1's declared experimental baseline passes local Codex self-review, not independent
+approval. See the [runbook](acceptance-runbook.md) for scope and repeatable commands.

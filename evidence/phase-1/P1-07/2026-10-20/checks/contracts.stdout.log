@@ -1,0 +1,76 @@
+{
+  "validator": "PowerShell Test-Json",
+  "powershell": "7.6.5",
+  "dialect": "JSON Schema 2020-12",
+  "positive": 2,
+  "negative": 9,
+  "scope": "Schema structure and synthetic fixtures only. No payload integrity, semantic compatibility, authentication or OS behavior tested.",
+  "results": [
+    {
+      "name": "package positive synthetic fixture",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "update positive synthetic fixture",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "reject invalid package digest shape",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "reject missing package format version",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "reject unknown package property",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "reject excessive declared package memory",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "reject duplicate capability request",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "reject unsupported update format version",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "reject empty update component set",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "reject negative update epoch",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "reject oversized checkpoint declaration",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    }
+  ]
+}

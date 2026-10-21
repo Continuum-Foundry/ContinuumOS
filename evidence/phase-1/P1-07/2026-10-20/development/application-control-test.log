@@ -1,0 +1,13 @@
+   Compiling xtask v0.1.0 (${WORKSPACE}\tools\xtask)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\${WORKSPACE}\build\cargo\debug\incremental\xtask-1rutk25oecbi3\s-hnee5i63ti-1v2c1n7-working`
+
+warning: `xtask` (bin "xtask" test) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.21s
+     Running unittests src\main.rs (build\cargo\debug\deps\xtask-6deec9c2c1c021ff.exe)
+error: test failed, to rerun pass `-p xtask --bin xtask`
+
+Caused by:
+  could not execute process `${WORKSPACE}\build\cargo\debug\deps\xtask-6deec9c2c1c021ff.exe m1::suite::tests::iso_comparison_rejects_unexplained_changes` (never executed)
+
+Caused by:
+  An Application Control policy has blocked this file. (os error 4551)

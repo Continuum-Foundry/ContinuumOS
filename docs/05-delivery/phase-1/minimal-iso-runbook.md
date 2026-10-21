@@ -6,7 +6,9 @@ diagnostics; see the [metadata runbook](boot-metadata-runbook.md) and
 [exception runbook](exception-diagnostics-runbook.md). Historical evidence remains
 unchanged. P1-05 adds [owned frames/page tables, stack guards and double-fault
 integration](memory-ownership-runbook.md) with version-4 diagnostics; check that
-story's acceptance status. M1 still needs interrupt/timekeeping and P1-07 acceptance.
+story's acceptance status. P1-06 timekeeping and the complete
+[P1-07 local gate](../../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+now pass the declared experimental M1 baseline.
 
 ## Commands
 
@@ -35,7 +37,8 @@ Each command prints its new artifact directory under ignored `build/m1/`.
 `iso` builds the normal kernel; `run` also builds/packages a fresh normal ISO.
 Smoke builds enable `emulator-test`; negative builds enable `fault-before-entry`.
 These are different recorded build identities. No latest-log or latest-ISO cache
-is used. The complete future `test --suite m1` remains unavailable until P1-07.
+is used. The complete `test --suite m1` now exists; see the
+[acceptance runbook](acceptance-runbook.md) and its current blocker.
 
 ## Host harness source layout
 
@@ -46,7 +49,8 @@ process supervision and reporting (`observe`). `observe` keeps spawning and
 owning the child together so early errors still kill and reap the process.
 
 `cases` orchestrates the named scenarios and supplies expected rejection outcomes;
-`records` validates the version-3 serial contract. Shared `inputs`, `process` and
+`records` validates the current version-5 serial contract, including P1-07's final
+`m1.ready` after boot completion. `suite` aggregates the complete gate. Shared `inputs`, `process` and
 `support` modules handle prerequisite/pin checks, bounded host commands and
 artifact file operations. The command names, manifest schemas and evidence paths
 are preserved. Source moves change the build identity because all xtask sources

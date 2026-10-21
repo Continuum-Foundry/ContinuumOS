@@ -1,0 +1,50 @@
+P1-07 development observations, transcribed from tool output on 2026-10-20.
+This is a transcription, not an original raw process log.
+
+1. The first local git switch could not create the branch lock under the
+   restricted .git permissions. The authorized escalated retry created
+   codex/p1-07-phase-1-acceptance. No remote operation occurred.
+2. Phase 0 precheck passed. The sandboxed M1 doctor reported xorriso startup
+   exit -1073741502 (the documented MSYS2 execution-context restriction).
+   Its original output remains in work/p1-07-doctor-precheck.log.
+3. A doctor invocation made while the new suite module had been declared but
+   its file had not yet been added failed with Rust E0583 (module suite absent).
+4. The first host compile of suite.rs failed with E0277: collecting
+   Result<&str, &str> into Result<BTreeSet<_>, String>. The missing error-string
+   conversion was corrected; the succeeding 14 host tests passed.
+5. One cargo fmt attempt failed with Windows error 1224 (file with user-mapped
+   section open) on records.rs. A subsequent formatting run passed.
+6. The temporary doctor-outside and host-tests log paths were reused for
+   corrected invocations. Their early original compiler output is not retained
+   as raw evidence; items 3-5 above are explicit transcriptions of tool output.
+7. The revised ordinary normal ISO boot passed on the first VM attempt:
+   build/m1/run-1792532119486300600-35668. It reached m1.ready, continued idle,
+   and was stopped/reaped by the host. It is development evidence, excluded
+   from the final suite's launch count. Full artifacts remain local.
+8. First complete gate attempt suite-1792532218089714300-19176 passed all nine
+   regression/prerequisite rows, both clean normal builds, five consecutive
+   normal acceptance boots and the second-clean exact ISO boot. It correctly
+   FAILED its whole-ISO comparison: xorriso generated different GPT disk and
+   partition GUIDs and corresponding GPT CRCs. Kernel bytes matched exactly.
+   work/p1-07-iso-differences.json retains the byte ranges after removing only
+   session fields. The original suite, its terminal failed result, all six
+   boot artifacts and work/p1-07-full-suite.log remain local and unchanged.
+9. Repackaging the same staging trees into separate scratch images with fixed
+   GPT GUID 61464790-57e2-4a64-a66d-7c6fd0e6770a yielded no differences after
+   session normalization (work/p1-07-fixed-iso-comparison.json). This isolated
+   experiment is not a new boot result. Packaging now explicitly fixes the GUID.
+10. A sandboxed targeted host test after that change compiled but Windows
+    Application Control refused to execute the test binary (error 4551).
+    work/p1-07-comparison-test.log is retained. The complete gate is rerun in
+    its established outside-sandbox execution context; no security setting changed.
+11. The corrected full gate suite-1792532726225181200-52940 also stopped in M0:
+    Windows refused the same host-test binary even outside the sandbox. This is
+    an actual Smart App Control block, not the xorriso sandbox restriction.
+    Code Integrity events identify VerifiedAndReputableDesktop. Read-only policy
+    listing was access denied; no signing credentials were available. The owner
+    selected arranging approval under the existing policy. Approval has NOT
+    been achieved. See work/p1-07-approval-request.txt. Independent named guest
+    regressions continue; they cannot satisfy or waive the blocked full gate.
+
+No guest failure was erased, no timeout was lengthened, and no physical disk,
+Windows feature, global package or host setting was changed.

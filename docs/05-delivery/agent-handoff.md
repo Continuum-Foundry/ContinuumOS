@@ -25,8 +25,8 @@ frames, owned page tables, guarded runtime/IST stacks and enforced WP/NX; check 
 P1-06 adds [ACPI/xAPIC/HPET interrupts and delivered-tick uptime](phase-1/interrupts-timekeeping-runbook.md);
 its [local acceptance passes](../../evidence/phase-1/P1-06/2026-10-20/README.md).
 The current serial contract is version 5. No general heap or scheduler exists yet.
-There is no complete M1 readiness, usable desktop, guest driver stack or measured
-guest performance result. All ADRs are Proposed. Example
+M1's complete experimental VM gate now passes local acceptance. There is no usable
+desktop, general driver stack or measured guest performance result. All ADRs are Proposed. Example
 contracts are drafts; sample IDs/digests are synthetic. Do not report implementation
 progress from directory names or document completeness.
 The user approved the [revision-2 reconciled direction](../00-overview/reconciled-plan.md).
@@ -56,8 +56,21 @@ pushes, uploads, sharing, and processing on hold. Earlier push authorization doe
 not override it. No current GitHub, AI, host, or backup environment is certified
 as satisfying it. Keep changes local; do not bypass the installed pre-push guard.
 
-Follow [the Phase 1 epic and seven ordered stories](phase-1/README.md), starting
-with P1-07 after [P1-06's accepted timer review](../../evidence/phase-1/P1-06/2026-10-20/README.md).
+All [seven ordered Phase 1 stories](phase-1/README.md) now pass local acceptance.
+P1-07's [complete review](../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+checks 33 rows and 42 launches: 20 ready, nine expected fatal, eleven expected
+rejection and two deliberately broken before entry. Five consecutive normal boots
+and the second clean ISO boot pass; kernels match and ISO bytes differ only in
+the permitted session field. This is local Codex self-review, not independent approval.
+The earlier GPT comparison failure and blocked host execution remain immutable.
+The owner authorized a private development signer and replacement App Control
+policy on **this Windows installation**; the base and exact-hash tool supplement
+are enforcing. Fresh executable and clean Cargo build-script/proc-macro/test/run
+preflights pass. See the [signing lifecycle and recovery runbook](windows-development-signing.md).
+The runner uses an argument array in the local Cargo home and a fresh signed build
+cache. Check enrollment/key expiry and actual tool pins before future acceptance runs.
+The next bounded workstream is M2's hosted Slint/minimal-custom comparison; no UI
+toolkit is selected by dependency compilation, and no guest reload exists yet.
 P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).
@@ -67,7 +80,7 @@ implementation. Do not skip their evidence gates or mark all of B06 complete in 
 Re-run the Phase 0 acceptance commands before extending the work. B01/B02 now have
 Windows compile/link evidence; B03/B38 have P1-02's minimal UEFI optical route.
 Run `cargo xtask doctor --profile m1` against the supplied QEMU/OVMF/ISO inputs,
-then confirm P1-06's interrupt/timekeeping acceptance review before P1-07. Preserve
+then confirm P1-06's interrupt/timekeeping review and P1-07's complete acceptance. Preserve
 the owned runtime/IST stacks, GDT/TSS/IDT, exception text mappings and the six
 memory/protection cases, including actual double-fault entry. Only eligible
 ordinary RAM has a direct mapping; ACPI, modules, framebuffer and loader backing

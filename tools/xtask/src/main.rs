@@ -280,6 +280,7 @@ fn run() -> Result<()> {
             Ok(())
         }
         ["test", "--suite", "m0"] => test_m0(),
+        ["test", "--suite", "m1"] => m1::execute("suite"),
         ["build", "--profile", "dev"] => m1::execute("build"),
         ["iso", "--profile", "m1"] => m1::execute("iso"),
         ["run", "--profile", "vm-baseline"] => m1::execute("run"),

@@ -11,7 +11,10 @@ P1-04 implements B05's fatal exception subset; see its
 P1-05 implements frame ownership, page tables, guards and actual double-fault
 integration; its [accepted memory review](../../evidence/phase-1/P1-05/2026-10-19/README.md)
 closes B05's planned memory/exception gate on this profile. P1-06's [accepted timer baseline](../../evidence/phase-1/P1-06/2026-10-20/README.md) implements only B06's M1 interrupt/uptime subset. Preemption, task/FP context and scheduling remain M3; B06 is not Done.
-The general heap and user isolation remain later work; M1 is incomplete.
+P1-07 implements the aggregate M1/early-B32 harness and final readiness; its
+[complete local review](../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+passes 33 rows and 42 launches, closing the declared experimental M1 gate.
+B32/B06 remain partial. The general heap and user isolation remain later work.
 Owner column means a responsibility, not an assigned
 agent/person. Read milestone gates before picking work. `→` dependencies must pass;
 tasks within a gate can share infrastructure without implying simultaneous agents.

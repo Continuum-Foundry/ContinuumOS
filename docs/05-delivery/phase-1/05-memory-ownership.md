@@ -73,4 +73,6 @@ guarded runtime/IST mappings implemented on `codex/p1-05-memory-ownership`.
 The [2026-10-19 acceptance review](../../../evidence/phase-1/P1-05/2026-10-19/README.md)
 passes all six criteria with 23 host tests and 27 selected ISO launches. See the
 [memory runbook](memory-ownership-runbook.md) for capacities and unsafe review.
-Review is local Codex self-review, not independent approval. M1 remains incomplete.
+Review is local Codex self-review, not independent approval. M1 was incomplete at
+this story's review; [P1-07's later gate](../../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+now accepts the declared experimental baseline.

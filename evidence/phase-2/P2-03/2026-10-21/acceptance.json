@@ -1,0 +1,105 @@
+{
+  "harness_sha256": "68a79452a3657c35d484b28403600bf62baf9d91ebd2d443df7007c68cf0587d",
+  "utc": "2026-10-21T04:33:11.3523733Z",
+  "guest_tested": false,
+  "compiler": [
+    "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "binary: rustc",
+    "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+    "commit-date: 2026-10-13",
+    "host: x86_64-pc-windows-msvc",
+    "release: 1.99.1",
+    "LLVM version: 23.1.1"
+  ],
+  "provider_replacement_tested": false,
+  "schema_version": 1,
+  "schema_cases": 28,
+  "render_tested": false,
+  "replays": [
+    {
+      "result_sha256": "676b47445e8b3bc8ea09ed2693e38ab8855441ad97e3902f5b256bc9fea6f59c",
+      "path": "build/m2/P2-03/run-1792557177545909100-79888",
+      "final_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2"
+    },
+    {
+      "result_sha256": "676b47445e8b3bc8ea09ed2693e38ab8855441ad97e3902f5b256bc9fea6f59c",
+      "path": "build/m2/P2-03/run-1792557180008877200-78704",
+      "final_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2"
+    }
+  ],
+  "fixture_lock_sha256": "0c2f10b79e73cb09a6a29f96da4e6ce11dbbf8e55559454d0b85a574d3a3238a",
+  "status": "passed",
+  "commands": [
+    {
+      "exit_code": 0,
+      "name": "format",
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "tests",
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "editor-model",
+        "-p",
+        "xtask"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "portable-check",
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "editor-model",
+        "--target",
+        "x86_64-unknown-none"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "replay-a",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "editor-model"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "replay-b",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "editor-model"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "ui-fixtures",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "ui-fixtures"
+      ]
+    }
+  ],
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+  "cargo_lock_sha256": "92fb93054c86dcba4aca4e159152d2082d3dbcf6fe13f35688c759e0621644fb",
+  "signed_executable_sha256": "56c0b05fd270f8dc94b93661e491f3906fce53b0d6bf7bad10b216fe6296251a",
+  "independent_decodes": 8,
+  "source_base": "dacf54504f5250d92fc6dca7c4b8a86ec572a4eb",
+  "os": "Microsoft Windows NT 10.0.26300.0"
+}

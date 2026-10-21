@@ -52,7 +52,11 @@ corpus preparation and T13 contracts: seven positive inputs, 56 negative
 mutations, two overflow checks, three nonfinite parse checks, independent schemas,
 18 xtask tests and two exact 10,000-row generations. The 30 visual configurations
 and 150 captures are declared future coverage, not rendered passes.
-P2-03–P2-13 remain plans.
+P2-03's [local review](../../evidence/phase-2/P2-03/2026-10-21/README.md) adds
+T05/T07 logical continuity and T14 hosted action/model checks: 21 operations across
+four entries, 56 negative entry/case pairs, bounded snapshot/history/retry tests,
+independent schema/codec checks and portable library compilation. This does not
+test actual widgets or provider replacement. P2-04–P2-13 remain plans.
 Hosted R04/R08/R09/R15 and R19 design remain distinct from full
 guest/product requirements, M3 isolation, M4 guest resources and M5 behavior transfer.
 

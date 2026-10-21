@@ -66,6 +66,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "editor-model"
+version = "0.1.0"
+dependencies = [
+ "unicode-segmentation",
+]
+
+[[package]]
 name = "hybrid-array"
 version = "0.4.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -200,6 +207,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2c754d6c33795a1c324727428e5a7dedb5b06195f9890bdbcba760d3e246563"
 
 [[package]]
+name = "unicode-segmentation"
+version = "1.13.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c6f5d3c3b1bf09027a88a6bc961fc00497d651009560b5463668dc81b0fa87a8"
+
+[[package]]
 name = "userland-link"
 version = "0.1.0"
 
@@ -207,6 +220,7 @@ version = "0.1.0"
 name = "xtask"
 version = "0.1.0"
 dependencies = [
+ "editor-model",
  "serde_json",
  "sha2",
 ]

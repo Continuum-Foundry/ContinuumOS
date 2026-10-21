@@ -7,7 +7,7 @@
   "lockfiles": [
     {
       "path": "Cargo.lock",
-      "sha256": "87e685b48d370f8da6b418e28823f673e5b0da52cba46f5118be8ccbd59bc6ef"
+      "sha256": "92fb93054c86dcba4aca4e159152d2082d3dbcf6fe13f35688c759e0621644fb"
     },
     {
       "path": "experiments/boot-bindings/Cargo.lock",
@@ -814,6 +814,19 @@
         "candidate-experiments"
       ],
       "first_party": false
+    },
+    {
+      "name": "editor-model",
+      "version": "0.1.0",
+      "source": null,
+      "declared_license": null,
+      "declared_license_file": "LICENSE",
+      "registry_checksum": null,
+      "repository": null,
+      "graphs": [
+        "workspace"
+      ],
+      "first_party": true
     },
     {
       "name": "either",
@@ -3481,6 +3494,7 @@
       "registry_checksum": "c6f5d3c3b1bf09027a88a6bc961fc00497d651009560b5463668dc81b0fa87a8",
       "repository": "https://github.com/unicode-rs/unicode-segmentation",
       "graphs": [
+        "workspace",
         "candidate-experiments"
       ],
       "first_party": false

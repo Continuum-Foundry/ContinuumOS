@@ -1,0 +1,26 @@
+{
+  "findings": [
+    {
+      "name": "signing-lock-enrollment",
+      "observed": "First editor-model test link stopped: A Cargo.lock changed; review dependency changes before reenrolling compiler signing.",
+      "raw_limit": "Initial console diagnostic exists in chat tool transcript; no complete local log was captured.",
+      "resolution": "Reviewed cached unicode-segmentation 1.13.3 exact checksum, defaults-off feature graph and terms; explicitly ran Initialize-DevCompiler.ps1 retaining signer and host policy. Added editor_model hash test name to existing runner allowlist."
+    },
+    {
+      "name": "harness-compile",
+      "observed": "E0283: type annotations needed for std::result::Result<Value, _> in replay closure",
+      "raw_limit": "Console diagnostic in chat transcript; no complete local log was captured.",
+      "resolution": "Specified Result<Value>; no provider behavior change."
+    },
+    {
+      "name": "authored-undo-count",
+      "observed": "Assertion undo: expected 1, actual 2",
+      "evidence": [
+        "development-failed-replay.json",
+        "traces/failed-replay.txt"
+      ],
+      "local_run": "build/m2/P2-03/run-1792556755891740600-65444",
+      "resolution": "Reviewed insert/insert/delete/undo/redo/undo sequence; corrected expected retained undo frames to two. Implementation unchanged."
+    }
+  ]
+}

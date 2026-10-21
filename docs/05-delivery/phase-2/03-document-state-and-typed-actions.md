@@ -1,6 +1,6 @@
 # P2-03 — Build the shared document state and typed-action model
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Unassigned.
 Depends on: P2-02 Done. Suggested labels: `phase-2`, `editor-state`, `typed-actions`.
 Backlog: B09 state subset, M2 design of B37. Requirements: R19 design, R04/R15/R18;
 preparatory R07/R14. Test families: hosted T05/T14 and T07 state fixtures.
@@ -33,18 +33,23 @@ typed operations so UI rebuilding cannot recreate or discard my document.
 
 ## Acceptance criteria
 
-- [ ] All scene mutations use the same versioned executor from UI/shortcut/automation
+- [x] All scene mutations use the same versioned executor from UI/shortcut/automation
   adapters and produce equal contents, settings, revisions and declared outcomes.
-- [ ] Model state survives view destruction/recreation and compatible snapshot
+- [x] Model state survives view destruction/recreation and compatible snapshot
   roundtrip, including unsaved text, selection, undo history and dirty status.
-- [ ] Invalid input, stale revision, expired context, duplicate/unsupported requests
+- [x] Invalid input, stale revision, expired context, duplicate/unsupported requests
   and denied modeled rights have deterministic outcomes without unauthorized edits.
-- [ ] Checkpoint bounds/version failures leave the active model intact; no native
+- [x] Checkpoint bounds/version failures leave the active model intact; no native
   memory layout or toolkit identity becomes a wire/state contract.
-- [ ] R19 is explicitly an M2 interface/model result; provider replacement, secure
+- [x] R19 is explicitly an M2 interface/model result; provider replacement, secure
   handles, IPC fencing and full B37 completion remain later gates.
 
 ## Tests and evidence
+
+The [local acceptance and self-review](../../../evidence/phase-2/P2-03/2026-10-21/README.md)
+pass. Use the [runbook](document-actions-runbook.md) and
+[exact model contract](../../06-contracts/hosted-editor-model.md). Four headless
+entry adapters share one executor; actual candidate widgets/rendering are later.
 
 Replay the same action sequence through button, shortcut and scripted entry points.
 Cover invalid UTF-8 boundaries, undo after selection replacement, revision conflict,

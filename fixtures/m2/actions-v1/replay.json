@@ -1,0 +1,551 @@
+{
+  "schema_version": 1,
+  "initial": {
+    "document": 1,
+    "revision": 11,
+    "text": "Draft: unsaved\n",
+    "saved": "",
+    "selection": [
+      7,
+      14
+    ]
+  },
+  "steps": [
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 1,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 11,
+        "expected_model_revision": 1,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "edit.insert",
+          "value": "notes"
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 12,
+        "model_revision": 2,
+        "text": "Draft: notes\n",
+        "selection": [
+          12,
+          12
+        ]
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 2,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 12,
+        "expected_model_revision": 2,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "search.set",
+          "value": "notes"
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 12,
+        "model_revision": 3
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 3,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 12,
+        "expected_model_revision": 3,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "files.scroll",
+          "value": 100
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 12,
+        "model_revision": 4
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 4,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 12,
+        "expected_model_revision": 4,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "files.select",
+          "value": 101
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 12,
+        "model_revision": 5
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 5,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 12,
+        "expected_model_revision": 5,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "session.focus",
+          "value": "reduced-effects"
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 12,
+        "model_revision": 6
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 6,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 12,
+        "expected_model_revision": 6,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "settings.effects",
+          "value": true
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 12,
+        "model_revision": 7
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 7,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 12,
+        "expected_model_revision": 7,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "session.focus",
+          "value": "reduced-motion"
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 12,
+        "model_revision": 8
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 8,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 12,
+        "expected_model_revision": 8,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "settings.motion",
+          "value": true
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 12,
+        "model_revision": 9
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 9,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 12,
+        "expected_model_revision": 9,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "session.focus",
+          "value": "editor"
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 12,
+        "model_revision": 10
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 10,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 12,
+        "expected_model_revision": 10,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "edit.insert",
+          "value": "日本"
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 13,
+        "model_revision": 11,
+        "text": "Draft: notes日本\n",
+        "selection": [
+          18,
+          18
+        ]
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 11,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 13,
+        "expected_model_revision": 11,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "edit.select",
+          "value": [
+            7,
+            18
+          ]
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 13,
+        "model_revision": 12
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 12,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 13,
+        "expected_model_revision": 12,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "edit.delete",
+          "value": null
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 14,
+        "model_revision": 13,
+        "text": "Draft: \n",
+        "selection": [
+          7,
+          7
+        ]
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 13,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 14,
+        "expected_model_revision": 13,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "edit.undo",
+          "value": null
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 15,
+        "model_revision": 14,
+        "text": "Draft: notes日本\n",
+        "selection": [
+          7,
+          18
+        ]
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 14,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 15,
+        "expected_model_revision": 14,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "edit.redo",
+          "value": null
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 16,
+        "model_revision": 15,
+        "text": "Draft: \n",
+        "selection": [
+          7,
+          7
+        ]
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 15,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 16,
+        "expected_model_revision": 15,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "edit.undo",
+          "value": null
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 17,
+        "model_revision": 16,
+        "text": "Draft: notes日本\n",
+        "selection": [
+          7,
+          18
+        ]
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 16,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 17,
+        "expected_model_revision": 16,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "edit.select",
+          "value": [
+            18,
+            18
+          ]
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 17,
+        "model_revision": 17
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 17,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 17,
+        "expected_model_revision": 17,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "settings.theme",
+          "value": "high-contrast"
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 17,
+        "model_revision": 18
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 18,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 17,
+        "expected_model_revision": 18,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "settings.text-size",
+          "value": 20
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 17,
+        "model_revision": 19
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 19,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 17,
+        "expected_model_revision": 19,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "document.scroll",
+          "value": 42
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 17,
+        "model_revision": 20
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 20,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 17,
+        "expected_model_revision": 20,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "session.window",
+          "value": [
+            4,
+            6,
+            500,
+            340
+          ]
+        }
+      },
+      "expected": {
+        "changed": true,
+        "document_revision": 17,
+        "model_revision": 21
+      }
+    },
+    {
+      "request": {
+        "version": 1,
+        "caller": 1,
+        "id": 21,
+        "epoch": 7,
+        "document": 1,
+        "expected_document_revision": 17,
+        "expected_model_revision": 21,
+        "deadline": 1000,
+        "context": null,
+        "action": {
+          "name": "launcher.open",
+          "value": null
+        }
+      },
+      "expected": {
+        "changed": false,
+        "document_revision": 17,
+        "model_revision": 21
+      }
+    }
+  ],
+  "final": {
+    "text": "Draft: notes日本\n",
+    "document_revision": 17,
+    "model_revision": 21,
+    "selection": [
+      18,
+      18
+    ],
+    "dirty": true,
+    "query": "notes",
+    "matches": [
+      [
+        7,
+        12
+      ]
+    ],
+    "scroll": 42,
+    "theme": "HighContrast",
+    "text_size": 20,
+    "reduced_motion": true,
+    "reduced_effects": true,
+    "focus": "editor",
+    "window": [
+      4,
+      6,
+      500,
+      340
+    ],
+    "file_scroll": 100,
+    "selected_file": 101,
+    "undo": 2,
+    "redo": 1
+  }
+}

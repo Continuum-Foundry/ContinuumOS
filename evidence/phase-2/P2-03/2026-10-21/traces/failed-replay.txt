@@ -1,0 +1,5 @@
+   Compiling xtask v0.1.0 (${WORKSPACE}\tools\xtask)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.13s
+     Running `pwsh -NoProfile -File ${WORKSPACE}\tools\windows\Invoke-DevExecutable.ps1 build\cargo\signed\debug\xtask.exe test --suite editor-model`
+xtask: Assertion undo: expected 1, actual 2; retained at ${WORKSPACE}\build/m2/P2-03/run-1792556755891740600-65444
+error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\tools\windows\Invoke-DevExecutable.ps1 build\cargo\signed\debug\xtask.exe test --suite editor-model` (exit code: 1)

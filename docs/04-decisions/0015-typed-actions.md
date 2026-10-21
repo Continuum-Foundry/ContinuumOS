@@ -24,6 +24,11 @@ No generic atomicity or undo promise for cross-provider external effects.
 
 ## Gate and reconsideration
 
+P2-03's [hosted model](../06-contracts/hosted-editor-model.md) exercises the small
+interface with shared entry adapters, context/rights/revision checks, bounded
+retries and logical snapshots. This is M2 model evidence only. Status stays
+Proposed; kernel authority, provider replacement and M5 parity remain open.
+
 M2 defines a small interface; M5 proves identical authorized UI/automation results
 through compatible replacement. R19/T14 cover stale revisions, forged authority and
 retries. Expand workflows when real apps justify them. Inference is not a prerequisite.

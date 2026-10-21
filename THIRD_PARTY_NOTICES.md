@@ -28,6 +28,13 @@ historical ISO is an internal engineering artifact, not a cleared customer relea
 
 ## Host-side tools
 
+P2-03's portable hosted editor model adds `unicode-segmentation` **1.13.3**,
+defaults off, Unicode 17.0.0 tables, under **MIT OR Apache-2.0**. Exact checksum
+is in `Cargo.lock`; original copyright and full license texts are preserved in
+[its notice directory](licenses/third-party/unicode-segmentation-1.13.3/).
+It is linked into host model tests/tools, with freestanding library compilation
+checked separately; it is not integrated into the kernel/ISO or cleared for release.
+
 | Component | Purpose | Terms and source of detail |
 | --- | --- | --- |
 | Rust/rustup/Cargo/LLVM | Compile, link, inspect | Mixed upstream licenses and exceptions; [Phase 0 toolchain provenance](evidence/phase-0/toolchain-manifest.json) and installed distribution notices |

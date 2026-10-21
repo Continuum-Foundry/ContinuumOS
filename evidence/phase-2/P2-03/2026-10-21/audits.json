@@ -1,0 +1,186 @@
+{
+  "documentation": {
+    "docFiles": 115,
+    "markdownFiles": 102,
+    "jsonFiles": 12,
+    "words": 81134,
+    "sources": 84,
+    "adrs": 17,
+    "requirements": 19,
+    "backlogTasks": 40,
+    "coreReleaseIndependentOfInference": true,
+    "localLinksChecked": 779,
+    "errors": []
+  },
+  "governance": {
+    "status": "passed",
+    "requiredFiles": 24,
+    "evidenceFiles": 2352,
+    "localOnlyEvidenceFiles": 2359,
+    "localOnlyEvidenceVerifiedLocally": 2359,
+    "noticeFiles": 10,
+    "registryPackages": 308,
+    "errors": [],
+    "limits": "Historical local-only logs/source require preserved local copies or the recorded earlier Git revision. Does not inspect remote GitHub enforcement, authenticate publishers, clear distribution rights, or run kernel/VM tests"
+  },
+  "contracts": {
+    "validator": "PowerShell Test-Json",
+    "powershell": "7.6.5",
+    "dialect": "JSON Schema 2020-12",
+    "positive": 9,
+    "negative": 16,
+    "scope": "Schema structure and synthetic fixtures only. No payload integrity, semantic compatibility, authentication or OS behavior tested.",
+    "results": [
+      {
+        "name": "package positive synthetic fixture",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "name": "update positive synthetic fixture",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "name": "reject invalid package digest shape",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "reject missing package format version",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "reject unknown package property",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "reject excessive declared package memory",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "reject duplicate capability request",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "reject unsupported update format version",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "reject empty update component set",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "reject negative update epoch",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "reject oversized checkpoint declaration",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "hosted surface positive authored fixture",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "name": "hosted surface rejects unsupported data version",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "hosted tokens positive authored fixture",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "name": "hosted tokens rejects unsupported data version",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "hosted layout positive authored fixture",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "name": "hosted layout rejects unsupported data version",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "hosted corpus positive authored fixture",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "name": "hosted corpus rejects unsupported data version",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "hosted workflow positive authored fixture",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "name": "hosted workflow rejects unsupported data version",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "hosted variants positive authored fixture",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "name": "hosted variants rejects unsupported data version",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      },
+      {
+        "name": "hosted paint positive authored fixture",
+        "expected": true,
+        "actual": true,
+        "passed": true
+      },
+      {
+        "name": "hosted paint rejects unsupported data version",
+        "expected": false,
+        "actual": false,
+        "passed": true
+      }
+    ]
+  }
+}

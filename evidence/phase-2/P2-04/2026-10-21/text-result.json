@@ -1,0 +1,7363 @@
+{
+  "candidate_rendered": false,
+  "composition": [
+    {
+      "case": "commit-after-relayout",
+      "checkpoint_sha256": "10d0371b983c82db5f9510a512400b32ff2908f773e417228628d6ea3c0a25db",
+      "selection": [
+        13,
+        13
+      ],
+      "status": "Ok(true)",
+      "text": "Draft: कि",
+      "undo": 1
+    },
+    {
+      "case": "cancel",
+      "checkpoint_sha256": "d45f783bfc9a963be177b9c416dee5207c82153df211fa88788a5f44938e39e6",
+      "selection": [
+        7,
+        14
+      ],
+      "status": "cancelled preedit",
+      "text": "Draft: unsaved",
+      "undo": 0
+    },
+    {
+      "case": "denied",
+      "checkpoint_sha256": "d45f783bfc9a963be177b9c416dee5207c82153df211fa88788a5f44938e39e6",
+      "selection": [
+        7,
+        14
+      ],
+      "status": "Err(Denied)",
+      "text": "Draft: unsaved",
+      "undo": 0
+    },
+    {
+      "case": "deadline",
+      "checkpoint_sha256": "d45f783bfc9a963be177b9c416dee5207c82153df211fa88788a5f44938e39e6",
+      "selection": [
+        7,
+        14
+      ],
+      "status": "Err(Deadline)",
+      "text": "Draft: unsaved",
+      "undo": 0
+    },
+    {
+      "case": "cancelled-request",
+      "checkpoint_sha256": "d45f783bfc9a963be177b9c416dee5207c82153df211fa88788a5f44938e39e6",
+      "selection": [
+        7,
+        14
+      ],
+      "status": "Err(Cancelled)",
+      "text": "Draft: unsaved",
+      "undo": 0
+    },
+    {
+      "case": "stale-document",
+      "checkpoint_sha256": "52b19f1b4034cf060e5df932c47a9a7cf2651ca9ce301993413561aacaf53b53",
+      "selection": [
+        8,
+        8
+      ],
+      "status": "Conflict",
+      "text": "Draft: x",
+      "undo": 1
+    }
+  ],
+  "guest_tested": false,
+  "native_ime_tested": false,
+  "negative": [
+    {
+      "case": "text-limit",
+      "result": "Bounds"
+    },
+    {
+      "case": "line-limit",
+      "result": "Bounds"
+    },
+    {
+      "case": "size-zero",
+      "result": "Bounds"
+    },
+    {
+      "case": "size-large",
+      "result": "Bounds"
+    },
+    {
+      "case": "scale-invalid",
+      "result": "Bounds"
+    },
+    {
+      "case": "width-zero",
+      "result": "Bounds"
+    },
+    {
+      "case": "width-large",
+      "result": "Bounds"
+    },
+    {
+      "case": "control-nul",
+      "result": "Unsupported"
+    },
+    {
+      "case": "bidi-override",
+      "result": "Unsupported"
+    },
+    {
+      "case": "shape-budget",
+      "result": "Bounds"
+    },
+    {
+      "case": "font-corrupted",
+      "result": "UnpinnedFont"
+    },
+    {
+      "case": "font-missing",
+      "result": "UnpinnedFont"
+    },
+    {
+      "case": "raster-indices",
+      "result": "Bounds"
+    },
+    {
+      "bitmap_bytes": 12924,
+      "case": "cache-lru-scale",
+      "entries": 128,
+      "result": "passed"
+    }
+  ],
+  "observations": [
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ]
+        ]
+      ],
+      "case": "empty",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [],
+      "image_sha256": "424d50b864f8cfd095a3b14f41c61797b7730d9bc762f0e48151811e95550009",
+      "line_ends": [
+        0
+      ],
+      "missing": [],
+      "preview": "empty-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ]
+        ]
+      ],
+      "case": "empty",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [],
+      "image_sha256": "60bde9bec8da61d725e649970ae44c69fac61024347d47c54a4982595a6a6d51",
+      "line_ends": [
+        0
+      ],
+      "missing": [],
+      "preview": "empty-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ]
+        ]
+      ],
+      "case": "empty",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [],
+      "image_sha256": "ef19556a918a404412f64b04a92ec699ac365fc386c75f95d953b32ef513aa48",
+      "line_ends": [
+        0
+      ],
+      "missing": [],
+      "preview": "empty-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            10.112000465393066
+          ],
+          [
+            2,
+            19.088001251220703
+          ],
+          [
+            3,
+            24.59200096130371
+          ],
+          [
+            6,
+            33.61600112915039
+          ]
+        ]
+      ],
+      "case": "combining",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 10.112000465393066,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 38,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 8.976000785827637,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 10.112000465393066
+        },
+        {
+          "advance": 5.504000186920166,
+          "cluster": [
+            2,
+            3
+          ],
+          "font": 0,
+          "id": 73,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.088001251220703
+        },
+        {
+          "advance": 9.02400016784668,
+          "cluster": [
+            3,
+            6
+          ],
+          "font": 0,
+          "id": 171,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 24.59200096130371
+        }
+      ],
+      "image_sha256": "2a5e5427e5f9299af2c3857472a3f4f1abe0ca8b6ab70f42b0826636da72bea1",
+      "line_ends": [
+        6
+      ],
+      "missing": [],
+      "preview": "combining-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            15.168000221252441
+          ],
+          [
+            2,
+            28.631999969482422
+          ],
+          [
+            3,
+            36.88800048828125
+          ],
+          [
+            6,
+            50.42399978637695
+          ]
+        ]
+      ],
+      "case": "combining",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 15.168000221252441,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 38,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 13.46399974822998,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 15.168000221252441
+        },
+        {
+          "advance": 8.256000518798828,
+          "cluster": [
+            2,
+            3
+          ],
+          "font": 0,
+          "id": 73,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.631999969482422
+        },
+        {
+          "advance": 13.53600025177002,
+          "cluster": [
+            3,
+            6
+          ],
+          "font": 0,
+          "id": 171,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 36.88800048828125
+        }
+      ],
+      "image_sha256": "d0863a72ec7213350342a1e08db559520a020f2d6e6e0bdd30baf535533a302b",
+      "line_ends": [
+        6
+      ],
+      "missing": [],
+      "preview": "combining-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            20.224000930786133
+          ],
+          [
+            2,
+            38.176002502441406
+          ],
+          [
+            3,
+            49.18400192260742
+          ],
+          [
+            6,
+            67.23200225830078
+          ]
+        ]
+      ],
+      "case": "combining",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 20.224000930786133,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 38,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 17.952001571655273,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 20.224000930786133
+        },
+        {
+          "advance": 11.008000373840332,
+          "cluster": [
+            2,
+            3
+          ],
+          "font": 0,
+          "id": 73,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 38.176002502441406
+        },
+        {
+          "advance": 18.04800033569336,
+          "cluster": [
+            3,
+            6
+          ],
+          "font": 0,
+          "id": 171,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 49.18400192260742
+        }
+      ],
+      "image_sha256": "918762b283502d6ba0958b2cea8f4061fb3dca0febf04566717e989e111eade1",
+      "line_ends": [
+        6
+      ],
+      "missing": [],
+      "preview": "combining-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            15,
+            28.80000114440918
+          ]
+        ]
+      ],
+      "case": "emoji-zwj",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 9.600000381469727
+        },
+        {
+          "advance": 0.0,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.200000762939453
+        },
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.200000762939453
+        }
+      ],
+      "image_sha256": "6790e8fc341f6af62a754c23bf394df72c172ae9b2d77727c59c4085aa8dc4a1",
+      "line_ends": [
+        15
+      ],
+      "missing": [
+        [
+          0,
+          15
+        ]
+      ],
+      "preview": "emoji-zwj-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            15,
+            43.20000076293945
+          ]
+        ]
+      ],
+      "case": "emoji-zwj",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 14.40000057220459
+        },
+        {
+          "advance": 0.0,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.80000114440918
+        },
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.80000114440918
+        }
+      ],
+      "image_sha256": "ee7a914f037cb0bb4b26679527f3ce8c2f8916a47fea2710307e7ffe67476efd",
+      "line_ends": [
+        15
+      ],
+      "missing": [
+        [
+          0,
+          15
+        ]
+      ],
+      "preview": "emoji-zwj-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            15,
+            57.60000228881836
+          ]
+        ]
+      ],
+      "case": "emoji-zwj",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.200000762939453
+        },
+        {
+          "advance": 0.0,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 38.400001525878906
+        },
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            0,
+            15
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 38.400001525878906
+        }
+      ],
+      "image_sha256": "be7263afeed6d46a44584f09502e9747caa61b1895a3b8ac5091351702a98ac8",
+      "line_ends": [
+        15
+      ],
+      "missing": [
+        [
+          0,
+          15
+        ]
+      ],
+      "preview": "emoji-zwj-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            8,
+            19.200000762939453
+          ],
+          [
+            16,
+            38.400001525878906
+          ]
+        ]
+      ],
+      "case": "emoji-flags",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            0,
+            8
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            0,
+            8
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 9.600000381469727
+        },
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            8,
+            16
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.200000762939453
+        },
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            8,
+            16
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.80000114440918
+        }
+      ],
+      "image_sha256": "db5ac649edbff648ba722242453f4e0d6ce949f5962aaad1d568997ac3ec849f",
+      "line_ends": [
+        16
+      ],
+      "missing": [
+        [
+          0,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "preview": "emoji-flags-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            8,
+            28.80000114440918
+          ],
+          [
+            16,
+            57.60000228881836
+          ]
+        ]
+      ],
+      "case": "emoji-flags",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            0,
+            8
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            0,
+            8
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 14.40000057220459
+        },
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            8,
+            16
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.80000114440918
+        },
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            8,
+            16
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 43.20000076293945
+        }
+      ],
+      "image_sha256": "35263f941a12b62f9d129ddcce4563c208d703155c585ddea07ee3ef7240e1aa",
+      "line_ends": [
+        16
+      ],
+      "missing": [
+        [
+          0,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "preview": "emoji-flags-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            8,
+            38.400001525878906
+          ],
+          [
+            16,
+            76.80000305175781
+          ]
+        ]
+      ],
+      "case": "emoji-flags",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            0,
+            8
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            0,
+            8
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.200000762939453
+        },
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            8,
+            16
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 38.400001525878906
+        },
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            8,
+            16
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 57.60000228881836
+        }
+      ],
+      "image_sha256": "de255b65ab51541522f6133a1312ab7ecc1d3079b759b2995cecdf77437ea2f7",
+      "line_ends": [
+        16
+      ],
+      "missing": [
+        [
+          0,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "preview": "emoji-flags-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            5.0453338623046875
+          ],
+          [
+            2,
+            10.090667724609375
+          ],
+          [
+            3,
+            15.136000633239746
+          ]
+        ]
+      ],
+      "case": "ligature",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 15.136000633239746,
+          "cluster": [
+            0,
+            3
+          ],
+          "font": 0,
+          "id": 1654,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        }
+      ],
+      "image_sha256": "8870f41b8dcd2f9afcc3350a817317379e0a8dbb970221af187b3f12af6a574d",
+      "line_ends": [
+        3
+      ],
+      "missing": [],
+      "preview": "ligature-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            7.568000316619873
+          ],
+          [
+            2,
+            15.136000633239746
+          ],
+          [
+            3,
+            22.70400047302246
+          ]
+        ]
+      ],
+      "case": "ligature",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 22.70400047302246,
+          "cluster": [
+            0,
+            3
+          ],
+          "font": 0,
+          "id": 1654,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        }
+      ],
+      "image_sha256": "a1a0794772ffaf5dbf5cfe5767e400810cb2cd37e4d017d733366869ec494500",
+      "line_ends": [
+        3
+      ],
+      "missing": [],
+      "preview": "ligature-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            10.090667724609375
+          ],
+          [
+            2,
+            20.18133544921875
+          ],
+          [
+            3,
+            30.272001266479492
+          ]
+        ]
+      ],
+      "case": "ligature",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 30.272001266479492,
+          "cluster": [
+            0,
+            3
+          ],
+          "font": 0,
+          "id": 1654,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        }
+      ],
+      "image_sha256": "77908d9e07e1d67e002a554932216df59447eacd310829724dd8c718d2e3e226",
+      "line_ends": [
+        3
+      ],
+      "missing": [],
+      "preview": "ligature-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            9.600000381469727
+          ],
+          [
+            2,
+            19.200000762939453
+          ],
+          [
+            3,
+            28.80000114440918
+          ],
+          [
+            4,
+            38.400001525878906
+          ]
+        ]
+      ],
+      "case": "mono-spacing",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 5,
+          "id": 76,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 5,
+          "id": 58,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 9.600000381469727
+        },
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            2,
+            3
+          ],
+          "font": 5,
+          "id": 19,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.200000762939453
+        },
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            3,
+            4
+          ],
+          "font": 5,
+          "id": 19,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.80000114440918
+        }
+      ],
+      "image_sha256": "bd0895c9f17a1cf7b8ab5e68ca10f00681c94acd6769f25111d6b25db20989de",
+      "line_ends": [
+        4
+      ],
+      "missing": [],
+      "preview": "mono-spacing-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            14.40000057220459
+          ],
+          [
+            2,
+            28.80000114440918
+          ],
+          [
+            3,
+            43.20000076293945
+          ],
+          [
+            4,
+            57.60000228881836
+          ]
+        ]
+      ],
+      "case": "mono-spacing",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 5,
+          "id": 76,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 5,
+          "id": 58,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 14.40000057220459
+        },
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            2,
+            3
+          ],
+          "font": 5,
+          "id": 19,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.80000114440918
+        },
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            3,
+            4
+          ],
+          "font": 5,
+          "id": 19,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 43.20000076293945
+        }
+      ],
+      "image_sha256": "09d1d6031e3e4ba9662e9de35783cd204df46075695b0af8166c91749f92b1b6",
+      "line_ends": [
+        4
+      ],
+      "missing": [],
+      "preview": "mono-spacing-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            19.200000762939453
+          ],
+          [
+            2,
+            38.400001525878906
+          ],
+          [
+            3,
+            57.60000228881836
+          ],
+          [
+            4,
+            76.80000305175781
+          ]
+        ]
+      ],
+      "case": "mono-spacing",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 5,
+          "id": 76,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 5,
+          "id": 58,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.200000762939453
+        },
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            2,
+            3
+          ],
+          "font": 5,
+          "id": 19,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 38.400001525878906
+        },
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            3,
+            4
+          ],
+          "font": 5,
+          "id": 19,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 57.60000228881836
+        }
+      ],
+      "image_sha256": "7aa47dc9eabcf7babba115b110193e0c8281c6a17ea763c1c125c0aaf1ee477b",
+      "line_ends": [
+        4
+      ],
+      "missing": [],
+      "preview": "mono-spacing-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            8,
+            0.0
+          ],
+          [
+            6,
+            7.744000434875488
+          ],
+          [
+            4,
+            12.536001205444336
+          ],
+          [
+            2,
+            17.328001022338867
+          ],
+          [
+            0,
+            29.87200164794922
+          ]
+        ]
+      ],
+      "case": "arabic",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 7.744000434875488,
+          "cluster": [
+            6,
+            8
+          ],
+          "font": 1,
+          "id": 770,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 0.0
+        },
+        {
+          "advance": 9.584000587463379,
+          "cluster": [
+            2,
+            6
+          ],
+          "font": 1,
+          "id": 705,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 7.744000434875488
+        },
+        {
+          "advance": 12.544000625610352,
+          "cluster": [
+            0,
+            2
+          ],
+          "font": 1,
+          "id": 1083,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 17.328001022338867
+        }
+      ],
+      "image_sha256": "40df0cb6d8785892af1297b2ac2c77e6ae8bed09085b8f64a29f6147b0c4e8f6",
+      "line_ends": [
+        8
+      ],
+      "missing": [],
+      "preview": "arabic-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            8,
+            0.0
+          ],
+          [
+            6,
+            11.616000175476074
+          ],
+          [
+            4,
+            18.804000854492188
+          ],
+          [
+            2,
+            25.992000579833984
+          ],
+          [
+            0,
+            44.80799865722656
+          ]
+        ]
+      ],
+      "case": "arabic",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 11.616000175476074,
+          "cluster": [
+            6,
+            8
+          ],
+          "font": 1,
+          "id": 770,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 0.0
+        },
+        {
+          "advance": 14.37600040435791,
+          "cluster": [
+            2,
+            6
+          ],
+          "font": 1,
+          "id": 705,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 11.616000175476074
+        },
+        {
+          "advance": 18.81599998474121,
+          "cluster": [
+            0,
+            2
+          ],
+          "font": 1,
+          "id": 1083,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 25.992000579833984
+        }
+      ],
+      "image_sha256": "717b84dece22e24aab13392efe93fc88c7e00feab932460b3156ad50196ab112",
+      "line_ends": [
+        8
+      ],
+      "missing": [],
+      "preview": "arabic-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            8,
+            0.0
+          ],
+          [
+            6,
+            15.488000869750977
+          ],
+          [
+            4,
+            25.072002410888672
+          ],
+          [
+            2,
+            34.656002044677734
+          ],
+          [
+            0,
+            59.74400329589844
+          ]
+        ]
+      ],
+      "case": "arabic",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 15.488000869750977,
+          "cluster": [
+            6,
+            8
+          ],
+          "font": 1,
+          "id": 770,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 0.0
+        },
+        {
+          "advance": 19.168001174926758,
+          "cluster": [
+            2,
+            6
+          ],
+          "font": 1,
+          "id": 705,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 15.488000869750977
+        },
+        {
+          "advance": 25.088001251220703,
+          "cluster": [
+            0,
+            2
+          ],
+          "font": 1,
+          "id": 1083,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 34.656002044677734
+        }
+      ],
+      "image_sha256": "679edfae0851a1e71a7e36d86b921e20c8865ea82a820a5d1b25d0dd9df2754e",
+      "line_ends": [
+        8
+      ],
+      "missing": [],
+      "preview": "arabic-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            8,
+            0.0
+          ],
+          [
+            6,
+            10.944000244140625
+          ],
+          [
+            4,
+            15.600000381469727
+          ],
+          [
+            2,
+            23.95199966430664
+          ],
+          [
+            0,
+            35.63199996948242
+          ]
+        ]
+      ],
+      "case": "hebrew",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 10.944000244140625,
+          "cluster": [
+            6,
+            8
+          ],
+          "font": 2,
+          "id": 23,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 0.0
+        },
+        {
+          "advance": 4.656000137329102,
+          "cluster": [
+            4,
+            6
+          ],
+          "font": 2,
+          "id": 124,
+          "offset": [
+            -0.1600000113248825,
+            0.0
+          ],
+          "rtl": true,
+          "x": 10.944000244140625
+        },
+        {
+          "advance": 8.35200023651123,
+          "cluster": [
+            2,
+            4
+          ],
+          "font": 2,
+          "id": 55,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 15.600000381469727
+        },
+        {
+          "advance": 11.680000305175781,
+          "cluster": [
+            0,
+            2
+          ],
+          "font": 2,
+          "id": 96,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 23.95199966430664
+        }
+      ],
+      "image_sha256": "c63784f5542dff61339803e06a6449c45943463b66e4eb403755fb5f30dde266",
+      "line_ends": [
+        8
+      ],
+      "missing": [],
+      "preview": "hebrew-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            8,
+            0.0
+          ],
+          [
+            6,
+            16.416000366210938
+          ],
+          [
+            4,
+            23.400001525878906
+          ],
+          [
+            2,
+            35.928001403808594
+          ],
+          [
+            0,
+            53.448001861572266
+          ]
+        ]
+      ],
+      "case": "hebrew",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 16.416000366210938,
+          "cluster": [
+            6,
+            8
+          ],
+          "font": 2,
+          "id": 23,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 0.0
+        },
+        {
+          "advance": 6.984000205993652,
+          "cluster": [
+            4,
+            6
+          ],
+          "font": 2,
+          "id": 124,
+          "offset": [
+            -0.24000000953674316,
+            0.0
+          ],
+          "rtl": true,
+          "x": 16.416000366210938
+        },
+        {
+          "advance": 12.527999877929688,
+          "cluster": [
+            2,
+            4
+          ],
+          "font": 2,
+          "id": 55,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 23.400001525878906
+        },
+        {
+          "advance": 17.520000457763672,
+          "cluster": [
+            0,
+            2
+          ],
+          "font": 2,
+          "id": 96,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 35.928001403808594
+        }
+      ],
+      "image_sha256": "f3924adfd5c48b6926961c2fcd56946a5f92cbc4c471796c77eb9de2e00548b9",
+      "line_ends": [
+        8
+      ],
+      "missing": [],
+      "preview": "hebrew-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            8,
+            0.0
+          ],
+          [
+            6,
+            21.88800048828125
+          ],
+          [
+            4,
+            31.200000762939453
+          ],
+          [
+            2,
+            47.90399932861328
+          ],
+          [
+            0,
+            71.26399993896484
+          ]
+        ]
+      ],
+      "case": "hebrew",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 21.88800048828125,
+          "cluster": [
+            6,
+            8
+          ],
+          "font": 2,
+          "id": 23,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 0.0
+        },
+        {
+          "advance": 9.312000274658203,
+          "cluster": [
+            4,
+            6
+          ],
+          "font": 2,
+          "id": 124,
+          "offset": [
+            -0.320000022649765,
+            0.0
+          ],
+          "rtl": true,
+          "x": 21.88800048828125
+        },
+        {
+          "advance": 16.70400047302246,
+          "cluster": [
+            2,
+            4
+          ],
+          "font": 2,
+          "id": 55,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 31.200000762939453
+        },
+        {
+          "advance": 23.360000610351562,
+          "cluster": [
+            0,
+            2
+          ],
+          "font": 2,
+          "id": 96,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 47.90399932861328
+        }
+      ],
+      "image_sha256": "57ec2e61bc3c34963722df7d25134510ab19dd099dbf6f52d2122efe8d07d3ec",
+      "line_ends": [
+        8
+      ],
+      "missing": [],
+      "preview": "hebrew-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            6,
+            16.336000442504883
+          ]
+        ]
+      ],
+      "case": "indic-prebase",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 4.144000053405762,
+          "cluster": [
+            0,
+            6
+          ],
+          "font": 3,
+          "id": 607,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 12.192000389099121,
+          "cluster": [
+            0,
+            6
+          ],
+          "font": 3,
+          "id": 25,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 4.144000053405762
+        }
+      ],
+      "image_sha256": "7abb7f9da3f0512606c46145788a0617bd01cd8a2fa3f14be09cd32b109c75e8",
+      "line_ends": [
+        6
+      ],
+      "missing": [],
+      "preview": "indic-prebase-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            6,
+            24.503999710083008
+          ]
+        ]
+      ],
+      "case": "indic-prebase",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 6.216000080108643,
+          "cluster": [
+            0,
+            6
+          ],
+          "font": 3,
+          "id": 607,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 18.288000106811523,
+          "cluster": [
+            0,
+            6
+          ],
+          "font": 3,
+          "id": 25,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 6.216000080108643
+        }
+      ],
+      "image_sha256": "0cc55bf5308d3d8075bfb05eaa9b5f4576f34fc21f93144e53ba8c516fbc9437",
+      "line_ends": [
+        6
+      ],
+      "missing": [],
+      "preview": "indic-prebase-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            6,
+            32.672000885009766
+          ]
+        ]
+      ],
+      "case": "indic-prebase",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 8.288000106811523,
+          "cluster": [
+            0,
+            6
+          ],
+          "font": 3,
+          "id": 607,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 24.384000778198242,
+          "cluster": [
+            0,
+            6
+          ],
+          "font": 3,
+          "id": 25,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 8.288000106811523
+        }
+      ],
+      "image_sha256": "7b3d257c5070f428e48858dfac2a135e8b0d4d8dfa41e71652dd3c33c4c3bbce",
+      "line_ends": [
+        6
+      ],
+      "missing": [],
+      "preview": "indic-prebase-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            12,
+            15.53600025177002
+          ]
+        ]
+      ],
+      "case": "indic-conjunct",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 4.144000053405762,
+          "cluster": [
+            0,
+            12
+          ],
+          "font": 3,
+          "id": 610,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 11.392000198364258,
+          "cluster": [
+            0,
+            12
+          ],
+          "font": 3,
+          "id": 179,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 4.144000053405762
+        }
+      ],
+      "image_sha256": "944ecb0a38242327de450b9646a5b065d8e0484fe31bed50b51c37969136fc3d",
+      "line_ends": [
+        12
+      ],
+      "missing": [],
+      "preview": "indic-conjunct-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            12,
+            23.303998947143555
+          ]
+        ]
+      ],
+      "case": "indic-conjunct",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 6.216000080108643,
+          "cluster": [
+            0,
+            12
+          ],
+          "font": 3,
+          "id": 610,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 17.08799934387207,
+          "cluster": [
+            0,
+            12
+          ],
+          "font": 3,
+          "id": 179,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 6.216000080108643
+        }
+      ],
+      "image_sha256": "5be0577de58d36436952985d1b7d215f6abe5545f2d0c3ffad2b9388cb9c3c28",
+      "line_ends": [
+        12
+      ],
+      "missing": [],
+      "preview": "indic-conjunct-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            12,
+            31.07200050354004
+          ]
+        ]
+      ],
+      "case": "indic-conjunct",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 8.288000106811523,
+          "cluster": [
+            0,
+            12
+          ],
+          "font": 3,
+          "id": 610,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 22.784000396728516,
+          "cluster": [
+            0,
+            12
+          ],
+          "font": 3,
+          "id": 179,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 8.288000106811523
+        }
+      ],
+      "image_sha256": "d42617fe1ab960db7f7bca619d076e06eb0d6a8eb2e0bec62e444ac8e7c2717f",
+      "line_ends": [
+        12
+      ],
+      "missing": [],
+      "preview": "indic-conjunct-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            10.224000930786133
+          ],
+          [
+            2,
+            14.384000778198242
+          ],
+          [
+            18,
+            14.384000778198242
+          ],
+          [
+            16,
+            22.128002166748047
+          ],
+          [
+            14,
+            26.920001983642578
+          ],
+          [
+            12,
+            31.71200180053711
+          ],
+          [
+            10,
+            44.256004333496094
+          ],
+          [
+            7,
+            48.4160041809082
+          ],
+          [
+            9,
+            48.4160041809082
+          ],
+          [
+            8,
+            57.5680046081543
+          ],
+          [
+            7,
+            66.72000122070312
+          ],
+          [
+            9,
+            66.72000122070312
+          ],
+          [
+            6,
+            70.8800048828125
+          ],
+          [
+            4,
+            80.0320053100586
+          ],
+          [
+            2,
+            90.14400482177734
+          ]
+        ]
+      ],
+      "case": "mixed-bidi",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 10.224000930786133,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 36,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 4.160000324249268,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 10.224000930786133
+        },
+        {
+          "advance": 7.744000434875488,
+          "cluster": [
+            16,
+            18
+          ],
+          "font": 1,
+          "id": 770,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 14.384000778198242
+        },
+        {
+          "advance": 9.584000587463379,
+          "cluster": [
+            12,
+            16
+          ],
+          "font": 1,
+          "id": 705,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 22.128002166748047
+        },
+        {
+          "advance": 12.544000625610352,
+          "cluster": [
+            10,
+            12
+          ],
+          "font": 1,
+          "id": 1083,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 31.71200180053711
+        },
+        {
+          "advance": 4.160000324249268,
+          "cluster": [
+            9,
+            10
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 44.256004333496094
+        },
+        {
+          "advance": 9.152000427246094,
+          "cluster": [
+            7,
+            8
+          ],
+          "font": 0,
+          "id": 20,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 48.4160041809082
+        },
+        {
+          "advance": 9.152000427246094,
+          "cluster": [
+            8,
+            9
+          ],
+          "font": 0,
+          "id": 21,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 57.5680046081543
+        },
+        {
+          "advance": 4.160000324249268,
+          "cluster": [
+            6,
+            7
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 66.72000122070312
+        },
+        {
+          "advance": 9.152000427246094,
+          "cluster": [
+            4,
+            6
+          ],
+          "font": 2,
+          "id": 12,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 70.8800048828125
+        },
+        {
+          "advance": 10.112000465393066,
+          "cluster": [
+            2,
+            4
+          ],
+          "font": 2,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 80.0320053100586
+        }
+      ],
+      "image_sha256": "ebed902875e4c4ac2bd2e9014cc9b6dc607847005c47baced09c5b9b7732d03e",
+      "line_ends": [
+        18
+      ],
+      "missing": [],
+      "preview": "mixed-bidi-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            15.336000442504883
+          ],
+          [
+            2,
+            21.576000213623047
+          ],
+          [
+            18,
+            21.576000213623047
+          ],
+          [
+            16,
+            33.19200134277344
+          ],
+          [
+            14,
+            40.380001068115234
+          ],
+          [
+            12,
+            47.56800079345703
+          ],
+          [
+            10,
+            66.38400268554688
+          ],
+          [
+            7,
+            72.6240005493164
+          ],
+          [
+            9,
+            72.6240005493164
+          ],
+          [
+            8,
+            86.35199737548828
+          ],
+          [
+            7,
+            100.07999420166016
+          ],
+          [
+            9,
+            100.07999420166016
+          ],
+          [
+            6,
+            106.31999206542969
+          ],
+          [
+            4,
+            120.04798889160156
+          ],
+          [
+            2,
+            135.2159881591797
+          ]
+        ]
+      ],
+      "case": "mixed-bidi",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 15.336000442504883,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 36,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 6.240000247955322,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 15.336000442504883
+        },
+        {
+          "advance": 11.616000175476074,
+          "cluster": [
+            16,
+            18
+          ],
+          "font": 1,
+          "id": 770,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 21.576000213623047
+        },
+        {
+          "advance": 14.37600040435791,
+          "cluster": [
+            12,
+            16
+          ],
+          "font": 1,
+          "id": 705,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 33.19200134277344
+        },
+        {
+          "advance": 18.81599998474121,
+          "cluster": [
+            10,
+            12
+          ],
+          "font": 1,
+          "id": 1083,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 47.56800079345703
+        },
+        {
+          "advance": 6.240000247955322,
+          "cluster": [
+            9,
+            10
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 66.38400268554688
+        },
+        {
+          "advance": 13.727999687194824,
+          "cluster": [
+            7,
+            8
+          ],
+          "font": 0,
+          "id": 20,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 72.6240005493164
+        },
+        {
+          "advance": 13.727999687194824,
+          "cluster": [
+            8,
+            9
+          ],
+          "font": 0,
+          "id": 21,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 86.35199737548828
+        },
+        {
+          "advance": 6.240000247955322,
+          "cluster": [
+            6,
+            7
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 100.07999420166016
+        },
+        {
+          "advance": 13.727999687194824,
+          "cluster": [
+            4,
+            6
+          ],
+          "font": 2,
+          "id": 12,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 106.31999206542969
+        },
+        {
+          "advance": 15.168000221252441,
+          "cluster": [
+            2,
+            4
+          ],
+          "font": 2,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 120.04798889160156
+        }
+      ],
+      "image_sha256": "b032689be48397c4b31327fc69e3c51942749daaccb1909514dca45d2b1bdb95",
+      "line_ends": [
+        18
+      ],
+      "missing": [],
+      "preview": "mixed-bidi-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            20.448001861572266
+          ],
+          [
+            2,
+            28.768001556396484
+          ],
+          [
+            18,
+            28.768001556396484
+          ],
+          [
+            16,
+            44.256004333496094
+          ],
+          [
+            14,
+            53.840003967285156
+          ],
+          [
+            12,
+            63.42400360107422
+          ],
+          [
+            10,
+            88.51200866699219
+          ],
+          [
+            7,
+            96.8320083618164
+          ],
+          [
+            9,
+            96.8320083618164
+          ],
+          [
+            8,
+            115.1360092163086
+          ],
+          [
+            7,
+            133.44000244140625
+          ],
+          [
+            9,
+            133.44000244140625
+          ],
+          [
+            6,
+            141.760009765625
+          ],
+          [
+            4,
+            160.0640106201172
+          ],
+          [
+            2,
+            180.2880096435547
+          ]
+        ]
+      ],
+      "case": "mixed-bidi",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 20.448001861572266,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 36,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 8.320000648498535,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 20.448001861572266
+        },
+        {
+          "advance": 15.488000869750977,
+          "cluster": [
+            16,
+            18
+          ],
+          "font": 1,
+          "id": 770,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 28.768001556396484
+        },
+        {
+          "advance": 19.168001174926758,
+          "cluster": [
+            12,
+            16
+          ],
+          "font": 1,
+          "id": 705,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 44.256004333496094
+        },
+        {
+          "advance": 25.088001251220703,
+          "cluster": [
+            10,
+            12
+          ],
+          "font": 1,
+          "id": 1083,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 63.42400360107422
+        },
+        {
+          "advance": 8.320000648498535,
+          "cluster": [
+            9,
+            10
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 88.51200866699219
+        },
+        {
+          "advance": 18.304000854492188,
+          "cluster": [
+            7,
+            8
+          ],
+          "font": 0,
+          "id": 20,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 96.8320083618164
+        },
+        {
+          "advance": 18.304000854492188,
+          "cluster": [
+            8,
+            9
+          ],
+          "font": 0,
+          "id": 21,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 115.1360092163086
+        },
+        {
+          "advance": 8.320000648498535,
+          "cluster": [
+            6,
+            7
+          ],
+          "font": 0,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 133.44000244140625
+        },
+        {
+          "advance": 18.304000854492188,
+          "cluster": [
+            4,
+            6
+          ],
+          "font": 2,
+          "id": 12,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 141.760009765625
+        },
+        {
+          "advance": 20.224000930786133,
+          "cluster": [
+            2,
+            4
+          ],
+          "font": 2,
+          "id": 3,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": true,
+          "x": 160.0640106201172
+        }
+      ],
+      "image_sha256": "9373d7ce09c776436118eb0f25171ac9e0b3356690f5818dbb97ec32f3492edf",
+      "line_ends": [
+        18
+      ],
+      "missing": [],
+      "preview": "mixed-bidi-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            3,
+            16.0
+          ],
+          [
+            6,
+            32.0
+          ],
+          [
+            9,
+            48.0
+          ]
+        ],
+        [
+          [
+            9,
+            0.0
+          ],
+          [
+            12,
+            16.0
+          ],
+          [
+            15,
+            32.0
+          ],
+          [
+            18,
+            48.0
+          ]
+        ],
+        [
+          [
+            18,
+            0.0
+          ],
+          [
+            21,
+            16.0
+          ],
+          [
+            24,
+            32.0
+          ]
+        ]
+      ],
+      "case": "cjk-wrap",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 16.0,
+          "cluster": [
+            0,
+            3
+          ],
+          "font": 4,
+          "id": 9544,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 16.0,
+          "cluster": [
+            3,
+            6
+          ],
+          "font": 4,
+          "id": 20036,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 16.0
+        },
+        {
+          "advance": 16.0,
+          "cluster": [
+            6,
+            9
+          ],
+          "font": 4,
+          "id": 23422,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 32.0
+        },
+        {
+          "advance": 16.0,
+          "cluster": [
+            9,
+            12
+          ],
+          "font": 4,
+          "id": 38482,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 16.0,
+          "cluster": [
+            12,
+            15
+          ],
+          "font": 4,
+          "id": 9544,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 16.0
+        },
+        {
+          "advance": 16.0,
+          "cluster": [
+            15,
+            18
+          ],
+          "font": 4,
+          "id": 20036,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 32.0
+        },
+        {
+          "advance": 16.0,
+          "cluster": [
+            18,
+            21
+          ],
+          "font": 4,
+          "id": 23422,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 16.0,
+          "cluster": [
+            21,
+            24
+          ],
+          "font": 4,
+          "id": 38482,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 16.0
+        }
+      ],
+      "image_sha256": "f3c42476a02e04c89627e4f4dc4ab6f8e8e9d1f14ce11dc7e3f61a842365ffef",
+      "line_ends": [
+        9,
+        18,
+        24
+      ],
+      "missing": [],
+      "preview": "cjk-wrap-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            3,
+            24.0
+          ],
+          [
+            6,
+            48.0
+          ]
+        ],
+        [
+          [
+            6,
+            0.0
+          ],
+          [
+            9,
+            24.0
+          ],
+          [
+            12,
+            48.0
+          ]
+        ],
+        [
+          [
+            12,
+            0.0
+          ],
+          [
+            15,
+            24.0
+          ],
+          [
+            18,
+            48.0
+          ]
+        ],
+        [
+          [
+            18,
+            0.0
+          ],
+          [
+            21,
+            24.0
+          ],
+          [
+            24,
+            48.0
+          ]
+        ]
+      ],
+      "case": "cjk-wrap",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 24.0,
+          "cluster": [
+            0,
+            3
+          ],
+          "font": 4,
+          "id": 9544,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 24.0,
+          "cluster": [
+            3,
+            6
+          ],
+          "font": 4,
+          "id": 20036,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 24.0
+        },
+        {
+          "advance": 24.0,
+          "cluster": [
+            6,
+            9
+          ],
+          "font": 4,
+          "id": 23422,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 24.0,
+          "cluster": [
+            9,
+            12
+          ],
+          "font": 4,
+          "id": 38482,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 24.0
+        },
+        {
+          "advance": 24.0,
+          "cluster": [
+            12,
+            15
+          ],
+          "font": 4,
+          "id": 9544,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 24.0,
+          "cluster": [
+            15,
+            18
+          ],
+          "font": 4,
+          "id": 20036,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 24.0
+        },
+        {
+          "advance": 24.0,
+          "cluster": [
+            18,
+            21
+          ],
+          "font": 4,
+          "id": 23422,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 24.0,
+          "cluster": [
+            21,
+            24
+          ],
+          "font": 4,
+          "id": 38482,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 24.0
+        }
+      ],
+      "image_sha256": "aaf305de76774ce16d18cc67daf0997d8b74119344f913ffa91648abf8053661",
+      "line_ends": [
+        6,
+        12,
+        18,
+        24
+      ],
+      "missing": [],
+      "preview": "cjk-wrap-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            3,
+            32.0
+          ]
+        ],
+        [
+          [
+            3,
+            0.0
+          ],
+          [
+            6,
+            32.0
+          ]
+        ],
+        [
+          [
+            6,
+            0.0
+          ],
+          [
+            9,
+            32.0
+          ]
+        ],
+        [
+          [
+            9,
+            0.0
+          ],
+          [
+            12,
+            32.0
+          ]
+        ],
+        [
+          [
+            12,
+            0.0
+          ],
+          [
+            15,
+            32.0
+          ]
+        ],
+        [
+          [
+            15,
+            0.0
+          ],
+          [
+            18,
+            32.0
+          ]
+        ],
+        [
+          [
+            18,
+            0.0
+          ],
+          [
+            21,
+            32.0
+          ]
+        ],
+        [
+          [
+            21,
+            0.0
+          ],
+          [
+            24,
+            32.0
+          ]
+        ]
+      ],
+      "case": "cjk-wrap",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 32.0,
+          "cluster": [
+            0,
+            3
+          ],
+          "font": 4,
+          "id": 9544,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 32.0,
+          "cluster": [
+            3,
+            6
+          ],
+          "font": 4,
+          "id": 20036,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 32.0,
+          "cluster": [
+            6,
+            9
+          ],
+          "font": 4,
+          "id": 23422,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 32.0,
+          "cluster": [
+            9,
+            12
+          ],
+          "font": 4,
+          "id": 38482,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 32.0,
+          "cluster": [
+            12,
+            15
+          ],
+          "font": 4,
+          "id": 9544,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 32.0,
+          "cluster": [
+            15,
+            18
+          ],
+          "font": 4,
+          "id": 20036,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 32.0,
+          "cluster": [
+            18,
+            21
+          ],
+          "font": 4,
+          "id": 23422,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 32.0,
+          "cluster": [
+            21,
+            24
+          ],
+          "font": 4,
+          "id": 38482,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        }
+      ],
+      "image_sha256": "322733a2454fe04f354ae37a217fb4ca8e7de4bc0c6781ccc6ff006577c339d6",
+      "line_ends": [
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24
+      ],
+      "missing": [],
+      "preview": "cjk-wrap-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            10.224000930786133
+          ],
+          [
+            5,
+            19.82400131225586
+          ],
+          [
+            6,
+            30.224002838134766
+          ]
+        ]
+      ],
+      "case": "missing-glyph",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 10.224000930786133,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 36,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 9.600000381469727,
+          "cluster": [
+            1,
+            5
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 10.224000930786133
+        },
+        {
+          "advance": 10.40000057220459,
+          "cluster": [
+            5,
+            6
+          ],
+          "font": 0,
+          "id": 37,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.82400131225586
+        }
+      ],
+      "image_sha256": "1bc79441f5e0bf0cab639e05801cc66bc407f6c3c2421805387d35f2e60583d2",
+      "line_ends": [
+        6
+      ],
+      "missing": [
+        [
+          1,
+          5
+        ]
+      ],
+      "preview": "missing-glyph-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            15.336000442504883
+          ],
+          [
+            5,
+            29.736000061035156
+          ],
+          [
+            6,
+            45.33599853515625
+          ]
+        ]
+      ],
+      "case": "missing-glyph",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 15.336000442504883,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 36,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 14.40000057220459,
+          "cluster": [
+            1,
+            5
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 15.336000442504883
+        },
+        {
+          "advance": 15.600000381469727,
+          "cluster": [
+            5,
+            6
+          ],
+          "font": 0,
+          "id": 37,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 29.736000061035156
+        }
+      ],
+      "image_sha256": "e74c2034a612302a7056439aa9cb1cccb94e044aeecf0100f8d65612cf22591a",
+      "line_ends": [
+        6
+      ],
+      "missing": [
+        [
+          1,
+          5
+        ]
+      ],
+      "preview": "missing-glyph-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            20.448001861572266
+          ],
+          [
+            5,
+            39.64800262451172
+          ],
+          [
+            6,
+            60.44800567626953
+          ]
+        ]
+      ],
+      "case": "missing-glyph",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 20.448001861572266,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 36,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.200000762939453,
+          "cluster": [
+            1,
+            5
+          ],
+          "font": 0,
+          "id": 0,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 20.448001861572266
+        },
+        {
+          "advance": 20.80000114440918,
+          "cluster": [
+            5,
+            6
+          ],
+          "font": 0,
+          "id": 37,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 39.64800262451172
+        }
+      ],
+      "image_sha256": "af79a5282e9251f49bbccda4964dfaf2fddaf65a4c68d6fe947555e2a63aa23a",
+      "line_ends": [
+        6
+      ],
+      "missing": [
+        [
+          1,
+          5
+        ]
+      ],
+      "preview": "missing-glyph-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            8.976000785827637
+          ]
+        ],
+        [
+          [
+            2,
+            0.0
+          ]
+        ],
+        [
+          [
+            3,
+            0.0
+          ],
+          [
+            4,
+            9.84000015258789
+          ]
+        ],
+        [
+          [
+            5,
+            0.0
+          ]
+        ]
+      ],
+      "case": "line-feed",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 8.976000785827637,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 9.84000015258789,
+          "cluster": [
+            3,
+            4
+          ],
+          "font": 0,
+          "id": 69,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        }
+      ],
+      "image_sha256": "9c7e43d25c1f6d5c86c13e6190fe5fe0e29c78d1bf99609f36eb4752db73858c",
+      "line_ends": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "missing": [],
+      "preview": "line-feed-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            13.46399974822998
+          ]
+        ],
+        [
+          [
+            2,
+            0.0
+          ]
+        ],
+        [
+          [
+            3,
+            0.0
+          ],
+          [
+            4,
+            14.760000228881836
+          ]
+        ],
+        [
+          [
+            5,
+            0.0
+          ]
+        ]
+      ],
+      "case": "line-feed",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 13.46399974822998,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 14.760000228881836,
+          "cluster": [
+            3,
+            4
+          ],
+          "font": 0,
+          "id": 69,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        }
+      ],
+      "image_sha256": "52cfb29ef31ab18ac99ea0aaba335701e7925d0dce530d127830e13192b8e9d9",
+      "line_ends": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "missing": [],
+      "preview": "line-feed-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            17.952001571655273
+          ]
+        ],
+        [
+          [
+            2,
+            0.0
+          ]
+        ],
+        [
+          [
+            3,
+            0.0
+          ],
+          [
+            4,
+            19.68000030517578
+          ]
+        ],
+        [
+          [
+            5,
+            0.0
+          ]
+        ]
+      ],
+      "case": "line-feed",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 17.952001571655273,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.68000030517578,
+          "cluster": [
+            3,
+            4
+          ],
+          "font": 0,
+          "id": 69,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        }
+      ],
+      "image_sha256": "01f1f0aa8b07a0ac60c2a8fa5e1403854f0ffb3687897f6d0bdeaa6d4add6179",
+      "line_ends": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "missing": [],
+      "preview": "line-feed-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            10.112000465393066
+          ],
+          [
+            2,
+            14.40000057220459
+          ],
+          [
+            3,
+            20.352001190185547
+          ],
+          [
+            4,
+            30.192001342773438
+          ],
+          [
+            5,
+            36.480003356933594
+          ],
+          [
+            6,
+            46.160003662109375
+          ],
+          [
+            7,
+            50.288002014160156
+          ],
+          [
+            8,
+            59.31200408935547
+          ],
+          [
+            9,
+            66.99200439453125
+          ],
+          [
+            10,
+            72.76800537109375
+          ],
+          [
+            11,
+            80.4320068359375
+          ],
+          [
+            12,
+            86.3840103149414
+          ]
+        ],
+        [
+          [
+            12,
+            0.0
+          ],
+          [
+            13,
+            4.128000259399414
+          ],
+          [
+            14,
+            13.808000564575195
+          ],
+          [
+            15,
+            23.696001052856445
+          ],
+          [
+            16,
+            33.53600311279297
+          ],
+          [
+            17,
+            38.68800354003906
+          ],
+          [
+            18,
+            44.1920051574707
+          ],
+          [
+            19,
+            53.872005462646484
+          ],
+          [
+            20,
+            58.00000762939453
+          ],
+          [
+            21,
+            67.84001159667969
+          ],
+          [
+            22,
+            76.864013671875
+          ],
+          [
+            23,
+            83.47201538085938
+          ],
+          [
+            24,
+            88.62401580810547
+          ]
+        ],
+        [
+          [
+            24,
+            0.0
+          ],
+          [
+            25,
+            9.88800048828125
+          ],
+          [
+            26,
+            18.864002227783203
+          ],
+          [
+            27,
+            33.824005126953125
+          ],
+          [
+            28,
+            42.84800720214844
+          ],
+          [
+            29,
+            48.80000686645508
+          ]
+        ],
+        [
+          [
+            29,
+            0.0
+          ],
+          [
+            30,
+            9.88800048828125
+          ],
+          [
+            31,
+            19.7760009765625
+          ],
+          [
+            32,
+            27.44000244140625
+          ],
+          [
+            33,
+            36.4160041809082
+          ],
+          [
+            34,
+            44.54400634765625
+          ],
+          [
+            35,
+            53.56800842285156
+          ],
+          [
+            36,
+            63.40800857543945
+          ],
+          [
+            37,
+            68.56001281738281
+          ]
+        ],
+        [
+          [
+            37,
+            0.0
+          ],
+          [
+            38,
+            9.84000015258789
+          ],
+          [
+            39,
+            19.520000457763672
+          ],
+          [
+            40,
+            27.200000762939453
+          ],
+          [
+            41,
+            37.0880012512207
+          ],
+          [
+            42,
+            52.048004150390625
+          ],
+          [
+            43,
+            61.07200622558594
+          ],
+          [
+            44,
+            70.96000671386719
+          ],
+          [
+            45,
+            76.73600769042969
+          ],
+          [
+            46,
+            81.02400970458984
+          ],
+          [
+            47,
+            86.80001068115234
+          ]
+        ],
+        [
+          [
+            47,
+            0.0
+          ],
+          [
+            48,
+            8.464000701904297
+          ],
+          [
+            49,
+            14.240001678466797
+          ]
+        ]
+      ],
+      "case": "long-path",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 10.112000465393066,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 38,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 4.288000106811523,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 0,
+          "id": 29,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 10.112000465393066
+        },
+        {
+          "advance": 5.952000141143799,
+          "cluster": [
+            2,
+            3
+          ],
+          "font": 0,
+          "id": 18,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 14.40000057220459
+        },
+        {
+          "advance": 9.84000015258789,
+          "cluster": [
+            3,
+            4
+          ],
+          "font": 0,
+          "id": 83,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 20.352001190185547
+        },
+        {
+          "advance": 6.288000106811523,
+          "cluster": [
+            4,
+            5
+          ],
+          "font": 0,
+          "id": 85,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 30.192001342773438
+        },
+        {
+          "advance": 9.680000305175781,
+          "cluster": [
+            5,
+            6
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 36.480003356933594
+        },
+        {
+          "advance": 4.128000259399414,
+          "cluster": [
+            6,
+            7
+          ],
+          "font": 0,
+          "id": 77,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 46.160003662109375
+        },
+        {
+          "advance": 9.02400016784668,
+          "cluster": [
+            7,
+            8
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 50.288002014160156
+        },
+        {
+          "advance": 7.680000305175781,
+          "cluster": [
+            8,
+            9
+          ],
+          "font": 0,
+          "id": 70,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 59.31200408935547
+        },
+        {
+          "advance": 5.776000499725342,
+          "cluster": [
+            9,
+            10
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 66.99200439453125
+        },
+        {
+          "advance": 7.664000511169434,
+          "cluster": [
+            10,
+            11
+          ],
+          "font": 0,
+          "id": 86,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 72.76800537109375
+        },
+        {
+          "advance": 5.952000141143799,
+          "cluster": [
+            11,
+            12
+          ],
+          "font": 0,
+          "id": 18,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 80.4320068359375
+        },
+        {
+          "advance": 4.128000259399414,
+          "cluster": [
+            12,
+            13
+          ],
+          "font": 0,
+          "id": 79,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 9.680000305175781,
+          "cluster": [
+            13,
+            14
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 4.128000259399414
+        },
+        {
+          "advance": 9.88800048828125,
+          "cluster": [
+            14,
+            15
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 13.808000564575195
+        },
+        {
+          "advance": 9.84000015258789,
+          "cluster": [
+            15,
+            16
+          ],
+          "font": 0,
+          "id": 74,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 23.696001052856445
+        },
+        {
+          "advance": 5.152000427246094,
+          "cluster": [
+            16,
+            17
+          ],
+          "font": 0,
+          "id": 16,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 33.53600311279297
+        },
+        {
+          "advance": 5.504000186920166,
+          "cluster": [
+            17,
+            18
+          ],
+          "font": 0,
+          "id": 73,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 38.68800354003906
+        },
+        {
+          "advance": 9.680000305175781,
+          "cluster": [
+            18,
+            19
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 44.1920051574707
+        },
+        {
+          "advance": 4.128000259399414,
+          "cluster": [
+            19,
+            20
+          ],
+          "font": 0,
+          "id": 79,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 53.872005462646484
+        },
+        {
+          "advance": 9.84000015258789,
+          "cluster": [
+            20,
+            21
+          ],
+          "font": 0,
+          "id": 71,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 58.00000762939453
+        },
+        {
+          "advance": 9.02400016784668,
+          "cluster": [
+            21,
+            22
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 67.84001159667969
+        },
+        {
+          "advance": 6.6080002784729,
+          "cluster": [
+            22,
+            23
+          ],
+          "font": 0,
+          "id": 85,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 76.864013671875
+        },
+        {
+          "advance": 5.152000427246094,
+          "cluster": [
+            23,
+            24
+          ],
+          "font": 0,
+          "id": 16,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 83.47201538085938
+        },
+        {
+          "advance": 9.88800048828125,
+          "cluster": [
+            24,
+            25
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 8.976000785827637,
+          "cluster": [
+            25,
+            26
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 9.88800048828125
+        },
+        {
+          "advance": 14.960000991821289,
+          "cluster": [
+            26,
+            27
+          ],
+          "font": 0,
+          "id": 80,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 18.864002227783203
+        },
+        {
+          "advance": 9.02400016784668,
+          "cluster": [
+            27,
+            28
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 33.824005126953125
+        },
+        {
+          "advance": 5.952000141143799,
+          "cluster": [
+            28,
+            29
+          ],
+          "font": 0,
+          "id": 18,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 42.84800720214844
+        },
+        {
+          "advance": 9.88800048828125,
+          "cluster": [
+            29,
+            30
+          ],
+          "font": 0,
+          "id": 88,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 9.88800048828125,
+          "cluster": [
+            30,
+            31
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 9.88800048828125
+        },
+        {
+          "advance": 7.664000511169434,
+          "cluster": [
+            31,
+            32
+          ],
+          "font": 0,
+          "id": 86,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.7760009765625
+        },
+        {
+          "advance": 8.976000785827637,
+          "cluster": [
+            32,
+            33
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 27.44000244140625
+        },
+        {
+          "advance": 8.128000259399414,
+          "cluster": [
+            33,
+            34
+          ],
+          "font": 0,
+          "id": 89,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 36.4160041809082
+        },
+        {
+          "advance": 9.02400016784668,
+          "cluster": [
+            34,
+            35
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 44.54400634765625
+        },
+        {
+          "advance": 9.84000015258789,
+          "cluster": [
+            35,
+            36
+          ],
+          "font": 0,
+          "id": 71,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 53.56800842285156
+        },
+        {
+          "advance": 5.152000427246094,
+          "cluster": [
+            36,
+            37
+          ],
+          "font": 0,
+          "id": 16,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 63.40800857543945
+        },
+        {
+          "advance": 9.84000015258789,
+          "cluster": [
+            37,
+            38
+          ],
+          "font": 0,
+          "id": 71,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 9.680000305175781,
+          "cluster": [
+            38,
+            39
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 9.84000015258789
+        },
+        {
+          "advance": 7.680000305175781,
+          "cluster": [
+            39,
+            40
+          ],
+          "font": 0,
+          "id": 70,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.520000457763672
+        },
+        {
+          "advance": 9.88800048828125,
+          "cluster": [
+            40,
+            41
+          ],
+          "font": 0,
+          "id": 88,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 27.200000762939453
+        },
+        {
+          "advance": 14.960000991821289,
+          "cluster": [
+            41,
+            42
+          ],
+          "font": 0,
+          "id": 80,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 37.0880012512207
+        },
+        {
+          "advance": 9.02400016784668,
+          "cluster": [
+            42,
+            43
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 52.048004150390625
+        },
+        {
+          "advance": 9.88800048828125,
+          "cluster": [
+            43,
+            44
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 61.07200622558594
+        },
+        {
+          "advance": 5.776000499725342,
+          "cluster": [
+            44,
+            45
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 70.96000671386719
+        },
+        {
+          "advance": 4.288000106811523,
+          "cluster": [
+            45,
+            46
+          ],
+          "font": 0,
+          "id": 17,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 76.73600769042969
+        },
+        {
+          "advance": 5.776000499725342,
+          "cluster": [
+            46,
+            47
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 81.02400970458984
+        },
+        {
+          "advance": 8.464000701904297,
+          "cluster": [
+            47,
+            48
+          ],
+          "font": 0,
+          "id": 91,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 5.776000499725342,
+          "cluster": [
+            48,
+            49
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 8.464000701904297
+        }
+      ],
+      "image_sha256": "a86067bf38effdd424266efc6275c007fad3a9a1b85f28ad7e85ef67a7fd6cf5",
+      "line_ends": [
+        12,
+        24,
+        29,
+        37,
+        47,
+        49
+      ],
+      "missing": [],
+      "preview": "long-path-100.pgm",
+      "scale": 100,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            15.168000221252441
+          ],
+          [
+            2,
+            21.600000381469727
+          ],
+          [
+            3,
+            30.527999877929688
+          ]
+        ],
+        [
+          [
+            3,
+            0.0
+          ],
+          [
+            4,
+            14.760000228881836
+          ],
+          [
+            5,
+            24.192001342773438
+          ],
+          [
+            6,
+            38.71200180053711
+          ],
+          [
+            7,
+            44.90400314331055
+          ],
+          [
+            8,
+            58.44000244140625
+          ],
+          [
+            9,
+            69.96000671386719
+          ],
+          [
+            10,
+            78.62400817871094
+          ]
+        ],
+        [
+          [
+            10,
+            0.0
+          ],
+          [
+            11,
+            11.496000289916992
+          ],
+          [
+            12,
+            20.423999786376953
+          ],
+          [
+            13,
+            26.615999221801758
+          ],
+          [
+            14,
+            41.13600158691406
+          ],
+          [
+            15,
+            55.96800231933594
+          ],
+          [
+            16,
+            70.7280044555664
+          ],
+          [
+            17,
+            78.45600128173828
+          ]
+        ],
+        [
+          [
+            17,
+            0.0
+          ],
+          [
+            18,
+            8.256000518798828
+          ],
+          [
+            19,
+            22.7760009765625
+          ],
+          [
+            20,
+            28.968000411987305
+          ],
+          [
+            21,
+            43.72800064086914
+          ],
+          [
+            22,
+            57.263999938964844
+          ],
+          [
+            23,
+            67.1760025024414
+          ],
+          [
+            24,
+            74.90399932861328
+          ]
+        ],
+        [
+          [
+            24,
+            0.0
+          ],
+          [
+            25,
+            14.831999778747559
+          ],
+          [
+            26,
+            28.29599952697754
+          ],
+          [
+            27,
+            50.736000061035156
+          ],
+          [
+            28,
+            64.27200317382812
+          ],
+          [
+            29,
+            73.20000457763672
+          ]
+        ],
+        [
+          [
+            29,
+            0.0
+          ],
+          [
+            30,
+            14.831999778747559
+          ],
+          [
+            31,
+            29.663999557495117
+          ],
+          [
+            32,
+            41.15999984741211
+          ],
+          [
+            33,
+            54.624000549316406
+          ],
+          [
+            34,
+            66.81600189208984
+          ],
+          [
+            35,
+            80.35200500488281
+          ]
+        ],
+        [
+          [
+            35,
+            0.0
+          ],
+          [
+            36,
+            14.760000228881836
+          ],
+          [
+            37,
+            22.488000869750977
+          ]
+        ],
+        [
+          [
+            37,
+            0.0
+          ],
+          [
+            38,
+            14.760000228881836
+          ],
+          [
+            39,
+            29.280000686645508
+          ],
+          [
+            40,
+            40.80000305175781
+          ],
+          [
+            41,
+            55.63200378417969
+          ],
+          [
+            42,
+            78.07200622558594
+          ]
+        ],
+        [
+          [
+            42,
+            0.0
+          ],
+          [
+            43,
+            13.53600025177002
+          ],
+          [
+            44,
+            28.368000030517578
+          ],
+          [
+            45,
+            37.03200149536133
+          ],
+          [
+            46,
+            43.4640007019043
+          ],
+          [
+            47,
+            52.12800216674805
+          ],
+          [
+            48,
+            64.82400512695312
+          ],
+          [
+            49,
+            73.48800659179688
+          ]
+        ]
+      ],
+      "case": "long-path",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 15.168000221252441,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 38,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 6.432000160217285,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 0,
+          "id": 29,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 15.168000221252441
+        },
+        {
+          "advance": 8.928000450134277,
+          "cluster": [
+            2,
+            3
+          ],
+          "font": 0,
+          "id": 18,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 21.600000381469727
+        },
+        {
+          "advance": 14.760000228881836,
+          "cluster": [
+            3,
+            4
+          ],
+          "font": 0,
+          "id": 83,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 9.432000160217285,
+          "cluster": [
+            4,
+            5
+          ],
+          "font": 0,
+          "id": 85,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 14.760000228881836
+        },
+        {
+          "advance": 14.520000457763672,
+          "cluster": [
+            5,
+            6
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 24.192001342773438
+        },
+        {
+          "advance": 6.191999912261963,
+          "cluster": [
+            6,
+            7
+          ],
+          "font": 0,
+          "id": 77,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 38.71200180053711
+        },
+        {
+          "advance": 13.53600025177002,
+          "cluster": [
+            7,
+            8
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 44.90400314331055
+        },
+        {
+          "advance": 11.520000457763672,
+          "cluster": [
+            8,
+            9
+          ],
+          "font": 0,
+          "id": 70,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 58.44000244140625
+        },
+        {
+          "advance": 8.664000511169434,
+          "cluster": [
+            9,
+            10
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 69.96000671386719
+        },
+        {
+          "advance": 11.496000289916992,
+          "cluster": [
+            10,
+            11
+          ],
+          "font": 0,
+          "id": 86,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 8.928000450134277,
+          "cluster": [
+            11,
+            12
+          ],
+          "font": 0,
+          "id": 18,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 11.496000289916992
+        },
+        {
+          "advance": 6.191999912261963,
+          "cluster": [
+            12,
+            13
+          ],
+          "font": 0,
+          "id": 79,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 20.423999786376953
+        },
+        {
+          "advance": 14.520000457763672,
+          "cluster": [
+            13,
+            14
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 26.615999221801758
+        },
+        {
+          "advance": 14.831999778747559,
+          "cluster": [
+            14,
+            15
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 41.13600158691406
+        },
+        {
+          "advance": 14.760000228881836,
+          "cluster": [
+            15,
+            16
+          ],
+          "font": 0,
+          "id": 74,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 55.96800231933594
+        },
+        {
+          "advance": 7.728000164031982,
+          "cluster": [
+            16,
+            17
+          ],
+          "font": 0,
+          "id": 16,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 70.7280044555664
+        },
+        {
+          "advance": 8.256000518798828,
+          "cluster": [
+            17,
+            18
+          ],
+          "font": 0,
+          "id": 73,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 14.520000457763672,
+          "cluster": [
+            18,
+            19
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 8.256000518798828
+        },
+        {
+          "advance": 6.191999912261963,
+          "cluster": [
+            19,
+            20
+          ],
+          "font": 0,
+          "id": 79,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 22.7760009765625
+        },
+        {
+          "advance": 14.760000228881836,
+          "cluster": [
+            20,
+            21
+          ],
+          "font": 0,
+          "id": 71,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.968000411987305
+        },
+        {
+          "advance": 13.53600025177002,
+          "cluster": [
+            21,
+            22
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 43.72800064086914
+        },
+        {
+          "advance": 9.911999702453613,
+          "cluster": [
+            22,
+            23
+          ],
+          "font": 0,
+          "id": 85,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 57.263999938964844
+        },
+        {
+          "advance": 7.728000164031982,
+          "cluster": [
+            23,
+            24
+          ],
+          "font": 0,
+          "id": 16,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 67.1760025024414
+        },
+        {
+          "advance": 14.831999778747559,
+          "cluster": [
+            24,
+            25
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 13.46399974822998,
+          "cluster": [
+            25,
+            26
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 14.831999778747559
+        },
+        {
+          "advance": 22.440000534057617,
+          "cluster": [
+            26,
+            27
+          ],
+          "font": 0,
+          "id": 80,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.29599952697754
+        },
+        {
+          "advance": 13.53600025177002,
+          "cluster": [
+            27,
+            28
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 50.736000061035156
+        },
+        {
+          "advance": 8.928000450134277,
+          "cluster": [
+            28,
+            29
+          ],
+          "font": 0,
+          "id": 18,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 64.27200317382812
+        },
+        {
+          "advance": 14.831999778747559,
+          "cluster": [
+            29,
+            30
+          ],
+          "font": 0,
+          "id": 88,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 14.831999778747559,
+          "cluster": [
+            30,
+            31
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 14.831999778747559
+        },
+        {
+          "advance": 11.496000289916992,
+          "cluster": [
+            31,
+            32
+          ],
+          "font": 0,
+          "id": 86,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 29.663999557495117
+        },
+        {
+          "advance": 13.46399974822998,
+          "cluster": [
+            32,
+            33
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 41.15999984741211
+        },
+        {
+          "advance": 12.192000389099121,
+          "cluster": [
+            33,
+            34
+          ],
+          "font": 0,
+          "id": 89,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 54.624000549316406
+        },
+        {
+          "advance": 13.53600025177002,
+          "cluster": [
+            34,
+            35
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 66.81600189208984
+        },
+        {
+          "advance": 14.760000228881836,
+          "cluster": [
+            35,
+            36
+          ],
+          "font": 0,
+          "id": 71,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 7.728000164031982,
+          "cluster": [
+            36,
+            37
+          ],
+          "font": 0,
+          "id": 16,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 14.760000228881836
+        },
+        {
+          "advance": 14.760000228881836,
+          "cluster": [
+            37,
+            38
+          ],
+          "font": 0,
+          "id": 71,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 14.520000457763672,
+          "cluster": [
+            38,
+            39
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 14.760000228881836
+        },
+        {
+          "advance": 11.520000457763672,
+          "cluster": [
+            39,
+            40
+          ],
+          "font": 0,
+          "id": 70,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 29.280000686645508
+        },
+        {
+          "advance": 14.831999778747559,
+          "cluster": [
+            40,
+            41
+          ],
+          "font": 0,
+          "id": 88,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 40.80000305175781
+        },
+        {
+          "advance": 22.440000534057617,
+          "cluster": [
+            41,
+            42
+          ],
+          "font": 0,
+          "id": 80,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 55.63200378417969
+        },
+        {
+          "advance": 13.53600025177002,
+          "cluster": [
+            42,
+            43
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 14.831999778747559,
+          "cluster": [
+            43,
+            44
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 13.53600025177002
+        },
+        {
+          "advance": 8.664000511169434,
+          "cluster": [
+            44,
+            45
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.368000030517578
+        },
+        {
+          "advance": 6.432000160217285,
+          "cluster": [
+            45,
+            46
+          ],
+          "font": 0,
+          "id": 17,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 37.03200149536133
+        },
+        {
+          "advance": 8.664000511169434,
+          "cluster": [
+            46,
+            47
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 43.4640007019043
+        },
+        {
+          "advance": 12.696000099182129,
+          "cluster": [
+            47,
+            48
+          ],
+          "font": 0,
+          "id": 91,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 52.12800216674805
+        },
+        {
+          "advance": 8.664000511169434,
+          "cluster": [
+            48,
+            49
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 64.82400512695312
+        }
+      ],
+      "image_sha256": "f2e3ffea47871ef7757e98423b078b88ef12c6038ceeb3e145bd1aa82be39692",
+      "line_ends": [
+        3,
+        10,
+        17,
+        24,
+        29,
+        35,
+        37,
+        42,
+        49
+      ],
+      "missing": [],
+      "preview": "long-path-150.pgm",
+      "scale": 150,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    },
+    {
+      "bidi": "unicode-bidi; authored mixed order",
+      "carets": [
+        [
+          [
+            0,
+            0.0
+          ],
+          [
+            1,
+            20.224000930786133
+          ],
+          [
+            2,
+            28.80000114440918
+          ],
+          [
+            3,
+            40.704002380371094
+          ]
+        ],
+        [
+          [
+            3,
+            0.0
+          ],
+          [
+            4,
+            19.68000030517578
+          ],
+          [
+            5,
+            32.25600051879883
+          ],
+          [
+            6,
+            51.61600112915039
+          ],
+          [
+            7,
+            59.87200164794922
+          ],
+          [
+            8,
+            77.91999816894531
+          ]
+        ],
+        [
+          [
+            8,
+            0.0
+          ],
+          [
+            9,
+            15.360000610351562
+          ],
+          [
+            10,
+            26.912002563476562
+          ],
+          [
+            11,
+            42.24000549316406
+          ],
+          [
+            12,
+            54.144004821777344
+          ]
+        ],
+        [
+          [
+            12,
+            0.0
+          ],
+          [
+            13,
+            8.256000518798828
+          ],
+          [
+            14,
+            27.61600112915039
+          ],
+          [
+            15,
+            47.39200210571289
+          ],
+          [
+            16,
+            67.07200622558594
+          ],
+          [
+            17,
+            77.37600708007812
+          ]
+        ],
+        [
+          [
+            17,
+            0.0
+          ],
+          [
+            18,
+            11.008000373840332
+          ],
+          [
+            19,
+            30.368000030517578
+          ],
+          [
+            20,
+            38.624000549316406
+          ],
+          [
+            21,
+            58.30400085449219
+          ],
+          [
+            22,
+            76.35200500488281
+          ],
+          [
+            23,
+            89.56800842285156
+          ]
+        ],
+        [
+          [
+            23,
+            0.0
+          ],
+          [
+            24,
+            10.304000854492188
+          ]
+        ],
+        [
+          [
+            24,
+            0.0
+          ],
+          [
+            25,
+            19.7760009765625
+          ],
+          [
+            26,
+            37.728004455566406
+          ],
+          [
+            27,
+            67.64801025390625
+          ],
+          [
+            28,
+            85.69601440429688
+          ]
+        ],
+        [
+          [
+            28,
+            0.0
+          ],
+          [
+            29,
+            11.904000282287598
+          ]
+        ],
+        [
+          [
+            29,
+            0.0
+          ],
+          [
+            30,
+            19.7760009765625
+          ],
+          [
+            31,
+            39.552001953125
+          ],
+          [
+            32,
+            54.8800048828125
+          ],
+          [
+            33,
+            72.8320083618164
+          ],
+          [
+            34,
+            89.0880126953125
+          ]
+        ],
+        [
+          [
+            34,
+            0.0
+          ],
+          [
+            35,
+            18.04800033569336
+          ],
+          [
+            36,
+            37.72800064086914
+          ],
+          [
+            37,
+            48.03200149536133
+          ]
+        ],
+        [
+          [
+            37,
+            0.0
+          ],
+          [
+            38,
+            19.68000030517578
+          ],
+          [
+            39,
+            39.040000915527344
+          ],
+          [
+            40,
+            54.400001525878906
+          ],
+          [
+            41,
+            74.1760025024414
+          ]
+        ],
+        [
+          [
+            41,
+            0.0
+          ],
+          [
+            42,
+            29.920001983642578
+          ],
+          [
+            43,
+            47.96800231933594
+          ],
+          [
+            44,
+            67.74400329589844
+          ],
+          [
+            45,
+            79.29600524902344
+          ],
+          [
+            46,
+            87.87200927734375
+          ]
+        ],
+        [
+          [
+            46,
+            0.0
+          ],
+          [
+            47,
+            11.552000999450684
+          ],
+          [
+            48,
+            28.480003356933594
+          ],
+          [
+            49,
+            40.032005310058594
+          ]
+        ]
+      ],
+      "case": "long-path",
+      "fallback": "locked grapheme-level first-covering face or reported tofu",
+      "glyphs": [
+        {
+          "advance": 20.224000930786133,
+          "cluster": [
+            0,
+            1
+          ],
+          "font": 0,
+          "id": 38,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 8.576000213623047,
+          "cluster": [
+            1,
+            2
+          ],
+          "font": 0,
+          "id": 29,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 20.224000930786133
+        },
+        {
+          "advance": 11.904000282287598,
+          "cluster": [
+            2,
+            3
+          ],
+          "font": 0,
+          "id": 18,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.80000114440918
+        },
+        {
+          "advance": 19.68000030517578,
+          "cluster": [
+            3,
+            4
+          ],
+          "font": 0,
+          "id": 83,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 12.576000213623047,
+          "cluster": [
+            4,
+            5
+          ],
+          "font": 0,
+          "id": 85,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.68000030517578
+        },
+        {
+          "advance": 19.360000610351562,
+          "cluster": [
+            5,
+            6
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 32.25600051879883
+        },
+        {
+          "advance": 8.256000518798828,
+          "cluster": [
+            6,
+            7
+          ],
+          "font": 0,
+          "id": 77,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 51.61600112915039
+        },
+        {
+          "advance": 18.04800033569336,
+          "cluster": [
+            7,
+            8
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 59.87200164794922
+        },
+        {
+          "advance": 15.360000610351562,
+          "cluster": [
+            8,
+            9
+          ],
+          "font": 0,
+          "id": 70,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 11.552000999450684,
+          "cluster": [
+            9,
+            10
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 15.360000610351562
+        },
+        {
+          "advance": 15.328001022338867,
+          "cluster": [
+            10,
+            11
+          ],
+          "font": 0,
+          "id": 86,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 26.912002563476562
+        },
+        {
+          "advance": 11.904000282287598,
+          "cluster": [
+            11,
+            12
+          ],
+          "font": 0,
+          "id": 18,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 42.24000549316406
+        },
+        {
+          "advance": 8.256000518798828,
+          "cluster": [
+            12,
+            13
+          ],
+          "font": 0,
+          "id": 79,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.360000610351562,
+          "cluster": [
+            13,
+            14
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 8.256000518798828
+        },
+        {
+          "advance": 19.7760009765625,
+          "cluster": [
+            14,
+            15
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 27.61600112915039
+        },
+        {
+          "advance": 19.68000030517578,
+          "cluster": [
+            15,
+            16
+          ],
+          "font": 0,
+          "id": 74,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 47.39200210571289
+        },
+        {
+          "advance": 10.304000854492188,
+          "cluster": [
+            16,
+            17
+          ],
+          "font": 0,
+          "id": 16,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 67.07200622558594
+        },
+        {
+          "advance": 11.008000373840332,
+          "cluster": [
+            17,
+            18
+          ],
+          "font": 0,
+          "id": 73,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.360000610351562,
+          "cluster": [
+            18,
+            19
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 11.008000373840332
+        },
+        {
+          "advance": 8.256000518798828,
+          "cluster": [
+            19,
+            20
+          ],
+          "font": 0,
+          "id": 79,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 30.368000030517578
+        },
+        {
+          "advance": 19.68000030517578,
+          "cluster": [
+            20,
+            21
+          ],
+          "font": 0,
+          "id": 71,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 38.624000549316406
+        },
+        {
+          "advance": 18.04800033569336,
+          "cluster": [
+            21,
+            22
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 58.30400085449219
+        },
+        {
+          "advance": 13.2160005569458,
+          "cluster": [
+            22,
+            23
+          ],
+          "font": 0,
+          "id": 85,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 76.35200500488281
+        },
+        {
+          "advance": 10.304000854492188,
+          "cluster": [
+            23,
+            24
+          ],
+          "font": 0,
+          "id": 16,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.7760009765625,
+          "cluster": [
+            24,
+            25
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 17.952001571655273,
+          "cluster": [
+            25,
+            26
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.7760009765625
+        },
+        {
+          "advance": 29.920001983642578,
+          "cluster": [
+            26,
+            27
+          ],
+          "font": 0,
+          "id": 80,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 37.728004455566406
+        },
+        {
+          "advance": 18.04800033569336,
+          "cluster": [
+            27,
+            28
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 67.64801025390625
+        },
+        {
+          "advance": 11.904000282287598,
+          "cluster": [
+            28,
+            29
+          ],
+          "font": 0,
+          "id": 18,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.7760009765625,
+          "cluster": [
+            29,
+            30
+          ],
+          "font": 0,
+          "id": 88,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.7760009765625,
+          "cluster": [
+            30,
+            31
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.7760009765625
+        },
+        {
+          "advance": 15.328001022338867,
+          "cluster": [
+            31,
+            32
+          ],
+          "font": 0,
+          "id": 86,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 39.552001953125
+        },
+        {
+          "advance": 17.952001571655273,
+          "cluster": [
+            32,
+            33
+          ],
+          "font": 0,
+          "id": 68,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 54.8800048828125
+        },
+        {
+          "advance": 16.256000518798828,
+          "cluster": [
+            33,
+            34
+          ],
+          "font": 0,
+          "id": 89,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 72.8320083618164
+        },
+        {
+          "advance": 18.04800033569336,
+          "cluster": [
+            34,
+            35
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.68000030517578,
+          "cluster": [
+            35,
+            36
+          ],
+          "font": 0,
+          "id": 71,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 18.04800033569336
+        },
+        {
+          "advance": 10.304000854492188,
+          "cluster": [
+            36,
+            37
+          ],
+          "font": 0,
+          "id": 16,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 37.72800064086914
+        },
+        {
+          "advance": 19.68000030517578,
+          "cluster": [
+            37,
+            38
+          ],
+          "font": 0,
+          "id": 71,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 19.360000610351562,
+          "cluster": [
+            38,
+            39
+          ],
+          "font": 0,
+          "id": 82,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 19.68000030517578
+        },
+        {
+          "advance": 15.360000610351562,
+          "cluster": [
+            39,
+            40
+          ],
+          "font": 0,
+          "id": 70,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 39.040000915527344
+        },
+        {
+          "advance": 19.7760009765625,
+          "cluster": [
+            40,
+            41
+          ],
+          "font": 0,
+          "id": 88,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 54.400001525878906
+        },
+        {
+          "advance": 29.920001983642578,
+          "cluster": [
+            41,
+            42
+          ],
+          "font": 0,
+          "id": 80,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 18.04800033569336,
+          "cluster": [
+            42,
+            43
+          ],
+          "font": 0,
+          "id": 72,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 29.920001983642578
+        },
+        {
+          "advance": 19.7760009765625,
+          "cluster": [
+            43,
+            44
+          ],
+          "font": 0,
+          "id": 81,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 47.96800231933594
+        },
+        {
+          "advance": 11.552000999450684,
+          "cluster": [
+            44,
+            45
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 67.74400329589844
+        },
+        {
+          "advance": 8.576000213623047,
+          "cluster": [
+            45,
+            46
+          ],
+          "font": 0,
+          "id": 17,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 79.29600524902344
+        },
+        {
+          "advance": 11.552000999450684,
+          "cluster": [
+            46,
+            47
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 0.0
+        },
+        {
+          "advance": 16.928001403808594,
+          "cluster": [
+            47,
+            48
+          ],
+          "font": 0,
+          "id": 91,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 11.552000999450684
+        },
+        {
+          "advance": 11.552000999450684,
+          "cluster": [
+            48,
+            49
+          ],
+          "font": 0,
+          "id": 87,
+          "offset": [
+            0.0,
+            0.0
+          ],
+          "rtl": false,
+          "x": 28.480003356933594
+        }
+      ],
+      "image_sha256": "c566c42d9dcefca0e8ed2c1014def461ad618b508086fceaa5728b3d8051a1c8",
+      "line_ends": [
+        3,
+        8,
+        12,
+        17,
+        23,
+        24,
+        28,
+        29,
+        34,
+        37,
+        41,
+        46,
+        49
+      ],
+      "missing": [],
+      "preview": "long-path-200.pgm",
+      "scale": 200,
+      "shaping": "custom rustybuzz; native HarfBuzz reference where declared",
+      "slint": "pending P2-06"
+    }
+  ],
+  "official_breaks": [
+    {
+      "cases": 766,
+      "path": "work/text-inputs/GraphemeBreakTest-17.0.0.txt",
+      "sha256": "e2d134d2c52919bace503ebb6a551c1855fe1a1faec18478c78fff254a1793ec"
+    },
+    {
+      "cases": 1944,
+      "path": "work/text-inputs/WordBreakTest-17.0.0.txt",
+      "sha256": "1de23a75f37904abc7d206239ee8d34f8fdf0fb4ab32a7174dfbabbde25419b2"
+    }
+  ],
+  "schema_version": 1,
+  "status": "passed",
+  "text_raster_rendered": true
+}

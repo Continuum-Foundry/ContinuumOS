@@ -1,0 +1,136 @@
+{
+  "local_run": "build/m2/P2-01/prerequisites-1792614632188",
+  "utc": "2026-10-21T20:34:13.7847461Z",
+  "signing": {
+    "runner_config_sha256": "d43ff6a50feb13c72b3f231a920ccfc867487a73a9c9a2425f65b3f39334406c",
+    "has_private_key": true,
+    "status": "passed",
+    "expires_utc": "2027-10-20T22:28:05Z"
+  },
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+  "guest_boot_tested": false,
+  "os": "Microsoft Windows NT 10.0.26300.0",
+  "schema_version": 1,
+  "offline": true,
+  "status": "passed",
+  "commands": [
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Test-DevSigning.ps1"
+      ],
+      "program": "pwsh",
+      "name": "signing",
+      "exit_code": 0,
+      "elapsed_ms": 7682
+    },
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Test-DevCompiler.ps1"
+      ],
+      "program": "pwsh",
+      "name": "compiler",
+      "exit_code": 0,
+      "elapsed_ms": 20602
+    },
+    {
+      "arguments": [
+        "metadata",
+        "--locked",
+        "--offline",
+        "--format-version",
+        "1",
+        "--filter-platform",
+        "x86_64-pc-windows-msvc"
+      ],
+      "program": "cargo",
+      "name": "host-metadata",
+      "exit_code": 0,
+      "elapsed_ms": 537
+    },
+    {
+      "arguments": [
+        "xtask",
+        "doctor"
+      ],
+      "program": "cargo",
+      "name": "doctor",
+      "exit_code": 0,
+      "elapsed_ms": 7154
+    },
+    {
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--json"
+      ],
+      "program": "cargo",
+      "name": "doctor-json",
+      "exit_code": 0,
+      "elapsed_ms": 8932
+    },
+    {
+      "arguments": [
+        "xtask",
+        "build",
+        "--profile",
+        "feasibility"
+      ],
+      "program": "cargo",
+      "name": "build",
+      "exit_code": 0,
+      "elapsed_ms": 9027
+    },
+    {
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m0"
+      ],
+      "program": "cargo",
+      "name": "m0",
+      "exit_code": 0,
+      "elapsed_ms": 8915
+    },
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-M0.ps1"
+      ],
+      "program": "pwsh",
+      "name": "acceptance",
+      "exit_code": 0,
+      "elapsed_ms": 119652
+    },
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Probe-Dependencies.ps1"
+      ],
+      "program": "pwsh",
+      "name": "dependencies",
+      "exit_code": 0,
+      "elapsed_ms": 17631
+    },
+    {
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--profile",
+        "m1",
+        "--json"
+      ],
+      "program": "cargo",
+      "name": "m1-doctor",
+      "exit_code": 0,
+      "elapsed_ms": 15008
+    }
+  ],
+  "architecture": "X64"
+}

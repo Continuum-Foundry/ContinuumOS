@@ -9,7 +9,7 @@ $graphs = @(
 )
 $records = @{}
 $locks = @()
-$firstPartyManifests = @('Cargo.toml','tools/xtask/Cargo.toml','kernel/Cargo.toml','crates/editor-model/Cargo.toml',
+$firstPartyManifests = @('Cargo.toml','tools/xtask/Cargo.toml','kernel/Cargo.toml','crates/editor-model/Cargo.toml','crates/text-core/Cargo.toml',
     'experiments/kernel-link/Cargo.toml','experiments/userland-link/Cargo.toml',
     'experiments/dependencies/Cargo.toml','experiments/boot-bindings/Cargo.toml')
 foreach ($graph in $graphs) {

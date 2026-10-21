@@ -56,7 +56,11 @@ P2-03's [local review](../../evidence/phase-2/P2-03/2026-10-21/README.md) adds
 T05/T07 logical continuity and T14 hosted action/model checks: 21 operations across
 four entries, 56 negative entry/case pairs, bounded snapshot/history/retry tests,
 independent schema/codec checks and portable library compilation. This does not
-test actual widgets or provider replacement. P2-04–P2-13 remain plans.
+test actual widgets or provider replacement. P2-04's
+[local text review](../../evidence/phase-2/P2-04/2026-10-21/README.md) adds T05/T10
+text preparation: 45 text/scale observations, six independent native shaping
+references, 766 official grapheme and 1944 word cases, six modeled composition
+scenarios and 14 bounds/cache checks. P2-05–P2-13 remain plans.
 Hosted R04/R08/R09/R15 and R19 design remain distinct from full
 guest/product requirements, M3 isolation, M4 guest resources and M5 behavior transfer.
 

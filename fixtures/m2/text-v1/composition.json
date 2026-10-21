@@ -1,0 +1,17 @@
+{
+  "schema_version":1,
+  "initial":"Draft: unsaved",
+  "selection":[7,14],
+  "preedit":"कि",
+  "caret":6,
+  "cases":[
+    {"id":"commit-after-relayout","mode":"commit","text":"Draft: कि","selection":[13,13],"undo":1,"status":"Ok(true)"},
+    {"id":"cancel","mode":"cancel","text":"Draft: unsaved","selection":[7,14],"undo":0,"status":"cancelled preedit"},
+    {"id":"denied","mode":"denied","text":"Draft: unsaved","selection":[7,14],"undo":0,"status":"Err(Denied)"},
+    {"id":"deadline","mode":"deadline","text":"Draft: unsaved","selection":[7,14],"undo":0,"status":"Err(Deadline)"},
+    {"id":"cancelled-request","mode":"cancelled","text":"Draft: unsaved","selection":[7,14],"undo":0,"status":"Err(Cancelled)"},
+    {"id":"stale-document","mode":"stale","text":"Draft: x","selection":[8,8],"undo":1,"status":"Conflict"}
+  ],
+  "invalid_updates":[{"text":"é","caret":1,"status":"InvalidSelection"}],
+  "reload_policy":"resource-only view recreation retains the same live composition owner; provider/IME replacement must cancel explicitly or reject staging; neither is implemented"
+}

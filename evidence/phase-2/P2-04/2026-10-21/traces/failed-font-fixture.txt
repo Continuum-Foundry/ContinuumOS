@@ -1,0 +1,5 @@
+Selected verbatim output from the first text replay (full 42 PGM previews remain local):
+xtask: Unpinned font must reject before deep parse
+error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\tools\windows\Invoke-DevExecutable.ps1 build\cargo\signed\debug\xtask.exe test --suite text` (exit code: 1)
+
+The assertion expected UnpinnedFont, but the mutation changed a directory offset and hit InvalidFont in shallow preflight. The corrected payload-only mutation passed.

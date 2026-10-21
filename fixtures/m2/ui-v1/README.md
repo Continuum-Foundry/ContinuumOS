@@ -23,3 +23,8 @@ Fonts are named slots, not a claim of licensed/available glyph assets. P2-04 mus
 bind exact font bytes/fallbacks and Unicode data once for both candidates. No
 rendered golden, model/action implementation, native screen reader, guest IPC,
 live reload or performance result is supplied by these fixtures.
+
+P2-04 now supplies those bindings in the separate [text corpus](../text-v1/README.md)
+and [font lock](../text-v1/fonts.lock.json). The original seven fixture files and
+their lock remain unchanged. Candidate rendering must use the declared `ui-sans`,
+`ui-mono` and `complex-fallback` orders, with no system-font substitutions.

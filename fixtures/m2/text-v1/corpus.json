@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "empty",
+      "text": "",
+      "graphemes": [],
+      "missing": 0,
+      "font": 0
+    },
+    {
+      "id": "combining",
+      "text": "Café",
+      "graphemes": [
+        "C",
+        "a",
+        "f",
+        "é"
+      ],
+      "missing": 0,
+      "font": 0
+    },
+    {
+      "id": "emoji-zwj",
+      "text": "👩🏽‍💻",
+      "graphemes": [
+        "👩🏽‍💻"
+      ],
+      "missing": 1,
+      "font": 0
+    },
+    {
+      "id": "emoji-flags",
+      "text": "🇺🇸🇯🇵",
+      "graphemes": [
+        "🇺🇸",
+        "🇯🇵"
+      ],
+      "missing": 2,
+      "font": 0
+    },
+    {
+      "id": "ligature",
+      "text": "ffi",
+      "graphemes": [
+        "f",
+        "f",
+        "i"
+      ],
+      "missing": 0,
+      "font": 0,
+      "oracle": {
+        "font": 0,
+        "direction": "ltr",
+        "script": "Latn"
+      },
+      "caret_order": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "mono-spacing",
+      "slot": "ui-mono",
+      "text": "iW00",
+      "graphemes": [
+        "i",
+        "W",
+        "0",
+        "0"
+      ],
+      "missing": 0,
+      "font": 5,
+      "caret_order": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "oracle": {
+        "font": 5,
+        "direction": "ltr",
+        "script": "Latn"
+      }
+    },
+    {
+      "id": "arabic",
+      "text": "سلام",
+      "graphemes": [
+        "س",
+        "ل",
+        "ا",
+        "م"
+      ],
+      "missing": 0,
+      "font": 1,
+      "oracle": {
+        "font": 1,
+        "direction": "rtl",
+        "script": "Arab"
+      },
+      "caret_order": [
+        8,
+        6,
+        4,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "hebrew",
+      "text": "שלום",
+      "graphemes": [
+        "ש",
+        "ל",
+        "ו",
+        "ם"
+      ],
+      "missing": 0,
+      "font": 2,
+      "oracle": {
+        "font": 2,
+        "direction": "rtl",
+        "script": "Hebr"
+      },
+      "caret_order": [
+        8,
+        6,
+        4,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "indic-prebase",
+      "text": "कि",
+      "graphemes": [
+        "कि"
+      ],
+      "missing": 0,
+      "font": 3,
+      "oracle": {
+        "font": 3,
+        "direction": "ltr",
+        "script": "Deva"
+      }
+    },
+    {
+      "id": "indic-conjunct",
+      "text": "क्षि",
+      "graphemes": [
+        "क्षि"
+      ],
+      "missing": 0,
+      "font": 3,
+      "oracle": {
+        "font": 3,
+        "direction": "ltr",
+        "script": "Deva"
+      }
+    },
+    {
+      "id": "mixed-bidi",
+      "text": "A אב 12 سلام",
+      "graphemes": [
+        "A",
+        " ",
+        "א",
+        "ב",
+        " ",
+        "1",
+        "2",
+        " ",
+        "س",
+        "ل",
+        "ا",
+        "م"
+      ],
+      "missing": 0,
+      "font": null,
+      "slot": "complex-fallback"
+    },
+    {
+      "id": "cjk-wrap",
+      "text": "中文测试中文测试",
+      "graphemes": [
+        "中",
+        "文",
+        "测",
+        "试",
+        "中",
+        "文",
+        "测",
+        "试"
+      ],
+      "missing": 0,
+      "font": 4,
+      "width": 48,
+      "line_ends": [
+        9,
+        18,
+        24
+      ]
+    },
+    {
+      "id": "missing-glyph",
+      "text": "A􏿿B",
+      "graphemes": [
+        "A",
+        "􏿿",
+        "B"
+      ],
+      "missing": 1,
+      "font": 0
+    },
+    {
+      "id": "line-feed",
+      "text": "a\n\nb\n",
+      "graphemes": [
+        "a",
+        "\n",
+        "\n",
+        "b",
+        "\n"
+      ],
+      "missing": 0,
+      "font": 0,
+      "line_ends": [
+        1,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "long-path",
+      "text": "C:/projects/long-folder-name/unsaved-document.txt",
+      "graphemes": null,
+      "missing": 0,
+      "font": 0,
+      "width": 90
+    }
+  ],
+  "visual_policy": {
+    "sizes": [
+      16
+    ],
+    "scales": [
+      100,
+      150,
+      200
+    ],
+    "semantic_tolerance": 0,
+    "raster": "grayscale coverage, unhinted, integer bitmap placement, white on black",
+    "same_build_exact_hash": true,
+    "cross_candidate": "glyph semantics and cluster/edit mappings exact; compare pixels separately at P2-08, no predeclared cross-renderer exact equality",
+    "ligature_caret": "equal subdivisions of cluster advance between grapheme boundaries; no OpenType GDEF caret claim",
+    "emoji": "editing/segmentation supported; color emoji shaping/raster unsupported, reported missing clusters"
+  }
+}

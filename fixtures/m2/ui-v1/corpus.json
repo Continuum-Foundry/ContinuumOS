@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "seed": 20261020,
+  "profiles_path": "config/m2-profiles.json",
+  "physical_sizes": [
+    [
+      1280,
+      720
+    ],
+    [
+      1920,
+      1080
+    ]
+  ],
+  "scales": [
+    1,
+    1.5,
+    2
+  ],
+  "variants": [
+    "standard",
+    "high-contrast",
+    "reduced-motion",
+    "reduced-effects",
+    "high-contrast-reduced"
+  ],
+  "font_slots": [
+    "ui-sans",
+    "ui-mono",
+    "complex-fallback"
+  ],
+  "font_gate": "P2-04: exact common font bytes, digests, licenses, fallback order and Unicode versions required before rendering",
+  "resources": [
+    "document.unsaved",
+    "files.synthetic"
+  ],
+  "actions": [
+    "edit.insert@1",
+    "search.set@1",
+    "files.select@1",
+    "launcher.open@1",
+    "settings.effects@1",
+    "settings.motion@1"
+  ],
+  "text_cases": [
+    "Draft: unsaved\n",
+    "Café fi ffi",
+    "👩🏽‍💻 🏳️‍🌈",
+    "العربية 123 — שלום 45",
+    "नमस्ते दुनिया",
+    "日本語の改行テスト中文",
+    "A very long translated label — long-path/long-path/long-path/long-path/long-path/long-path/long-path/long-path/long-path/long-path/long-path/long-path/"
+  ],
+  "file_list": {
+    "count": 10000,
+    "realized_max": 64,
+    "row_height": 24,
+    "seed": 20261020
+  },
+  "initial_state": {
+    "document": "Draft: unsaved\n",
+    "revision": 11,
+    "selection": [
+      7,
+      14
+    ],
+    "focus": "editor",
+    "scroll_row": 0,
+    "selected_file": 0,
+    "window": [
+      8,
+      8,
+      420,
+      328
+    ],
+    "dirty": true
+  },
+  "visual_rules": {
+    "geometry_logical_px": 0.5,
+    "channel_error": 3,
+    "edge_channel_error": 16,
+    "edge_fraction_max": 0.01,
+    "mismatch_fraction_max": 0.001,
+    "outside_clip_error": 0,
+    "golden_policy": "candidate-specific reviewed raster baselines; common geometry/paint rules; no candidate is the other golden"
+  },
+  "fault_scenarios": [
+    "missing-icon",
+    "missing-font",
+    "long-label",
+    "complex-script",
+    "stale-pointer",
+    "overflow-reset",
+    "removed-focus",
+    "invalid-layout",
+    "invalid-token"
+  ]
+}

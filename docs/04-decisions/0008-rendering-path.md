@@ -2,6 +2,11 @@
 
 Status: Proposed. Date: 2026-10-17.
 
+P2-02 refines the experiment with a [locked hosted boundary/corpus](../06-contracts/hosted-ui-fixtures.md):
+encoded-sRGB premultiplied RGBA8, explicit leases/damage, analytic paint vectors
+and identical rich/reduced-effect cases. These data checks do not pass the M2/M4
+render/measurement gate or select a toolkit. Status remains Proposed.
+
 ## Context and decision
 
 We need beautiful UI without pretending a new kernel already has a GPU stack.

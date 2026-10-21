@@ -136,3 +136,9 @@ P2-01's [local prerequisite acceptance](../../evidence/phase-2/P2-01/2026-10-20/
 adds R03/R18 host infrastructure and early R09/R16 profile/provenance setup.
 Fresh offline compile/link/signing/doctor checks and 23 headless lifecycle cases
 do not establish rendered UI, reload continuity or guest performance.
+
+P2-02's [accepted shared corpus](../../evidence/phase-2/P2-02/2026-10-21/README.md)
+prepares R04/R08/R15 with bounded surface/input/token/layout drafts and separate
+visual/semantic/state expectations; R18 and early R14 receive schema, negative
+fixture and deterministic hash evidence. These are contract checks, not UI,
+accessibility, action-execution, IPC, continuity or performance acceptance.

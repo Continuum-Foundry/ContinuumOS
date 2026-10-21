@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:continuumos:draft:hosted-workflow:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "steps"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "events",
+          "assertions"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "sequence",
+                "time_us",
+                "kind",
+                "target",
+                "scene_revision",
+                "text",
+                "usage",
+                "pressed",
+                "x",
+                "y",
+                "button",
+                "phase"
+              ],
+              "properties": {
+                "sequence": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4294967295
+                },
+                "time_us": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 60000000
+                },
+                "kind": {
+                  "enum": [
+                    "key",
+                    "text",
+                    "composition",
+                    "pointer",
+                    "scroll",
+                    "focus",
+                    "capture",
+                    "reset"
+                  ]
+                },
+                "target": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 64
+                },
+                "scene_revision": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4294967295
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 4096
+                },
+                "usage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                "pressed": {
+                  "type": "boolean"
+                },
+                "x": {
+                  "type": "number",
+                  "minimum": -16384,
+                  "maximum": 16384
+                },
+                "y": {
+                  "type": "number",
+                  "minimum": -16384,
+                  "maximum": 16384
+                },
+                "button": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 5
+                },
+                "phase": {
+                  "enum": [
+                    "none",
+                    "down",
+                    "up",
+                    "move",
+                    "start",
+                    "update",
+                    "commit",
+                    "cancel"
+                  ]
+                }
+              }
+            },
+            "minItems": 0,
+            "maxItems": 256
+          },
+          "assertions": {
+            "type": "object",
+            "additionalProperties": false,
+            "minProperties": 1,
+            "properties": {
+              "focus": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 64
+              },
+              "document": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 4096
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              },
+              "selection": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4294967295
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "dirty": {
+                "type": "boolean"
+              },
+              "action": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "search": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 4096
+              },
+              "match_count": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "document_revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              },
+              "scroll_row": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9999
+              },
+              "selected_file": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9999
+              },
+              "realized_max": {
+                "const": 64
+              },
+              "semantic_logical_count": {
+                "const": 10000
+              },
+              "same_document": {
+                "const": true
+              },
+              "reduced_effects": {
+                "type": "boolean"
+              },
+              "same_semantic_actions": {
+                "const": true
+              },
+              "motion_ms": {
+                "const": 0
+              },
+              "composition_active": {
+                "type": "boolean"
+              },
+              "capture": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 64
+              },
+              "pressed_keys": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "cancelled": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 64
+    }
+  }
+}

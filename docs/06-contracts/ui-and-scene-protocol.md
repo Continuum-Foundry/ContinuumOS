@@ -6,6 +6,12 @@ scene-node format. A toolkit can render privately and submit a buffer without
 implementing SceneCommit. Freeze integration after the comparison; semantic/action
 requirements remain in either path.
 
+P2-02's [hosted comparison refinement](hosted-ui-fixtures.md) now fixes version-1
+geometry, encoded-sRGB premultiplied blending, buffer ownership, finite bounds,
+event ordering/cancellation and token/layout data limits with authored fixtures.
+It is an experimental data contract, not a frozen process ABI or implemented
+compositor. The optional SceneCommit design below remains a separate integration.
+
 ## Scene transaction
 
 An app submits `SceneCommit(surface_id, scene_epoch, base_revision, new_revision,

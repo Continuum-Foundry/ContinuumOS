@@ -46,7 +46,13 @@ before P2-09's decision. P2-11/P2-12 cover hosted L0/L1 T07 continuity, T09
 idle/damage/memory/latency and 100 compatible reloads. P2-13 reviews final builds
 and T13 consistency. P2-01's [local review](../../evidence/phase-2/P2-01/2026-10-20/README.md)
 adds fresh T02/T13 prerequisites and T09 profile setup: 15 xtask tests and 23
-lifecycle cases, with all 15 launched children reaped. P2-02–P2-13 remain plans.
+lifecycle cases, with all 15 launched children reaped. P2-02's
+[local review](../../evidence/phase-2/P2-02/2026-10-21/README.md) adds T05/T10
+corpus preparation and T13 contracts: seven positive inputs, 56 negative
+mutations, two overflow checks, three nonfinite parse checks, independent schemas,
+18 xtask tests and two exact 10,000-row generations. The 30 visual configurations
+and 150 captures are declared future coverage, not rendered passes.
+P2-03–P2-13 remain plans.
 Hosted R04/R08/R09/R15 and R19 design remain distinct from full
 guest/product requirements, M3 isolation, M4 guest resources and M5 behavior transfer.
 

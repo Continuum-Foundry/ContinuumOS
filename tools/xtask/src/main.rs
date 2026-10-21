@@ -1,6 +1,7 @@
 mod elf;
 mod m1;
 mod m2;
+mod ui_fixtures;
 
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
@@ -273,6 +274,7 @@ fn run() -> Result<()> {
         .collect::<Vec<_>>()
         .as_slice()
     {
+        ["test", "--suite", "ui-fixtures"] => ui_fixtures::execute(),
         ["hosted", "--config", config, "--profile", profile, "--scale", scale, "--case", case] => m2::execute(config, profile, scale, case),
         ["hosted-probe", case, input] => m2::probe(case, input),
         ["doctor"] => doctor(false, false),

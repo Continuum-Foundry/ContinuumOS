@@ -4,6 +4,11 @@ Status: Proposed. Date: 2026-10-17.
 Revision 2 replaces the untested custom-builder-first default with a bounded
 Slint/custom comparison; the motivation to avoid a new language remains.
 
+P2-02 supplies the [common token/layout subset and fixture lock](../06-contracts/hosted-ui-fixtures.md)
+with separate future visual and semantic/state acceptance. Both candidate stories
+reference it. Actual font/text integration, rendering, reload and selection gates
+remain open; no new UI language or production toolkit is selected.
+
 ## Context and decision
 
 Compare Slint and a minimal Rust builder/renderer using the same scenes, action/state

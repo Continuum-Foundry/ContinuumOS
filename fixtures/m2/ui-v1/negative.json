@@ -1,0 +1,1691 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "name": "unsupported-version",
+      "file": "layout",
+      "path": "/schema_version",
+      "value": 2,
+      "error": "shape"
+    },
+    {
+      "name": "executable-callback",
+      "file": "layout",
+      "path": "/nodes/0/callback",
+      "value": "native:0x1234",
+      "error": "shape"
+    },
+    {
+      "name": "nonfinite-geometry",
+      "file": "layout",
+      "path": "/nodes/0/rect/2",
+      "value": "NaN",
+      "error": "shape"
+    },
+    {
+      "name": "negative-size",
+      "file": "layout",
+      "path": "/nodes/0/rect/2",
+      "value": -1,
+      "error": "geometry"
+    },
+    {
+      "name": "duplicate-widget",
+      "file": "layout",
+      "path": "/nodes/1/id",
+      "value": "desktop",
+      "error": "identity"
+    },
+    {
+      "name": "duplicate-semantic",
+      "file": "layout",
+      "path": "/nodes/1/semantic/id",
+      "value": "sem.desktop",
+      "error": "identity"
+    },
+    {
+      "name": "cycle",
+      "file": "layout",
+      "path": "/nodes/3/children",
+      "value": [
+        "desktop"
+      ],
+      "error": "tree"
+    },
+    {
+      "name": "unknown-child",
+      "file": "layout",
+      "path": "/nodes/0/children",
+      "value": [
+        "absent"
+      ],
+      "error": "tree"
+    },
+    {
+      "name": "multiple-parents",
+      "file": "layout",
+      "path": "/nodes/1/children",
+      "value": [
+        "sidebar",
+        "search",
+        "editor",
+        "status",
+        "launcher"
+      ],
+      "error": "tree"
+    },
+    {
+      "name": "orphan",
+      "file": "layout",
+      "path": "/nodes/0/children",
+      "value": [
+        "editor-window",
+        "files-window",
+        "launcher"
+      ],
+      "error": "tree"
+    },
+    {
+      "name": "missing-resource",
+      "file": "layout",
+      "path": "/nodes/4/resource",
+      "value": "unknown.font",
+      "error": "resource"
+    },
+    {
+      "name": "unknown-action",
+      "file": "layout",
+      "path": "/nodes/3/action",
+      "value": "shell.exec@1",
+      "error": "action"
+    },
+    {
+      "name": "stale-scene-revision",
+      "file": "layout",
+      "path": "/base_revision",
+      "value": 2,
+      "error": "revision"
+    },
+    {
+      "name": "skipped-scene-revision",
+      "file": "layout",
+      "path": "/new_revision",
+      "value": 5,
+      "error": "revision"
+    },
+    {
+      "name": "stale-generation",
+      "file": "layout",
+      "path": "/generation",
+      "value": 6,
+      "error": "generation"
+    },
+    {
+      "name": "excessive-node-count",
+      "file": "layout",
+      "path": "/nodes",
+      "error": "shape",
+      "repeat": 86
+    },
+    {
+      "name": "excessive-depth",
+      "file": "layout",
+      "path": "",
+      "value": {
+        "schema_version": 1,
+        "generation": 7,
+        "base_revision": 3,
+        "new_revision": 4,
+        "root": "depth0",
+        "nodes": [
+          {
+            "id": "depth0",
+            "kind": "column",
+            "children": [
+              "depth1"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth0",
+              "role": "group",
+              "name": "depth0"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth1",
+            "kind": "column",
+            "children": [
+              "depth2"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth1",
+              "role": "group",
+              "name": "depth1"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth2",
+            "kind": "column",
+            "children": [
+              "depth3"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth2",
+              "role": "group",
+              "name": "depth2"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth3",
+            "kind": "column",
+            "children": [
+              "depth4"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth3",
+              "role": "group",
+              "name": "depth3"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth4",
+            "kind": "column",
+            "children": [
+              "depth5"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth4",
+              "role": "group",
+              "name": "depth4"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth5",
+            "kind": "column",
+            "children": [
+              "depth6"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth5",
+              "role": "group",
+              "name": "depth5"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth6",
+            "kind": "column",
+            "children": [
+              "depth7"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth6",
+              "role": "group",
+              "name": "depth6"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth7",
+            "kind": "column",
+            "children": [
+              "depth8"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth7",
+              "role": "group",
+              "name": "depth7"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth8",
+            "kind": "column",
+            "children": [
+              "depth9"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth8",
+              "role": "group",
+              "name": "depth8"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth9",
+            "kind": "column",
+            "children": [
+              "depth10"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth9",
+              "role": "group",
+              "name": "depth9"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth10",
+            "kind": "column",
+            "children": [
+              "depth11"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth10",
+              "role": "group",
+              "name": "depth10"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth11",
+            "kind": "column",
+            "children": [
+              "depth12"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth11",
+              "role": "group",
+              "name": "depth11"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth12",
+            "kind": "column",
+            "children": [
+              "depth13"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth12",
+              "role": "group",
+              "name": "depth12"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth13",
+            "kind": "column",
+            "children": [
+              "depth14"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth13",
+              "role": "group",
+              "name": "depth13"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth14",
+            "kind": "column",
+            "children": [
+              "depth15"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth14",
+              "role": "group",
+              "name": "depth14"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth15",
+            "kind": "column",
+            "children": [
+              "depth16"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth15",
+              "role": "group",
+              "name": "depth15"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth16",
+            "kind": "column",
+            "children": [
+              "depth17"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth16",
+              "role": "group",
+              "name": "depth16"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth17",
+            "kind": "column",
+            "children": [
+              "depth18"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth17",
+              "role": "group",
+              "name": "depth17"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth18",
+            "kind": "column",
+            "children": [
+              "depth19"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth18",
+              "role": "group",
+              "name": "depth18"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth19",
+            "kind": "column",
+            "children": [
+              "depth20"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth19",
+              "role": "group",
+              "name": "depth19"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth20",
+            "kind": "column",
+            "children": [
+              "depth21"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth20",
+              "role": "group",
+              "name": "depth20"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth21",
+            "kind": "column",
+            "children": [
+              "depth22"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth21",
+              "role": "group",
+              "name": "depth21"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth22",
+            "kind": "column",
+            "children": [
+              "depth23"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth22",
+              "role": "group",
+              "name": "depth22"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth23",
+            "kind": "column",
+            "children": [
+              "depth24"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth23",
+              "role": "group",
+              "name": "depth23"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth24",
+            "kind": "column",
+            "children": [
+              "depth25"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth24",
+              "role": "group",
+              "name": "depth24"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth25",
+            "kind": "column",
+            "children": [
+              "depth26"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth25",
+              "role": "group",
+              "name": "depth25"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth26",
+            "kind": "column",
+            "children": [
+              "depth27"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth26",
+              "role": "group",
+              "name": "depth26"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth27",
+            "kind": "column",
+            "children": [
+              "depth28"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth27",
+              "role": "group",
+              "name": "depth27"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth28",
+            "kind": "column",
+            "children": [
+              "depth29"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth28",
+              "role": "group",
+              "name": "depth28"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth29",
+            "kind": "column",
+            "children": [
+              "depth30"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth29",
+              "role": "group",
+              "name": "depth29"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth30",
+            "kind": "column",
+            "children": [
+              "depth31"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth30",
+              "role": "group",
+              "name": "depth30"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth31",
+            "kind": "column",
+            "children": [
+              "depth32"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth31",
+              "role": "group",
+              "name": "depth31"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth32",
+            "kind": "column",
+            "children": [
+              "depth33"
+            ],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth32",
+              "role": "group",
+              "name": "depth32"
+            },
+            "focusable": false
+          },
+          {
+            "id": "depth33",
+            "kind": "column",
+            "children": [],
+            "rect": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "clip": false,
+            "opacity": 1,
+            "text": "",
+            "action": "",
+            "resource": "",
+            "semantic": {
+              "id": "sem.depth33",
+              "role": "group",
+              "name": "depth33"
+            },
+            "focusable": false
+          }
+        ]
+      },
+      "error": "tree"
+    },
+    {
+      "name": "stride-too-small",
+      "file": "surface",
+      "path": "/stride",
+      "value": 5116,
+      "error": "stride"
+    },
+    {
+      "name": "unaligned-stride",
+      "file": "surface",
+      "path": "/stride",
+      "value": 5121,
+      "error": "stride"
+    },
+    {
+      "name": "short-buffer",
+      "file": "surface",
+      "path": "/byte_length",
+      "value": 3686399,
+      "error": "length"
+    },
+    {
+      "name": "oversize-buffer",
+      "file": "surface",
+      "path": "/byte_length",
+      "value": 67108865,
+      "error": "shape"
+    },
+    {
+      "name": "width-overflow",
+      "file": "surface",
+      "path": "/width",
+      "value": 18446744073709551615,
+      "error": "shape"
+    },
+    {
+      "name": "damage-outside",
+      "file": "surface",
+      "path": "/damage/0",
+      "value": [
+        1279,
+        0,
+        2,
+        2
+      ],
+      "error": "damage"
+    },
+    {
+      "name": "damage-fragmentation",
+      "file": "surface",
+      "path": "/damage",
+      "value": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "error": "shape"
+    },
+    {
+      "name": "write-in-use",
+      "file": "surface",
+      "path": "/leases/3/op",
+      "value": "write",
+      "error": "lease"
+    },
+    {
+      "name": "commit-without-acquire",
+      "file": "surface",
+      "path": "/leases/0/op",
+      "value": "commit",
+      "error": "lease"
+    },
+    {
+      "name": "release-without-commit",
+      "file": "surface",
+      "path": "/leases/1/op",
+      "value": "release",
+      "error": "lease"
+    },
+    {
+      "name": "wrong-release-generation",
+      "file": "surface",
+      "path": "/leases/3/generation",
+      "value": 8,
+      "error": "lease"
+    },
+    {
+      "name": "double-acquire",
+      "file": "surface",
+      "path": "/leases/1/op",
+      "value": "acquire",
+      "error": "lease"
+    },
+    {
+      "name": "unreleased-buffer",
+      "file": "surface",
+      "path": "/leases",
+      "value": [
+        {
+          "op": "acquire",
+          "buffer": 1,
+          "generation": 7,
+          "lease": 1
+        },
+        {
+          "op": "write",
+          "buffer": 1,
+          "generation": 7,
+          "lease": 1
+        },
+        {
+          "op": "commit",
+          "buffer": 1,
+          "generation": 7,
+          "lease": 1
+        },
+        {
+          "op": "release",
+          "buffer": 1,
+          "generation": 7,
+          "lease": 1
+        },
+        {
+          "op": "acquire",
+          "buffer": 1,
+          "generation": 8,
+          "lease": 2
+        },
+        {
+          "op": "write",
+          "buffer": 1,
+          "generation": 8,
+          "lease": 2
+        },
+        {
+          "op": "commit",
+          "buffer": 1,
+          "generation": 8,
+          "lease": 2
+        }
+      ],
+      "error": "lease"
+    },
+    {
+      "name": "unknown-color",
+      "file": "tokens",
+      "path": "/colors/native_pointer",
+      "value": 123,
+      "error": "shape"
+    },
+    {
+      "name": "negative-font-size",
+      "file": "tokens",
+      "path": "/font_sizes/body",
+      "value": -1,
+      "error": "shape"
+    },
+    {
+      "name": "unknown-font-slot",
+      "file": "tokens",
+      "path": "/fonts/body",
+      "value": "system-font",
+      "error": "resource"
+    },
+    {
+      "name": "unknown-effect",
+      "file": "tokens",
+      "path": "/effects/kind",
+      "value": "shader-code",
+      "error": "shape"
+    },
+    {
+      "name": "unknown-operation",
+      "file": "layout",
+      "path": "/nodes/0/kind",
+      "value": "eval",
+      "error": "shape"
+    },
+    {
+      "name": "duplicate-event-sequence",
+      "file": "workflow",
+      "path": "/steps/1/events/1/sequence",
+      "value": 1,
+      "error": "ordering"
+    },
+    {
+      "name": "backward-time",
+      "file": "workflow",
+      "path": "/steps/1/events/1/time_us",
+      "value": 0,
+      "error": "ordering"
+    },
+    {
+      "name": "stale-pointer",
+      "file": "workflow",
+      "path": "/steps/3/events/2/scene_revision",
+      "value": 3,
+      "error": "revision"
+    },
+    {
+      "name": "unknown-event-target",
+      "file": "workflow",
+      "path": "/steps/1/events/0/target",
+      "value": "absent",
+      "error": "identity"
+    },
+    {
+      "name": "capture-nonfocusable",
+      "file": "workflow",
+      "path": "/steps/9/events/1/target",
+      "value": "status",
+      "error": "focus"
+    },
+    {
+      "name": "empty-text",
+      "file": "workflow",
+      "path": "/steps/1/events/1/text",
+      "value": "",
+      "error": "input"
+    },
+    {
+      "name": "unpaired-key-up",
+      "file": "workflow",
+      "path": "/steps/1/events/0/pressed",
+      "value": false,
+      "error": "input"
+    },
+    {
+      "name": "excessive-events",
+      "file": "workflow",
+      "path": "/steps/1/events",
+      "error": "shape",
+      "repeat": 86
+    },
+    {
+      "name": "invalid-composition-order",
+      "file": "workflow",
+      "path": "/steps/7/events/1/phase",
+      "value": "update",
+      "error": "input"
+    },
+    {
+      "name": "missing-composition-commit",
+      "file": "workflow",
+      "path": "/steps/8/events/1/phase",
+      "value": "update",
+      "error": "input"
+    },
+    {
+      "name": "unsupported-profile",
+      "file": "corpus",
+      "path": "/scales",
+      "value": [
+        1,
+        3
+      ],
+      "error": "shape"
+    },
+    {
+      "name": "mismatched-list-seed",
+      "file": "corpus",
+      "path": "/file_list/seed",
+      "value": 1,
+      "error": "shape"
+    },
+    {
+      "name": "invalid-selection",
+      "file": "corpus",
+      "path": "/initial_state/selection",
+      "value": [
+        0,
+        999
+      ],
+      "error": "state"
+    },
+    {
+      "name": "utf8-split-selection",
+      "file": "workflow",
+      "path": "/steps/8/assertions/selection",
+      "value": [
+        13,
+        18
+      ],
+      "error": "state"
+    },
+    {
+      "name": "invalid-premultiplied-alpha",
+      "file": "paint",
+      "path": "/source_over/0/source",
+      "value": [
+        255,
+        0,
+        0,
+        128
+      ],
+      "error": "color"
+    },
+    {
+      "name": "incorrect-blend-vector",
+      "file": "paint",
+      "path": "/source_over/0/expected",
+      "value": [
+        128,
+        0,
+        128,
+        255
+      ],
+      "error": "color"
+    },
+    {
+      "name": "unknown-variant",
+      "file": "variants",
+      "path": "/variants/0/id",
+      "value": "custom-easier-scene",
+      "error": "variant"
+    },
+    {
+      "name": "missing-capture-checkpoint",
+      "file": "variants",
+      "path": "/capture_steps/0",
+      "value": "absent",
+      "error": "variant"
+    },
+    {
+      "name": "stale-token-generation",
+      "file": "tokens",
+      "path": "/generation",
+      "value": 6,
+      "error": "generation"
+    },
+    {
+      "name": "stale-release-lease",
+      "file": "surface",
+      "path": "/leases/7/lease",
+      "value": 1,
+      "error": "lease"
+    },
+    {
+      "name": "reused-lease-serial",
+      "file": "surface",
+      "path": "/leases/4/lease",
+      "value": 1,
+      "error": "lease"
+    }
+  ]
+}

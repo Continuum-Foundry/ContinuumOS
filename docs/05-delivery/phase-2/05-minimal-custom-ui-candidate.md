@@ -12,6 +12,11 @@ reference workflows so its benefits and maintenance costs can be measured fairly
 
 ## Implementation scope
 
+Common locked input: [P2-02 corpus](../../../fixtures/m2/ui-v1/README.md) and
+[contract](../../06-contracts/hosted-ui-fixtures.md). Use the exact same corpus/
+profile/font locks, 30 configurations, five capture checkpoints and independent
+state/semantic rules as P2-06. Font bytes remain a P2-04 prerequisite.
+
 1. Implement only the Rust builder/layout/paint primitives needed by P2-02's scenes:
    bounded row/column/overlay/scroll/list, text, action controls, clips, rounded
    geometry, image/glyph resources, alpha and the declared effect/fallback.

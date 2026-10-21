@@ -5,6 +5,12 @@ Revision 2 gates app-toolkit selection through the
 [Slint/custom comparison](../01-research/ui-toolkit-comparison.md). Required behavior
 below remains toolkit independent; do not implement every widget twice.
 
+P2-02's [hosted corpus draft](../06-contracts/hosted-ui-fixtures.md) now supplies
+the bounded token/layout subset, identical product scenes, rich/fallback effect,
+input scripts, visual tolerances and separate semantic/state assertions for both
+candidates. These comparison fixtures are not a selected production skin or
+implemented renderer; P2-04 still owns exact font/Unicode provenance.
+
 ## Design principles
 
 Prioritize clear hierarchy, precise typography, coherent spacing, immediate feedback,

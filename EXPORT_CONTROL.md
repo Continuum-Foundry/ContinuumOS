@@ -194,6 +194,25 @@ new recipient or standing remote-environment approval is authorized. Geographic
 containment remains unverified; this administrative exception is not legal
 clearance or a finding of U.S.-only handling and does not waive applicable law.
 
+### One-time owner authorization — P2-02, 2026-10-21
+
+After completion of P2-02, the owner instructed: "i give you an exemption to make
+the PR." This authorizes one push of the completed P2-02 shared UI boundary,
+token/layout and reference-corpus implementation, accompanying specifications,
+sanitized compact acceptance evidence and this authorization record to the existing
+GitHub `origin/codex/p2-02-shared-boundaries-fixtures`, followed by creation of its
+pull request against `main`, including the prepared PR text and metadata. Private
+keys, certificates, generated executables, generated file-list data, ISOs and full
+local run trees are excluded.
+
+The push authorization is exhausted by the first successful push containing this
+record; the PR authorization is exhausted by creation of that one pull request.
+The local pre-push hold may be bypassed for that single push invocation only and
+must remain installed afterward. No merge, force push, release, remote build,
+new recipient or standing remote-environment approval is authorized. Geographic
+containment remains unverified; this administrative exception is not legal
+clearance or a finding of U.S.-only handling and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

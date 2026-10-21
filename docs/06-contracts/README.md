@@ -15,6 +15,7 @@ their assertions in [m1/records.rs](../../tools/xtask/src/m1/records.rs).
 | Kernel/service IPC | [Objects and IPC](ipc-and-objects.md) | Codec/ABI IDs frozen at M3, not supplied yet |
 | Development updates | [Wire format](update-wire-format.md) | [Schema](schemas/update-manifest.schema.json), [synthetic fixture](examples/update-manifest.json) |
 | UI/compositor | [Scene protocol](ui-and-scene-protocol.md) | Freeze encoding after renderer/IPC experiments |
+| Hosted UI comparison | [Shared boundaries/corpus](hosted-ui-fixtures.md) | Version-1 [authored fixtures and lock](../../fixtures/m2/ui-v1/README.md); seven `hosted-*.schema.json` drafts |
 | Packages/generations | [Package format](package-manifest.md) | [Schema](schemas/package-manifest.schema.json), [synthetic fixture](examples/package-manifest.json) |
 | Typed actions/context | [Action contract](actions-and-context.md) | Draft semantic contract; wire IDs frozen after independent SDK tests |
 

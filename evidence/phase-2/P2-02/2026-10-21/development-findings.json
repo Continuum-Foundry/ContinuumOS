@@ -1,0 +1,34 @@
+{
+  "scope": "Observed host development failures, corrected before accepted run. Not VM or product failures. Summaries of tool output; not reconstructed raw logs. Existing full run directories remain local.",
+  "findings": [
+    {
+      "finding": "Rust E0277: Value does not implement Copy for slice.repeat",
+      "fix": "Clone array values through the iterator for negative mutations"
+    },
+    {
+      "finding": "profile-lock unit failure comparing JSON 1 with 1.0",
+      "fix": "Compare profile scales numerically; add JSON Schema numeric interoperability test"
+    },
+    {
+      "finding": "PowerShell nonfinite-geometry mutation unexpectedly validated",
+      "fix": "Avoid pipeline array copies while traversing mutation parents; independent schema now rejects the actual changed nested value"
+    },
+    {
+      "finding": "Format check failed during development",
+      "local_run": "build/m2/P2-02/acceptance-1792554629733",
+      "fix": "Run cargo fmt before final acceptance"
+    },
+    {
+      "finding": "Ownership review exposed reuse ambiguity within one resource generation",
+      "fix": "Add strictly increasing lease serial independent of generation; stale release and reused serial negative cases"
+    },
+    {
+      "finding": "After adding lease serial, old unreleased-buffer negative trace failed structure instead of semantics",
+      "fix": "Update its authored lease records to the new shape; semantic rejection now tested"
+    },
+    {
+      "finding": "Prepared-index review exposed CRLF source JSON normalization changing exact corpus checksums on checkout",
+      "fix": "Canonicalize source fixtures, schemas and profile to UTF-8/LF; reject CR in the validator; verify every locked member against the prepared Git index"
+    }
+  ]
+}

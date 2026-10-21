@@ -1,0 +1,80 @@
+{
+  "fixture_runs": [
+    {
+      "result_sha256": "e1bb12ffeff891c08eb41599417c00b039c6016edc5b2df0542a2d85ac80bbcc",
+      "data_sha256": "ba16344854638caeaaaa34c69696ba4dac54fb4742c6ec41dc947af9a1ac0196",
+      "path": "build/m2/P2-02/run-1792555612542357100-79444",
+      "data_bytes": 719368
+    },
+    {
+      "result_sha256": "e1bb12ffeff891c08eb41599417c00b039c6016edc5b2df0542a2d85ac80bbcc",
+      "data_sha256": "ba16344854638caeaaaa34c69696ba4dac54fb4742c6ec41dc947af9a1ac0196",
+      "path": "build/m2/P2-02/run-1792555613775523600-70208",
+      "data_bytes": 719368
+    }
+  ],
+  "compiler": [
+    "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "binary: rustc",
+    "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+    "commit-date: 2026-10-13",
+    "host: x86_64-pc-windows-msvc",
+    "release: 1.99.1",
+    "LLVM version: 23.1.1"
+  ],
+  "corpus_lock_sha256": "674e96d299fe5dfe651c9ca49e6d671d8207a814ed9cc106d6f6e930cfcb50e2",
+  "harness_sha256": "985420cb85aed25b9f5cc6a932f70d65d12cd10689719f1db17d3a32190316d6",
+  "schema_version": 1,
+  "guest_tested": false,
+  "commands": [
+    {
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "exit_code": 0,
+      "name": "format"
+    },
+    {
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask"
+      ],
+      "exit_code": 0,
+      "name": "tests"
+    },
+    {
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "ui-fixtures"
+      ],
+      "exit_code": 0,
+      "name": "fixtures-a"
+    },
+    {
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "ui-fixtures"
+      ],
+      "exit_code": 0,
+      "name": "fixtures-b"
+    }
+  ],
+  "status": "passed",
+  "utc": "2026-10-21T04:06:57.1529085Z",
+  "source_base": "54ae8fe60e9e693cad196642969153e64e7fda6b",
+  "independent_schema_cases": 63,
+  "signed_executable_sha256": "d04342494eb70d8f2d0be02604dbd54805260b50df3dbb911a66b0d137afdf24",
+  "render_tested": false,
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+  "cargo_lock_sha256": "87e685b48d370f8da6b418e28823f673e5b0da52cba46f5118be8ccbd59bc6ef",
+  "os": "Microsoft Windows NT 10.0.26300.0"
+}

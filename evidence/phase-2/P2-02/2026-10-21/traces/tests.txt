@@ -1,0 +1,26 @@
+   Compiling xtask v0.1.0 (${WORKSPACE}\tools\xtask)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.49s
+     Running unittests src\main.rs (build\cargo\signed\debug\deps\xtask-6deec9c2c1c021ff.exe)
+
+running 18 tests
+test m1::build::tests::rejects_vector_and_fp_code ... ok
+test elf::tests::valid_static_probe ... ok
+test elf::tests::rejects_unsafe_or_host_linked_images ... ok
+test m1::build::tests::image_bounds_include_bss_and_orphan_load_memory ... ok
+test m1::package::tests::windows_paths_are_translated_without_shell_quoting ... ok
+test m1::records::tests::expected_rejection_needs_exact_error_and_exit_and_no_ready_marker ... ok
+test m1::inputs::tests::rejects_missing_and_changed_inputs ... ok
+test m1::suite::tests::iso_comparison_rejects_unexplained_changes ... ok
+test elf::tests::truncation_and_overflow ... ok
+test ui_fixtures::tests::schema_numeric_values_match_json_schema_semantics ... ok
+test m2::tests::fixed_matrix_and_rejections ... ok
+test ui_fixtures::tests::unsupported_schema_keyword_rejects ... ok
+test m1::records::tests::protection_and_real_double_fault_require_owned_context ... ok
+test m1::records::tests::fatal_requires_exact_hardware_context_symbol_and_exit ... ok
+test m1::records::tests::rejects_false_or_incomplete_success ... ok
+test ui_fixtures::tests::shared_corpus_and_all_negative_cases ... ok
+test m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped ... ok
+test m1::inputs::tests::locked_kernel_loader_and_firmware_inputs_fail_closed ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.27s
+

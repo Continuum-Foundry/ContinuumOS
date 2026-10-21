@@ -26,7 +26,9 @@ and separate B06's M1 timer baseline from its later scheduling/context work.
 M2 is decomposed into [thirteen local Phase 2 stories](phase-2/README.md).
 P2-01's [local acceptance](../../evidence/phase-2/P2-01/2026-10-20/README.md) rechecks
 B01/B02 and adds fixed profiles/bounded headless lifecycle infrastructure for B32;
-P2-02–P2-13 remain Not started. P2-02 through P2-09 cover B36 and initial
+P2-02's [local corpus acceptance](../../evidence/phase-2/P2-02/2026-10-21/README.md)
+adds B07/B08 boundary design and B36 shared fixture inputs, without implementing
+either candidate. P2-03–P2-13 remain Not started. P2-02 through P2-09 cover B36 and initial
 B07/B08/B09/B37 boundaries, candidates, target links and decision. P2-10 completes
 the hosted portions of B07/B08/B09; P2-11 covers B10, and P2-12/P2-13 cover M2's
 B32 measurements/acceptance. B37 remains interface/model work until its B13 and

@@ -1,0 +1,4007 @@
+{
+  "action_version": 1,
+  "entries": [
+    {
+      "entry": "button",
+      "final_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+      "final_state": {
+        "dirty": true,
+        "document_revision": 17,
+        "file_scroll": 100,
+        "focus": "editor",
+        "matches": [
+          [
+            7,
+            12
+          ]
+        ],
+        "model_revision": 21,
+        "query": "notes",
+        "redo": 1,
+        "reduced_effects": true,
+        "reduced_motion": true,
+        "scroll": 42,
+        "selected_file": 101,
+        "selection": [
+          18,
+          18
+        ],
+        "text": "Draft: notes日本\n",
+        "text_size": 20,
+        "theme": "HighContrast",
+        "undo": 2,
+        "window": [
+          4,
+          6,
+          500,
+          340
+        ]
+      },
+      "steps": [
+        {
+          "action": "edit.insert",
+          "after_sha256": "65d2094df401a58c9e13ed1bb0581d1213d9f409b27ddf91f0ff64eb05336910",
+          "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+          "outcome": "Ok(true)",
+          "request_id": 1,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 0,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 2,
+            "query": "",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "search.set",
+          "after_sha256": "8ed32c49294b52cc6d5f61449e4f9a717c4491e83307409f1fa6430ae56a6de8",
+          "before_sha256": "65d2094df401a58c9e13ed1bb0581d1213d9f409b27ddf91f0ff64eb05336910",
+          "outcome": "Ok(true)",
+          "request_id": 2,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 0,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 3,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "files.scroll",
+          "after_sha256": "f64a2123c827248670e8e00f5ee7dbc952cd868f33e97f59f1c09253eb430f9d",
+          "before_sha256": "8ed32c49294b52cc6d5f61449e4f9a717c4491e83307409f1fa6430ae56a6de8",
+          "outcome": "Ok(true)",
+          "request_id": 3,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 4,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "files.select",
+          "after_sha256": "0fbe4e5dffa9edfbbf695c555e2d66892497e03367d0cb6c9bd7b56c0859b789",
+          "before_sha256": "f64a2123c827248670e8e00f5ee7dbc952cd868f33e97f59f1c09253eb430f9d",
+          "outcome": "Ok(true)",
+          "request_id": 4,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 5,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "2a2fc4fabfe72b4ac89b74ec5a09f8d23bc803281130c2555eb646b051df6af1",
+          "before_sha256": "0fbe4e5dffa9edfbbf695c555e2d66892497e03367d0cb6c9bd7b56c0859b789",
+          "outcome": "Ok(true)",
+          "request_id": 5,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-effects",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 6,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.effects",
+          "after_sha256": "2d1451b786c11ffb3f02c6ce249cf3ac634ebf2e36192bd5a0b0b8a92d912bba",
+          "before_sha256": "2a2fc4fabfe72b4ac89b74ec5a09f8d23bc803281130c2555eb646b051df6af1",
+          "outcome": "Ok(true)",
+          "request_id": 6,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-effects",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 7,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "bd72d3365f5a2238956a5b32499d1506f617dc850b1682193b46549fec52d8a7",
+          "before_sha256": "2d1451b786c11ffb3f02c6ce249cf3ac634ebf2e36192bd5a0b0b8a92d912bba",
+          "outcome": "Ok(true)",
+          "request_id": 7,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-motion",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 8,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.motion",
+          "after_sha256": "423600c28ef7785c390660148692f03529d0a36e212ccf4103c2a74158bfed9f",
+          "before_sha256": "bd72d3365f5a2238956a5b32499d1506f617dc850b1682193b46549fec52d8a7",
+          "outcome": "Ok(true)",
+          "request_id": 8,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-motion",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 9,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "8d84db8a03fcf29e07b50353e7cb0720062a86649773ec14f78100d3ccb3148b",
+          "before_sha256": "423600c28ef7785c390660148692f03529d0a36e212ccf4103c2a74158bfed9f",
+          "outcome": "Ok(true)",
+          "request_id": 9,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 10,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.insert",
+          "after_sha256": "3261f882cee1193c8ab5e1ae4e04562db4b8c983e11160044846fc07ceb39d68",
+          "before_sha256": "8d84db8a03fcf29e07b50353e7cb0720062a86649773ec14f78100d3ccb3148b",
+          "outcome": "Ok(true)",
+          "request_id": 10,
+          "state": {
+            "dirty": true,
+            "document_revision": 13,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 11,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.select",
+          "after_sha256": "8556dfbf39f16c3ecdd9018c3894fc1013e508adb2119c26f2d392886d5c818a",
+          "before_sha256": "3261f882cee1193c8ab5e1ae4e04562db4b8c983e11160044846fc07ceb39d68",
+          "outcome": "Ok(true)",
+          "request_id": 11,
+          "state": {
+            "dirty": true,
+            "document_revision": 13,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 12,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.delete",
+          "after_sha256": "35b7faaf0119583c96d2cf8470a4bb6eec3067760224bb32a3c23447dcfbc981",
+          "before_sha256": "8556dfbf39f16c3ecdd9018c3894fc1013e508adb2119c26f2d392886d5c818a",
+          "outcome": "Ok(true)",
+          "request_id": 12,
+          "state": {
+            "dirty": true,
+            "document_revision": 14,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 13,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              7
+            ],
+            "text": "Draft: \n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 3,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.undo",
+          "after_sha256": "94bb874d4b435984ba7779d3aac592287329f17e23f925dd7f75e0e4e169db04",
+          "before_sha256": "35b7faaf0119583c96d2cf8470a4bb6eec3067760224bb32a3c23447dcfbc981",
+          "outcome": "Ok(true)",
+          "request_id": 13,
+          "state": {
+            "dirty": true,
+            "document_revision": 15,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 14,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.redo",
+          "after_sha256": "aa42274bf93d149058179e1282337fe2839e6d83e218b46083b33d99222bd1da",
+          "before_sha256": "94bb874d4b435984ba7779d3aac592287329f17e23f925dd7f75e0e4e169db04",
+          "outcome": "Ok(true)",
+          "request_id": 14,
+          "state": {
+            "dirty": true,
+            "document_revision": 16,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 15,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              7
+            ],
+            "text": "Draft: \n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 3,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.undo",
+          "after_sha256": "67e5de28a5c14a5a665a8bac90e68f701ed376308c3de13a33e36b7c3f7ab2ed",
+          "before_sha256": "aa42274bf93d149058179e1282337fe2839e6d83e218b46083b33d99222bd1da",
+          "outcome": "Ok(true)",
+          "request_id": 15,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 16,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.select",
+          "after_sha256": "796908d275482cb93940b8cfe7fac0d057883c6758b7bcfda94faf4715b471ef",
+          "before_sha256": "67e5de28a5c14a5a665a8bac90e68f701ed376308c3de13a33e36b7c3f7ab2ed",
+          "outcome": "Ok(true)",
+          "request_id": 16,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 17,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.theme",
+          "after_sha256": "6364ac419e00e33a63c87b10f8a89c73de8770ef7f57fbfb5a9a216a9102478d",
+          "before_sha256": "796908d275482cb93940b8cfe7fac0d057883c6758b7bcfda94faf4715b471ef",
+          "outcome": "Ok(true)",
+          "request_id": 17,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 18,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.text-size",
+          "after_sha256": "619032f56ae1e80cde6306c15d4a91cc33ccfde9657d0656471a97ee804227dc",
+          "before_sha256": "6364ac419e00e33a63c87b10f8a89c73de8770ef7f57fbfb5a9a216a9102478d",
+          "outcome": "Ok(true)",
+          "request_id": 18,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 19,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "document.scroll",
+          "after_sha256": "3b6c084e1ea6393c631720e0c25379e56ab6467b421d9ff04cfbcf80d2c61944",
+          "before_sha256": "619032f56ae1e80cde6306c15d4a91cc33ccfde9657d0656471a97ee804227dc",
+          "outcome": "Ok(true)",
+          "request_id": 19,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 20,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.window",
+          "after_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "before_sha256": "3b6c084e1ea6393c631720e0c25379e56ab6467b421d9ff04cfbcf80d2c61944",
+          "outcome": "Ok(true)",
+          "request_id": 20,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 21,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              4,
+              6,
+              500,
+              340
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "launcher.open",
+          "after_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "before_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "outcome": "Ok(false)",
+          "request_id": 21,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 21,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              4,
+              6,
+              500,
+              340
+            ]
+          },
+          "version": 1
+        }
+      ]
+    },
+    {
+      "entry": "shortcut",
+      "final_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+      "final_state": {
+        "dirty": true,
+        "document_revision": 17,
+        "file_scroll": 100,
+        "focus": "editor",
+        "matches": [
+          [
+            7,
+            12
+          ]
+        ],
+        "model_revision": 21,
+        "query": "notes",
+        "redo": 1,
+        "reduced_effects": true,
+        "reduced_motion": true,
+        "scroll": 42,
+        "selected_file": 101,
+        "selection": [
+          18,
+          18
+        ],
+        "text": "Draft: notes日本\n",
+        "text_size": 20,
+        "theme": "HighContrast",
+        "undo": 2,
+        "window": [
+          4,
+          6,
+          500,
+          340
+        ]
+      },
+      "steps": [
+        {
+          "action": "edit.insert",
+          "after_sha256": "65d2094df401a58c9e13ed1bb0581d1213d9f409b27ddf91f0ff64eb05336910",
+          "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+          "outcome": "Ok(true)",
+          "request_id": 1,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 0,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 2,
+            "query": "",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "search.set",
+          "after_sha256": "8ed32c49294b52cc6d5f61449e4f9a717c4491e83307409f1fa6430ae56a6de8",
+          "before_sha256": "65d2094df401a58c9e13ed1bb0581d1213d9f409b27ddf91f0ff64eb05336910",
+          "outcome": "Ok(true)",
+          "request_id": 2,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 0,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 3,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "files.scroll",
+          "after_sha256": "f64a2123c827248670e8e00f5ee7dbc952cd868f33e97f59f1c09253eb430f9d",
+          "before_sha256": "8ed32c49294b52cc6d5f61449e4f9a717c4491e83307409f1fa6430ae56a6de8",
+          "outcome": "Ok(true)",
+          "request_id": 3,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 4,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "files.select",
+          "after_sha256": "0fbe4e5dffa9edfbbf695c555e2d66892497e03367d0cb6c9bd7b56c0859b789",
+          "before_sha256": "f64a2123c827248670e8e00f5ee7dbc952cd868f33e97f59f1c09253eb430f9d",
+          "outcome": "Ok(true)",
+          "request_id": 4,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 5,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "2a2fc4fabfe72b4ac89b74ec5a09f8d23bc803281130c2555eb646b051df6af1",
+          "before_sha256": "0fbe4e5dffa9edfbbf695c555e2d66892497e03367d0cb6c9bd7b56c0859b789",
+          "outcome": "Ok(true)",
+          "request_id": 5,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-effects",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 6,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.effects",
+          "after_sha256": "2d1451b786c11ffb3f02c6ce249cf3ac634ebf2e36192bd5a0b0b8a92d912bba",
+          "before_sha256": "2a2fc4fabfe72b4ac89b74ec5a09f8d23bc803281130c2555eb646b051df6af1",
+          "outcome": "Ok(true)",
+          "request_id": 6,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-effects",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 7,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "bd72d3365f5a2238956a5b32499d1506f617dc850b1682193b46549fec52d8a7",
+          "before_sha256": "2d1451b786c11ffb3f02c6ce249cf3ac634ebf2e36192bd5a0b0b8a92d912bba",
+          "outcome": "Ok(true)",
+          "request_id": 7,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-motion",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 8,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.motion",
+          "after_sha256": "423600c28ef7785c390660148692f03529d0a36e212ccf4103c2a74158bfed9f",
+          "before_sha256": "bd72d3365f5a2238956a5b32499d1506f617dc850b1682193b46549fec52d8a7",
+          "outcome": "Ok(true)",
+          "request_id": 8,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-motion",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 9,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "8d84db8a03fcf29e07b50353e7cb0720062a86649773ec14f78100d3ccb3148b",
+          "before_sha256": "423600c28ef7785c390660148692f03529d0a36e212ccf4103c2a74158bfed9f",
+          "outcome": "Ok(true)",
+          "request_id": 9,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 10,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.insert",
+          "after_sha256": "3261f882cee1193c8ab5e1ae4e04562db4b8c983e11160044846fc07ceb39d68",
+          "before_sha256": "8d84db8a03fcf29e07b50353e7cb0720062a86649773ec14f78100d3ccb3148b",
+          "outcome": "Ok(true)",
+          "request_id": 10,
+          "state": {
+            "dirty": true,
+            "document_revision": 13,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 11,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.select",
+          "after_sha256": "8556dfbf39f16c3ecdd9018c3894fc1013e508adb2119c26f2d392886d5c818a",
+          "before_sha256": "3261f882cee1193c8ab5e1ae4e04562db4b8c983e11160044846fc07ceb39d68",
+          "outcome": "Ok(true)",
+          "request_id": 11,
+          "state": {
+            "dirty": true,
+            "document_revision": 13,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 12,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.delete",
+          "after_sha256": "35b7faaf0119583c96d2cf8470a4bb6eec3067760224bb32a3c23447dcfbc981",
+          "before_sha256": "8556dfbf39f16c3ecdd9018c3894fc1013e508adb2119c26f2d392886d5c818a",
+          "outcome": "Ok(true)",
+          "request_id": 12,
+          "state": {
+            "dirty": true,
+            "document_revision": 14,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 13,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              7
+            ],
+            "text": "Draft: \n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 3,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.undo",
+          "after_sha256": "94bb874d4b435984ba7779d3aac592287329f17e23f925dd7f75e0e4e169db04",
+          "before_sha256": "35b7faaf0119583c96d2cf8470a4bb6eec3067760224bb32a3c23447dcfbc981",
+          "outcome": "Ok(true)",
+          "request_id": 13,
+          "state": {
+            "dirty": true,
+            "document_revision": 15,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 14,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.redo",
+          "after_sha256": "aa42274bf93d149058179e1282337fe2839e6d83e218b46083b33d99222bd1da",
+          "before_sha256": "94bb874d4b435984ba7779d3aac592287329f17e23f925dd7f75e0e4e169db04",
+          "outcome": "Ok(true)",
+          "request_id": 14,
+          "state": {
+            "dirty": true,
+            "document_revision": 16,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 15,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              7
+            ],
+            "text": "Draft: \n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 3,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.undo",
+          "after_sha256": "67e5de28a5c14a5a665a8bac90e68f701ed376308c3de13a33e36b7c3f7ab2ed",
+          "before_sha256": "aa42274bf93d149058179e1282337fe2839e6d83e218b46083b33d99222bd1da",
+          "outcome": "Ok(true)",
+          "request_id": 15,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 16,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.select",
+          "after_sha256": "796908d275482cb93940b8cfe7fac0d057883c6758b7bcfda94faf4715b471ef",
+          "before_sha256": "67e5de28a5c14a5a665a8bac90e68f701ed376308c3de13a33e36b7c3f7ab2ed",
+          "outcome": "Ok(true)",
+          "request_id": 16,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 17,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.theme",
+          "after_sha256": "6364ac419e00e33a63c87b10f8a89c73de8770ef7f57fbfb5a9a216a9102478d",
+          "before_sha256": "796908d275482cb93940b8cfe7fac0d057883c6758b7bcfda94faf4715b471ef",
+          "outcome": "Ok(true)",
+          "request_id": 17,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 18,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.text-size",
+          "after_sha256": "619032f56ae1e80cde6306c15d4a91cc33ccfde9657d0656471a97ee804227dc",
+          "before_sha256": "6364ac419e00e33a63c87b10f8a89c73de8770ef7f57fbfb5a9a216a9102478d",
+          "outcome": "Ok(true)",
+          "request_id": 18,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 19,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "document.scroll",
+          "after_sha256": "3b6c084e1ea6393c631720e0c25379e56ab6467b421d9ff04cfbcf80d2c61944",
+          "before_sha256": "619032f56ae1e80cde6306c15d4a91cc33ccfde9657d0656471a97ee804227dc",
+          "outcome": "Ok(true)",
+          "request_id": 19,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 20,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.window",
+          "after_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "before_sha256": "3b6c084e1ea6393c631720e0c25379e56ab6467b421d9ff04cfbcf80d2c61944",
+          "outcome": "Ok(true)",
+          "request_id": 20,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 21,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              4,
+              6,
+              500,
+              340
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "launcher.open",
+          "after_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "before_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "outcome": "Ok(false)",
+          "request_id": 21,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 21,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              4,
+              6,
+              500,
+              340
+            ]
+          },
+          "version": 1
+        }
+      ]
+    },
+    {
+      "entry": "semantic",
+      "final_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+      "final_state": {
+        "dirty": true,
+        "document_revision": 17,
+        "file_scroll": 100,
+        "focus": "editor",
+        "matches": [
+          [
+            7,
+            12
+          ]
+        ],
+        "model_revision": 21,
+        "query": "notes",
+        "redo": 1,
+        "reduced_effects": true,
+        "reduced_motion": true,
+        "scroll": 42,
+        "selected_file": 101,
+        "selection": [
+          18,
+          18
+        ],
+        "text": "Draft: notes日本\n",
+        "text_size": 20,
+        "theme": "HighContrast",
+        "undo": 2,
+        "window": [
+          4,
+          6,
+          500,
+          340
+        ]
+      },
+      "steps": [
+        {
+          "action": "edit.insert",
+          "after_sha256": "65d2094df401a58c9e13ed1bb0581d1213d9f409b27ddf91f0ff64eb05336910",
+          "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+          "outcome": "Ok(true)",
+          "request_id": 1,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 0,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 2,
+            "query": "",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "search.set",
+          "after_sha256": "8ed32c49294b52cc6d5f61449e4f9a717c4491e83307409f1fa6430ae56a6de8",
+          "before_sha256": "65d2094df401a58c9e13ed1bb0581d1213d9f409b27ddf91f0ff64eb05336910",
+          "outcome": "Ok(true)",
+          "request_id": 2,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 0,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 3,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "files.scroll",
+          "after_sha256": "f64a2123c827248670e8e00f5ee7dbc952cd868f33e97f59f1c09253eb430f9d",
+          "before_sha256": "8ed32c49294b52cc6d5f61449e4f9a717c4491e83307409f1fa6430ae56a6de8",
+          "outcome": "Ok(true)",
+          "request_id": 3,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 4,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "files.select",
+          "after_sha256": "0fbe4e5dffa9edfbbf695c555e2d66892497e03367d0cb6c9bd7b56c0859b789",
+          "before_sha256": "f64a2123c827248670e8e00f5ee7dbc952cd868f33e97f59f1c09253eb430f9d",
+          "outcome": "Ok(true)",
+          "request_id": 4,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 5,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "2a2fc4fabfe72b4ac89b74ec5a09f8d23bc803281130c2555eb646b051df6af1",
+          "before_sha256": "0fbe4e5dffa9edfbbf695c555e2d66892497e03367d0cb6c9bd7b56c0859b789",
+          "outcome": "Ok(true)",
+          "request_id": 5,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-effects",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 6,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.effects",
+          "after_sha256": "2d1451b786c11ffb3f02c6ce249cf3ac634ebf2e36192bd5a0b0b8a92d912bba",
+          "before_sha256": "2a2fc4fabfe72b4ac89b74ec5a09f8d23bc803281130c2555eb646b051df6af1",
+          "outcome": "Ok(true)",
+          "request_id": 6,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-effects",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 7,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "bd72d3365f5a2238956a5b32499d1506f617dc850b1682193b46549fec52d8a7",
+          "before_sha256": "2d1451b786c11ffb3f02c6ce249cf3ac634ebf2e36192bd5a0b0b8a92d912bba",
+          "outcome": "Ok(true)",
+          "request_id": 7,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-motion",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 8,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.motion",
+          "after_sha256": "423600c28ef7785c390660148692f03529d0a36e212ccf4103c2a74158bfed9f",
+          "before_sha256": "bd72d3365f5a2238956a5b32499d1506f617dc850b1682193b46549fec52d8a7",
+          "outcome": "Ok(true)",
+          "request_id": 8,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-motion",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 9,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "8d84db8a03fcf29e07b50353e7cb0720062a86649773ec14f78100d3ccb3148b",
+          "before_sha256": "423600c28ef7785c390660148692f03529d0a36e212ccf4103c2a74158bfed9f",
+          "outcome": "Ok(true)",
+          "request_id": 9,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 10,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.insert",
+          "after_sha256": "3261f882cee1193c8ab5e1ae4e04562db4b8c983e11160044846fc07ceb39d68",
+          "before_sha256": "8d84db8a03fcf29e07b50353e7cb0720062a86649773ec14f78100d3ccb3148b",
+          "outcome": "Ok(true)",
+          "request_id": 10,
+          "state": {
+            "dirty": true,
+            "document_revision": 13,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 11,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.select",
+          "after_sha256": "8556dfbf39f16c3ecdd9018c3894fc1013e508adb2119c26f2d392886d5c818a",
+          "before_sha256": "3261f882cee1193c8ab5e1ae4e04562db4b8c983e11160044846fc07ceb39d68",
+          "outcome": "Ok(true)",
+          "request_id": 11,
+          "state": {
+            "dirty": true,
+            "document_revision": 13,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 12,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.delete",
+          "after_sha256": "35b7faaf0119583c96d2cf8470a4bb6eec3067760224bb32a3c23447dcfbc981",
+          "before_sha256": "8556dfbf39f16c3ecdd9018c3894fc1013e508adb2119c26f2d392886d5c818a",
+          "outcome": "Ok(true)",
+          "request_id": 12,
+          "state": {
+            "dirty": true,
+            "document_revision": 14,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 13,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              7
+            ],
+            "text": "Draft: \n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 3,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.undo",
+          "after_sha256": "94bb874d4b435984ba7779d3aac592287329f17e23f925dd7f75e0e4e169db04",
+          "before_sha256": "35b7faaf0119583c96d2cf8470a4bb6eec3067760224bb32a3c23447dcfbc981",
+          "outcome": "Ok(true)",
+          "request_id": 13,
+          "state": {
+            "dirty": true,
+            "document_revision": 15,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 14,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.redo",
+          "after_sha256": "aa42274bf93d149058179e1282337fe2839e6d83e218b46083b33d99222bd1da",
+          "before_sha256": "94bb874d4b435984ba7779d3aac592287329f17e23f925dd7f75e0e4e169db04",
+          "outcome": "Ok(true)",
+          "request_id": 14,
+          "state": {
+            "dirty": true,
+            "document_revision": 16,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 15,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              7
+            ],
+            "text": "Draft: \n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 3,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.undo",
+          "after_sha256": "67e5de28a5c14a5a665a8bac90e68f701ed376308c3de13a33e36b7c3f7ab2ed",
+          "before_sha256": "aa42274bf93d149058179e1282337fe2839e6d83e218b46083b33d99222bd1da",
+          "outcome": "Ok(true)",
+          "request_id": 15,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 16,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.select",
+          "after_sha256": "796908d275482cb93940b8cfe7fac0d057883c6758b7bcfda94faf4715b471ef",
+          "before_sha256": "67e5de28a5c14a5a665a8bac90e68f701ed376308c3de13a33e36b7c3f7ab2ed",
+          "outcome": "Ok(true)",
+          "request_id": 16,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 17,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.theme",
+          "after_sha256": "6364ac419e00e33a63c87b10f8a89c73de8770ef7f57fbfb5a9a216a9102478d",
+          "before_sha256": "796908d275482cb93940b8cfe7fac0d057883c6758b7bcfda94faf4715b471ef",
+          "outcome": "Ok(true)",
+          "request_id": 17,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 18,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.text-size",
+          "after_sha256": "619032f56ae1e80cde6306c15d4a91cc33ccfde9657d0656471a97ee804227dc",
+          "before_sha256": "6364ac419e00e33a63c87b10f8a89c73de8770ef7f57fbfb5a9a216a9102478d",
+          "outcome": "Ok(true)",
+          "request_id": 18,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 19,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "document.scroll",
+          "after_sha256": "3b6c084e1ea6393c631720e0c25379e56ab6467b421d9ff04cfbcf80d2c61944",
+          "before_sha256": "619032f56ae1e80cde6306c15d4a91cc33ccfde9657d0656471a97ee804227dc",
+          "outcome": "Ok(true)",
+          "request_id": 19,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 20,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.window",
+          "after_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "before_sha256": "3b6c084e1ea6393c631720e0c25379e56ab6467b421d9ff04cfbcf80d2c61944",
+          "outcome": "Ok(true)",
+          "request_id": 20,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 21,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              4,
+              6,
+              500,
+              340
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "launcher.open",
+          "after_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "before_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "outcome": "Ok(false)",
+          "request_id": 21,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 21,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              4,
+              6,
+              500,
+              340
+            ]
+          },
+          "version": 1
+        }
+      ]
+    },
+    {
+      "entry": "automation",
+      "final_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+      "final_state": {
+        "dirty": true,
+        "document_revision": 17,
+        "file_scroll": 100,
+        "focus": "editor",
+        "matches": [
+          [
+            7,
+            12
+          ]
+        ],
+        "model_revision": 21,
+        "query": "notes",
+        "redo": 1,
+        "reduced_effects": true,
+        "reduced_motion": true,
+        "scroll": 42,
+        "selected_file": 101,
+        "selection": [
+          18,
+          18
+        ],
+        "text": "Draft: notes日本\n",
+        "text_size": 20,
+        "theme": "HighContrast",
+        "undo": 2,
+        "window": [
+          4,
+          6,
+          500,
+          340
+        ]
+      },
+      "steps": [
+        {
+          "action": "edit.insert",
+          "after_sha256": "65d2094df401a58c9e13ed1bb0581d1213d9f409b27ddf91f0ff64eb05336910",
+          "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+          "outcome": "Ok(true)",
+          "request_id": 1,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 0,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 2,
+            "query": "",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "search.set",
+          "after_sha256": "8ed32c49294b52cc6d5f61449e4f9a717c4491e83307409f1fa6430ae56a6de8",
+          "before_sha256": "65d2094df401a58c9e13ed1bb0581d1213d9f409b27ddf91f0ff64eb05336910",
+          "outcome": "Ok(true)",
+          "request_id": 2,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 0,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 3,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "files.scroll",
+          "after_sha256": "f64a2123c827248670e8e00f5ee7dbc952cd868f33e97f59f1c09253eb430f9d",
+          "before_sha256": "8ed32c49294b52cc6d5f61449e4f9a717c4491e83307409f1fa6430ae56a6de8",
+          "outcome": "Ok(true)",
+          "request_id": 3,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 4,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 0,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "files.select",
+          "after_sha256": "0fbe4e5dffa9edfbbf695c555e2d66892497e03367d0cb6c9bd7b56c0859b789",
+          "before_sha256": "f64a2123c827248670e8e00f5ee7dbc952cd868f33e97f59f1c09253eb430f9d",
+          "outcome": "Ok(true)",
+          "request_id": 4,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 5,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "2a2fc4fabfe72b4ac89b74ec5a09f8d23bc803281130c2555eb646b051df6af1",
+          "before_sha256": "0fbe4e5dffa9edfbbf695c555e2d66892497e03367d0cb6c9bd7b56c0859b789",
+          "outcome": "Ok(true)",
+          "request_id": 5,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-effects",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 6,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": false,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.effects",
+          "after_sha256": "2d1451b786c11ffb3f02c6ce249cf3ac634ebf2e36192bd5a0b0b8a92d912bba",
+          "before_sha256": "2a2fc4fabfe72b4ac89b74ec5a09f8d23bc803281130c2555eb646b051df6af1",
+          "outcome": "Ok(true)",
+          "request_id": 6,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-effects",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 7,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "bd72d3365f5a2238956a5b32499d1506f617dc850b1682193b46549fec52d8a7",
+          "before_sha256": "2d1451b786c11ffb3f02c6ce249cf3ac634ebf2e36192bd5a0b0b8a92d912bba",
+          "outcome": "Ok(true)",
+          "request_id": 7,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-motion",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 8,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": false,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.motion",
+          "after_sha256": "423600c28ef7785c390660148692f03529d0a36e212ccf4103c2a74158bfed9f",
+          "before_sha256": "bd72d3365f5a2238956a5b32499d1506f617dc850b1682193b46549fec52d8a7",
+          "outcome": "Ok(true)",
+          "request_id": 8,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "reduced-motion",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 9,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.focus",
+          "after_sha256": "8d84db8a03fcf29e07b50353e7cb0720062a86649773ec14f78100d3ccb3148b",
+          "before_sha256": "423600c28ef7785c390660148692f03529d0a36e212ccf4103c2a74158bfed9f",
+          "outcome": "Ok(true)",
+          "request_id": 9,
+          "state": {
+            "dirty": true,
+            "document_revision": 12,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 10,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              12,
+              12
+            ],
+            "text": "Draft: notes\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 1,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.insert",
+          "after_sha256": "3261f882cee1193c8ab5e1ae4e04562db4b8c983e11160044846fc07ceb39d68",
+          "before_sha256": "8d84db8a03fcf29e07b50353e7cb0720062a86649773ec14f78100d3ccb3148b",
+          "outcome": "Ok(true)",
+          "request_id": 10,
+          "state": {
+            "dirty": true,
+            "document_revision": 13,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 11,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.select",
+          "after_sha256": "8556dfbf39f16c3ecdd9018c3894fc1013e508adb2119c26f2d392886d5c818a",
+          "before_sha256": "3261f882cee1193c8ab5e1ae4e04562db4b8c983e11160044846fc07ceb39d68",
+          "outcome": "Ok(true)",
+          "request_id": 11,
+          "state": {
+            "dirty": true,
+            "document_revision": 13,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 12,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.delete",
+          "after_sha256": "35b7faaf0119583c96d2cf8470a4bb6eec3067760224bb32a3c23447dcfbc981",
+          "before_sha256": "8556dfbf39f16c3ecdd9018c3894fc1013e508adb2119c26f2d392886d5c818a",
+          "outcome": "Ok(true)",
+          "request_id": 12,
+          "state": {
+            "dirty": true,
+            "document_revision": 14,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 13,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              7
+            ],
+            "text": "Draft: \n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 3,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.undo",
+          "after_sha256": "94bb874d4b435984ba7779d3aac592287329f17e23f925dd7f75e0e4e169db04",
+          "before_sha256": "35b7faaf0119583c96d2cf8470a4bb6eec3067760224bb32a3c23447dcfbc981",
+          "outcome": "Ok(true)",
+          "request_id": 13,
+          "state": {
+            "dirty": true,
+            "document_revision": 15,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 14,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.redo",
+          "after_sha256": "aa42274bf93d149058179e1282337fe2839e6d83e218b46083b33d99222bd1da",
+          "before_sha256": "94bb874d4b435984ba7779d3aac592287329f17e23f925dd7f75e0e4e169db04",
+          "outcome": "Ok(true)",
+          "request_id": 14,
+          "state": {
+            "dirty": true,
+            "document_revision": 16,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [],
+            "model_revision": 15,
+            "query": "notes",
+            "redo": 0,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              7
+            ],
+            "text": "Draft: \n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 3,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.undo",
+          "after_sha256": "67e5de28a5c14a5a665a8bac90e68f701ed376308c3de13a33e36b7c3f7ab2ed",
+          "before_sha256": "aa42274bf93d149058179e1282337fe2839e6d83e218b46083b33d99222bd1da",
+          "outcome": "Ok(true)",
+          "request_id": 15,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 16,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              7,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "edit.select",
+          "after_sha256": "796908d275482cb93940b8cfe7fac0d057883c6758b7bcfda94faf4715b471ef",
+          "before_sha256": "67e5de28a5c14a5a665a8bac90e68f701ed376308c3de13a33e36b7c3f7ab2ed",
+          "outcome": "Ok(true)",
+          "request_id": 16,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 17,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "Dark",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.theme",
+          "after_sha256": "6364ac419e00e33a63c87b10f8a89c73de8770ef7f57fbfb5a9a216a9102478d",
+          "before_sha256": "796908d275482cb93940b8cfe7fac0d057883c6758b7bcfda94faf4715b471ef",
+          "outcome": "Ok(true)",
+          "request_id": 17,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 18,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 14,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "settings.text-size",
+          "after_sha256": "619032f56ae1e80cde6306c15d4a91cc33ccfde9657d0656471a97ee804227dc",
+          "before_sha256": "6364ac419e00e33a63c87b10f8a89c73de8770ef7f57fbfb5a9a216a9102478d",
+          "outcome": "Ok(true)",
+          "request_id": 18,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 19,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 0,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "document.scroll",
+          "after_sha256": "3b6c084e1ea6393c631720e0c25379e56ab6467b421d9ff04cfbcf80d2c61944",
+          "before_sha256": "619032f56ae1e80cde6306c15d4a91cc33ccfde9657d0656471a97ee804227dc",
+          "outcome": "Ok(true)",
+          "request_id": 19,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 20,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              8,
+              8,
+              420,
+              328
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "session.window",
+          "after_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "before_sha256": "3b6c084e1ea6393c631720e0c25379e56ab6467b421d9ff04cfbcf80d2c61944",
+          "outcome": "Ok(true)",
+          "request_id": 20,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 21,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              4,
+              6,
+              500,
+              340
+            ]
+          },
+          "version": 1
+        },
+        {
+          "action": "launcher.open",
+          "after_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "before_sha256": "7e008385932d265f32791f33f31778623cbfac7334d57433808a0ba52ee399f2",
+          "outcome": "Ok(false)",
+          "request_id": 21,
+          "state": {
+            "dirty": true,
+            "document_revision": 17,
+            "file_scroll": 100,
+            "focus": "editor",
+            "matches": [
+              [
+                7,
+                12
+              ]
+            ],
+            "model_revision": 21,
+            "query": "notes",
+            "redo": 1,
+            "reduced_effects": true,
+            "reduced_motion": true,
+            "scroll": 42,
+            "selected_file": 101,
+            "selection": [
+              18,
+              18
+            ],
+            "text": "Draft: notes日本\n",
+            "text_size": 20,
+            "theme": "HighContrast",
+            "undo": 2,
+            "window": [
+              4,
+              6,
+              500,
+              340
+            ]
+          },
+          "version": 1
+        }
+      ]
+    }
+  ],
+  "fixture_sha256": "0a68b2153090d0a918c5f3f74cc5127d0f8d20e3cd6cf8bcb6139ef01169648a",
+  "guest_tested": false,
+  "negative_cases": [
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Conflict",
+      "name": "stale-document"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Conflict",
+      "name": "stale-model"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Conflict",
+      "name": "wrong-epoch"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Denied",
+      "name": "denied-rights"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Denied",
+      "name": "unknown-caller"
+    },
+    {
+      "actual": "Err(Unsupported)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Unsupported",
+      "name": "unsupported-version"
+    },
+    {
+      "actual": "Err(Unsupported)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Unsupported",
+      "name": "unknown-action"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Denied",
+      "name": "fabricated-context"
+    },
+    {
+      "actual": "Err(Expired)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Expired",
+      "name": "expired-context"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Denied",
+      "name": "context-scope"
+    },
+    {
+      "actual": "Err(Invalid)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Invalid",
+      "name": "invalid-selection"
+    },
+    {
+      "actual": "Err(Bounds)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Bounds",
+      "name": "oversize-edit"
+    },
+    {
+      "actual": "Err(Cancelled)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Cancelled",
+      "name": "cancelled"
+    },
+    {
+      "actual": "Err(Deadline)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Button",
+      "expected": "Deadline",
+      "name": "deadline"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Conflict",
+      "name": "stale-document"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Conflict",
+      "name": "stale-model"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Conflict",
+      "name": "wrong-epoch"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Denied",
+      "name": "denied-rights"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Denied",
+      "name": "unknown-caller"
+    },
+    {
+      "actual": "Err(Unsupported)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Unsupported",
+      "name": "unsupported-version"
+    },
+    {
+      "actual": "Err(Unsupported)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Unsupported",
+      "name": "unknown-action"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Denied",
+      "name": "fabricated-context"
+    },
+    {
+      "actual": "Err(Expired)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Expired",
+      "name": "expired-context"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Denied",
+      "name": "context-scope"
+    },
+    {
+      "actual": "Err(Invalid)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Invalid",
+      "name": "invalid-selection"
+    },
+    {
+      "actual": "Err(Bounds)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Bounds",
+      "name": "oversize-edit"
+    },
+    {
+      "actual": "Err(Cancelled)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Cancelled",
+      "name": "cancelled"
+    },
+    {
+      "actual": "Err(Deadline)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Shortcut",
+      "expected": "Deadline",
+      "name": "deadline"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Conflict",
+      "name": "stale-document"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Conflict",
+      "name": "stale-model"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Conflict",
+      "name": "wrong-epoch"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Denied",
+      "name": "denied-rights"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Denied",
+      "name": "unknown-caller"
+    },
+    {
+      "actual": "Err(Unsupported)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Unsupported",
+      "name": "unsupported-version"
+    },
+    {
+      "actual": "Err(Unsupported)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Unsupported",
+      "name": "unknown-action"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Denied",
+      "name": "fabricated-context"
+    },
+    {
+      "actual": "Err(Expired)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Expired",
+      "name": "expired-context"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Denied",
+      "name": "context-scope"
+    },
+    {
+      "actual": "Err(Invalid)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Invalid",
+      "name": "invalid-selection"
+    },
+    {
+      "actual": "Err(Bounds)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Bounds",
+      "name": "oversize-edit"
+    },
+    {
+      "actual": "Err(Cancelled)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Cancelled",
+      "name": "cancelled"
+    },
+    {
+      "actual": "Err(Deadline)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Semantic",
+      "expected": "Deadline",
+      "name": "deadline"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Conflict",
+      "name": "stale-document"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Conflict",
+      "name": "stale-model"
+    },
+    {
+      "actual": "Err(Conflict)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Conflict",
+      "name": "wrong-epoch"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Denied",
+      "name": "denied-rights"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Denied",
+      "name": "unknown-caller"
+    },
+    {
+      "actual": "Err(Unsupported)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Unsupported",
+      "name": "unsupported-version"
+    },
+    {
+      "actual": "Err(Unsupported)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Unsupported",
+      "name": "unknown-action"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Denied",
+      "name": "fabricated-context"
+    },
+    {
+      "actual": "Err(Expired)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Expired",
+      "name": "expired-context"
+    },
+    {
+      "actual": "Err(Denied)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Denied",
+      "name": "context-scope"
+    },
+    {
+      "actual": "Err(Invalid)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Invalid",
+      "name": "invalid-selection"
+    },
+    {
+      "actual": "Err(Bounds)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Bounds",
+      "name": "oversize-edit"
+    },
+    {
+      "actual": "Err(Cancelled)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Cancelled",
+      "name": "cancelled"
+    },
+    {
+      "actual": "Err(Deadline)",
+      "after_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "before_sha256": "06303f4a42ba700c46a89c893b26cf6ba6dba9f6a57d61a397d8e18ad7f2fb39",
+      "entry": "Automation",
+      "expected": "Deadline",
+      "name": "deadline"
+    }
+  ],
+  "provider_replacement_tested": false,
+  "render_tested": false,
+  "schema_version": 1,
+  "state_version": 1,
+  "status": "passed",
+  "unicode_version": [
+    17,
+    0,
+    0
+  ]
+}

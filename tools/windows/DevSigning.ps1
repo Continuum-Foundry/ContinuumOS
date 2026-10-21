@@ -27,10 +27,10 @@ function Get-DevCertificate {
 function Assert-DevExecutablePath([string]$Path, [string]$CompilerSource = '') {
     $full = (Resolve-Path -LiteralPath $Path).Path
     $relative = [IO.Path]::GetRelativePath($script:DevRoot, $full).Replace('\','/')
-    # Deliberately limited to this project's two first-party Cargo packages and probes.
+    # Deliberately limited to declared first-party Cargo test/tool names and probes.
     # Compiler outputs use a separate path with local source and lockfile checks.
     $allowedRoot = $relative -match '^build/cargo/' -or $relative -match '^work/acceptance/[^/]+/host cargo with spaces/' -or $relative -match '^build/windows-dev-signing/'
-    $allowedName = [IO.Path]::GetFileName($full) -match '^(xtask(-[0-9a-f]+)?|continuum_kernel-[0-9a-f]+|dev-probe-[0-9a-f]+|dev-compiler-wrapper)\.exe$'
+    $allowedName = [IO.Path]::GetFileName($full) -match '^(xtask(-[0-9a-f]+)?|editor_model-[0-9a-f]+|continuum_kernel-[0-9a-f]+|dev-probe-[0-9a-f]+|dev-compiler-wrapper)\.exe$'
     if ($CompilerSource) {
         $compiler = Get-Content (Join-Path $script:DevDirectory 'compiler.json') -Raw | ConvertFrom-Json
         foreach ($lock in $compiler.locks) {

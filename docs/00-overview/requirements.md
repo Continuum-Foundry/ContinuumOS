@@ -142,3 +142,9 @@ prepares R04/R08/R15 with bounded surface/input/token/layout drafts and separate
 visual/semantic/state expectations; R18 and early R14 receive schema, negative
 fixture and deterministic hash evidence. These are contract checks, not UI,
 accessibility, action-execution, IPC, continuity or performance acceptance.
+
+P2-03's [accepted hosted document/actions](../../evidence/phase-2/P2-03/2026-10-21/README.md)
+adds R19's M2 interface/model result, R04/R15/R18 logical-state preparation and early
+R07/R14 bounded schema discipline: shared entry execution, modeled rights/context,
+grapheme-aligned editing, history and explicit snapshots. It does not establish
+rendered accessibility, guest continuity, secure IPC or provider replacement.

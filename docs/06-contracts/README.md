@@ -17,7 +17,7 @@ their assertions in [m1/records.rs](../../tools/xtask/src/m1/records.rs).
 | UI/compositor | [Scene protocol](ui-and-scene-protocol.md) | Freeze encoding after renderer/IPC experiments |
 | Hosted UI comparison | [Shared boundaries/corpus](hosted-ui-fixtures.md) | Version-1 [authored fixtures and lock](../../fixtures/m2/ui-v1/README.md); seven `hosted-*.schema.json` drafts |
 | Packages/generations | [Package format](package-manifest.md) | [Schema](schemas/package-manifest.schema.json), [synthetic fixture](examples/package-manifest.json) |
-| Typed actions/context | [Action contract](actions-and-context.md) | Draft semantic contract; wire IDs frozen after independent SDK tests |
+| Typed actions/context | [Action contract](actions-and-context.md), [hosted model](hosted-editor-model.md) | P2-03 [action schema](schemas/hosted-action.schema.json), [logical fixtures](../../fixtures/m2/actions-v1/README.md); process wire IDs remain unfrozen |
 
 Schemas use JSON Schema 2020-12. Structural validation is only one step: validate
 cross-field epochs, base generations, package graph, path safety, permissions,

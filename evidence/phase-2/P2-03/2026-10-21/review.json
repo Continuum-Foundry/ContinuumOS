@@ -1,0 +1,71 @@
+{
+  "review_findings": [
+    "All public model access from views is immutable; mutating typed actions route through Provider.execute.",
+    "Error paths publish no candidate; checked counters cannot wrap.",
+    "Snapshot slices and lengths/counts checked before string/history allocations; history/text/global size bounds explicit.",
+    "Duplicate records and per-caller high-water survive view recreation and same-provider restore; new-provider dedup transfer is unsupported.",
+    "Context registration/control-plane is host-trusted, not a same-process security boundary.",
+    "Unicode dependency is cached/pinned, no std, build script or transitive runtime dependency; notices/inventory updated."
+  ],
+  "local_artifacts": {
+    "replays": [
+      "build/m2/P2-03/run-1792557177545909100-79888",
+      "build/m2/P2-03/run-1792557180008877200-78704"
+    ],
+    "acceptance": "build/m2/P2-03/acceptance-1792557147636",
+    "full_source_patch": "work/p2-03-source.patch",
+    "prerequisites": "build/m2/P2-01/prerequisites-1792556262419"
+  },
+  "acceptance_criteria": [
+    {
+      "criterion": "Shared versioned executor and adapter parity",
+      "evidence": "replay-result.json: four entries each replay all 21 operations; equal outcomes/state/checkpoint hashes",
+      "status": "passed"
+    },
+    {
+      "criterion": "Unsaved state survives view recreation and snapshot roundtrip",
+      "evidence": "replay-result.json, independent-codec.json, traces/tests.txt: text, selection, undo/redo, dirty, preferences/session retained",
+      "status": "passed"
+    },
+    {
+      "criterion": "Deterministic invalid/stale/expired/duplicate/unsupported/denied outcomes",
+      "evidence": "56 negative entry/case pairs plus retry eviction/mismatch, Unicode/context/authority unit tests",
+      "status": "passed"
+    },
+    {
+      "criterion": "Snapshot bounds/version failures preserve active state; explicit fields",
+      "evidence": "17 model tests, independent initial hex/final PowerShell decoding; no raw layout or toolkit objects",
+      "status": "passed"
+    },
+    {
+      "criterion": "R19 limited to M2 interface/model",
+      "evidence": "Contract/runbook/story explicitly defer provider replacement, kernel authority and M3/M5 enforcement",
+      "status": "passed"
+    }
+  ],
+  "uncommitted": true,
+  "checks": {
+    "entries": 4,
+    "model_tests": 17,
+    "positive_action_steps_per_entry": 21,
+    "offline_prerequisite_commands": 10,
+    "negative_entry_pairs": 56,
+    "xtask_tests": 19,
+    "schema_cases": 28,
+    "portable_library_compile": "passed",
+    "separate_replays": 2,
+    "independent_final_decodes": 8
+  },
+  "reviewer": "Codex local self-review; not independent approval",
+  "source_base": "dacf54504f5250d92fc6dca7c4b8a86ec572a4eb",
+  "status": "passed",
+  "schema_version": 1,
+  "branch": "codex/p2-03-document-state-actions",
+  "limits": [
+    "No actual toolkit widgets, input routing, rendering or native accessibility consumer.",
+    "No guest linkage/execution, live guest reload, isolation or IPC.",
+    "No provider replacement, durable state, save/filesystem operation or authenticated checkpoint.",
+    "No shaping/bidi/font conformance or measured host/guest performance; 256 MiB guest target unchanged.",
+    "B09/B37 partial; ADRs remain Proposed."
+  ]
+}

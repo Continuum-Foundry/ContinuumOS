@@ -128,7 +128,7 @@ unrecognized existing configuration, and hashes it in the local compiler manifes
 `Enter-Dev.ps1` verifies that manifest and enables the local Cargo home and wrapper;
 it does not write configuration or change system/user-profile Cargo settings.
 The runner accepts only the
-first-party `xtask` and `continuum_kernel` test executable names in declared build
+first-party `xtask`, `continuum_kernel` and `editor_model` test executable names in declared build
 roots, plus the explicit local preflight probes. Paths containing spaces are
 supported. The compiler wrapper preserves native argument vectors, calls the pinned
 compiler and signs its Windows EXE/DLL outputs before Cargo can execute or load

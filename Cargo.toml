@@ -1,5 +1,5 @@
 [workspace]
-members = ["tools/xtask", "experiments/kernel-link", "experiments/userland-link", "kernel"]
+members = ["tools/xtask", "experiments/kernel-link", "experiments/userland-link", "kernel", "crates/editor-model"]
 default-members = ["tools/xtask"]
 exclude = ["experiments/dependencies"]
 resolver = "2"

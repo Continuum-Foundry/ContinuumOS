@@ -79,7 +79,14 @@ fresh offline Phase 0/signing/doctor checks and 23 headless lifecycle cases. Use
 [local acceptance](../../evidence/phase-2/P2-02/2026-10-21/README.md) now supplies
 the shared surface/input/token/layout drafts, locked corpus, 56 negative mutations
 and independent schema/determinism checks. Use its [runbook](phase-2/shared-fixtures-runbook.md).
-P2-03 is next; P2-03–P2-13 remain Not started. They cover the action/text model, both bounded
+P2-03's [local acceptance](../../evidence/phase-2/P2-03/2026-10-21/README.md)
+adds the portable document owner, one typed executor across four headless adapters,
+modeled contexts/rights and explicit bounded logical checkpoints. Use the
+[action/state runbook](phase-2/document-actions-runbook.md). Segmentation is pinned
+to unicode-segmentation 1.13.3 / Unicode 17.0.0; its cached dependency/lock was
+reviewed and the existing compiler signer lock enrollment refreshed. Provider
+replacement, secure capabilities, font/shaping conformance and rendering remain open.
+P2-04 is next; P2-04–P2-13 remain Not started. They cover fonts/text, both bounded
 candidates, freestanding link feasibility, provisional decision, selected hosted
 UI/reload and measured acceptance. They do not authorize remote Jira creation.
 P1-03's corrected acceptance and superseded/failed experiments are

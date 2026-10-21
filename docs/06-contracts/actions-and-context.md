@@ -2,6 +2,11 @@
 
 Status: version 0.1 design draft. R19. No permanent wire IDs or workflow engine are frozen.
 
+P2-03 implements a bounded [hosted action/state model](hosted-editor-model.md)
+with separate action/state versions, explicit checkpoint bytes and conformance
+fixtures. Its modeled authority is an M2 interface result; M3/M5 enforcement and
+provider replacement remain pending. The broader contract below remains proposed.
+
 P2-02's [shared hosted corpus](hosted-ui-fixtures.md) declares six bounded version-1
 edit/search/list/launcher/settings action references and independent expected
 states. P2-03 implements that hosted model; the JSON names convey no capability

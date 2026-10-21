@@ -1,3 +1,4 @@
+mod editor;
 mod elf;
 mod m1;
 mod m2;
@@ -275,6 +276,7 @@ fn run() -> Result<()> {
         .as_slice()
     {
         ["test", "--suite", "ui-fixtures"] => ui_fixtures::execute(),
+        ["test", "--suite", "editor-model"] => editor::execute(),
         ["hosted", "--config", config, "--profile", profile, "--scale", scale, "--case", case] => m2::execute(config, profile, scale, case),
         ["hosted-probe", case, input] => m2::probe(case, input),
         ["doctor"] => doctor(false, false),

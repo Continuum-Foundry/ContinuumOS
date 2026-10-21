@@ -85,8 +85,13 @@ modeled contexts/rights and explicit bounded logical checkpoints. Use the
 [action/state runbook](phase-2/document-actions-runbook.md). Segmentation is pinned
 to unicode-segmentation 1.13.3 / Unicode 17.0.0; its cached dependency/lock was
 reviewed and the existing compiler signer lock enrollment refreshed. Provider
-replacement, secure capabilities, font/shaping conformance and rendering remain open.
-P2-04 is next; P2-04–P2-13 remain Not started. They cover fonts/text, both bounded
+replacement, secure capabilities, candidate font/shaping integration and rendering remain open.
+P2-04's [local text acceptance](../../evidence/phase-2/P2-04/2026-10-21/README.md)
+adds six pinned Noto fonts, the bounded custom text pipeline, 45 text/scale
+observations, independent native HarfBuzz references, official segmentation tests
+and explicit composition/cache/coverage limits. Use the [text runbook](phase-2/text-conformance-runbook.md).
+The repaired Phase 0 source-path test includes crates; all ten prerequisites pass.
+P2-05/P2-06 are next; P2-05–P2-13 remain Not started. They cover both bounded
 candidates, freestanding link feasibility, provisional decision, selected hosted
 UI/reload and measured acceptance. They do not authorize remote Jira creation.
 P1-03's corrected acceptance and superseded/failed experiments are

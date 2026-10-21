@@ -12,6 +12,8 @@
 /evidence/phase-1/m1-module-refactor/** -text -whitespace
 /evidence/host/windows-dev-signing/** -text -whitespace
 /evidence/phase-2/** -text -whitespace
+# Exact byte-pinned corpus/manifests must survive checkout without conversion.
+/fixtures/m2/text-v1/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Verbatim upstream terms are hashed in legal/notice-provenance.json.
 /licenses/third-party/** -text -whitespace
 /.githooks/* text eol=lf

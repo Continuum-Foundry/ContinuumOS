@@ -65,7 +65,7 @@ is approved.
 | Interfaces | [Kernel objects and IPC](06-contracts/ipc-and-objects.md), [update format](06-contracts/update-wire-format.md), [scene protocol](06-contracts/ui-and-scene-protocol.md), [package manifest](06-contracts/package-manifest.md) |
 | Execution | [Backlog](05-delivery/backlog.md), [build and release](05-delivery/build-and-release.md), [validation](05-delivery/validation.md), [risks and open questions](05-delivery/risks-and-open-questions.md) |
 | Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md), [host module layout](05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout), [metadata runbook](05-delivery/phase-1/boot-metadata-runbook.md) |
-| Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 prerequisites, P2-02 corpus and P2-03 document/actions accepted locally; P2-04–P2-13 Not started |
+| Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 prerequisites through P2-04 bounded text accepted locally; P2-05–P2-13 Not started |
 
 ## Status and interpretation
 
@@ -101,7 +101,9 @@ now pass. [P2-02 shared boundaries and fixtures](05-delivery/phase-2/02-shared-b
 also pass [local acceptance](../evidence/phase-2/P2-02/2026-10-21/README.md).
 P2-03's [document/action model](05-delivery/phase-2/03-document-state-and-typed-actions.md)
 passes [local acceptance](../evidence/phase-2/P2-03/2026-10-21/README.md).
-The next bounded step is [P2-04 fonts and text](05-delivery/phase-2/04-fonts-and-text-conformance.md), followed by the hosted Slint/custom comparison,
+P2-04's [fonts and bounded text](05-delivery/phase-2/04-fonts-and-text-conformance.md)
+pass [local acceptance](../evidence/phase-2/P2-04/2026-10-21/README.md).
+The next bounded steps are the custom and Slint hosted candidates,
 before bringing UI primitives to the guest framebuffer.
 Establish user-mode isolation and a small
 authenticated development channel before native service replacement. This parallel

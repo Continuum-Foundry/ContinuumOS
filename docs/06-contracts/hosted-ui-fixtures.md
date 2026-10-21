@@ -180,6 +180,11 @@ fonts reject staging; no machine-installed font fallback is allowed. A deliberat
 missing decorative icon uses the authored 2×2 magenta/black placeholder scaled
 nearest-neighbor into a 16×16 logical box, with its accessible name preserved.
 
+P2-04's [text contract](hosted-text.md) and [font lock](../../fixtures/m2/text-v1/fonts.lock.json)
+now bind all three slots, including Noto Sans Mono for covered Latin editor text.
+The text corpus adds explicit script/fallback/composition limitations; both
+candidates must report those outcomes independently of raster comparison.
+
 ## Product corpus and effects
 
 Initial unsaved text is `Draft: unsaved` plus newline, revision 11, UTF-8 byte

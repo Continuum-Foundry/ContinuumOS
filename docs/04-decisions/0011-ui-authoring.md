@@ -6,8 +6,10 @@ Slint/custom comparison; the motivation to avoid a new language remains.
 
 P2-02 supplies the [common token/layout subset and fixture lock](../06-contracts/hosted-ui-fixtures.md)
 with separate future visual and semantic/state acceptance. Both candidate stories
-reference it. Actual font/text integration, rendering, reload and selection gates
-remain open; no new UI language or production toolkit is selected.
+reference it. P2-04 adds the [bounded text pipeline and common fonts/corpus](../06-contracts/hosted-text.md),
+with independent shaping references and explicit mixed Unicode data limitations.
+Actual candidate integration, rendering, reload and toolkit selection gates remain
+open; no new UI language or production toolkit is selected.
 
 ## Context and decision
 

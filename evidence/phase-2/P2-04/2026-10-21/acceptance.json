@@ -1,0 +1,132 @@
+{
+  "replays": [
+    {
+      "path": "build/m2/P2-04/run-1792615445564835500",
+      "result_sha256": "1d25bb1988bcd106d71992578f6798bcfe845539d96888e5f6b4e3304bd248f3"
+    },
+    {
+      "path": "build/m2/P2-04/run-1792615473386324700",
+      "result_sha256": "1d25bb1988bcd106d71992578f6798bcfe845539d96888e5f6b4e3304bd248f3"
+    }
+  ],
+  "native_ime_tested": false,
+  "full_unicode_conformance": false,
+  "harness_sha256": "0d3371178097d3350d296e757156a412a140a642ae4e93635e4e5c79d421be87",
+  "schema_version": 1,
+  "candidate_rendered": false,
+  "utc": "2026-10-21T20:45:11.4380278Z",
+  "signed_executable_sha256": "a28a0e17515533f53e4befaea6f4e47514a89ef7c1696e8b1dd9bdd5a4b190aa",
+  "source_base": "e5c4e8fd184aa8ea60615e84a692d3475e45493b",
+  "status": "passed",
+  "cargo_lock_sha256": "6316ed68037c1bce4d029293af036506e1be84bc933e34dc42733e4ad84d0c6e",
+  "compiler": [
+    "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "binary: rustc",
+    "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+    "commit-date: 2026-10-13",
+    "host: x86_64-pc-windows-msvc",
+    "release: 1.99.1",
+    "LLVM version: 23.1.1"
+  ],
+  "os": "Microsoft Windows NT 10.0.26300.0",
+  "guest_tested": false,
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+  "text_raster_rendered": true,
+  "fixture_lock_sha256": "9acb8926344bba547ff6cca1fc7bbc547c7fef2e4a11c75a311d10721f7f5c56",
+  "commands": [
+    {
+      "name": "format",
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ]
+    },
+    {
+      "name": "tests",
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "editor-model",
+        "-p",
+        "text-core",
+        "-p",
+        "xtask"
+      ]
+    },
+    {
+      "name": "portable",
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "text-core",
+        "--target",
+        "x86_64-unknown-none"
+      ]
+    },
+    {
+      "name": "text-a",
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "text"
+      ]
+    },
+    {
+      "name": "text-b",
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "text"
+      ]
+    },
+    {
+      "name": "oracle",
+      "program": "python",
+      "exit_code": 0,
+      "arguments": [
+        "tools/Reference-TextShape.py",
+        "--verify",
+        "fixtures/m2/text-v1/shaping-reference.json"
+      ]
+    },
+    {
+      "name": "editor",
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "editor-model"
+      ]
+    },
+    {
+      "name": "ui-fixtures",
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "ui-fixtures"
+      ]
+    }
+  ]
+}

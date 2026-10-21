@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "story": "P2-04",
+  "status": "passed",
+  "reviewer": "Codex local implementation/self-review; not independent approval",
+  "date": "2026-10-21",
+  "source_base": "e5c4e8fd184aa8ea60615e84a692d3475e45493b",
+  "branch": "codex/p2-04-fonts-text-conformance",
+  "criteria": [
+    {"criterion":"Reproducible fonts/data/terms/support subset","status":"passed","evidence":["acceptance.json","dependencies.json","text-result.json"],"scope":"Six exact font identities; per-case missing/font observations; Unicode data versions and notices declared in contract/locks."},
+    {"criterion":"Grapheme editing, logical/visual caret, hit and selection","status":"passed","evidence":["text-result.json","traces/tests.txt"],"scope":"All byte selections through P2-03; authored glyph/bidi order, grapheme carets, equivalent visual hits, full/partial selection; ligature policy explicit."},
+    {"criterion":"Complex-script common corpus and candidate obligations","status":"passed","evidence":["text-result.json","traces/oracle.txt"],"scope":"Arabic/Hebrew/Devanagari native shaping reference; candidate shaping/bidi/fallback separately reported as pending P2-05/P2-06. No candidate pass fabricated."},
+    {"criterion":"Composition, wraps and scale/fallback changes","status":"passed","evidence":["text-result.json","contact-sheet.png"],"scope":"Six composition scenarios, authored line ends, three scales, feature/cache changes, pinned fallbacks and explicit emoji/missing clusters. Native IME and real reload absent."},
+    {"criterion":"Font/cache/size bounds and failure policy","status":"passed","evidence":["text-result.json","traces/tests.txt"],"scope":"Fourteen bounds/cache checks plus malformed SFNT tests; allowlisted deep parser only. Infallible dependency allocation may abort; no total-memory/recoverable-OOM claim."}
+  ],
+  "prerequisites": "All ten final offline commands pass, including source-path repair, dependency probes and M1 doctor. No VM launch.",
+  "source_review": "Rust boundary is no_std+alloc, forbid unsafe in first-party text core; host-only filesystem/Python/native oracle excluded from it. Exact feature closure and terms inspected. Shaping/layout does not mutate provider state; composition commits through existing executor. Pinned-font restriction precedes deep parse. Width overflow, control rejection, bidi affinity and mixed-version limits are documented.",
+  "visual_review": "Viewed selected 9-row contact sheet at three scales. Text/marks/joins/Indic forms and declared wrapping visible; no independent language/typographic certification. Emoji misses remain in structured observations.",
+  "limits": ["No toolkit selection or candidate UI","No full Unicode/native IME/assistive consumer","No guest allocator/link/boot/run or measured performance","No actual live reload/provider replacement","Bitmap cap excludes decoded fonts and temporary allocations","Host allocator exhaustion may abort; arbitrary fonts rejected"],
+  "next": "P2-05 custom and P2-06 Slint bounded candidates using the identical locks/model/corpus."
+}

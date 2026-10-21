@@ -52,6 +52,23 @@ the downloaded tool archives as tracked source.
 
 ## Candidate experiments
 
+P2-04's hosted text experiment now links cached rustybuzz 0.20.1 (MIT),
+ttf-parser 0.25.1 (MIT OR Apache-2.0), fontdue 0.9.4 (MIT OR Apache-2.0 OR Zlib),
+unicode-bidi 0.3.18 (MIT OR Apache-2.0), unicode-linebreak 0.1.5 (Apache-2.0),
+unicode-script 0.5.8 (MIT OR Apache-2.0), and their exact locked transitives.
+The [inventory](legal/dependency-inventory.json) records all resolved declarations;
+[notice provenance](legal/notice-provenance.json) hashes verbatim cached notice
+copies for the workspace graph. These are host experiments and separate library
+compile checks, not kernel/ISO dependencies or release clearance.
+
+The [font lock](fixtures/m2/text-v1/fonts.lock.json) pins unmodified Noto Sans,
+Mono, Arabic, Hebrew, Devanagari and CJK SC assets under OFL-1.1. Their encoded bytes
+remain local; OFL notices are retained for [Noto](licenses/third-party/noto-fonts/OFL.txt)
+and [CJK](licenses/third-party/noto-cjk/OFL.txt). Official Unicode 17 test inputs
+also remain local, with [Unicode License V3](licenses/third-party/unicode-data/LICENSE.txt)
+retained. The independent shaping oracle executes the existing local QEMU
+distribution's HarfBuzz DLL; no native library is newly redistributed here.
+
 The isolated dependency experiment includes x86_64 0.15.5, tiny-skia 0.12.0,
 rustybuzz 0.20.1, fontdue 0.9.4, and Slint 1.18.1 with locked transitives.
 Their exact declared terms are in the inventory. Compilation is not adoption or

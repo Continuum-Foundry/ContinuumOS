@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "outcome": "blocked",
+      "local_run": "build/m2/P2-01/prerequisites-1792613637382",
+      "reason": "Sandbox certificate store cannot access the existing development signer; established unsandboxed checks reused it.",
+      "case": "sandbox-certificate-access"
+    },
+    {
+      "outcome": "failed then fixed",
+      "local_run": "build/m2/P2-01/prerequisites-1792613719718",
+      "reason": "Test-M0 copied the workspace without crates/, so the existing editor-model dependency could not load. Include crates/ and rerun.",
+      "case": "m0-path-spaces"
+    },
+    {
+      "outcome": "expected rejection then reviewed enrollment",
+      "local_run": "build/m2/P2-01/prerequisites-1792613719718",
+      "reason": "Dependency lock was changed before the final prerequisite command completed; the signer rejected it. Exact cached closure reviewed; existing signer reenrolled, no certificate/policy change.",
+      "case": "lock-signing-guard"
+    },
+    {
+      "outcome": "failed then fixture corrected",
+      "local_run": "build/m2/P2-04/run-1792614298868218400",
+      "reason": "Payload corruption assertion initially flipped a directory offset and received InvalidFont instead of UnpinnedFont; mutation moved to payload bytes. All 42 positive renders had already passed.",
+      "case": "font-corruption-fixture"
+    },
+    {
+      "outcome": "blocked then passed unsandboxed",
+      "reason": "libm host build-script signing requires the existing certificate store.",
+      "local_log": "build/m2/P2-04-portable-development.log",
+      "case": "portable-sandbox"
+    },
+    {
+      "case": "fixture-line-endings",
+      "outcome": "corrected before final freeze",
+      "reason": "Generated manifests initially used Windows newlines. Normalized those manifests and refreshed the lock; final source preparation also explicitly preserves all text-v1 JSON bytes with .gitattributes -text, including oracle/corpus files written by native Windows tools. Prepared-index hash checks verify the exact locked bytes survive Git."
+    },
+    {
+      "case": "mono-slot-handoff",
+      "outcome": "completed before final acceptance",
+      "reason": "Final P2-02 handoff review found ui-mono lacked an explicit mono face. Added exact Noto Sans Mono bytes, all three slot orders, an equal-advance corpus case and authored visual caret orders. Reran final acceptance; dependency lock unchanged."
+    }
+  ],
+  "final_status": "all required final commands pass"
+}

@@ -148,3 +148,10 @@ adds R19's M2 interface/model result, R04/R15/R18 logical-state preparation and 
 R07/R14 bounded schema discipline: shared entry execution, modeled rights/context,
 grapheme-aligned editing, history and explicit snapshots. It does not establish
 rendered accessibility, guest continuity, secure IPC or provider replacement.
+
+P2-04's [accepted bounded text experiment](../../evidence/phase-2/P2-04/2026-10-21/README.md)
+adds R08/R15/R18 preparation and R07 composition groundwork: six pinned fonts,
+independent shaping references, official segmentation rows, shared text/scale
+fixtures and logical/visual caret, selection, wrap and quota checks. Text-only
+rasters are retained separately from semantic expectations. There is no candidate
+UI, native IME, full Unicode, guest memory/performance or actual reload claim.

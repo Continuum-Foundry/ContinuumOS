@@ -15,7 +15,11 @@ reusable toolkit can compete on evidence with the custom candidate.
 Common locked input: [P2-02 corpus](../../../fixtures/m2/ui-v1/README.md) and
 [contract](../../06-contracts/hosted-ui-fixtures.md). Use the exact same corpus/
 profile/font locks, 30 configurations, five capture checkpoints and independent
-state/semantic rules as P2-05. Font bytes remain a P2-04 prerequisite.
+state/semantic rules as P2-05. Use P2-04's [locked fonts/text corpus](../../../fixtures/m2/text-v1/README.md)
+and [text contract](../../06-contracts/hosted-text.md), including every case at all
+three scales. Report shaping, bidi, fallback, composition and raster outcomes
+separately. Audit Slint's own pipeline and every adapter difference; no unspecified
+host fallback may silently supply coverage absent from the locked fonts.
 
 1. Inspect the locally pinned Slint candidate and current authoritative API/license
    material before relying on it. Record exact version, checksums, feature closure,

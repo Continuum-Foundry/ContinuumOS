@@ -16,6 +16,7 @@ their assertions in [m1/records.rs](../../tools/xtask/src/m1/records.rs).
 | Development updates | [Wire format](update-wire-format.md) | [Schema](schemas/update-manifest.schema.json), [synthetic fixture](examples/update-manifest.json) |
 | UI/compositor | [Scene protocol](ui-and-scene-protocol.md) | Freeze encoding after renderer/IPC experiments |
 | Hosted UI comparison | [Shared boundaries/corpus](hosted-ui-fixtures.md) | Version-1 [authored fixtures and lock](../../fixtures/m2/ui-v1/README.md); seven `hosted-*.schema.json` drafts |
+| Hosted text | [Bounded pipeline and composition](hosted-text.md) | [Font/data/corpus locks](../../fixtures/m2/text-v1/README.md); no process ABI |
 | Packages/generations | [Package format](package-manifest.md) | [Schema](schemas/package-manifest.schema.json), [synthetic fixture](examples/package-manifest.json) |
 | Typed actions/context | [Action contract](actions-and-context.md), [hosted model](hosted-editor-model.md) | P2-03 [action schema](schemas/hosted-action.schema.json), [logical fixtures](../../fixtures/m2/actions-v1/README.md); process wire IDs remain unfrozen |
 

@@ -1,9 +1,20 @@
 # P2-04 — Establish pinned fonts and a bounded text conformance corpus
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Unassigned.
 Depends on: P2-03 Done. Suggested labels: `phase-2`, `text`, `accessibility`.
 Backlog: B09, B36 text comparison. Requirements: R08/R15/R18; R07 groundwork.
 Test families: hosted T05/T10 and text-input bounds from T11.
+
+## Local acceptance — 2026-10-21
+
+The [local implementation/self-review](../../../evidence/phase-2/P2-04/2026-10-21/README.md)
+accepts this bounded story. [Contract](../../06-contracts/hosted-text.md) and
+[runbook](text-conformance-runbook.md) define six pinned fonts, mixed Unicode data
+versions, 15 common cases at three scales, independent native shaping references,
+caret/selection/wrapping, modeled composition and resource limits. Both candidates
+inherit these fixtures and separate shaping/bidi/fallback reporting obligations;
+neither candidate is implemented here. Color emoji, full Unicode, native IME,
+recoverable OOM, guest linking/execution and real reload remain unsupported.
 
 ## User story
 
@@ -30,15 +41,15 @@ comparison evaluates real writing rather than an ASCII-only rendering demo.
 
 ## Acceptance criteria
 
-- [ ] Font/data identities, licenses, exact supported script subset and missing
+- [x] Font/data identities, licenses, exact supported script subset and missing
   coverage are reproducible; no unspecified host font is required by goldens.
-- [ ] Grapheme editing and selection never split invalid UTF-8 or the declared
+- [x] Grapheme editing and selection never split invalid UTF-8 or the declared
   grapheme cases; logical/visual caret and hit testing have expected results.
-- [ ] The shared corpus contains a required complex-script case and both candidates
+- [x] The shared corpus contains a required complex-script case and both candidates
   must report shaping/bidi/fallback behavior separately, including known limitations.
-- [ ] Composition commit/cancel, line wrapping and scale/fallback changes have
+- [x] Composition commit/cancel, line wrapping and scale/fallback changes have
   deterministic fixtures; unsupported IME integration is named rather than implied.
-- [ ] Font/cache/size bounds and failure handling are testable, and supported subset
+- [x] Font/cache/size bounds and failure handling are testable, and supported subset
   claims agree with the specification and candidate comparison requirements.
 
 ## Tests and evidence

@@ -6,8 +6,9 @@ diagnostics; see the [metadata runbook](boot-metadata-runbook.md) and
 [exception runbook](exception-diagnostics-runbook.md). Historical evidence remains
 unchanged. P1-05 adds [owned frames/page tables, stack guards and double-fault
 integration](memory-ownership-runbook.md) with version-4 diagnostics; check that
-story's acceptance status. P1-06 timekeeping passes; M1 still needs P1-07 acceptance,
-currently [blocked by host execution policy](../../../evidence/phase-1/P1-07/2026-10-20/README.md).
+story's acceptance status. P1-06 timekeeping and the complete
+[P1-07 local gate](../../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+now pass the declared experimental M1 baseline.
 
 ## Commands
 

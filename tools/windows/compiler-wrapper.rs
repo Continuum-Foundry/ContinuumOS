@@ -46,7 +46,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     for entry in fs::read_dir(directory)? {
         let path = entry?.path();
         if path.file_stem().is_some_and(|name| name == stem.as_str())
-            && path.extension().is_some_and(|ext| ext == "exe" || ext == "dll")
+            && path
+                .extension()
+                .is_some_and(|ext| ext == "exe" || ext == "dll")
         {
             let status = Command::new("pwsh")
                 .args(["-NoProfile", "-File"])

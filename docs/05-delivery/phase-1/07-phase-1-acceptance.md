@@ -1,6 +1,6 @@
 # P1-07 — Run and review the Phase 1 acceptance gate
 
-Issue type: Story. Epic: P1. Status: Blocked. Owner: Codex (local implementation/review).
+Issue type: Story. Epic: P1. Status: Done. Owner: Codex (local implementation/review).
 Depends on: P1-01 through P1-06 Done, including deferred integration cases.
 Suggested labels: `phase-1`, `acceptance`, `evidence`.
 Backlog: M1 gate and early B32 harness. Requirements: R01/R02/R03/R18;
@@ -53,15 +53,15 @@ declared kernel baseline and exposes every remaining limitation before Phase 2/3
 
 ## Acceptance criteria
 
-- [ ] Every row has raw evidence and an explicit result; no required case is waived silently.
-- [ ] Final offline boots use the exact final ISO hashes and pinned firmware/configuration.
+- [x] Every row has raw evidence and an explicit result; no required case is waived silently.
+- [x] Final offline boots use the exact final ISO hashes and pinned firmware/configuration.
 - [x] Timeout policy is fixed in the VM profile before the suite runs. Extending a
   deadline after a failure creates a separately identified run and preserves the failure.
 - [x] The harness distinguishes expected fault exit, normal success, firmware failure,
   timeout, unexpected crash/reset and host cleanup. No VM process remains running.
 - [x] Source identity, notices, assembly boundary and all upstream trust assumptions
   are reviewable; no whole-OS security or release reproducibility claim is implied.
-- [ ] Review finds story criteria satisfied and updates the index/handoff consistently.
+- [x] Review finds story criteria satisfied and updates the index/handoff consistently.
   If any criterion is blocked, M1 remains incomplete and the blocker is named.
 
 ## Completion boundaries and next work
@@ -77,10 +77,11 @@ Use the [epic evidence rules](README.md#evidence-and-story-completion) and exist
 [validation strategy](../validation.md) to write the review.
 
 Implementation: aggregate harness and final readiness checkpoint implemented on
-`codex/p1-07-phase-1-acceptance`. M1 remains incomplete. The first gate passed
-six normal boots but failed on generated GPT GUID differences; the corrected
-recipe fixes these. The next full gate was blocked by Windows Smart App Control
-refusing the rebuilt xtask host-test executable (error 4551), including outside
-the sandbox. Approval under the existing policy has been requested by the owner
-but has not been achieved. See the [blocked review](../../../evidence/phase-1/P1-07/2026-10-20/README.md)
-and [runbook](acceptance-runbook.md). Do not treat independent guest checks as full acceptance.
+`codex/p1-07-phase-1-acceptance`. The [complete local review](../../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+passes all six criteria: 33 rows, 42 launches and 28 Rust host tests. Five normal
+cold boots and the second clean ISO boot pass; the only ISO differences are the
+declared session bytes. The owner-authorized development signer/policy resolves
+host execution. The initial GPT and host-policy failures remain in the immutable
+[blocked review](../../../evidence/phase-1/P1-07/2026-10-20/README.md).
+M1's declared experimental baseline passes local Codex self-review, not independent
+approval. See the [runbook](acceptance-runbook.md) for scope and repeatable commands.

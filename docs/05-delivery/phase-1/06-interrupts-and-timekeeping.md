@@ -69,4 +69,4 @@ Apply the [epic definition of done](README.md#evidence-and-story-completion).
 
 Implementation revision: allocation-free ACPI/xAPIC/HPET adapter and version-5
 guest/host diagnostics. See the [runbook](interrupts-timekeeping-runbook.md).
-Evidence: [2026-10-20 acceptance](../../../evidence/phase-1/P1-06/2026-10-20/README.md). Review: local Codex self-review passes all six criteria; not independent approval. M1 remains incomplete.
+Evidence: [2026-10-20 acceptance](../../../evidence/phase-1/P1-06/2026-10-20/README.md). Review: local Codex self-review passes all six criteria; not independent approval. M1 was incomplete at this review; [P1-07's later complete gate](../../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md) now accepts the declared experimental baseline.

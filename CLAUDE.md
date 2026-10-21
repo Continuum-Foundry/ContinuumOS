@@ -15,9 +15,9 @@ record architecture or decisions here; put those in the specs and ADRs.
   P1-05 adds owned frames/page tables, WP/NX, guards and actual double-fault entry;
   check its [story/review status](docs/05-delivery/phase-1/05-memory-ownership.md).
   P1-06 now adds validated ACPI/xAPIC/HPET, returning interrupts, idle wakeups and delivered-tick uptime; check its runbook/acceptance.
-  P1-07's aggregator/readiness are implemented but its [review is blocked](evidence/phase-1/P1-07/2026-10-20/README.md)
-  by Smart App Control refusing the rebuilt host-test binary (4551). The owner
-  requested approval under the existing policy; execution is not approved yet.
+  P1-07's [complete local review passes](evidence/phase-1/P1-07/2026-10-20-acceptance/README.md):
+  33 rows and 42 launches. The owner-authorized local development signer and App
+  Control policy resolve host execution; see the signing lifecycle runbook.
 - No general heap, wall clock, processes, rendering or desktop.
   All ADRs are *Proposed*. Never describe more than the evidence shows.
 - Check `git log --oneline -10` and the
@@ -82,7 +82,7 @@ cargo xtask test --suite m1 --case iso-smoke     # also: iso-negative, boot-meta
 
 # Full story acceptance (slow; writes build/m1/acceptance-*)
 pwsh -NoProfile -File tools/Test-M0.ps1
-pwsh -NoProfile -File tools/Test-P1-07.ps1       # complete gate; currently blocked in M0 by host policy
+pwsh -NoProfile -File tools/Test-P1-07.ps1       # complete declared M1 gate
 ```
 
 `cargo xtask` is an alias for `run --locked --package xtask --` (`.cargo/config.toml`).

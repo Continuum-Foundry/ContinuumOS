@@ -14,18 +14,24 @@ behavior monitoring remained enabled. An already-compiled signed probe executes
 with arguments and exit code 23, outside-path rejection passes, and changing a
 signed PE section produces Authenticode `HashMismatch`.
 
-**Setup remains incomplete:** Windows reported cancellation of the UAC prompt for
-the pinned-tool supplement `{BB917328-EB62-4C2E-9A0C-69F9545EA0DC}`. Its 180-file
-inventory, XML, compiled policy and hash manifest are prepared locally, but not yet
-deployed. The custom base currently blocks the pinned unsigned Cargo executable
-and compiler DLL. The compiler wrapper and full clean-build preflights therefore
-remain uncompiled/untested, and P1-07/M1 remain blocked. Do not report the workstation
-as ready or try to work around enforcement with blanket allow/exclusion rules.
+The owner approved retrying Windows elevation. The pinned-tool supplement
+`{BB917328-EB62-4C2E-9A0C-69F9545EA0DC}` is now active and authorizes the exact
+180-file inventory. The signed compiler wrapper compiles and executes. Both fresh
+signed probes pass, as does a clean offline Cargo fixture with a build script,
+proc macro, unit test and executable from source/target paths containing spaces.
+The fixture verifies argument boundaries and exit-code propagation. Full P1-07
+acceptance is a separate evidence gate; its subsequent
+[complete local review passes](../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md).
+The [completed local signing review](../../evidence/host/windows-dev-signing/2026-10-20-completed/README.md)
+retains policy activation, fresh-build results, signature hashes and the corrected
+runner integration. The initial incomplete rollout is preserved alongside it.
 
-The next administrator action is the prepared helper's `-Action Tools` command
-below, after the owner approves retrying Windows elevation. Then initialize the
-compiler wrapper, run both preflights and the complete M1 gate. Local results and
-the initial recovery snapshot are under ignored `work/windows-dev-signing/`.
+The first clean compiler fixture exposed a Cargo runner quoting error. The runner
+now uses an argument array in the workspace-local Cargo home configuration rather
+than a quoted environment string. A new `build/cargo/signed/` cache makes previously
+unsigned cached build helpers rebuild through the wrapper; earlier cache bytes
+are preserved. Local results and the initial recovery snapshot remain under ignored
+`work/windows-dev-signing/` and `work/acceptance/`.
 
 The initial custom enforcement exposed a compatibility failure that the brief
 idle audit did not exercise: unsigned pinned Cargo and the compiler DLL lost their
@@ -116,7 +122,12 @@ ELF/ISO artifacts are not signed by this workflow. Logs/probes remain ignored.
 
 After successful enforcement and compiler initialization `Enter-Dev.ps1` enables
 Cargo's Windows-target runner and the signed compiler wrapper in that process only,
-including inherited nested Cargo calls. The runner accepts only the
+including inherited nested Cargo calls. Initialization writes the runner argument
+array to ignored `work/toolchains/cargo/config.toml`, refuses to overwrite an
+unrecognized existing configuration, and hashes it in the local compiler manifest.
+`Enter-Dev.ps1` verifies that manifest and enables the local Cargo home and wrapper;
+it does not write configuration or change system/user-profile Cargo settings.
+The runner accepts only the
 first-party `xtask` and `continuum_kernel` test executable names in declared build
 roots, plus the explicit local preflight probes. Paths containing spaces are
 supported. The compiler wrapper preserves native argument vectors, calls the pinned
@@ -130,6 +141,10 @@ new toolchain trust. Source bytes under the developer's control remain executabl
 development input, not an independent security boundary. No system Cargo config is
 changed. Direct `.exe` launches do not use the runner.
 Other developer accounts need their own signing setup and approved signer policy.
+Sandboxed identities can have a different current-user certificate store. Run
+authorized host checks in the enrolled developer-account execution context; a
+missing sandbox key is a blocked prerequisite, not a reason to export the key or
+broaden policy. The existing xorriso sandbox limitation remains separate.
 
 ## Recovery and lifecycle
 

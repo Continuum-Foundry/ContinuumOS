@@ -5,7 +5,7 @@ $run = Join-Path $root ("work/acceptance/" + [DateTimeOffset]::UtcNow.ToUnixTime
 New-Item -ItemType Directory -Force $run | Out-Null
 Push-Location $root
 try {
-    if ($env:CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_RUNNER -like '*Invoke-DevExecutable.ps1*') {
+    if ($env:CONTINUUM_DEV_SIGNING -eq '1') {
         & pwsh -NoProfile -File (Join-Path $PSScriptRoot 'windows/Test-DevSigning.ps1') *> (Join-Path $run 'host-signing-preflight.log')
         if ($LASTEXITCODE -ne 0) { throw 'Host signing/execution preflight failed; resolve it before acceptance.' }
     }

@@ -6,7 +6,10 @@ $Run = (Resolve-Path -LiteralPath $Run).Path
 function Read-Json([string]$path) { Get-Content -LiteralPath $path -Raw | ConvertFrom-Json -AsHashtable }
 function Hash([string]$path) { (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() }
 function Local([string]$path) { $path.Replace('${WORKSPACE}', $root) }
-function Safe([string]$text) { $text.Replace($root,'${WORKSPACE}').Replace($env:USERPROFILE,'${USERPROFILE}') }
+function Safe([string]$text) {
+    $cygRoot = '/cygdrive/' + $root.Substring(0,1).ToLowerInvariant() + $root.Substring(2).Replace('\','/')
+    $text.Replace($cygRoot,'${WORKSPACE_CYGWIN}').Replace($root.Replace('\','\\'),'${WORKSPACE}').Replace($root.Replace('\','/'),'${WORKSPACE}').Replace($root,'${WORKSPACE}').Replace($env:USERPROFILE.Replace('\','\\'),'${USERPROFILE}').Replace($env:USERPROFILE,'${USERPROFILE}')
+}
 function Require([bool]$condition, [string]$message) { if (-not $condition) { throw $message } }
 if ($Partial) {
     $guest = Read-Json (Join-Path $Run 'guest-regressions.json')
@@ -148,6 +151,9 @@ Promote (Join-Path $Run 'result.json') 'result.json'
 Promote (Join-Path $Run 'review.json') 'review.json'
 if (-not $Partial) { Promote (Join-Path $Run 'clean-comparison.json') 'clean-comparison.json' }
 Promote (Join-Path $Run 'suite-source-inputs.json') 'source-inputs.json'
+if ($Partial) {
+# The original blocked bundle owns these historical diagnostics. A completed
+# gate references that immutable bundle instead of copying its old approval state.
 Promote (Join-Path $root 'work/p1-07-development-observations.txt') 'development/observations.txt'
 Promote (Join-Path $root 'work/p1-07-doctor-precheck.log') 'development/sandboxed-doctor.log'
 Promote (Join-Path $root 'work/p1-07-full-suite.log') 'development/first-suite.log'
@@ -175,6 +181,7 @@ foreach ($label in 'final-1','final-2','final-3','final-4','final-5','second-cle
     $oldPath = Join-Path $Run "first-$label-context.json"
     $oldContext | ConvertTo-Json -Depth 30 | Set-Content $oldPath
     Promote $oldPath "development/$label-context.json"
+}
 }
 foreach ($flavor in $builds.Keys) {
     $dir = Local $builds[$flavor].directory

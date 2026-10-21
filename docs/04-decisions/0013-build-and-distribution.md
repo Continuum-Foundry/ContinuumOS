@@ -28,6 +28,12 @@ Smart App Control blocks the current host tests and the corrected full gate must
 be rerun. The [runbook](../05-delivery/phase-1/acceptance-runbook.md) defines the
 comparison and records that real ISO hashes remain distinct. Status stays Proposed.
 
+Follow-up: the [complete corrected gate](../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+now passes all 33 rows and 42 launches after approved local host signing. The two
+clean normal kernels match byte for byte, both exact ISOs boot, and the full ISO
+comparison permits only the declared 64-byte session field. This closes the
+experimental M1 comparison gate; release reproducibility and this ADR remain Proposed.
+
 ## Consequences
 
 Timestamp/order/path determinism and license inventory are continuing work. A

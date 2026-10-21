@@ -4,8 +4,9 @@ Research date: **2026-10-17**. Project name: **ContinuumOS (working name)**.
 Implementation update: **2026-10-20 — original Rust kernel ISO with checked owned
 boot metadata, host session identity, fatal diagnostics and timer/uptime demonstrated
 in QEMU**. See the [exception runbook](05-delivery/phase-1/exception-diagnostics-runbook.md) and
-[P1-04 acceptance review](../evidence/phase-1/P1-04/2026-10-19/README.md). This is not completed M1
-or a usable desktop OS. Phase 0's compile-only evidence remains separate.
+[P1-04 acceptance review](../evidence/phase-1/P1-04/2026-10-19/README.md). M1's declared
+experimental baseline now passes local acceptance; this is not a usable desktop OS.
+Phase 0's compile-only evidence remains separate.
 Host maintenance: the [M1 harness module split](../evidence/phase-1/m1-module-refactor/2026-10-18/README.md)
 passed the current regression suite. Build, package, launch and observe now have
 separate modules; commands and evidence formats are preserved. P1-04 now adds
@@ -14,13 +15,13 @@ Its local acceptance review passes. P1-05 now implements
 [memory ownership and guarded mappings](05-delivery/phase-1/memory-ownership-runbook.md);
 its [local acceptance review passes](../evidence/phase-1/P1-05/2026-10-19/README.md).
 P1-06 now adds [interrupts and monotonic uptime](05-delivery/phase-1/interrupts-timekeeping-runbook.md); its [local acceptance passes](../evidence/phase-1/P1-06/2026-10-20/README.md).
-P1-07 implements the [full acceptance command](05-delivery/phase-1/acceptance-runbook.md),
-but its [initial review was blocked](../evidence/phase-1/P1-07/2026-10-20/README.md) by Windows
-Smart App Control refusing the rebuilt host-test executable. M1 remains incomplete.
+P1-07's [complete local acceptance](../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+passes all 33 rows and 42 launches. Its initial blocked review remains preserved.
 The owner authorized [local development signing and an App Control development policy](05-delivery/windows-development-signing.md)
 on this Windows installation to address recurring host execution blocks. The
-replacement base is enforcing, but the pinned-tool supplement awaits Windows
-elevation; compiler execution and full acceptance remain blocked.
+replacement base and exact-hash tool supplement are enforcing. Fresh signed host
+rebuilds and clean Cargo build-script/proc-macro/test/run preflights pass, followed
+by the full P1-07 acceptance gate and local self-review.
 Plan revision: **2 — reconciled direction approved by the user; technical gates pending**.
 The requested project folder is named **ContinuumOS**; this is a working project name.
 
@@ -94,8 +95,8 @@ Upstream `latest` and `master` URLs are research references, not dependency pins
 For the hosted UI workstream, compare Slint with a minimal custom UI core and
 prove resource reload while a document remains open. The independent ISO path
 has reached checked metadata, fatal diagnostics and P1-05 owned mappings.
-Complete P1-07 before bringing UI primitives
-to the guest framebuffer.
+P1-07 now passes; the next bounded step is the hosted Slint/custom comparison,
+before bringing UI primitives to the guest framebuffer.
 Establish user-mode isolation and a small
 authenticated development channel before native service replacement. This parallel
 sequence describes independent workstreams, not permission to skip their dependencies.

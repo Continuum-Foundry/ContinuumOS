@@ -12,13 +12,12 @@ The pinned xorriso runtime requires the documented execution context outside the
 MSYS2 sandbox restriction. All outputs stay local under ignored `build/m1/suite-*`.
 The command fails on any missing or failed row; it never retries a failed VM.
 The story and its explicit evidence review determine acceptance status.
-The [2026-10-20 local review](../../../evidence/phase-1/P1-07/2026-10-20/README.md)
-is **Blocked** after Smart App Control refused the xtask host-test binary.
-The subsequent [authorized development-signing rollout](../windows-development-signing.md)
-is incomplete: its replacement base enforces, but the exact-hash tool supplement
-awaits Windows elevation and pinned compiler/Cargo execution remains blocked.
-Approval under the existing policy was requested, not achieved. Independent guest
-checks and earlier host tests do not waive this row or establish final acceptance.
+The [complete 2026-10-20 local review](../../../evidence/phase-1/P1-07/2026-10-20-acceptance/README.md)
+passes all 33 rows and 42 launches after the owner-authorized
+[development-signing rollout](../windows-development-signing.md). The original
+[blocked review](../../../evidence/phase-1/P1-07/2026-10-20/README.md) is preserved.
+Full acceptance comes from the final aggregate run and review, not earlier partial
+guest results. The conclusion covers the experimental VM baseline only.
 
 The aggregator runs formatting, M0 (including harness rejection and process
 cleanup tests), dependency probes, kernel library tests, doctor, prerequisite

@@ -1,0 +1,78 @@
+{
+  "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "8ea41c3e49814877eb217eb6c6c8825b698cf493ec6196c3cb1ebffd87acf58c",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "fault-before-entry",
+  "inspection": {
+    "diagnostic_sites": {
+      "diagnostic_double_site": 18446744071562068859,
+      "diagnostic_guard_site": 18446744071562068834,
+      "diagnostic_invalid_opcode": 18446744071562068421,
+      "diagnostic_nx_page": 18446744071562121216,
+      "diagnostic_page_fault_site": 18446744071562068433,
+      "diagnostic_panic_report": 18446744071562068438,
+      "diagnostic_write_site": 18446744071562068839
+    },
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "kernel_image_bounds": {
+      "all_load_memory_including_bss": true,
+      "end": "0xffffffff8099f000",
+      "load_memory_end": "0xffffffff8099f000",
+      "start": "0xffffffff80000000"
+    },
+    "machine": "x86_64",
+    "relocations": 0,
+    "returning_interrupt_entry": {
+      "df_cleared_before_rust": true,
+      "gprs": 15,
+      "return": "iretq",
+      "sysv_alignment": 16,
+      "vectors": [
+        64,
+        255
+      ]
+    },
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 39493,
+        "flags": 5,
+        "memory_size": 39493,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff8000a000",
+        "alignment": 4096,
+        "file_size": 4295,
+        "flags": 4,
+        "memory_size": 4295,
+        "offset": 45056
+      },
+      {
+        "address": "0xffffffff8000c000",
+        "alignment": 4096,
+        "file_size": 294072,
+        "flags": 6,
+        "memory_size": 10039296,
+        "offset": 53248
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "5f2746e31df39a16f056695538b899c8f4ddab66dc56f8a3ac43ca3a36a75b96",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "70c3ff247367b7dcf123dd68a5ae84b765507b09",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M  docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/phase-1/acceptance-runbook.md\nMM docs/05-delivery/windows-development-signing.md\nM  docs/README.md\nA  evidence/host/windows-dev-signing/2026-10-20-completed/README.md\nA  evidence/host/windows-dev-signing/2026-10-20-completed/SHA256SUMS.json\nA  evidence/host/windows-dev-signing/2026-10-20-completed/admin-tools.json\nA  evidence/host/windows-dev-signing/2026-10-20-completed/after-antivirus.json\nA  evidence/host/windows-dev-signing/2026-10-20-completed/cargo-runner-config.txt\nA  evidence/host/windows-dev-signing/2026-10-20-completed/clean-compiler-result.json\nA  evidence/host/windows-dev-signing/2026-10-20-completed/clean-compiler-run.log\nA  evidence/host/windows-dev-signing/2026-10-20-completed/clean-compiler-tests.log\nA  evidence/host/windows-dev-signing/2026-10-20-completed/compiler.json\nA  evidence/host/windows-dev-signing/2026-10-20-completed/evidence-index.json\nA  evidence/host/windows-dev-signing/2026-10-20-completed/fresh-executable-result.json\nA  evidence/host/windows-dev-signing/2026-10-20-completed/initial-runner-quoting-failure.log\nA  evidence/host/windows-dev-signing/2026-10-20-completed/key-audit.json\nA  evidence/host/windows-dev-signing/2026-10-20-completed/source-inputs.json\nM  tools/Enter-Dev.ps1\n M tools/Review-P1-07.ps1\nM  tools/Test-M0.ps1\nM  tools/windows/Initialize-DevCompiler.ps1\nM  tools/windows/compiler-wrapper.rs"
+}

@@ -1,0 +1,53 @@
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\${WORKSPACE}\build\cargo\signed\debug\incremental\text_core-1bgv08g93k7pq\s-hnfgrplo7o-0v40drr-working`
+
+warning: `text-core` (lib) generated 1 warning
+   Compiling custom-ui v0.1.0 (${WORKSPACE}\crates\custom-ui)
+   Compiling xtask v0.1.0 (${WORKSPACE}\tools\xtask)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.62s
+     Running unittests src\lib.rs (build\cargo\signed\debug\deps\custom_ui-4f69b87775d9029f.exe)
+
+running 9 tests
+test tests::malformed_images_and_surface_geometry_reject ... ok
+test tests::candidate_rejects_text_beyond_render_budget_before_model_change ... ok
+test tests::fractional_clip_and_padding_are_exact ... ok
+test tests::invalid_graphs_reject_without_recursing_forever ... ok
+test tests::leases_prevent_writes_and_delayed_release ... ok
+test tests::compiled_behavior_feature_is_explicit ... ok
+test tests::unpublished_frame_abandonment_preserves_lease_ownership ... ok
+test tests::blur_matches_independent_slow_nonconstant_oracle ... ok
+test tests::random_access_list_matches_sequential_generator ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\main.rs (build\cargo\signed\debug\deps\xtask-cb31c8a23392a25f.exe)
+
+running 20 tests
+test elf::tests::rejects_unsafe_or_host_linked_images ... ok
+test m1::build::tests::image_bounds_include_bss_and_orphan_load_memory ... ok
+test m1::build::tests::rejects_vector_and_fp_code ... ok
+test elf::tests::valid_static_probe ... ok
+test editor::tests::json_decoder_rejects_unknown_keys_overflows_and_wrong_payloads ... ok
+test m1::package::tests::windows_paths_are_translated_without_shell_quoting ... ok
+test m1::records::tests::expected_rejection_needs_exact_error_and_exit_and_no_ready_marker ... ok
+test m1::inputs::tests::rejects_missing_and_changed_inputs ... ok
+test m1::suite::tests::iso_comparison_rejects_unexplained_changes ... ok
+test elf::tests::truncation_and_overflow ... ok
+test m2::tests::fixed_matrix_and_rejections ... ok
+test ui_fixtures::tests::schema_numeric_values_match_json_schema_semantics ... ok
+test m1::records::tests::protection_and_real_double_fault_require_owned_context ... ok
+test ui_fixtures::tests::unsupported_schema_keyword_rejects ... ok
+test m1::records::tests::fatal_requires_exact_hardware_context_symbol_and_exit ... ok
+test m1::records::tests::rejects_false_or_incomplete_success ... ok
+test ui_fixtures::tests::shared_corpus_and_all_negative_cases ... ok
+test custom::tests::failed_paint_abandons_unpublished_buffer_and_keeps_document ... ok
+test m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped ... ok
+test m1::inputs::tests::locked_kernel_loader_and_firmware_inputs_fail_closed ... ok
+
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 11.21s
+
+   Doc-tests custom_ui
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "failed_runs": [
+    {
+      "run": "build/m2/P2-05/run-1792620863893907100-85988",
+      "result": {
+        "reason": "State same_document: expected true, actual null",
+        "status": "failed"
+      },
+      "sha256": "35c5eb982c8cbdff1928a88404d75f3aa5ec648b1d2a482b6dab938a01a7857f"
+    },
+    {
+      "run": "build/m2/P2-05/run-1792621120610247500-89932",
+      "result": {
+        "reason": "Idle requests",
+        "status": "failed"
+      },
+      "sha256": "4e77f6e9b5e00ded1358ff8bb0d1db200ff6eb49931bcc1851f0f60684d7ac1f"
+    }
+  ],
+  "host_findings": [
+    "Sandbox certificate access failed on the first doctor attempt; documented unsandboxed path used.",
+    "Automatic approval timed out once. First signer-enrollment request was rejected as requiring specific approval; owner explicitly approved enrollment refresh and tests. Existing signer retained; no host policy/new certificate.",
+    "An early prerequisite run overlapped workspace/lock edits and failed locked checks. Its raw report is preserved locally; the final ten-command prerequisite recheck passed.",
+    "First replay lacked same_document reporting; second exposed unsettled final reset before idle. Both failure result files remain local and are indexed here.",
+    "Final self-review added an atomic 4096-byte candidate text admission guard and bounded host/input diagnostic histories; targeted final tests/checks pass.",
+    "Final review added acquired-frame abandonment on paint failure and empty paint for a fully offscreen blur. Portable ownership/offscreen tests, an explicit font-dependent failed-paint test and the final full golden/native replay pass; normal result bytes remain identical."
+  ]
+}

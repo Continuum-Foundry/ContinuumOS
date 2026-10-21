@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case": "duplicate-id",
+      "old_state_preserved": true,
+      "outcome": "Duplicate"
+    },
+    {
+      "case": "nonfinite-geometry",
+      "old_state_preserved": true,
+      "outcome": "Bounds"
+    },
+    {
+      "case": "missing-image",
+      "old_state_preserved": true,
+      "outcome": "Resource"
+    },
+    {
+      "case": "cycle",
+      "old_state_preserved": true,
+      "outcome": "Invalid"
+    },
+    {
+      "case": "orphan",
+      "old_state_preserved": true,
+      "outcome": "Invalid"
+    },
+    {
+      "case": "unknown-action",
+      "old_state_preserved": true,
+      "outcome": "Resource"
+    },
+    {
+      "case": "stale-revision",
+      "old_state_preserved": true,
+      "outcome": "Revision"
+    },
+    {
+      "case": "invalid-token",
+      "old_state_preserved": true,
+      "outcome": "Bounds"
+    },
+    {
+      "case": "stale-pointer",
+      "old_state_preserved": true
+    },
+    {
+      "case": "overflow-reset",
+      "dropped": 257,
+      "reason": "queue-overflow"
+    },
+    {
+      "case": "removed-focus",
+      "focus": "editor"
+    },
+    {
+      "case": "capture-owner-removal-and-modeled-owner-death",
+      "document_preserved": true,
+      "process_killed": false,
+      "reason": "owner-death-injection"
+    },
+    {
+      "case": "virtual-count",
+      "logical_count": 10000,
+      "realized": 15,
+      "row_id": 9900
+    },
+    {
+      "case": "virtual-count",
+      "logical_count": 1000000,
+      "realized": 15,
+      "row_id": 999900
+    },
+    {
+      "case": "virtual-count",
+      "logical_count": 1000000000,
+      "realized": 15,
+      "row_id": 999999900
+    },
+    {
+      "buffers": 3,
+      "bytes": 96,
+      "case": "buffer-ownership-stride-exhaustion",
+      "serials": [
+        1,
+        2
+      ]
+    },
+    {
+      "case": "missing-icon",
+      "fallback": "authored-2x2-nearest",
+      "semantic_name": "Unsaved • UTF-8"
+    },
+    {
+      "capture": {
+        "full_damage_pixels": 921600,
+        "glyph_cache_bytes": 21000,
+        "glyph_cache_entries": 128,
+        "height": 720,
+        "image_sha256": "4d7104769ed1ca50b72636994aee5f37a523b6fa514619ee9558c4f72457c306",
+        "missing_clusters": 0,
+        "nodes": 12,
+        "realized": 15,
+        "rgba_sha256": "15e068182024e9a789c7e30aa2fcc16426eab76bee7131651b3490599b85663a",
+        "scale": 100,
+        "scratch_peak_bytes": 4059392,
+        "semantic_sha256": "0186565c6ad8e8443ab813b76048b501106f513f71219ae4ecaefac44933d3a7",
+        "shape_work": 511,
+        "stride": 5120,
+        "surface_allocations": 1,
+        "surface_bytes": 3686400,
+        "touched": 1479815,
+        "width": 1280
+      },
+      "case": "stable-id-layout-spacing-variant",
+      "damage": [
+        -24.0,
+        -24.0,
+        688.0,
+        408.0
+      ],
+      "live_reload_claim": false
+    },
+    {
+      "case": "independent-paint-vectors",
+      "constant_blur": true,
+      "over": 3,
+      "premultiply": 3
+    },
+    {
+      "case": "missing-font",
+      "staging": "rejected"
+    },
+    {
+      "case": "isolated-group-opacity",
+      "expected_pixel": [
+        29,
+        34,
+        46,
+        255
+      ],
+      "pixels_checked": 16
+    },
+    {
+      "case": "rounded-ancestor-clip",
+      "center": "panel",
+      "corner": "surface"
+    },
+    {
+      "bitmap_bytes": 13414,
+      "case": "cache-and-realization-exhaustion",
+      "entries": 128,
+      "entry_cap": 128,
+      "glyph_requests": 199,
+      "oversized_viewport": "rejected",
+      "payload_cap": 1048576
+    },
+    {
+      "action": "settings.effects@1",
+      "case": "action-entry-parity",
+      "checkpoint_sha256": "000cb2f881472a8b38fb32a5f93ae8fc82a51295e48ff9d764771c7c341c54a0",
+      "entry": "Button"
+    },
+    {
+      "action": "settings.effects@1",
+      "case": "action-entry-parity",
+      "checkpoint_sha256": "000cb2f881472a8b38fb32a5f93ae8fc82a51295e48ff9d764771c7c341c54a0",
+      "entry": "Shortcut"
+    },
+    {
+      "action": "settings.effects@1",
+      "case": "action-entry-parity",
+      "checkpoint_sha256": "000cb2f881472a8b38fb32a5f93ae8fc82a51295e48ff9d764771c7c341c54a0",
+      "entry": "Semantic"
+    },
+    {
+      "action": "settings.effects@1",
+      "case": "action-entry-parity",
+      "checkpoint_sha256": "000cb2f881472a8b38fb32a5f93ae8fc82a51295e48ff9d764771c7c341c54a0",
+      "entry": "Automation"
+    },
+    {
+      "alignment": "grapheme",
+      "case": "candidate-caret-hit",
+      "stops_checked": 15
+    }
+  ]
+}

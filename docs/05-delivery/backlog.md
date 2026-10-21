@@ -33,7 +33,11 @@ implements B09's logical state subset and M2 design/model of B37, with shared
 entry adapters, scoped contexts, bounded retries and explicit checkpoints.
 P2-04's [accepted text experiment](../../evidence/phase-2/P2-04/2026-10-21/README.md)
 adds B09/B36's pinned fonts, shared text/composition corpus and bounded custom pipeline;
-actual candidate integration remains open. P2-05–P2-13 remain Not started.
+P2-05's [accepted custom candidate](../../evidence/phase-2/P2-05/2026-10-21/README.md)
+adds B07/B08/B36's bounded custom layout/paint/input/semantic integration and host
+instrumentation. Full redraw/copies and immediate standard transitions remain
+comparison findings. P2-06–P2-13 remain Not started; selection and guest linking,
+execution, reload and measured efficiency are still open.
 P2-02 through P2-09 cover B36 and initial
 B07/B08/B09/B37 boundaries, candidates, target links and decision. P2-10 completes
 the hosted portions of B07/B08/B09; P2-11 covers B10, and P2-12/P2-13 cover M2's

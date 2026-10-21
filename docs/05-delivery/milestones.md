@@ -67,8 +67,11 @@ P2-03's [accepted hosted document/action model](../../evidence/phase-2/P2-03/202
 adds shared execution, bounded history/checkpoints and modeled rights/context tests.
 P2-04's [accepted bounded text experiment](../../evidence/phase-2/P2-04/2026-10-21/README.md)
 adds pinned fonts, shaping/bidi/fallback/caret/composition tests and text-only rasters.
-P2-05–P2-13 remain Not started; no candidate UI is
-implemented and no Jira issues were created. P2-02 through P2-09 establish shared fixtures, candidates,
+P2-05's [accepted custom candidate](../../evidence/phase-2/P2-05/2026-10-21/README.md)
+adds rendered scenes, shared interactions/semantics, bounded lists/caches and a
+native Windows presentation adapter, with explicit quality/cost limits.
+P2-06–P2-13 remain Not started; no toolkit is selected, guest UI/reload demonstrated
+or Jira issue created. P2-02 through P2-09 establish shared fixtures, candidates,
 target feasibility and the provisional decision. P2-10 through P2-13 complete
 selected behavior, hosted reload, measurements and the acceptance review.
 

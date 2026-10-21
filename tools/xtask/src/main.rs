@@ -1,3 +1,4 @@
+mod custom;
 mod editor;
 mod elf;
 mod m1;
@@ -279,6 +280,8 @@ fn run() -> Result<()> {
         ["test", "--suite", "ui-fixtures"] => ui_fixtures::execute(),
         ["test", "--suite", "editor-model"] => editor::execute(),
         ["test", "--suite", "text"] => text::execute(),
+        ["test", "--suite", "custom-ui"] => custom::execute(),
+        ["custom-host"] => custom::host(),
         ["hosted", "--config", config, "--profile", profile, "--scale", scale, "--case", case] => m2::execute(config, profile, scale, case),
         ["hosted-probe", case, input] => m2::probe(case, input),
         ["doctor"] => doctor(false, false),

@@ -6,6 +6,7 @@ publish.workspace = true
 license-file.workspace = true
 
 [dependencies]
+custom-ui = { path = "../../crates/custom-ui" }
 editor-model = { path = "../../crates/editor-model" }
 text-core = { path = "../../crates/text-core" }
 unicode-segmentation = { version = "=1.13.3", default-features = false }

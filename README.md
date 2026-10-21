@@ -105,8 +105,12 @@ also passes. P2-03's [document state/action acceptance](evidence/phase-2/P2-03/2
 passes shared execution, context and logical checkpoint checks.
 P2-04's [bounded text acceptance](evidence/phase-2/P2-04/2026-10-21/README.md) adds
 pinned fonts, shaping/bidi/fallback and composition fixtures with text rasters.
-P2-05–P2-13 remain Not started; the custom and Slint candidates are next.
-No candidate UI is rendered yet and no Jira issues were created.
+P2-05's [bounded custom candidate acceptance](evidence/phase-2/P2-05/2026-10-21/README.md)
+now passes 150 rendered checkpoints, shared action/semantic workflows, bounded
+text/list/cache checks and a native Windows preview. Full redraw/copy costs,
+immediate standard transitions and native text/accessibility limits remain explicit.
+P2-06's Slint candidate is next; P2-06–P2-13 remain Not started. No toolkit is
+selected, guest UI/reload demonstrated or Jira issue created.
 
 ## A desktop designed for continuity
 
@@ -218,7 +222,7 @@ named cases and strict serial-record checks remain separate.
 | :--- | :--- | :--- |
 | **Phase 0** | Native tooling, independent links, dependency feasibility | Compile/tooling evidence retained |
 | **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-07 pass local experimental-baseline acceptance |
-| **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01 prerequisites through P2-04 bounded text accepted; candidate rendering remains planned |
+| **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01 through P2-05 custom candidate accepted locally; Slint/comparison, hosted reload and measurements remain planned |
 | **M3** | User-mode isolation and bounded IPC | Planned |
 | **M4** | Authenticated development channel and guest resource reload | Planned |
 | **M5** | App replacement with preserved state | Planned |

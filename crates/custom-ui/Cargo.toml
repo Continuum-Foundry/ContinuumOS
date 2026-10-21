@@ -1,0 +1,13 @@
+[package]
+name = "custom-ui"
+version = "0.1.0"
+edition.workspace = true
+publish.workspace = true
+license-file.workspace = true
+
+[features]
+behavior-v2 = []
+
+[dependencies]
+editor-model = { path = "../editor-model" }
+text-core = { path = "../text-core" }

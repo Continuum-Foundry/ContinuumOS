@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "story": "P2-05",
+  "status": "passed",
+  "reviewer": "Codex local implementation/self-review; not independent approval",
+  "date": "2026-10-21",
+  "source_base": "1381e0a",
+  "branch": "codex/p2-05-minimal-custom-ui",
+  "criteria": [
+    {"criterion":"Shared reference scenes and workflows","status":"passed","evidence":["acceptance.json","captures.json","state-traces.json","semantics.json"],"scope":"Exact common locks, 30 configurations, 150 required checkpoints, 300 independent workflow states; no easier corpus or changed tolerances."},
+    {"criterion":"Paint/layout/text/semantics or explicit retained findings","status":"passed","evidence":["text.json","negative.json","pixel-review.json","feature-outcomes.json"],"scope":"Analytic premultiply/blend/blur, rounded clip and isolated opacity checks; reviewed same-build goldens; 45 text and 63 integrated cases. Hard edge coverage, immediate standard transitions and declared text misses remain comparison findings."},
+    {"criterion":"Stable identities and bounded ownership/resources","status":"passed","evidence":["negative.json","traces/tests-final.txt","compiled-inputs.json"],"scope":"Topology/resources/revisions validated before publication; 15 realized rows independent of logical count, bitmap quotas, exact buffer generation/serial ownership and explicit unpublished-frame abandonment. Stale/withheld release and malformed input checked."},
+    {"criterion":"Rich/reduced equivalent actions and recorded effort","status":"passed","evidence":["semantics.json","state-traces.json","adapter-inventory.json","feature-outcomes.json"],"scope":"Same logical semantic controls/action versions across all variants; shared provider parity and keyboard workflow. Source bytes/physical lines counted. Native assistive consumer, full motion and arbitrary images remain open."},
+    {"criterion":"Reproducible instrumentation/source/assets and dependency split","status":"passed","evidence":["acceptance.json","compiled-inputs.json","dependencies.json","timings.json","adapter-inventory.json"],"scope":"Separate deterministic replays, final signed executable and exact source hashes, immutable common locks, explicit allocation/cache/damage/idle counters. no_std+alloc portable code separated from std/files/process/WinForms/Python host facilities."}
+  ],
+  "source_review": "Portable first-party code forbids unsafe. JSON is converted after shared schema/whole-corpus/lock validation, not cast to native layout. Scene staging is atomic; failed producer paint abandons only an acquired lease, never in-use consumer ownership. Primitive paint/capture failure leaves document unchanged. Input text admission, event/command/history/key quotas, controller resets and logical focus fallback are bounded. Native adapter copies before releasing references and kills its bounded child on cleanup. These are hosted model properties, not capability security or recoverable allocator-OOM guarantees.",
+  "visual_review": "Inspected five overview sheets covering all 150 compositions plus full initial/high-contrast/reduced/effect/layout/icon/complex-text images and text sheet. Fixed overlays intentionally obscure portions of windows; controls remain available through declared semantics/keyboard actions. No goldens were changed to turn a mismatch into a pass. Analytic/state/semantic assertions are separate from visual review.",
+  "limits": ["No toolkit selection or independent reviewer","No guest allocator/link/execution or ISO/UI change","No actual live reload, native unloading or provider replacement","No native IME, native screen-reader bridge or independently exercised OS input/DPI transition","Immediate standard transitions and full redraw/copies remain selection findings","Static caret/no clock; deterministic idle decisions are not CPU/wakeup performance measurements","Counts exclude decoded fonts, general allocations and process/guest memory; host allocator OOM may abort","Shared text limits and emoji/Unicode-table limitations remain"],
+  "next": "P2-06 Slint on unchanged shared inputs, P2-07 exact target links, P2-08 comparison. All ADRs remain Proposed."
+}

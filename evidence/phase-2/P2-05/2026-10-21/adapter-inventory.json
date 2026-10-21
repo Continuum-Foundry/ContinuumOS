@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "first_party_size": [
+    {
+      "area": "portable-runtime",
+      "files": [
+        "crates/custom-ui/src/input.rs",
+        "crates/custom-ui/src/lib.rs",
+        "crates/custom-ui/src/paint.rs",
+        "crates/custom-ui/src/scene.rs",
+        "crates/custom-ui/src/surface.rs"
+      ],
+      "bytes": 56762,
+      "lines_including_comments_blank": 1641
+    },
+    {
+      "area": "portable-tests",
+      "files": [
+        "crates/custom-ui/src/tests.rs"
+      ],
+      "bytes": 8083,
+      "lines_including_comments_blank": 265
+    },
+    {
+      "area": "host-rust",
+      "files": [
+        "tools/xtask/src/custom.rs"
+      ],
+      "bytes": 48142,
+      "lines_including_comments_blank": 1159
+    },
+    {
+      "area": "host-adapter",
+      "files": [
+        "tools/Preview-Custom.ps1"
+      ],
+      "bytes": 6896,
+      "lines_including_comments_blank": 96
+    },
+    {
+      "area": "host-verification",
+      "files": [
+        "tools/Review-Custom.py",
+        "tools/Test-P2-05.ps1"
+      ],
+      "bytes": 8821,
+      "lines_including_comments_blank": 133
+    }
+  ],
+  "measurement": "Physical lines and source bytes; not estimated person-hours or optimized binary cost",
+  "hooks": [
+    {
+      "hook": "allocation/panic",
+      "portable": "no_std + alloc; fixed quotas around scene, buffers, rows and bitmap cache; general OOM may abort",
+      "host": "Rust system allocator; no guest allocator linked"
+    },
+    {
+      "hook": "layout/paint",
+      "portable": "explicit absolute row/column/overlay/scroll/list containment, separate dirty flags; full clear/redraw after changes",
+      "host": "Instant timing only"
+    },
+    {
+      "hook": "surface",
+      "portable": "RGBA8 premultiplied encoded-sRGB, checked stride, 1..3 buffers, exact generation/serial leases",
+      "host": "RGB copy while leased; release; BGR24 BMP; WinForms owned clone"
+    },
+    {
+      "hook": "clock/wait",
+      "portable": "bounded input timestamps; static caret and no timers",
+      "host": "Instant/QPC; native message loop; explicit command response timeouts and child cleanup"
+    },
+    {
+      "hook": "input/DPI",
+      "portable": "physical usage/text/composition separated, logical pointers and current revision, capture/reset",
+      "host": "WinForms subset, PerMonitorV2 at fixed 1280x720 scale 1; no IME or multi-DPI-transition proof"
+    },
+    {
+      "hook": "semantics/actions",
+      "portable": "adapter-derived stable semantic IDs/roles/names/values/actions, 10000 logical rows/15 realized; four entry kinds use shared provider",
+      "host": "JSON observations only, no native UI Automation or assistive consumer"
+    },
+    {
+      "hook": "text/fonts",
+      "portable": "shared pinned six-font P2-04 shaping/bidi/fallback/raster pipeline; no discovery; 4KiB candidate view",
+      "host": "locked bytes loaded from work; font/Unicode/reference versions recorded in P2-04 locks"
+    },
+    {
+      "hook": "reload/behavior",
+      "portable": "atomic staged tree publication and stable IDs; separately compiled uppercase text feature",
+      "host": "No native binary unloading or running replacement; actual hosted resource reload is P2-11"
+    },
+    {
+      "hook": "future freestanding integration",
+      "portable": "needs allocator/OOM/panic, FP policy, exact link closure and runtime tests",
+      "host": "filesystem, std, serde_json, process/WinForms/Python stay outside portable core"
+    }
+  ]
+}

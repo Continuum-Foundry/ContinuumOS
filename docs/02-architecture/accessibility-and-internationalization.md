@@ -31,7 +31,7 @@ claim of web conformance or complete native accessibility certification.
 ## Text pipeline
 
 P2-04's [bounded hosted text contract](../06-contracts/hosted-text.md) now records
-the actual local experiment, five locked fonts, exact Unicode/version limits,
+the actual local experiment, six locked fonts, exact Unicode/version limits,
 independent shaping references and common candidate obligations. It is not a
 universal script/IME implementation or guest text runtime; the general pipeline
 below remains the product requirement.

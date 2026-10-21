@@ -36,6 +36,20 @@ Earlier failed/blocked attempts remain separate immutable evidence.
 For M1's bounded subset, use the [Phase 1 story acceptance matrix](phase-1/07-phase-1-acceptance.md).
 Final local acceptance passes M1's declared experimental VM baseline; broader
 product, isolation, performance and live-update requirements remain open.
+
+M2's planned hosted subset is decomposed into the
+[Phase 2 stories](phase-2/README.md) and [required acceptance matrix](phase-2/13-phase-2-acceptance.md#required-acceptance-matrix).
+P2-02/P2-04/P2-05/P2-06/P2-10 cover T05/T10 scenes, text, input and semantics;
+P2-03 supplies R19/T14 interface/model fixtures, not secure IPC or replacement.
+P2-07 covers exact T02 target compile/link feasibility; P2-08 compares candidates
+before P2-09's decision. P2-11/P2-12 cover hosted L0/L1 T07 continuity, T09
+idle/damage/memory/latency and 100 compatible reloads. P2-13 reviews final builds
+and T13 consistency. P2-01's [local review](../../evidence/phase-2/P2-01/2026-10-20/README.md)
+adds fresh T02/T13 prerequisites and T09 profile setup: 15 xtask tests and 23
+lifecycle cases, with all 15 launched children reaped. P2-02–P2-13 remain plans.
+Hosted R04/R08/R09/R15 and R19 design remain distinct from full
+guest/product requirements, M3 isolation, M4 guest resources and M5 behavior transfer.
+
 [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
 pass version/capability/hash checks and rejection tests; this adds no ISO boot result.
 

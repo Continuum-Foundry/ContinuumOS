@@ -71,6 +71,14 @@ The runner uses an argument array in the local Cargo home and a fresh signed bui
 cache. Check enrollment/key expiry and actual tool pins before future acceptance runs.
 The next bounded workstream is M2's hosted Slint/minimal-custom comparison; no UI
 toolkit is selected by dependency compilation, and no guest reload exists yet.
+Follow the [Phase 2 epic and thirteen ordered local stories](phase-2/README.md).
+[P2-01's prerequisite/profile recheck](phase-2/01-hosted-prerequisites-and-profiles.md)
+now passes [local acceptance](../../evidence/phase-2/P2-01/2026-10-20/README.md):
+fresh offline Phase 0/signing/doctor checks and 23 headless lifecycle cases. Use the
+[hosted runbook](phase-2/hosted-prerequisites-runbook.md). P2-02 is next;
+P2-02–P2-13 remain Not started. They cover the shared corpus/action/text model, both bounded
+candidates, freestanding link feasibility, provisional decision, selected hosted
+UI/reload and measured acceptance. They do not authorize remote Jira creation.
 P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).

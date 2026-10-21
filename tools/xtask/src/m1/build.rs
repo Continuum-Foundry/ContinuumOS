@@ -252,6 +252,8 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         "rust-toolchain.toml",
         ".cargo/config.toml",
         "config/m1-inputs.lock.json",
+        "config/m2-profiles.json",
+        "fixtures/m2/runner-input.txt",
         "tools/Enter-Dev.ps1",
         "tools/Test-M0.ps1",
         "tools/Probe-Dependencies.ps1",

@@ -20,3 +20,17 @@ codegen-units = 1
 
 [profile.kernel-dev]
 inherits = "feasibility"
+
+[profile.m2-comparison]
+inherits = "release"
+opt-level = 3
+debug = 1
+lto = false
+codegen-units = 1
+
+[profile.m2-diagnostic]
+inherits = "dev"
+opt-level = 1
+debug = 2
+debug-assertions = true
+overflow-checks = true

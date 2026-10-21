@@ -57,6 +57,14 @@ direct-kernel emulator launch cannot substitute for it.
 
 ## M2 — Hosted UI core and resource reload
 
+Execution from the accepted M1 state is decomposed into
+[one epic and thirteen ordered local stories](phase-2/README.md). P2-01's
+[local acceptance](../../evidence/phase-2/P2-01/2026-10-20/README.md) passes prerequisite,
+profile and headless lifecycle checks. P2-02–P2-13 remain Not started; no UI is
+implemented and no Jira issues were created. P2-02 through P2-09 establish shared fixtures, candidates,
+target feasibility and the provisional decision. P2-10 through P2-13 complete
+selected behavior, hosted reload, measurements and the acceptance review.
+
 After M0, compare Slint and a minimal custom UI with identical editor/file-list
 scenes, tokens, text, semantics and input. Audit guest compile/platform hooks,
 reload and distribution terms. Select provisionally before expanding a full toolkit;

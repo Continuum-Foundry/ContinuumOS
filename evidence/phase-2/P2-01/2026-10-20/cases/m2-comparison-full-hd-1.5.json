@@ -1,0 +1,86 @@
+{
+  "architecture": "x86_64",
+  "arguments": [
+    "hosted-probe",
+    "success",
+    "\\\\?\\${WORKSPACE}\\fixtures\\m2\\runner-input.txt"
+  ],
+  "cargo_lock_sha256": "87e685b48d370f8da6b418e28823f673e5b0da52cba46f5118be8ccbd59bc6ef",
+  "cargo_manifest_sha256": "95d14c2d2af7932f1923a6012ebdcee2b92c1819b1451505483b62ef0532d334",
+  "case": "success",
+  "child_pid": 76116,
+  "cleanup": "reaped",
+  "clock_probe": {
+    "minimum": 0,
+    "p50": 0,
+    "p95": 100,
+    "pairs": 4096,
+    "scope": "timer-call baseline only; not UI instrumentation overhead",
+    "unit": "ns"
+  },
+  "config_sha256": "20ebbbc56f6f7807e4f8239e463dcea359140b87556c3efcad1bde109de49f67",
+  "configuration": {
+    "input": {
+      "path": "fixtures/m2/runner-input.txt",
+      "sha256": "9a6396eb97f15208ce556c85d03bac00a93637afc54e39533e7fdf70e313e435"
+    },
+    "measurement": {
+      "active_ms": 30000,
+      "aggregation": "retain raw samples; nearest-rank p50/p95/p99; report missed periods and lost events",
+      "clock": "std::time::Instant (Windows QPC); process-relative nanoseconds",
+      "idle_ms": 30000,
+      "instrumentation": "paired enabled/disabled runs; report delta, never subtract silently",
+      "reload_cycles": 100,
+      "repetitions": 5,
+      "sample_ms": 100,
+      "scope": "future hosted measurements only; P2-01 measures no UI or guest performance",
+      "seed": 20261020,
+      "warmup_ms": 5000,
+      "workloads": [
+        "static-clock-caret",
+        "editor-search-typing-complex-script",
+        "virtual-list-10000-scroll",
+        "overlap-drag-resize",
+        "launcher-settings-rich-and-reduced-effects",
+        "token-layout-reload"
+      ]
+    },
+    "profiles": {
+      "full-hd": {
+        "height": 1080,
+        "width": 1920
+      },
+      "hd": {
+        "height": 720,
+        "width": 1280
+      }
+    },
+    "refresh_hz": 60,
+    "scales": [
+      1.0,
+      1.5,
+      2.0
+    ],
+    "schema_version": 1,
+    "timeout_ms": 1000
+  },
+  "deadline_ms": 1000,
+  "debug_assertions": false,
+  "elapsed_ns": "83570100",
+  "executable_sha256": "908bf7e62d3520fe0ab68bbcb767ed7a21fe1625fcbbf15466f62c941cfeebc4",
+  "exit_code": 0,
+  "guest_metrics": false,
+  "harness_source_sha256": "f9cab441b008dec7b92fe3e4a227cf4e3325245587bcf009e7e03bd224056eab",
+  "host_pid": 77612,
+  "input_sha256": "9a6396eb97f15208ce556c85d03bac00a93637afc54e39533e7fdf70e313e435",
+  "launched": true,
+  "os": "windows",
+  "outcome": "exited-zero",
+  "profile": "full-hd",
+  "rendered": false,
+  "run_id": "run-1792552961850475200-77612",
+  "scale": "1.5",
+  "schema_version": 1,
+  "status": "passed",
+  "story": "P2-01"
+}

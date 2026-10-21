@@ -1,0 +1,73 @@
+{
+  "results": [
+    {
+      "feature": "architecture",
+      "compile": "passed",
+      "link": "passed",
+      "blocker": null,
+      "runtime": "untested",
+      "compile_log": "architecture-compile.log",
+      "link_log": "architecture-link.log"
+    },
+    {
+      "feature": "raster",
+      "compile": "passed",
+      "link": "blocked",
+      "blocker": "No guest allocator; linker symbol closure remains unverified",
+      "runtime": "untested",
+      "compile_log": "raster-compile.log",
+      "link_log": "raster-link.log"
+    },
+    {
+      "feature": "shaping",
+      "compile": "passed",
+      "link": "blocked",
+      "blocker": "No guest allocator; linker symbol closure remains unverified",
+      "runtime": "untested",
+      "compile_log": "shaping-compile.log",
+      "link_log": "shaping-link.log"
+    },
+    {
+      "feature": "font",
+      "compile": "passed",
+      "link": "blocked",
+      "blocker": "No guest allocator; linker symbol closure remains unverified",
+      "runtime": "untested",
+      "compile_log": "font-compile.log",
+      "link_log": "font-link.log"
+    },
+    {
+      "feature": "toolkit",
+      "compile": "passed",
+      "link": "blocked",
+      "blocker": "No guest allocator; linker symbol closure remains unverified",
+      "runtime": "untested",
+      "compile_log": "toolkit-compile.log",
+      "link_log": "toolkit-link.log"
+    }
+  ],
+  "toolkit_selected": false,
+  "full_report_local": "work\\dependency-probes\\1792553183054\\dependency-report.json",
+  "schema_version": 1,
+  "runtime_tested": false,
+  "inputs": [
+    {
+      "sha256": "d6394dc47e21990a327f3e02ba846f4df39e62b59a51d0415c113f3453052bb2",
+      "path": "experiments/dependencies/Cargo.toml"
+    },
+    {
+      "sha256": "ae2c7f5da67542237b111a5834db5dde2cea9cd84db8034f2d60034ad84b0fc5",
+      "path": "experiments/dependencies/Cargo.lock"
+    },
+    {
+      "sha256": "ba8e73521ade2023199e668e1d350330254a8451438d6686a650720fdff0be0b",
+      "path": "experiments/dependencies/src/lib.rs"
+    },
+    {
+      "sha256": "a504a23d9c05580ad5d6270d442d49084655464d6d13c368f68c9e06ced5409c",
+      "path": "experiments/dependencies/src/link.rs"
+    }
+  ],
+  "full_local_report_sha256": "dff01bf4359f838b57c65b75795eaadb2772e07a3ba8c9f52d18432511f7850c",
+  "lock_sha256": "ae2c7f5da67542237b111a5834db5dde2cea9cd84db8034f2d60034ad84b0fc5"
+}

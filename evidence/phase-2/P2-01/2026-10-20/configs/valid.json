@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "profiles": {
+    "hd": {
+      "width": 1280,
+      "height": 720
+    },
+    "full-hd": {
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "scales": [
+    1.0,
+    1.5,
+    2.0
+  ],
+  "refresh_hz": 60,
+  "timeout_ms": 1000,
+  "input": {
+    "path": "build/m2/P2-01/acceptance-1792552927687/config with spaces/input with spaces.txt",
+    "sha256": "9a6396eb97f15208ce556c85d03bac00a93637afc54e39533e7fdf70e313e435"
+  },
+  "measurement": {
+    "clock": "std::time::Instant (Windows QPC); process-relative nanoseconds",
+    "seed": 20261020,
+    "warmup_ms": 5000,
+    "sample_ms": 100,
+    "active_ms": 30000,
+    "idle_ms": 30000,
+    "repetitions": 5,
+    "reload_cycles": 100,
+    "instrumentation": "paired enabled/disabled runs; report delta, never subtract silently",
+    "workloads": [
+      "static-clock-caret",
+      "editor-search-typing-complex-script",
+      "virtual-list-10000-scroll",
+      "overlap-drag-resize",
+      "launcher-settings-rich-and-reduced-effects",
+      "token-layout-reload"
+    ],
+    "aggregation": "retain raw samples; nearest-rank p50/p95/p99; report missed periods and lost events",
+    "scope": "future hosted measurements only; P2-01 measures no UI or guest performance"
+  }
+}

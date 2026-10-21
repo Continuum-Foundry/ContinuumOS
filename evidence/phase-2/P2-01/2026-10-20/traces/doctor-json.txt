@@ -1,0 +1,136 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running `pwsh -NoProfile -File ${WORKSPACE}\tools\windows\Invoke-DevExecutable.ps1 build\cargo\signed\debug\xtask.exe doctor --json`
+{
+  "schema_version": 1,
+  "platform": "Microsoft Windows NT 10.0.26300.0",
+  "architecture": "X64",
+  "powershell": "7.6.5",
+  "free_bytes": 364582936576,
+  "tools": [
+    {
+      "name": "git",
+      "status": "available",
+      "path": "C:\\Program Files\\Git\\cmd\\git.exe",
+      "override": "CONTINUUM_GIT",
+      "required_for_compile": false,
+      "detail": "git version 2.55.0.windows.5"
+    },
+    {
+      "name": "gh",
+      "status": "available",
+      "path": "C:\\Program Files\\GitHub CLI\\gh.exe",
+      "override": "CONTINUUM_GH",
+      "required_for_compile": false,
+      "detail": "gh version 2.101.0 (2026-09-15)\nhttps://github.com/cli/cli/releases/tag/v2.101.0"
+    },
+    {
+      "name": "node",
+      "status": "available",
+      "path": "${USERPROFILE}\\AppData\\Local\\nvm\\v26.9.0\\node.exe",
+      "override": "CONTINUUM_NODE",
+      "required_for_compile": false,
+      "detail": "v26.9.0"
+    },
+    {
+      "name": "rustc",
+      "status": "available",
+      "path": "${WORKSPACE}\\work\\toolchains\\cargo\\bin\\rustc.exe",
+      "override": "CONTINUUM_RUSTC",
+      "required_for_compile": true,
+      "detail": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1"
+    },
+    {
+      "name": "cargo",
+      "status": "available",
+      "path": "${WORKSPACE}\\work\\toolchains\\cargo\\bin\\cargo.exe",
+      "override": "CONTINUUM_CARGO",
+      "required_for_compile": true,
+      "detail": "cargo 1.99.1 (5f94df478 2026-08-27)"
+    },
+    {
+      "name": "link",
+      "status": "available",
+      "path": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe",
+      "override": "CONTINUUM_LINK",
+      "required_for_compile": true,
+      "detail": "File version: 14.51.36257.0; host invocation is tested by the xtask build"
+    },
+    {
+      "name": "rust-lld",
+      "status": "available",
+      "path": "${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc/lib/rustlib/x86_64-pc-windows-msvc/bin/rust-lld.exe",
+      "override": "CONTINUUM_RUST_LLD",
+      "required_for_compile": true,
+      "detail": "LLD 23.1.1 (https://github.com/rust-lang/llvm-project.git 1b9c0d5ff9bbe7634aead059efe6b11a7eeba145) (compatible with GNU linkers)"
+    },
+    {
+      "name": "llvm-readobj",
+      "status": "available",
+      "path": "${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc/lib/rustlib/x86_64-pc-windows-msvc/bin/llvm-readobj.exe",
+      "override": "CONTINUUM_LLVM_READOBJ",
+      "required_for_compile": false,
+      "detail": "LLVM (http://llvm.org/):\n  LLVM version 23.1.1-rust-1.99.1-stable\n  Optimized build."
+    },
+    {
+      "name": "llvm-nm",
+      "status": "available",
+      "path": "${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc/lib/rustlib/x86_64-pc-windows-msvc/bin/llvm-nm.exe",
+      "override": "CONTINUUM_LLVM_NM",
+      "required_for_compile": false,
+      "detail": "llvm-nm, compatible with GNU nm\nLLVM (http://llvm.org/):\n  LLVM version 23.1.1-rust-1.99.1-stable\n  Optimized build."
+    },
+    {
+      "name": "qemu-system-x86_64",
+      "status": "available",
+      "path": "${WORKSPACE}/work/tools/qemu/qemu-system-x86_64.exe",
+      "override": "CONTINUUM_QEMU_SYSTEM_X86_64",
+      "required_for_compile": false,
+      "detail": "QEMU emulator version 11.1.0 (v11.1.0-12130-ge470268ff4)\r\nCopyright (c) 2003-2026 Fabrice Bellard and the QEMU Project developers"
+    },
+    {
+      "name": "xorriso",
+      "status": "available",
+      "path": "${WORKSPACE}/work/tools/iso/usr/bin/xorriso.exe",
+      "override": "CONTINUUM_XORRISO",
+      "required_for_compile": false,
+      "detail": "GNU xorriso 1.5.8.pl02\nISO 9660 Rock Ridge filesystem manipulator and CD/DVD/BD burn program\nCopyright (C) 2026, Thomas Schmitt <scdbackup@gmx.net>, libburnia project.\nxorriso version   :  1.5.8.pl02\nVersion timestamp :  2026.05.22.150001\nBuild timestamp   :  -none-given-\nlibisofs   in use :  1.5.8  (min. 1.5.8)\nlibjte     in use :  2.0.0  (min. 2.0.0)\nlibburn    in use :  1.5.8  (min. 1.5.8)\nlibburn OS adapter:  internal X/Open adapter sg-dummy\nlibisoburn in use :  1.5.8  (min. 1.5.8)\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\nGNU xorriso 1.5.8.pl02 : RockRidge filesystem manipulator, libburnia project."
+    },
+    {
+      "name": "oscdimg",
+      "status": "missing",
+      "path": null,
+      "override": "CONTINUUM_OSCDIMG",
+      "required_for_compile": false,
+      "detail": "Not found on PATH or checked standard locations"
+    }
+  ],
+  "windows_sdk": {
+    "status": "available",
+    "libraries": [
+      "C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.26100.0\\um\\x64\\kernel32.Lib",
+      "C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.26100.0\\ucrt\\x64\\ucrt.lib"
+    ]
+  },
+  "firmware": {
+    "path": "${WORKSPACE}/work/tools/qemu/share/edk2-x86_64-code.fd",
+    "status": "available",
+    "sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+    "boot_tested": false
+  },
+  "virtualization": {
+    "firmware_virtualization": false,
+    "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+    "whpx": "untested",
+    "hypervisor_present": true,
+    "status": "available",
+    "slat": false
+  },
+  "wsl": {
+    "policy": "Not used or installed by Phase 0",
+    "status": "untested"
+  },
+  "guest_target": "x86_64-unknown-none",
+  "guest_core_status": "available",
+  "host_target": "x86_64-pc-windows-msvc",
+  "boot_tested": false
+}

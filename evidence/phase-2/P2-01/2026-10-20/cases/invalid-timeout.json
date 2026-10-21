@@ -1,0 +1,32 @@
+{
+  "architecture": "x86_64",
+  "cargo_lock_sha256": "87e685b48d370f8da6b418e28823f673e5b0da52cba46f5118be8ccbd59bc6ef",
+  "cargo_manifest_sha256": "95d14c2d2af7932f1923a6012ebdcee2b92c1819b1451505483b62ef0532d334",
+  "case": "success",
+  "cleanup": "not-launched",
+  "clock_probe": {
+    "minimum": 0,
+    "p50": 0,
+    "p95": 100,
+    "pairs": 4096,
+    "scope": "timer-call baseline only; not UI instrumentation overhead",
+    "unit": "ns"
+  },
+  "config_sha256": "75bf1825099e74cba852aea489ad846f65d5e6832149936ebafac8653eb88ef7",
+  "debug_assertions": true,
+  "exit_code": null,
+  "guest_metrics": false,
+  "harness_source_sha256": "f9cab441b008dec7b92fe3e4a227cf4e3325245587bcf009e7e03bd224056eab",
+  "host_pid": 75852,
+  "launched": false,
+  "os": "windows",
+  "outcome": "validation-rejected",
+  "profile": "hd",
+  "reason": "timeout_ms must be an integer in 100..=10000",
+  "rendered": false,
+  "run_id": "run-1792552982950037200-75852",
+  "scale": "1.0",
+  "schema_version": 1,
+  "status": "failed",
+  "story": "P2-01"
+}

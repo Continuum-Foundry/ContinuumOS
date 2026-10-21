@@ -23,6 +23,16 @@ M1 is decomposed into [seven local Phase 1 stories](phase-1/README.md), retainin
 the Bxx identifiers below. The stories expose B03/B04's minimal serial bootstrap
 and separate B06's M1 timer baseline from its later scheduling/context work.
 
+M2 is decomposed into [thirteen local Phase 2 stories](phase-2/README.md).
+P2-01's [local acceptance](../../evidence/phase-2/P2-01/2026-10-20/README.md) rechecks
+B01/B02 and adds fixed profiles/bounded headless lifecycle infrastructure for B32;
+P2-02–P2-13 remain Not started. P2-02 through P2-09 cover B36 and initial
+B07/B08/B09/B37 boundaries, candidates, target links and decision. P2-10 completes
+the hosted portions of B07/B08/B09; P2-11 covers B10, and P2-12/P2-13 cover M2's
+B32 measurements/acceptance. B37 remains interface/model work until its B13 and
+replacement dependencies pass; B07/B36 still need M4 guest confirmation. This
+decomposition does not change the Bxx dependencies or mark later requirements Done.
+
 | ID | Owner / task | Depends on | Definition of done | Requirements |
 | --- | --- | --- | --- | --- |
 | B01 | Build: inventory host and candidate tools | Docs | Paths, versions, licenses, host constraints and fallback report | R03,R16,R18 |

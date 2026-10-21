@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:continuumos:draft:hosted-paint:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "premultiply",
+    "source_over",
+    "missing_icon",
+    "constant_blur"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "premultiply": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "straight",
+          "expected"
+        ],
+        "properties": {
+          "straight": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "expected": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "minItems": 4,
+            "maxItems": 4
+          }
+        }
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "source_over": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "destination",
+          "expected"
+        ],
+        "properties": {
+          "source": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "destination": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "expected": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "minItems": 4,
+            "maxItems": 4
+          }
+        }
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "missing_icon": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "pixels"
+      ],
+      "properties": {
+        "width": {
+          "const": 2
+        },
+        "height": {
+          "const": 2
+        },
+        "pixels": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      }
+    },
+    "constant_blur": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input",
+        "radius",
+        "passes",
+        "expected"
+      ],
+      "properties": {
+        "input": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "radius": {
+          "const": 8
+        },
+        "passes": {
+          "const": 3
+        },
+        "expected": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      }
+    }
+  }
+}

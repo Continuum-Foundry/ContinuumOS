@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "story": "P2-02",
+  "status": "passed",
+  "reviewer": "Codex local self-review; not independent approval",
+  "review_date": "2026-10-21",
+  "timezone": "America/New_York",
+  "branch": "codex/p2-02-shared-boundaries-fixtures",
+  "source_base": "54ae8fe60e9e693cad196642969153e64e7fda6b",
+  "acceptance": "build/m2/P2-02/acceptance-1792555584434",
+  "prerequisites": "build/m2/P2-01/prerequisites-1792554193225",
+  "compiled_inputs_match_current": true,
+  "signed_host_executable_sha256": "d04342494eb70d8f2d0be02604dbd54805260b50df3dbb911a66b0d137afdf24",
+  "corpus_lock_sha256": "674e96d299fe5dfe651c9ca49e6d671d8207a814ed9cc106d6f6e930cfcb50e2",
+  "positive_fixture_files": 7,
+  "negative_mutations": 56,
+  "independent_schema_checks": 63,
+  "arithmetic_overflow_cases": 2,
+  "nonfinite_parse_cases": 3,
+  "xtask_tests": 18,
+  "two_generated_files_identical": true,
+  "generated_file_list_sha256": "ba16344854638caeaaaa34c69696ba4dac54fb4742c6ec41dc947af9a1ac0196",
+  "generated_rows": 10000,
+  "declared_visual_configurations": 30,
+  "declared_future_capture_cases": 150,
+  "criteria": [
+    {
+      "criterion": "Identical candidate inputs and predeclared rich/reduced visual/semantic rules",
+      "result": "passed",
+      "evidence": "Source lock, shared draft, both candidate stories, variants and workflow assertions"
+    },
+    {
+      "criterion": "Explicit buffer/color/bounds/identity/input contracts independent of toolkits",
+      "result": "passed",
+      "evidence": "Surface leases plus serials, paint vectors, graph and input negative cases"
+    },
+    {
+      "criterion": "Validated non-executable versioned layout subset with complexity rejection",
+      "result": "passed",
+      "evidence": "Seven closed schemas; unknown callback/kind/version, cycle/depth/count/resource/action rejection"
+    },
+    {
+      "criterion": "Golden rules separate from focus/action/document/semantic assertions",
+      "result": "passed",
+      "evidence": "Future capture rules and independent expected states; no images or actual action execution claimed"
+    },
+    {
+      "criterion": "Consistent specs/schemas/checks and honest implementation boundary",
+      "result": "passed",
+      "evidence": "Audits, compiled/review input hashes, status handoffs; no ABI IDs or guest implementation"
+    }
+  ],
+  "limits": {
+    "render_tested": false,
+    "goldens_created": false,
+    "action_execution_tested": false,
+    "actual_queue_overflow_tested": false,
+    "reload_tested": false,
+    "guest_tested": false,
+    "performance_measured": false,
+    "font_provenance_gate": "P2-04",
+    "next_story": "P2-03"
+  },
+  "retained_result": "fixture-result.json",
+  "full_generated_data_retained_in_git": false
+}

@@ -1,6 +1,6 @@
 # P2-02 — Define shared UI boundaries and reference fixtures
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Codex (local implementation/self-review).
 Depends on: P2-01 Done. Suggested labels: `phase-2`, `ui-contracts`, `fixtures`.
 Backlog: B07/B08 design, B36 fixtures. Requirements: R04/R08/R15/R18; early R14.
 Test families: hosted T05/T10/T13; contract preparation only.
@@ -35,15 +35,15 @@ candidates solve the same product problem and can later connect to our guest.
 
 ## Acceptance criteria
 
-- [ ] Both candidate stories have identical scene/data/input/profile fixtures and
+- [x] Both candidate stories have identical scene/data/input/profile fixtures and
   predeclared visual/semantic acceptance rules, including the rich-effect case.
-- [ ] Buffer ownership, color policy, bounds, stable IDs and input ordering have
+- [x] Buffer ownership, color policy, bounds, stable IDs and input ordering have
   explicit contracts and fixtures independent of toolkit internals.
-- [ ] Layout data contains only validated values/IDs with an explicit supported
+- [x] Layout data contains only validated values/IDs with an explicit supported
   subset; unknown versions, cycles and excessive complexity have rejection rules.
-- [ ] Golden snapshots and semantic assertions are distinct; a screenshot cannot
+- [x] Golden snapshots and semantic assertions are distinct; a screenshot cannot
   satisfy a focus/action/state requirement.
-- [ ] Contract/spec/schema changes are consistent and existing documentation/schema
+- [x] Contract/spec/schema changes are consistent and existing documentation/schema
   checks pass; no guest IPC implementation or permanent ABI is claimed.
 
 ## Tests and evidence
@@ -60,3 +60,12 @@ transport. P2-03 receives logical state/action boundaries; P2-05/P2-06 receive t
 same product corpus. Sources: [UI design](../../02-architecture/ui-framework-and-design.md),
 [surface contract](../../06-contracts/ui-and-scene-protocol.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+Implementation: [shared draft contract](../../06-contracts/hosted-ui-fixtures.md),
+[source fixtures/lock](../../../fixtures/m2/ui-v1/README.md),
+[reproduction runbook](shared-fixtures-runbook.md), and
+[accepted local review](../../../evidence/phase-2/P2-02/2026-10-21/README.md).
+Seven positive inputs, 56 negative mutations, two checked-overflow cases, three
+nonfinite parse cases, independent schema checks and two exact deterministic
+generations pass. This is a data-contract/corpus acceptance; it supplies future
+golden rules, not rendered screenshots or executed UI/action/reload results.

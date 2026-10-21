@@ -65,7 +65,7 @@ is approved.
 | Interfaces | [Kernel objects and IPC](06-contracts/ipc-and-objects.md), [update format](06-contracts/update-wire-format.md), [scene protocol](06-contracts/ui-and-scene-protocol.md), [package manifest](06-contracts/package-manifest.md) |
 | Execution | [Backlog](05-delivery/backlog.md), [build and release](05-delivery/build-and-release.md), [validation](05-delivery/validation.md), [risks and open questions](05-delivery/risks-and-open-questions.md) |
 | Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md), [host module layout](05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout), [metadata runbook](05-delivery/phase-1/boot-metadata-runbook.md) |
-| Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 prerequisite/profile/lifecycle acceptance passes; P2-02–P2-13 Not started |
+| Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 prerequisites and P2-02 shared corpus accepted locally; P2-03–P2-13 Not started |
 
 ## Status and interpretation
 
@@ -97,7 +97,9 @@ For the hosted UI workstream, compare Slint with a minimal custom UI core and
 prove resource reload while a document remains open. The independent ISO path
 has reached checked metadata, fatal diagnostics and P1-05 owned mappings.
 P1-07 and the [Phase 2 prerequisite recheck](05-delivery/phase-2/01-hosted-prerequisites-and-profiles.md)
-now pass; the next bounded step is [P2-02 shared boundaries and reference fixtures](05-delivery/phase-2/02-shared-boundaries-and-reference-fixtures.md), followed by the hosted Slint/custom comparison,
+now pass. [P2-02 shared boundaries and fixtures](05-delivery/phase-2/02-shared-boundaries-and-reference-fixtures.md)
+also pass [local acceptance](../evidence/phase-2/P2-02/2026-10-21/README.md).
+The next bounded step is [P2-03 document state and typed actions](05-delivery/phase-2/03-document-state-and-typed-actions.md), followed by fonts and the hosted Slint/custom comparison,
 before bringing UI primitives to the guest framebuffer.
 Establish user-mode isolation and a small
 authenticated development channel before native service replacement. This parallel

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:continuumos:draft:hosted-surface:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "width",
+    "height",
+    "stride",
+    "byte_length",
+    "format",
+    "generation",
+    "base_revision",
+    "new_revision",
+    "damage",
+    "leases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4096
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4096
+    },
+    "stride": {
+      "type": "integer",
+      "minimum": 4,
+      "maximum": 16777216
+    },
+    "byte_length": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 67108864
+    },
+    "format": {
+      "enum": [
+        "rgba8-premultiplied-srgb"
+      ]
+    },
+    "generation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "base_revision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "new_revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "damage": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number",
+          "minimum": -16384,
+          "maximum": 16384
+        },
+        "minItems": 4,
+        "maxItems": 4
+      },
+      "minItems": 0,
+      "maxItems": 64
+    },
+    "leases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "op",
+          "buffer",
+          "generation",
+          "lease"
+        ],
+        "properties": {
+          "op": {
+            "enum": [
+              "acquire",
+              "write",
+              "commit",
+              "release"
+            ]
+          },
+          "buffer": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "generation": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4294967295
+          },
+          "lease": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4294967295
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 256
+    }
+  }
+}

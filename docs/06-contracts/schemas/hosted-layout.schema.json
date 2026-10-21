@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:continuumos:draft:hosted-layout:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generation",
+    "base_revision",
+    "new_revision",
+    "root",
+    "nodes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "generation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "base_revision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "new_revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "root": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "children",
+          "rect",
+          "clip",
+          "opacity",
+          "text",
+          "action",
+          "resource",
+          "semantic",
+          "focusable"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "kind": {
+            "enum": [
+              "row",
+              "column",
+              "overlay",
+              "box",
+              "scroll",
+              "virtual-list",
+              "label",
+              "button",
+              "text-field",
+              "editor",
+              "toggle"
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "minItems": 0,
+            "maxItems": 64
+          },
+          "rect": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": -16384,
+              "maximum": 16384
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "clip": {
+            "type": "boolean"
+          },
+          "opacity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
+          },
+          "action": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 64
+          },
+          "resource": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 64
+          },
+          "semantic": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "role",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "role": {
+                "enum": [
+                  "group",
+                  "textbox",
+                  "list",
+                  "button",
+                  "checkbox"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              }
+            }
+          },
+          "focusable": {
+            "type": "boolean"
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 1024
+    }
+  }
+}

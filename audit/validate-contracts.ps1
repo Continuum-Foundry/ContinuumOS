@@ -42,9 +42,17 @@ Check-Fixture 'reject negative update epoch' $updSchema ($upd | ConvertTo-Json -
 $upd = $updRaw | ConvertFrom-Json -AsHashtable
 $upd.max_checkpoint_bytes = 16777217
 Check-Fixture 'reject oversized checkpoint declaration' $updSchema ($upd | ConvertTo-Json -Depth 30) $false
+foreach ($name in @('surface','tokens','layout','corpus','workflow','variants','paint')) {
+    $schema = (Resolve-Path "docs/06-contracts/schemas/hosted-$name.schema.json").Path
+    $raw = Get-Content -LiteralPath "fixtures/m2/ui-v1/$name.json" -Raw
+    Check-Fixture "hosted $name positive authored fixture" $schema $raw $true
+    $invalid = $raw | ConvertFrom-Json -AsHashtable
+    $invalid.schema_version = 2
+    Check-Fixture "hosted $name rejects unsupported data version" $schema ($invalid | ConvertTo-Json -Depth 100) $false
+}
 $report = [ordered]@{
     validator = 'PowerShell Test-Json'; powershell = $PSVersionTable.PSVersion.ToString()
-    dialect = 'JSON Schema 2020-12'; positive = 2; negative = 9
+    dialect = 'JSON Schema 2020-12'; positive = 9; negative = 16
     scope = 'Schema structure and synthetic fixtures only. No payload integrity, semantic compatibility, authentication or OS behavior tested.'
     results = $results
 }

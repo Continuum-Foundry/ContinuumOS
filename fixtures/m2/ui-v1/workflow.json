@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "steps": [
+    {
+      "id": "initial",
+      "events": [],
+      "assertions": {
+        "focus": "editor",
+        "document": "Draft: unsaved\n",
+        "revision": 11,
+        "selection": [
+          7,
+          14
+        ],
+        "dirty": true
+      }
+    },
+    {
+      "id": "replace-selection",
+      "events": [
+        {
+          "sequence": 1,
+          "time_us": 10000,
+          "kind": "key",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 4,
+          "pressed": true,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 2,
+          "time_us": 20000,
+          "kind": "text",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "notes",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 3,
+          "time_us": 30000,
+          "kind": "key",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 4,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        }
+      ],
+      "assertions": {
+        "focus": "editor",
+        "document": "Draft: notes\n",
+        "revision": 12,
+        "selection": [
+          12,
+          12
+        ],
+        "dirty": true,
+        "action": "edit.insert@1"
+      }
+    },
+    {
+      "id": "search-keyboard",
+      "events": [
+        {
+          "sequence": 4,
+          "time_us": 40000,
+          "kind": "key",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 43,
+          "pressed": true,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 5,
+          "time_us": 50000,
+          "kind": "focus",
+          "target": "search",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 6,
+          "time_us": 60000,
+          "kind": "key",
+          "target": "search",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 43,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 7,
+          "time_us": 70000,
+          "kind": "text",
+          "target": "search",
+          "scene_revision": 4,
+          "text": "notes",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        }
+      ],
+      "assertions": {
+        "focus": "search",
+        "search": "notes",
+        "match_count": 1,
+        "document_revision": 12,
+        "action": "search.set@1"
+      }
+    },
+    {
+      "id": "file-scroll-select",
+      "events": [
+        {
+          "sequence": 8,
+          "time_us": 80000,
+          "kind": "focus",
+          "target": "files-window",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 9,
+          "time_us": 90000,
+          "kind": "scroll",
+          "target": "files-window",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 2400,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 10,
+          "time_us": 100000,
+          "kind": "pointer",
+          "target": "files-window",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 452,
+          "y": 32,
+          "button": 1,
+          "phase": "down"
+        },
+        {
+          "sequence": 11,
+          "time_us": 110000,
+          "kind": "capture",
+          "target": "files-window",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 12,
+          "time_us": 120000,
+          "kind": "pointer",
+          "target": "files-window",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 452,
+          "y": 32,
+          "button": 1,
+          "phase": "up"
+        },
+        {
+          "sequence": 13,
+          "time_us": 130000,
+          "kind": "capture",
+          "target": "",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        }
+      ],
+      "assertions": {
+        "focus": "files-window",
+        "scroll_row": 100,
+        "selected_file": 101,
+        "realized_max": 64,
+        "semantic_logical_count": 10000,
+        "action": "files.select@1"
+      }
+    },
+    {
+      "id": "launcher",
+      "events": [
+        {
+          "sequence": 14,
+          "time_us": 140000,
+          "kind": "focus",
+          "target": "launch-editor",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 15,
+          "time_us": 150000,
+          "kind": "key",
+          "target": "launch-editor",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 40,
+          "pressed": true,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 16,
+          "time_us": 160000,
+          "kind": "key",
+          "target": "launch-editor",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 40,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        }
+      ],
+      "assertions": {
+        "focus": "editor",
+        "same_document": true,
+        "action": "launcher.open@1"
+      }
+    },
+    {
+      "id": "effects-toggle",
+      "events": [
+        {
+          "sequence": 17,
+          "time_us": 170000,
+          "kind": "focus",
+          "target": "reduced-effects",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 18,
+          "time_us": 180000,
+          "kind": "pointer",
+          "target": "reduced-effects",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 404,
+          "y": 140,
+          "button": 1,
+          "phase": "down"
+        },
+        {
+          "sequence": 19,
+          "time_us": 190000,
+          "kind": "pointer",
+          "target": "reduced-effects",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 404,
+          "y": 140,
+          "button": 1,
+          "phase": "up"
+        }
+      ],
+      "assertions": {
+        "focus": "reduced-effects",
+        "reduced_effects": true,
+        "same_semantic_actions": true,
+        "action": "settings.effects@1"
+      }
+    },
+    {
+      "id": "motion-toggle",
+      "events": [
+        {
+          "sequence": 20,
+          "time_us": 200000,
+          "kind": "focus",
+          "target": "reduced-motion",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 21,
+          "time_us": 210000,
+          "kind": "key",
+          "target": "reduced-motion",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 44,
+          "pressed": true,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 22,
+          "time_us": 220000,
+          "kind": "key",
+          "target": "reduced-motion",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 44,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        }
+      ],
+      "assertions": {
+        "focus": "reduced-motion",
+        "motion_ms": 0,
+        "action": "settings.motion@1"
+      }
+    },
+    {
+      "id": "composition-cancel",
+      "events": [
+        {
+          "sequence": 23,
+          "time_us": 230000,
+          "kind": "focus",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 24,
+          "time_us": 240000,
+          "kind": "composition",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "に",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "start"
+        },
+        {
+          "sequence": 25,
+          "time_us": 250000,
+          "kind": "composition",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "日本",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "update"
+        },
+        {
+          "sequence": 26,
+          "time_us": 260000,
+          "kind": "composition",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "cancel"
+        }
+      ],
+      "assertions": {
+        "focus": "editor",
+        "document": "Draft: notes\n",
+        "revision": 12,
+        "composition_active": false
+      }
+    },
+    {
+      "id": "composition-commit",
+      "events": [
+        {
+          "sequence": 27,
+          "time_us": 270000,
+          "kind": "composition",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "日本",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "start"
+        },
+        {
+          "sequence": 28,
+          "time_us": 280000,
+          "kind": "composition",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "日本",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "commit"
+        }
+      ],
+      "assertions": {
+        "document": "Draft: notes日本\n",
+        "revision": 13,
+        "selection": [
+          18,
+          18
+        ],
+        "composition_active": false,
+        "action": "edit.insert@1"
+      }
+    },
+    {
+      "id": "cancel-reset",
+      "events": [
+        {
+          "sequence": 29,
+          "time_us": 290000,
+          "kind": "key",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 225,
+          "pressed": true,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 30,
+          "time_us": 300000,
+          "kind": "capture",
+          "target": "editor",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        },
+        {
+          "sequence": 31,
+          "time_us": 310000,
+          "kind": "reset",
+          "target": "",
+          "scene_revision": 4,
+          "text": "",
+          "usage": 0,
+          "pressed": false,
+          "x": 0,
+          "y": 0,
+          "button": 0,
+          "phase": "none"
+        }
+      ],
+      "assertions": {
+        "capture": "",
+        "pressed_keys": 0,
+        "composition_active": false,
+        "document_revision": 13,
+        "cancelled": true
+      }
+    }
+  ]
+}

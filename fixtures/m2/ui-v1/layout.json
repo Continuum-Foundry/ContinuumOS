@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "generation": 7,
+  "base_revision": 3,
+  "new_revision": 4,
+  "root": "desktop",
+  "nodes": [
+    {
+      "id": "desktop",
+      "kind": "overlay",
+      "children": [
+        "editor-window",
+        "files-window",
+        "launcher",
+        "settings"
+      ],
+      "rect": [
+        0,
+        0,
+        640,
+        360
+      ],
+      "clip": false,
+      "opacity": 1,
+      "text": "",
+      "action": "",
+      "resource": "",
+      "semantic": {
+        "id": "sem.desktop",
+        "role": "group",
+        "name": "desktop"
+      },
+      "focusable": false
+    },
+    {
+      "id": "editor-window",
+      "kind": "column",
+      "children": [
+        "sidebar",
+        "search",
+        "editor",
+        "status"
+      ],
+      "rect": [
+        8,
+        8,
+        420,
+        328
+      ],
+      "clip": false,
+      "opacity": 1,
+      "text": "",
+      "action": "",
+      "resource": "",
+      "semantic": {
+        "id": "sem.editor-window",
+        "role": "group",
+        "name": "editor-window"
+      },
+      "focusable": false
+    },
+    {
+      "id": "sidebar",
+      "kind": "column",
+      "children": [],
+      "rect": [
+        12,
+        40,
+        84,
+        244
+      ],
+      "clip": false,
+      "opacity": 1,
+      "text": "Workspace",
+      "action": "",
+      "resource": "",
+      "semantic": {
+        "id": "sem.sidebar",
+        "role": "group",
+        "name": "Workspace"
+      },
+      "focusable": false
+    },
+    {
+      "id": "search",
+      "kind": "text-field",
+      "children": [],
+      "rect": [
+        104,
+        40,
+        308,
+        28
+      ],
+      "clip": false,
+      "opacity": 1,
+      "text": "Search",
+      "action": "search.set@1",
+      "resource": "",
+      "semantic": {
+        "id": "sem.search",
+        "role": "textbox",
+        "name": "Search"
+      },
+      "focusable": true
+    },
+    {
+      "id": "editor",
+      "kind": "editor",
+      "children": [],
+      "rect": [
+        104,
+        76,
+        308,
+        228
+      ],
+      "clip": true,
+      "opacity": 1,
+      "text": "Unsaved document",
+      "action": "edit.insert@1",
+      "resource": "document.unsaved",
+      "semantic": {
+        "id": "sem.editor",
+        "role": "textbox",
+        "name": "Unsaved document"
+      },
+      "focusable": true
+    },
+    {
+      "id": "status",
+      "kind": "label",
+      "children": [],
+      "rect": [
+        104,
+        312,
+        308,
+        20
+      ],
+      "clip": false,
+      "opacity": 1,
+      "text": "Unsaved • UTF-8",
+      "action": "",
+      "resource": "",
+      "semantic": {
+        "id": "sem.status",
+        "role": "group",
+        "name": "Unsaved • UTF-8"
+      },
+      "focusable": false
+    },
+    {
+      "id": "files-window",
+      "kind": "virtual-list",
+      "children": [],
+      "rect": [
+        440,
+        8,
+        192,
+        328
+      ],
+      "clip": true,
+      "opacity": 1,
+      "text": "Files",
+      "action": "files.select@1",
+      "resource": "files.synthetic",
+      "semantic": {
+        "id": "sem.files-window",
+        "role": "list",
+        "name": "Files"
+      },
+      "focusable": true
+    },
+    {
+      "id": "launcher",
+      "kind": "overlay",
+      "children": [
+        "launch-editor"
+      ],
+      "rect": [
+        320,
+        180,
+        200,
+        140
+      ],
+      "clip": true,
+      "opacity": 0.88,
+      "text": "Launcher",
+      "action": "",
+      "resource": "",
+      "semantic": {
+        "id": "sem.launcher",
+        "role": "group",
+        "name": "Launcher"
+      },
+      "focusable": false
+    },
+    {
+      "id": "launch-editor",
+      "kind": "button",
+      "children": [],
+      "rect": [
+        332,
+        220,
+        176,
+        28
+      ],
+      "clip": false,
+      "opacity": 1,
+      "text": "Editor",
+      "action": "launcher.open@1",
+      "resource": "",
+      "semantic": {
+        "id": "sem.launch-editor",
+        "role": "button",
+        "name": "Editor"
+      },
+      "focusable": true
+    },
+    {
+      "id": "settings",
+      "kind": "column",
+      "children": [
+        "reduced-effects",
+        "reduced-motion"
+      ],
+      "rect": [
+        380,
+        92,
+        240,
+        144
+      ],
+      "clip": true,
+      "opacity": 1,
+      "text": "Settings",
+      "action": "",
+      "resource": "",
+      "semantic": {
+        "id": "sem.settings",
+        "role": "group",
+        "name": "Settings"
+      },
+      "focusable": false
+    },
+    {
+      "id": "reduced-effects",
+      "kind": "toggle",
+      "children": [],
+      "rect": [
+        392,
+        128,
+        216,
+        28
+      ],
+      "clip": false,
+      "opacity": 1,
+      "text": "Reduced effects",
+      "action": "settings.effects@1",
+      "resource": "",
+      "semantic": {
+        "id": "sem.reduced-effects",
+        "role": "checkbox",
+        "name": "Reduced effects"
+      },
+      "focusable": true
+    },
+    {
+      "id": "reduced-motion",
+      "kind": "toggle",
+      "children": [],
+      "rect": [
+        392,
+        168,
+        216,
+        28
+      ],
+      "clip": false,
+      "opacity": 1,
+      "text": "Reduced motion",
+      "action": "settings.motion@1",
+      "resource": "",
+      "semantic": {
+        "id": "sem.reduced-motion",
+        "role": "checkbox",
+        "name": "Reduced motion"
+      },
+      "focusable": true
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:continuumos:draft:hosted-corpus:1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "seed",
+    "profiles_path",
+    "physical_sizes",
+    "scales",
+    "variants",
+    "font_slots",
+    "font_gate",
+    "resources",
+    "actions",
+    "text_cases",
+    "file_list",
+    "initial_state",
+    "visual_rules",
+    "fault_scenarios"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "seed": {
+      "const": 20261020
+    },
+    "profiles_path": {
+      "const": "config/m2-profiles.json"
+    },
+    "physical_sizes": {
+      "const": [
+        [
+          1280,
+          720
+        ],
+        [
+          1920,
+          1080
+        ]
+      ]
+    },
+    "scales": {
+      "const": [
+        1,
+        1.5,
+        2
+      ]
+    },
+    "variants": {
+      "const": [
+        "standard",
+        "high-contrast",
+        "reduced-motion",
+        "reduced-effects",
+        "high-contrast-reduced"
+      ]
+    },
+    "font_slots": {
+      "const": [
+        "ui-sans",
+        "ui-mono",
+        "complex-fallback"
+      ]
+    },
+    "font_gate": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "maxItems": 64
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "maxItems": 64
+    },
+    "text_cases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      },
+      "minItems": 7,
+      "maxItems": 32
+    },
+    "file_list": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "count",
+        "realized_max",
+        "row_height",
+        "seed"
+      ],
+      "properties": {
+        "count": {
+          "const": 10000
+        },
+        "realized_max": {
+          "const": 64
+        },
+        "row_height": {
+          "const": 24
+        },
+        "seed": {
+          "const": 20261020
+        }
+      }
+    },
+    "initial_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document",
+        "revision",
+        "selection",
+        "focus",
+        "scroll_row",
+        "selected_file",
+        "window",
+        "dirty"
+      ],
+      "properties": {
+        "document": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "selection": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "focus": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "scroll_row": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9999
+        },
+        "selected_file": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9999
+        },
+        "window": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": -16384,
+            "maximum": 16384
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "dirty": {
+          "const": true
+        }
+      }
+    },
+    "visual_rules": {
+      "const": {
+        "geometry_logical_px": 0.5,
+        "channel_error": 3,
+        "edge_channel_error": 16,
+        "edge_fraction_max": 0.01,
+        "mismatch_fraction_max": 0.001,
+        "outside_clip_error": 0,
+        "golden_policy": "candidate-specific reviewed raster baselines; common geometry/paint rules; no candidate is the other golden"
+      }
+    },
+    "fault_scenarios": {
+      "const": [
+        "missing-icon",
+        "missing-font",
+        "long-label",
+        "complex-script",
+        "stale-pointer",
+        "overflow-reset",
+        "removed-focus",
+        "invalid-layout",
+        "invalid-token"
+      ]
+    }
+  }
+}

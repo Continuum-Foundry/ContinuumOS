@@ -100,7 +100,9 @@ second clean ISO boot/comparison. There is no general heap or user-mode isolatio
 The next milestone is decomposed into [one epic and thirteen local Phase 2 stories](docs/05-delivery/phase-2/README.md):
 compare Slint/custom UI, select provisionally, and prove hosted resource/layout
 reload with preserved work. P2-01's [local prerequisite/profile/lifecycle acceptance](evidence/phase-2/P2-01/2026-10-20/README.md)
-passes; P2-02–P2-13 remain Not started. No Jira issues were created.
+passes. P2-02's [shared-boundary/corpus acceptance](evidence/phase-2/P2-02/2026-10-21/README.md)
+also passes; P2-03–P2-13 remain Not started. The next slice is document state and
+typed actions. No UI is rendered yet and no Jira issues were created.
 
 ## A desktop designed for continuity
 
@@ -212,7 +214,7 @@ named cases and strict serial-record checks remain separate.
 | :--- | :--- | :--- |
 | **Phase 0** | Native tooling, independent links, dependency feasibility | Compile/tooling evidence retained |
 | **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-07 pass local experimental-baseline acceptance |
-| **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01 prerequisites accepted; UI work remains planned |
+| **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01 prerequisites and P2-02 shared corpus accepted; UI implementation remains planned |
 | **M3** | User-mode isolation and bounded IPC | Planned |
 | **M4** | Authenticated development channel and guest resource reload | Planned |
 | **M5** | App replacement with preserved state | Planned |

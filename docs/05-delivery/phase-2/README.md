@@ -27,7 +27,7 @@ local tools and evidence availability before implementation.
 | ID | Story | Depends on | Backlog coverage | Status |
 | --- | --- | --- | --- | --- |
 | P2-01 | [Recheck prerequisites and define hosted profiles](01-hosted-prerequisites-and-profiles.md) | P1-07 Done; Phase 0 recheck | B01/B02 follow-up, B32 setup | Done |
-| P2-02 | [Define shared boundaries and reference fixtures](02-shared-boundaries-and-reference-fixtures.md) | P2-01 | B07/B08 design, B36 fixtures | Not started |
+| P2-02 | [Define shared boundaries and reference fixtures](02-shared-boundaries-and-reference-fixtures.md) | P2-01 | B07/B08 design, B36 fixtures | Done |
 | P2-03 | [Build the document state and typed-action model](03-document-state-and-typed-actions.md) | P2-02 | B09 state subset, M2 design of B37 | Not started |
 | P2-04 | [Establish fonts and text conformance](04-fonts-and-text-conformance.md) | P2-03 | B09, B36 text comparison | Not started |
 | P2-05 | [Build the minimal custom UI candidate](05-minimal-custom-ui-candidate.md) | P2-04 | B07/B08 custom candidate, B36 | Not started |
@@ -84,7 +84,11 @@ When implemented, retain a compact reviewed bundle under
 `evidence/phase-2/<story-id>/<run-id>/`, following the
 [retention policy](../evidence-retention.md): 4 MiB/200 files/256 KiB per file defaults.
 P2-01 now implements the local prerequisite/lifecycle paths in the
-[hosted runbook](hosted-prerequisites-runbook.md); later-story paths remain conventions.
+[hosted runbook](hosted-prerequisites-runbook.md). P2-02's
+[shared fixture runbook](shared-fixtures-runbook.md) and
+[local acceptance](../../../evidence/phase-2/P2-02/2026-10-21/README.md) supply the
+locked comparison corpus and draft schemas. P2-03 is next; later-story paths
+remain conventions. No candidate is rendered or selected by these data checks.
 Each run records:
 
 - Source commit/dirty-input hashes, harness revision, compiler/profile, dependency

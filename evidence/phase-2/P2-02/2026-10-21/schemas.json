@@ -1,0 +1,443 @@
+[
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "surface",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "tokens",
+    "expected": true,
+    "name": "tokens",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "layout",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "corpus",
+    "expected": true,
+    "name": "corpus",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "workflow",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "variants",
+    "expected": true,
+    "name": "variants",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "paint",
+    "expected": true,
+    "name": "paint",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": false,
+    "name": "unsupported-version",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": false,
+    "name": "executable-callback",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": false,
+    "name": "nonfinite-geometry",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "negative-size",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "duplicate-widget",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "duplicate-semantic",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "cycle",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "unknown-child",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "multiple-parents",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "orphan",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "missing-resource",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "unknown-action",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "stale-scene-revision",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "skipped-scene-revision",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "stale-generation",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": false,
+    "name": "excessive-node-count",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": true,
+    "name": "excessive-depth",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "stride-too-small",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "unaligned-stride",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "short-buffer",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": false,
+    "name": "oversize-buffer",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": false,
+    "name": "width-overflow",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "damage-outside",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": false,
+    "name": "damage-fragmentation",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "write-in-use",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "commit-without-acquire",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "release-without-commit",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "wrong-release-generation",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "double-acquire",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "unreleased-buffer",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "tokens",
+    "expected": false,
+    "name": "unknown-color",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "tokens",
+    "expected": false,
+    "name": "negative-font-size",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "tokens",
+    "expected": true,
+    "name": "unknown-font-slot",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "tokens",
+    "expected": false,
+    "name": "unknown-effect",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "layout",
+    "expected": false,
+    "name": "unknown-operation",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "duplicate-event-sequence",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "backward-time",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "stale-pointer",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "unknown-event-target",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "capture-nonfocusable",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "empty-text",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "unpaired-key-up",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": false,
+    "name": "excessive-events",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "invalid-composition-order",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "missing-composition-commit",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "corpus",
+    "expected": false,
+    "name": "unsupported-profile",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "corpus",
+    "expected": false,
+    "name": "mismatched-list-seed",
+    "actual": false,
+    "passed": true
+  },
+  {
+    "file": "corpus",
+    "expected": true,
+    "name": "invalid-selection",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "workflow",
+    "expected": true,
+    "name": "utf8-split-selection",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "paint",
+    "expected": true,
+    "name": "invalid-premultiplied-alpha",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "paint",
+    "expected": true,
+    "name": "incorrect-blend-vector",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "variants",
+    "expected": true,
+    "name": "unknown-variant",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "variants",
+    "expected": true,
+    "name": "missing-capture-checkpoint",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "tokens",
+    "expected": true,
+    "name": "stale-token-generation",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "stale-release-lease",
+    "actual": true,
+    "passed": true
+  },
+  {
+    "file": "surface",
+    "expected": true,
+    "name": "reused-lease-serial",
+    "actual": true,
+    "passed": true
+  }
+]

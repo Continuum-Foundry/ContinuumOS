@@ -12,6 +12,11 @@ reusable toolkit can compete on evidence with the custom candidate.
 
 ## Implementation scope
 
+Common locked input: [P2-02 corpus](../../../fixtures/m2/ui-v1/README.md) and
+[contract](../../06-contracts/hosted-ui-fixtures.md). Use the exact same corpus/
+profile/font locks, 30 configurations, five capture checkpoints and independent
+state/semantic rules as P2-05. Font bytes remain a P2-04 prerequisite.
+
 1. Inspect the locally pinned Slint candidate and current authoritative API/license
    material before relying on it. Record exact version, checksums, feature closure,
    host build/compiler dependencies and shipped runtime dependencies separately.

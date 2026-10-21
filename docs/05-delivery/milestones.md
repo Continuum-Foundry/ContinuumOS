@@ -60,7 +60,10 @@ direct-kernel emulator launch cannot substitute for it.
 Execution from the accepted M1 state is decomposed into
 [one epic and thirteen ordered local stories](phase-2/README.md). P2-01's
 [local acceptance](../../evidence/phase-2/P2-01/2026-10-20/README.md) passes prerequisite,
-profile and headless lifecycle checks. P2-02–P2-13 remain Not started; no UI is
+profile and headless lifecycle checks. P2-02's
+[accepted shared corpus](../../evidence/phase-2/P2-02/2026-10-21/README.md) adds
+boundary/token/layout drafts and deterministic negative/semantic fixture checks.
+P2-03–P2-13 remain Not started; no UI is
 implemented and no Jira issues were created. P2-02 through P2-09 establish shared fixtures, candidates,
 target feasibility and the provisional decision. P2-10 through P2-13 complete
 selected behavior, hosted reload, measurements and the acceptance review.

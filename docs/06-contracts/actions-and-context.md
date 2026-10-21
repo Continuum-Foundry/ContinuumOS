@@ -2,6 +2,11 @@
 
 Status: version 0.1 design draft. R19. No permanent wire IDs or workflow engine are frozen.
 
+P2-02's [shared hosted corpus](hosted-ui-fixtures.md) declares six bounded version-1
+edit/search/list/launcher/settings action references and independent expected
+states. P2-03 implements that hosted model; the JSON names convey no capability
+authority, executable callback or production action-provider implementation.
+
 ## Action descriptor
 
 An action has provider/component ID, action ID, protocol major/minor, input/output

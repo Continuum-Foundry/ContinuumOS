@@ -30,7 +30,7 @@ function Assert-DevExecutablePath([string]$Path, [string]$CompilerSource = '') {
     # Deliberately limited to declared first-party Cargo test/tool names and probes.
     # Compiler outputs use a separate path with local source and lockfile checks.
     $allowedRoot = $relative -match '^build/cargo/' -or $relative -match '^work/acceptance/[^/]+/host cargo with spaces/' -or $relative -match '^build/windows-dev-signing/'
-    $allowedName = [IO.Path]::GetFileName($full) -match '^(xtask(-[0-9a-f]+)?|editor_model-[0-9a-f]+|text_core-[0-9a-f]+|continuum_kernel-[0-9a-f]+|dev-probe-[0-9a-f]+|dev-compiler-wrapper)\.exe$'
+    $allowedName = [IO.Path]::GetFileName($full) -match '^(xtask(-[0-9a-f]+)?|editor_model-[0-9a-f]+|text_core-[0-9a-f]+|custom_ui-[0-9a-f]+|continuum_kernel-[0-9a-f]+|dev-probe-[0-9a-f]+|dev-compiler-wrapper)\.exe$'
     if ($CompilerSource) {
         $compiler = Get-Content (Join-Path $script:DevDirectory 'compiler.json') -Raw | ConvertFrom-Json
         foreach ($lock in $compiler.locks) {

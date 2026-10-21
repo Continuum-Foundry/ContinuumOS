@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "source_base": "1381e0ab6a85a9cb2bd500b43b73953d06346052",
+  "method": "Current dirty source/fixture/doc bytes relative to immutable base; excludes this evidence bundle to avoid recursive hashes. Staged source patch is local-only.",
+  "source_patch": {
+    "path": "build/m2/P2-05/reviewed-source.patch",
+    "sha256": "922164675ac12f74ed8efd7b7da6b4d5170d038397afe29c76f8d367af9c85a5"
+  },
+  "files": [
+    {
+      "path": "Cargo.lock",
+      "sha256": "d46f61d4fe4797d6bf8838ee8f7e541f9f5e552e287c2a2e5c58bbe586cfffe1",
+      "bytes": 9988
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "a54f7023d4be7d0d3fa48fd6af696d3e2411bb8c211138abc3c92e91cef2940d",
+      "bytes": 722
+    },
+    {
+      "path": "README.md",
+      "sha256": "237eaae8b5990206546559f2af09f9c3581ca67b32538cde9d9bf22bdcd053bc",
+      "bytes": 15299
+    },
+    {
+      "path": "audit/check-governance.cjs",
+      "sha256": "e3fd76e0aa220b0e8e146d7a59a4a338c78134436ab6a4eeb6bad6c9d7ce23af",
+      "bytes": 8374
+    },
+    {
+      "path": "crates/custom-ui/Cargo.toml",
+      "sha256": "e481938f69a18cb8bbfceac625da025611aca9722fa8e64fbdf7b5b8b398d293",
+      "bytes": 254
+    },
+    {
+      "path": "crates/custom-ui/src/input.rs",
+      "sha256": "44d8bb23d3a09368a591b7ea50c691dfbd5d86413a06581e319a1b76dfcb0b4d",
+      "bytes": 19260
+    },
+    {
+      "path": "crates/custom-ui/src/lib.rs",
+      "sha256": "c9fdcf7f04f07bab3b565f05c718af32b185ff4a6a795135ec2e46150504f0ea",
+      "bytes": 2856
+    },
+    {
+      "path": "crates/custom-ui/src/paint.rs",
+      "sha256": "6c2467b07b332603decccbcd4ea63a69823b37c76696c0de4d8fd719f276dd18",
+      "bytes": 21391
+    },
+    {
+      "path": "crates/custom-ui/src/scene.rs",
+      "sha256": "a58142c0af5e16c7968cd8431709c7c8b855b3b741daac3d58b6f044cb1fbb92",
+      "bytes": 9331
+    },
+    {
+      "path": "crates/custom-ui/src/surface.rs",
+      "sha256": "b4d9305ea9ad0e055f10368cf848bd8f55f567c054c86d15c83717b3493357c3",
+      "bytes": 3924
+    },
+    {
+      "path": "crates/custom-ui/src/tests.rs",
+      "sha256": "8093b68defee47f2a7a45c81e2c55be4b24da65d933519bd1ef5826816ccddd8",
+      "bytes": 8083
+    },
+    {
+      "path": "docs/00-overview/requirements.md",
+      "sha256": "52dbbfc634ba6bd2531c4664a2842d4c3b7358cd1c05723d25b0ee886fb3b8d5",
+      "bytes": 12956
+    },
+    {
+      "path": "docs/02-architecture/accessibility-and-internationalization.md",
+      "sha256": "5140690f9be4ffe239ebebef8c510bccc55896a389b6387c5755d143ff30da0a",
+      "bytes": 4463
+    },
+    {
+      "path": "docs/04-decisions/0011-ui-authoring.md",
+      "sha256": "83aa180369b8a5f5a744f5c21b4516900eb762ae143e02880607fdd811bbfe71",
+      "bytes": 2474
+    },
+    {
+      "path": "docs/05-delivery/agent-handoff.md",
+      "sha256": "28b7b759e9d5ef210cdc4e2bdfe736e0402009c60ed531fc5ef7e7177d4a15c8",
+      "bytes": 13158
+    },
+    {
+      "path": "docs/05-delivery/backlog.md",
+      "sha256": "5200ab212de079e0c47de8aeb4efd99e7490cc1b4811ddd78734b2194fef8beb",
+      "bytes": 10244
+    },
+    {
+      "path": "docs/05-delivery/milestones.md",
+      "sha256": "696867d253c0869055ece7b992f1cba84ecb8002c2c044e219bd4a4e558513a7",
+      "bytes": 10474
+    },
+    {
+      "path": "docs/05-delivery/phase-2/05-minimal-custom-ui-candidate.md",
+      "sha256": "264eb983ad2b28493621ed67436c1f55c162b7b7977d5336bdbda4ad5d85b5b9",
+      "bytes": 4695
+    },
+    {
+      "path": "docs/05-delivery/phase-2/README.md",
+      "sha256": "fd9088c6624f8c885e3b7d5b031f871a1fd9a22d8b9fe3360c2add0f17050066",
+      "bytes": 9973
+    },
+    {
+      "path": "docs/05-delivery/phase-2/custom-ui-runbook.md",
+      "sha256": "6f278d65fe5d734a982b1512310714ae29eb5bb1cec46a5b8892d3454b20a30c",
+      "bytes": 7478
+    },
+    {
+      "path": "docs/05-delivery/validation.md",
+      "sha256": "127d0f9f65dde1b3690a0c74e61481bf74efdc5f59780edf00883db6c7ef86a3",
+      "bytes": 13181
+    },
+    {
+      "path": "docs/06-contracts/hosted-ui-fixtures.md",
+      "sha256": "35dab5c80a82b3cab3f428c2f75caf214ac0efccc22bfed183780771b359cf47",
+      "bytes": 18301
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "d14deb42cc064a8896594e8f043d1575d1bbdf6a623f438b067c7b2aa924b068",
+      "bytes": 9915
+    },
+    {
+      "path": "fixtures/m2/custom-v1/README.md",
+      "sha256": "25319b29de0ef2258612ca1378d1099377a8e82cde1c3504b8878a0bca9b1f40",
+      "bytes": 811
+    },
+    {
+      "path": "fixtures/m2/custom-v1/goldens.json",
+      "sha256": "d103ad7caa1ebb88b3b532a84bde9e08469f69c8f6d311f516c90a9ebbc97a96",
+      "bytes": 39447
+    },
+    {
+      "path": "legal/dependency-inventory.json",
+      "sha256": "4ada3231aa632fd6f4ed6bcafa4117932fbe67cfd4527136a8e60ab88c991bf7",
+      "bytes": 148014
+    },
+    {
+      "path": "tools/Inventory-Licenses.ps1",
+      "sha256": "c3bcc5a2ad3b91b57db87366aad5b5c0821e55d30c43d6b2f364f38adf7bea99",
+      "bytes": 4007
+    },
+    {
+      "path": "tools/Preview-Custom.ps1",
+      "sha256": "78daafe7247e0f1473d1ff4aa4c665876b067d71f6ffaf9d4197dbd967b80017",
+      "bytes": 6896
+    },
+    {
+      "path": "tools/Review-Custom.py",
+      "sha256": "3f568fbf433d8aae3c08f882040141daaaabce632e03b23a83b304af682db980",
+      "bytes": 3611
+    },
+    {
+      "path": "tools/Test-P2-05.ps1",
+      "sha256": "b7fcec60e941115d30c2df1b4b9f0546819fc9b6c1e221f367e8244bd42ad66b",
+      "bytes": 5210
+    },
+    {
+      "path": "tools/windows/DevSigning.ps1",
+      "sha256": "598c378c290ebff4e355cbe637ea21fcba5d35625862996c58ffd8f8213b53f9",
+      "bytes": 5179
+    },
+    {
+      "path": "tools/xtask/Cargo.toml",
+      "sha256": "5fa3b95bc2991bbaefdf67f7a2eaa28060d6ee8c71421f73939189300230666c",
+      "bytes": 403
+    },
+    {
+      "path": "tools/xtask/src/custom.rs",
+      "sha256": "6f8bdae2ff2f07f2d3e3c2bd53cce669241ec4bd455208a7f633e627b389e0a5",
+      "bytes": 48142
+    },
+    {
+      "path": "tools/xtask/src/main.rs",
+      "sha256": "da48c307b01cd91006b06bc9f92c35640efc1616a768912a1a8a5c1af6a10224",
+      "bytes": 12917
+    },
+    {
+      "path": "tools/xtask/src/text.rs",
+      "sha256": "493424fc3001d57831868cad5c85be56418f5a50163574840d35c2414f1b2873",
+      "bytes": 25976
+    },
+    {
+      "path": "tools/xtask/src/ui_fixtures.rs",
+      "sha256": "098fcf9e240981c74845c899c61ea18ff171da6a918c5be8b4b6022ccef0c8a2",
+      "bytes": 22237
+    }
+  ]
+}

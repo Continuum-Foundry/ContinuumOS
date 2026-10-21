@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "features": [
+    {
+      "feature": "shared reference scenes/workflows",
+      "outcome": "passed",
+      "counts": {
+        "configurations": 30,
+        "captures": 150,
+        "states": 300
+      }
+    },
+    {
+      "feature": "text/shaping/bidi/fallback/composition",
+      "outcome": "bounded pass with declared misses",
+      "counts": {
+        "text": 45,
+        "integrated": 63
+      },
+      "limits": "P2-04 emoji misses, mixed Unicode tables, unhinted grayscale, no native IME"
+    },
+    {
+      "feature": "paint and effects",
+      "outcome": "passed analytic/candidate baseline",
+      "checks": "premultiply/source-over vectors, independent slow nonconstant blur oracle, constant blur, group opacity once, rounded ancestor clip, exact palette/outer clip samples"
+    },
+    {
+      "feature": "semantics/actions/virtual list",
+      "outcome": "passed hosted model",
+      "limits": "Adapter-derived tree; no native assistive consumer; list metadata/navigation uses typed indices and deterministic labels"
+    },
+    {
+      "feature": "standard motion interpolation",
+      "outcome": "unsupported; retained selection finding",
+      "expected_token_durations_ms": [
+        120,
+        240
+      ],
+      "actual": "Immediate updates, static caret, no transition animation. Reduced-motion path also immediate. No performance waiver."
+    },
+    {
+      "feature": "incremental raster/damage optimization",
+      "outcome": "conservative full redraw",
+      "actual": "Separate invalidation and expanded old/new bounds; all changed frames clear/redraw full surface"
+    },
+    {
+      "feature": "image resources",
+      "outcome": "bounded glyph/typed pixel resources and authored missing-icon fallback",
+      "limits": "No arbitrary image decoder/URI loader"
+    },
+    {
+      "feature": "idle/memory/performance",
+      "outcome": "instrumentation only",
+      "limits": "1000 deterministic idle decisions, not 30-second CPU/wakeup measurements; tracked containers exclude allocator-wide calls, decoded fonts and process RSS/commit"
+    },
+    {
+      "feature": "compiled behavior variant",
+      "outcome": "both builds tested",
+      "limits": "Uppercase insert feature runs as separate test binary; no code unloading/replacement"
+    },
+    {
+      "feature": "guest/link/reload/toolkit selection",
+      "outcome": "not tested/not selected",
+      "next": "P2-06 Slint; P2-07 target links; P2-08 comparison; P2-11 hosted reload"
+    }
+  ]
+}

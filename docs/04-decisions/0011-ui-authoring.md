@@ -8,7 +8,10 @@ P2-02 supplies the [common token/layout subset and fixture lock](../06-contracts
 with separate future visual and semantic/state acceptance. Both candidate stories
 reference it. P2-04 adds the [bounded text pipeline and common fonts/corpus](../06-contracts/hosted-text.md),
 with independent shaping references and explicit mixed Unicode data limitations.
-Actual candidate integration, rendering, reload and toolkit selection gates remain
+P2-05 now adds the [locally accepted bounded custom candidate](../../evidence/phase-2/P2-05/2026-10-21/README.md)
+with reference rendering, shared workflows/semantics and native presentation.
+Its full redraw/copy costs, immediate standard transitions and text/native limits
+remain comparison inputs. Slint integration, guest linking, reload and toolkit selection gates remain
 open; no new UI language or production toolkit is selected.
 
 ## Context and decision

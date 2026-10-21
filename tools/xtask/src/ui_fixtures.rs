@@ -591,6 +591,11 @@ fn acceptance(c: &Corpus, schemas: &Corpus) -> Result<Value> {
         "action_execution_tested":false,"guest_tested":false}),
     )
 }
+pub(crate) fn checked_inputs() -> Result<Corpus> {
+    let (c, schemas) = load()?;
+    acceptance(&c, &schemas)?;
+    Ok(c)
+}
 pub fn execute() -> Result<()> {
     let (c, schemas) = load()?;
     let result = acceptance(&c, &schemas)?;

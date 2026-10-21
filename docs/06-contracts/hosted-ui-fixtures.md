@@ -254,6 +254,14 @@ P2-05/P2-06 execute rendering, routing and these injected faults.
 
 ## Open adapter gates
 
+P2-05's [custom candidate](../05-delivery/phase-2/custom-ui-runbook.md) now executes
+this corpus through portable Rust layout/paint/input/semantic code and a host-only
+Windows adapter. Its reviewed candidate-specific baselines are in
+[custom-v1](../../fixtures/m2/custom-v1/README.md); no shared corpus/lock/tolerance
+was changed. Native IME/accessibility, full motion interpolation, optimized damage,
+guest integration and live reload remain open. P2-06 uses the same common inputs
+and independently reports its outcomes.
+
 For each candidate record actual buffer copy/release behavior, host pixel conversion,
 event-loop clock and overflow/reset injection, DPI coordinate transform, private-to-
 logical semantic mapping, virtualization, font fallback/shaping, blur parity and

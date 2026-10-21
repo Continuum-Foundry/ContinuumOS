@@ -85,14 +85,24 @@ modeled contexts/rights and explicit bounded logical checkpoints. Use the
 [action/state runbook](phase-2/document-actions-runbook.md). Segmentation is pinned
 to unicode-segmentation 1.13.3 / Unicode 17.0.0; its cached dependency/lock was
 reviewed and the existing compiler signer lock enrollment refreshed. Provider
-replacement, secure capabilities, candidate font/shaping integration and rendering remain open.
+replacement and secure capabilities remain open. P2-05 supplies custom candidate
+font/shaping integration and rendering; Slint remains P2-06.
 P2-04's [local text acceptance](../../evidence/phase-2/P2-04/2026-10-21/README.md)
 adds six pinned Noto fonts, the bounded custom text pipeline, 45 text/scale
 observations, independent native HarfBuzz references, official segmentation tests
 and explicit composition/cache/coverage limits. Use the [text runbook](phase-2/text-conformance-runbook.md).
 The repaired Phase 0 source-path test includes crates; all ten prerequisites pass.
-P2-05/P2-06 are next; P2-05–P2-13 remain Not started. They cover both bounded
-candidates, freestanding link feasibility, provisional decision, selected hosted
+P2-05's [custom candidate acceptance](../../evidence/phase-2/P2-05/2026-10-21/README.md)
+now passes 150 captures/300 workflow states, 45 text and 63 integrated text captures,
+28 boundary/failure checks, deterministic reruns and a native Windows preview replay.
+Use the [custom runbook](phase-2/custom-ui-runbook.md). Both compiled behavior
+variants and freestanding library checking pass; this is not guest link closure,
+reload, native IME/accessibility or performance acceptance. Full redraw, copies,
+hard rounded coverage and immediate standard transitions stay visible for P2-08.
+The owner explicitly approved refreshing the existing signer lock enrollment;
+no new certificate or App Control policy was created. Check the retained review.
+P2-06 is next; P2-06–P2-13 remain Not started. They cover Slint,
+freestanding link feasibility, provisional decision, selected hosted
 UI/reload and measured acceptance. They do not authorize remote Jira creation.
 P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has

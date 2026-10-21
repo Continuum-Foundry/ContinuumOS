@@ -30,7 +30,7 @@ local tools and evidence availability before implementation.
 | P2-02 | [Define shared boundaries and reference fixtures](02-shared-boundaries-and-reference-fixtures.md) | P2-01 | B07/B08 design, B36 fixtures | Done |
 | P2-03 | [Build the document state and typed-action model](03-document-state-and-typed-actions.md) | P2-02 | B09 state subset, M2 design of B37 | Done |
 | P2-04 | [Establish fonts and text conformance](04-fonts-and-text-conformance.md) | P2-03 | B09, B36 text comparison | Done |
-| P2-05 | [Build the minimal custom UI candidate](05-minimal-custom-ui-candidate.md) | P2-04 | B07/B08 custom candidate, B36 | Not started |
+| P2-05 | [Build the minimal custom UI candidate](05-minimal-custom-ui-candidate.md) | P2-04 | B07/B08 custom candidate, B36 | Done |
 | P2-06 | [Build the Slint UI candidate](06-slint-ui-candidate.md) | P2-04 | B07/B08 Slint candidate, B36 | Not started |
 | P2-07 | [Close freestanding integration feasibility](07-freestanding-integration-feasibility.md) | P2-05, P2-06 | B02 follow-up, B07/B36 target hooks | Not started |
 | P2-08 | [Compare quality, reload paths and hosted cost](08-comparable-ui-evaluation.md) | P2-05, P2-06, P2-07 | B36, M2 subset of B32 | Not started |
@@ -94,8 +94,11 @@ portable logical model, shared executor, context model and bounded checkpoint co
 P2-04's [text runbook](text-conformance-runbook.md) and
 [local acceptance](../../../evidence/phase-2/P2-04/2026-10-21/README.md) add pinned
 fonts, independent shaping references and bounded text/composition fixtures.
-P2-05/P2-06 are next; later-story paths
-remain conventions. No candidate is rendered or selected by these data checks.
+P2-05's [custom candidate acceptance](../../../evidence/phase-2/P2-05/2026-10-21/README.md)
+now passes 150 captures, shared workflows, text, semantics and native presentation.
+Use its [runbook](custom-ui-runbook.md); full redraw/copies, immediate transitions
+and text/native-accessibility limits remain comparison findings. P2-06 is next;
+P2-06–P2-13 remain Not started. No toolkit is selected.
 Each run records:
 
 - Source commit/dirty-input hashes, harness revision, compiler/profile, dependency

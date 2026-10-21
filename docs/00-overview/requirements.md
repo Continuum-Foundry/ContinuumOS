@@ -155,3 +155,11 @@ independent shaping references, official segmentation rows, shared text/scale
 fixtures and logical/visual caret, selection, wrap and quota checks. Text-only
 rasters are retained separately from semantic expectations. There is no candidate
 UI, native IME, full Unicode, guest memory/performance or actual reload claim.
+
+P2-05's [accepted bounded custom candidate](../../evidence/phase-2/P2-05/2026-10-21/README.md)
+extends hosted R08/R15/R18 and R04 preparation with common software surfaces,
+rendered reference scenes, shared action workflows/semantic observations, bounded
+virtualization/caches and native Windows presentation. R09 receives instrumentation
+only. Immediate standard transitions, full redraw/copies and text/native-accessibility
+limits remain explicit comparison findings. Guest execution, actual continuity,
+measured efficiency and toolkit selection remain later gates.

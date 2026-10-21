@@ -1,6 +1,6 @@
 # P2-05 — Build the bounded custom Rust UI candidate
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Unassigned.
 Depends on: P2-04 Done. Suggested labels: `phase-2`, `custom-ui`, `comparison`.
 Backlog: B07/B08 custom candidate, B36. Requirements: R08/R09/R15/R18;
 hosted R04 feasibility. Test families: hosted T05/T09/T10.
@@ -38,15 +38,15 @@ separately; preserve declared misses and limits rather than substituting fonts.
 
 ## Acceptance criteria
 
-- [ ] All reference scenes and scripted workflows run against the shared model,
+- [x] All reference scenes and scripted workflows run against the shared model,
   fonts, surfaces and action API; no easier substitute corpus is used.
-- [ ] Required paint/layout/text/semantics results meet the fixed comparison rules
+- [x] Required paint/layout/text/semantics results meet the fixed comparison rules
   or have explicit failing cases retained for the selection gate.
-- [ ] List realization and caches remain bounded as logical item count grows;
+- [x] List realization and caches remain bounded as logical item count grows;
   stable IDs, buffer ownership and malformed geometry/resource failures are checked.
-- [ ] Rich-effect and reduced-effects paths expose equivalent controls and actions;
+- [x] Rich-effect and reduced-effects paths expose equivalent controls and actions;
   visual limitations and actual implementation effort are recorded.
-- [ ] Instrumentation, source/asset identities and the portable/host dependency split
+- [x] Instrumentation, source/asset identities and the portable/host dependency split
   are sufficient for P2-07/P2-08 to reproduce and compare the candidate.
 
 ## Tests and evidence
@@ -58,6 +58,15 @@ Keep a scene/feature outcome table, selected images, action/state traces and raw
 counters. Missing features remain visible; they do not become accepted product support.
 
 ## Exclusions and handoff
+
+The [local acceptance and self-review](../../../evidence/phase-2/P2-05/2026-10-21/README.md)
+passes the bounded candidate gate: 150 captures/300 workflow states, 45 text cases,
+63 integrated text captures, 28 boundary/failure checks, both compiled behavior
+variants, native presentation and offline prerequisites. Use the
+[runbook](custom-ui-runbook.md). Standard transitions apply immediately rather than
+animating; hard rounded coverage, full redraw, explicit copies and missing emoji
+remain recorded comparison findings. This is not independent approval, a toolkit
+selection, guest execution, live reload or a performance acceptance.
 
 No full widget suite, custom programming language, real guest compositor or assumed
 guest allocator. This is one bounded experiment, not a preselected production path.

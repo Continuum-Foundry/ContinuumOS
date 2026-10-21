@@ -14,7 +14,7 @@ fn load(path: &str) -> Result<Value> {
     serde_json::from_slice(&fs::read(root().join(path)).map_err(|e| e.to_string())?)
         .map_err(|e| e.to_string())
 }
-fn inputs() -> Result<Vec<Vec<u8>>> {
+pub(crate) fn inputs() -> Result<Vec<Vec<u8>>> {
     let lock = load("fixtures/m2/text-v1/fonts.lock.json")?;
     require(
         lock["slots"]["ui-sans"] == json!([0, 1, 2, 3, 4, 5])

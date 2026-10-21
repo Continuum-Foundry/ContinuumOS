@@ -60,7 +60,13 @@ test actual widgets or provider replacement. P2-04's
 [local text review](../../evidence/phase-2/P2-04/2026-10-21/README.md) adds T05/T10
 text preparation: 45 text/scale observations, six independent native shaping
 references, 766 official grapheme and 1944 word cases, six modeled composition
-scenarios and 14 bounds/cache checks. P2-05–P2-13 remain plans.
+scenarios and 14 bounds/cache checks. P2-05's
+[accepted custom candidate](../../evidence/phase-2/P2-05/2026-10-21/README.md)
+adds hosted T05/T10 rendering/routing/semantics: 150 checkpoints, 300 workflow
+states, all 45 text observations, 63 integrated text captures, 28 boundary/failure
+checks and a native Windows replay. T09 receives counters and deterministic idle
+decisions only; full workloads, process/guest memory and efficiency acceptance
+remain later gates. P2-06–P2-13 remain plans.
 Hosted R04/R08/R09/R15 and R19 design remain distinct from full
 guest/product requirements, M3 isolation, M4 guest resources and M5 behavior transfer.
 

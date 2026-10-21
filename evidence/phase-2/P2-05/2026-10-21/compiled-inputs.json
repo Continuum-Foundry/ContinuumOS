@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "source_base": "1381e0ab6a85a9cb2bd500b43b73953d06346052",
+  "method": "Exact current bytes; compiled/rerun code reviewed after final budget checks. Source remains in this change, raw complete Git diff retained locally. No source tree copied to evidence.",
+  "files": [
+    {
+      "path": "Cargo.lock",
+      "bytes": 9988,
+      "sha256": "d46f61d4fe4797d6bf8838ee8f7e541f9f5e552e287c2a2e5c58bbe586cfffe1"
+    },
+    {
+      "path": "Cargo.toml",
+      "bytes": 722,
+      "sha256": "a54f7023d4be7d0d3fa48fd6af696d3e2411bb8c211138abc3c92e91cef2940d"
+    },
+    {
+      "path": "config/m2-profiles.json",
+      "bytes": 1199,
+      "sha256": "094c45a27cefb85f8de11c83d2594f4fdfa9e2d8689bc35e2e7af9642ef32f4c"
+    },
+    {
+      "path": "crates/custom-ui/Cargo.toml",
+      "bytes": 254,
+      "sha256": "e481938f69a18cb8bbfceac625da025611aca9722fa8e64fbdf7b5b8b398d293"
+    },
+    {
+      "path": "crates/custom-ui/src/input.rs",
+      "bytes": 19260,
+      "sha256": "44d8bb23d3a09368a591b7ea50c691dfbd5d86413a06581e319a1b76dfcb0b4d"
+    },
+    {
+      "path": "crates/custom-ui/src/lib.rs",
+      "bytes": 2856,
+      "sha256": "c9fdcf7f04f07bab3b565f05c718af32b185ff4a6a795135ec2e46150504f0ea"
+    },
+    {
+      "path": "crates/custom-ui/src/paint.rs",
+      "bytes": 21391,
+      "sha256": "6c2467b07b332603decccbcd4ea63a69823b37c76696c0de4d8fd719f276dd18"
+    },
+    {
+      "path": "crates/custom-ui/src/scene.rs",
+      "bytes": 9331,
+      "sha256": "a58142c0af5e16c7968cd8431709c7c8b855b3b741daac3d58b6f044cb1fbb92"
+    },
+    {
+      "path": "crates/custom-ui/src/surface.rs",
+      "bytes": 3924,
+      "sha256": "b4d9305ea9ad0e055f10368cf848bd8f55f567c054c86d15c83717b3493357c3"
+    },
+    {
+      "path": "crates/custom-ui/src/tests.rs",
+      "bytes": 8083,
+      "sha256": "8093b68defee47f2a7a45c81e2c55be4b24da65d933519bd1ef5826816ccddd8"
+    },
+    {
+      "path": "fixtures/m2/custom-v1/goldens.json",
+      "bytes": 39447,
+      "sha256": "d103ad7caa1ebb88b3b532a84bde9e08469f69c8f6d311f516c90a9ebbc97a96"
+    },
+    {
+      "path": "fixtures/m2/text-v1/fonts.lock.json",
+      "bytes": 3357,
+      "sha256": "39c919be20ba105cee186549bde782626b929b8d24d47a26f0ee533fa69f7ac0"
+    },
+    {
+      "path": "fixtures/m2/text-v1/lock.json",
+      "bytes": 691,
+      "sha256": "9acb8926344bba547ff6cca1fc7bbc547c7fef2e4a11c75a311d10721f7f5c56"
+    },
+    {
+      "path": "fixtures/m2/ui-v1/lock.json",
+      "bytes": 2591,
+      "sha256": "674e96d299fe5dfe651c9ca49e6d671d8207a814ed9cc106d6f6e930cfcb50e2"
+    },
+    {
+      "path": "tools/Preview-Custom.ps1",
+      "bytes": 6896,
+      "sha256": "78daafe7247e0f1473d1ff4aa4c665876b067d71f6ffaf9d4197dbd967b80017"
+    },
+    {
+      "path": "tools/Review-Custom.py",
+      "bytes": 3611,
+      "sha256": "3f568fbf433d8aae3c08f882040141daaaabce632e03b23a83b304af682db980"
+    },
+    {
+      "path": "tools/Test-P2-05.ps1",
+      "bytes": 5210,
+      "sha256": "b7fcec60e941115d30c2df1b4b9f0546819fc9b6c1e221f367e8244bd42ad66b"
+    },
+    {
+      "path": "tools/windows/DevSigning.ps1",
+      "bytes": 5179,
+      "sha256": "598c378c290ebff4e355cbe637ea21fcba5d35625862996c58ffd8f8213b53f9"
+    },
+    {
+      "path": "tools/xtask/Cargo.toml",
+      "bytes": 403,
+      "sha256": "5fa3b95bc2991bbaefdf67f7a2eaa28060d6ee8c71421f73939189300230666c"
+    },
+    {
+      "path": "tools/xtask/src/custom.rs",
+      "bytes": 48142,
+      "sha256": "6f8bdae2ff2f07f2d3e3c2bd53cce669241ec4bd455208a7f633e627b389e0a5"
+    },
+    {
+      "path": "tools/xtask/src/main.rs",
+      "bytes": 12917,
+      "sha256": "da48c307b01cd91006b06bc9f92c35640efc1616a768912a1a8a5c1af6a10224"
+    },
+    {
+      "path": "tools/xtask/src/text.rs",
+      "bytes": 25976,
+      "sha256": "493424fc3001d57831868cad5c85be56418f5a50163574840d35c2414f1b2873"
+    },
+    {
+      "path": "tools/xtask/src/ui_fixtures.rs",
+      "bytes": 22237,
+      "sha256": "098fcf9e240981c74845c899c61ea18ff171da6a918c5be8b4b6022ccef0c8a2"
+    }
+  ]
+}

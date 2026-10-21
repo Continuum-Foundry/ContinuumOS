@@ -1,0 +1,279 @@
+{
+  "performance_gate_tested": false,
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+  "utc": "2026-10-21T22:31:28.0359711Z",
+  "cargo_lock_sha256": "d46f61d4fe4797d6bf8838ee8f7e541f9f5e552e287c2a2e5c58bbe586cfffe1",
+  "source_base": "1381e0ab6a85a9cb2bd500b43b73953d06346052",
+  "os": "Microsoft Windows NT 10.0.26300.0",
+  "reload_tested": false,
+  "schema_version": 1,
+  "signed_executable_sha256": "3fcdce954ffff52e9ac0ae9a6d80711f60cfec9c5aebe99c5f30a0636a298782",
+  "guest_tested": false,
+  "native_ime_tested": false,
+  "native_accessibility_tested": false,
+  "commands": [
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ],
+      "program": "pwsh",
+      "elapsed_ms": 234874,
+      "exit_code": 0,
+      "name": "prerequisites"
+    },
+    {
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 705,
+      "exit_code": 0,
+      "name": "format"
+    },
+    {
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "-p",
+        "editor-model",
+        "-p",
+        "text-core",
+        "-p",
+        "xtask"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 24414,
+      "exit_code": 0,
+      "name": "tests"
+    },
+    {
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "--features",
+        "behavior-v2"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 11076,
+      "exit_code": 0,
+      "name": "behavior-v2"
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "--target",
+        "x86_64-unknown-none"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 1514,
+      "exit_code": 0,
+      "name": "portable"
+    },
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-P2-04.ps1"
+      ],
+      "program": "pwsh",
+      "elapsed_ms": 70279,
+      "exit_code": 0,
+      "name": "text"
+    },
+    {
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--profile",
+        "m2-comparison"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 22743,
+      "exit_code": 0,
+      "name": "build"
+    },
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "custom-ui"
+      ],
+      "program": "pwsh",
+      "elapsed_ms": 15789,
+      "exit_code": 0,
+      "name": "custom-a"
+    },
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "custom-ui"
+      ],
+      "program": "pwsh",
+      "elapsed_ms": 16205,
+      "exit_code": 0,
+      "name": "custom-b"
+    },
+    {
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Preview-Custom.ps1",
+        "-Replay"
+      ],
+      "program": "pwsh",
+      "elapsed_ms": 4156,
+      "exit_code": 0,
+      "name": "native"
+    }
+  ],
+  "profile": "m2-comparison",
+  "status": "passed",
+  "candidate_rendered": true,
+  "compiler": [
+    "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "binary: rustc",
+    "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+    "commit-date: 2026-10-13",
+    "host: x86_64-pc-windows-msvc",
+    "release: 1.99.1",
+    "LLVM version: 23.1.1"
+  ],
+  "replays": [
+    {
+      "traces_sha256": "86c37439d14ec33d46898ea9c2b4bbe9dc782235dd58b74509e60be5c0b842f0",
+      "raster_manifest_sha256": "7a7d3066485df02c3181beb7efe2a3972876d3de73d125f0156b367d40666118",
+      "result_sha256": "c956315f85371b27bccf517bf7c10d243353861f964d753423aabe1191321a98",
+      "path": "build/m2/P2-05/run-1792621844740354900-85844"
+    },
+    {
+      "traces_sha256": "86c37439d14ec33d46898ea9c2b4bbe9dc782235dd58b74509e60be5c0b842f0",
+      "raster_manifest_sha256": "7a7d3066485df02c3181beb7efe2a3972876d3de73d125f0156b367d40666118",
+      "result_sha256": "c956315f85371b27bccf517bf7c10d243353861f964d753423aabe1191321a98",
+      "path": "build/m2/P2-05/run-1792621859784522200-86376"
+    }
+  ],
+  "supplemental_final_input_checks": [
+    {
+      "exit_code": 0,
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "name": "format-final"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui"
+      ],
+      "name": "custom-tests-final"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "--features",
+        "behavior-v2"
+      ],
+      "name": "behavior-v2-final"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "--target",
+        "x86_64-unknown-none"
+      ],
+      "name": "portable-final"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--profile",
+        "m2-comparison"
+      ],
+      "name": "build-final"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "custom-ui"
+      ],
+      "name": "render-final"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Preview-Custom.ps1",
+        "-Replay"
+      ],
+      "name": "native-final"
+    }
+  ],
+  "review_note": "Final runtime rebuilt/replayed after all code changes; result bytes match both earlier optimized replays. Ten final custom tests pass in both behavior builds, all 20 host tests passed, and the font-dependent host fault test was also explicitly rerun after isolating it from default Phase 0 tests. Signed executable identities are recorded separately for the earlier pair and final source.",
+  "final_source_verification": {
+    "tests": "tests-final.log",
+    "native": "native-final.log",
+    "executable_sha256": "66b77b90fbc461338b451b0d13b315a23c1d9532a4e492427f778ff66cfa3dff",
+    "status": "passed",
+    "render": "render-final.log",
+    "run": "build/m2/P2-05/run-1792622576089729300-81372",
+    "result_sha256": "c956315f85371b27bccf517bf7c10d243353861f964d753423aabe1191321a98",
+    "raster_manifest_sha256": "7a7d3066485df02c3181beb7efe2a3972876d3de73d125f0156b367d40666118",
+    "matches_both_acceptance_replays": true,
+    "font_dependent_test": "cargo test --locked --offline -p xtask custom::tests::failed_paint_abandons_unpublished_buffer_and_keeps_document -- --ignored",
+    "font_test_scope": "Explicit Phase 2 test, ignored by default to preserve Phase 0 without font inputs"
+  }
+}

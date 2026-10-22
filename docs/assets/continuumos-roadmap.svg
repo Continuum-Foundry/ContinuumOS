@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="660" viewBox="0 0 1440 660" role="img" aria-labelledby="title desc">
+  <title id="title">ContinuumOS: from first boot to a usable desktop</title>
+  <desc id="desc">Roadmap snapshot: M1's experimental kernel baseline passes locally. M2 hosted UI work is in progress. M3 through M7 foundations, M8 installable VM release, M9 through M13 everyday workflows, M14 usable VM desktop and M15 one named PC are planned. M16 through M21 are independent research gates. These are acceptance gates, not dates or completed product features.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101c2d"/><stop offset="1" stop-color="#080e19"/></linearGradient>
+    <linearGradient id="accent"><stop stop-color="#62dfce"/><stop offset="1" stop-color="#a3bcff"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#9db6d4" stroke-opacity=".04"/></pattern>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="m1 1 5 3-5 3" fill="none" stroke="#6f869f" stroke-width="1.4"/></marker>
+  </defs>
+  <rect width="1440" height="660" rx="20" fill="url(#bg)"/>
+  <rect width="1440" height="660" rx="20" fill="url(#grid)"/>
+  <path d="M60 46h34" stroke="url(#accent)" stroke-width="3"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="108" y="51" fill="#a7bbd1" font-size="12" letter-spacing="2.4">THE ROAD AHEAD</text>
+    <text x="60" y="102" fill="#f2f5f9" font-size="34" font-weight="650" letter-spacing="-.7">From first boot to a usable desktop.</text>
+    <text x="60" y="132" fill="#a9bbcf" font-size="16">Acceptance gates, not calendar dates. Each step earns its evidence.</text>
+    <g font-size="12" fill="#b7c6d8">
+      <circle cx="1030" cy="48" r="4" fill="#72ddcf"/><text x="1042" y="52">Local pass</text>
+      <circle cx="1150" cy="48" r="4" fill="#edbd9c"/><text x="1162" y="52">In progress</text>
+      <circle cx="1290" cy="48" r="4" fill="#71869f"/><text x="1302" y="52">Planned</text>
+    </g>
+    <g fill="none" stroke="#6f869f" stroke-width="1.4" marker-end="url(#arrow)">
+      <path d="M375 257h17"/><path d="M711 257h17"/><path d="M1047 257h17"/>
+      <path d="M375 497h17"/><path d="M711 497h17"/>
+    </g>
+    <rect x="60" y="174" width="312" height="166" rx="14" fill="#112b30" stroke="#72ddcf" stroke-opacity=".6"/>
+    <rect x="76" y="190" width="112" height="23" rx="11" fill="#72ddcf" fill-opacity=".12"/>
+    <text x="88" y="206" fill="#83e9d9" font-size="11" letter-spacing="1.1">M1 / LOCAL PASS</text>
+    <text x="80" y="252" fill="#f2f5f9" font-size="25" font-weight="600">Kernel boots</text>
+    <text x="80" y="282" fill="#b7ced4" font-size="15">ISO / memory / timer</text>
+    <text x="80" y="311" fill="#9ebbbf" font-size="13">Experimental VM baseline</text>
+    <rect x="396" y="174" width="312" height="166" rx="14" fill="#25252b" stroke="#edbd9c" stroke-opacity=".65"/>
+    <rect x="412" y="190" width="132" height="23" rx="11" fill="#edbd9c" fill-opacity=".1"/>
+    <text x="424" y="206" fill="#f1c6a7" font-size="11" letter-spacing="1.1">M2 / IN PROGRESS</text>
+    <text x="416" y="252" fill="#f2f5f9" font-size="25" font-weight="600">Hosted UI</text>
+    <text x="416" y="282" fill="#c9c2c0" font-size="15">P2-01 through P2-06 accepted</text>
+    <text x="416" y="311" fill="#b8b0ad" font-size="13">Guest UI and reload still pending</text>
+    <rect x="732" y="174" width="312" height="166" rx="14" fill="#152033" stroke="#42566f"/>
+    <text x="752" y="206" fill="#9eb2cb" font-size="11" letter-spacing="1.1">M3–M7 / PLANNED</text>
+    <text x="752" y="252" fill="#e7edf7" font-size="24" font-weight="600">Build the foundations</text>
+    <text x="752" y="282" fill="#b5c4d8" font-size="15">Isolation / live updates / storage</text>
+    <text x="752" y="311" fill="#9aadc6" font-size="13">Accounts, recovery and installer</text>
+    <rect x="1068" y="174" width="312" height="166" rx="14" fill="#17233a" stroke="#819cda" stroke-opacity=".6"/>
+    <text x="1088" y="206" fill="#afc4f5" font-size="11" letter-spacing="1.1">M8 / PLANNED RELEASE</text>
+    <text x="1088" y="252" fill="#e7edf7" font-size="24" font-weight="600">Installable VM release</text>
+    <text x="1088" y="282" fill="#b5c4d8" font-size="15">Install / sign in / repair / reinstall</text>
+    <text x="1088" y="311" fill="#9aadc6" font-size="13">Boot independently of the ISO</text>
+    <path d="M60 376h1320" stroke="#71869f" stroke-opacity=".22"/>
+    <text x="60" y="397" fill="#9eb2cb" font-size="11" letter-spacing="2">BEYOND THE FIRST RELEASE</text>
+    <rect x="60" y="414" width="312" height="166" rx="14" fill="#121e30" stroke="#42566f"/>
+    <text x="80" y="446" fill="#9eb2cb" font-size="11" letter-spacing="1.1">M9–M13 / PLANNED</text>
+    <text x="80" y="492" fill="#e7edf7" font-size="24" font-weight="600">Everyday workflows</text>
+    <text x="80" y="522" fill="#b5c4d8" font-size="15">Files / apps / backup / network</text>
+    <text x="80" y="551" fill="#9aadc6" font-size="13">Administration, audio and accessibility</text>
+    <rect x="396" y="414" width="312" height="166" rx="14" fill="#17233a" stroke="#819cda" stroke-opacity=".6"/>
+    <text x="416" y="446" fill="#afc4f5" font-size="11" letter-spacing="1.1">M14 / PLANNED RELEASE</text>
+    <text x="416" y="492" fill="#e7edf7" font-size="24" font-weight="600">Usable VM desktop</text>
+    <text x="416" y="522" fill="#b5c4d8" font-size="15">One coherent installed system</text>
+    <text x="416" y="551" fill="#9aadc6" font-size="13">Combined usability and failure gates</text>
+    <rect x="732" y="414" width="312" height="166" rx="14" fill="#121e30" stroke="#42566f"/>
+    <text x="752" y="446" fill="#9eb2cb" font-size="11" letter-spacing="1.1">M15 / PLANNED</text>
+    <text x="752" y="492" fill="#e7edf7" font-size="24" font-weight="600">One named PC</text>
+    <text x="752" y="522" fill="#b5c4d8" font-size="15">A declared hardware profile</text>
+    <text x="752" y="551" fill="#9aadc6" font-size="13">Actual driver and recovery evidence</text>
+    <rect x="1068" y="414" width="312" height="166" rx="14" fill="#141c2b" stroke="#71869f" stroke-dasharray="5 5"/>
+    <text x="1088" y="446" fill="#aeb9ce" font-size="11" letter-spacing="1.1">M16–M21 / INDEPENDENT GATES</text>
+    <text x="1088" y="492" fill="#d7dfef" font-size="24" font-weight="600">Explore, then decide</text>
+    <text x="1088" y="522" fill="#b5c4d8" font-size="15">EXE / browser / GPU / SMP</text>
+    <text x="1088" y="551" fill="#9aadc6" font-size="13">Wasm / AI · not VM release blockers</text>
+    <text x="60" y="622" fill="#72ddcf" font-size="13" font-weight="600">Original kernel.</text>
+    <text x="178" y="622" fill="#a9bbcf" font-size="13">Independent ISO. Supported state continuity. 256 MiB baseline cold-idle target.</text>
+    <text x="1190" y="622" fill="#8ba1bb" font-size="11">ROADMAP SNAPSHOT / 2026-10-21</text>
+  </g>
+</svg>

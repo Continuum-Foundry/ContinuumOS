@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="430" viewBox="0 0 1440 430" role="img" aria-labelledby="title desc">
+  <title id="title">The intended ContinuumOS live-development loop</title>
+  <desc id="desc">Proposed M4 through M6 workflow: edit, build and validate on the host; stage, transfer logical state and publish a supported change in the guest. The goal is to preserve document and selection, window and focus, and kernel boot identity and uptime. This guest continuity demonstration is not yet implemented. Kernel and boot changes initially require reboot; ISO packaging is separate.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101c2d"/><stop offset="1" stop-color="#080e19"/></linearGradient>
+    <linearGradient id="line"><stop stop-color="#62dfce"/><stop offset="1" stop-color="#a3bcff"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="m1 1 5 3-5 3" fill="none" stroke="#8ba1bb" stroke-width="1.4"/></marker>
+  </defs>
+  <rect width="1440" height="430" rx="20" fill="url(#bg)"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="60" y="57" fill="#f2f5f9" font-size="31" font-weight="650" letter-spacing="-.6">Change the system. Keep your place.</text>
+    <text x="60" y="87" fill="#a9bbcf" font-size="15">Supported changes, explicit checkpoints and one active writer.</text>
+    <rect x="970" y="33" width="410" height="32" rx="16" fill="#a3bcff" fill-opacity=".1" stroke="#819cda" stroke-opacity=".4"/>
+    <text x="990" y="54" fill="#b8ccf6" font-size="11" letter-spacing="1">DESIGN TARGET / M4–M6 · NOT YET DEMONSTRATED</text>
+    <text x="60" y="126" fill="#72ddcf" font-size="11" letter-spacing="2">HOST / DEVELOPMENT TOOLS</text>
+    <text x="732" y="126" fill="#b5c6f0" font-size="11" letter-spacing="2">GUEST / SUPPORTED UPDATE TRANSACTION</text>
+    <path d="M60 135h642M732 135h642" stroke="#71869f" stroke-opacity=".3"/>
+    <g fill="#152238" stroke="#42566f">
+      <rect x="60" y="153" width="194" height="112" rx="13"/>
+      <rect x="284" y="153" width="194" height="112" rx="13"/>
+      <rect x="508" y="153" width="194" height="112" rx="13"/>
+      <rect x="732" y="153" width="194" height="112" rx="13"/>
+      <rect x="956" y="153" width="194" height="112" rx="13"/>
+      <rect x="1180" y="153" width="194" height="112" rx="13"/>
+    </g>
+    <g fill="none" stroke="#8ba1bb" stroke-width="1.5" marker-end="url(#arrow)">
+      <path d="M258 209h20"/><path d="M482 209h20"/><path d="M706 209h20"/>
+      <path d="M930 209h20"/><path d="M1154 209h20"/>
+    </g>
+    <g font-size="11" letter-spacing="1.4" fill="#72ddcf">
+      <text x="79" y="179">01</text><text x="303" y="179">02</text><text x="527" y="179">03</text>
+    </g>
+    <g font-size="11" letter-spacing="1.4" fill="#b5c6f0">
+      <text x="751" y="179">04</text><text x="975" y="179">05</text><text x="1199" y="179">06</text>
+    </g>
+    <g fill="#eef3fb" font-size="23" font-weight="600">
+      <text x="79" y="212">Edit</text><text x="303" y="212">Build</text><text x="527" y="212">Validate</text>
+      <text x="751" y="212">Stage</text><text x="975" y="212">Transfer state</text><text x="1199" y="212">Publish</text>
+    </g>
+    <g fill="#a9bbcf" font-size="12">
+      <text x="79" y="242">Code or resources</text><text x="303" y="242">Identified immutable output</text><text x="527" y="242">Contract and authority</text>
+      <text x="751" y="242">Restricted candidate</text><text x="975" y="242">Quiesce and checkpoint</text><text x="1199" y="242">Health and safe retirement</text>
+    </g>
+    <path d="M60 299h1314" stroke="url(#line)" stroke-opacity=".55"/>
+    <text x="60" y="332" fill="#72ddcf" font-size="11" letter-spacing="1.8">PRESERVATION GOALS</text>
+    <g fill="#e1eaf7" font-size="17">
+      <text x="282" y="333">Document + selection</text>
+      <text x="618" y="333">Window + focus</text>
+      <text x="938" y="333">Same kernel boot ID + uptime</text>
+    </g>
+    <text x="60" y="390" fill="#95aac3" font-size="13">Kernel / boot changes initially require a reboot. ISO packaging remains a separate path.</text>
+  </g>
+</svg>

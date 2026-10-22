@@ -114,6 +114,19 @@ now passes with explicit shared adapters and native text/effect/clip/blend failu
 P2-07–P2-13 remain Not started. No toolkit is selected, guest UI/reload demonstrated
 or Jira issue created.
 
+<details>
+<summary><strong>See the hosted UI experiments</strong> — real pixels from the shared reference corpus</summary>
+
+These are host-rendered comparison fixtures, not a guest desktop or final visual
+design. Both candidates exercise the same 30 configurations, 150 checkpoints and
+300 asserted workflow states. The acceptance reviews retain their feature gaps.
+
+| Custom Rust candidate · P2-05 | Slint software candidate · P2-06 |
+| :---: | :---: |
+| [![Custom Rust hosted reference scene](evidence/phase-2/P2-05/2026-10-21/initial.png)](evidence/phase-2/P2-05/2026-10-21/README.md) | [![Slint hosted reference scene](evidence/phase-2/P2-06/2026-10-21/initial.png)](evidence/phase-2/P2-06/2026-10-21/README.md) |
+
+</details>
+
 ## A desktop designed for continuity
 
 Historical logs and copied source trees were [removed from Git tracking](evidence/README.md)
@@ -135,6 +148,8 @@ The defining future demo is an editor with unsaved work surviving a visible
 resource update and a behavior replacement, with **unchanged kernel boot identity
 and uptime**. That demonstration has not happened yet. General kernel hot reload
 is outside the initial guarantee; kernel and boot changes initially require a reboot.
+
+![The proposed live-development loop: edit, build, validate, stage, transfer logical state and publish. Guest continuity remains a future demonstration.](docs/assets/continuumos-development-loop.svg)
 
 ## Architecture, with gates
 
@@ -219,6 +234,8 @@ separates compilation/audits, ISO packaging, QEMU preparation and process observ
 named cases and strict serial-record checks remain separate.
 
 ## From first instruction to a living desktop
+
+![Roadmap snapshot: M1 local baseline passes, M2 is in progress, later release gates are planned, and M16–M21 are independent experiments.](docs/assets/continuumos-roadmap.svg)
 
 | Gate | Outcome | Current state |
 | :--- | :--- | :--- |

@@ -66,6 +66,15 @@ shortcuts, drag/drop and modal behavior. Sensitive system UI cannot be spoofed b
 app gaining global focus or capture authority. Notifications have bounded lifetime,
 rate limits and keyboard access.
 
+## Later desktop integration
+
+M9/B46 completes cross-app clipboard/drag offers, file associations/default apps
+and notifications with grant/lifetime/focus checks. B45 pickers return narrowed
+object authority; B47 persists keymap/locale/time settings. M10–M13 app-management,
+backup/admin/network/audio clients reuse this selected UI rather than introducing
+a second toolkit. Their end-to-end outcomes are required for M14, not added to
+accepted hosted UI stories or M4's first resource-reload exit.
+
 ## Motion
 
 Motion communicates source/destination and preserves spatial context. Proposed

@@ -80,6 +80,12 @@ pass version/capability/hash checks and rejection tests; this adds no ISO boot r
 
 ## Requirement matrix
 
+The approved M9–M21 expansion has a [feature/release matrix](desktop-feature-matrix.md)
+mapping owner, milestone, backlog and explicit future acceptance. B35/M8 retains
+its installer/accounts scope; B56/M14 adds the declared usable desktop; B58/M15
+requires actual named-PC qualification after the VM release. M16–M21 research is
+not a hidden prerequisite of either VM release. No new feature is claimed by this plan.
+
 | Requirement | Test families | Passing evidence |
 | --- | --- | --- |
 | R01 original OS | T01 boot/provenance | Original kernel and declared upstream boundaries |
@@ -91,7 +97,7 @@ pass version/capability/hash checks and rejection tests; this adds no ISO boot r
 | R07 continuity limits | T07, T08 | Schema rejection, migration fixtures, honest partial-continuity outcomes |
 | R08 exceptional UI | T05, T10 visual review | Reference scenes, interaction review, scale/focus/clipping checks |
 | R09 efficiency | T09 workload | Frame distributions, memory/idle/peak/reload costs on declared profiles |
-| R10 isolation | T03 memory, T04 device, T06, T11 security | User faults contained, permissions/limits enforced, DMA trust stated |
+| R10 isolation | T03 memory, T04 device, T06, T11 security | User faults contained; trusted principal/session provenance, cross-owner and same-user app grants enforced; permissions/limits and revocation scope tested; DMA trust stated |
 | R11 persistent files | T04, T08 storage | Acknowledged durable writes survive modeled faults |
 | R12 recovery | T07, T08, T12 | Known outcome after every transition; last good/rescue path |
 | R13 dev boundary | T11 | Bad authority/replay/host-command requests rejected; release disabled |
@@ -127,6 +133,14 @@ gesture interruption and text composition. Keep screenshot and semantic assertio
 **T06 — IPC/authority:** malformed frames/messages, length arithmetic, queue saturation,
 deadlines/cancel/peer death, rights attenuation, stale handles, handle-transfer rollback,
 route epochs, duplicate/reordered requests and independent protocol versions.
+M3 also requires the [identity/authority matrix](../02-architecture/identity-and-authorization.md#m3-work-items-and-acceptance):
+two synthetic users and a service principal, forged caller/role rejection,
+cross-owner denial/explicit sharing, same-user app least authority, scoped role
+administration, child launch/transfer ceilings, delegated-channel attribution,
+broker restart and session/policy invalidation. Hosted fixtures do not replace
+guest enforcement. M5 adds replacement reauthorization; full login and durable
+account/RBAC tests belong to mandatory M7 B41 after M6. M3 also rejects unauthorized
+disk/account requests using synthetic operations; it does not implement the installer.
 
 **T07 — Live update:** L0/L1/L2/L3 separately; compiler failure; corrupt transfer;
 wrong base/schema/protocol; quiescence timeout; candidate start/import failure;
@@ -156,10 +170,29 @@ shaping/fallback and long translations. A semantic tree pass is not a screen-rea
 escalation, excessive imports, guest-directed host commands/paths, dev endpoint in release,
 entropy not-ready and TLS/certificate failures once networking exists. Perform threat-specific
 review before handling valuable credentials or exposing public services.
+M4 tests protected setup/login focus, restricted capture and synthetic sensitive-
+event exclusion from logs/inspectors. M7 B41 validates actual guest entropy,
+credential verification/storage and authorized recovery before real credentials.
+M5 tests exclusion of credentials/privileged installation handles from ordinary
+app checkpoints and refusal to replace a modeled active installer writer.
 
 **T12 — Release:** compare two clean builds, verify package/ISO checksums, boot the exact
 output offline, validate notices/SBOM/provenance, run rescue/last-good selection and
 confirm the support matrix matches actual test evidence.
+At M6 add the [installer-preparation matrix](installer-preparation.md#m6-preparation):
+non-writing target/layout/payload validation and first-generation storage faults.
+For M8, require mandatory B41–B44 and the [installer gate](installer-preparation.md#later-installer-gate):
+confirmed target/revalidation, untouched sentinel disks, interrupted-install outcomes,
+ISO-detached cold boots with fresh firmware variables, persisted user data and rescue.
+Graphical installation and restricted first-owner setup must pass keyboard-only and
+pointer workflows, login/logout/lock, scoped role administration and cross-user
+denial. Required repair and preserving reinstall retain files, settings, account/
+credential records and ownership on the supported format; unknown formats are
+refused without writes. Inject interrupted account/role/setup and credential-policy
+writes to reject duplicate privilege or login bypass. Validate M6's chosen boot
+layout/discovery separately from this full lifecycle. These future tests are distinct
+from live ISO boot and ordinary VM data-disk tests. Earlier live-only preview reviews
+do not satisfy T12's M8 account/installer gate.
 
 **T13 — Documentation/contracts:** local links/anchors, JSON parsing/schema fixtures,
 all requirement IDs covered, ADR status/evidence, no proposed command represented as
@@ -172,6 +205,50 @@ unsupported versions. Test duplicate requests and action-provider replacement.
 **T15 — Optional inference:** exact supported model/operators/backend, FP/SIMD,
 quotas, invalid proposals, malicious context, worker crash and unload/reload. Measure
 editor responsiveness and all memory profiles. This is not a core-release gate.
+
+## Later desktop and research acceptance
+
+M9/B45–B47 extends T05/T06/T08/T10/T14 with real file/picker and cross-app exchange
+workflows: name conflicts, denied roots, interrupted/cancelled copy/move, trash
+restore, missing default apps, expired/revoked offers, notifications and complete
+keyboard use. Persist regional/keymap settings and adjust wall time without
+affecting monotonic deadlines or file identity.
+
+M10/B48/B49 extends T06/T07/T08/T11/T12/T14 with independent SDK apps, scoped
+install/update/uninstall, permission-increase review, explicit data retention,
+publisher/trust rejection, interrupted activation and reboot-required outcomes.
+Offline/online delivery share one verifier and remain separate from dev authority.
+
+M11/B50–B52 extends T03/T08/T09/T11/T12 with a coherent document/portable-settings
+backup on a separate destination and verified fresh-install restore after source
+guest-disk loss. Reject corrupt/truncated/path-escaping input and unauthorized
+ownership mappings; exclude secrets/credentials/privileged policy by default.
+Test hung apps, unsafe service-control denial, failed flush/forced shutdown,
+revoked session grants, crash-loop suppression and bounded diagnostic export.
+
+M12/B28/B53/B54 extends T04/T06/T09/T11/T12 with declared virtual network protocol
+coverage, packet loss/malformed traffic, DHCP/DNS changes, trust/time/entropy and
+certificate failures, interrupted downloads and offline usability. Verification
+bypass is a failure. M13/B31/B55 extends T04/T05/T09/T10/T11 with audio negotiation,
+capture permission/indicator/revocation, underrun/reset cleanup and validated
+assistive speech for declared language/device profiles.
+
+M14/B56 re-runs the exact combined ISO/installed lifecycle, clean-build, fault,
+keyboard/accessibility and 256 MiB baseline/full-resource matrices. M15/B57/B58
+requires profile-specific physical boot/device/flush/power/install/backup/rescue
+evidence, not VM substitution or permission inferred from a roadmap document.
+
+M16/B59 follows the [Windows evidence ladder](../01-research/windows-compatibility-feasibility.md#proposed-m16-evidence-ladder):
+PE bounds/ABI/import/runtime/GUI probes, negative authority/resource cases and an
+explicit subset or stop/replan outcome. M17/B60 follows the
+[browser procedure](../01-research/browser-feasibility.md#m17-procedure-and-acceptance),
+including sandbox/maintenance feasibility; no-sandbox launch cannot pass. M18–M21
+retain separate acceleration/SMP/Wasm/AI evidence and resource accounting.
+
+The documentation audit checks 60 unique B IDs, M0–M21, dependency cycles/known
+references, required release closures and optional-track exclusion. It also checks
+every feature row's owner/classification, valid milestone/task references and
+acceptance outcome. These metadata checks do not execute any future OS acceptance.
 
 Revision-2 T05 also compares Slint/custom target configuration and records text/effect/
 semantic limits. T01/T12 require the actual ISO and boot-attempt/health/fallback cases;

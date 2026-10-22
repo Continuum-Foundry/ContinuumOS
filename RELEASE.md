@@ -19,6 +19,17 @@ commit/tag, reviewers, exact artifacts, intended audience, applicable agreements
 passed gates, remaining limitations, and the authorization to publish. Do not
 retrospectively rewrite failed runs or treat a dirty-worktree boot as a clean release.
 
+The owner's 2026-10-21 [roadmap amendment](docs/00-overview/reconciled-plan.md#installer-and-accounts-amendment--2026-10-21)
+requires M8's exact ISO to provide a graphical, keyboard-accessible offline VM
+installer with real local account setup, repair and preserving reinstall. Earlier
+live technology previews need separately scoped review records and cannot complete
+M8. This product decision does not authorize publication or waive the handling hold.
+The later [desktop feature matrix](docs/05-delivery/desktop-feature-matrix.md)
+defines B56/M14 usable VM delivery and B58/M15 named-PC qualification. Their
+broader workflows have separate acceptance; an M8 result is not proof of M14 or
+physical support. Optional browser/EXE/GPU/SMP/Wasm/AI work is not a hidden release
+prerequisite or a claimed shipped capability.
+
 - [ ] Chain of title and contributor permissions reviewed; first-party rights and
   any customer grants approved by the actual rights holders.
 - [ ] U.S.-only infrastructure and all handling paths verified; export jurisdiction,
@@ -31,7 +42,18 @@ retrospectively rewrite failed runs or treat a dirty-worktree boot as a clean re
   loader, kernel and ISO hashes, exact VM profile, and provenance retained.
 - [ ] Appropriate milestone tests run against the exact packaged artifact, including
   cold optical boots, negative cases, cleanup, and supported recovery behavior.
-- [ ] Release reproducibility assessed against M8; unexplained differences block
+- [ ] For M8, B41–B44 pass on the exact release ISO: graphical keyboard/pointer
+  installation, target confirmation, ISO-detached/fresh-firmware installed boot,
+  first-user setup/login, persistent files/ownership, boot/system repair, preserving
+  reinstall and interruption/rescue outcomes. Unsupported formats are refused;
+  unrelated disks remain unchanged. Account/session/RBAC and credential recovery
+  are reviewed, with no default password or incomplete-setup bypass.
+- [ ] For M14, B56's full desktop/app/update/backup/admin/network/audio/assistive
+  matrix passes on the exact ISO and installed disk, including keyboard, faults
+  and resource accounting. For M15, B57/B58 add actual named-profile qualification
+  and installed/backup/rescue evidence. A VM result cannot substitute for hardware.
+  Publication review applies to each exact release artifact and audience.
+- [ ] Release reproducibility assessed against the applicable release gate; unexplained differences block
   any reproducibility claim. A Phase 0 probe comparison is not an ISO comparison.
 - [ ] Development authority and emulator test devices explicitly reviewed for the
   selected release type; no exposed host command channel, secret, share, or
@@ -50,9 +72,10 @@ retrospectively rewrite failed runs or treat a dirty-worktree boot as a clean re
 
 ## Current blockers
 
-The current implementation lacks full M1, a supported desktop, isolation,
-persistence, live state transfer, production security assurance, and release
-reproducibility. Ownership/title review, a durable confidential contact, complete
+M1's declared experimental VM baseline passes local acceptance; it is not a usable
+desktop or release. A supported guest desktop, isolation, persistence, live state
+transfer, the required installer/account lifecycle, production security assurance,
+and release reproducibility remain open. Ownership/title review, a durable confidential contact, complete
 runtime attribution, and artifact-level SBOM/distribution clearance are also open.
 Adding these policies does not satisfy those gates. See
 [milestones](docs/05-delivery/milestones.md), [legal review](LEGAL.md), and

@@ -8,6 +8,9 @@ The external plan adds AI beyond the original desktop/live-update scope. Preserv
 an AI-free OS. After M5, optionally test a small supported model in a constrained
 inference service, using a candidate such as Burn's CPU/no-OS path. Outputs are
 proposals through typed actions. Core release gates do not require inference.
+This track now has M21/B39 as its named gate. Its B06/B21/B37 prerequisites may
+pass before M15; numeric ordering does not require waiting for the physical-PC
+program. Neither M8 nor M14 requires it, and it does not require M20 Wasm.
 
 ## Alternatives
 

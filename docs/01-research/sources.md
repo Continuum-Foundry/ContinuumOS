@@ -1,6 +1,6 @@
 # Primary source catalogue
 
-Access/review date for every entry: **2026-10-17**. O = direct page opened; I =
+Default access/review date: **2026-10-17**; later sections state their own date. O = direct page opened; I =
 indexed primary-source excerpt inspected. Findings below are short paraphrases.
 Source documentation can change; a source URL is not a package or toolchain pin.
 Project proposals in other documents are our synthesis, not endorsements by these sources.
@@ -357,6 +357,65 @@ Register widths, counter period/capabilities, main-counter configuration and sec
 precision, wall-time or physical-platform claim. See the
 [implementation runbook](../05-delivery/phase-1/interrupts-timekeeping-runbook.md).
 
+## Windows compatibility and browser review — 2026-10-21
+
+These sources were reviewed during roadmap planning, not as guest integrations.
+Moving branch URLs identify inspected research; exact source pins are required
+before any port/build experiment. Paraphrases below are source-backed findings;
+the proposed architecture and evidence ladders are in the dedicated studies.
+
+### S85
+[Microsoft PE format](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format) — O.
+Image structure includes machine/subsystem, sections, imports and relocation/runtime metadata. Use: bound PE validation separately from runtime/API compatibility.
+
+### S86
+[Microsoft x64 calling convention](https://learn.microsoft.com/en-us/cpp/build/x64-calling-convention) — O.
+Defines argument registers, stack requirements and unwind metadata. Use: explicit foreign ABI and exception probes, not automatic compatibility with our syscall ABI.
+
+### S87
+[Microsoft API-set loader operation](https://learn.microsoft.com/en-us/windows/win32/apiindex/api-set-loader-operation) — O.
+API contract names are resolved through loader mappings to implementations. Use: distinguish imported API names from arbitrary on-disk DLL lookup.
+
+### S88
+[Wine upstream README mirror](https://github.com/wine-mirror/wine/blob/master/README.md) — O.
+Describes Wine's loader/API role, supported Unix-like hosts and build/runtime requirements. Use: candidate dependency inventory; no ContinuumOS port is established.
+
+### S89
+[Wine Unix virtual-memory implementation](https://raw.githubusercontent.com/wine-mirror/wine/master/dlls/ntdll/unix/virtual.c) — O.
+Source exposes host memory, filesystem, dynamic-library and synchronization dependencies. Use: inspect adaptation cost rather than assuming a freestanding library.
+
+### S90
+[Wine x86-64 signal/exception implementation](https://raw.githubusercontent.com/wine-mirror/wine/master/dlls/ntdll/unix/signal_x86_64.c) — O.
+Contains pthread/signal and architecture-specific platform handling. Use: thread, exception and TLS host-hook inventory.
+
+### S91
+[Wine server process implementation](https://raw.githubusercontent.com/wine-mirror/wine/master/server/process.c) — O.
+Implements server-side process/object coordination with host facilities. Use: account for Wine service/runtime dependencies, not only API DLLs.
+
+### S92
+[Wine upstream license text](https://github.com/wine-mirror/wine/blob/master/LICENSE) — O.
+Exact upstream terms are an integration/distribution review input. No license applicability or distribution clearance is concluded here.
+
+### S93
+[Microsoft running 32-bit applications](https://learn.microsoft.com/en-us/windows/win32/winprog64/running-32-bit-applications) — O.
+Documents WOW64 and cross-bitness limitations. Use: keep x64 prototypes distinct from a 32-bit compatibility subsystem.
+
+### S94
+[Microsoft .NET deployment overview](https://learn.microsoft.com/en-us/dotnet/articles/core/deploying/) — I.
+Distinguishes deployment/runtime models and platform-specific executables. Use: managed-runtime support is separately inventoried, not inherited from native EXE loading.
+
+### S95
+[Chromium sandbox design](https://chromium.googlesource.com/chromium/src/+/main/docs/design/sandbox.md) — O.
+Describes OS-dependent isolation and Windows token/job/desktop/integrity mechanisms. Use: launching a browser does not establish its sandbox; disabling it cannot satisfy a production gate.
+
+### S96
+[Chromium developer build workflows](https://www.chromium.org/developers/how-tos/) — I.
+Lists maintained platform build/documentation routes. Use: investigate a new backend explicitly, not an assumed no-OS port.
+
+### S97
+[ReactOS upstream README](https://github.com/reactos/reactos/blob/master/README.md) — O.
+States Windows-oriented architecture and Wine cooperation. Use: architectural comparison only; adopting another kernel is outside project scope.
+
 ## Access limitations
 
 Redox book direct access returned 403. A TinyGo runtime URL and a Linux DMA guide
@@ -368,3 +427,5 @@ indexed QEMU device documentation support only the limited findings above.
 No inaccessible source is used as the sole basis for a critical accepted decision.
 Before selecting a library, use its exact manifest, license, release source and
 local build experiment, rather than this catalogue as a substitute for integration.
+The 2026-10-21 Wine About page direct fetch returned 403; the inspected upstream
+README mirror and source files support the Wine findings above instead.

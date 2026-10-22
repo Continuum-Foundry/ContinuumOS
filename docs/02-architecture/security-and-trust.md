@@ -75,3 +75,43 @@ Forge/attenuate/stale handles, race user mapping changes, overflow schemas, repl
 updates, request extra permissions, corrupt payloads, exhaust queues, inject a
 malicious font/image, and try guest-directed host file/command access. Add independent
 review before public networking, installers or handling valuable credentials.
+
+## Installer and account boundaries
+
+The [installer/accounts roadmap](../05-delivery/installer-preparation.md) is mandatory
+for M8. M3 reserves separate disk-installation/account-administration authority;
+M4 tests trusted focus and capture/diagnostic restrictions with synthetic sensitive
+events. M6 reviews guest entropy and credential-storage feasibility. M7 must select
+and validate the maintained credential mechanism, entropy source and authorized
+recovery policy before real credentials are accepted. Host-only tests, timestamps
+and deterministic VM IDs cannot satisfy this gate.
+
+The unprivileged installer UI invokes a target-scoped installation service and an
+account broker over checked versioned interfaces. Confirmation binds to the target,
+operation and exact offline payload; revalidate before writes. Developer authority
+does not automatically grant account administration. First installed boot remains
+in restricted setup until durable owner/account/policy state is complete. No
+default password, unauthenticated role promotion or rescue login bypass is permitted.
+Credentials and privileged installation handles stay out of ordinary logs, traces,
+inspectors and app checkpoints. M5 blocks replacement of an active installation
+writer pending a separate proven handover. M7/M8 tests grant escalation, capture,
+interrupted setup, account disable/session outcomes and repair/reinstall preservation.
+
+## Later desktop and compatibility boundaries
+
+M9/M10 file pickers, clipboard/drag offers, associations and app management use
+narrow object grants, not path/app-name authority. Review permission increases
+and data deletion independently. M10/B49 ordinary update verification/trust and
+M12/B54 online delivery share one activation/verifier path; a reconnect cannot
+weaken validation. M11/B50 export/restore excludes credential and privileged policy
+state by default and requires explicit authenticated ownership mapping. System
+management cannot bypass active writer/service safety. M13 capture permissions
+include actual stream revocation and a trusted indicator.
+
+M16/B59 evaluates a foreign compatibility boundary, not a trusted app exemption.
+Map foreign handles to scoped native resources and retain process/owner quotas;
+no ambient Windows-looking administrative API or inherited live-reload guarantee.
+M17/B60 requires a credible browser sandbox and maintenance path; disabling the
+sandbox or merely launching an EXE is not security evidence. Both are optional
+research outside M8/M14, as are M18–M21. M15 needs actual profile-specific driver/
+DMA/trust review; selecting one PC does not establish universal hardware isolation.

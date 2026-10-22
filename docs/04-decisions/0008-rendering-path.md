@@ -33,6 +33,9 @@ prove host and guest timing equivalence. Fallback supports recovery without GPU 
 M2/M4 render the same reference scenes in host/guest and profile damage, idle work,
 memory and frame distributions. Select acceleration only after guest/host backend
 feasibility and real benefit are demonstrated.
+This separate experiment is now M18/B29. M14 and one M15 physical-PC profile
+retain software presentation; acceleration is not a release prerequisite. Require
+resource/fence/reset tests, measured workload distributions and a maintained fallback.
 
 Evidence: [S39](../01-research/sources.md#s39), [S43](../01-research/sources.md#s43),
 [S37](../01-research/sources.md#s37), [graphics spec](../02-architecture/graphics-and-compositor.md).

@@ -22,6 +22,11 @@ does not pass this gate. [S81](../01-research/sources.md#s81)
 Firmware/bootloader remain upstream trusted components and may include C. This is
 consistent with the documented original-kernel interpretation, not strict first-party
 code from reset. An ISO needs an explicit writable data image for durable changes.
+The approved 2026-10-21 roadmap amendment additionally requires a complete VM
+installer for M8. M6 selects and experimentally validates boot-readable layout,
+early driver availability and firmware discovery; M7 B42–B44 implement and accept
+installed-disk boot. Preserve the standalone optical ISO recipe independently.
+No partition/filesystem choice or bootloader change is selected by this amendment.
 
 ## Gate and reconsideration
 

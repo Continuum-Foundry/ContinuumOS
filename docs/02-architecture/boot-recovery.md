@@ -56,3 +56,20 @@ exhaust attempts, corrupt one slot/generation, remove a required package, and tr
 known-good binary against a newer incompatible user schema. Verify a rescue ISO can
 inspect data without automatically changing it. Document persistence limits of
 ephemeral live sessions.
+
+## Installation and account readiness
+
+M6 validates installed-boot layout/discovery and incomplete first-generation
+recovery; [M7 B41–B44](../05-delivery/installer-preparation.md) complete the mandatory
+M8 lifecycle. The exact release ISO must cold-boot independently and install a VM
+disk that boots with ISO detached and fresh firmware variables. Optical boot and
+installed-disk boot are separate evidence rows.
+
+Distinguish boot health, durable installation completion and first-account setup
+completion. An installed generation may await restricted setup; it cannot grant
+ordinary desktop access merely because kernel/services are healthy. Interrupting
+setup must preserve coherent ownership/account policy without a privileged bypass.
+Repair boot/system content and reinstall compatible generations using the shared
+activation mechanism while preserving current user files, accounts and ownership.
+Unknown layouts/schema incompatibility must produce refusal or declared rescue,
+not an automatic erase. Rescue starts read-only and account recovery requires authority.

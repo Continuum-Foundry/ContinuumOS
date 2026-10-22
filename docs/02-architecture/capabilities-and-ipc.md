@@ -27,6 +27,14 @@ until a derivation/revocation mechanism has been implemented.
 
 ## Messaging
 
+M3 must bind trusted caller context to process/session provenance as specified in
+[identity and authorization](identity-and-authorization.md). A principal, owner or
+role ID in the message body grants no authority. Define attribution after channel
+delegation/transfer; do not assume the current sender is the channel's creator.
+Services enforce resource scope and current brokered leases at use time, including
+requests from two apps owned by the same user. Role policy authorizes grants;
+handles and service checks enforce them.
+
 Start with copied bounded control messages and bounded attached handles. Sending
 to a full queue returns `WouldBlock` or waits under a deadline. Handles and bytes
 are accepted atomically as one message; no partial authority leaks on failure.

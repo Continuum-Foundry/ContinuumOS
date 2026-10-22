@@ -54,7 +54,8 @@ The developer selects a coherent generation. The host packages an ISO with exact
 content, build metadata, notices and recovery tools. A fresh VM boots it without host
 shares/network. User documents are not bundled by accident. ISO identity and package
 graph can be compared to the live development session; a different kernel may require
-a fresh boot. Persistence is supplied by a separate declared data image.
+a fresh boot. Live persistence uses a declared data image; the M8 installer must
+also establish its separately tested durable installed-disk layout.
 
 ## Operate under pressure
 
@@ -62,3 +63,78 @@ Many windows, large text, low memory or a slow app must not starve the whole des
 The system bounds queues/caches, refuses updates without headroom and uses a lower-cost
 effects profile while retaining clear text/focus. Diagnostics account for both guest
 and host costs. A failed app can recover without resetting kernel boot identity.
+
+## Complete everyday file and desktop work — M9
+
+Create a folder, save a document through a picker, copy/rename/move it and open it
+through an explicit default-app association. Exercise conflicting names, denied
+roots, a missing default app, interrupted copy and cancellation after partial
+completion. Delete to trash and restore without silently overwriting another file.
+Use the same workflow by keyboard and pointer. Clipboard/drag offers across two
+apps expire or revoke without leaking access to unrelated files; notification
+actions keep bounded focus/lifetime. Change locale/keymap/time zone, reboot and
+verify settings while a wall-clock adjustment leaves monotonic timers correct.
+
+## Manage native applications and ordinary updates — M10
+
+Install an independently built SDK app from a verified offline bundle, inspect
+its grants and launch it. An update requesting more authority cannot inherit it
+silently. Reject bad publisher/metadata/compatibility and recover interrupted
+activation. Stage a kernel/boot change with an explicit reboot-required result.
+Uninstall once retaining and once removing selected app-owned data; unrelated user
+documents and shared package references survive. Ordinary release updates do not
+require enabling the development command endpoint.
+
+## Restore after losing the guest disk — M11
+
+Select document roots and portable settings, back them up to a distinct destination,
+then restore into a freshly installed OS after removing the original guest disk.
+Authenticate the destination owner, preview conflicts/ownership mapping and verify
+the restored content/settings. Credentials, secrets and privileged policy are not
+implicitly migrated. Corrupt, truncated, path-escaping, incompatible or unauthorized
+restore inputs are refused; interrupted restores report incomplete outcomes without
+silently replacing unrelated files. State whether the destination shares the host
+failure domain; a second image alone is not host-loss backup evidence.
+
+## Recover from a hung app and shut down — M11
+
+Inspect CPU/memory/disk/service status, terminate a hung app under scoped authority
+and reject an unsafe core-service restart. Export bounded diagnostics with private
+data excluded by default. Shut down while writes/checkpoints are active; inject a
+flush failure and a stuck app to test honest failure/force choices. On the next
+boot, restore only compatible authorized app/document references, not old privilege,
+and suppress crash loops. Autosave recovery is not falsely labeled explicit save.
+
+## Connect and update without weakening trust — M12
+
+Configure the supported virtual network, resolve DNS and establish validated TLS.
+Inject packet loss, malformed traffic, incorrect time, entropy not ready, expired/
+untrusted certificates and disconnect during an update download. The same package
+verifier handles online and offline content; no bypass permits partial/unverified
+activation. Network loss leaves offline apps/files usable and does not enable a
+development listener.
+
+## Hear assistive feedback and control capture — M13
+
+Navigate apps by keyboard, observe correct semantic focus/value/actions and hear
+validated assistive speech on the supported audio path/language matrix. Play/mix
+bounded streams and choose a device. Deny/revoke microphone access and verify both
+the trusted indicator and actual stream stop/cleanup. Inject underrun, overload,
+device reset and service failure; record accessibility and continuity limits.
+
+## Qualify the declared physical machine — M15
+
+After B56 VM acceptance, inventory and select one named UEFI PC and required
+devices. Under a separately explicit disk/write scope, test boot media, installed
+boot, input/display/network/audio/power, independent backup and rescue. Unknown
+devices/profiles are reported unsupported; a passing VM test is not substituted.
+
+## Explore compatibility without declaring delivery — M16/M17
+
+Inspect malformed and supported x64 PE fixtures, run only the bounded console/
+DLL/runtime/GUI probes after their guest prerequisites, and test denied authority
+and cleanup. Record missing APIs rather than returning fake success. Compare a
+native browser port with the measured compatibility route; no-sandbox launch or
+a screenshot cannot demonstrate browser safety. Produce a subset/route proposal
+or evidenced stop/replan and request a separate product decision before promising
+general application/browser delivery.

@@ -34,6 +34,14 @@ are useful but not battery-life proof.
 
 ## Workload suite
 
+M11/B51 exposes scoped CPU/memory/disk/service observations and bounded diagnostic
+exports through [desktop contracts](../06-contracts/desktop-services.md). Preserve
+sampling units, loss/readiness and permission boundaries; a rounded task-manager
+display cannot replace raw measurements. M14 re-runs the 256 MiB baseline and
+combined workloads with complete caches/services included. M15 needs actual named-
+hardware results. M18/M19/M20/M21 measure optional GPU/SMP/Wasm/AI costs independently;
+none is assumed to improve performance or excluded from active-use accounting.
+
 Static desktop with clock/caret; rapid pointer/window dragging; resize; long document
 scrolling; large virtual list; text typing with complex scripts; many overlapping
 windows; launcher/workspace transitions; translucent panels over moving content;

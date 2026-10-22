@@ -27,9 +27,16 @@ accepted because the previous version was trusted.
 | File browser | Exercise filesystem, virtual lists and async operations | Directory capability reference, selection, sort mode, viewport |
 | Settings | Exercise token reload and persistence | Declarative settings with explicit schema versions |
 | Inspector | Show scene damage, resource use and update epochs | Diagnostic view state, no authority hidden in normal app state |
+| Installer/first-run setup (M7) | Mandatory graphical keyboard-accessible M8 installation and account setup | Non-secret view/progress state only; no credentials or privileged disk handles; active writes remain service-owned |
 
 Do not call the console a POSIX terminal until process I/O, a shell and terminal
-semantics actually exist. A browser engine and legacy app support are later programs.
+semantics actually exist. M10/B48 formalizes native install/launch/update/uninstall,
+permission increases and app-data retention using the same SDK/package graph.
+See [desktop service responsibilities](../06-contracts/desktop-services.md).
+M16's [Windows study](../01-research/windows-compatibility-feasibility.md) and M17's
+[browser study](../01-research/browser-feasibility.md) are research/prototype gates,
+not installed app/browser promises or M8/M14 prerequisites. Keep native ELF first;
+no foreign app is assumed to export M5-compatible state or typed actions.
 
 ## Application lifecycle
 
@@ -44,6 +51,9 @@ reconstructed from authorized logical references. An unsaved buffer containing
 sensitive data follows the checkpoint storage/privacy policy.
 
 ## Wasm experiment
+
+This independently gated work belongs to M20/B27; it does not require M15 or gate
+M8/M14. Its declared B12/B18/B20 prerequisites determine execution readiness.
 
 Use a no-std-capable interpreter such as Wasmi for a bounded prototype. Its published
 features include fuel metering; we must still supply allocation and secure host

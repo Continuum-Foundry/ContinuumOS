@@ -152,6 +152,40 @@ deliverables under `outputs/`; later source layout is proposed in the build spec
 
 ## Preserve these constraints
 
+The owner's M3 planning clarification adds [identity/ownership/authorization foundations](../02-architecture/identity-and-authorization.md)
+to local B11–B13 and aligns B15/B37's handoff. Include trusted caller/session
+provenance, scoped role-to-capability grants, cross-owner/same-user app denial and
+brokered invalidation tests when decomposing M3 into stories. Product scope remains
+one development user; two synthetic users are enforcement fixtures, not implemented
+accounts at M3. The approved installer/accounts amendment now makes M7 B41–B44
+mandatory for M8. No separate P3 story files exist yet.
+
+The owner's installer planning clarification seeds [M6 installer prerequisites](installer-preparation.md)
+in B22–B24/B40, with B33/B34 packaging/recovery handoff. Include a non-writing
+VM target/layout/payload planner and interrupted first-generation cases when M6
+is decomposed. M6 selects and experimentally validates the boot layout/payload and
+reviews entropy/credential feasibility. M4 seeds trusted setup/login input; M5
+excludes secrets/privileged handles from app checkpoints and blocks active installer
+writer replacement. M7 adds real accounts and graphical keyboard-complete offline
+installation, first-installed-boot owner setup, repair and preserving reinstall.
+The exact M8 ISO must pass B44's independent installed-disk lifecycle with accounts,
+files and ownership preserved. Live-only previews have separately scoped reviews
+and cannot satisfy M8. The four new broad B41–B44 tasks are not P-level stories;
+decompose P3–P21 only at the owner's request before each milestone. No installer
+code, disk write, physical-PC operation or publication is authorized by these edits.
+
+The subsequent approved [desktop/platform expansion](desktop-feature-matrix.md)
+preserves M8 and adds M9–M21 with broad B45–B60 (60 total tasks). M7 now focuses on
+installation/accounts. B56/M14 accepts M9–M13 desktop/app/update/backup/admin/network/
+audio/assistive delivery; B58/M15 qualifies one named PC after the accepted VM.
+M16/B59 and M17/B60 are sourced compatibility/browser studies with bounded probes,
+not promised ports or release dependencies. B29/B30/B27/B39 now have optional
+M18/M19/M20/M21 homes; their actual prerequisites can pass before M15. Keep the
+original kernel and avoid universal Windows-app, browser, driver or foreign-reload
+claims. Backup covers documents/portable settings with explicit authenticated-owner
+mapping and no default credential/policy migration. M3–M6 seed interfaces only;
+do not import later features into their exits. No later P stories exist yet.
+
 - Original kernel, not a rebranded existing OS or web-only shell.
 - Modern first-party code, with architecture-specific instructions acknowledged.
 - Live updates for declared classes without hidden OS/VM reboot.

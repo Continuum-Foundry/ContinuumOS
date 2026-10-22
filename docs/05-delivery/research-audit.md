@@ -41,8 +41,16 @@ Manual consistency review checked the boot-to-desktop-to-update-to-recovery path
 stable-core dependencies, distinction between guest CPU/GPU support, writer fencing,
 pre/post-decision outcomes, unsaved state, irreversible effects, persistence modes,
 version/ABI boundaries, draft schema semantics and future-agent instructions.
-Revision 2 also checks the 40-task dependency graph, optional AI's exclusion from
+The original revision-2 audit checked the then-current 40-task dependency graph, optional AI's exclusion from
 core-release dependencies, toolkit buffer/scene boundaries, memory profiles and ISO gates.
+The 2026-10-21 installer/accounts amendment expanded the checker to 44 tasks
+and requires B41–B44 in B35's release dependency closure while retaining optional
+AI's exclusion. This does not change the historical validation results above.
+The subsequent approved desktop/platform expansion makes the current checker
+validate 60 distinct tasks, 22 milestone IDs, the feature matrix and M8/M14/PC
+release closures with optional research excluded from VM releases. The dated
+Windows/browser sources are planning research, not an executed guest port or
+acceptance result. Original source/evidence reviews above remain historical.
 
 ## Limits
 

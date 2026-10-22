@@ -49,6 +49,19 @@ compatible generation on writable storage; the kernel identity still constrains 
 If a new generation requires a different kernel ABI, stage it for reboot instead
 of attempting user-space activation.
 
+## Offline installation and repair
+
+M6/B42 defines a versioned installation plan around this same immutable package/
+generation graph; see the [installer interfaces](../05-delivery/installer-preparation.md#service-boundary-and-draft-interfaces).
+Bind the selected target, operation, complete offline payload identity and proposed
+write/preservation ranges to explicit confirmation, and revalidate before writes.
+Progress/cancellation outcomes distinguish staged copies from durable activation.
+Installation, updates, boot/system repair and preserving reinstall share activation
+and recovery rules. Preserve current user/account/ownership data; an incompatible
+layout must fail without an automatic erase. Credential material belongs to the
+account broker and must not be embedded in the ISO/package generation. This prose
+adds no frozen fields to the illustrative package schema.
+
 ## Garbage collection and recovery
 
 Root the boot base, active generation, last good generations, staged decided

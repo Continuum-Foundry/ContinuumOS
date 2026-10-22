@@ -1,28 +1,30 @@
 # Requirements and feature matrix
 
 Status: user intent plus proposed engineering acceptance criteria. Metrics are
-targets, not measurements. M0–M8 are defined in [milestones](../05-delivery/milestones.md).
+targets, not measurements. M0–M21 are defined in [milestones](../05-delivery/milestones.md).
+The [desktop feature matrix](../05-delivery/desktop-feature-matrix.md) distinguishes
+M8 installation, M14 desktop delivery, one M15 PC profile and optional/deferred work.
 
 ## Core requirements
 
 | ID | Requirement | First acceptance evidence | Gate |
 | --- | --- | --- | --- |
 | R01 | Original kernel and OS architecture | Build manifest identifies original kernel; no substituted existing OS | M1 |
-| R02 | Bootable standalone ISO | Cold boot through declared UEFI firmware, no host-shared root files | M1, M8 |
+| R02 | Bootable standalone ISO | M1 optical boot; M8 exact ISO installs offline and the installed VM boots with ISO detached, no host-shared root | M1, M8 |
 | R03 | Modern first-party language | Rust source and documented tiny assembly boundary; no first-party C dependency | M0 onward |
 | R04 | Live UI resources without OS reboot | Theme/layout updates preserve document and window; boot ID/uptime unchanged | M2, M4 |
 | R05 | Live app behavior without OS reboot | New logic used after state migration; old process safely retired | M5 |
 | R06 | Selected system services replaceable | Update under load obeys request and resource invariants | M6 |
 | R07 | State continuity has explicit limits | Compatibility failures rejected before activation; unsaved text preserved in supported paths | M5 |
-| R08 | Exceptional coherent desktop | Design tokens, reference scenes, keyboard behavior, and visual review | M2–M8 |
+| R08 | Exceptional coherent desktop | Design tokens, reference scenes, keyboard behavior, and visual review; later everyday app/file integration | M2–M8, M9–M14 |
 | R09 | Efficiency is measurable | Recorded CPU/frame/memory traces for fixed workloads and hardware profile | M2 onward |
-| R10 | Isolation and bounded resources | User process cannot write kernel/other app memory; quotas and malformed IPC tests | M3 |
-| R11 | Persistent user files | Correct flush path and recovery tests survive injected interruption | M6 |
-| R12 | Recoverable updates | Fault injection at every transition; last good generation boots | M5–M8 |
+| R10 | Isolation and bounded resources | User process cannot write kernel/other app memory; quotas/IPC tests; M7 account/session and installer-authority enforcement | M3, M7 |
+| R11 | Persistent user files | Correct flush/recovery under faults; M9 operations and M11 independent file/settings restore | M6, M9, M11 |
+| R12 | Recoverable updates | Fault injection at every transition; last good generation boots; verified ordinary delivery and independent data restore | M5–M8, M10–M14 |
 | R13 | Secure development boundary | Explicit dev mode, authenticated session, bounded messages, no guest-supplied host commands | M4 |
-| R14 | Versioned contracts | Wire compatibility tests, schema migration fixtures, independently built clients | M3–M6 |
-| R15 | Accessibility and international text | Semantic tree, keyboard navigation, scale, graphemes, shaping and bidi tests | M2–M8 |
-| R16 | Reproducible delivery | Pinned inputs, provenance, checksums, two clean builds with explained differences | M8 |
+| R14 | Versioned contracts | Wire compatibility tests, schema migration fixtures, independently built clients; later desktop service contracts frozen at their gates | M3–M6, M9–M15 |
+| R15 | Accessibility and international text | Semantic tree, keyboard navigation, scale, graphemes/shaping/bidi; native assistive speech with declared support | M2–M8, M13–M14 |
+| R16 | Reproducible delivery | Pinned inputs, provenance, checksums, two clean builds with explained differences per release | M8, M14–M15 |
 | R17 | Honest diagnostics | Update status, precise rejection reason, crash logs, no false success | M4 onward |
 | R18 | Agent-ready maintainability | Traceable tasks, ADRs, contracts, tests, dependency inventory | This library; continuous |
 | R19 | Shared typed actions and scoped context | UI/automation parity; rights, revision, expiry and reload checks | M2 design, M5 evidence |
@@ -37,27 +39,37 @@ targets, not measurements. M0–M8 are defined in [milestones](../05-delivery/mi
 | CPU | One core, baseline x86-64 | SMP, other architectures after portability gate |
 | Memory | Paging, isolation, quotas, demand-zero or eager mapping | Swap, memory compression, NUMA deferred |
 | Scheduling | Preemption, fairness, bounded priority policy | Deadline/hard real-time contracts deferred |
-| Devices | Serial, timers/APIC, PCI, VirtIO input/block/console/display | NVMe, USB, Wi-Fi, vendor GPUs are separate driver programs |
-| Graphics | One display, software, logical scaling | Acceleration, mixed-DPI multi-display, HDR after correct color pipeline |
-| Input | Keyboard, pointer, focus, keymap service | IME and touch staged; secure input path before login |
-| Desktop | Launcher, windows, tiling/snap, settings, notifications | Advanced workspaces and scripting after core usability |
-| Apps | Editor, file browser, console, inspector | Browser, media suite, compatibility subsystems deferred |
+| Devices | Serial, timers/APIC, PCI, VirtIO input/block/console/display | M15 selects required drivers for one PC; broad NVMe/USB/Wi-Fi/vendor-device coverage remains separate |
+| Graphics | One display, software, logical scaling | M18 optional acceleration; mixed-DPI multi-display/HDR require separate evidence |
+| Input | Keyboard, pointer, focus, keymap service; M4 trusted setup/login prerequisites, validated before M7 credentials | IME and touch staged |
+| Desktop | Initial launcher/windows/settings; M9 cross-app clipboard/drag/defaults/notifications and regional settings | Advanced workspaces and scripting beyond declared desktop scope |
+| Apps | Editor, file browser, console, inspector; M10 native SDK and install/update/uninstall | M16 EXE research and M17 browser study do not promise shipping compatibility/browser; media suite deferred |
 | Text | UTF-8 storage, grapheme editing, shaping hooks | Fonts/script coverage grows against explicit test corpus |
-| Accessibility | Semantic model, keyboard, visible focus, reduced motion | Native screen reader, braille and speech drivers staged |
-| Files | Read-only system packages, writable data image | Full desktop filesystem after crash-consistency gate |
-| Networking | Dev channel first; isolated network service | General TCP/IP, DNS, TLS, IPv6 compatibility stages |
-| Audio | Interface reserved; optional single PCM device | Mixer, resampling, microphone permissions later |
-| User identity | Single local development user | Authentication, multiple users, encrypted home later |
-| Power | Idle halt, timers, orderly shutdown | Physical suspend/resume and battery policy deferred |
-| Updates | Resource/app/service classes | Driver resets class-specific; kernel/boot require reboot initially |
-| Installation | Live ISO and named VM data disk | Installer only with explicit target selection and recovery design |
+| Accessibility | Semantic model, keyboard, visible focus, reduced motion | M13 native assistive consumer/validated speech required for M14; broad language/device/braille coverage separately gated |
+| Files | M6 durable data; M9 complete operations/trash/pickers; M11 independent documents/portable-settings backup | Complete-machine/credential backup and broader filesystem semantics separately gated |
+| Networking | Dev channel first; M12 virtual Ethernet/addressing/DHCP/DNS/TCP/TLS and time/trust required for M14 | IPv6/broader protocols and physical wireless remain explicit later coverage |
+| Audio | Interface reserved for M8 | M13 VM playback/capture/mixing/device/permission gate required for M14 |
+| User identity | One development user through M6; M3 authority foundations; M7 local accounts/login/scoped RBAC and first-user setup required for M8 | Encrypted homes need a separate key/recovery gate; network identity/roaming deferred |
+| Power | Idle halt/timers; M11 bounded shutdown/session recovery; M15 named-PC poweroff | Physical suspend/resume and battery policy deferred |
+| Updates | Resource/app/service classes; M10 verified ordinary offline delivery and M12 online client | Driver resets class-specific; kernel/boot require reboot initially |
+| Installation | M6 preparation; M7 graphical offline VM installer/accounts/repair/preserving reinstall required for M8 | M15 one named physical PC; dual boot/resizing/encryption/Secure Boot remain further gates |
 | Recovery | Rescue ISO, last good generation, serial logs | Signed recovery and key recovery after release security design |
-| Compatibility | Native OS SDK and defined Wasm imports | No implicit POSIX, Win32, Linux ABI, or browser APIs |
-| Distribution | Offline coherent package set | Online update repository after trust/time/entropy gates |
+| Compatibility | Native SDK first; M20 bounded Wasm; M16/B59 x64 Windows study and probes | No implicit POSIX/Win32/Linux ABI, managed runtime or browser APIs; no foreign-app reload guarantee |
+| Distribution | Offline coherent package set; M10 verified bundle lifecycle | M12 verified online client; hosting/publication independently authorized |
 | Privacy | Local logs; explicit diagnostic export | No background telemetry by default |
 | Typed actions | Versioned operations shared by UI, shortcuts and automation | Optional model proposals through identical authorization |
 | AI | Optional extension; absent from required boot/desktop path | Small-model CPU experiment after M5; no assumed NPU/LLM stack |
 | Licensing | Inventory and attribution for every dependency/font | Original project material is all rights reserved; upstream terms remain separate; distribution needs rights review |
+
+The [identity and authorization plan](../02-architecture/identity-and-authorization.md)
+separates M3's synthetic multi-principal enforcement tests from real account/login
+support. The 2026-10-21 [roadmap amendment](reconciled-plan.md#installer-and-accounts-amendment--2026-10-21)
+requires M7 accounts and installation readiness for M8; an earlier live-only preview
+does not satisfy that release gate.
+The later desktop/platform expansion preserves M8 and adds M9–M15 delivery and
+M16–M21 separately gated research. B56/M14 requires desktop/network/audio/backup
+acceptance; B58/M15 requires that VM release and one named PC. Neither release
+requires browser/EXE/GPU/SMP/Wasm/AI experiments. No new feature is implemented by this plan.
 
 ## Performance targets and accounting
 

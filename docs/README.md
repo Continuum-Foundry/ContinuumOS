@@ -23,6 +23,14 @@ replacement base and exact-hash tool supplement are enforcing. Fresh signed host
 rebuilds and clean Cargo build-script/proc-macro/test/run preflights pass, followed
 by the full P1-07 acceptance gate and local self-review.
 Plan revision: **2 — reconciled direction approved by the user; technical gates pending**.
+The [2026-10-21 installer/accounts amendment](00-overview/reconciled-plan.md#installer-and-accounts-amendment--2026-10-21)
+makes graphical VM installation, local account setup, repair and preserving
+reinstall mandatory for M8. It adds planning tasks B41–B44, not implementation or
+new P-level stories; existing M0–M2 evidence remains unchanged.
+The subsequent [desktop/platform expansion](00-overview/reconciled-plan.md#desktop-and-application-platform-expansion--2026-10-21)
+adds M9–M21 and broad B45–B60: M14 usable VM desktop, M15 one named PC, and separate
+compatibility/browser/runtime experiment gates. The [feature matrix](05-delivery/desktop-feature-matrix.md)
+records release boundaries; none of this is implemented by documentation completeness.
 The requested project folder is named **ContinuumOS**; this is a working project name.
 
 This library translates the user's idea into an implementable, testable design:
@@ -58,14 +66,15 @@ is approved.
 | System structure | [Layers](02-architecture/system-layers.md), [kernel](02-architecture/kernel-and-execution.md), [capabilities and IPC](02-architecture/capabilities-and-ipc.md) |
 | Platform | [Boot](02-architecture/boot-and-platform.md), [drivers](02-architecture/drivers-and-hardware.md) |
 | Actions and recovery | [Typed actions / optional AI](02-architecture/actions-and-optional-ai.md), [boot recovery](02-architecture/boot-recovery.md), [action contract](06-contracts/actions-and-context.md) |
-| Persistent services | [Storage](02-architecture/storage-and-data.md), [networking](02-architecture/networking.md), [security](02-architecture/security-and-trust.md) |
+| Persistent services | [Storage](02-architecture/storage-and-data.md), [networking](02-architecture/networking.md), [security](02-architecture/security-and-trust.md), [identity and authorization](02-architecture/identity-and-authorization.md) |
 | Desktop | [Graphics](02-architecture/graphics-and-compositor.md), [UI and design](02-architecture/ui-framework-and-design.md), [apps](02-architecture/applications-and-runtime.md) |
 | Whole-system quality | [Performance and observability](02-architecture/observability-and-performance.md), [accessibility and internationalization](02-architecture/accessibility-and-internationalization.md), [power and lifecycle](02-architecture/power-audio-and-lifecycle.md) |
 | Live changes | [Guarantees](03-live-update/model-and-guarantees.md), [transactions](03-live-update/protocol-and-transactions.md), [state](03-live-update/state-and-compatibility.md), [recovery](03-live-update/failure-recovery-and-security.md) |
 | Interfaces | [Kernel objects and IPC](06-contracts/ipc-and-objects.md), [update format](06-contracts/update-wire-format.md), [scene protocol](06-contracts/ui-and-scene-protocol.md), [package manifest](06-contracts/package-manifest.md) |
-| Execution | [Backlog](05-delivery/backlog.md), [build and release](05-delivery/build-and-release.md), [validation](05-delivery/validation.md), [risks and open questions](05-delivery/risks-and-open-questions.md) |
+| Execution | [Backlog](05-delivery/backlog.md), [build and release](05-delivery/build-and-release.md), [installer preparation](05-delivery/installer-preparation.md), [validation](05-delivery/validation.md), [risks and open questions](05-delivery/risks-and-open-questions.md) |
 | Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md), [host module layout](05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout), [metadata runbook](05-delivery/phase-1/boot-metadata-runbook.md) |
 | Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-06 candidate evidence accepted locally; P2-07–P2-13 Not started |
+| Later desktop | [Feature/release matrix](05-delivery/desktop-feature-matrix.md), [service responsibilities](06-contracts/desktop-services.md), [Windows study](01-research/windows-compatibility-feasibility.md), [browser study](01-research/browser-feasibility.md); no later P-level decomposition yet |
 
 ## Status and interpretation
 

@@ -8,6 +8,11 @@ General networking is valuable but should not block first live UI updates. Build
 an isolated network service after the local dev channel. Evaluate smoltcp and a
 maintained TLS stack/provider; implement real clocks, entropy, trust anchors and
 resource limits. Do not invent cryptography or disable certificate validation.
+The delivery gate is M12/B28/B53/B54, required for M14 but not the offline M8
+experimental release. M10's same verifier handles offline and online software;
+reconnect cannot bypass trust/expiry/compatibility checks. Protocol coverage and
+actual time/entropy readiness remain explicit; broader IPv6/physical wireless
+support is not inherited from the virtual IPv4/TCP/TLS baseline.
 
 ## Alternatives
 

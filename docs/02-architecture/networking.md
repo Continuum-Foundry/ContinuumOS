@@ -24,6 +24,13 @@ entropy gates in the security specification.
 
 ## General network architecture
 
+M12/B28/B53/B54 is required for the M14 usable VM desktop, while M8 remains an
+offline installable experimental release. Complete the declared IPv4/TCP/TLS/time/
+trust matrix and connection settings; broader IPv6/protocol coverage is explicit
+later work. The online updater uses M10/B49's same verifier/activation mechanism
+and must never bypass certificate/package checks after reconnect. Hosting an update
+service and public network exposure require separate scope/review, not this plan.
+
 An isolated network service owns TCP/IP state and driver access. Apps receive
 restricted socket/service capabilities through policy. A stack such as smoltcp is
 a candidate, but device polling, timers, buffers, routes and API integration remain

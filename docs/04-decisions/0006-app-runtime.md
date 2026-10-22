@@ -8,6 +8,13 @@ The OS needs native processes regardless of app scripting choices. Build a minim
 Rust SDK and static native apps first. Spike a Wasmi-based sandbox for UI/plugin
 logic after the same lifecycle/import contracts work natively. Do not make a full
 browser, .NET runtime, WASI or Component Model prerequisite for boot.
+M10/B48 formalizes native SDK/app delivery and M20/B27 owns the optional bounded
+Wasm gate. M16/B59 compares a scoped Rust Windows compatibility service with Wine
+adaptation; M17/B60 studies browser routes. These are research/prototype decisions,
+not adopted runtimes or M8/M14 prerequisites. See the
+[Windows study](../01-research/windows-compatibility-feasibility.md) and
+[browser study](../01-research/browser-feasibility.md). No foreign-app reload
+or broad Windows/.NET compatibility is inferred from native lifecycle support.
 
 ## Alternatives
 

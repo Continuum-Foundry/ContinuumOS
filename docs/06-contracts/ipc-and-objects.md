@@ -17,6 +17,15 @@ No syscall numbers or compiler-dependent layouts are frozen by this document.
 | Devices | `map_resource`, `bind_irq`, DMA mediation | Granted ranges only; lifetime and reset ordering |
 | Diagnostics | `log`, restricted debug query | Bounded data, rate limits, permissions |
 
+## Caller identity and authority
+
+M3 must specify trusted caller provenance and principal/session binding alongside
+the handle ABI; see [identity and authorization](../02-architecture/identity-and-authorization.md).
+Payload identity/owner/role fields are untrusted. Specify sender attribution when
+channels are transferred and prevent stale process/session identifiers from being
+rebound to a different caller. Owner metadata is not a substitute for a rights-
+bearing handle or service-side scope check. No identity encoding is frozen here.
+
 ## Initial kernel message limits
 
 Proposed: 4 KiB inline payload, up to 8 attached handles, 64 queued messages/channel

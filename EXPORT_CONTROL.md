@@ -293,6 +293,27 @@ new recipient or standing remote-environment approval is authorized. Geographic
 containment remains unverified; this administrative exception is not legal
 clearance or a finding of U.S.-only handling and does not waive applicable law.
 
+### One-time owner authorization — roadmap and README, 2026-10-21
+
+After reviewing the accumulated local milestone/documentation changes, the owner
+instructed: "commit all these milestone and doc changes directly to main, I give
+you permission", requested a detailed commit message, and required the repository
+README to be updated as needed and pushed too. This authorizes one direct push
+to the existing GitHub `origin/main` of the accumulated identity/account, installer/
+recovery and M9–M21 desktop/platform roadmap changes, supporting specifications,
+source-backed research, feature matrix, documentation audit, release policy,
+README updates, detailed commit metadata and this authorization record.
+
+This is a scoped exception to the administrative transfer hold and ordinary topic-
+branch/PR procedure. Review is local agent self-review, not independent approval.
+The authorization is exhausted by the first successful push containing this record.
+The local pre-push hold may be bypassed for that single push invocation only and
+must remain installed afterward. No force push, release/binary distribution, remote
+build, new recipient or standing remote-environment approval is authorized. No
+executable, ISO, font, credential or full local run/source tree is included.
+Geographic containment remains unverified; this administrative exception is not
+legal clearance or a finding of U.S.-only handling and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

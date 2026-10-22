@@ -43,6 +43,13 @@ The executor validates it, but the provider also enforces its own object rights 
 revisions. Reject stale epochs/revisions before mutation. Never rely on a preview
 performed earlier as a substitute for execution-time validation.
 
+Bind caller identity to M3's [trusted principal/session context](../02-architecture/identity-and-authorization.md),
+not an app-supplied owner or role string. Provider checks include current resource
+scope and brokered policy/session validity. Removing a role between preview and
+execution must deny an operation that depended on that role; ordinary direct-handle
+revocation retains its separately documented limits. Replacement reauthorizes
+grants instead of trusting authority serialized in a checkpoint.
+
 Minimum outcomes: success with authoritative resulting revision, access denied,
 unknown/unsupported action/version, invalid input, conflict, expired context,
 quota/deadline/cancel outcome, unavailable provider and uncertain external result.

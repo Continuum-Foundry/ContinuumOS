@@ -61,38 +61,80 @@ decomposition does not change the Bxx dependencies or mark later requirements Do
 | B08 | UI: layout, stable IDs and semantic tree | B07 | Incremental layout and keyboard/focus fixtures | R08,R15 |
 | B09 | UI: text shaping/edit model | B07,B08 | Grapheme/bidi/shaping/fallback corpus and editor checkpoint | R07,R15 |
 | B10 | UI: token/layout live swap on host | B08,B09 | Preserved text/focus, invalid data rejected | R04,R08 |
-| B11 | Kernel: static ELF user loader and syscalls | B05,B06 | Validated entry, user-mode tasks, malformed ELF tests | R03,R10,R14 |
-| B12 | Kernel: rights-bearing handles and IPC | B11 | Bounded channels, transfer/error/wait fixtures | R10,R14 |
-| B13 | Services: supervisor, quotas and routes | B12 | Crash containment, epochs, bounded queues, stale writer tests | R06,R10,R14 |
+| B11 | Kernel: static ELF user loader and syscalls | B05,B06 | Validated user entry and malformed ELF tests; trusted user/service principal, session and process binding; child launch cannot forge identity or exceed granted authority | R03,R10,R14 |
+| B12 | Kernel: rights-bearing handles and IPC | B11 | Bounded channels, transfer/error/wait fixtures; trusted caller provenance, forged owner/role rejection, cross-owner denial, explicit sharing, same-user app least authority and unauthorized disk/account-operation rejection | R10,R14 |
+| B13 | Services: supervisor, quotas, authority policy and routes | B12 | Crash containment, epochs, bounded queues, stale writer tests; scoped role-to-capability policy, owner checks, installer/account-administration grant ceilings, brokered invalidation and fail-closed restart; no universal direct-handle revocation claim | R06,R10,R14 |
 | B14 | Platform: dev transport adapter | B03,B12 | Bounded framed byte stream with actual host/guest transfer | R13,R17 |
-| B15 | Security: session authority and plan validation | B13,B14 | Replay, bad credential, permissions and malformed-plan tests | R10,R13,R14 |
-| B16 | Graphics: guest surfaces/compositor/input | B06,B08,B12 | Hosted scenes appear in guest; focus/capture and buffer lifetime tests | R08,R09,R15 |
+| B15 | Security: session authority and plan validation | B13,B14 | Replay, bad credential, permissions and malformed-plan tests; bind dev credentials to M3 caller/session context, reject role/owner spoofing, keep dev authority separate from desktop account administration | R10,R13,R14 |
+| B16 | Graphics: guest surfaces/compositor/input | B06,B08,B12 | Hosted scenes appear in guest; focus/capture and buffer lifetime tests; trusted setup/login routing, restricted capture and sensitive-event exclusion from ordinary diagnostics, tested with synthetic input | R08,R09,R10,R15 |
 | B17 | Updates: guest L0/L1 publish | B10,B15,B16 | Visible no-reboot asset/layout update and rejection evidence | R04,R13,R17 |
-| B18 | State: checkpoint codecs/migration fixtures | B09,B13 | Identity/adjacent migration, resource inventory, corrupt/oversize failures | R07,R14 |
-| B19 | Updates: candidate prepare and quiescence | B15,B18 | Restricted startup, bounded drain/cancel, safe abort | R05,R06,R12 |
+| B18 | State: checkpoint codecs/migration fixtures | B09,B13 | Identity/adjacent migration, resource inventory, corrupt/oversize failures; exclude credentials and privileged installer handles from ordinary app checkpoints | R07,R14 |
+| B19 | Updates: candidate prepare and quiescence | B15,B18 | Restricted startup, bounded drain/cancel, safe abort; reject replacement while an active installation writer/flush owns its transaction, with modeled M5 coverage | R05,R06,R12 |
 | B20 | Updates: activation/fencing/retirement | B19 | One writer, coherent route root, no reachable old code freed | R05,R06,R12 |
 | B21 | QA: first product reload demo | B17,B20,B37 | UI+behavior retain text/selection/window; same boot ID; 100 cycles | R04,R05,R07,R09,R19 |
-| B22 | Storage: block/DMA/flush implementation | B05,B12 | Descriptor/reset/flush tests; documented device durability contract | R10,R11 |
-| B23 | Storage: record store/packages/generations | B22 | Torn-write recovery, hash validation and bounded GC | R11,R12,R16 |
-| B24 | Updates: durable decision/recovery | B20,B23 | Faults before/after every record/fence/publish/ACK; recovery table passes | R06,R11,R12 |
+| B22 | Storage: block/DMA/flush implementation | B05,B12 | Descriptor/reset/flush tests; documented device durability contract; bounded geometry and explicit target identity for non-writing VM installation plans | R10,R11 |
+| B23 | Storage: record store/packages/generations | B22 | Torn-write recovery, hash validation and bounded GC; select and experimentally validate boot/system/data layout, firmware discovery and complete offline payload contract; review entropy/credential-storage feasibility without claiming account implementation | R11,R12,R16 |
+| B24 | Updates: durable decision/recovery | B20,B23 | Faults before/after every record/fence/publish/ACK; recovery table passes, including empty/interrupted initial-generation activation and honest resume/rescue outcomes | R06,R11,R12 |
 | B25 | Services: settings replacement under load | B24 | No lost accepted writes, dedupe and compatibility tests | R06,R07,R14 |
 | B26 | Product: file browser/save/autosave | B09,B16,B23 | Honest save status, path authority, recovery of unsaved buffer | R08,R11,R15 |
-| B27 | Runtime: bounded Wasm spike | B12,B18,B20 | Fuel/memory/import limits and native comparison | R05,R09,R10 |
+| B27 | Runtime: bounded Wasm spike (M20) | B12,B18,B20 | Exact-target interpreter/import integration; fuel/memory/stack limits, cancellation, state exchange and native comparison | R05,R09,R10 |
 | B28 | Networking: stack and TLS integration | B12,B22-style DMA support | Controlled packets, clocks/entropy/provider negative tests | R10,R13 |
-| B29 | Graphics: VirtIO GPU feasibility | B16, profiling | Exact guest/host backend path and measured benefit | R08,R09 |
-| B30 | Platform: SMP experiment | B06,B12,B24 | TLB/ordering/multicore update tests; independent performance evidence | R09,R10,R12 |
-| B31 | Accessibility: native assistive consumer | B08,B09,B16,audio as needed | Keyboard/semantic actions, announced focus/value, no screen-reader overclaim | R15 |
+| B29 | Graphics: VirtIO GPU feasibility (M18) | B16, profiling | Exact guest/host backend, resource/fence/reset tests, measured benefit and maintained software fallback | R08,R09 |
+| B30 | Platform: SMP experiment (M19) | B06,B12,B24 | Multicore context/scheduling, TLB/ordering/concurrent update/recovery tests; measured workload comparison | R09,R10,R12 |
+| B31 | Accessibility: native assistive/text integration (M13) | B08,B09,B16,B55 | Richer text, keyboard/semantic actions and announced focus/value through validated speech/audio; exact language/device support and failure limits | R08,R15 |
 | B32 | Quality: benchmark/fault test harness | B04; grows with gates | Repeatable workloads, trace metadata, deterministic faults | R09,R12,R17 |
-| B33 | Release: rescue and offline generation boot | B23,B24,B25,B40 | Last good selection, failed boot limits, schema-aware recovery | R02,R12 |
-| B34 | Release: deterministic packaging and provenance | B02,B23,B33 | Two clean builds compared, SBOM/notices, symbols/checksums | R02,R16 |
-| B35 | Product: experimental release review | B21,B25,B26,B32,B34 | AI-free core requirements/limitations and evidence complete | R01–R19 |
+| B33 | Release: rescue and offline generation boot | B23,B24,B25,B40 | Last good selection, failed boot limits, schema-aware rescue primitives preserving current data; B44 separately accepts their installed-disk integration | R02,R12 |
+| B34 | Release: deterministic packaging and provenance | B02,B23,B33 | Two clean builds compared, SBOM/notices, symbols/checksums; exact offline installation/boot payloads inventoried; packaged installer lifecycle accepted by B44 before M8 | R02,R16 |
+| B35 | Product: experimental release review | B21,B25,B26,B32,B34,B44 | AI-free core requirements/limitations and evidence complete, including B41–B44 account setup, graphical installation, repair and preserving reinstall on the exact release ISO | R01–R19 |
 | B36 | UI: Slint/custom comparison | B02 | Comparable scenes/metrics; guest compile/reload/text/semantics/license record; confirm at M4 | R04,R08,R09,R15 |
-| B37 | SDK: typed actions and scoped context | B08,B13 | UI/automation parity; rights/revision/expiry/dedupe/reload tests | R10,R14,R19 |
+| B37 | SDK: typed actions and scoped context | B08,B13 | UI/automation parity; trusted principal/session provenance and provider-side scoped grants; cross-owner, revoked-role, rights/revision/expiry/dedupe/reload tests | R10,R14,R19 |
 | B38 | Boot: compare loader and ISO paths | B01,B02 | Viable pinned loader and actual ISO recipe; image types distinguished | R01,R02,R16 |
-| B39 | Optional AI: small-model CPU service | B06,B21,B37 | Supported task, scoped proposals, quota/crash/unload tests and memory accounting | Optional; R09,R10,R19 if enabled |
-| B40 | Recovery: boot attempts and known-good health | B23,B24 | Durable retry/health/fallback tests; current data preserved | R02,R11,R12 |
+| B39 | Optional AI: small-model CPU service (M21) | B06,B21,B37 | Isolated named model/backend, typed scoped proposals, quota/escalation/crash/unload tests, cold/warm/active memory and unaffected desktop/reload path | Optional; R09,R10,R19 if enabled |
+| B40 | Recovery: boot attempts and known-good health | B23,B24 | Durable retry/health/fallback tests; current data preserved; distinguish an incomplete first initialization with no known-good generation from recoverable later activation | R02,R11,R12 |
+| B41 | Security: local accounts, credentials, sessions and scoped RBAC | B02,B13,B16,B23,B24,B37 | Reviewed exact-target entropy/credential design; durable account lifecycle, authorized scoped roles, secure login/logout/lock and recovery; cross-user isolation and interrupted first-account setup tests | R10,R11,R14,R15,R19 |
+| B42 | Installation: offline backend and installed boot | B22,B23,B24,B33,B38,B40 | Narrowly authorized service validates target-bound plans/confirmation; implements offline fresh install, boot/system repair and preserving reinstall through coherent generations; progress/cancellation/durable outcomes; independent installed VM boot | R02,R10,R11,R12,R14,R17 |
+| B43 | Product: graphical installer and first-run setup | B08,B09,B16,B37,B41,B42 | Unprivileged keyboard-complete Live/Install/Rescue flow with fresh/repair/preserving-reinstall operations; target confirmation, progress/errors; initial owner setup before ordinary desktop access; no plaintext secrets in logs/checkpoints | R08,R10,R11,R14,R15,R17,R19 |
+| B44 | QA: installed lifecycle acceptance | B26,B33,B40,B41,B42,B43 | Exact packaged ISO installs offline; ISO-detached/fresh-firmware boot, account setup, persistent files/ownership, boot/system repair, preserving reinstall and interruption/rescue matrix; sentinel disks unchanged | R02,R10,R11,R12,R15,R16,R17 |
+| B45 | Files: complete operations and pickers (M9) | B12,B16,B23,B26,B37,B41 | Folder/create/copy/move/rename/delete/trash, conflict choices, bounded progress/cancel and grant-bearing open/save pickers; interrupted/denied operations tested | R08,R10,R11,R14,R15,R17,R19 |
+| B46 | Desktop: exchange, associations and notifications (M9) | B08,B16,B37,B41,B45 | Cross-app scoped clipboard/drag offers, default apps/file associations and bounded keyboard-accessible notifications; denied/stale offers and missing apps tested | R08,R10,R14,R15,R19 |
+| B47 | Settings: time, locale and keyboard (M9) | B06,B16,B23,B25 | Persistent date/time, time zone, locale and keymap; wall-clock adjustment cannot corrupt monotonic deadlines or silently rename files | R08,R11,R14,R15 |
+| B48 | Apps: native lifecycle and SDK delivery (M10) | B13,B23,B37,B41,B46 | Independent SDK app install/launch/update/uninstall, reviewed permission increases and explicit app-data retention with cleanup/quota tests | R08,R10,R11,R14,R19 |
+| B49 | Updates: verified user delivery and trust lifecycle (M10) | B20,B24,B34,B40,B48 | Verified offline app/system bundles, publisher/trust lifecycle, interrupted activation recovery and honest reboot-required outcomes; separate from dev authority | R06,R10,R12,R14,R16,R17 |
+| B50 | Data: file/settings backup and restore (M11) | B24,B26,B41,B45,B47 | Independent destination, coherent versioned export and verified fresh-install restore with explicit ownership mapping; exclude secrets/privileged policy; corrupt/interrupted restore tests | R10,R11,R12,R14,R17 |
+| B51 | Administration: resource and service management (M11) | B13,B25,B32,B41,B48 | Scoped app/service stop/restart, CPU/memory/disk status and bounded diagnostic export; hung app, unsafe restart and unauthorized controls tested | R09,R10,R14,R17 |
+| B52 | Lifecycle: shutdown and session recovery (M11) | B18,B24,B40,B41,B48,B50 | Bounded save/checkpoint/flush shutdown, explicit force consequences, compatible authorized session restore and crash-loop suppression | R07,R11,R12,R14,R17 |
+| B53 | Networking: general stack, time and trust (M12) | B28,B41,B47,B49 | Virtual Ethernet/addressing/DHCP/DNS/TCP/TLS with trusted time/store policy, bounded resources and malformed/packet-loss/certificate/entropy tests | R09,R10,R13,R14,R17 |
+| B54 | Product: connections and online-update client (M12) | B49,B51,B53 | Connection settings and downloads through the existing verifier/activation path; disconnect/retry and invalid metadata cannot bypass authority or weaken verification | R08,R10,R12,R14,R17 |
+| B55 | Audio: service, devices and capture permissions (M13) | B06,B12,B16,B41 | Bounded playback/capture/mixing, device/format negotiation, explicit permissions/indicators, revocation and underrun/reset/failure cleanup | R08,R09,R10,R14,R15 |
+| B56 | Release: usable VM desktop acceptance (M14) | B35,B45,B46,B47,B48,B49,B50,B51,B52,B54,B55,B31 | Exact ISO/installed M8–M13 workflow, backup/network/audio/accessibility/fault/resource matrix and clean-build/publication review; optional research excluded | R01–R19 |
+| B57 | Hardware: named-PC feasibility and drivers (M15) | B56,B38,B22,B16 | Select one named UEFI profile and required device matrix before implementation; actual boot/storage/input/software display/network/audio/power qualification | R02,R08,R09,R10,R11,R17 |
+| B58 | Release: named-PC installed lifecycle (M15) | B57,B42,B43,B44,B50,B52,B54,B55 | Profile-specific install/boot/accounts, preserving repair/reinstall, independent backup/rescue and poweroff evidence; VM evidence cannot substitute | R02,R08,R10,R11,R12,R15,R16,R17 |
+| B59 | Research: Windows compatibility and probes (M16) | B02,B11,B12,B13,B16,B23,B41 | Sourced native-service versus Wine adaptation study and bounded x64 console/DLL/runtime/GUI probes; costs, denial/cleanup and supported-subset or stop/replan outcome | R03,R09,R10,R14,R17 |
+| B60 | Research: browser feasibility and route decision (M17) | B53,B59,B16,B09,B41 | Native-port versus Windows route, dependency/render/network/isolation/update/memory audit and bounded probe findings; explicit later decision, no sandbox bypass | R08,R09,R10,R14,R15,R17 |
 
 ## Task working format
+
+The [M3 identity/authority plan](../02-architecture/identity-and-authorization.md#m3-work-items-and-acceptance)
+expands B11–B13's local acceptance cases and the B15/B37 handoff. There is no
+separate P3 story decomposition yet. Synthetic principals and ephemeral role
+fixtures do not imply implemented accounts. Full accounts and operational RBAC
+have a mandatory M7 gate after M6 in [milestones](milestones.md#accounts-sessions-and-rbac--required-for-m8).
+B41 implements it; decompose that gate before starting it.
+
+M6's [installer-preparation plan](installer-preparation.md) expands existing
+B22–B24/B40 and the later B33/B34 handoff. It does not add P6 stories or require
+a complete installer for M6. Include its preparation cases when M6 is decomposed;
+decompose mandatory M7 B41–B44 before implementation. These four newly added broad
+tasks brought the installer-era backlog to 44; existing IDs are preserved. B44 makes all four
+transitive prerequisites of B35/M8, while B39 remains optional. Detailed P3–P8
+stories are created only at the owner's milestone decomposition request.
+
+The approved desktop/platform expansion adds B45–B60 (60 total broad tasks) and
+M9–M21. See the [feature matrix](desktop-feature-matrix.md) for owner, classification
+and future acceptance. B56 is the M14 release root and B58 the named-PC root;
+B27/B29/B30/B39/B59/B60 are optional research tracks excluded from B35 and B56.
+Networking B28/B53 and assistive/audio B31/B55 are required for M14, not M8.
+Detailed P9–P21 stories also wait for the owner's request before each milestone.
 
 Each implementation issue records the relevant ADR/spec, exact inputs, output paths,
 bounded scope, negative cases, evidence needed, and which contract/version it changes.

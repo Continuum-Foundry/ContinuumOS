@@ -63,10 +63,18 @@ so a shell reload cannot leave modifiers or pointer capture stuck.
 
 Drag/drop and clipboard use typed offers with explicit grants and lifetimes. A
 clipboard reference must not give arbitrary access to the source app's memory or
-files. Native password/secure input and screen-capture permission are later security
-gates before real authentication is introduced.
+files. M4 establishes trusted setup/login input prerequisites: protected focus,
+restricted capture/clipboard access and sensitive-event exclusion from ordinary
+diagnostics, tested with synthetic input. M7 validates the actual secure path before
+accepting credentials. M8 requires graphical installer, first-user setup and login
+flows to work by keyboard with visible focus and accessible semantic controls.
 
 ## Localization
+
+M9/B47 implements persistent locale, time-zone and keyboard settings. M13/B31/B55
+expands text and native assistive speech on declared language/device profiles;
+M14 requires their combined keyboard/semantic/audio acceptance. M8's initial
+semantics and text corpus do not imply this later native consumer already exists.
 
 Use message IDs with parameterized formatting. Do not build sentences by concatenating
 translated fragments. Layout tolerates long strings and right-to-left direction.

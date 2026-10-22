@@ -75,6 +75,30 @@ to missing blobs, and preservation of unrelated user files. Use a faulting block
 model for torn/reordered writes in addition to QEMU process termination; killing
 a VM alone does not simulate every storage failure.
 
+## Later file and backup workflows
+
+Later M9/B45 supplies complete file operations, trash and picker workflows over the
+real service; do not infer atomic cross-volume moves or full POSIX semantics from
+the record store. M11/B50 adds coherent document/portable-settings export and
+verified restore to a fresh installation with explicit authenticated ownership
+mapping. The destination must be separate from the failed source; describe shared
+host failure limits. Exclude credentials/secrets/privileged policy by default and
+refuse corrupt/path-escaping/unsupported restores. Neither generation fallback nor
+preserving reinstall is an independent backup. See the
+[desktop contract](../06-contracts/desktop-services.md#backup-administration-and-lifecycle--m11).
+
+## Installer foundations at M6
+
+Follow the [installer-preparation plan](../05-delivery/installer-preparation.md):
+define target geometry/identity, select and experimentally validate boot/system/data layout, verified offline
+payloads and first-generation initialization/recovery semantics. Produce a non-writing
+plan prototype for named file-backed VM disks. Do not assume UEFI/the loader can
+read this record store; resolve boot-readable storage and early driver dependencies
+explicitly. A complete installed lifecycle is required at M7/M8 through B42–B44.
+Installation, updates, repair and preserving reinstall share package/generation and
+durable activation rules. M6 also reviews entropy/credential-storage feasibility;
+B41 supplies durable account/ownership records at M7, not a second storage engine.
+
 Encryption, disk quotas by user, rich attributes, remote filesystems, snapshots and
-full desktop filesystem semantics are later decisions. A physical-disk installer
-requires a separate target-selection and backup/recovery design.
+full desktop filesystem semantics are later decisions. Physical-disk installation
+requires further target-selection and backup/recovery validation beyond the VM gate.

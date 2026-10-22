@@ -50,6 +50,13 @@ uninterrupted external stream continuity is not assumed.
 
 ## Portability contract
 
+M15/B57/B58 selects and qualifies one named UEFI PC only after B56 VM delivery.
+Inventory required storage/input/display/network/audio/power devices and choose
+the supported profile before driver implementation. M13 audio is first proven on
+its VM profile; M18 GPU acceleration remains optional with software fallback.
+Broader wireless/removable/printing/Bluetooth/laptop sleep support needs its own
+declared device/failure matrix and is not inherited from one successful PC.
+
 Drivers target narrow abstract interfaces, but platform-specific discovery and
 memory operations stay visible. Real PCs introduce UEFI variation, ACPI/AML,
 USB host controllers, storage controllers, GPU initialization and power management.

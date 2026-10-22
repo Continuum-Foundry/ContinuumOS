@@ -225,14 +225,39 @@ named cases and strict serial-record checks remain separate.
 | **Phase 0** | Native tooling, independent links, dependency feasibility | Compile/tooling evidence retained |
 | **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-07 pass local experimental-baseline acceptance |
 | **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01 through P2-06 candidate evidence accepted locally; target links/comparison, hosted reload and measurements remain planned |
-| **M3** | User-mode isolation and bounded IPC | Planned |
-| **M4** | Authenticated development channel and guest resource reload | Planned |
+| **M3** | User-mode isolation, bounded IPC and trusted identity/ownership foundations | Planned |
+| **M4** | Authenticated development channel, guest resource reload and trusted setup/login input foundations | Planned |
 | **M5** | App replacement with preserved state | Planned |
-| **M6–M8** | Service evolution, persistence, recovery, and release validation | Planned |
+| **M6** | Durable storage/service updates, recovery and validated installer prerequisites | Planned |
+| **M7–M8** | Local accounts/RBAC, graphical offline VM installer, repair and preserving reinstall; coherent experimental release | Planned; required release gates |
+| **M9–M13** | Everyday files/desktop, native app/software management, backup/admin, networking and audio/assistive integration | Planned |
+| **M14** | Coherent usable VM desktop release on the exact ISO and installed disk | Planned |
+| **M15** | Qualification of one named physical UEFI PC after the VM release | Planned; no broad hardware claim |
+| **M16–M21** | Separate EXE/browser feasibility, GPU, SMP, Wasm and optional local AI experiments | Research gates; do not block M8/M14 |
+
+The approved roadmap now contains **60 broad backlog tasks and 22 milestones**.
+These are planning boundaries, not implemented features or a delivery-date promise.
+P-level stories are decomposed at the owner's request before each milestone; the
+current P2 stories and retained acceptance evidence are unchanged. Milestone numbers
+do not force optional tracks into a serial chain: their explicit prerequisites apply.
+
+M8 must install the OS onto the supported VM disk, boot without the ISO, complete
+local account setup and preserve compatible data through repair/reinstall. M14 adds
+the everyday desktop workflows. Independent documents/settings backup is separate
+from repair/reinstall and excludes credentials/privileged policy by default.
+Windows EXEs and browsers are feasibility studies, not promised compatibility or
+ports; the original kernel, supported live-development loop and **256 MiB** baseline
+cold-idle target remain central.
 
 [Milestone acceptance criteria](docs/05-delivery/milestones.md) ·
 [Ordered implementation stories](docs/05-delivery/phase-1/README.md) ·
 [Requirements and performance targets](docs/00-overview/requirements.md)
+
+[Desktop feature/release matrix](docs/05-delivery/desktop-feature-matrix.md) ·
+[Complete engineering backlog](docs/05-delivery/backlog.md) ·
+[Installer preparation](docs/05-delivery/installer-preparation.md) ·
+[Windows compatibility research](docs/01-research/windows-compatibility-feasibility.md) ·
+[Browser feasibility research](docs/01-research/browser-feasibility.md)
 
 ## Explore the engineering
 

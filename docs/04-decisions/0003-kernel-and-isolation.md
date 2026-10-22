@@ -39,6 +39,11 @@ the user-mode isolation gate or change this ADR's Proposed status.
 M3 proves user/kernel isolation, process faults, bounded IPC and no global lock held
 across user waits. If costs are excessive, optimize measured paths/shared bulk data
 before broadening privilege. Any architecture reversal needs a new ADR.
+M19/B30 separately gates SMP context, scheduling, TLB/ordering and concurrent
+update/recovery evidence. It is not a prerequisite of M8/M14, and a larger VM
+vCPU count is not implementation evidence. M16's foreign-runtime investigation
+must preserve native isolation and the original kernel rather than importing
+Windows semantics as ambient kernel authority.
 
 P1-06's bounded interrupt/timekeeping experiment is recorded in
 [ADR-0017](0017-bootstrap-timekeeping.md) and its linked acceptance status. It

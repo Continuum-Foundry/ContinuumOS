@@ -109,6 +109,28 @@ Verify the exact final ISO, not a pre-packaging kernel. Boot offline, prove no h
 share dependency, test rescue paths, inspect dev authority and compare declared
 hardware/features to evidence. A successful compile is not a boot test.
 
+Declare whether an artifact is an earlier live preview, rescue or M8 installable
+release. M6's
+[installer preparation](installer-preparation.md) supplies layout/payload contracts
+and a non-writing VM plan, not an installation command. An installable variant
+additionally requires the separate VM-installer acceptance matrix, including an
+ISO-detached cold boot with fresh firmware variables, initialized-data persistence
+and interrupted-install/recovery tests. M8 requires B41–B44: graphical keyboard-
+accessible offline installation, first-installed-boot local owner setup/login,
+boot/system repair, and reinstall preserving compatible files, account records and
+ownership. Run lifecycle acceptance on the exact packaged ISO and installed output.
+Live-only previews need their own scoped release review and cannot complete M8;
+disk-image boot never replaces the independent ISO boot gate.
+
+M14/B56 accepts the broader [desktop feature matrix](desktop-feature-matrix.md)
+on a coherent ISO and installed disk, including files/apps/updates, independent
+backup/restore, administration/shutdown, networking and audio/assistive workflows.
+M15/B58 adds actual evidence for one named PC after B56. Apply clean-build,
+provenance/notices/support-matrix and publication review to each release; a prior
+M8 approval does not approve later artifacts. Browser/EXE/GPU/SMP/Wasm/AI research
+remains outside M8/M14 release dependencies. Do not accidentally package user
+documents, credential stores or private backup data into an ISO/update bundle.
+
 ## Automation and host safety
 
 Restrict local QMP/GDB/dev endpoints and use explicitly named VM images. Never write

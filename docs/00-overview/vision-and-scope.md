@@ -66,15 +66,31 @@ See [the reconciliation](reconciled-plan.md).
 
 A reproducible VM image with keyboard/mouse, basic compositing, launcher, settings,
 file browser, text editor, diagnostics console, persistent files on a virtual disk,
-and supported live UI/app/service updates. Booting, isolation, storage recovery,
-and updates must be demonstrated with tests. Networking starts as a controlled
+and supported live UI/app/service updates. M8 additionally requires an offline,
+graphical, keyboard-accessible VM installer, local account setup/login, boot/system
+repair and reinstall preserving compatible user data and ownership. The installed
+disk must boot without the ISO. Earlier live previews have separately scoped review
+and do not complete M8. Booting, isolation, storage recovery, installation/account
+lifecycle and updates must be demonstrated with tests. Networking starts as a controlled
 development facility; public browsing is not a first-release assumption.
+
+## Later desktop and platform delivery
+
+Preserve M8's installable experimental VM release. M9–M13 add everyday file/
+desktop workflows, native app/software management, independent document/settings
+backup, administration/shutdown, networking and audio/assistive integration.
+M14 accepts a coherent usable VM desktop; M15 qualifies one named UEFI PC only.
+See the [feature matrix](../05-delivery/desktop-feature-matrix.md) for exact release
+classification, ownership and future acceptance. A working browser is not yet a
+release promise: M16 researches Windows compatibility and M17 compares browser
+routes before any separate production-browser decision. Optional GPU/SMP/Wasm/AI
+have M18–M21 gates and do not block M8/M14.
 
 ## Deliberately later
 
 General Windows/Linux binary compatibility, a full browser engine, arbitrary
 GPU drivers, Wi-Fi, USB device coverage, laptop suspend, full-disk encryption,
-multi-user login, secure boot provisioning, hard real-time guarantees, and general
+network identity/roaming, secure boot provisioning, hard real-time guarantees, and general
 kernel replacement. Each is scoped in the feature matrix and risk register.
 These are substantial product programs, not minor polish items.
 

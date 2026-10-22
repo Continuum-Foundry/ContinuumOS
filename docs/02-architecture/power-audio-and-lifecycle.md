@@ -17,6 +17,11 @@ machine continuity.
 
 ## Shutdown and reboot
 
+M11/B52 completes user-facing shutdown/session recovery for M14, building on M6's
+basic flush/recovery foundation. B51 adds scoped process/service controls and
+resource reporting; an administrative role is not permission to restart an active
+storage writer unsafely. See [desktop responsibilities](../06-contracts/desktop-services.md).
+
 Orderly shutdown blocks new updates, resolves or aborts the active transaction,
 requests app checkpoints/saves within deadlines, flushes authoritative storage,
 stops devices safely, and invokes the platform poweroff path. Do not mark unsaved
@@ -38,8 +43,8 @@ ACPI is a platform reference, not an implementation of that policy.
 
 ## Audio
 
-Reserve a versioned audio service interface, but do not block the first desktop on
-it. A later implementation supports bounded PCM streams, explicit sample format,
+Reserve a versioned audio service interface without blocking the M8 experimental
+release. M13/B55 supplies audio required by M14, with bounded PCM streams, explicit sample format,
 rate/channel negotiation, shared ring ownership, underrun/overrun accounting and
 per-app gain. A mixer and resampler have CPU and latency budgets. Real-time audio
 needs scheduling analysis beyond “high priority.” VirtIO sound exists in the
@@ -51,6 +56,9 @@ No claim of glitch-free mixer/driver replacement until tested under load. Microp
 capture needs explicit permission and a trusted visible indicator. Speech output
 for accessibility depends on audio services and a chosen synthesis engine; a
 semantic tree alone is not a working screen reader.
+M13/B31 therefore requires a validated native assistive/speech path and an explicit
+language/device support matrix; a semantic inspector or hosted speech API is not
+guest assistive-output evidence.
 
 ## Session recovery
 
@@ -66,3 +74,5 @@ Battery/thermal policy, CPU frequency states, display power management, lid even
 hotplug, hibernation, Bluetooth and USB audio each need drivers, ownership rules,
 failure tests and release support statements. They are recorded here so that an
 experimental VM desktop is not confused with a complete laptop OS.
+M15 qualifies only the required devices/poweroff behavior of one named PC after
+the accepted VM desktop. It does not automatically include these broader programs.

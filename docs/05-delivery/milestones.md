@@ -70,7 +70,9 @@ adds pinned fonts, shaping/bidi/fallback/caret/composition tests and text-only r
 P2-05's [accepted custom candidate](../../evidence/phase-2/P2-05/2026-10-21/README.md)
 adds rendered scenes, shared interactions/semantics, bounded lists/caches and a
 native Windows presentation adapter, with explicit quality/cost limits.
-P2-06–P2-13 remain Not started; no toolkit is selected, guest UI/reload demonstrated
+P2-06 [adds bounded Slint evidence](../../evidence/phase-2/P2-06/2026-10-21/README.md):
+AOT/software primitives and shared adapters, with native feature failures preserved.
+P2-07–P2-13 remain Not started; no toolkit is selected, guest UI/reload demonstrated
 or Jira issue created. P2-02 through P2-09 establish shared fixtures, candidates,
 target feasibility and the provisional decision. P2-10 through P2-13 complete
 selected behavior, hosted reload, measurements and the acceptance review.

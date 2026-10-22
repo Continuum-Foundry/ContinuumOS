@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "code": [
+    {
+      "path": "tools/xtask/src/main.rs",
+      "lines": 333,
+      "bytes": 13761,
+      "sha256": "de7a4b9a34023cad3780a259dd7d21b2ab13fb891f29abfd1d959071d0bcd743"
+    },
+    {
+      "path": "tools/xtask/src/custom.rs",
+      "lines": 1297,
+      "bytes": 54348,
+      "sha256": "b416e3599a680c2c318da5a0f69f016c89c04255f6990e2683644f0d7e84a4c9"
+    },
+    {
+      "path": "tools/xtask/src/slint_candidate.rs",
+      "lines": 697,
+      "bytes": 23587,
+      "sha256": "730968e279ce03f1dbdb657ec982ffb3ab7e4d7cf5df3908a6bd784ce924c4c7"
+    },
+    {
+      "path": "tools/Test-P2-06.ps1",
+      "lines": 68,
+      "bytes": 7097,
+      "sha256": "599f6273775d21ec558dd34c0aa85bf5cea86ec51104f9e8fab616c9b894bf90"
+    },
+    {
+      "path": "tools/Review-SlintInputs.py",
+      "lines": 79,
+      "bytes": 5083,
+      "sha256": "34adc9d96764536ae8b9df567c46751228aa6be48278f0e7bc35bff9a9a1229d"
+    },
+    {
+      "path": "tools/Review-Slint.py",
+      "lines": 23,
+      "bytes": 1280,
+      "sha256": "792ea0617a3f6181c6f07b23cdbe9f76ee9b57ec6689a8c8337ce0b50785b729"
+    },
+    {
+      "path": "tools/Preview-Custom.ps1",
+      "lines": 96,
+      "bytes": 7118,
+      "sha256": "f7dec09f3a121160665eb557cbe6140f4efc253495ba8b37553f8acf835a90a6"
+    },
+    {
+      "path": "tools/Preview-Slint.ps1",
+      "lines": 3,
+      "bytes": 196,
+      "sha256": "2f0e12a5eee040fb6b3282d694eb0a3bca2dcb10ec77424da2bcf6fb0c2af2ec"
+    },
+    {
+      "path": "tools/Inventory-Licenses.ps1",
+      "lines": 61,
+      "bytes": 4171,
+      "sha256": "59b595e3ae17a70306412a6557bfc28c9f6e3018125f6a8fd63bffe2c8e78590"
+    }
+  ],
+  "shared_costs": [
+    "custom-ui input/geometry/list/surface/semantic adapters",
+    "P2-04 Engine and text-only Canvas",
+    "editor-model typed executor/provider",
+    "common capture/state/semantic harness",
+    "WinForms native presentation"
+  ],
+  "native_costs": [
+    "Slint AOT layer component and software renderer",
+    "MinimalSoftwareWindow and one-thread platform",
+    "premultiplied text Image creation and copies",
+    "RGB8 output to RGBA8 surface"
+  ],
+  "hooks": {
+    "allocator": "host Rust global allocator; recoverable OOM and guest allocator not implemented",
+    "threading": "all Slint calls main thread only; unsafe-single-threaded globally assumes this",
+    "clock": "monotonic deterministic milliseconds; measured intervals separately use host Instant/QPC",
+    "event_loop": "host script/WinForms; no guest wait/event-loop proxy",
+    "fonts": "hash-checked P2-04 six-font bytes; no discovery; native bitmap font integration absent",
+    "input": "shared logical controller; real Slint TouchArea ID callback probe separately",
+    "focus_semantics": "shared adapter-derived logical IDs; no Slint/native consumer",
+    "clipboard": "unsupported defaults",
+    "presentation": "RGB8->RGBA8 lease->RGB PPM/BGR24 BMP; owned WinForms bitmap",
+    "irq_kernel": "never run rendering/callbacks in IRQ/kernel; future service context and FP/SIMD policy required"
+  },
+  "limits": [
+    "Full components/layer models recreated for each capture; native partial redraw not evaluated",
+    "16MiB bridge text-image payload cap; internal Slint caches and allocation-wide accounting unavailable",
+    "Text native no-std shaper differs from P2-04; adapted outcomes never credited to native text",
+    "No current guest heap/scheduler/process/FP policy is assumed"
+  ]
+}

@@ -77,6 +77,17 @@ specific reviewed choice compatible with the intended product; no selection is
 made here. No font, model, or artwork license may be inferred from a renderer's
 license. Rejected binding 0.6.5 is retained only as failure/provenance evidence.
 
+P2-06 now links the exact Slint 1.18.1 AOT/software configuration into an optional
+host candidate, using the explicit P2-04 text Image adapter. Its GPL-3.0-only,
+royalty-free 2.0 and commercial (cached text version 3.0.5) alternatives are
+preserved verbatim in [the Slint notice directory](licenses/third-party/slint-1.18.1/),
+with archive/file hashes in notice provenance. Active runtime and host compiler
+features/checksums are separate in the candidate review. This is not a complete
+redistribution bundle for every new transitive dependency. No distribution terms
+are selected; OS shell/app versus public toolkit/API exposure, attribution and
+applicable commercial/GPL obligations remain review questions before selection
+or release. See the [Slint runbook](docs/05-delivery/phase-2/slint-ui-runbook.md).
+
 ## Reference material and updates
 
 [The research catalogue](docs/01-research/sources.md) identifies upstream sources.

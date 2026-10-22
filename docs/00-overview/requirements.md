@@ -163,3 +163,11 @@ virtualization/caches and native Windows presentation. R09 receives instrumentat
 only. Immediate standard transitions, full redraw/copies and text/native-accessibility
 limits remain explicit comparison findings. Guest execution, actual continuity,
 measured efficiency and toolkit selection remain later gates.
+
+P2-06's [bounded Slint evidence](../../evidence/phase-2/P2-06/2026-10-21/README.md)
+extends hosted R08/R15/R18 comparison inputs and R04 preparation with actual Slint
+AOT/software surfaces, the same logical workflows and an explicit P2-04 text Image
+adapter. Native text setup, rich effects, rounded ancestor clips, launcher opacity,
+fractional blending and native semantics remain failing/unavailable cases; none
+is waived. R09 receives instrumentation only. Guest links/execution, actual reload,
+measured efficiency and distribution/toolkit selection remain later gates.

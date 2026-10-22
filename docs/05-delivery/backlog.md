@@ -36,7 +36,11 @@ adds B09/B36's pinned fonts, shared text/composition corpus and bounded custom p
 P2-05's [accepted custom candidate](../../evidence/phase-2/P2-05/2026-10-21/README.md)
 adds B07/B08/B36's bounded custom layout/paint/input/semantic integration and host
 instrumentation. Full redraw/copies and immediate standard transitions remain
-comparison findings. P2-06–P2-13 remain Not started; selection and guest linking,
+comparison findings. P2-06
+[adds Slint candidate evidence](../../evidence/phase-2/P2-06/2026-10-21/README.md)
+for B07/B08/B36 with shared text/input/semantic adapters and explicit native
+text/effect/clip/blend and distribution-term gaps.
+P2-07–P2-13 remain Not started; selection and guest linking,
 execution, reload and measured efficiency are still open.
 P2-02 through P2-09 cover B36 and initial
 B07/B08/B09/B37 boundaries, candidates, target links and decision. P2-10 completes

@@ -1,6 +1,6 @@
 # P2-06 — Build the bounded Slint UI candidate
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Unassigned.
 Depends on: P2-04 Done. Suggested labels: `phase-2`, `slint`, `comparison`.
 Backlog: B07/B08 Slint candidate, B36. Requirements: R08/R09/R15/R18;
 hosted R04 feasibility. Test families: hosted T05/T09/T10.
@@ -43,15 +43,15 @@ host fallback may silently supply coverage absent from the locked fonts.
 
 ## Acceptance criteria
 
-- [ ] Slint renders and operates the shared corpus through the common model/surface
+- [x] Slint renders and operates the shared corpus through the common model/surface
   boundary using pinned software-renderer inputs and explicit host-only adapters.
-- [ ] Text, focus, semantics, scale, rich-effect and fallback outcomes use the same
+- [x] Text, focus, semantics, scale, rich-effect and fallback outcomes use the same
   rules as the custom candidate; unsupported cases remain in the comparison table.
-- [ ] Hosted interpreter/AOT and proposed guest feature configurations are separately
+- [x] Hosted interpreter/AOT and proposed guest feature configurations are separately
   identified with no transitive host dependency mislabeled as guest-compatible.
-- [ ] Tokens/layout and compiled-behavior pathways are identified with real API tests
+- [x] Tokens/layout and compiled-behavior pathways are identified with real API tests
   or recorded failures; no guest interpreter or live replacement result is implied.
-- [ ] Metrics, platform hooks, maintenance cost and distribution-term questions are
+- [x] Metrics, platform hooks, maintenance cost and distribution-term questions are
   reproducible inputs to P2-07/P2-08 and the provisional selection gate.
 
 ## Tests and evidence
@@ -62,6 +62,15 @@ selected images, raw counters and adapter failure traces. State when semantics a
 toolkit-native, adapter-derived or unavailable; screenshots cannot fill that gap.
 
 ## Exclusions and handoff
+
+The [local review](../../../evidence/phase-2/P2-06/2026-10-21/README.md) accepts
+bounded comparison evidence with explicit failing native features. Slint 1.18.1
+AOT/software primitives use the shared P2-04 text Image adapter. Native text setup,
+rich blur, rounded ancestor clips, launcher opacity and fractional blend arithmetic
+remain comparison failures; focus/semantics are shared adapter-derived. The hosted
+interpreter is unavailable offline. Use the [runbook](slint-ui-runbook.md).
+No product requirement is waived, distribution term selected, guest link/reload
+result claimed or toolkit chosen.
 
 No full Slint port into the kernel, guest runtime claim or automatic license choice.
 If the candidate is infeasible, preserve a bounded reproducible rejection for P2-09;

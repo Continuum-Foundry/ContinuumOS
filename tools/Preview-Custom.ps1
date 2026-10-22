@@ -1,4 +1,4 @@
-param([switch]$Replay, [int]$TimeoutSeconds=120)
+param([switch]$Replay, [int]$TimeoutSeconds=120, [ValidateSet("Custom","Slint")][string]$Candidate="Custom")
 # Host-only adapter. Pixel generation, input routing and state remain in Rust.
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
@@ -10,7 +10,7 @@ $null=Set-DevExecutableSignature $exe
 Add-Type -AssemblyName System.Windows.Forms,System.Drawing
 [Windows.Forms.Application]::SetHighDpiMode([Windows.Forms.HighDpiMode]::PerMonitorV2) | Out-Null
 $start=[Diagnostics.ProcessStartInfo]::new($exe)
-$start.ArgumentList.Add('custom-host')
+$start.ArgumentList.Add($Candidate.ToLowerInvariant()+'-host')
 $start.WorkingDirectory=$root
 $start.UseShellExecute=$false; $start.CreateNoWindow=$true
 $start.RedirectStandardInput=$true; $start.RedirectStandardOutput=$true; $start.RedirectStandardError=$true
@@ -43,7 +43,7 @@ try {
     $ready=Read-CustomResponse
     if (-not $ready.ready) {throw 'Rust host not ready'}
     $script:customForm=[Windows.Forms.Form]::new()
-    $script:customForm.Text='ContinuumOS · P2-05 hosted custom candidate'
+    $script:customForm.Text='ContinuumOS · hosted '+$Candidate.ToLowerInvariant()+' candidate'
     $script:customForm.ClientSize=[Drawing.Size]::new(1280,720)
     $script:customForm.FormBorderStyle='FixedSingle';$script:customForm.MaximizeBox=$false
     $script:customForm.BackgroundImageLayout='None';$script:customForm.KeyPreview=$true
@@ -86,7 +86,7 @@ try {
     $script:customProcess.StandardInput.Flush()
     if (-not $script:customProcess.WaitForExit(10000)) {throw 'Rust host did not stop after quit'}
     if ($script:customProcess.ExitCode -ne 0) {throw ($stderr.Result)}
-    @{schema_version=1;status='passed';replay=[bool]$Replay;pid=$ready.pid;submitted_frames=$script:customFrames;host_pixel_conversion='Rust RGBA to BGR24 BMP; WinForms owned bitmap clone';dpi='PerMonitorV2; fixed 1280x720 physical client, scale 1; no stretch';native_ime=$false;native_accessibility=$false;final=$script:customResponse.state} | ConvertTo-Json -Depth 8 | Set-Content (Join-Path $ready.run 'native-preview.json')
+    @{schema_version=1;candidate=$Candidate;status='passed';replay=[bool]$Replay;pid=$ready.pid;submitted_frames=$script:customFrames;host_pixel_conversion='Rust RGBA to BGR24 BMP; WinForms owned bitmap clone';dpi='PerMonitorV2; fixed 1280x720 physical client, scale 1; no stretch';native_ime=$false;native_accessibility=$false;final=$script:customResponse.state} | ConvertTo-Json -Depth 8 | Set-Content (Join-Path $ready.run 'native-preview.json')
     Write-Output "Native preview evidence: $($ready.run)"
 }finally{
     if ($script:customProcess -and -not $script:customProcess.HasExited) {$script:customProcess.Kill($true);$script:customProcess.WaitForExit()}

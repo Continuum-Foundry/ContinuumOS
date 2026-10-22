@@ -1,0 +1,285 @@
+{
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+  "utc": "2026-10-22T01:52:45.4377514Z",
+  "source_base": "34dc796ca13cada319e1856eee7d28b2f6298ed8",
+  "candidate_rendered": true,
+  "native_text_passed": false,
+  "guest_tested": false,
+  "cargo_lock_sha256": "ff744e788cc10997304aa2a0d53c56aef01e71c628865f781eb7f25c47c3f040",
+  "replays": [
+    {
+      "traces_sha256": "86c37439d14ec33d46898ea9c2b4bbe9dc782235dd58b74509e60be5c0b842f0",
+      "result_sha256": "9d89dd0aff7911bf5d23209eb35529b88617e35ec51a48ba0b442af02f14e0aa",
+      "raster_manifest_sha256": "96a5e97c21b242bd671ec20e31f9e5d378662bfc77f8a31780daed0b3dd3d857",
+      "path": "build/m2/P2-06/run-1792633551305227600-91692"
+    },
+    {
+      "traces_sha256": "86c37439d14ec33d46898ea9c2b4bbe9dc782235dd58b74509e60be5c0b842f0",
+      "result_sha256": "9d89dd0aff7911bf5d23209eb35529b88617e35ec51a48ba0b442af02f14e0aa",
+      "raster_manifest_sha256": "96a5e97c21b242bd671ec20e31f9e5d378662bfc77f8a31780daed0b3dd3d857",
+      "path": "build/m2/P2-06/run-1792633563971753400-94916"
+    }
+  ],
+  "os": "Microsoft Windows NT 10.0.26300.0",
+  "schema_version": 1,
+  "reload_tested": false,
+  "rounded_ancestor_clip_passed": false,
+  "signed_executable_sha256": "f79452025ce4e090c316d23b0a27100f9a797e4465cb62d16e84848d0238ecfb",
+  "renderer": "Slint 1.18.1 AOT software; P2-04 text Image adapter",
+  "native_ime_tested": false,
+  "commands": [
+    {
+      "program": "python",
+      "passed": true,
+      "expected_failure": false,
+      "name": "inputs",
+      "arguments": [
+        "tools/Review-SlintInputs.py",
+        "${WORKSPACE}\\build\\m2\\P2-06\\acceptance-1792633448957\\inputs"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 8182
+    },
+    {
+      "program": "cargo",
+      "passed": true,
+      "expected_failure": false,
+      "name": "format",
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 1126
+    },
+    {
+      "program": "cargo",
+      "passed": true,
+      "expected_failure": false,
+      "name": "behavior-build",
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--features",
+        "slint-candidate,behavior-v2",
+        "--profile",
+        "m2-comparison"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 40160
+    },
+    {
+      "name": "behavior-v2",
+      "passed": true,
+      "elapsed_ms": 3822,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "slint-behavior"
+      ],
+      "signed_executable_sha256": "815f8319e661393ffeca17f76542d9f37bc3b25840757da24b39e31948c8bec8",
+      "expected_failure": false,
+      "program": "pwsh",
+      "exit_code": 0
+    },
+    {
+      "program": "cargo",
+      "passed": true,
+      "expected_failure": false,
+      "name": "build",
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--features",
+        "slint-candidate",
+        "--profile",
+        "m2-comparison"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 42605
+    },
+    {
+      "name": "behavior-v1",
+      "passed": true,
+      "elapsed_ms": 3580,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "slint-behavior"
+      ],
+      "signed_executable_sha256": "f79452025ce4e090c316d23b0a27100f9a797e4465cb62d16e84848d0238ecfb",
+      "expected_failure": false,
+      "program": "pwsh",
+      "exit_code": 0
+    },
+    {
+      "program": "pwsh",
+      "passed": true,
+      "expected_failure": true,
+      "name": "native-text",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "slint-native-text-probe"
+      ],
+      "exit_code": 101,
+      "elapsed_ms": 1237
+    },
+    {
+      "program": "cargo",
+      "passed": true,
+      "expected_failure": true,
+      "name": "interpreter",
+      "arguments": [
+        "metadata",
+        "--offline",
+        "--format-version",
+        "1",
+        "--manifest-path",
+        "${WORKSPACE}\\build\\m2\\P2-06\\acceptance-1792633448957\\interpreter\\Cargo.toml"
+      ],
+      "exit_code": 101,
+      "elapsed_ms": 250
+    },
+    {
+      "program": "pwsh",
+      "passed": true,
+      "expected_failure": false,
+      "name": "slint-a",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "slint-ui"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 12527
+    },
+    {
+      "program": "pwsh",
+      "passed": true,
+      "expected_failure": false,
+      "name": "slint-b",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "slint-ui"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 11629
+    },
+    {
+      "program": "pwsh",
+      "passed": true,
+      "expected_failure": false,
+      "name": "custom-regression",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "custom-ui"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 21459
+    },
+    {
+      "program": "pwsh",
+      "passed": true,
+      "expected_failure": false,
+      "name": "native",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Preview-Slint.ps1",
+        "-Replay"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 5229
+    },
+    {
+      "program": "pwsh",
+      "passed": true,
+      "expected_failure": false,
+      "name": "prerequisites",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 226686
+    },
+    {
+      "program": "cargo",
+      "passed": true,
+      "expected_failure": false,
+      "name": "tests",
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "-p",
+        "editor-model",
+        "-p",
+        "text-core",
+        "-p",
+        "xtask"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 24579
+    },
+    {
+      "program": "pwsh",
+      "passed": true,
+      "expected_failure": false,
+      "name": "text",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-P2-04.ps1"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 75652
+    }
+  ],
+  "rich_effect_passed": false,
+  "performance_gate_tested": false,
+  "native_accessibility_tested": false,
+  "status": "passed",
+  "compiler": [
+    "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "binary: rustc",
+    "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+    "commit-date: 2026-10-13",
+    "host: x86_64-pc-windows-msvc",
+    "release: 1.99.1",
+    "LLVM version: 23.1.1"
+  ],
+  "interpreter_available": false,
+  "profile": "m2-comparison"
+}

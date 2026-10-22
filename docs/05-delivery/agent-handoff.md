@@ -86,7 +86,8 @@ modeled contexts/rights and explicit bounded logical checkpoints. Use the
 to unicode-segmentation 1.13.3 / Unicode 17.0.0; its cached dependency/lock was
 reviewed and the existing compiler signer lock enrollment refreshed. Provider
 replacement and secure capabilities remain open. P2-05 supplies custom candidate
-font/shaping integration and rendering; Slint remains P2-06.
+font/shaping integration and rendering; P2-06 now exercises Slint with that same
+explicit text Image adapter, without crediting native Slint shaping.
 P2-04's [local text acceptance](../../evidence/phase-2/P2-04/2026-10-21/README.md)
 adds six pinned Noto fonts, the bounded custom text pipeline, 45 text/scale
 observations, independent native HarfBuzz references, official segmentation tests
@@ -101,7 +102,15 @@ reload, native IME/accessibility or performance acceptance. Full redraw, copies,
 hard rounded coverage and immediate standard transitions stay visible for P2-08.
 The owner explicitly approved refreshing the existing signer lock enrollment;
 no new certificate or App Control policy was created. Check the retained review.
-P2-06 is next; P2-06–P2-13 remain Not started. They cover Slint,
+P2-06 [passes the bounded comparison evidence gate](../../evidence/phase-2/P2-06/2026-10-21/README.md):
+Slint 1.18.1 AOT/software output, the common matrix, explicit shared adapters,
+real properties/TouchArea probes, compiled text-entry variants and native replay.
+Its [runbook](phase-2/slint-ui-runbook.md) records native text setup, rich effects,
+rounded ancestor clips, launcher opacity and fractional blend failures. Semantics
+remain shared adapter-derived; interpreter input is unavailable offline and
+OS/API distribution terms remain unresolved. Existing signer enrollment was
+refreshed after reviewing unchanged prior probe pins; no host policy changed.
+P2-07 is next; P2-07–P2-13 remain Not started. They cover
 freestanding link feasibility, provisional decision, selected hosted
 UI/reload and measured acceptance. They do not authorize remote Jira creation.
 P1-03's corrected acceptance and superseded/failed experiments are

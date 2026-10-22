@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "candidate": "slint-1.18.1-p2-04-adapter-v1",
+  "rows": [
+    {
+      "feature": "Slint AOT primitives/software surface",
+      "outcome": "passed",
+      "detail": "Native Rectangle/Image raster output; explicit RGB/RGBA/BMP copies"
+    },
+    {
+      "feature": "Shared workflow and logical focus/actions",
+      "outcome": "passed via shared adapter",
+      "detail": "300 independent state assertions; same controller/provider as custom"
+    },
+    {
+      "feature": "Shared text/scale/composition",
+      "outcome": "passed via P2-04 text-image adapter",
+      "detail": "45 standalone + 63 integrated; exact opaque image roundtrip, independent references replayed"
+    },
+    {
+      "feature": "Native bitmap Text",
+      "outcome": "failed",
+      "detail": "Isolated runtime probe lacks registered bitmap font; scalar mapping does not meet complex shaping corpus"
+    },
+    {
+      "feature": "Native semantics/focus export",
+      "outcome": "unavailable",
+      "detail": "Logical tree and keyboard routing are shared adapter-derived; TouchArea logical-ID callback is separately exercised"
+    },
+    {
+      "feature": "Rich backdrop blur",
+      "outcome": "unsupported",
+      "detail": "Opaque fallback in all configurations; fails rich-effect parity"
+    },
+    {
+      "feature": "Rounded ancestor clip",
+      "outcome": "unsupported",
+      "detail": "Axis-aligned clipping; rounded native background alone does not clip descendants"
+    },
+    {
+      "feature": "Launcher group opacity",
+      "outcome": "unsupported",
+      "detail": "Opaque fallback; isolated 0.88 opacity not implemented"
+    },
+    {
+      "feature": "Fractional source-over",
+      "outcome": "failed exact comparison",
+      "detail": "Native [59,59,59,255] versus required [60,60,60,255]; tolerance remains zero; common red-over-blue fixture passes"
+    },
+    {
+      "feature": "Standard animation",
+      "outcome": "unsupported",
+      "detail": "Immediate changes; reduced motion remains immediate"
+    },
+    {
+      "feature": "List realization/text bitmap cache",
+      "outcome": "passed shared bounds",
+      "detail": "15 rows for fixed viewport; 64 row maximum and 128-entry/1MiB bitmap LRU; Slint internals separate"
+    },
+    {
+      "feature": "Text image staging",
+      "outcome": "bounded bridge payload",
+      "detail": "16MiB admission cap; raw source/GPU/Slint/model/font/process accounting excluded"
+    },
+    {
+      "feature": "Token/layout setters",
+      "outcome": "passed real API probes",
+      "detail": "Compiled Slint model/property colors and geometry checked with analytic pixels"
+    },
+    {
+      "feature": "Compiled behavior variants",
+      "outcome": "passed distinct signed executables",
+      "detail": "Normal and uppercase Insert; no native process/provider replacement"
+    },
+    {
+      "feature": "Hosted interpreter",
+      "outcome": "unavailable offline",
+      "detail": "Exact 1.18.1 resolution rejects with missing cached input; no network override"
+    },
+    {
+      "feature": "Guest AOT/link/runtime",
+      "outcome": "not tested",
+      "detail": "P2-07 must isolate and link exercised adapter/component with real hooks"
+    },
+    {
+      "feature": "Native IME/clipboard/accessibility",
+      "outcome": "not implemented",
+      "detail": "Future platform services"
+    },
+    {
+      "feature": "Performance/reload stability",
+      "outcome": "not accepted",
+      "detail": "Diagnostic instrumentation and deterministic idle decisions only"
+    },
+    {
+      "feature": "Distribution licensing",
+      "outcome": "unresolved",
+      "detail": "GPL/royalty-free/commercial options inventoried; OS/API exposure review required; no license selected"
+    }
+  ],
+  "requirements_waived": false,
+  "toolkit_selected": false
+}

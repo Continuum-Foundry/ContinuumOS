@@ -3,6 +3,8 @@ mod editor;
 mod elf;
 mod m1;
 mod m2;
+#[cfg(feature = "slint-candidate")]
+mod slint_candidate;
 mod text;
 mod ui_fixtures;
 
@@ -282,6 +284,14 @@ fn run() -> Result<()> {
         ["test", "--suite", "text"] => text::execute(),
         ["test", "--suite", "custom-ui"] => custom::execute(),
         ["custom-host"] => custom::host(),
+        #[cfg(feature = "slint-candidate")]
+        ["slint-host"] => custom::host_with(custom::Candidate::Slint),
+        #[cfg(feature = "slint-candidate")]
+        ["test", "--suite", "slint-ui"] => slint_candidate::execute(),
+        #[cfg(feature = "slint-candidate")]
+        ["slint-native-text-probe"] => slint_candidate::native_text_probe(),
+        #[cfg(feature = "slint-candidate")]
+        ["slint-behavior"] => slint_candidate::behavior(),
         ["hosted", "--config", config, "--profile", profile, "--scale", scale, "--case", case] => m2::execute(config, profile, scale, case),
         ["hosted-probe", case, input] => m2::probe(case, input),
         ["doctor"] => doctor(false, false),

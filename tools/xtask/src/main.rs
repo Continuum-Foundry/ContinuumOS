@@ -3,6 +3,9 @@ mod editor;
 mod elf;
 mod m1;
 mod m2;
+#[cfg(test)]
+#[path = "../../../experiments/ui-link/src/arena.rs"]
+mod probe_arena;
 #[cfg(feature = "slint-candidate")]
 mod slint_candidate;
 mod text;

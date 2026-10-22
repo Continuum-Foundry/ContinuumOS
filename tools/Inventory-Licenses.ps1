@@ -5,12 +5,14 @@ $root = Split-Path $PSScriptRoot -Parent
 $graphs = @(
     @{name='workspace';manifest='Cargo.toml';features=@()},
     @{name='hosted-slint-candidate';manifest='Cargo.toml';features=@('--features','slint-candidate')},
+    @{name='freestanding-custom-ui';manifest='experiments/ui-link/Cargo.toml';features=@()},
+    @{name='freestanding-slint-aot';manifest='experiments/ui-link/Cargo.toml';features=@('--features','slint-aot')},
     @{name='boot-bindings-probe';manifest='experiments/boot-bindings/Cargo.toml';features=@()},
     @{name='candidate-experiments';manifest='experiments/dependencies/Cargo.toml';features=@('--no-default-features','--features','architecture,raster,shaping,font,toolkit')}
 )
 $records = @{}
 $locks = @()
-$firstPartyManifests = @('Cargo.toml','tools/xtask/Cargo.toml','kernel/Cargo.toml','crates/editor-model/Cargo.toml','crates/text-core/Cargo.toml','crates/custom-ui/Cargo.toml',
+$firstPartyManifests = @('Cargo.toml','tools/xtask/Cargo.toml','kernel/Cargo.toml','crates/editor-model/Cargo.toml','crates/text-core/Cargo.toml','crates/custom-ui/Cargo.toml','crates/slint-ui/Cargo.toml','experiments/ui-link/Cargo.toml',
     'experiments/kernel-link/Cargo.toml','experiments/userland-link/Cargo.toml',
     'experiments/dependencies/Cargo.toml','experiments/boot-bindings/Cargo.toml')
 foreach ($graph in $graphs) {

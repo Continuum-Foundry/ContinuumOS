@@ -75,6 +75,15 @@ P2-07–P2-13 remain plans.
 Hosted R04/R08/R09/R15 and R19 design remain distinct from full
 guest/product requirements, M3 isolation, M4 guest resources and M5 behavior transfer.
 
+P2-07's [local final-link acceptance](../../evidence/phase-2/P2-07/2026-10-22/README.md)
+adds T02/T13 and R03/R18 evidence: both real candidate APIs close target symbols
+with bounded probe allocation, independent ELF/codegen inspection, 26 rejected
+mutations and per-candidate missing-hook/std failures. All ten prerequisites,
+51 Rust unit tests and both unchanged hosted matrices pass. Active dependency
+source/feature/notice identities and M3/M4 obligations are explicit. This is early
+R14/R16 discipline, not a process ABI, release reproducibility, guest UI or runtime
+acceptance. The separate interpreter input is unavailable offline.
+
 [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
 pass version/capability/hash checks and rejection tests; this adds no ISO boot result.
 

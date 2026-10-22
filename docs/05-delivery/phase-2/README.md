@@ -32,7 +32,7 @@ local tools and evidence availability before implementation.
 | P2-04 | [Establish fonts and text conformance](04-fonts-and-text-conformance.md) | P2-03 | B09, B36 text comparison | Done |
 | P2-05 | [Build the minimal custom UI candidate](05-minimal-custom-ui-candidate.md) | P2-04 | B07/B08 custom candidate, B36 | Done |
 | P2-06 | [Build the Slint UI candidate](06-slint-ui-candidate.md) | P2-04 | B07/B08 Slint candidate, B36 | Done |
-| P2-07 | [Close freestanding integration feasibility](07-freestanding-integration-feasibility.md) | P2-05, P2-06 | B02 follow-up, B07/B36 target hooks | Not started |
+| P2-07 | [Close freestanding integration feasibility](07-freestanding-integration-feasibility.md) | P2-05, P2-06 | B02 follow-up, B07/B36 target hooks | Done |
 | P2-08 | [Compare quality, reload paths and hosted cost](08-comparable-ui-evaluation.md) | P2-05, P2-06, P2-07 | B36, M2 subset of B32 | Not started |
 | P2-09 | [Record the provisional UI selection](09-provisional-ui-selection.md) | P2-08 | B36 decision, B07 direction | Not started |
 | P2-10 | [Complete selected layout, input and semantics](10-selected-ui-layout-input-and-semantics.md) | P2-09 | M2 portions of B07/B08/B09/B37 | Not started |
@@ -101,7 +101,12 @@ and text/native-accessibility limits remain comparison findings. P2-06
 [accepts bounded Slint evidence](../../../evidence/phase-2/P2-06/2026-10-21/README.md):
 AOT software primitives, explicit shared text/input/semantic adapters and recorded
 native feature failures. Use its [runbook](slint-ui-runbook.md).
-P2-07–P2-13 remain Not started; no toolkit is selected.
+P2-07's [local target feasibility acceptance](../../../evidence/phase-2/P2-07/2026-10-22/README.md)
+closes both real-API final links with a bounded probe arena, independent symbol/
+section/codegen audits and deliberate missing-hook/host-feature failures. Use the
+[freestanding runbook](freestanding-ui-runbook.md); guest runtime obligations and
+Slint feature/license gaps remain explicit. P2-08–P2-13 remain Not started; no
+toolkit is selected or guest UI executed.
 Each run records:
 
 - Source commit/dirty-input hashes, harness revision, compiler/profile, dependency

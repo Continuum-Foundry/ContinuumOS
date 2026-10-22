@@ -15,7 +15,11 @@ remain comparison inputs. P2-06
 [adds Slint evidence](../../evidence/phase-2/P2-06/2026-10-21/README.md): AOT/software
 primitives with explicit shared text/input/semantic adapters and recorded native
 text/effect/clip/blend gaps. This does not establish native toolkit parity or
-resolve OS/API distribution terms. Guest links, reload and toolkit selection
+resolve OS/API distribution terms. P2-07's
+[standalone final-link review](../../evidence/phase-2/P2-07/2026-10-22/README.md)
+now closes both actual scene/text/raster configurations with bounded probe memory
+and explicit M3/M4 hooks. This does not establish guest execution, sustained heap
+use, native feature parity or runtime replacement. Reload and toolkit selection
 remain open; no new UI language or production toolkit is selected.
 
 ## Context and decision

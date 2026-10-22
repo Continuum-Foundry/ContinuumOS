@@ -110,8 +110,16 @@ rounded ancestor clips, launcher opacity and fractional blend failures. Semantic
 remain shared adapter-derived; interpreter input is unavailable offline and
 OS/API distribution terms remain unresolved. Existing signer enrollment was
 refreshed after reviewing unchanged prior probe pins; no host policy changed.
-P2-07 is next; P2-07–P2-13 remain Not started. They cover
-freestanding link feasibility, provisional decision, selected hosted
+P2-07 [passes local final-link feasibility](../../evidence/phase-2/P2-07/2026-10-22/README.md):
+both real candidate scene/text/raster paths link with an owned bounded probe arena;
+target/build inputs, generated AOT code, symbols, segment permissions and deliberate
+missing-hook/std failures are audited. The Slint adapter now lives in no-std
+`crates/slint-ui`, shared by host and probe. The interpreter input remains unavailable
+offline. Use the [freestanding runbook](phase-2/freestanding-ui-runbook.md) and hook
+inventory; no guest runtime, UI execution or kernel dependency was added. The owner
+explicitly approved the existing signer lock enrollment refresh; no certificate or
+Windows policy changed. P2-08 is next; P2-08–P2-13 remain Not started. They cover
+comparison, provisional decision, selected hosted
 UI/reload and measured acceptance. They do not authorize remote Jira creation.
 P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has

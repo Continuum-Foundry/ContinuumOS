@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "tools/Test-P2-07.ps1",
+      "sha256": "7cad88a65356763cb1a80dd9657209dd741d7e8d1a49d2b1db9fbb8ebb286e86"
+    },
+    {
+      "path": "tools/Review-UiLink.py",
+      "sha256": "2fbba7a1fc067d38850ae98d148e90506c55a71d65b794f1126fc79b9b712d9a"
+    },
+    {
+      "path": "tools/Review-UiLinkInputs.py",
+      "sha256": "8b4fdfa2b406ea4a4897a512bd1308067d747698977d8d243f637bf690f8de3b"
+    },
+    {
+      "path": "tools/Recheck-P2Prerequisites.ps1",
+      "sha256": "00cae1746defd50d28a00fd119c767e2f8d2c4ebeae1dcd73e204ca709b9aaf2"
+    },
+    {
+      "path": "tools/Enter-Dev.ps1",
+      "sha256": "983d3c8a6a5072f4593fa8bf2ecaa0ccb98c58408bcbfcf2c7e18df7cd896877"
+    },
+    {
+      "path": "tools/Inventory-Licenses.ps1",
+      "sha256": "25af05fd1d44fbb50c857a9a0c55d568e65e7678b20f63bc737afd533bb9ccc0"
+    },
+    {
+      "path": "audit/check-governance.cjs",
+      "sha256": "40451b1ffd5e55db00e9b463916464f8b44f5dfa63f5d870b640aaae1be74e6e"
+    }
+  ],
+  "post_acceptance_guards": [
+    {
+      "case": "Python -O disables assertions",
+      "audit_tools_reject": true,
+      "exit_code": 1,
+      "local_records": [
+        "work/p2-07-optimized-audit-check.txt",
+        "work/p2-07-optimized-input-check.txt"
+      ]
+    }
+  ],
+  "scope": "Current review/reproduction harness. The optimized-Python refusal was added while upstream input verification was already running; the normal input scan used the same archive/source/graph checks. Actual build input bytes are separately frozen in compiled-inputs.json."
+}

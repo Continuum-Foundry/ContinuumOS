@@ -1,0 +1,52 @@
+.eh_frame section at offset 0x1214bc8 address 0x1613bc8:
+  [0x1613bc8] CIE length=20
+    version: 1
+    augmentation: zR
+    code_alignment_factor: 1
+    data_alignment_factor: -8
+    return_address_register: 16
+
+    Program:
+      DW_CFA_def_cfa: reg7 +8
+      DW_CFA_offset: reg16 -8
+      DW_CFA_nop:
+      DW_CFA_nop:
+
+  [0x1613be0] FDE length=16 cie=[0x1613bc8]
+    initial_location: 0x401aa0
+    address_range: 0x5 (end : 0x401aa5)
+
+    Program:
+      DW_CFA_nop:
+      DW_CFA_nop:
+      DW_CFA_nop:
+
+  [0x1613bf4] FDE length=16 cie=[0x1613bc8]
+    initial_location: 0x401aa5
+    address_range: 0x1 (end : 0x401aa6)
+
+    Program:
+      DW_CFA_nop:
+      DW_CFA_nop:
+      DW_CFA_nop:
+
+  [0x1613c08] CIE length=0
+    version: 0
+    augmentation: 
+    code_alignment_factor: 0
+    data_alignment_factor: 0
+    return_address_register: 0
+
+    Program:
+
+Symbols [
+  Symbol {
+    Name:  (0)
+    Value: 0x0
+    Size: 0
+    Binding: Local (0x0)
+    Type: None (0x0)
+    Other: 0
+    Section: Undefined (0x0)
+  }
+  Symbol {

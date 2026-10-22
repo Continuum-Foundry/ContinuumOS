@@ -1,0 +1,12 @@
+   Compiling ui-link v0.1.0 (${WORKSPACE}\experiments\ui-link)
+error: linking with `rust-lld` failed: exit code: 1
+  |
+  = note: "rust-lld" "-flavor" "gnu" "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\cargo\\signed\\x86_64-unknown-none\\release\\deps\\rustc7ycuH8\\symbols.o" "<2 object files omitted>" "--as-needed" "-Bstatic" "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\cargo\\signed\\x86_64-unknown-none\\release\\deps/{libcustom_ui-4497002edf666643,libtext_core-38ec0f16c3a5ed9a,libunicode_linebreak-590e240c1d70d14b,libfontdue-87cd452b254b276c,libhashbrown-289882bdb7627552,libfoldhash-890daf5b69d55d73,libequivalent-8b8a97503083227f,liballocator_api2-c7398e6138680dde,libunicode_bidi-09a452e8361d37c6,libsha2-9303ecce5230330f,libcpufeatures-f8fd0ab8bed30784,libcfg_if-f95ae8cd6ef36880,libdigest-b708d77257e579ac,libcrypto_common-05bfabd7a4bad23a,libblock_buffer-d6bf9ebcf23e89e2,libhybrid_array-e73ca8b014229f16,libtypenum-d727387076b8c494,librustybuzz-3de3218ff5d64600,libunicode_bidi_mirroring-ef3d637dd0a7d37f,libbytemuck-53fd50ff735f2012,libbitflags-71988b1e88ec7d2e,libunicode_script-6f1cb01f7d312f12,libunicode_properties-a3f54fa9871e372b,libsmallvec-89771da0a1657008,libunicode_ccc-079b65d4bb332514,libttf_parser-404b3e10ac0c86ce,libcore_maths-4b0072e9951f21bc,liblibm-135864c3318493a2,libeditor_model-6a2a2a3167eeafb0,libunicode_segmentation-9a9bddcba58fbeb9}.rlib" "<sysroot>\\lib\\rustlib\\x86_64-unknown-none\\lib/{liballoc-*,libcore-*,libcompiler_builtins-*}.rlib" "-L" "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\cargo\\signed\\x86_64-unknown-none\\release\\deps\\rustc7ycuH8\\raw-dylibs" "-Bdynamic" "--eh-frame-hdr" "-z" "noexecstack" "-o" "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\cargo\\signed\\x86_64-unknown-none\\release\\deps\\ui_link-cd0167aa6b05bef2" "--gc-sections" "-z" "relro" "-z" "now" "-TC:\\Users\\archi\\Documents\\ContinuumOS\\experiments\\ui-link\\link.ld" "--no-undefined" "-Map=C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m2\\P2-07\\acceptance-1792711445425\\custom.map"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: rust-lld: error: undefined symbol: p2_missing_present_hook
+          >>> referenced by main.rs:79 (src\main.rs:79)
+          >>>               ${WORKSPACE}\build\cargo\signed\x86_64-unknown-none\release\deps\ui_link-cd0167aa6b05bef2.ui_link.57b726b780f43568-cgu.0.rcgu.o:(ui_probe_entry)
+          
+
+error: could not compile `ui-link` (bin "ui-link") due to 1 previous error
+

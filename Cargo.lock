@@ -3515,6 +3515,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "slint-ui"
+version = "0.1.0"
+dependencies = [
+ "custom-ui",
+ "slint",
+ "text-core",
+]
+
+[[package]]
 name = "slotmap"
 version = "1.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4722,6 +4731,7 @@ dependencies = [
  "serde_json",
  "sha2",
  "slint",
+ "slint-ui",
  "text-core",
  "unicode-segmentation",
 ]

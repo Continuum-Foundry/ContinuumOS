@@ -1,0 +1,134 @@
+{
+  "status": "passed",
+  "raw_manifest_sha256": "e541132c83fced0f331aed00a53dfc4efc2c539e78c62ebc91d5109ad42d0d6d",
+  "raw_manifest_path": "build/m2/P2-01/prerequisites-1792710699389/prerequisites.json",
+  "commands": [
+    {
+      "elapsed_ms": 10659,
+      "program": "pwsh",
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Test-DevSigning.ps1"
+      ],
+      "name": "signing"
+    },
+    {
+      "elapsed_ms": 23324,
+      "program": "pwsh",
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Test-DevCompiler.ps1"
+      ],
+      "name": "compiler"
+    },
+    {
+      "elapsed_ms": 1873,
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "metadata",
+        "--locked",
+        "--offline",
+        "--format-version",
+        "1",
+        "--filter-platform",
+        "x86_64-pc-windows-msvc"
+      ],
+      "name": "host-metadata"
+    },
+    {
+      "elapsed_ms": 46876,
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor"
+      ],
+      "name": "doctor"
+    },
+    {
+      "elapsed_ms": 7878,
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--json"
+      ],
+      "name": "doctor-json"
+    },
+    {
+      "elapsed_ms": 4198,
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "build",
+        "--profile",
+        "feasibility"
+      ],
+      "name": "build"
+    },
+    {
+      "elapsed_ms": 8140,
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m0"
+      ],
+      "name": "m0"
+    },
+    {
+      "elapsed_ms": 119616,
+      "program": "pwsh",
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-M0.ps1"
+      ],
+      "name": "acceptance"
+    },
+    {
+      "elapsed_ms": 17011,
+      "program": "pwsh",
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Probe-Dependencies.ps1"
+      ],
+      "name": "dependencies"
+    },
+    {
+      "elapsed_ms": 18395,
+      "program": "cargo",
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--profile",
+        "m1",
+        "--json"
+      ],
+      "name": "m1-doctor"
+    }
+  ],
+  "signing": {
+    "status": "passed",
+    "has_private_key": true,
+    "expires_utc": "2027-10-20T22:28:05.0000000Z",
+    "runner_config_sha256": "d43ff6a50feb13c72b3f231a920ccfc867487a73a9c9a2425f65b3f39334406c"
+  },
+  "os": "Microsoft Windows NT 10.0.26300.0",
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+  "guest_boot_tested": false,
+  "source_base": "6e53cf08e0d59873202037801487b104ef608090"
+}

@@ -1,0 +1,228 @@
+[
+  {
+    "case": "duplicate-id",
+    "old_state_preserved": true,
+    "outcome": "Duplicate",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "nonfinite-geometry",
+    "old_state_preserved": true,
+    "outcome": "Bounds",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "missing-image",
+    "old_state_preserved": true,
+    "outcome": "Resource",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "cycle",
+    "old_state_preserved": true,
+    "outcome": "Invalid",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "orphan",
+    "old_state_preserved": true,
+    "outcome": "Invalid",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "unknown-action",
+    "old_state_preserved": true,
+    "outcome": "Resource",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "stale-revision",
+    "old_state_preserved": true,
+    "outcome": "Revision",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "invalid-token",
+    "old_state_preserved": true,
+    "outcome": "Bounds",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "stale-pointer",
+    "old_state_preserved": true,
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "overflow-reset",
+    "dropped": 257,
+    "reason": "queue-overflow",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "removed-focus",
+    "focus": "editor",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "capture-owner-removal-and-modeled-owner-death",
+    "document_preserved": true,
+    "process_killed": false,
+    "reason": "owner-death-injection",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "virtual-count",
+    "logical_count": 10000,
+    "realized": 15,
+    "row_id": 9900,
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "virtual-count",
+    "logical_count": 1000000,
+    "realized": 15,
+    "row_id": 999900,
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "virtual-count",
+    "logical_count": 1000000000,
+    "realized": 15,
+    "row_id": 999999900,
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "buffers": 3,
+    "bytes": 96,
+    "case": "buffer-ownership-stride-exhaustion",
+    "serials": [
+      1,
+      2
+    ],
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "missing-icon",
+    "fallback": "authored-2x2-nearest",
+    "semantic_name": "Unsaved \u2022 UTF-8",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "capture": {
+      "full_damage_pixels": 921600,
+      "glyph_cache_bytes": 21000,
+      "glyph_cache_entries": 128,
+      "height": 720,
+      "image_sha256": "b27ee79867809303c4f738f9c7f4b8f5ff55bcd479a3710bb6d276b55b16ec04",
+      "missing_clusters": 0,
+      "native_pixels_touched": null,
+      "nodes": 12,
+      "realized": 15,
+      "renderer": "Slint 1.18.1 AOT software primitives; P2-04 text Image adapter",
+      "rgba_sha256": "643549d040cbc902f07707d9172441c31f77a3dbb3a762b467b7ef8e859c0f21",
+      "rich_effect": "unsupported: functional opaque fallback in every variant",
+      "rounded_ancestor_clip": "unsupported: axis-aligned clips only",
+      "scale": 100,
+      "scratch_peak_bytes": 3671168,
+      "semantic_origin": "shared adapter-derived logical tree; no Slint/native accessibility export",
+      "semantic_sha256": "0186565c6ad8e8443ab813b76048b501106f513f71219ae4ecaefac44933d3a7",
+      "shape_work": 511,
+      "stride": 5120,
+      "surface_allocations": 1,
+      "surface_bytes": 3686400,
+      "touched": 921600,
+      "touched_scope": "output pixels copied to common surface; native overdraw unavailable",
+      "width": 1280
+    },
+    "case": "stable-id-layout-spacing-variant",
+    "damage": [
+      -24.0,
+      -24.0,
+      688.0,
+      408.0
+    ],
+    "live_reload_claim": false,
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "independent-paint-vectors",
+    "constant_blur": true,
+    "over": 3,
+    "premultiply": 3,
+    "origin": "custom painter oracle only; not evidence of Slint support"
+  },
+  {
+    "case": "missing-font",
+    "staging": "rejected",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "isolated-group-opacity",
+    "expected_pixel": [
+      29,
+      34,
+      46,
+      255
+    ],
+    "pixels_checked": 16,
+    "origin": "custom painter oracle only; not evidence of Slint support"
+  },
+  {
+    "case": "rounded-ancestor-clip",
+    "center": "panel",
+    "corner": "surface",
+    "origin": "custom painter oracle only; not evidence of Slint support"
+  },
+  {
+    "bitmap_bytes": 13414,
+    "case": "cache-and-realization-exhaustion",
+    "entries": 128,
+    "entry_cap": 128,
+    "glyph_requests": 199,
+    "oversized_viewport": "rejected",
+    "payload_cap": 1048576,
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "action": "settings.effects@1",
+    "case": "action-entry-parity",
+    "checkpoint_sha256": "000cb2f881472a8b38fb32a5f93ae8fc82a51295e48ff9d764771c7c341c54a0",
+    "entry": "Button",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "action": "settings.effects@1",
+    "case": "action-entry-parity",
+    "checkpoint_sha256": "000cb2f881472a8b38fb32a5f93ae8fc82a51295e48ff9d764771c7c341c54a0",
+    "entry": "Shortcut",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "action": "settings.effects@1",
+    "case": "action-entry-parity",
+    "checkpoint_sha256": "000cb2f881472a8b38fb32a5f93ae8fc82a51295e48ff9d764771c7c341c54a0",
+    "entry": "Semantic",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "action": "settings.effects@1",
+    "case": "action-entry-parity",
+    "checkpoint_sha256": "000cb2f881472a8b38fb32a5f93ae8fc82a51295e48ff9d764771c7c341c54a0",
+    "entry": "Automation",
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "alignment": "grapheme",
+    "case": "candidate-caret-hit",
+    "stops_checked": 15,
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  },
+  {
+    "case": "slint-text-adapter-failure-abandons-unpublished-buffer",
+    "commits": 0,
+    "error": "slint-1.18.1-p2-04-adapter-v1 paint: Text",
+    "model_preserved": true,
+    "next_lease_serial": 2,
+    "origin": "shared adapter check or candidate capture as named; not native service isolation"
+  }
+]

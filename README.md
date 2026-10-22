@@ -109,8 +109,10 @@ P2-05's [bounded custom candidate acceptance](evidence/phase-2/P2-05/2026-10-21/
 now passes 150 rendered checkpoints, shared action/semantic workflows, bounded
 text/list/cache checks and a native Windows preview. Full redraw/copy costs,
 immediate standard transitions and native text/accessibility limits remain explicit.
-P2-06's Slint candidate is next; P2-06–P2-13 remain Not started. No toolkit is
-selected, guest UI/reload demonstrated or Jira issue created.
+P2-06's [Slint candidate evidence](evidence/phase-2/P2-06/2026-10-21/README.md)
+now passes with explicit shared adapters and native text/effect/clip/blend failures.
+P2-07–P2-13 remain Not started. No toolkit is selected, guest UI/reload demonstrated
+or Jira issue created.
 
 ## A desktop designed for continuity
 
@@ -222,7 +224,7 @@ named cases and strict serial-record checks remain separate.
 | :--- | :--- | :--- |
 | **Phase 0** | Native tooling, independent links, dependency feasibility | Compile/tooling evidence retained |
 | **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-07 pass local experimental-baseline acceptance |
-| **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01 through P2-05 custom candidate accepted locally; Slint/comparison, hosted reload and measurements remain planned |
+| **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01 through P2-06 candidate evidence accepted locally; target links/comparison, hosted reload and measurements remain planned |
 | **M3** | User-mode isolation and bounded IPC | Planned |
 | **M4** | Authenticated development channel and guest resource reload | Planned |
 | **M5** | App replacement with preserved state | Planned |

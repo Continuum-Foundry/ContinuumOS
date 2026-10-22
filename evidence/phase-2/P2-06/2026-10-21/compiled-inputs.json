@@ -1,0 +1,89 @@
+{
+  "source_base": "34dc796ca13cada319e1856eee7d28b2f6298ed8",
+  "source_manifest_sha256": "7dcd526d9474cdaa3fdd037adf95e58f8f3d1bd89bdbba4ae3db30300c5a1308",
+  "acceptance_code_matches_current": true,
+  "inputs": [
+    {
+      "path": "Cargo.lock",
+      "sha256": "ff744e788cc10997304aa2a0d53c56aef01e71c628865f781eb7f25c47c3f040",
+      "bytes": 123229
+    },
+    {
+      "path": "tools/xtask/Cargo.toml",
+      "sha256": "bce2a43cb4e31047a97a8356ac40058cf073722908090c61854fddad7a17077f",
+      "bytes": 664
+    },
+    {
+      "path": "tools/xtask/src/main.rs",
+      "sha256": "de7a4b9a34023cad3780a259dd7d21b2ab13fb891f29abfd1d959071d0bcd743",
+      "bytes": 13761
+    },
+    {
+      "path": "tools/xtask/src/custom.rs",
+      "sha256": "b416e3599a680c2c318da5a0f69f016c89c04255f6990e2683644f0d7e84a4c9",
+      "bytes": 54348
+    },
+    {
+      "path": "tools/xtask/src/slint_candidate.rs",
+      "sha256": "730968e279ce03f1dbdb657ec982ffb3ab7e4d7cf5df3908a6bd784ce924c4c7",
+      "bytes": 23587
+    },
+    {
+      "path": "tools/Test-P2-06.ps1",
+      "sha256": "599f6273775d21ec558dd34c0aa85bf5cea86ec51104f9e8fab616c9b894bf90",
+      "bytes": 7097
+    },
+    {
+      "path": "tools/Review-SlintInputs.py",
+      "sha256": "34adc9d96764536ae8b9df567c46751228aa6be48278f0e7bc35bff9a9a1229d",
+      "bytes": 5083
+    },
+    {
+      "path": "tools/Review-Slint.py",
+      "sha256": "792ea0617a3f6181c6f07b23cdbe9f76ee9b57ec6689a8c8337ce0b50785b729",
+      "bytes": 1280
+    },
+    {
+      "path": "tools/Preview-Custom.ps1",
+      "sha256": "f7dec09f3a121160665eb557cbe6140f4efc253495ba8b37553f8acf835a90a6",
+      "bytes": 7118
+    },
+    {
+      "path": "tools/Preview-Slint.ps1",
+      "sha256": "2f0e12a5eee040fb6b3282d694eb0a3bca2dcb10ec77424da2bcf6fb0c2af2ec",
+      "bytes": 196
+    },
+    {
+      "path": "tools/Inventory-Licenses.ps1",
+      "sha256": "59b595e3ae17a70306412a6557bfc28c9f6e3018125f6a8fd63bffe2c8e78590",
+      "bytes": 4171
+    },
+    {
+      "path": "config/m2-profiles.json",
+      "sha256": "094c45a27cefb85f8de11c83d2594f4fdfa9e2d8689bc35e2e7af9642ef32f4c",
+      "bytes": 1199
+    },
+    {
+      "path": "fixtures/m2/ui-v1/lock.json",
+      "sha256": "674e96d299fe5dfe651c9ca49e6d671d8207a814ed9cc106d6f6e930cfcb50e2",
+      "bytes": 2591
+    },
+    {
+      "path": "fixtures/m2/text-v1/lock.json",
+      "sha256": "9acb8926344bba547ff6cca1fc7bbc547c7fef2e4a11c75a311d10721f7f5c56",
+      "bytes": 691
+    },
+    {
+      "path": "fixtures/m2/text-v1/fonts.lock.json",
+      "sha256": "39c919be20ba105cee186549bde782626b929b8d24d47a26f0ee533fa69f7ac0",
+      "bytes": 3357
+    },
+    {
+      "path": "fixtures/m2/slint-v1/goldens.json",
+      "sha256": "a1ba206ccaa39b9f37b27f61dd128436131267d099b5068fff15a9fb2125db7a",
+      "bytes": 39046
+    }
+  ],
+  "profile": "m2-comparison",
+  "signed_executable_sha256": "f79452025ce4e090c316d23b0a27100f9a797e4465cb62d16e84848d0238ecfb"
+}

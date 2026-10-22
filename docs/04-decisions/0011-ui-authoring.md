@@ -11,8 +11,12 @@ with independent shaping references and explicit mixed Unicode data limitations.
 P2-05 now adds the [locally accepted bounded custom candidate](../../evidence/phase-2/P2-05/2026-10-21/README.md)
 with reference rendering, shared workflows/semantics and native presentation.
 Its full redraw/copy costs, immediate standard transitions and text/native limits
-remain comparison inputs. Slint integration, guest linking, reload and toolkit selection gates remain
-open; no new UI language or production toolkit is selected.
+remain comparison inputs. P2-06
+[adds Slint evidence](../../evidence/phase-2/P2-06/2026-10-21/README.md): AOT/software
+primitives with explicit shared text/input/semantic adapters and recorded native
+text/effect/clip/blend gaps. This does not establish native toolkit parity or
+resolve OS/API distribution terms. Guest links, reload and toolkit selection
+remain open; no new UI language or production toolkit is selected.
 
 ## Context and decision
 

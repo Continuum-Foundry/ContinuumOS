@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "story": "P2-06",
+  "date": "2026-10-21",
+  "reviewer": "Codex local implementation self-review; not independent approval",
+  "outcome": "passed bounded comparison evidence gate with explicit native feature failures",
+  "story_status": "Done",
+  "source_base": "34dc796ca13cada319e1856eee7d28b2f6298ed8",
+  "signed_executable_sha256": "f79452025ce4e090c316d23b0a27100f9a797e4465cb62d16e84848d0238ecfb",
+  "checks": [
+    {
+      "criterion": "Shared corpus/model/surface integration",
+      "outcome": "passed bounded candidate",
+      "evidence": [
+        "captures.json",
+        "state-traces.json",
+        "semantics.json",
+        "native-preview.json",
+        "native-traces.json"
+      ],
+      "limits": "Same first-party text/input/semantic adapters are shared; native Slint widgets/focus/semantics are not credited"
+    },
+    {
+      "criterion": "Same text/focus/scale/effect/fallback rules",
+      "outcome": "complete observations with explicit failing native features",
+      "evidence": [
+        "text.json",
+        "feature-outcomes.json",
+        "api-probes.json",
+        "pixel-review.json"
+      ],
+      "limits": "Native Text setup, rich blur, rounded ancestor clips, launcher opacity and fractional blend exactness fail; no tolerance or requirement waived"
+    },
+    {
+      "criterion": "Separate exact hosted AOT/interpreter/guest feature claims",
+      "outcome": "passed inventory",
+      "evidence": [
+        "dependencies.json",
+        "runtime-tree.txt",
+        "build-tree.txt",
+        "input-review.json"
+      ],
+      "limits": "Host xtask uses std; selected Slint runtime does not; interpreter input absent offline; authored guest integration not compiled/linked here"
+    },
+    {
+      "criterion": "Real token/layout and compiled behavior pathways",
+      "outcome": "passed setters and both text-entry variants; expected native-text/interpreter failures retained",
+      "evidence": [
+        "acceptance.json",
+        "traces/behavior-v1.txt",
+        "traces/behavior-v2.txt",
+        "traces/native-text.txt",
+        "traces/interpreter.txt"
+      ],
+      "limits": "No live process/provider replacement or guest interpreter claim"
+    },
+    {
+      "criterion": "Metrics/hooks/effort/distribution inputs for selection",
+      "outcome": "passed bounded evidence review",
+      "evidence": [
+        "timings.json",
+        "adapter-inventory.json",
+        "development-findings.json"
+      ],
+      "limits": "Instrumentation is not performance acceptance; license/API exposure questions remain unresolved"
+    }
+  ],
+  "configurations": 30,
+  "captures": 150,
+  "workflow_states": 300,
+  "standalone_text_scale_cases": 45,
+  "integrated_text_captures": 63,
+  "shared_and_adapter_boundary_checks": 29,
+  "rust_tests_passed": 48,
+  "rust_tests_ignored": 1,
+  "native_replay_frames": 11,
+  "two_complete_runs_identical": true,
+  "unchanged_custom_goldens_pass": true,
+  "requirements_waived": false,
+  "toolkit_selected": false,
+  "distribution_cleared": false,
+  "guest_compile_link_execution_tested": false,
+  "live_reload_tested": false,
+  "performance_gate_tested": false
+}

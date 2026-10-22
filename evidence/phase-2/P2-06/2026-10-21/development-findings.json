@@ -1,0 +1,37 @@
+{
+  "failures_preserved_local": true,
+  "findings": [
+    {
+      "case": "sandbox-signing-context",
+      "local_log": "build/m2/P2-01/prerequisites-1792623359672/signing.log",
+      "sha256": "333fab684ac7fc4c0cd8a9d8d956e8d57652e9eb0e12bcf49a8ecca5a68c7484",
+      "reason": "Sandbox account could not access enrolled certificate; reran under existing developer account"
+    },
+    {
+      "case": "lock-changed-during-early-recheck",
+      "local_log": "build/m2/P2-01/prerequisites-1792623461908/m1-doctor.log",
+      "sha256": "5282a3d5f3322de23069dcb66cb01f0a1b79229b6754e8a36106cb742c4d863c",
+      "reason": "I changed Cargo.lock while the early recheck was running; signer correctly rejected final command. Complete fresh recheck passes after reviewed reenrollment"
+    },
+    {
+      "case": "behavior-test-bypassed-input-adapter",
+      "local_log": "build/m2/P2-06/acceptance-1792632373794/behavior-v2.log",
+      "sha256": "71c889971e1bed27bf4c2cd551ad40fa84e4f65eecf6bb235ab0f67497b00321",
+      "reason": "I initially invoked the typed action directly; fixed the test to exercise the actual compiled Text event path"
+    },
+    {
+      "case": "native-blend-rounding-divergence",
+      "local_log": "build/m2/P2-06/acceptance-1792633275088/slint-a.log",
+      "sha256": "de8e4a2ec9e1d780eca53a126370b4bbcd89ce2c18c779287853c8dbcc1a249c",
+      "reason": "Exact extra fractional blend probe rejected; expected/observed channels are now retained as a failed comparison, with zero tolerance and no waiver"
+    },
+    {
+      "case": "initial-api-integration-errors",
+      "local_log": "work/p2-06-check.log",
+      "sha256": "a2b556fccc2a3f005375f1f763ff7f8d879c9cf9a8833dc357a0ce62ba5991d1",
+      "reason": "Incorrect LCG namespace, SharedPixelBuffer argument and nonexistent top-level font function fixed; the compile mistake is not evidence of universal Slint font infeasibility"
+    }
+  ],
+  "signer_change": "Refreshed existing compiler lock enrollment after offline pin review; no certificate or App Control policy changed",
+  "distribution_cleared": false
+}

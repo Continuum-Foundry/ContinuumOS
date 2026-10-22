@@ -259,8 +259,10 @@ this corpus through portable Rust layout/paint/input/semantic code and a host-on
 Windows adapter. Its reviewed candidate-specific baselines are in
 [custom-v1](../../fixtures/m2/custom-v1/README.md); no shared corpus/lock/tolerance
 was changed. Native IME/accessibility, full motion interpolation, optimized damage,
-guest integration and live reload remain open. P2-06 uses the same common inputs
-and independently reports its outcomes.
+guest integration and live reload remain open. P2-06 [now records its outcomes](../../evidence/phase-2/P2-06/2026-10-21/README.md)
+using the same inputs and assertions. Shared text Image/input/semantic adapters
+are explicit; native text/effect/clip/opacity/blend gaps remain failures.
+No common lock or tolerance changed.
 
 For each candidate record actual buffer copy/release behavior, host pixel conversion,
 event-loop clock and overflow/reset injection, DPI coordinate transform, private-to-

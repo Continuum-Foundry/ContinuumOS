@@ -66,7 +66,12 @@ adds hosted T05/T10 rendering/routing/semantics: 150 checkpoints, 300 workflow
 states, all 45 text observations, 63 integrated text captures, 28 boundary/failure
 checks and a native Windows replay. T09 receives counters and deterministic idle
 decisions only; full workloads, process/guest memory and efficiency acceptance
-remain later gates. P2-06–P2-13 remain plans.
+remain later gates. P2-06
+[adds Slint evidence](../../evidence/phase-2/P2-06/2026-10-21/README.md) for the same
+matrix, 29 shared/adapter boundary checks, native primitive/API probes and Windows
+replay. Shared text Images pass; native Text setup, rich effects, rounded ancestor
+clips, launcher opacity, fractional blending and native semantics remain gaps.
+P2-07–P2-13 remain plans.
 Hosted R04/R08/R09/R15 and R19 design remain distinct from full
 guest/product requirements, M3 isolation, M4 guest resources and M5 behavior transfer.
 

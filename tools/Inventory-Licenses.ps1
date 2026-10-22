@@ -4,6 +4,7 @@ $root = Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'Enter-Dev.ps1')
 $graphs = @(
     @{name='workspace';manifest='Cargo.toml';features=@()},
+    @{name='hosted-slint-candidate';manifest='Cargo.toml';features=@('--features','slint-candidate')},
     @{name='boot-bindings-probe';manifest='experiments/boot-bindings/Cargo.toml';features=@()},
     @{name='candidate-experiments';manifest='experiments/dependencies/Cargo.toml';features=@('--no-default-features','--features','architecture,raster,shaping,font,toolkit')}
 )

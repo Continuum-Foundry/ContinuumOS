@@ -65,7 +65,7 @@ is approved.
 | Interfaces | [Kernel objects and IPC](06-contracts/ipc-and-objects.md), [update format](06-contracts/update-wire-format.md), [scene protocol](06-contracts/ui-and-scene-protocol.md), [package manifest](06-contracts/package-manifest.md) |
 | Execution | [Backlog](05-delivery/backlog.md), [build and release](05-delivery/build-and-release.md), [validation](05-delivery/validation.md), [risks and open questions](05-delivery/risks-and-open-questions.md) |
 | Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md), [host module layout](05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout), [metadata runbook](05-delivery/phase-1/boot-metadata-runbook.md) |
-| Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-05 custom candidate accepted locally; P2-06–P2-13 Not started |
+| Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-06 candidate evidence accepted locally; P2-07–P2-13 Not started |
 
 ## Status and interpretation
 
@@ -106,8 +106,10 @@ pass [local acceptance](../evidence/phase-2/P2-04/2026-10-21/README.md).
 P2-05's [custom candidate](05-delivery/phase-2/05-minimal-custom-ui-candidate.md)
 passes [local acceptance](../evidence/phase-2/P2-05/2026-10-21/README.md), including
 rendered scenes, shared action/semantic workflows, bounded text/list/cache checks
-and native Windows presentation. P2-06's Slint candidate is next, followed by
-target linking and comparison before bringing UI primitives to the guest framebuffer.
+and native Windows presentation. P2-06's
+[Slint candidate evidence](../evidence/phase-2/P2-06/2026-10-21/README.md) now passes
+with explicit shared text/input/semantic adapters and native feature failures.
+Target linking (P2-07) and comparison precede guest UI integration.
 Establish user-mode isolation and a small
 authenticated development channel before native service replacement. This parallel
 sequence describes independent workstreams, not permission to skip their dependencies.

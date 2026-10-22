@@ -31,7 +31,7 @@ local tools and evidence availability before implementation.
 | P2-03 | [Build the document state and typed-action model](03-document-state-and-typed-actions.md) | P2-02 | B09 state subset, M2 design of B37 | Done |
 | P2-04 | [Establish fonts and text conformance](04-fonts-and-text-conformance.md) | P2-03 | B09, B36 text comparison | Done |
 | P2-05 | [Build the minimal custom UI candidate](05-minimal-custom-ui-candidate.md) | P2-04 | B07/B08 custom candidate, B36 | Done |
-| P2-06 | [Build the Slint UI candidate](06-slint-ui-candidate.md) | P2-04 | B07/B08 Slint candidate, B36 | Not started |
+| P2-06 | [Build the Slint UI candidate](06-slint-ui-candidate.md) | P2-04 | B07/B08 Slint candidate, B36 | Done |
 | P2-07 | [Close freestanding integration feasibility](07-freestanding-integration-feasibility.md) | P2-05, P2-06 | B02 follow-up, B07/B36 target hooks | Not started |
 | P2-08 | [Compare quality, reload paths and hosted cost](08-comparable-ui-evaluation.md) | P2-05, P2-06, P2-07 | B36, M2 subset of B32 | Not started |
 | P2-09 | [Record the provisional UI selection](09-provisional-ui-selection.md) | P2-08 | B36 decision, B07 direction | Not started |
@@ -97,8 +97,11 @@ fonts, independent shaping references and bounded text/composition fixtures.
 P2-05's [custom candidate acceptance](../../../evidence/phase-2/P2-05/2026-10-21/README.md)
 now passes 150 captures, shared workflows, text, semantics and native presentation.
 Use its [runbook](custom-ui-runbook.md); full redraw/copies, immediate transitions
-and text/native-accessibility limits remain comparison findings. P2-06 is next;
-P2-06–P2-13 remain Not started. No toolkit is selected.
+and text/native-accessibility limits remain comparison findings. P2-06
+[accepts bounded Slint evidence](../../../evidence/phase-2/P2-06/2026-10-21/README.md):
+AOT software primitives, explicit shared text/input/semantic adapters and recorded
+native feature failures. Use its [runbook](slint-ui-runbook.md).
+P2-07–P2-13 remain Not started; no toolkit is selected.
 Each run records:
 
 - Source commit/dirty-input hashes, harness revision, compiler/profile, dependency
@@ -115,8 +118,8 @@ Each run records:
   idle intervals, resource peaks and limitations. No cross-machine clock subtraction.
 
 Implementation/harness commands are supplied by their owning story. P2-01's
-`hosted` lifecycle command is documented in its runbook; no candidate renderer or
-M2 aggregate acceptance command exists yet. Use argument arrays, bounded runs and
+`hosted` lifecycle command is documented in its runbook. P2-05/P2-06 provide
+candidate render/acceptance commands; no M2 aggregate acceptance command exists yet. Use argument arrays, bounded runs and
 explicit process cleanup. Reuse local signing without changing host policy implicitly.
 These local stories do not authorize Jira creation or remote uploads.
 

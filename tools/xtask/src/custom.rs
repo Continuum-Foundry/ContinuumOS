@@ -14,6 +14,36 @@ use std::{
     time::{Instant, SystemTime, UNIX_EPOCH},
 };
 
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub(crate) enum Candidate {
+    Custom,
+    #[cfg(feature = "slint-candidate")]
+    Slint,
+}
+impl Candidate {
+    fn story(self) -> &'static str {
+        match self {
+            Self::Custom => "P2-05",
+            #[cfg(feature = "slint-candidate")]
+            Self::Slint => "P2-06",
+        }
+    }
+    fn name(self) -> &'static str {
+        match self {
+            Self::Custom => "custom-rust-v1",
+            #[cfg(feature = "slint-candidate")]
+            Self::Slint => "slint-1.18.1-p2-04-adapter-v1",
+        }
+    }
+    fn goldens(self) -> &'static str {
+        match self {
+            Self::Custom => "fixtures/m2/custom-v1/goldens.json",
+            #[cfg(feature = "slint-candidate")]
+            Self::Slint => "fixtures/m2/slint-v1/goldens.json",
+        }
+    }
+}
+
 fn checked<T>(r: custom_ui::Result<T>) -> Result<T> {
     r.map_err(|e| format!("custom UI: {e:?}"))
 }
@@ -58,7 +88,7 @@ fn rect(v: &Value) -> Result<Rect> {
     checked(r.validate())?;
     Ok(r)
 }
-fn tree(layout: &Value) -> Result<Tree> {
+pub(crate) fn tree(layout: &Value) -> Result<Tree> {
     let mut nodes = Vec::new();
     for n in array(&layout["nodes"])? {
         let kind = match strv(&n["kind"])? {
@@ -262,6 +292,7 @@ fn assert_semantics(tree: &Tree, nodes: &[Semantic], layout: &Value) -> Result<(
     )
 }
 fn capture_at(
+    candidate: Candidate,
     scene: &mut Scene,
     c: &Controller,
     engine: &mut text_core::Engine<'_>,
@@ -269,6 +300,8 @@ fn capture_at(
     scale: u16,
     path: &Path,
 ) -> Result<(Value, Value)> {
+    #[cfg(not(feature = "slint-candidate"))]
+    let _ = candidate;
     let layout_clock = Instant::now();
     scene.layout();
     let layout_ns = layout_clock.elapsed().as_nanos();
@@ -282,6 +315,19 @@ fn capture_at(
         stride,
         scale,
     ))?;
+    #[cfg(feature = "slint-candidate")]
+    let painted = if candidate == Candidate::Slint {
+        crate::slint_candidate::paint(scene, c, engine, &mut canvas)
+    } else {
+        paint::render(
+            scene,
+            c.provider.model(),
+            c.composition.as_ref().map(|p| p.preedit()),
+            engine,
+            &mut canvas,
+        )
+    };
+    #[cfg(not(feature = "slint-candidate"))]
     let painted = paint::render(
         scene,
         c.provider.model(),
@@ -293,7 +339,7 @@ fn capture_at(
         Ok(c) => c,
         Err(error) => {
             checked(surface.abandon(lease))?;
-            return Err(format!("custom UI paint: {error:?}"));
+            return Err(format!("{} paint: {error:?}", candidate.name()));
         }
     };
     let raster_ns = raster_clock.elapsed().as_nanos();
@@ -313,17 +359,34 @@ fn capture_at(
     checked(surface.release(lease))?;
     let sem = scene.semantics(c.provider.model());
     let semantic = semantic_json(&sem);
-    let geometry = json!({"rgba_sha256":digest,"image_sha256":hash(&image),"width":width,"height":height,"stride":stride,"scale":scale,"semantic_sha256":hash(serde_json::to_string(&semantic).unwrap().as_bytes()),"realized":counters.realized,"missing_clusters":counters.missing,"shape_work":counters.shape_work,"nodes":counters.nodes,"touched":counters.touched,"glyph_cache_entries":counters.glyph_cache_entries,"glyph_cache_bytes":counters.glyph_cache_bytes,"scratch_peak_bytes":counters.scratch_peak,"surface_bytes":surface.allocated_bytes(),"surface_allocations":surface.allocations,"full_damage_pixels":width as u64*height as u64});
+    #[allow(unused_mut)] // Mutated only by the optional Slint instrumentation below.
+    let mut geometry = json!({"rgba_sha256":digest,"image_sha256":hash(&image),"width":width,"height":height,"stride":stride,"scale":scale,"semantic_sha256":hash(serde_json::to_string(&semantic).unwrap().as_bytes()),"realized":counters.realized,"missing_clusters":counters.missing,"shape_work":counters.shape_work,"nodes":counters.nodes,"touched":counters.touched,"glyph_cache_entries":counters.glyph_cache_entries,"glyph_cache_bytes":counters.glyph_cache_bytes,"scratch_peak_bytes":counters.scratch_peak,"surface_bytes":surface.allocated_bytes(),"surface_allocations":surface.allocations,"full_damage_pixels":width as u64*height as u64});
+    #[cfg(feature = "slint-candidate")]
+    if candidate == Candidate::Slint {
+        geometry["renderer"] =
+            json!("Slint 1.18.1 AOT software primitives; P2-04 text Image adapter");
+        geometry["native_pixels_touched"] = Value::Null;
+        geometry["touched_scope"] =
+            json!("output pixels copied to common surface; native overdraw unavailable");
+        geometry["rich_effect"] = json!("unsupported: functional opaque fallback in every variant");
+        geometry["rounded_ancestor_clip"] = json!("unsupported: axis-aligned clips only");
+        geometry["semantic_origin"] =
+            json!("shared adapter-derived logical tree; no Slint/native accessibility export");
+    }
     let timing = json!({"layout_ns":layout_ns,"raster_ns":raster_ns,"submission_hash_and_rgb_copy_ns":submission_ns,"file_write_excluded":true});
     Ok((geometry, timing))
 }
 pub fn execute() -> Result<()> {
+    execute_with(Candidate::Custom)
+}
+pub(crate) fn execute_with(candidate: Candidate) -> Result<()> {
     let corpus = crate::ui_fixtures::checked_inputs()?;
     let fonts = crate::text::inputs()?;
     let refs: Vec<_> = fonts.iter().map(Vec::as_slice).collect();
     let mut engine = text_core::Engine::new(&refs).map_err(|e| format!("fonts: {e:?}"))?;
     let run = root().join(format!(
-        "build/m2/P2-05/run-{}-{}",
+        "build/m2/{}/run-{}-{}",
+        candidate.story(),
         SystemTime::now()
             .duration_since(UNIX_EPOCH)
             .unwrap()
@@ -368,6 +431,7 @@ pub fn execute() -> Result<()> {
                         {
                             let name = format!("{id}-{step_id}");
                             let (data, timing) = capture_at(
+                                candidate,
                                 &mut scene,
                                 &c,
                                 &mut engine,
@@ -381,6 +445,7 @@ pub fn execute() -> Result<()> {
                         }
                     }
                     let _ = capture_at(
+                        candidate,
                         &mut scene,
                         &c,
                         &mut engine,
@@ -419,16 +484,16 @@ pub fn execute() -> Result<()> {
             }
         }
         require(observations.len() == 150, "Capture matrix incomplete")?;
-        let negative = negatives(&corpus, &mut engine, &run)?;
-        let text = text_cases(&mut engine, &run)?;
-        let text_nodes = text_nodes(&corpus, &mut engine, &run)?;
+        let negative = negatives(candidate, &corpus, &mut engine, &run)?;
+        let text = text_cases(candidate, &mut engine, &run)?;
+        let text_nodes = text_nodes(candidate, &corpus, &mut engine, &run)?;
         write_json(&run.join("timings.json"), &json!(timings))?;
         write_json(&run.join("traces.json"), &json!(traces))?;
         write_json(&run.join("semantics.json"), &json!(semantics))?;
-        let goldens_path = root().join("fixtures/m2/custom-v1/goldens.json");
+        let goldens_path = root().join(candidate.goldens());
         let raster_manifest=json!(observations.iter().map(|v|json!({"id":v["id"],"rgba_sha256":v["data"]["rgba_sha256"],"semantic_sha256":v["data"]["semantic_sha256"]})).collect::<Vec<_>>());
         if goldens_path.is_file() {
-            let expected = load("fixtures/m2/custom-v1/goldens.json")?;
+            let expected = load(candidate.goldens())?;
             require(
                 expected["captures"] == raster_manifest,
                 "Reviewed candidate goldens differ; preserve output and review changes",
@@ -439,13 +504,21 @@ pub fn execute() -> Result<()> {
             &json!({"schema_version":1,"captures":raster_manifest}),
         )?;
         Ok(
-            json!({"schema_version":1,"status":"passed","candidate":"custom-rust-v1","configuration_count":30,"capture_count":150,"workflow_steps":traces.len(),"observations":observations,"negative":negative,"text":text,"text_nodes":text_nodes,"clock":"std::time::Instant (Windows QPC); per-process durations; diagnostic build unless acceptance records otherwise","renderer":"encoded-sRGB premultiplied RGBA8, software","font_lock_sha256":hash(&fs::read(root().join("fixtures/m2/text-v1/fonts.lock.json")).unwrap()),"corpus_lock_sha256":hash(&fs::read(root().join("fixtures/m2/ui-v1/lock.json")).unwrap()),"profile_sha256":hash(&fs::read(root().join("config/m2-profiles.json")).unwrap()),"native_ime":false,"native_accessibility":false,"guest_tested":false,"reload_tested":false,"goldens_checked":goldens_path.is_file()}),
+            json!({"schema_version":1,"status":"passed","candidate":candidate.name(),"configuration_count":30,"capture_count":150,"workflow_steps":traces.len(),"observations":observations,"negative":negative,"text":text,"text_nodes":text_nodes,"clock":"std::time::Instant (Windows QPC); per-process durations; diagnostic build unless acceptance records otherwise","renderer":"encoded-sRGB premultiplied RGBA8, software","font_lock_sha256":hash(&fs::read(root().join("fixtures/m2/text-v1/fonts.lock.json")).unwrap()),"corpus_lock_sha256":hash(&fs::read(root().join("fixtures/m2/ui-v1/lock.json")).unwrap()),"profile_sha256":hash(&fs::read(root().join("config/m2-profiles.json")).unwrap()),"native_ime":false,"native_accessibility":false,"guest_tested":false,"reload_tested":false,"goldens_checked":goldens_path.is_file()}),
         )
     })();
     match outcome {
         Ok(report) => {
             write_json(&run.join("result.json"), &report)?;
-            println!("Custom UI checks passed: {}", run.display());
+            println!(
+                "{} UI checks passed: {}",
+                if candidate == Candidate::Custom {
+                    "Custom"
+                } else {
+                    "Slint"
+                },
+                run.display()
+            );
             Ok(())
         }
         Err(e) => {
@@ -458,7 +531,12 @@ pub fn execute() -> Result<()> {
     }
 }
 
+#[cfg(feature = "slint-candidate")]
+fn tokens_from_corpus(corpus: &std::collections::BTreeMap<String, Value>) -> Result<Tokens> {
+    tokens(&corpus["tokens"], &corpus["variants"]["variants"][0])
+}
 fn negatives(
+    renderer: Candidate,
     corpus: &std::collections::BTreeMap<String, Value>,
     engine: &mut text_core::Engine<'_>,
     run: &Path,
@@ -628,6 +706,7 @@ fn negatives(
     let c = controller(&corpus["corpus"])?;
     let mut surface = checked(Surface::new(1280, 720, 5120, 1))?;
     capture_at(
+        renderer,
         &mut scene,
         &c,
         engine,
@@ -654,6 +733,7 @@ fn negatives(
         "Old/new damage",
     )?;
     let (new, _) = capture_at(
+        renderer,
         &mut scene,
         &c,
         engine,
@@ -809,9 +889,41 @@ fn negatives(
         )?;
     }
     rows.push(json!({"case":"candidate-caret-hit","stops_checked":layout.lines[0].carets.len(),"alignment":"grapheme"}));
+    #[cfg(feature = "slint-candidate")]
+    if renderer == Candidate::Slint {
+        let text = "\n".repeat(300);
+        let c = Controller::new(
+            Model::new(1, 11, &text, "", Selection::new(0, 0)).map_err(|e| format!("{e:?}"))?,
+        )
+        .map_err(|e| format!("{e:?}"))?;
+        let before = c.provider.model().encode().unwrap();
+        let mut scene = checked(Scene::new(
+            tree(&corpus["layout"])?,
+            tokens_from_corpus(corpus)?,
+        ))?;
+        let mut surface = checked(Surface::new(1280, 720, 5120, 1))?;
+        let path = run.join("unpublished.ppm");
+        let error = capture_at(renderer, &mut scene, &c, engine, &mut surface, 100, &path)
+            .err()
+            .ok_or("Oversized text unexpectedly published")?;
+        require(
+            !path.exists()
+                && surface.commits == 0
+                && before == c.provider.model().encode().unwrap(),
+            "Slint failed paint mutated/published state",
+        )?;
+        let next = checked(surface.acquire(7))?;
+        require(next.serial == 2, "Failed paint leaked surface lease")?;
+        checked(surface.abandon(next))?;
+        rows.push(json!({"case":"slint-text-adapter-failure-abandons-unpublished-buffer","error":error,"model_preserved":true,"commits":0,"next_lease_serial":2}));
+    }
     Ok(json!(rows))
 }
-fn text_cases(engine: &mut text_core::Engine<'_>, run: &Path) -> Result<Value> {
+fn text_cases(
+    candidate: Candidate,
+    engine: &mut text_core::Engine<'_>,
+    run: &Path,
+) -> Result<Value> {
     let corpus = load("fixtures/m2/text-v1/corpus.json")?;
     let mut rows = Vec::new();
     for case in array(&corpus["cases"])? {
@@ -873,6 +985,12 @@ fn text_cases(engine: &mut text_core::Engine<'_>, run: &Path) -> Result<Value> {
                 None,
                 [0, 128, 255, 255],
             ))?;
+            #[cfg(feature = "slint-candidate")]
+            if candidate == Candidate::Slint {
+                checked(crate::slint_candidate::text_surface(&mut canvas))?;
+            }
+            #[cfg(not(feature = "slint-candidate"))]
+            let _ = candidate;
             checked(surface.commit(lease, &[[0, 0, width, height]]))?;
             let bytes = checked(surface.read(lease))?;
             let mut image = format!("P6\n{width} {height}\n255\n").into_bytes();
@@ -890,6 +1008,7 @@ fn text_cases(engine: &mut text_core::Engine<'_>, run: &Path) -> Result<Value> {
 }
 
 fn text_nodes(
+    candidate: Candidate,
     corpus: &std::collections::BTreeMap<String, Value>,
     engine: &mut text_core::Engine<'_>,
     run: &Path,
@@ -923,6 +1042,7 @@ fn text_nodes(
                 let mut surface = checked(Surface::new(1280, 720, 5120, 1))?;
                 let name = format!("text-node-{index}-{scale}-{target}");
                 let (capture, _) = capture_at(
+                    candidate,
                     &mut scene,
                     &c,
                     engine,
@@ -941,13 +1061,17 @@ fn text_nodes(
 /// Host-only JSON-line adapter. Output files are fixed under this process's run,
 /// never taken from event payloads. No guest or public network protocol.
 pub fn host() -> Result<()> {
+    host_with(Candidate::Custom)
+}
+pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
     use std::io::{BufRead, Write};
     let corpus = crate::ui_fixtures::checked_inputs()?;
     let fonts = crate::text::inputs()?;
     let refs: Vec<_> = fonts.iter().map(Vec::as_slice).collect();
     let mut engine = text_core::Engine::new(&refs).map_err(|e| format!("fonts: {e:?}"))?;
     let run = root().join(format!(
-        "build/m2/P2-05/host-{}-{}",
+        "build/m2/{}/host-{}-{}",
+        candidate.story(),
         SystemTime::now()
             .duration_since(UNIX_EPOCH)
             .unwrap()
@@ -1058,6 +1182,7 @@ pub fn host() -> Result<()> {
             scene.dirty.semantics |= c.dirty.semantics;
             c.dirty = scene::Dirty::default();
             let (capture, timing) = capture_at(
+                candidate,
                 &mut scene,
                 &c,
                 &mut engine,
@@ -1121,6 +1246,8 @@ fn bitmap(rgb: &[u8], width: u32, height: u32) -> Result<Vec<u8>> {
 
 #[cfg(test)]
 mod tests {
+    use super::Candidate;
+    const CANDIDATE: Candidate = Candidate::Custom;
     use super::*;
     #[test]
     #[ignore = "requires locked P2-04 fonts; explicitly run by Test-P2-05, outside Phase 0"]
@@ -1148,7 +1275,18 @@ mod tests {
         ));
         fs::create_dir_all(&run).unwrap();
         let path = run.join("unpublished.ppm");
-        assert!(capture_at(&mut scene, &c, &mut engine, &mut surface, 100, &path).is_err());
+        assert!(
+            capture_at(
+                CANDIDATE,
+                &mut scene,
+                &c,
+                &mut engine,
+                &mut surface,
+                100,
+                &path
+            )
+            .is_err()
+        );
         assert!(!path.exists());
         assert_eq!(surface.commits, 0);
         assert_eq!(before, c.provider.model().encode().unwrap());

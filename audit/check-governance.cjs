@@ -44,7 +44,7 @@ if (!errors.length) {
     const target = match[1];
     if (!/^(https?:|#)/.test(target)) assert(fs.existsSync(resolveInside(root,target.split('#')[0])), `Broken README HTML reference: ${target}`);
   }
-  const manifests = ['tools/xtask/Cargo.toml','kernel/Cargo.toml','crates/editor-model/Cargo.toml','crates/text-core/Cargo.toml','crates/custom-ui/Cargo.toml','experiments/kernel-link/Cargo.toml',
+  const manifests = ['tools/xtask/Cargo.toml','kernel/Cargo.toml','crates/editor-model/Cargo.toml','crates/text-core/Cargo.toml','crates/custom-ui/Cargo.toml','crates/slint-ui/Cargo.toml','experiments/ui-link/Cargo.toml','experiments/kernel-link/Cargo.toml',
     'experiments/userland-link/Cargo.toml','experiments/dependencies/Cargo.toml','experiments/boot-bindings/Cargo.toml'];
   assert(/license-file = "LICENSE"/.test(read('Cargo.toml')), 'Workspace rights file not declared');
   assert(/publish = false/.test(read('Cargo.toml')), 'Workspace publishing must be disabled');

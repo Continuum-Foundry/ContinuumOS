@@ -1,6 +1,6 @@
 # P2-07 — Close exact freestanding UI compile and link feasibility
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Unassigned.
 Depends on: P2-05 and P2-06 Done.
 Suggested labels: `phase-2`, `freestanding`, `dependency-audit`.
 Backlog: B02 follow-up, B07/B36 target hooks. Requirements: R03/R18; early R14/R16.
@@ -37,17 +37,17 @@ closure evidence so a hosted winner does not hide an impossible guest backend.
 
 ## Acceptance criteria
 
-- [ ] Both candidates have reproducible real-API compile/final-link attempts with
+- [x] Both candidates have reproducible real-API compile/final-link attempts with
   complete feature/input/symbol manifests; Phase 0 library compilation is not reused
   as final-link evidence.
-- [ ] At least the eventual selected path has final symbol closure with explicit
+- [x] At least the eventual selected path has final symbol closure with explicit
   bounded probe allocation/platform provisions; unresolved candidates are disqualified
   or block selection until a bounded follow-up resolves them.
-- [ ] No dummy allocator, unresolved-symbol suppression or host-only dependency
+- [x] No dummy allocator, unresolved-symbol suppression or host-only dependency
   creates a false freestanding success result.
-- [ ] Required guest allocator, clocks, single-threading, FP/SIMD and platform hooks
+- [x] Required guest allocator, clocks, single-threading, FP/SIMD and platform hooks
   are listed as M3/M4 obligations, with no claim they exist in the current kernel.
-- [ ] Exact pass/fail evidence, license/notices inputs and remaining backend risks
+- [x] Exact pass/fail evidence, license/notices inputs and remaining backend risks
   feed the comparison; no probe link is described as a guest UI boot/render result.
 
 ## Tests and evidence
@@ -66,3 +66,14 @@ only a path whose actual target configuration and remaining runtime work are cle
 Sources: [Phase 0 dependency limits](../phase-0.md#dependency-feasibility),
 [UI comparison](../../01-research/ui-toolkit-comparison.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+## Local acceptance — 2026-10-22
+
+[The recorded review](../../../evidence/phase-2/P2-07/2026-10-22/README.md) passes
+all five criteria: both actual candidate paths close final symbols using the
+owned bounded arena, all 26 ELF mutations reject, each injected missing hook/std
+case fails, and both unchanged hosted matrices pass after Slint extraction.
+Exact target/build/source/notice graphs and generated AOT IR identities are retained.
+The interpreter input is unavailable offline and receives no target credit.
+Use the [runbook](freestanding-ui-runbook.md) and its explicit M3/M4 hook inventory.
+This is local self-review, not guest execution or selection. P2-08 is next.

@@ -1,0 +1,33 @@
+[workspace]
+resolver = "2"
+
+[package]
+name = "ui-link"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license-file = "../../LICENSE"
+
+[features]
+slint-aot = ["dep:slint-ui"]
+missing-hook = []
+host-feature = []
+
+[dependencies]
+custom-ui = { path = "../../crates/custom-ui" }
+editor-model = { path = "../../crates/editor-model" }
+text-core = { path = "../../crates/text-core" }
+slint-ui = { path = "../../crates/slint-ui", optional = true }
+
+[[bin]]
+name = "ui-link"
+path = "src/main.rs"
+test = false
+bench = false
+
+[profile.release]
+panic = "abort"
+opt-level = 1
+debug = 1
+lto = false
+codegen-units = 1

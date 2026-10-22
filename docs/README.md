@@ -73,7 +73,7 @@ is approved.
 | Interfaces | [Kernel objects and IPC](06-contracts/ipc-and-objects.md), [update format](06-contracts/update-wire-format.md), [scene protocol](06-contracts/ui-and-scene-protocol.md), [package manifest](06-contracts/package-manifest.md) |
 | Execution | [Backlog](05-delivery/backlog.md), [build and release](05-delivery/build-and-release.md), [installer preparation](05-delivery/installer-preparation.md), [validation](05-delivery/validation.md), [risks and open questions](05-delivery/risks-and-open-questions.md) |
 | Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md), [host module layout](05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout), [metadata runbook](05-delivery/phase-1/boot-metadata-runbook.md) |
-| Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-06 candidate evidence accepted locally; P2-07–P2-13 Not started |
+| Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-07 evidence accepted locally; P2-08–P2-13 Not started |
 | Later desktop | [Feature/release matrix](05-delivery/desktop-feature-matrix.md), [service responsibilities](06-contracts/desktop-services.md), [Windows study](01-research/windows-compatibility-feasibility.md), [browser study](01-research/browser-feasibility.md); no later P-level decomposition yet |
 
 ## Status and interpretation
@@ -118,7 +118,9 @@ rendered scenes, shared action/semantic workflows, bounded text/list/cache check
 and native Windows presentation. P2-06's
 [Slint candidate evidence](../evidence/phase-2/P2-06/2026-10-21/README.md) now passes
 with explicit shared text/input/semantic adapters and native feature failures.
-Target linking (P2-07) and comparison precede guest UI integration.
+[P2-07 target linking](../evidence/phase-2/P2-07/2026-10-22/README.md) now closes
+both real candidate paths with bounded probe allocation and explicit runtime
+obligations. Comparison/selection and actual guest execution remain later gates.
 Establish user-mode isolation and a small
 authenticated development channel before native service replacement. This parallel
 sequence describes independent workstreams, not permission to skip their dependencies.

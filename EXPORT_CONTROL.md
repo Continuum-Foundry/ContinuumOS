@@ -330,6 +330,27 @@ recipient or standing remote-environment approval is authorized. Geographic
 containment remains unverified; this administrative exception is not legal
 clearance and does not waive applicable law.
 
+### One-time owner authorization — P2-07, 2026-10-22
+
+After completion of P2-07, the owner instructed: "i give you exemption to make PR.
+also tell me what is next story". This authorizes one push of the completed
+P2-07 freestanding UI integration probes, shared Slint AOT adapter, bounded probe
+allocator, target/dependency/codegen audit tooling, accompanying specifications,
+sanitized compact acceptance evidence and this authorization record to the existing
+GitHub `origin/codex/p2-07-freestanding-ui`, followed by creation of its pull request
+against `main`, including the prepared PR text and metadata. Private keys,
+certificates, generated executables, ELFs, full LLVM IR/disassembly, font binaries,
+ISOs and full local run/source trees are excluded. Authored source/locks and the
+reviewed compact manifests, diagnostic excerpts and source hashes are included.
+
+The push authorization is exhausted by the first successful push containing this
+record; the PR authorization is exhausted by creation of that one pull request.
+The local pre-push hold may be bypassed for that single push invocation and must
+remain installed afterward. No merge, force push, release, remote build, new
+recipient or standing remote-environment approval is authorized. Geographic
+containment remains unverified; this administrative exception is not legal
+clearance or a finding of U.S.-only handling and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

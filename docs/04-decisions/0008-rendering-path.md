@@ -7,6 +7,12 @@ encoded-sRGB premultiplied RGBA8, explicit leases/damage, analytic paint vectors
 and identical rich/reduced-effect cases. These data checks do not pass the M2/M4
 render/measurement gate or select a toolkit. Status remains Proposed.
 
+P2-07 [closes both real candidate standalone final links](../../evidence/phase-2/P2-07/2026-10-22/README.md)
+with owned bounded probe allocation and independent ELF/codegen inspection.
+The extracted Slint software/text-image adapter is shared with the hosted harness.
+This is compile/link feasibility only; guest presentation, user context/heap policy,
+measured efficiency and the M2/M4 rendering gates remain open.
+
 ## Context and decision
 
 We need beautiful UI without pretending a new kernel already has a GPU stack.

@@ -1,7 +1,7 @@
 [workspace]
-members = ["tools/xtask", "experiments/kernel-link", "experiments/userland-link", "kernel", "crates/editor-model", "crates/text-core", "crates/custom-ui"]
+members = ["tools/xtask", "experiments/kernel-link", "experiments/userland-link", "kernel", "crates/editor-model", "crates/text-core", "crates/custom-ui", "crates/slint-ui"]
 default-members = ["tools/xtask"]
-exclude = ["experiments/dependencies"]
+exclude = ["experiments/dependencies", "experiments/ui-link"]
 resolver = "2"
 
 [workspace.package]

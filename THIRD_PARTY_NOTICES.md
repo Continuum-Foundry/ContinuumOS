@@ -88,6 +88,16 @@ are selected; OS shell/app versus public toolkit/API exposure, attribution and
 applicable commercial/GPL obligations remain review questions before selection
 or release. See the [Slint runbook](docs/05-delivery/phase-2/slint-ui-runbook.md).
 
+P2-07 adds independent final-link probes for the actual custom and extracted
+Slint AOT/text-image implementations, plus six embedded pinned Noto font inputs.
+No registry version/checksum changed. The target runtime/build graphs, archive and
+expanded-source verification, compiler-generated code identities and exact notice
+hashes are recorded in the P2-07 input review; the dependency inventory now includes
+both freestanding graphs. ELFs and font bytes remain local. This is not kernel/ISO
+integration, a shipped-code SBOM or license clearance. Slint OS/API distribution
+questions and all existing upstream obligations remain open. See the
+[freestanding runbook](docs/05-delivery/phase-2/freestanding-ui-runbook.md).
+
 ## Reference material and updates
 
 [The research catalogue](docs/01-research/sources.md) identifies upstream sources.

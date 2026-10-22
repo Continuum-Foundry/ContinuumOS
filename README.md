@@ -111,8 +111,10 @@ text/list/cache checks and a native Windows preview. Full redraw/copy costs,
 immediate standard transitions and native text/accessibility limits remain explicit.
 P2-06's [Slint candidate evidence](evidence/phase-2/P2-06/2026-10-21/README.md)
 now passes with explicit shared adapters and native text/effect/clip/blend failures.
-P2-07–P2-13 remain Not started. No toolkit is selected, guest UI/reload demonstrated
-or Jira issue created.
+P2-07's [freestanding feasibility acceptance](evidence/phase-2/P2-07/2026-10-22/README.md)
+now closes both actual candidate final links with bounded probe allocation and
+explicit guest runtime obligations. P2-08–P2-13 remain Not started. No toolkit is
+selected, guest UI/reload demonstrated or Jira issue created.
 
 <details>
 <summary><strong>See the hosted UI experiments</strong> — real pixels from the shared reference corpus</summary>

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "story": "P2-07",
+  "status": "passed",
+  "reviewer": "Codex local implementation/self-review; not independent approval",
+  "source_base": "6e53cf08e0d59873202037801487b104ef608090",
+  "branch": "codex/p2-07-freestanding-ui",
+  "criteria": [
+    {
+      "criterion": 1,
+      "status": "passed",
+      "evidence": [
+        "acceptance.json",
+        "inputs.json",
+        "compiled-inputs.json",
+        "custom-elf-audit.json",
+        "slint-aot-elf-audit.json",
+        "generated-ir.json"
+      ],
+      "finding": "Both actual shared candidate scene/text/raster paths compile and link; separate target/build features, pinned upstream source and generated AOT code identities recorded."
+    },
+    {
+      "criterion": 2,
+      "status": "passed",
+      "evidence": [
+        "custom-elf-audit.json",
+        "slint-aot-elf-audit.json",
+        "unit-tests.txt",
+        "../../../../experiments/ui-link/hooks.json"
+      ],
+      "finding": "Both configurations close symbols with a real 64 MiB probe arena and explicit synchronous RAM/platform provisions. No toolkit selected."
+    },
+    {
+      "criterion": 3,
+      "status": "passed",
+      "evidence": [
+        "custom-missing-hook.txt",
+        "slint-aot-missing-hook.txt",
+        "custom-host-feature.txt",
+        "slint-aot-host-feature.txt"
+      ],
+      "finding": "Actual missing symbol and std requests fail independently for each candidate; 13 ELF mutations per candidate fail closed; no suppression, null-only allocator or concealed host dependency."
+    },
+    {
+      "criterion": 4,
+      "status": "passed",
+      "evidence": [
+        "../../../../experiments/ui-link/hooks.json",
+        "../../../../docs/05-delivery/phase-2/freestanding-ui-runbook.md",
+        "kernel-runtime-tree.txt"
+      ],
+      "finding": "Guest mappings/heap/OOM/clock/wait/input/presentation, one-thread Slint ownership and user FP/SIMD policies remain M3/M4 obligations. Kernel dependency closure unchanged."
+    },
+    {
+      "criterion": 5,
+      "status": "passed",
+      "evidence": [
+        "inputs.json",
+        "interpreter-offline.txt",
+        "hosted-regressions.json",
+        "development-findings.json"
+      ],
+      "finding": "Exact AOT successes and separate unavailable interpreter/failure cases feed P2-08; existing license/native-feature gaps remain; no guest execution/render/performance/reload claim."
+    }
+  ],
+  "validation": {
+    "prerequisite_checks": 10,
+    "acceptance_steps": 16,
+    "rust_unit_tests_passed": 51,
+    "rust_unit_tests_ignored": 1,
+    "arena_tests_passed": 3,
+    "elf_mutations_rejected": 26,
+    "missing_hook_failures_expected": 2,
+    "host_std_failures_expected": 2,
+    "interpreter_offline_unavailable_expected": true,
+    "hosted_candidates": 2,
+    "captures_per_candidate": 150,
+    "workflow_states_per_candidate": 300,
+    "text_cases_per_candidate": 45,
+    "integrated_text_cases_per_candidate": 63,
+    "unchanged_goldens_checked": true
+  },
+  "limits": [
+    "ELFs never executed; no guest UI boot or render",
+    "Arena intentionally retains freed blocks; runtime capacity sufficiency and long-run reclamation not established",
+    "No guest heap, loader, isolation, scheduler, runtime service or kernel dependency added",
+    "Default target is software-float; zero FP/SIMD instructions detected by scan, not a formal ISA proof; M3 user context policy remains mandatory",
+    "Passive 28-byte eh_frame_hdr and 68-byte eh_frame allocation-shim CFI retained; no personality/LSDA/exception table or runtime unwinder found",
+    "Slint native text/effects/clip/opacity/blend gaps, semantic adapter origin and OS/API license questions unchanged",
+    "No measured guest efficiency, toolkit selection, reload or release reproducibility",
+    "Changes local and uncommitted; no upload, PR or guest launch"
+  ]
+}

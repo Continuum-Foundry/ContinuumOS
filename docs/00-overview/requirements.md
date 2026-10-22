@@ -183,3 +183,10 @@ adapter. Native text setup, rich effects, rounded ancestor clips, launcher opaci
 fractional blending and native semantics remain failing/unavailable cases; none
 is waived. R09 receives instrumentation only. Guest links/execution, actual reload,
 measured efficiency and distribution/toolkit selection remain later gates.
+
+P2-07's [accepted freestanding probes](../../evidence/phase-2/P2-07/2026-10-22/README.md)
+add R03/R18 and early R14/R16 evidence through real-API target compile/final links,
+exact active features/source/notice inputs, bounded probe allocation and independent
+ELF/codegen/negative audits. This does not add a guest heap, loader, FP/SIMD policy,
+UI execution, reload, measured efficiency or a selected toolkit. M3/M4 retain those
+runtime obligations; P2-08 receives both portability results and remaining gaps.

@@ -1,0 +1,12 @@
+   Compiling ui-link v0.1.0 (${WORKSPACE}\experiments\ui-link)
+error[E0463]: can't find crate for `std`
+ --> src\main.rs:6:1
+  |
+6 | extern crate std;
+  | ^^^^^^^^^^^^^^^^^ can't find crate
+  |
+  = note: the `x86_64-unknown-none` target may not support the standard library
+
+For more information about this error, try `rustc --explain E0463`.
+error: could not compile `ui-link` (bin "ui-link") due to 1 previous error
+

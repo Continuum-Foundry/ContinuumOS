@@ -56,6 +56,13 @@ Evaluate ordinary coverage rasterization first.
 
 ## Input model
 
+P2-10's selected hosted navigation keeps line/stop affinity for dual bidi caret
+positions and filters shaping-cluster stops through document-wide grapheme
+boundaries. The hosted semantic consumer has hierarchy, values/actions, state,
+virtual row positions/counts and diffs. These internal snapshots and modeled
+composition events are not native assistive speech, Windows UI Automation or a
+guest IME. See [the exact selected-core policies](../05-delivery/phase-2/selected-ui-runbook.md).
+
 Physical keys identify hardware usages. Keymaps/modifiers generate logical actions;
 text input is a distinct event path. IME composition is transient state with commit/
 cancel rules, not a sequence of artificial key presses. Keep a stable input service

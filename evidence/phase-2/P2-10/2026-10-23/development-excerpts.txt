@@ -1,0 +1,21 @@
+Historical development diagnostics, transcribed from the observed tool output.
+The initial unit-test and ancestor-review scratch logs were overwritten by reruns;
+these are excerpts, not claims of complete original raw-log retention. Historical
+run images/results remain local. The final guarded acceptance has complete logs.
+
+Initial test fixture failure (before deliberately restoring editor focus):
+---- selected_tests::releases_across_revisions_and_moved_capture_never_activate stdout ----
+thread 'selected_tests::releases_across_revisions_and_moved_capture_never_activate' (20256) panicked at crates\custom-ui\src\selected_tests.rs:311:10:
+called `Result::unwrap()` on an `Err` value: Input
+test result: FAILED. 19 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+First independent rounded-edge failure, retained raw in development acceptance:
+AssertionError: ('rounded-100', 8, 15, 191, 174)
+The observed maximum for this pixel was 17 against the unchanged maximum 16.
+
+Second independent ancestor failure, run-1792794419606218000-48056:
+AssertionError: ('ancestor-100', 14, 8, 60, 77)
+The observed maximum for this pixel was 17 against the unchanged maximum 16.
+
+Final corrected standalone and ancestor maximum errors: 5 / 7 / 5 at 100/150/200.
+No tolerance or mandatory case was removed.

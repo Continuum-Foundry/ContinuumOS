@@ -1,0 +1,36 @@
+   Compiling custom-ui v0.1.0 (${WORKSPACE}\crates\custom-ui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.63s
+     Running unittests src\lib.rs (build\cargo\signed\debug\deps\custom_ui-6af35ab9ce1ac508.exe)
+
+running 22 tests
+test selected_tests::modal_focus_traps_reverse_tab_and_escape_restores_owner ... ok
+test selected_tests::motion_interrupts_at_visible_value_and_deadlines_stop_when_settled ... ok
+test selected_tests::composition_and_shortcuts_are_separate_from_committed_text ... ok
+test selected_tests::flow_measures_content_and_arranges_fixed_fill_and_overlay ... ok
+test selected_tests::cached_semantics_skip_paint_only_publications_and_retire_modal_hierarchy ... ok
+test selected_tests::overflow_and_bad_queue_cancel_transients_preserving_accepted_edits ... ok
+test selected_tests::publication_classifies_paint_semantic_and_layout_changes ... ok
+test selected_tests::layout_rejects_pressure_cycles_depth_and_nonfinite_atomically ... ok
+test selected_tests::releases_across_revisions_and_moved_capture_never_activate ... ok
+test selected_tests::scroll_transforms_hit_and_semantics_share_arranged_bounds ... ok
+test tests::candidate_rejects_text_beyond_render_budget_before_model_change ... ok
+test selected_tests::semantic_virtual_navigation_notifications_and_executor_parity ... ok
+test tests::fully_offscreen_backdrop_is_an_empty_paint ... ok
+test tests::invalid_graphs_reject_without_recursing_forever ... ok
+test tests::unpublished_frame_abandonment_preserves_lease_ownership ... ok
+test tests::blur_matches_independent_slow_nonconstant_oracle ... ok
+test tests::compiled_behavior_feature_is_explicit ... ok
+test selected_tests::unsupported_text_and_explicit_queue_reset_preserve_document ... ok
+test tests::fractional_clip_and_padding_are_exact ... ok
+test tests::malformed_images_and_surface_geometry_reject ... ok
+test tests::leases_prevent_writes_and_delayed_release ... ok
+test tests::random_access_list_matches_sequential_generator ... ok
+
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests custom_ui
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

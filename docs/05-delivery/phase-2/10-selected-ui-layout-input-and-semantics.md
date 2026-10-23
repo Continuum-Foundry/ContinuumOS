@@ -1,6 +1,6 @@
 # P2-10 — Complete selected hosted layout, input and semantic behavior
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Codex local implementation/self-review.
 Depends on: P2-09 Done. Suggested labels: `phase-2`, `layout`, `input`, `semantics`.
 Backlog: M2 portions of B07/B08/B09/B37. Requirements: R08/R15/R18; R19 design.
 Test families: hosted T05/T10/T14 subset.
@@ -8,6 +8,8 @@ Test families: hosted T05/T10/T14 subset.
 P2-09 handoff: use the [provisional custom core and required completion list](ui-selection-review.md#required-completion-and-reconsideration)
 with the [exact selection inventory](../../../legal/ui-selection.json). Slint is
 frozen comparison material. No required M2 behavior moves to a later guest gate.
+
+Implementation and reproducible commands: [selected hosted core runbook](selected-ui-runbook.md).
 
 ## User story
 
@@ -34,15 +36,15 @@ actions in the selected UI so later reload preserves a usable application.
 
 ## Acceptance criteria
 
-- [ ] All mandatory selected-path reference scenes, text cases and keyboard workflows
+- [x] All mandatory selected-path reference scenes, text cases and keyboard workflows
   pass at the declared sizes/scales, with stable focus and visible non-color cues.
-- [ ] Invalidation distinguishes layout, paint and semantics; list realization,
+- [x] Invalidation distinguishes layout, paint and semantics; list realization,
   recursion, event queues and resource counts remain within declared bounds.
-- [ ] Hit testing, capture, modifier release, composition and focus retirement have
+- [x] Hit testing, capture, modifier release, composition and focus retirement have
   deterministic policies that prevent stuck input or activation of a stale target.
-- [ ] Semantic roles/names/actions/state and virtual list navigation pass independent
+- [x] Semantic roles/names/actions/state and virtual list navigation pass independent
   assertions; semantic actions and UI/shortcut actions have the same model outcome.
-- [ ] Missing resources, malformed geometry and pressure fail honestly without losing
+- [x] Missing resources, malformed geometry and pressure fail honestly without losing
   accepted document edits; no native assistive or guest isolation guarantee is claimed.
 
 ## Tests and evidence
@@ -62,3 +64,11 @@ focus/capture/composition policies for reload reconciliation. Sources:
 [text/accessibility](../../02-architecture/accessibility-and-internationalization.md),
 [surface contract](../../06-contracts/ui-and-scene-protocol.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+## Local acceptance review
+
+All five criteria pass the [2026-10-23 local review](../../../evidence/phase-2/P2-10/2026-10-23/README.md).
+This is Codex self-review, not independent approval. The selected 30-configuration
+matrix, full text/keyboard/semantic and failure cases, unchanged reference corpus,
+independent edge oracle and native Windows replay pass. File reload, measured
+optimization, native IME/assistive integration and guest execution remain separate.

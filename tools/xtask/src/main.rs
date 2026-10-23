@@ -8,6 +8,7 @@ mod m2;
 #[cfg(test)]
 #[path = "../../../experiments/ui-link/src/arena.rs"]
 mod probe_arena;
+mod selected;
 #[cfg(feature = "slint-candidate")]
 mod slint_candidate;
 mod text;
@@ -294,6 +295,7 @@ fn run() -> Result<()> {
         ["test", "--suite", "editor-model"] => editor::execute(),
         ["test", "--suite", "text"] => text::execute(),
         ["test", "--suite", "custom-ui"] => custom::execute(),
+        ["test", "--suite", "selected-ui"] => selected::execute(),
         ["custom-host"] => custom::host(),
         #[cfg(feature = "slint-candidate")]
         ["slint-host"] => custom::host_with(custom::Candidate::Slint),

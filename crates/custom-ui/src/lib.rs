@@ -1,12 +1,15 @@
-//! Bounded P2-05 candidate. Native Rust types are internal, never a wire ABI.
+//! Bounded selected hosted UI and retained comparison mode. Internal types are not a wire ABI.
 #![no_std]
 #![forbid(unsafe_code)]
 extern crate alloc;
 use alloc::{string::String, vec::Vec};
 
 pub mod input;
+pub mod layout;
+pub mod motion;
 pub mod paint;
 pub mod scene;
+pub mod semantics;
 pub mod surface;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -104,5 +107,7 @@ pub struct Semantic {
     pub realized: Vec<u32>,
 }
 
+#[cfg(test)]
+mod selected_tests;
 #[cfg(test)]
 mod tests;

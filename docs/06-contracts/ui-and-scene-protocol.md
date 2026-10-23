@@ -40,6 +40,13 @@ IDs within that surface. Allocation addresses and draw-order indices are not ide
 Reload reconciliation retains compatible IDs and explicitly retires missing ones.
 Semantic nodes may refer to visual bounds but are not forced to mirror paint nodes.
 
+P2-10's hosted selected core supplies explicit semantic parent IDs, state/actions,
+logical bounds, virtual row position/count and change notifications. Authored
+semantic IDs cannot use its reserved `virtual:` row namespace. Its internal Rust
+snapshot and action values are not a frozen codec or native accessibility API;
+M3/M4 still require independent wire fixtures and authority checks. See the
+[selected-core policies](../05-delivery/phase-2/selected-ui-runbook.md).
+
 ## Resources
 
 Each resource records type, dimensions, stride/format, immutable digest or mutable
@@ -76,6 +83,14 @@ without a policy. Capture/focus changes are explicit and cancel on owner death.
 Update quiescence completes or cancels active gestures and IME composition according
 to the UI state schema. Buffered inputs are bounded and ordered. Overflow generates
 a recoverable cancellation/reset, not silent loss of key-up events.
+
+The P2-10 hosted policy accepts idempotent key releases across revisions and
+cancels stale pointer release without activation. Moved/removed/replaced capture
+owners cancel transients; removed focus has an explicit fallback. Overflow/bad
+queued events flush the remaining queue with counted drops. Selected dispatch
+resynchronizes sequence after cancellation while preserving monotonic ordering.
+Compatible focused-ID movement preserves composition; retirement cancels it.
+These are tested model policies, not guest input-service enforcement.
 
 ## Test corpus
 

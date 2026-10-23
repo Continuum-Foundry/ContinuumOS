@@ -137,11 +137,14 @@ eight axes, mandatory criteria and a bounded M2 completion list. Custom is not
 selected for speed: measured frame misses remain material. Slint is frozen
 comparison/test material; its OS/API terms remain unresolved. Chosen permissive
 license alternatives and font/Unicode notices are recorded; distribution remains
-uncleared. Next is P2-10 layout/input/semantics/motion, then P2-11 real same-window
-resource reload, P2-12 damage/cache/performance and P2-13 acceptance. None of
+uncleared. P2-10 now passes [selected hosted-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md): bounded
+layout/invalidation, input retirement and modal/queue policies, semantic hierarchy
+and virtual navigation, visual grapheme affinity, rounded coverage and motion.
+Use the [selected-core runbook](phase-2/selected-ui-runbook.md). P2-11 is next: real same-window
+resource reload, then P2-12 damage/cache/performance and P2-13 acceptance. None of
 those behaviors is deferred to guest work. M3 runtime and M4 guest confirmation,
 M5 behavior routing/retirement remain pending; ADRs remain Proposed.
-P2-10–P2-13 remain Not started. No remote Jira creation is authorized.
+P2-11–P2-13 remain Not started. No remote Jira creation is authorized.
 P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).

@@ -390,6 +390,24 @@ recipient or standing remote-environment approval is authorized. Geographic
 containment remains unverified; this administrative exception is not legal
 clearance or a finding of U.S.-only handling and does not waive applicable law.
 
+### One-time owner authorization — P2-10, 2026-10-23
+
+After completion of P2-10, the owner instructed: "i give you exemption to make PR".
+This authorizes one push of the completed P2-10 selected hosted layout, input,
+semantics, text and motion implementation, accompanying documentation, sanitized
+compact evidence and this authorization record to the existing GitHub
+`origin/codex/p2-10-layout-input-semantics`, followed by creation of its pull
+request against `main`, including prepared PR text and metadata. Private keys,
+certificates, generated executables, font binaries, ISOs, full logs, raw captures
+and full local run/source trees are excluded.
+
+The push authorization is exhausted by its first successful push; PR authorization
+is exhausted by creation of that one PR. The pre-push hold may be bypassed for
+that invocation only and remains installed afterward. No merge, force push,
+release, remote build, new recipient or standing remote-environment approval is
+authorized. Geographic containment remains unverified; this administrative
+exception is not legal clearance and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

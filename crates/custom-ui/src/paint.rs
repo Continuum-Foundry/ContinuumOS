@@ -31,7 +31,12 @@ pub struct Canvas<'a> {
     pub stride: u32,
     pub scale: u16,
     pub touched: u64,
+    /// Selected path: 8x8 coverage for rounded shapes, unchanged legacy oracle mode.
+    pub smooth_edges: bool,
+    pub caret: Option<text_core::VisualCaret>,
+    pub hide_caret: bool,
     rounded_clips: Vec<(Rect, f32)>,
+    deferred_clips: Vec<(Rect, f32)>,
 }
 impl<'a> Canvas<'a> {
     pub fn new(
@@ -59,22 +64,75 @@ impl<'a> Canvas<'a> {
             stride,
             scale,
             touched: 0,
+            smooth_edges: false,
+            caret: None,
+            hide_caret: false,
             rounded_clips: Vec::new(),
+            deferred_clips: Vec::new(),
         })
     }
     fn pixel(&mut self, x: u32, y: u32, c: [u8; 4]) {
+        self.covered_pixel(x, y, c, u64::MAX);
+    }
+    fn mask(&self, rect: Rect, radius: f32, x: u32, y: u32) -> u64 {
         let scale = self.scale as f32 / 100.0;
-        let px = (x as f32 + 0.5) / scale;
-        let py = (y as f32 + 0.5) / scale;
-        if self.rounded_clips.iter().any(|(rect, r)| {
-            let [x, y, w, h] = rect.0;
-            let radius = r.min(w / 2.0).min(h / 2.0);
-            let cx = px.clamp(x + radius, x + w - radius);
-            let cy = py.clamp(y + radius, y + h - radius);
-            !rect.contains(px, py)
-                || (px - cx) * (px - cx) + (py - cy) * (py - cy) > radius * radius
-        }) {
-            return;
+        let [a, b, w, h] = rect.0;
+        let r = radius.min(w / 2.0).min(h / 2.0);
+        let left = x as f32 / scale;
+        let top = y as f32 / scale;
+        let right = (x + 1) as f32 / scale;
+        let bottom = (y + 1) as f32 / scale;
+        if right <= a || bottom <= b || left >= a + w || top >= b + h {
+            return 0;
+        }
+        if left >= a
+            && right <= a + w
+            && top >= b
+            && bottom <= b + h
+            && (r == 0.0
+                || (left >= a + r && right <= a + w - r)
+                || (top >= b + r && bottom <= b + h - r))
+        {
+            return u64::MAX;
+        }
+        let mut mask = 0;
+        for sy in 0..8 {
+            for sx in 0..8 {
+                let px = (x as f32 + (sx as f32 + 0.5) / 8.0) / scale;
+                let py = (y as f32 + (sy as f32 + 0.5) / 8.0) / scale;
+                let cx = px.clamp(a + r, a + w - r);
+                let cy = py.clamp(b + r, b + h - r);
+                if rect.contains(px, py) && (px - cx) * (px - cx) + (py - cy) * (py - cy) <= r * r {
+                    mask |= 1 << (sy * 8 + sx);
+                }
+            }
+        }
+        mask
+    }
+    fn covered_pixel(&mut self, x: u32, y: u32, mut c: [u8; 4], mut mask: u64) {
+        if self.smooth_edges {
+            for (rect, radius) in &self.rounded_clips {
+                mask &= self.mask(*rect, *radius, x, y);
+            }
+            if mask == 0 {
+                return;
+            }
+            let coverage = mask.count_ones();
+            c = c.map(|v| ((v as u32 * coverage + 32) / 64) as u8);
+        } else {
+            let scale = self.scale as f32 / 100.0;
+            let px = (x as f32 + 0.5) / scale;
+            let py = (y as f32 + 0.5) / scale;
+            if self.rounded_clips.iter().any(|(rect, r)| {
+                let [x, y, w, h] = rect.0;
+                let radius = r.min(w / 2.0).min(h / 2.0);
+                let cx = px.clamp(x + radius, x + w - radius);
+                let cy = py.clamp(y + radius, y + h - radius);
+                !rect.contains(px, py)
+                    || (px - cx) * (px - cx) + (py - cy) * (py - cy) > radius * radius
+            }) {
+                return;
+            }
         }
         let at = y as usize * self.stride as usize + x as usize * 4;
         let dst = self.bytes[at..at + 4].try_into().unwrap();
@@ -95,6 +153,11 @@ impl<'a> Canvas<'a> {
                 let b = (py as f32 + 0.5) / s;
                 let cx = a.clamp(x + r, x + w - r);
                 let cy = b.clamp(y + r, y + h - r);
+                if self.smooth_edges && r > 0.0 {
+                    let mask = self.mask(rect, r, px, py);
+                    self.covered_pixel(px, py, c, mask);
+                    continue;
+                }
                 if r == 0.0 || (a - cx) * (a - cx) + (b - cy) * (b - cy) <= r * r {
                     self.pixel(px, py, c)
                 }
@@ -189,11 +252,21 @@ impl<'a> Canvas<'a> {
                         );
                     }
                 }
-                if range.start == range.end {
+                if range.start == range.end
+                    && !self.hide_caret
+                    && self
+                        .caret
+                        .is_none_or(|c| c.line == row || c.byte != range.start)
+                {
                     if let Some(c) = line.carets.iter().find(|c| c.byte == range.start) {
+                        let x = self
+                            .caret
+                            .filter(|c| c.byte == range.start && c.line == row)
+                            .map(|c| c.x)
+                            .unwrap_or(c.x);
                         self.fill(
                             Rect([
-                                rect.0[0] + c.x / scale,
+                                rect.0[0] + x / scale,
                                 rect.0[1] + row as f32 * line_height / scale,
                                 1.0 / scale,
                                 line_height / scale,
@@ -279,7 +352,16 @@ impl<'a> Canvas<'a> {
                 let z = (py as f32 + 0.5) / s;
                 let cx = q.clamp(x + rad, x + w - rad);
                 let cy = z.clamp(y + rad, y + h - rad);
-                if (q - cx) * (q - cx) + (z - cy) * (z - cy) <= rad * rad {
+                if self.smooth_edges {
+                    let filtered = pixels[(py - top) as usize * width + (px - l) as usize];
+                    let mask = self.mask(rect, rad, px, py);
+                    self.covered_pixel(
+                        px,
+                        py,
+                        opacity(over(premultiply(t.tint), filtered), alpha),
+                        mask,
+                    );
+                } else if (q - cx) * (q - cx) + (z - cy) * (z - cy) <= rad * rad {
                     let filtered = pixels[(py - top) as usize * width + (px - l) as usize];
                     self.pixel(px, py, opacity(over(premultiply(t.tint), filtered), alpha));
                 }
@@ -363,6 +445,29 @@ pub fn render(
     canvas: &mut Canvas<'_>,
 ) -> Result<Counters> {
     scene.layout();
+    canvas.smooth_edges |= scene.selected;
+    canvas.caret = scene.visual_caret;
+    canvas.hide_caret = scene.caret_hidden || (scene.selected && m.session().focus != "editor");
+    if scene.selected {
+        // Conservative full-surface groups plus blur ping-pong. Reject pressure
+        // before clearing the unpublished buffer; allocator-wide OOM is separate.
+        fn groups(s: &Scene, id: &str) -> Result<usize> {
+            let n = s.tree.node(id)?;
+            let mut depth = 0;
+            for c in &n.children {
+                depth = depth.max(groups(s, c)?);
+            }
+            Ok(depth + usize::from(n.clip || s.motion.opacity(&n.id, n.opacity) < 1.0))
+        }
+        if canvas
+            .bytes
+            .len()
+            .checked_mul(groups(scene, &scene.tree.root)? * 2 + 2)
+            .is_none_or(|v| v > 64 * 1024 * 1024)
+        {
+            return Err(Error::Exhausted);
+        }
+    }
     let mut c = Counters::default();
     let t = &scene.tokens;
     let s = canvas.scale as f32 / 100.0;
@@ -383,19 +488,30 @@ pub fn render(
         c.nodes += 1;
         let t = &scene.tokens;
         let clip = if n.clip { clip.intersect(n.rect) } else { clip };
-        let group_alpha = (n.opacity * 255.0 + 0.5) as u8;
+        let group_alpha = (scene.motion.opacity(&n.id, n.opacity) * 255.0 + 0.5) as u8;
         let reduced_launcher =
             n.id == "launcher" && (t.reduced_effects || m.preferences().reduced_effects);
-        let before = if group_alpha < 255 && !reduced_launcher {
+        let deferred_clip = cv.smooth_edges && n.clip;
+        let radius = if n.focusable {
+            t.control_radius
+        } else {
+            t.radius
+        };
+        let before = if (group_alpha < 255 && !reduced_launcher) || deferred_clip {
             Some(cv.bytes.to_vec())
         } else {
             None
         };
         let opacity = if before.is_some() { 255 } else { group_alpha };
-        if n.clip {
+        if deferred_clip {
+            cv.deferred_clips.push((n.rect, radius));
+        }
+        if n.clip && !deferred_clip {
             cv.rounded_clips.push((
                 n.rect,
-                if n.focusable {
+                if deferred_clip {
+                    0.0
+                } else if n.focusable {
                     t.control_radius
                 } else {
                     t.radius
@@ -404,9 +520,21 @@ pub fn render(
         }
         if n.id == "launcher" {
             if t.reduced_effects || m.preferences().reduced_effects {
-                cv.fill(n.rect, clip, t.radius, t.fallback, 255)
+                cv.fill(
+                    n.rect,
+                    clip,
+                    if deferred_clip { 0.0 } else { t.radius },
+                    t.fallback,
+                    255,
+                )
             } else {
-                c.scratch_peak = c.scratch_peak.max(cv.backdrop(n.rect, clip, t, opacity)?)
+                let mut backdrop = t.clone();
+                if deferred_clip {
+                    backdrop.radius = 0.0;
+                }
+                c.scratch_peak = c
+                    .scratch_peak
+                    .max(cv.backdrop(n.rect, clip, &backdrop, opacity)?)
             }
         } else if n.id != "desktop" {
             let color = if matches!(n.kind, Kind::Field | Kind::Editor) {
@@ -417,7 +545,9 @@ pub fn render(
             cv.fill(
                 n.rect,
                 clip,
-                if n.focusable {
+                if deferred_clip {
+                    0.0
+                } else if n.focusable {
                     t.control_radius
                 } else {
                     t.radius
@@ -427,7 +557,13 @@ pub fn render(
             );
         }
         if n.focusable && m.session().focus == n.id {
-            cv.fill(n.rect, clip, t.control_radius, t.colors[5], 255);
+            cv.fill(
+                n.rect,
+                clip,
+                if deferred_clip { 0.0 } else { t.control_radius },
+                t.colors[5],
+                255,
+            );
             cv.fill(
                 Rect([
                     n.rect.0[0] + 1.0,
@@ -456,7 +592,16 @@ pub fn render(
                 let index = row - m.session().file_scroll;
                 let rect = Rect([x + pad, y + index as f32 * 24.0, w - pad * 2.0, 24.0]);
                 if row == m.session().selected_file {
-                    cv.fill(rect, clip, 0.0, t.colors[4], 80)
+                    cv.fill(rect, clip, 0.0, t.colors[4], 80);
+                    if cv.smooth_edges {
+                        cv.fill(
+                            Rect([x, y + index as f32 * 24.0, 3.0, 24.0]),
+                            clip,
+                            0.0,
+                            t.colors[2],
+                            255,
+                        );
+                    }
                 }
                 let state = lcg_at(20261020, row + 1);
                 let label = format!("File {row:05} — {state:08x}.txt");
@@ -544,6 +689,22 @@ pub fn render(
                     if checked { t.colors[4] } else { t.colors[3] },
                     255,
                 );
+                if cv.smooth_edges && checked {
+                    cv.fill(
+                        Rect([x + w - 16.0, y + 11.0, 2.0, 4.0]),
+                        clip,
+                        0.0,
+                        t.colors[0],
+                        255,
+                    );
+                    cv.fill(
+                        Rect([x + w - 14.0, y + 13.0, 4.0, 2.0]),
+                        clip,
+                        0.0,
+                        t.colors[0],
+                        255,
+                    );
+                }
             }
             if n.resource == "icon.missing" {
                 cv.image(
@@ -563,19 +724,63 @@ pub fn render(
         for child in &n.children {
             walk(scene, child, m, preedit, engine, cv, clip, c)?;
         }
-        if n.clip {
+        if n.clip && !deferred_clip {
             cv.rounded_clips.pop();
+        }
+        if deferred_clip {
+            cv.deferred_clips.pop();
         }
         if let Some(before) = before {
             c.scratch_peak = c.scratch_peak.max(before.len() + c.scratch_peak);
-            for (after, old) in cv.bytes.chunks_exact_mut(4).zip(before.chunks_exact(4)) {
+            let masks = if deferred_clip {
+                // One mask for the entire isolated clip, avoiding repeated edge
+                // coverage when several descendants touch the same rounded edge.
+                let [l, top, r, b] = n.rect.intersect(clip).pixels(cv.scale, cv.width, cv.height);
+                let mut masks = vec![0u8; cv.width as usize * cv.height as usize];
+                for y in top..b {
+                    for x in l..r {
+                        let mut ancestor = u64::MAX;
+                        for (rect, radius) in &cv.deferred_clips {
+                            ancestor &= cv.mask(*rect, *radius, x, y);
+                        }
+                        let count = ancestor.count_ones();
+                        let covered = (cv.mask(n.rect, radius, x, y) & ancestor).count_ones();
+                        masks[y as usize * cv.width as usize + x as usize] = if count == 0 {
+                            0
+                        } else {
+                            ((covered * 255 + count / 2) / count) as u8
+                        };
+                    }
+                }
+                Some(masks)
+            } else {
+                None
+            };
+            let effective_alpha = if reduced_launcher { 255 } else { group_alpha };
+            let stride = cv.stride as usize / 4;
+            let width = cv.width as usize;
+            for (index, (after, old)) in cv
+                .bytes
+                .chunks_exact_mut(4)
+                .zip(before.chunks_exact(4))
+                .enumerate()
+            {
                 if after != old {
+                    let alpha = if let Some(masks) = &masks {
+                        let x = index % stride;
+                        let y = index / stride;
+                        if x >= width {
+                            0
+                        } else {
+                            ((masks[y * width + x] as u32 * effective_alpha as u32 + 127) / 255)
+                                as u8
+                        }
+                    } else {
+                        group_alpha
+                    };
                     let source: [u8; 4] = (&*after).try_into().unwrap();
                     let destination: [u8; 4] = old.try_into().unwrap();
-                    after.copy_from_slice(&over(
-                        crate::paint::opacity(source, group_alpha),
-                        destination,
-                    ));
+                    after.copy_from_slice(&over(crate::paint::opacity(source, alpha), destination));
                 }
             }
         }

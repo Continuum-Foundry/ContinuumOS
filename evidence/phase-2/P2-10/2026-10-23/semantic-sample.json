@@ -1,0 +1,1806 @@
+{
+  "after": {
+    "items": [
+      {
+        "actions": [],
+        "bounds": [
+          0.0,
+          0.0,
+          1280.0,
+          720.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.desktop",
+        "name": "desktop",
+        "parent": null,
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [],
+        "bounds": [
+          8.0,
+          8.0,
+          1060.0,
+          688.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.editor-window",
+        "name": "editor-window",
+        "parent": "sem.desktop",
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [],
+        "bounds": [
+          12.0,
+          40.0,
+          84.0,
+          244.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.sidebar",
+        "name": "Workspace",
+        "parent": "sem.editor-window",
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "search.set@1"
+        ],
+        "bounds": [
+          104.0,
+          40.0,
+          948.0,
+          28.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.search",
+        "name": "Search",
+        "parent": "sem.editor-window",
+        "position": null,
+        "role": "textbox",
+        "selected": false,
+        "value": "notes"
+      },
+      {
+        "actions": [
+          "focus@1",
+          "edit.insert@1"
+        ],
+        "bounds": [
+          104.0,
+          76.0,
+          948.0,
+          588.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.editor",
+        "name": "Unsaved document",
+        "parent": "sem.editor-window",
+        "position": null,
+        "role": "textbox",
+        "selected": false,
+        "value": "Draft: notes\n"
+      },
+      {
+        "actions": [],
+        "bounds": [
+          104.0,
+          680.0,
+          948.0,
+          20.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.status",
+        "name": "Unsaved • UTF-8",
+        "parent": "sem.editor-window",
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "files.select@1",
+          "files.navigate@1"
+        ],
+        "bounds": [
+          1080.0,
+          8.0,
+          192.0,
+          688.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "sem.files-window",
+        "name": "Files",
+        "parent": "sem.desktop",
+        "position": null,
+        "role": "list",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          8.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:0",
+        "name": "File 00000 — 718c2b4b.txt",
+        "parent": "sem.files-window",
+        "position": 1,
+        "role": "listitem",
+        "selected": false,
+        "value": "0"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          32.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:1",
+        "name": "File 00001 — 1420082e.txt",
+        "parent": "sem.files-window",
+        "position": 2,
+        "role": "listitem",
+        "selected": false,
+        "value": "1"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          56.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:2",
+        "name": "File 00002 — d1cfb1b5.txt",
+        "parent": "sem.files-window",
+        "position": 3,
+        "role": "listitem",
+        "selected": false,
+        "value": "2"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          80.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:3",
+        "name": "File 00003 — ff761790.txt",
+        "parent": "sem.files-window",
+        "position": 4,
+        "role": "listitem",
+        "selected": false,
+        "value": "3"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          104.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:4",
+        "name": "File 00004 — 8fe185af.txt",
+        "parent": "sem.files-window",
+        "position": 5,
+        "role": "listitem",
+        "selected": false,
+        "value": "4"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          128.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:5",
+        "name": "File 00005 — 743d7742.txt",
+        "parent": "sem.files-window",
+        "position": 6,
+        "role": "listitem",
+        "selected": false,
+        "value": "5"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          152.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:6",
+        "name": "File 00006 — 46844db9.txt",
+        "parent": "sem.files-window",
+        "position": 7,
+        "role": "listitem",
+        "selected": false,
+        "value": "6"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          176.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:7",
+        "name": "File 00007 — 1f2f9bc4.txt",
+        "parent": "sem.files-window",
+        "position": 8,
+        "role": "listitem",
+        "selected": false,
+        "value": "7"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          200.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:8",
+        "name": "File 00008 — 000df453.txt",
+        "parent": "sem.files-window",
+        "position": 9,
+        "role": "listitem",
+        "selected": false,
+        "value": "8"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          224.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:9",
+        "name": "File 00009 — a8986d96.txt",
+        "parent": "sem.files-window",
+        "position": 10,
+        "role": "listitem",
+        "selected": false,
+        "value": "9"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          248.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:10",
+        "name": "File 00010 — 3b7c47fd.txt",
+        "parent": "sem.files-window",
+        "position": 11,
+        "role": "listitem",
+        "selected": false,
+        "value": "10"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          272.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:11",
+        "name": "File 00011 — ce226938.txt",
+        "parent": "sem.files-window",
+        "position": 12,
+        "role": "listitem",
+        "selected": false,
+        "value": "11"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          296.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:12",
+        "name": "File 00012 — b0929b37.txt",
+        "parent": "sem.files-window",
+        "position": 13,
+        "role": "listitem",
+        "selected": false,
+        "value": "12"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          320.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:13",
+        "name": "File 00013 — c617bf2a.txt",
+        "parent": "sem.files-window",
+        "position": 14,
+        "role": "listitem",
+        "selected": false,
+        "value": "13"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          344.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:14",
+        "name": "File 00014 — 6ce86481.txt",
+        "parent": "sem.files-window",
+        "position": 15,
+        "role": "listitem",
+        "selected": false,
+        "value": "14"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          368.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:15",
+        "name": "File 00015 — 2ce073ec.txt",
+        "parent": "sem.files-window",
+        "position": 16,
+        "role": "listitem",
+        "selected": false,
+        "value": "15"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          392.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:16",
+        "name": "File 00016 — 4410de5b.txt",
+        "parent": "sem.files-window",
+        "position": 17,
+        "role": "listitem",
+        "selected": false,
+        "value": "16"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          416.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:17",
+        "name": "File 00017 — 20c57ffe.txt",
+        "parent": "sem.files-window",
+        "position": 18,
+        "role": "listitem",
+        "selected": false,
+        "value": "17"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          440.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:18",
+        "name": "File 00018 — 1743a745.txt",
+        "parent": "sem.files-window",
+        "position": 19,
+        "role": "listitem",
+        "selected": false,
+        "value": "18"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          464.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:19",
+        "name": "File 00019 — b540efe0.txt",
+        "parent": "sem.files-window",
+        "position": 20,
+        "role": "listitem",
+        "selected": false,
+        "value": "19"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          488.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:20",
+        "name": "File 00020 — bd2e61bf.txt",
+        "parent": "sem.files-window",
+        "position": 21,
+        "role": "listitem",
+        "selected": true,
+        "value": "20"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          512.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:21",
+        "name": "File 00021 — de630412.txt",
+        "parent": "sem.files-window",
+        "position": 22,
+        "role": "listitem",
+        "selected": false,
+        "value": "21"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          536.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:22",
+        "name": "File 00022 — 60d75449.txt",
+        "parent": "sem.files-window",
+        "position": 23,
+        "role": "listitem",
+        "selected": false,
+        "value": "22"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          560.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:23",
+        "name": "File 00023 — 2e145114.txt",
+        "parent": "sem.files-window",
+        "position": 24,
+        "role": "listitem",
+        "selected": false,
+        "value": "23"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          584.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:24",
+        "name": "File 00024 — 96b90963.txt",
+        "parent": "sem.files-window",
+        "position": 25,
+        "role": "listitem",
+        "selected": false,
+        "value": "24"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          608.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:25",
+        "name": "File 00025 — 883cdf66.txt",
+        "parent": "sem.files-window",
+        "position": 26,
+        "role": "listitem",
+        "selected": false,
+        "value": "25"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          632.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:26",
+        "name": "File 00026 — 397eef8d.txt",
+        "parent": "sem.files-window",
+        "position": 27,
+        "role": "listitem",
+        "selected": false,
+        "value": "26"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          656.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:27",
+        "name": "File 00027 — 20184b88.txt",
+        "parent": "sem.files-window",
+        "position": 28,
+        "role": "listitem",
+        "selected": false,
+        "value": "27"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          680.0,
+          192.0,
+          16.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:28",
+        "name": "File 00028 — ec0af947.txt",
+        "parent": "sem.files-window",
+        "position": 29,
+        "role": "listitem",
+        "selected": false,
+        "value": "28"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          704.0,
+          192.0,
+          0.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:29",
+        "name": "File 00029 — f03ee5fa.txt",
+        "parent": "sem.files-window",
+        "position": 30,
+        "role": "listitem",
+        "selected": false,
+        "value": "29"
+      },
+      {
+        "actions": [],
+        "bounds": [
+          640.0,
+          360.0,
+          200.0,
+          140.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.launcher",
+        "name": "Launcher",
+        "parent": "sem.desktop",
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "launcher.open@1"
+        ],
+        "bounds": [
+          652.0,
+          400.0,
+          176.0,
+          28.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.launch-editor",
+        "name": "Editor",
+        "parent": "sem.launcher",
+        "position": null,
+        "role": "button",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [],
+        "bounds": [
+          1020.0,
+          92.0,
+          240.0,
+          144.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.settings",
+        "name": "Settings",
+        "parent": "sem.desktop",
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "settings.effects@1"
+        ],
+        "bounds": [
+          1032.0,
+          128.0,
+          216.0,
+          28.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.reduced-effects",
+        "name": "Reduced effects",
+        "parent": "sem.settings",
+        "position": null,
+        "role": "checkbox",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "settings.motion@1"
+        ],
+        "bounds": [
+          1032.0,
+          168.0,
+          216.0,
+          28.0
+        ],
+        "checked": true,
+        "count": 0,
+        "focus": true,
+        "id": "sem.reduced-motion",
+        "name": "Reduced motion",
+        "parent": "sem.settings",
+        "position": null,
+        "role": "checkbox",
+        "selected": false,
+        "value": ""
+      }
+    ],
+    "model_revision": 32,
+    "scene_revision": 5
+  },
+  "before": {
+    "items": [
+      {
+        "actions": [],
+        "bounds": [
+          0.0,
+          0.0,
+          1280.0,
+          720.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.desktop",
+        "name": "desktop",
+        "parent": null,
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [],
+        "bounds": [
+          8.0,
+          8.0,
+          1060.0,
+          688.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.editor-window",
+        "name": "editor-window",
+        "parent": "sem.desktop",
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [],
+        "bounds": [
+          12.0,
+          40.0,
+          84.0,
+          244.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.sidebar",
+        "name": "Workspace",
+        "parent": "sem.editor-window",
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "search.set@1"
+        ],
+        "bounds": [
+          104.0,
+          40.0,
+          948.0,
+          28.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.search",
+        "name": "Search",
+        "parent": "sem.editor-window",
+        "position": null,
+        "role": "textbox",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "edit.insert@1"
+        ],
+        "bounds": [
+          104.0,
+          76.0,
+          948.0,
+          588.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": true,
+        "id": "sem.editor",
+        "name": "Unsaved document",
+        "parent": "sem.editor-window",
+        "position": null,
+        "role": "textbox",
+        "selected": false,
+        "value": "Draft: unsaved\n"
+      },
+      {
+        "actions": [],
+        "bounds": [
+          104.0,
+          680.0,
+          948.0,
+          20.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.status",
+        "name": "Unsaved • UTF-8",
+        "parent": "sem.editor-window",
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "files.select@1",
+          "files.navigate@1"
+        ],
+        "bounds": [
+          1080.0,
+          8.0,
+          192.0,
+          688.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "sem.files-window",
+        "name": "Files",
+        "parent": "sem.desktop",
+        "position": null,
+        "role": "list",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          8.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:0",
+        "name": "File 00000 — 718c2b4b.txt",
+        "parent": "sem.files-window",
+        "position": 1,
+        "role": "listitem",
+        "selected": true,
+        "value": "0"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          32.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:1",
+        "name": "File 00001 — 1420082e.txt",
+        "parent": "sem.files-window",
+        "position": 2,
+        "role": "listitem",
+        "selected": false,
+        "value": "1"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          56.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:2",
+        "name": "File 00002 — d1cfb1b5.txt",
+        "parent": "sem.files-window",
+        "position": 3,
+        "role": "listitem",
+        "selected": false,
+        "value": "2"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          80.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:3",
+        "name": "File 00003 — ff761790.txt",
+        "parent": "sem.files-window",
+        "position": 4,
+        "role": "listitem",
+        "selected": false,
+        "value": "3"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          104.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:4",
+        "name": "File 00004 — 8fe185af.txt",
+        "parent": "sem.files-window",
+        "position": 5,
+        "role": "listitem",
+        "selected": false,
+        "value": "4"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          128.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:5",
+        "name": "File 00005 — 743d7742.txt",
+        "parent": "sem.files-window",
+        "position": 6,
+        "role": "listitem",
+        "selected": false,
+        "value": "5"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          152.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:6",
+        "name": "File 00006 — 46844db9.txt",
+        "parent": "sem.files-window",
+        "position": 7,
+        "role": "listitem",
+        "selected": false,
+        "value": "6"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          176.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:7",
+        "name": "File 00007 — 1f2f9bc4.txt",
+        "parent": "sem.files-window",
+        "position": 8,
+        "role": "listitem",
+        "selected": false,
+        "value": "7"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          200.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:8",
+        "name": "File 00008 — 000df453.txt",
+        "parent": "sem.files-window",
+        "position": 9,
+        "role": "listitem",
+        "selected": false,
+        "value": "8"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          224.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:9",
+        "name": "File 00009 — a8986d96.txt",
+        "parent": "sem.files-window",
+        "position": 10,
+        "role": "listitem",
+        "selected": false,
+        "value": "9"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          248.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:10",
+        "name": "File 00010 — 3b7c47fd.txt",
+        "parent": "sem.files-window",
+        "position": 11,
+        "role": "listitem",
+        "selected": false,
+        "value": "10"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          272.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:11",
+        "name": "File 00011 — ce226938.txt",
+        "parent": "sem.files-window",
+        "position": 12,
+        "role": "listitem",
+        "selected": false,
+        "value": "11"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          296.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:12",
+        "name": "File 00012 — b0929b37.txt",
+        "parent": "sem.files-window",
+        "position": 13,
+        "role": "listitem",
+        "selected": false,
+        "value": "12"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          320.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:13",
+        "name": "File 00013 — c617bf2a.txt",
+        "parent": "sem.files-window",
+        "position": 14,
+        "role": "listitem",
+        "selected": false,
+        "value": "13"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          344.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:14",
+        "name": "File 00014 — 6ce86481.txt",
+        "parent": "sem.files-window",
+        "position": 15,
+        "role": "listitem",
+        "selected": false,
+        "value": "14"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          368.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:15",
+        "name": "File 00015 — 2ce073ec.txt",
+        "parent": "sem.files-window",
+        "position": 16,
+        "role": "listitem",
+        "selected": false,
+        "value": "15"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          392.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:16",
+        "name": "File 00016 — 4410de5b.txt",
+        "parent": "sem.files-window",
+        "position": 17,
+        "role": "listitem",
+        "selected": false,
+        "value": "16"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          416.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:17",
+        "name": "File 00017 — 20c57ffe.txt",
+        "parent": "sem.files-window",
+        "position": 18,
+        "role": "listitem",
+        "selected": false,
+        "value": "17"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          440.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:18",
+        "name": "File 00018 — 1743a745.txt",
+        "parent": "sem.files-window",
+        "position": 19,
+        "role": "listitem",
+        "selected": false,
+        "value": "18"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          464.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:19",
+        "name": "File 00019 — b540efe0.txt",
+        "parent": "sem.files-window",
+        "position": 20,
+        "role": "listitem",
+        "selected": false,
+        "value": "19"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          488.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:20",
+        "name": "File 00020 — bd2e61bf.txt",
+        "parent": "sem.files-window",
+        "position": 21,
+        "role": "listitem",
+        "selected": false,
+        "value": "20"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          512.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:21",
+        "name": "File 00021 — de630412.txt",
+        "parent": "sem.files-window",
+        "position": 22,
+        "role": "listitem",
+        "selected": false,
+        "value": "21"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          536.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:22",
+        "name": "File 00022 — 60d75449.txt",
+        "parent": "sem.files-window",
+        "position": 23,
+        "role": "listitem",
+        "selected": false,
+        "value": "22"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          560.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:23",
+        "name": "File 00023 — 2e145114.txt",
+        "parent": "sem.files-window",
+        "position": 24,
+        "role": "listitem",
+        "selected": false,
+        "value": "23"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          584.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:24",
+        "name": "File 00024 — 96b90963.txt",
+        "parent": "sem.files-window",
+        "position": 25,
+        "role": "listitem",
+        "selected": false,
+        "value": "24"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          608.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:25",
+        "name": "File 00025 — 883cdf66.txt",
+        "parent": "sem.files-window",
+        "position": 26,
+        "role": "listitem",
+        "selected": false,
+        "value": "25"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          632.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:26",
+        "name": "File 00026 — 397eef8d.txt",
+        "parent": "sem.files-window",
+        "position": 27,
+        "role": "listitem",
+        "selected": false,
+        "value": "26"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          656.0,
+          192.0,
+          24.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:27",
+        "name": "File 00027 — 20184b88.txt",
+        "parent": "sem.files-window",
+        "position": 28,
+        "role": "listitem",
+        "selected": false,
+        "value": "27"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          680.0,
+          192.0,
+          16.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:28",
+        "name": "File 00028 — ec0af947.txt",
+        "parent": "sem.files-window",
+        "position": 29,
+        "role": "listitem",
+        "selected": false,
+        "value": "28"
+      },
+      {
+        "actions": [
+          "files.select@1"
+        ],
+        "bounds": [
+          1080.0,
+          704.0,
+          192.0,
+          0.0
+        ],
+        "checked": false,
+        "count": 10000,
+        "focus": false,
+        "id": "virtual:sem.files-window:29",
+        "name": "File 00029 — f03ee5fa.txt",
+        "parent": "sem.files-window",
+        "position": 30,
+        "role": "listitem",
+        "selected": false,
+        "value": "29"
+      },
+      {
+        "actions": [],
+        "bounds": [
+          640.0,
+          360.0,
+          200.0,
+          140.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.launcher",
+        "name": "Launcher",
+        "parent": "sem.desktop",
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "launcher.open@1"
+        ],
+        "bounds": [
+          652.0,
+          400.0,
+          176.0,
+          28.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.launch-editor",
+        "name": "Editor",
+        "parent": "sem.launcher",
+        "position": null,
+        "role": "button",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [],
+        "bounds": [
+          1020.0,
+          92.0,
+          240.0,
+          144.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.settings",
+        "name": "Settings",
+        "parent": "sem.desktop",
+        "position": null,
+        "role": "group",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "settings.effects@1"
+        ],
+        "bounds": [
+          1032.0,
+          128.0,
+          216.0,
+          28.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.reduced-effects",
+        "name": "Reduced effects",
+        "parent": "sem.settings",
+        "position": null,
+        "role": "checkbox",
+        "selected": false,
+        "value": ""
+      },
+      {
+        "actions": [
+          "focus@1",
+          "settings.motion@1"
+        ],
+        "bounds": [
+          1032.0,
+          168.0,
+          216.0,
+          28.0
+        ],
+        "checked": false,
+        "count": 0,
+        "focus": false,
+        "id": "sem.reduced-motion",
+        "name": "Reduced motion",
+        "parent": "sem.settings",
+        "position": null,
+        "role": "checkbox",
+        "selected": false,
+        "value": ""
+      }
+    ],
+    "model_revision": 1,
+    "scene_revision": 5
+  },
+  "id": "1280x720-100-standard",
+  "notifications": "[Value(\"sem.search\"), Focus(\"sem.editor\"), Value(\"sem.editor\"), State(\"virtual:sem.files-window:0\"), State(\"virtual:sem.files-window:20\"), Focus(\"sem.reduced-motion\"), State(\"sem.reduced-motion\")]",
+  "state": {
+    "action": "settings.motion@1",
+    "cancelled": false,
+    "capture": "",
+    "checkpoint_sha256": "5c63c66eddf72120f4a490268fab00dc196e2c899c3853e06417d2743098a6d0",
+    "composition_active": false,
+    "dirty": true,
+    "document": "Draft: notes\n",
+    "document_revision": 12,
+    "document_sha256": "4e1e8a98064d61fcfbddbb080512c2c110e5fc8538e1f2284085a5563d844e05",
+    "dropped": 0,
+    "effects": "backdrop-box-blur",
+    "focus": "reduced-motion",
+    "match_count": 1,
+    "model_revision": 32,
+    "motion_ms": 0,
+    "pressed_buttons": 0,
+    "pressed_keys": 0,
+    "realized_max": 30,
+    "resets": 0,
+    "revision": 12,
+    "scroll_row": 0,
+    "search": "notes",
+    "selected_file": 20,
+    "selection": [
+      12,
+      12
+    ],
+    "semantic_logical_count": 10000,
+    "window": [
+      8,
+      8,
+      420,
+      328
+    ]
+  }
+}

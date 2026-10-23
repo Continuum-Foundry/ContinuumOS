@@ -1,0 +1,110 @@
+   Compiling custom-ui v0.1.0 (${WORKSPACE}\crates\custom-ui)
+   Compiling xtask v0.1.0 (${WORKSPACE}\tools\xtask)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.23s
+     Running unittests src\lib.rs (build\cargo\signed\debug\deps\custom_ui-4f69b87775d9029f.exe)
+
+running 22 tests
+test selected_tests::composition_and_shortcuts_are_separate_from_committed_text ... ok
+test selected_tests::flow_measures_content_and_arranges_fixed_fill_and_overlay ... ok
+test selected_tests::cached_semantics_skip_paint_only_publications_and_retire_modal_hierarchy ... ok
+test selected_tests::modal_focus_traps_reverse_tab_and_escape_restores_owner ... ok
+test selected_tests::motion_interrupts_at_visible_value_and_deadlines_stop_when_settled ... ok
+test selected_tests::publication_classifies_paint_semantic_and_layout_changes ... ok
+test selected_tests::overflow_and_bad_queue_cancel_transients_preserving_accepted_edits ... ok
+test selected_tests::layout_rejects_pressure_cycles_depth_and_nonfinite_atomically ... ok
+test selected_tests::releases_across_revisions_and_moved_capture_never_activate ... ok
+test selected_tests::scroll_transforms_hit_and_semantics_share_arranged_bounds ... ok
+test selected_tests::unsupported_text_and_explicit_queue_reset_preserve_document ... ok
+test tests::fractional_clip_and_padding_are_exact ... ok
+test tests::fully_offscreen_backdrop_is_an_empty_paint ... ok
+test tests::blur_matches_independent_slow_nonconstant_oracle ... ok
+test tests::candidate_rejects_text_beyond_render_budget_before_model_change ... ok
+test tests::invalid_graphs_reject_without_recursing_forever ... ok
+test tests::leases_prevent_writes_and_delayed_release ... ok
+test selected_tests::semantic_virtual_navigation_notifications_and_executor_parity ... ok
+test tests::compiled_behavior_feature_is_explicit ... ok
+test tests::malformed_images_and_surface_geometry_reject ... ok
+test tests::unpublished_frame_abandonment_preserves_lease_ownership ... ok
+test tests::random_access_list_matches_sequential_generator ... ok
+
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\lib.rs (build\cargo\signed\debug\deps\editor_model-651c52c0591688cb.exe)
+
+running 17 tests
+test tests::authority_capacity_and_request_namespaces_remain_bounded ... ok
+test tests::cancellation_deadline_and_noop_are_deterministic ... ok
+test tests::contexts_check_owner_scope_revision_expiry_and_revocation ... ok
+test tests::dirty_returns_to_baseline_and_revision_never_rewinds ... ok
+test tests::invalid_revision_rights_epoch_versions_and_caller_leave_model_intact ... ok
+test tests::insertion_joining_grapheme_snaps_caret_right ... ok
+test tests::old_snapshots_cannot_rewind_live_state_or_duplicate_tracking ... ok
+test tests::every_truncation_and_invalid_header_preserve_active_state ... ok
+test tests::rejects_fabricated_and_oversize_context_descriptors ... ok
+test tests::rejects_utf8_and_grapheme_interiors_atomically ... ok
+test tests::all_entries_have_identical_authority_and_state ... ok
+test tests::snapshot_rejects_invalid_utf8_lengths_bools_enums_history_and_anchor ... ok
+test tests::undo_replacement_preserves_direction_and_dirty_history ... ok
+test tests::retries_are_exact_bounded_and_never_repeat_evicted_effects ... ok
+test tests::snapshot_preserves_history_preferences_session_and_unsaved_state ... ok
+test tests::snapshot_mutations_are_rejected_or_canonical_and_bounded ... ok
+test tests::bounds_and_history_limits_are_enforced_without_truncating_text ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src\lib.rs (build\cargo\signed\debug\deps\text_core-a3d8742c6024156b.exe)
+
+running 3 tests
+test tests::composition_stays_outside_document_until_authorized_commit ... ok
+test tests::visual_navigation_preserves_bidi_affinity_and_wraps_lines ... ok
+test tests::rejects_malformed_sfnt_before_parser ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\main.rs (build\cargo\signed\debug\deps\xtask-cb31c8a23392a25f.exe)
+
+running 23 tests
+test custom::tests::failed_paint_abandons_unpublished_buffer_and_keeps_document ... ignored, requires locked P2-04 fonts; explicitly run by Test-P2-05, outside Phase 0
+test elf::tests::valid_static_probe ... ok
+test elf::tests::rejects_unsafe_or_host_linked_images ... ok
+test m1::build::tests::image_bounds_include_bss_and_orphan_load_memory ... ok
+test m1::build::tests::rejects_vector_and_fp_code ... ok
+test editor::tests::json_decoder_rejects_unknown_keys_overflows_and_wrong_payloads ... ok
+test m1::package::tests::windows_paths_are_translated_without_shell_quoting ... ok
+test m1::records::tests::expected_rejection_needs_exact_error_and_exit_and_no_ready_marker ... ok
+test m1::inputs::tests::rejects_missing_and_changed_inputs ... ok
+test elf::tests::truncation_and_overflow ... ok
+test m1::suite::tests::iso_comparison_rejects_unexplained_changes ... ok
+test m1::records::tests::protection_and_real_double_fault_require_owned_context ... ok
+test probe_arena::tests::alignment_writes_and_disjoint_ranges ... ok
+test m2::tests::fixed_matrix_and_rejections ... ok
+test ui_fixtures::tests::schema_numeric_values_match_json_schema_semantics ... ok
+test probe_arena::tests::exact_limit_failure_is_atomic_and_no_reuse ... ok
+test probe_arena::tests::oversize_overflow_zeroing_and_reallocation ... ok
+test m1::records::tests::fatal_requires_exact_hardware_context_symbol_and_exit ... ok
+test ui_fixtures::tests::unsupported_schema_keyword_rejects ... ok
+test m1::records::tests::rejects_false_or_incomplete_success ... ok
+test ui_fixtures::tests::shared_corpus_and_all_negative_cases ... ok
+test m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped ... ok
+test m1::inputs::tests::locked_kernel_loader_and_firmware_inputs_fail_closed ... ok
+
+test result: ok. 22 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 20.68s
+
+   Doc-tests custom_ui
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests editor_model
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests text_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

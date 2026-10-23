@@ -2,6 +2,15 @@
 
 Status: required bounded experiment, not a toolkit selection. Revision 2.
 
+P2-08's [local comparison report](../../evidence/phase-2/P2-08/2026-10-22/comparison-report.md)
+now fills every axis with measured evidence or precise unsupported/failing outcomes.
+Its [host measurements](../../evidence/phase-2/P2-08/2026-10-22/measurement-summary.md)
+retain all raw samples and separate resource continuity from compiled-helper
+restart. Custom is recommended conditionally for P2-09 review, with substantial
+performance completion work. Slint's current bridge retains shown components;
+native fidelity and OS/API terms remain unresolved. No toolkit is selected and
+these host results do not pass a guest performance or reload gate.
+
 ## Purpose
 
 Challenge the assumption that we should implement every widget/layout facility

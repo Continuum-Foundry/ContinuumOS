@@ -118,9 +118,20 @@ missing-hook/std failures are audited. The Slint adapter now lives in no-std
 offline. Use the [freestanding runbook](phase-2/freestanding-ui-runbook.md) and hook
 inventory; no guest runtime, UI execution or kernel dependency was added. The owner
 explicitly approved the existing signer lock enrollment refresh; no certificate or
-Windows policy changed. P2-08 is next; P2-08–P2-13 remain Not started. They cover
-comparison, provisional decision, selected hosted
-UI/reload and measured acceptance. They do not authorize remote Jira creation.
+Windows policy changed. P2-08's
+[local comparison](../../evidence/phase-2/P2-08/2026-10-22/README.md) now passes
+the bounded evidence gate: 20 optimized paired blocks, 6,000 frame and 12,000
+process samples, independent quality/workflow/semantics checks, 100 direct
+token/layout publications per candidate and snapshot-restoring compiled helpers.
+Use the [comparison runbook](phase-2/comparable-ui-runbook.md). Custom is recommended
+conditionally for P2-09 review, with substantial frame-budget misses. Slint's
+per-paint shown components retain references without hide; measured commit grows
+beyond 1 GiB. This is a current adapter defect, not an intrinsic toolkit footprint.
+Fidelity/native-text/semantic/rights gaps remain explicit. The preliminary unpaced
+warm-up is preserved separately; the accepted run uses 50 identical paced frames.
+No resource loader/native-window continuity, active helper route, guest UI/reload,
+selected toolkit or completed efficiency target follows. P2-09 is next;
+P2-09–P2-13 remain Not started. They do not authorize remote Jira creation.
 P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).

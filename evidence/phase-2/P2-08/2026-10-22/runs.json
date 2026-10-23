@@ -1,0 +1,1582 @@
+[
+  {
+    "run": "custom-off-0",
+    "cold_process_repetition": true,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 0,
+        "p95": 100,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 58619900,
+        "p95": 123733900,
+        "p99": 202285400,
+        "max": 254790700
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1361300,
+        "p95": 3207900,
+        "p99": 4465200,
+        "max": 4592200
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 60222300,
+        "p95": 125055600,
+        "p99": 206751000,
+        "max": 258035900
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 60256400,
+        "p95": 125096000,
+        "p99": 206793700,
+        "max": 258312000
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 60800900,
+        "p95": 127521900,
+        "p99": 207592900,
+        "max": 258891800
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 446300,
+        "p95": 203938500,
+        "p99": 260402200,
+        "max": 279608600
+      }
+    },
+    "missed_60hz": 300,
+    "active_cpu_ns": 19593750000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 169381888,
+      "p95": 169422848,
+      "p99": 169426944,
+      "max": 169426944
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 166359040,
+      "p95": 166440960,
+      "p99": 166440960,
+      "max": 166440960
+    },
+    "peak_working_set": 177721344,
+    "peak_commit": 174825472,
+    "active_overrun_ns": 104700,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "custom-off-1",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 200,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 106820300,
+        "p95": 184822200,
+        "p99": 229824500,
+        "max": 261176800
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 2193100,
+        "p95": 5018700,
+        "p99": 6645500,
+        "max": 8934300
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 108908500,
+        "p95": 187092700,
+        "p99": 233870600,
+        "max": 263283600
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 109001500,
+        "p95": 187195400,
+        "p99": 233952500,
+        "max": 263340200
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 109683200,
+        "p95": 187499000,
+        "p99": 234923800,
+        "max": 263725100
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 1948652500,
+        "p95": 4166877000,
+        "p99": 4442351500,
+        "max": 4490229900
+      }
+    },
+    "missed_60hz": 300,
+    "active_cpu_ns": 33843750000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 169574400,
+      "p95": 169578496,
+      "p99": 169623552,
+      "max": 169627648
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 166334464,
+      "p95": 166334464,
+      "p99": 166428672,
+      "max": 166428672
+    },
+    "peak_working_set": 177926144,
+    "peak_commit": 174800896,
+    "active_overrun_ns": 4407504000,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "custom-off-2",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 73929200,
+        "p95": 147191800,
+        "p99": 174023100,
+        "max": 225716400
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1282000,
+        "p95": 3349100,
+        "p99": 4553500,
+        "max": 20965500
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 74960800,
+        "p95": 148278300,
+        "p99": 175976500,
+        "max": 230270800
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 75000000,
+        "p95": 148334900,
+        "p99": 176033400,
+        "max": 230398800
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 75115900,
+        "p95": 148657100,
+        "p99": 176380300,
+        "max": 231310900
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 563800,
+        "p95": 473080900,
+        "p99": 529336600,
+        "max": 539300000
+      }
+    },
+    "missed_60hz": 300,
+    "active_cpu_ns": 22921875000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 169091072,
+      "p95": 169136128,
+      "p99": 169136128,
+      "max": 169136128
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 166203392,
+      "p95": 166297600,
+      "p99": 166297600,
+      "max": 166297600
+    },
+    "peak_working_set": 177434624,
+    "peak_commit": 174669824,
+    "active_overrun_ns": 4101700,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "custom-off-3",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 100,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 66402000,
+        "p95": 120632200,
+        "p99": 139404100,
+        "max": 146207900
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1228300,
+        "p95": 2661800,
+        "p99": 3376700,
+        "max": 30979800
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 68283200,
+        "p95": 121487300,
+        "p99": 140982500,
+        "max": 148193900
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 68332500,
+        "p95": 121526400,
+        "p99": 141058900,
+        "max": 148274900
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 68687100,
+        "p95": 121814100,
+        "p99": 141987600,
+        "max": 149058600
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 455100,
+        "p95": 26491400,
+        "p99": 43564600,
+        "max": 52471800
+      }
+    },
+    "missed_60hz": 300,
+    "active_cpu_ns": 21187500000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 169525248,
+      "p95": 169578496,
+      "p99": 169578496,
+      "max": 169578496
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 166289408,
+      "p95": 166379520,
+      "p99": 166379520,
+      "max": 166379520
+    },
+    "peak_working_set": 177876992,
+    "peak_commit": 174764032,
+    "active_overrun_ns": 258200,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "custom-off-4",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 41415200,
+        "p95": 92743100,
+        "p99": 117376600,
+        "max": 128574100
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 977000,
+        "p95": 2312300,
+        "p99": 2897000,
+        "max": 4496400
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 42383200,
+        "p95": 93975700,
+        "p99": 118659300,
+        "max": 130688700
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 42418700,
+        "p95": 94023100,
+        "p99": 118747400,
+        "max": 130777800
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 42689400,
+        "p95": 94342400,
+        "p99": 119027400,
+        "max": 131562200
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 408800,
+        "p95": 2496800,
+        "p99": 29774400,
+        "max": 32469400
+      }
+    },
+    "missed_60hz": 300,
+    "active_cpu_ns": 13578125000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 169750528,
+      "p95": 169881600,
+      "p99": 169881600,
+      "max": 169881600
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 166645760,
+      "p95": 166699008,
+      "p99": 166699008,
+      "max": 166699008
+    },
+    "peak_working_set": 178049024,
+    "peak_commit": 175083520,
+    "active_overrun_ns": 497600,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "custom-on-0",
+    "cold_process_repetition": true,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 300
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 63610600,
+        "p95": 119151800,
+        "p99": 136482200,
+        "max": 168803500
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1207500,
+        "p95": 2837800,
+        "p99": 4059000,
+        "max": 4453200
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 64979700,
+        "p95": 120642700,
+        "p99": 137236300,
+        "max": 171404500
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 65005800,
+        "p95": 120680000,
+        "p99": 137289700,
+        "max": 171495700
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 79197600,
+        "p95": 142205200,
+        "p99": 159386600,
+        "max": 191364500
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 640800,
+        "p95": 52870100,
+        "p99": 74538500,
+        "max": 127447800
+      }
+    },
+    "missed_60hz": 300,
+    "active_cpu_ns": 24859375000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 169893888,
+      "p95": 169967616,
+      "p99": 169967616,
+      "max": 169967616
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 166461440,
+      "p95": 166547456,
+      "p99": 166547456,
+      "max": 166547456
+    },
+    "peak_working_set": 178192384,
+    "peak_commit": 174927872,
+    "active_overrun_ns": 52500,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "custom-on-1",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 49702700,
+        "p95": 149988800,
+        "p99": 186926100,
+        "max": 221924600
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1112300,
+        "p95": 3690100,
+        "p99": 5328200,
+        "max": 12848200
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 51296000,
+        "p95": 151777700,
+        "p99": 190498000,
+        "max": 224599400
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 51356400,
+        "p95": 151816500,
+        "p99": 190636200,
+        "max": 224687700
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 62689900,
+        "p95": 175369700,
+        "p99": 226842100,
+        "max": 266041800
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 584300,
+        "p95": 1676043800,
+        "p99": 1980008900,
+        "max": 2007203000
+      }
+    },
+    "missed_60hz": 298,
+    "active_cpu_ns": 22390625000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 169562112,
+      "p95": 169631744,
+      "p99": 169631744,
+      "max": 169631744
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 166109184,
+      "p95": 166199296,
+      "p99": 166199296,
+      "max": 166199296
+    },
+    "peak_working_set": 177860608,
+    "peak_commit": 174583808,
+    "active_overrun_ns": 2021596800,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "custom-on-2",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 100,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 64617000,
+        "p95": 126461000,
+        "p99": 153314100,
+        "max": 167126300
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1250000,
+        "p95": 2793100,
+        "p99": 4248400,
+        "max": 5435900
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 66939400,
+        "p95": 128184100,
+        "p99": 154822700,
+        "max": 169532400
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 67000000,
+        "p95": 128241500,
+        "p99": 154853700,
+        "max": 169620900
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 83724500,
+        "p95": 146498900,
+        "p99": 173474300,
+        "max": 199383600
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 9513000,
+        "p95": 143529500,
+        "p99": 197181700,
+        "max": 251534300
+      }
+    },
+    "missed_60hz": 300,
+    "active_cpu_ns": 26281250000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 169615360,
+      "p95": 169697280,
+      "p99": 169701376,
+      "max": 169701376
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 166785024,
+      "p95": 166846464,
+      "p99": 166846464,
+      "max": 166846464
+    },
+    "peak_working_set": 177913856,
+    "peak_commit": 175222784,
+    "active_overrun_ns": 395200,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "custom-on-3",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 500
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 68797900,
+        "p95": 125084500,
+        "p99": 143254500,
+        "max": 151872400
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1216700,
+        "p95": 2646100,
+        "p99": 3292300,
+        "max": 5095100
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 70010700,
+        "p95": 127037300,
+        "p99": 145000300,
+        "max": 153909600
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 70060900,
+        "p95": 127099100,
+        "p99": 145031600,
+        "max": 153974300
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 85260600,
+        "p95": 140649400,
+        "p99": 161638900,
+        "max": 178222300
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 3581000,
+        "p95": 65982900,
+        "p99": 88711000,
+        "max": 106218300
+      }
+    },
+    "missed_60hz": 300,
+    "active_cpu_ns": 26359375000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 169717760,
+      "p95": 169791488,
+      "p99": 169791488,
+      "max": 169791488
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 166502400,
+      "p95": 166592512,
+      "p99": 166592512,
+      "max": 166592512
+    },
+    "peak_working_set": 178016256,
+    "peak_commit": 174977024,
+    "active_overrun_ns": 20221600,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "custom-on-4",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 36736100,
+        "p95": 58851100,
+        "p99": 65905600,
+        "max": 69603800
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 930300,
+        "p95": 1374200,
+        "p99": 1976100,
+        "max": 2036700
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 37833500,
+        "p95": 59378100,
+        "p99": 66926000,
+        "max": 70712100
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 37867500,
+        "p95": 59431900,
+        "p99": 66974200,
+        "max": 70752300
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 46057500,
+        "p95": 66872500,
+        "p99": 77236000,
+        "max": 83063400
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 507600,
+        "p95": 786900,
+        "p99": 833300,
+        "max": 947300
+      }
+    },
+    "missed_60hz": 293,
+    "active_cpu_ns": 13234375000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 169656320,
+      "p95": 169709568,
+      "p99": 169709568,
+      "max": 169709568
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 166514688,
+      "p95": 166604800,
+      "p99": 166604800,
+      "max": 166604800
+    },
+    "peak_working_set": 178008064,
+    "peak_commit": 174985216,
+    "active_overrun_ns": 570500,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "slint-off-0",
+    "cold_process_repetition": true,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 16623500,
+        "p95": 29182000,
+        "p99": 35295000,
+        "max": 67884800
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1405900,
+        "p95": 3202000,
+        "p99": 4204000,
+        "max": 5415100
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 18902800,
+        "p95": 31668600,
+        "p99": 38048300,
+        "max": 69128800
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 18935400,
+        "p95": 31768100,
+        "p99": 38114700,
+        "max": 69221200
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 19372200,
+        "p95": 32588700,
+        "p99": 38620500,
+        "max": 69538000
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 380300,
+        "p95": 701400,
+        "p99": 787900,
+        "max": 899900
+      }
+    },
+    "missed_60hz": 176,
+    "active_cpu_ns": 5625000000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 1182605312,
+      "p95": 1182609408,
+      "p99": 1182609408,
+      "max": 1182609408
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 1181831168,
+      "p95": 1181831168,
+      "p99": 1181831168,
+      "max": 1181831168
+    },
+    "peak_working_set": 1188831232,
+    "peak_commit": 1188126720,
+    "active_overrun_ns": 591900,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "slint-off-1",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 200,
+        "p99": 200,
+        "max": 300
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 24661500,
+        "p95": 47792200,
+        "p99": 57710000,
+        "max": 92664200
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 2568700,
+        "p95": 5784000,
+        "p99": 7084800,
+        "max": 7731900
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 27749900,
+        "p95": 51952300,
+        "p99": 59671800,
+        "max": 93994800
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 27802400,
+        "p95": 52025500,
+        "p99": 59817000,
+        "max": 94118900
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 28640200,
+        "p95": 53408700,
+        "p99": 60089200,
+        "max": 94310700
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 372700,
+        "p95": 649800,
+        "p99": 2717900,
+        "max": 34782200
+      }
+    },
+    "missed_60hz": 272,
+    "active_cpu_ns": 8640625000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 1182298112,
+      "p95": 1182306304,
+      "p99": 1182564352,
+      "max": 1182564352
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 1181511680,
+      "p95": 1181511680,
+      "p99": 1181786112,
+      "max": 1181786112
+    },
+    "peak_working_set": 1188528128,
+    "peak_commit": 1187782656,
+    "active_overrun_ns": 338900,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "slint-off-2",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 200,
+        "p99": 200,
+        "max": 300
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 21661100,
+        "p95": 44530000,
+        "p99": 58275000,
+        "max": 96746400
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 2472600,
+        "p95": 5815300,
+        "p99": 6664600,
+        "max": 8352600
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 23671500,
+        "p95": 48537800,
+        "p99": 62695000,
+        "max": 98411500
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 23763800,
+        "p95": 48585700,
+        "p99": 62741900,
+        "max": 98480700
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 24124300,
+        "p95": 49777600,
+        "p99": 63867700,
+        "max": 98728300
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 378300,
+        "p95": 717800,
+        "p99": 3804300,
+        "max": 19121400
+      }
+    },
+    "missed_60hz": 225,
+    "active_cpu_ns": 7937500000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 1182707712,
+      "p95": 1182773248,
+      "p99": 1183047680,
+      "max": 1183047680
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 1182851072,
+      "p95": 1182851072,
+      "p99": 1183129600,
+      "max": 1183129600
+    },
+    "peak_working_set": 1188933632,
+    "peak_commit": 1189101568,
+    "active_overrun_ns": 413400,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "slint-off-3",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 200,
+        "p99": 200,
+        "max": 600
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 15879200,
+        "p95": 29092600,
+        "p99": 32455000,
+        "max": 77977900
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1510200,
+        "p95": 3212100,
+        "p99": 4104900,
+        "max": 5237600
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 18142600,
+        "p95": 31910500,
+        "p99": 35574400,
+        "max": 78512700
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 18222500,
+        "p95": 31985900,
+        "p99": 35643000,
+        "max": 78667900
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 18642500,
+        "p95": 32891600,
+        "p99": 37255900,
+        "max": 78685100
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 399000,
+        "p95": 725700,
+        "p99": 872400,
+        "max": 17886100
+      }
+    },
+    "missed_60hz": 174,
+    "active_cpu_ns": 6187500000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 171875000,
+    "idle_single_core_percent": 0.5723678269731677,
+    "working_set": {
+      "n": 600,
+      "p50": 1182420992,
+      "p95": 1182425088,
+      "p99": 1182687232,
+      "max": 1182687232
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 1181532160,
+      "p95": 1181532160,
+      "p99": 1181806592,
+      "max": 1181806592
+    },
+    "peak_working_set": 1188646912,
+    "peak_commit": 1187799040,
+    "active_overrun_ns": 287600,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "slint-off-4",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 900
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 10899900,
+        "p95": 17748400,
+        "p99": 22000900,
+        "max": 35570200
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1050600,
+        "p95": 2147800,
+        "p99": 2707700,
+        "max": 3266200
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 11976600,
+        "p95": 19314900,
+        "p99": 24262300,
+        "max": 35938800
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 12037400,
+        "p95": 19395700,
+        "p99": 24332100,
+        "max": 36021200
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 12305200,
+        "p95": 19832200,
+        "p99": 25393500,
+        "max": 36062000
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 359900,
+        "p95": 714100,
+        "p99": 918000,
+        "max": 7838500
+      }
+    },
+    "missed_60hz": 29,
+    "active_cpu_ns": 4031250000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 109375000,
+    "idle_single_core_percent": 0.3644260859067718,
+    "working_set": {
+      "n": 600,
+      "p50": 1183232000,
+      "p95": 1183240192,
+      "p99": 1183244288,
+      "max": 1183244288
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 1183285248,
+      "p95": 1183285248,
+      "p99": 1183285248,
+      "max": 1183285248
+    },
+    "peak_working_set": 1189466112,
+    "peak_commit": 1189548032,
+    "active_overrun_ns": 730100,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "slint-on-0",
+    "cold_process_repetition": true,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 19014000,
+        "p95": 32512700,
+        "p99": 34393600,
+        "max": 92384700
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1403200,
+        "p95": 3166900,
+        "p99": 4751500,
+        "max": 14593000
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 20619300,
+        "p95": 35342300,
+        "p99": 36660700,
+        "max": 93453600
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 20699500,
+        "p95": 35430200,
+        "p99": 36740000,
+        "max": 93549200
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 38672000,
+        "p95": 62879800,
+        "p99": 68595100,
+        "max": 106953300
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 414500,
+        "p95": 808600,
+        "p99": 2592700,
+        "max": 7541700
+      }
+    },
+    "missed_60hz": 211,
+    "active_cpu_ns": 11890625000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 1183002624,
+      "p95": 1183014912,
+      "p99": 1183285248,
+      "max": 1183285248
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 1183076352,
+      "p95": 1183076352,
+      "p99": 1183354880,
+      "max": 1183354880
+    },
+    "peak_working_set": 1189232640,
+    "peak_commit": 1189351424,
+    "active_overrun_ns": 608600,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "slint-on-1",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 500
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 17924300,
+        "p95": 29845400,
+        "p99": 35911500,
+        "max": 82844900
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1574700,
+        "p95": 3257400,
+        "p99": 3776900,
+        "max": 10489100
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 19680900,
+        "p95": 32177200,
+        "p99": 38607500,
+        "max": 83806600
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 19749200,
+        "p95": 32303100,
+        "p99": 38650400,
+        "max": 83891600
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 39507500,
+        "p95": 60275800,
+        "p99": 66057600,
+        "max": 91588900
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 437000,
+        "p95": 831600,
+        "p99": 1006900,
+        "max": 3602400
+      }
+    },
+    "missed_60hz": 214,
+    "active_cpu_ns": 11562500000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 1182003200,
+      "p95": 1182011392,
+      "p99": 1182269440,
+      "max": 1182269440
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 1181413376,
+      "p95": 1181413376,
+      "p99": 1181687808,
+      "max": 1181687808
+    },
+    "peak_working_set": 1188237312,
+    "peak_commit": 1187696640,
+    "active_overrun_ns": 534100,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "slint-on-2",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 16810700,
+        "p95": 34172500,
+        "p99": 42279500,
+        "max": 83502800
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1897100,
+        "p95": 4404100,
+        "p99": 5027900,
+        "max": 5131600
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 18876200,
+        "p95": 36220800,
+        "p99": 45667400,
+        "max": 84277400
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 18959300,
+        "p95": 36329500,
+        "p99": 45753600,
+        "max": 84330800
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 38219900,
+        "p95": 67713400,
+        "p99": 78391000,
+        "max": 93472800
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 398200,
+        "p95": 623000,
+        "p99": 700900,
+        "max": 731800
+      }
+    },
+    "missed_60hz": 198,
+    "active_cpu_ns": 11921875000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 1182302208,
+      "p95": 1182314496,
+      "p99": 1182584832,
+      "max": 1182584832
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 1181671424,
+      "p95": 1181671424,
+      "p99": 1181945856,
+      "max": 1181945856
+    },
+    "peak_working_set": 1188532224,
+    "peak_commit": 1187926016,
+    "active_overrun_ns": 429500,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "slint-on-3",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 17711500,
+        "p95": 28806900,
+        "p99": 31342600,
+        "max": 84820900
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1453500,
+        "p95": 3030600,
+        "p99": 4695700,
+        "max": 5214400
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 19760000,
+        "p95": 31542300,
+        "p99": 34284600,
+        "max": 85983600
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 19833500,
+        "p95": 31638400,
+        "p99": 34416700,
+        "max": 86070800
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 40408300,
+        "p95": 60153300,
+        "p99": 64167800,
+        "max": 99644900
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 512100,
+        "p95": 804900,
+        "p99": 850800,
+        "max": 941500
+      }
+    },
+    "missed_60hz": 225,
+    "active_cpu_ns": 12125000000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 1182511104,
+      "p95": 1182519296,
+      "p99": 1182773248,
+      "max": 1182773248
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 1181818880,
+      "p95": 1181818880,
+      "p99": 1182093312,
+      "max": 1182093312
+    },
+    "peak_working_set": 1188741120,
+    "peak_commit": 1188093952,
+    "active_overrun_ns": 479500,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  },
+  {
+    "run": "slint-on-4",
+    "cold_process_repetition": false,
+    "frames": {
+      "layout_ns": {
+        "n": 300,
+        "p50": 100,
+        "p95": 100,
+        "p99": 200,
+        "max": 200
+      },
+      "raster_ns": {
+        "n": 300,
+        "p50": 10449700,
+        "p95": 17850800,
+        "p99": 23799300,
+        "max": 35695300
+      },
+      "submission_ns": {
+        "n": 300,
+        "p50": 1044200,
+        "p95": 2183100,
+        "p99": 2976300,
+        "max": 3979800
+      },
+      "frame_ns": {
+        "n": 300,
+        "p50": 11555900,
+        "p95": 19143000,
+        "p99": 26412300,
+        "max": 36096700
+      },
+      "input_to_ram_submission_ns": {
+        "n": 300,
+        "p50": 11644000,
+        "p95": 19216100,
+        "p99": 26504900,
+        "max": 36186400
+      },
+      "total_ns": {
+        "n": 300,
+        "p50": 19378900,
+        "p95": 31684600,
+        "p99": 43544600,
+        "max": 59407100
+      },
+      "scheduled_lateness_ns": {
+        "n": 300,
+        "p50": 541300,
+        "p95": 796900,
+        "p99": 1059800,
+        "max": 22155100
+      }
+    },
+    "missed_60hz": 27,
+    "active_cpu_ns": 6125000000,
+    "active_cpu_scope": "after first frame through last frame; warm-up and first frame excluded",
+    "idle_cpu_ns": 0,
+    "idle_single_core_percent": 0.0,
+    "working_set": {
+      "n": 600,
+      "p50": 1182490624,
+      "p95": 1182502912,
+      "p99": 1182769152,
+      "max": 1182769152
+    },
+    "private_commit": {
+      "n": 600,
+      "p50": 1181851648,
+      "p95": 1181851648,
+      "p99": 1182126080,
+      "max": 1182126080
+    },
+    "peak_working_set": 1188716544,
+    "peak_commit": 1188093952,
+    "active_overrun_ns": 529800,
+    "observer_timer_wakes": 300,
+    "os_scheduler_wakeups": null
+  }
+]

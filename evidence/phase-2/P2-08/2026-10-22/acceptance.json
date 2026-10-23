@@ -1,0 +1,567 @@
+{
+  "measurements_skipped": false,
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+  "source_base": "4dae2c537442983016749a8d97a19da5e16391cc",
+  "logical_processors": 8,
+  "protocol_sha256": "7fd6d6d897a2f66158251283e6e5a774f228d728a1eda90f963bee9321e439c4",
+  "commands": [
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "format",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "elapsed_ms": 720,
+      "program": "cargo",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "unit-tests",
+      "cleanup": "reaped",
+      "timeout_ms": 900000,
+      "expected_failure": false,
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "-p",
+        "custom-ui",
+        "-p",
+        "text-core",
+        "-p",
+        "editor-model"
+      ],
+      "elapsed_ms": 22736,
+      "program": "cargo",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "build-v1",
+      "cleanup": "reaped",
+      "timeout_ms": 900000,
+      "expected_failure": false,
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--features",
+        "slint-candidate",
+        "--profile",
+        "m2-comparison"
+      ],
+      "elapsed_ms": 34442,
+      "program": "cargo",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "build-v2",
+      "cleanup": "reaped",
+      "timeout_ms": 900000,
+      "expected_failure": false,
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--features",
+        "slint-candidate,behavior-v2",
+        "--profile",
+        "m2-comparison"
+      ],
+      "elapsed_ms": 28990,
+      "program": "cargo",
+      "passed": true
+    },
+    {
+      "exit": 1,
+      "timed_out": false,
+      "name": "failed-behavior-build",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": true,
+      "arguments": [
+        "--crate-name",
+        "p2_08_bad",
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\invalid-behavior.rs",
+        "--out-dir",
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424"
+      ],
+      "elapsed_ms": 238,
+      "program": "rustc",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-regression",
+      "cleanup": "reaped",
+      "timeout_ms": 300000,
+      "expected_failure": false,
+      "arguments": [
+        "test",
+        "--suite",
+        "custom-ui"
+      ],
+      "elapsed_ms": 14073,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-reload",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-reload",
+        "custom",
+        "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v2\\xtask.exe",
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-reload"
+      ],
+      "elapsed_ms": 4987,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-regression",
+      "cleanup": "reaped",
+      "timeout_ms": 300000,
+      "expected_failure": false,
+      "arguments": [
+        "test",
+        "--suite",
+        "slint-ui"
+      ],
+      "elapsed_ms": 8712,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-reload",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-reload",
+        "slint",
+        "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v2\\xtask.exe",
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-reload"
+      ],
+      "elapsed_ms": 3015,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-off-0",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "custom",
+        "off",
+        0,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-off-0"
+      ],
+      "elapsed_ms": 65289,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-off-0",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "slint",
+        "off",
+        0,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-off-0"
+      ],
+      "elapsed_ms": 65222,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-on-0",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "custom",
+        "on",
+        0,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-on-0"
+      ],
+      "elapsed_ms": 65206,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-on-0",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "slint",
+        "on",
+        0,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-on-0"
+      ],
+      "elapsed_ms": 65255,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-on-1",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "slint",
+        "on",
+        1,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-on-1"
+      ],
+      "elapsed_ms": 65240,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-on-1",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "custom",
+        "on",
+        1,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-on-1"
+      ],
+      "elapsed_ms": 67245,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-off-1",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "slint",
+        "off",
+        1,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-off-1"
+      ],
+      "elapsed_ms": 65378,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-off-1",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "custom",
+        "off",
+        1,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-off-1"
+      ],
+      "elapsed_ms": 69985,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-off-2",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "custom",
+        "off",
+        2,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-off-2"
+      ],
+      "elapsed_ms": 65215,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-off-2",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "slint",
+        "off",
+        2,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-off-2"
+      ],
+      "elapsed_ms": 65269,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-on-2",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "custom",
+        "on",
+        2,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-on-2"
+      ],
+      "elapsed_ms": 65207,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-on-2",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "slint",
+        "on",
+        2,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-on-2"
+      ],
+      "elapsed_ms": 65267,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-on-3",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "slint",
+        "on",
+        3,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-on-3"
+      ],
+      "elapsed_ms": 65265,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-on-3",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "custom",
+        "on",
+        3,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-on-3"
+      ],
+      "elapsed_ms": 65282,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-off-3",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "slint",
+        "off",
+        3,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-off-3"
+      ],
+      "elapsed_ms": 65245,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-off-3",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "custom",
+        "off",
+        3,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-off-3"
+      ],
+      "elapsed_ms": 77513,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-off-4",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "custom",
+        "off",
+        4,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-off-4"
+      ],
+      "elapsed_ms": 65369,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-off-4",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "slint",
+        "off",
+        4,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-off-4"
+      ],
+      "elapsed_ms": 65220,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "custom-on-4",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "custom",
+        "on",
+        4,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\custom-on-4"
+      ],
+      "elapsed_ms": 65182,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    },
+    {
+      "exit": 0,
+      "timed_out": false,
+      "name": "slint-on-4",
+      "cleanup": "reaped",
+      "timeout_ms": 120000,
+      "expected_failure": false,
+      "arguments": [
+        "ui-compare",
+        "slint",
+        "on",
+        4,
+        "${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-on-4"
+      ],
+      "elapsed_ms": 65335,
+      "program": "${WORKSPACE}\\build\\cargo\\signed\\p2-08\\v1\\xtask.exe",
+      "passed": true
+    }
+  ],
+  "status": "passed",
+  "compiler": [
+    "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "binary: rustc",
+    "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+    "commit-date: 2026-10-13",
+    "host: x86_64-pc-windows-msvc",
+    "release: 1.99.1",
+    "LLVM version: 23.1.1"
+  ],
+  "prerequisite": {
+    "path": "build/m2/P2-01/prerequisites-1792713202135/prerequisites.json",
+    "sha256": "27306a1033c1f08307dd8d048deaf4560e8707b85bb34b236535939dfd1a198c"
+  },
+  "binaries": {
+    "v1": {
+      "bytes": 3660176,
+      "path": "build/cargo/signed/p2-08/v1/xtask.exe",
+      "sha256": "9b4c0a6692d780bb093ea8889454c443194c398e356c9973962395197c3e4a49",
+      "features": "slint-candidate"
+    },
+    "v2": {
+      "bytes": 3660176,
+      "path": "build/cargo/signed/p2-08/v2/xtask.exe",
+      "sha256": "c2a4ddaf34d9fb1c653d24e6e72728f457ebb22aa4ab04ea462aa4551f2f20ed",
+      "features": "slint-candidate,behavior-v2"
+    }
+  },
+  "schema_version": 1,
+  "os": "Microsoft Windows NT 10.0.26300.0"
+}

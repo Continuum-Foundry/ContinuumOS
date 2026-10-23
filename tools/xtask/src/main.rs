@@ -1,3 +1,5 @@
+#[cfg(feature = "slint-candidate")]
+mod comparison;
 mod custom;
 mod editor;
 mod elf;
@@ -282,6 +284,12 @@ fn run() -> Result<()> {
         .collect::<Vec<_>>()
         .as_slice()
     {
+        #[cfg(feature = "slint-candidate")]
+        ["ui-compare", candidate, trace, repetition, directory] => comparison::measure(candidate, trace, repetition, Path::new(directory)),
+        #[cfg(feature = "slint-candidate")]
+        ["ui-reload", candidate, replacement, directory] => comparison::reload(candidate, Path::new(replacement), Path::new(directory)),
+        #[cfg(feature = "slint-candidate")]
+        ["ui-behavior-child", candidate, snapshot, mode, directory] => comparison::behavior_child(candidate, Path::new(snapshot), mode, Path::new(directory)),
         ["test", "--suite", "ui-fixtures"] => ui_fixtures::execute(),
         ["test", "--suite", "editor-model"] => editor::execute(),
         ["test", "--suite", "text"] => text::execute(),

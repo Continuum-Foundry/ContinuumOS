@@ -1,0 +1,135 @@
+{
+  "scope": "code volume and ownership only; no measured human effort or per-toolkit clean build time",
+  "groups": {
+    "custom_portable": [
+      {
+        "path": "crates/custom-ui/src/input.rs",
+        "lines": 482,
+        "bytes": 19260,
+        "sha256": "44d8bb23d3a09368a591b7ea50c691dfbd5d86413a06581e319a1b76dfcb0b4d"
+      },
+      {
+        "path": "crates/custom-ui/src/lib.rs",
+        "lines": 108,
+        "bytes": 2856,
+        "sha256": "c9fdcf7f04f07bab3b565f05c718af32b185ff4a6a795135ec2e46150504f0ea"
+      },
+      {
+        "path": "crates/custom-ui/src/paint.rs",
+        "lines": 615,
+        "bytes": 21391,
+        "sha256": "6c2467b07b332603decccbcd4ea63a69823b37c76696c0de4d8fd719f276dd18"
+      },
+      {
+        "path": "crates/custom-ui/src/scene.rs",
+        "lines": 305,
+        "bytes": 9331,
+        "sha256": "a58142c0af5e16c7968cd8431709c7c8b855b3b741daac3d58b6f044cb1fbb92"
+      },
+      {
+        "path": "crates/custom-ui/src/surface.rs",
+        "lines": 131,
+        "bytes": 3924,
+        "sha256": "b4d9305ea9ad0e055f10368cf848bd8f55f567c054c86d15c83717b3493357c3"
+      },
+      {
+        "path": "crates/custom-ui/src/tests.rs",
+        "lines": 265,
+        "bytes": 8083,
+        "sha256": "8093b68defee47f2a7a45c81e2c55be4b24da65d933519bd1ef5826816ccddd8"
+      }
+    ],
+    "slint_portable": [
+      {
+        "path": "crates/slint-ui/src/lib.rs",
+        "lines": 489,
+        "bytes": 16439,
+        "sha256": "6f4178084aede1ab62bf15fa6b5c21ae326ba3cf9b09eb0d270c942a716b3d7c"
+      }
+    ],
+    "shared_model_text": [
+      {
+        "path": "crates/editor-model/src/lib.rs",
+        "lines": 697,
+        "bytes": 22026,
+        "sha256": "c6207d7a2354d63c46a7ee773d359cc97592746d7e58e00eac8b6e7fd061d49c"
+      },
+      {
+        "path": "crates/editor-model/src/snapshot.rs",
+        "lines": 202,
+        "bytes": 6222,
+        "sha256": "097035262cd12ec1ee83cc5322b280fbb69a2ef9f7a4d358d766683a32b05045"
+      },
+      {
+        "path": "crates/editor-model/src/tests.rs",
+        "lines": 442,
+        "bytes": 14552,
+        "sha256": "1c630f81aa46eefe1602599539ddbc34777bfb7db8f673da9b331344f10ad0a2"
+      },
+      {
+        "path": "crates/text-core/src/composition.rs",
+        "lines": 66,
+        "bytes": 2055,
+        "sha256": "3b856644e0c7e14a0f7118441e5239730b4a229772e54c91b03098fc9db4fe6b"
+      },
+      {
+        "path": "crates/text-core/src/lib.rs",
+        "lines": 574,
+        "bytes": 20399,
+        "sha256": "0bec2a4852c5856687482d48f6242d9c96ce774bad8e803c6b6594c86f7888ae"
+      },
+      {
+        "path": "crates/text-core/src/pins.rs",
+        "lines": 40,
+        "bytes": 1656,
+        "sha256": "58a02d15c6722c35700da56e5795923fbfceb1f1d07faec3adcf6cb734a990f6"
+      },
+      {
+        "path": "crates/text-core/src/tests.rs",
+        "lines": 71,
+        "bytes": 2185,
+        "sha256": "96b508a1553108346fdd2281b38e3975125bb4c5e3fa6c499e69000e85bb7d90"
+      }
+    ],
+    "host_candidate_adapters": [
+      {
+        "path": "tools/xtask/src/custom.rs",
+        "lines": 1297,
+        "bytes": 54392,
+        "sha256": "a40e4c91a9930b97a3825cbb8e7cf186df8101a171e072f85a4b24413ad45994"
+      },
+      {
+        "path": "tools/xtask/src/slint_candidate.rs",
+        "lines": 296,
+        "bytes": 9805,
+        "sha256": "ac277824cf1aad25e132a7496ef9ed89a2b0eabb660d9a4f5bf1423fb18a36c8"
+      }
+    ],
+    "comparison_harness": [
+      {
+        "path": "tools/xtask/src/comparison.rs",
+        "lines": 743,
+        "bytes": 29183,
+        "sha256": "2eef49420668a819bf081232787315b377ff67584eb2462df972c7134c6708ad"
+      },
+      {
+        "path": "tools/Test-P2-08.ps1",
+        "lines": 86,
+        "bytes": 6872,
+        "sha256": "5991ddfdd6e7fd951624697aa2d3b2886b48c191f8d8345010435028ad3ec827"
+      },
+      {
+        "path": "tools/Review-P2Comparison.py",
+        "lines": 201,
+        "bytes": 16740,
+        "sha256": "9cd77f9f9c6817ee402dd3dd179130f23b394f8c8f8689f4599d16ff766b98da"
+      },
+      {
+        "path": "tools/Review-P2Quality.py",
+        "lines": 93,
+        "bytes": 5679,
+        "sha256": "0e8653b28cf01db775763dfc6848e32e1887e75d831d23781d90cf7fd1f791ba"
+      }
+    ]
+  }
+}

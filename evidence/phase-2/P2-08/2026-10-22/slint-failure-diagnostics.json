@@ -1,0 +1,20 @@
+[
+  {
+    "case": "failed-build",
+    "local_path": "build/m2/P2-08/acceptance-1792714590424/slint-reload/failed-build.stderr.log",
+    "raw_sha256": "0e919b88f250d384d06d966732b80605ece9ad7c4b7f2cff9b11dfc85eb7fcd0",
+    "diagnostic": "error: p2-08 owner-alive build failure\n --> ${WORKSPACE}\\build\\m2\\P2-08\\acceptance-1792714590424\\slint-reload\\failed-build.rs:1:13\n  |\n1 | fn main() { compile_error!(\"p2-08 owner-alive build failure\"); }\n  |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nerror: aborting due to 1 previous error\n\n"
+  },
+  {
+    "case": "failed-start",
+    "local_path": "build/m2/P2-08/acceptance-1792714590424/slint-reload/start-failure/stderr.log",
+    "raw_sha256": "a65b45e2e642caca44d09126f99a230cd5365a0e91c8e8889ab514171e030cbc",
+    "diagnostic": "xtask: injected candidate startup failure\n"
+  },
+  {
+    "case": "failed-restore",
+    "local_path": "build/m2/P2-08/acceptance-1792714590424/slint-reload/restore-failure/stderr.log",
+    "raw_sha256": "8e723f8d8dd76f8809e7d50bdc8d771d06c3fcb8e0a645655f3e97744799b091",
+    "diagnostic": "xtask: restore: Invalid\n"
+  }
+]

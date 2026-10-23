@@ -28,7 +28,7 @@ impl Candidate {
             Self::Slint => "P2-06",
         }
     }
-    fn name(self) -> &'static str {
+    pub(crate) fn name(self) -> &'static str {
         match self {
             Self::Custom => "custom-rust-v1",
             #[cfg(feature = "slint-candidate")]
@@ -133,7 +133,7 @@ pub(crate) fn tree(layout: &Value) -> Result<Tree> {
     checked(tree.validate())?;
     Ok(tree)
 }
-fn tokens(value: &Value, variant: &Value) -> Result<Tokens> {
+pub(crate) fn tokens(value: &Value, variant: &Value) -> Result<Tokens> {
     let mut colors = [[0; 4]; 7];
     for (i, name) in [
         "surface", "panel", "text", "muted", "accent", "focus", "danger",
@@ -161,7 +161,7 @@ fn tokens(value: &Value, variant: &Value) -> Result<Tokens> {
     checked(t.validate())?;
     Ok(t)
 }
-fn controller(corpus: &Value) -> Result<Controller> {
+pub(crate) fn controller(corpus: &Value) -> Result<Controller> {
     let i = &corpus["initial_state"];
     let selection = &i["selection"];
     checked(Controller::new(
@@ -206,7 +206,7 @@ fn event(v: &Value) -> Result<Event> {
         kind,
     })
 }
-fn state(c: &Controller, tree: &Tree) -> Value {
+pub(crate) fn state(c: &Controller, tree: &Tree) -> Value {
     let m = c.provider.model();
     let d = m.document();
     let s = m.session();

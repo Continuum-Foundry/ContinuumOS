@@ -1,0 +1,85 @@
+{
+  "pairs": [
+    {
+      "candidate": "custom",
+      "repetition": 0,
+      "frame_p50_delta_ns_on_minus_off": 4757400,
+      "total_p50_delta_ns_on_minus_off": 18396700,
+      "active_cpu_delta_ns_on_minus_off": 5265625000,
+      "peak_commit_delta_bytes_on_minus_off": 102400
+    },
+    {
+      "candidate": "custom",
+      "repetition": 1,
+      "frame_p50_delta_ns_on_minus_off": -57612500,
+      "total_p50_delta_ns_on_minus_off": -46993300,
+      "active_cpu_delta_ns_on_minus_off": -11453125000,
+      "peak_commit_delta_bytes_on_minus_off": -217088
+    },
+    {
+      "candidate": "custom",
+      "repetition": 2,
+      "frame_p50_delta_ns_on_minus_off": -8021400,
+      "total_p50_delta_ns_on_minus_off": 8608600,
+      "active_cpu_delta_ns_on_minus_off": 3359375000,
+      "peak_commit_delta_bytes_on_minus_off": 552960
+    },
+    {
+      "candidate": "custom",
+      "repetition": 3,
+      "frame_p50_delta_ns_on_minus_off": 1727500,
+      "total_p50_delta_ns_on_minus_off": 16573500,
+      "active_cpu_delta_ns_on_minus_off": 5171875000,
+      "peak_commit_delta_bytes_on_minus_off": 212992
+    },
+    {
+      "candidate": "custom",
+      "repetition": 4,
+      "frame_p50_delta_ns_on_minus_off": -4549700,
+      "total_p50_delta_ns_on_minus_off": 3368100,
+      "active_cpu_delta_ns_on_minus_off": -343750000,
+      "peak_commit_delta_bytes_on_minus_off": -98304
+    },
+    {
+      "candidate": "slint",
+      "repetition": 0,
+      "frame_p50_delta_ns_on_minus_off": 1716500,
+      "total_p50_delta_ns_on_minus_off": 19299800,
+      "active_cpu_delta_ns_on_minus_off": 6265625000,
+      "peak_commit_delta_bytes_on_minus_off": 1224704
+    },
+    {
+      "candidate": "slint",
+      "repetition": 1,
+      "frame_p50_delta_ns_on_minus_off": -8069000,
+      "total_p50_delta_ns_on_minus_off": 10867300,
+      "active_cpu_delta_ns_on_minus_off": 2921875000,
+      "peak_commit_delta_bytes_on_minus_off": -86016
+    },
+    {
+      "candidate": "slint",
+      "repetition": 2,
+      "frame_p50_delta_ns_on_minus_off": -4795300,
+      "total_p50_delta_ns_on_minus_off": 14095600,
+      "active_cpu_delta_ns_on_minus_off": 3984375000,
+      "peak_commit_delta_bytes_on_minus_off": -1175552
+    },
+    {
+      "candidate": "slint",
+      "repetition": 3,
+      "frame_p50_delta_ns_on_minus_off": 1617400,
+      "total_p50_delta_ns_on_minus_off": 21765800,
+      "active_cpu_delta_ns_on_minus_off": 5937500000,
+      "peak_commit_delta_bytes_on_minus_off": 294912
+    },
+    {
+      "candidate": "slint",
+      "repetition": 4,
+      "frame_p50_delta_ns_on_minus_off": -420700,
+      "total_p50_delta_ns_on_minus_off": 7073700,
+      "active_cpu_delta_ns_on_minus_off": 2093750000,
+      "peak_commit_delta_bytes_on_minus_off": -1454080
+    }
+  ],
+  "interpretation": "observed sequential paired deltas, not silently subtracted; power/load/cache and retention variation may dominate and can produce negative deltas; trace-off retains common phase timers, sample vectors and disabled allocator branch"
+}

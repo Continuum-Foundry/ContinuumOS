@@ -190,3 +190,12 @@ exact active features/source/notice inputs, bounded probe allocation and indepen
 ELF/codegen/negative audits. This does not add a guest heap, loader, FP/SIMD policy,
 UI execution, reload, measured efficiency or a selected toolkit. M3/M4 retain those
 runtime obligations; P2-08 receives both portability results and remaining gaps.
+
+P2-08's [reviewed hosted comparison](../../evidence/phase-2/P2-08/2026-10-22/README.md)
+adds bounded R08/R09/R15/R18 observations and R04 preparation through direct
+resource publication and snapshot-restoring compiled helpers. It retains all
+6,000 frame / 12,000 process samples and exact continuity checks. Frame-budget
+misses and Slint shown-component retention are measured failures to address;
+host process memory is not the guest 256 MiB target. Native clock/caret/drag and
+assistive paths, actual resource-loader/native-window continuity, active behavior
+routing, toolkit commitment and full R04/R05/R19 remain unaccepted.

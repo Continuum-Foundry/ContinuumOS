@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "story": "P2-08",
+  "status": "passed bounded comparison evidence gate; candidate failures retained",
+  "story_status": "Done",
+  "reviewer": "Codex local implementation/self-review; not independent approval",
+  "date": "2026-10-22",
+  "source_base": "4dae2c537442983016749a8d97a19da5e16391cc",
+  "branch": "codex/p2-08-ui-comparison",
+  "criteria": [
+    {
+      "criterion": 1,
+      "status": "passed",
+      "finding": "All eight axes have exact comparable evidence or explicit failing/unsupported outcomes for both candidates",
+      "evidence": [
+        "comparison-report.md",
+        "measurement-summary.md",
+        "quality.json",
+        "authoring-inputs.json",
+        "../../P2-07/2026-10-22/review.json"
+      ]
+    },
+    {
+      "criterion": 2,
+      "status": "passed",
+      "finding": "Independent 300-state / 150-semantic equality, unchanged image goldens, text coverage outcomes, visual review and reduced-effects functional paths retained separately",
+      "evidence": [
+        "quality-review.md",
+        "quality.json",
+        "pixel-differences.csv",
+        "custom-pixel-vectors.json",
+        "slint-pixel-vectors.json"
+      ]
+    },
+    {
+      "criterion": 3,
+      "status": "passed",
+      "finding": "20 final blocks, 6000 frames, 12000 process samples, all 720 candidate/mode/cells, raw CSVs, exact accounting and nearest-rank distributions retained",
+      "evidence": [
+        "runs.json",
+        "cells.csv",
+        "accounting.json",
+        "paired-overhead.json",
+        "reviewer-tests.json",
+        "local-artifacts.json"
+      ]
+    },
+    {
+      "criterion": 4,
+      "status": "passed",
+      "finding": "200 direct resource publications, distinct compiled helpers, exact checkpoint/binary identities, active-input gate and expected build/start/restore/timeout failures; helper restarts/proposals remain distinct from L0/L1 and guest behavior cutover",
+      "evidence": [
+        "custom-reload.json",
+        "custom-reload-cycles.csv",
+        "slint-reload.json",
+        "slint-reload-cycles.csv",
+        "custom-failure-diagnostics.json",
+        "slint-failure-diagnostics.json"
+      ]
+    },
+    {
+      "criterion": 5,
+      "status": "passed",
+      "finding": "Conditional custom recommendation, material frame/retention/fidelity/rights risks, bounded fixes and P2-09/M3/M4/M5 gates recorded without selecting a toolkit",
+      "evidence": [
+        "comparison-report.md",
+        "measurement-summary.md",
+        "quality-review.md"
+      ]
+    }
+  ],
+  "validation": {
+    "prerequisite_checks": 10,
+    "rust_unit_tests_passed": 51,
+    "rust_unit_tests_ignored": 1,
+    "configurations_per_candidate": 30,
+    "captures_per_candidate": 150,
+    "workflow_states_per_candidate": 300,
+    "text_cases_per_candidate": 45,
+    "integrated_text_cases_per_candidate": 63,
+    "final_measurement_blocks": 20,
+    "frames": 6000,
+    "process_samples": 12000,
+    "resource_publications_per_candidate": 100,
+    "reaped_helpers": 10,
+    "reviewer_negative_mutations": 15,
+    "contract_positive": 9,
+    "contract_negative": 16
+  },
+  "candidate_product_acceptance": false,
+  "toolkit_selected": false,
+  "guest_executed": false,
+  "native_window_reload_tested": false,
+  "active_behavior_route_tested": false,
+  "limits": [
+    "RAM RGB submission, scripted action receipt, uncontrolled Windows laptop power/load, small cell counts and mixed fixed cell weights",
+    "Trace-off keeps common phase clocks, row vectors, audit buffers/copies and disabled allocation branch; no overhead subtraction",
+    "Slint rich/native features and lifetime defect remain, custom frame budgets fail; no core requirement waived",
+    "Helpers restore model state but restart and return proposals; combined compiler/helper peaks and active publication unsupported",
+    "Native clock/caret/drag/IME/assistive consumer, true resource loading, isolation and guest R04/R05/R09/R19 remain unaccepted",
+    "Source/target library inputs unchanged from P2-07; no new guest link or runtime claim; all ADRs Proposed"
+  ]
+}

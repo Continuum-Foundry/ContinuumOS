@@ -80,8 +80,12 @@ P2-06 [adds bounded Slint evidence](../../evidence/phase-2/P2-06/2026-10-21/READ
 AOT/software primitives and shared adapters, with native feature failures preserved.
 P2-07 [passes target feasibility](../../evidence/phase-2/P2-07/2026-10-22/README.md)
 for both real candidate final links, with bounded probe allocation, generated-code/
-symbol audits and explicit M3/M4 hooks. P2-08–P2-13 remain Not started; no toolkit
-is selected, guest UI/reload demonstrated or Jira issue created. P2-02 through P2-09 establish shared fixtures, candidates,
+symbol audits and explicit M3/M4 hooks. P2-08's
+[hosted comparison](../../evidence/phase-2/P2-08/2026-10-22/README.md) now adds
+quality/cost/retention and direct resource/compiled-helper observations. Frame
+misses and Slint's shown-component lifetime defect remain explicit. P2-09–P2-13
+remain Not started; no toolkit is selected, guest UI/reload demonstrated or Jira
+issue created. P2-02 through P2-09 establish shared fixtures, candidates,
 target feasibility and the provisional decision. P2-10 through P2-13 complete
 selected behavior, hosted reload, measurements and the acceptance review.
 

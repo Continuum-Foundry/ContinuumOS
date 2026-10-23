@@ -1,0 +1,225 @@
+{
+  "status": "development findings preserved; excluded from final protocol-2 comparison",
+  "findings": [
+    {
+      "run": "build/m2/P2-08/acceptance-1792713534043",
+      "case": "resource/helper experiment stale restore",
+      "diagnostic": "xtask: Conflict",
+      "cause": "focus-removal fixture legitimately advanced the model; restoring an older checkpoint was rejected",
+      "fix": "separate destructive transient-input fixture from persistent owner; provider rollback protection unchanged",
+      "source": {
+        "path": "build/m2/P2-08/acceptance-1792713534043/comparison-failed.rs",
+        "bytes": 26539,
+        "sha256": "2a7fa4dd639a2c3f00a15021d8defc85cedf8104be61d0d9c647b33d8980c3e2"
+      }
+    },
+    {
+      "run": "build/m2/P2-08/acceptance-1792713708263",
+      "case": "existing M1 host process observation test",
+      "diagnostic": "process_success_failure_timeout_and_log_limit_are_reaped: normal fixture deadline_ms=3000; elapsed_host_ms=30752; kernel_entry_observed=false; cleanup_reaped=true",
+      "cause": "host child startup/observation stall; exact external cause not established",
+      "fix": "no timeout or existing M1 test changed; subsequent complete unit run passed"
+    },
+    {
+      "run": "build/m2/P2-08/acceptance-1792713830470",
+      "case": "unpaced warm-up confounded retained work",
+      "cause": "same five-second window produced 51-604 warm-up frames in completed preliminary blocks; retention comparisons needed equal work",
+      "fix": "protocol 2 fixes exactly 50 paced warm-up frames and reruns the entire matrix; preliminary data is not pooled",
+      "cancellation": "only the active custom-off-1 child was deliberately stopped; parent recorded nonzero exit and reaped it",
+      "preserved": [
+        {
+          "path": "build/m2/P2-08/acceptance-1792713830470/commands.json",
+          "bytes": 8238,
+          "sha256": "5d3adf20e39dff07fac761a7db4e30301967370a22e1128fbb8851b5d5c47b65"
+        },
+        {
+          "path": "build/m2/P2-08/acceptance-1792713830470/comparison-unpaced.rs",
+          "bytes": 28889,
+          "sha256": "34ee8405503edd5068b400ace90614b664b66b307d3f07eecabd40483bdbbad5"
+        },
+        {
+          "path": "build/m2/P2-08/acceptance-1792713830470/protocol-unpaced.json",
+          "bytes": 1611,
+          "sha256": "aac5639b64c8cc4d17de3016973163c5c807381457927182c2efe495b4d0b7e1"
+        },
+        {
+          "path": "build/m2/P2-08/acceptance-1792713830470/xtask-unpaced-v1.exe",
+          "bytes": 3659152,
+          "sha256": "4696b163a16d1ca1e5268a3837241bc409140659a9d9d33fde2884443f873b41"
+        },
+        {
+          "path": "build/m2/P2-08/acceptance-1792713830470/xtask-unpaced-v2.exe",
+          "bytes": 3659152,
+          "sha256": "d6d0884ceae32f4e4fbee630d9646bcbcbc93f6e7198ce6c2a01131603f29c80"
+        }
+      ],
+      "completed_blocks": [
+        {
+          "run": "custom-off-0",
+          "warmup_frames": 102,
+          "private_commit_before_idle": 166498304,
+          "raw": [
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/custom-off-0/result.json",
+              "bytes": 1012,
+              "sha256": "8778410afbb1914ad6598acf236d60198c8b7694eeb9ab6c5ef9e6800b4ff4d6"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/custom-off-0/frames.json",
+              "bytes": 226126,
+              "sha256": "8253661f7a873e4f13cf86788a681a279a177f983bb23df1a4fe46ef98ab1954"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/custom-off-0/process.json",
+              "bytes": 158670,
+              "sha256": "eaa577f6cc271d0a57f64f09a4e1d2c9c27fc32f59668877085fce1b9a4e12a7"
+            }
+          ]
+        },
+        {
+          "run": "custom-on-0",
+          "warmup_frames": 51,
+          "private_commit_before_idle": 166645760,
+          "raw": [
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/custom-on-0/result.json",
+              "bytes": 1010,
+              "sha256": "73aac51c57ad9d173f2ee2b5317897963ea2d82a9fc0dcb3b2af0af5b85e0323"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/custom-on-0/frames.json",
+              "bytes": 246181,
+              "sha256": "f55a10fdd380e5abb0d0ab46c8592c4f5003dd2e64ecd8bd7080c53ac9dce774"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/custom-on-0/process.json",
+              "bytes": 158742,
+              "sha256": "df86b22a556da52f786942c89ee0d99ed3c0c5eb01c4fcc0e814f8b1c5fa4295"
+            }
+          ]
+        },
+        {
+          "run": "custom-on-1",
+          "warmup_frames": 51,
+          "private_commit_before_idle": 166510592,
+          "raw": [
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/custom-on-1/result.json",
+              "bytes": 1010,
+              "sha256": "c90bf9a4adbacd8bf158903862b5d6b887775dd380c7a55efa86cb65b2a6ad98"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/custom-on-1/frames.json",
+              "bytes": 246927,
+              "sha256": "665e11baf9debfdef91472e826d0f5329d7213ab4b3f2acde74e8f1017f95533"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/custom-on-1/process.json",
+              "bytes": 158756,
+              "sha256": "0b09e425114037694e7b92718b48d92e17bbe11668888f18256f7b072f0d322e"
+            }
+          ]
+        },
+        {
+          "run": "slint-off-0",
+          "warmup_frames": 151,
+          "private_commit_before_idle": 1429958656,
+          "raw": [
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-off-0/result.json",
+              "bytes": 1035,
+              "sha256": "3c4ff7872dd4be8eb68c5d9388b4b7bbb7a9a0c1eeca4cff17cf78e12cedb9a0"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-off-0/frames.json",
+              "bytes": 227382,
+              "sha256": "8420ca4892652407f5e36b416615b0635c86cc406049a6c1e5e3db8d7be20090"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-off-0/process.json",
+              "bytes": 160349,
+              "sha256": "6d072eed6edda61dfc96e55cf3171dcd96ffbe9c30477cbbb8f603837ddd9a48"
+            }
+          ]
+        },
+        {
+          "run": "slint-off-1",
+          "warmup_frames": 604,
+          "private_commit_before_idle": 2540621824,
+          "raw": [
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-off-1/result.json",
+              "bytes": 1037,
+              "sha256": "741e2684420755c1e8941382a816b792923323565ce5c3c1c2c70e55464e563a"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-off-1/frames.json",
+              "bytes": 227157,
+              "sha256": "518c9127015b5320e121574302b5cd734f275cc3c2c9810ef8719cd21c72bc20"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-off-1/process.json",
+              "bytes": 161544,
+              "sha256": "4d6ac709a88dc251c7318297a3f8b68b4b4f0e1dc5bf6f0654f915471a236dc2"
+            }
+          ]
+        },
+        {
+          "run": "slint-on-0",
+          "warmup_frames": 310,
+          "private_commit_before_idle": 1817747456,
+          "raw": [
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-on-0/result.json",
+              "bytes": 1036,
+              "sha256": "bd35a1edbc04e2acb48a1007fe9b7a08729e084c4bd01aa12774e62f6cd475e6"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-on-0/frames.json",
+              "bytes": 246753,
+              "sha256": "b6ed1be839adac5a9f9e42db9c833b34122e04900cf078346e1199afda38db6d"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-on-0/process.json",
+              "bytes": 161321,
+              "sha256": "c565dcc5a5c739d69235007a2a6159d150598e4237d4b2b054b48f6701d0e508"
+            }
+          ]
+        },
+        {
+          "run": "slint-on-1",
+          "warmup_frames": 354,
+          "private_commit_before_idle": 1925603328,
+          "raw": [
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-on-1/result.json",
+              "bytes": 1036,
+              "sha256": "34e0d467d87dab37704bd5a61aa3ecf35e771fb05487e069398b9ffde01fcdc8"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-on-1/frames.json",
+              "bytes": 247240,
+              "sha256": "352cb93d529f3158983039c2a02ab49afa7635c648a071156dcfe03c59ef5545"
+            },
+            {
+              "path": "build/m2/P2-08/acceptance-1792713830470/slint-on-1/process.json",
+              "bytes": 161480,
+              "sha256": "774866714e5d82002cdd36fb488386914d7d0f8ab9a253e65116c6d7e3ddd6fd"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "optional image review dependency unavailable",
+      "diagnostic": "ModuleNotFoundError: No module named PIL",
+      "fix": "reviewer uses standard-library PPM/PNG and integer pixel-difference accounting; no package installed"
+    },
+    {
+      "case": "authoring inventory encoding",
+      "diagnostic": "host default cp1252 decoder rejected a UTF-8 byte sequence",
+      "fix": "explicit UTF-8 source decoding; no source text changed"
+    }
+  ],
+  "limits": "Full failed logs, binaries and source copies stay ignored and local. Manifest members here are compact reviewed metadata only."
+}

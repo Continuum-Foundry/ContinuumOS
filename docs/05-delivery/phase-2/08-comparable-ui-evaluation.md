@@ -1,6 +1,6 @@
 # P2-08 — Compare visual quality, reload paths and hosted resource cost
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Codex (local implementation/self-review).
 Depends on: P2-05, P2-06 and P2-07 Done.
 Suggested labels: `phase-2`, `comparison`, `performance`, `visual-review`.
 Backlog: B36, M2 subset of B32. Requirements: R04/R08/R09/R15/R18; R19 design.
@@ -34,15 +34,15 @@ provisional toolkit choice is based on quality, continuity and cost together.
 
 ## Acceptance criteria
 
-- [ ] Each matrix axis has exact comparable evidence or a precise failure/unsupported
+- [x] Each matrix axis has exact comparable evidence or a precise failure/unsupported
   outcome for both candidates, including required text, effects and semantics.
-- [ ] Quality review and keyboard/action results are recorded independently of image
+- [x] Quality review and keyboard/action results are recorded independently of image
   snapshots; reduced-effects mode preserves the tested workflows.
-- [ ] Raw timing/memory/idle/damage samples, distributions, configuration and accounting
+- [x] Raw timing/memory/idle/damage samples, distributions, configuration and accounting
   method are retained; host cost is never called guest performance or photon latency.
-- [ ] Token, layout and compiled native behavior change results distinguish resource
+- [x] Token, layout and compiled native behavior change results distinguish resource
   continuity, helper restart and unsupported paths with exact state/build identities.
-- [ ] A reviewable recommendation lists material risks, maintenance/rights questions
+- [x] A reviewable recommendation lists material risks, maintenance/rights questions
   and bounded fixes; no guest reload or complete R04/R05/R19 claim follows.
 
 ## Tests and evidence
@@ -55,6 +55,15 @@ than increasing the timeout after the fact. Full images/traces remain local; sel
 compact comparison tables, representative images and necessary raw samples.
 
 ## Exclusions and handoff
+
+Local comparison acceptance: [2026-10-22 reviewed bundle](../../../evidence/phase-2/P2-08/2026-10-22/README.md).
+Use the [comparison runbook](comparable-ui-runbook.md). The complete 20-block
+experiment retains 6,000 frames, 12,000 process samples, 100 alternating token/layout
+cycles per candidate and exact snapshot-restoring helper variants/failures.
+Custom frame-budget misses, Slint shown-component retention, fidelity/terms gaps
+and unavailable native clock/caret/drag/assistive paths are findings, not waivers.
+The recommendation is conditional custom consideration at P2-09; no toolkit is
+selected, actual hosted resource loader completed or guest UI/reload demonstrated.
 
 No toolkit selection from a single screenshot or mean FPS, and no requirement to
 implement the M5 transaction coordinator for this experiment. P2-09 receives the

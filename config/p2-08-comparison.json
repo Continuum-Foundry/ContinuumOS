@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "protocol": "interleaved hosted RAM comparison; not a 60-Hz display test",
+  "seed": 20261020,
+  "warmup_ms": 5000,
+  "warmup_frames": 50,
+  "active_ms": 30000,
+  "idle_ms": 30000,
+  "sample_ms": 100,
+  "repetitions": 5,
+  "trace_modes": ["off", "on"],
+  "geometry": [[1280,720,100],[1280,720,150],[1280,720,200],[1920,1080,100],[1920,1080,150],[1920,1080,200]],
+  "schedule": "300 slots: geometry=n%6, workload=floor(n/6)%6, variant=floor(n/36)%5; absolute 100-ms pacing; no dropped slots; overrun reported",
+  "workloads": ["focus-clock-caret-proxy", "complex-script-replace-search", "10000-row-scroll", "modeled-window-and-editor-resize", "launcher-motion-effects", "token-layout-generation"],
+  "limitations": ["clock/caret animation unavailable", "drag is modeled window action; no native compositor input", "all five requested variants retained, Slint rich effects unsupported", "RAM RGB consumer, no monitor/compositor completion", "idle is settled eventless adapter, 300 observer wakes, OS scheduler wake count unavailable", "six retained views share one text engine; memory belongs to experiment process", "trace-off retains phase timers and raw row buffer; paired overhead is incremental allocation/hash/damage instrumentation", "OS file cache not flushed", "p99 per small cell is its maximum; do not infer tail stability"],
+  "helper_timeout_ms": 10000,
+  "timeout_fixture_ms": 100,
+  "process_timeout_ms": 120000,
+  "reload_cycles": 100,
+  "aggregation": "nearest-rank p50/p95/p99; cold process repetition 0 separate; report raw process and frame samples without subtracting tracing overhead"
+}

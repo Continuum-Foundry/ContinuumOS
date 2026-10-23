@@ -13,6 +13,13 @@ The extracted Slint software/text-image adapter is shared with the hosted harnes
 This is compile/link feasibility only; guest presentation, user context/heap policy,
 measured efficiency and the M2/M4 rendering gates remain open.
 
+P2-08's [hosted cost comparison](../../evidence/phase-2/P2-08/2026-10-22/measurement-summary.md)
+now measures full redraw/copy paths, raw damage/idle/allocation/process costs and
+frequent frame-budget misses. Slint's per-paint shown components retain resources;
+this is a current bridge-lifetime defect, not a GPU requirement or intrinsic toolkit
+footprint. CPU damage/cache/lifetime work remains before efficiency acceptance;
+no host result passes the guest budget or changes this Proposed status.
+
 ## Context and decision
 
 We need beautiful UI without pretending a new kernel already has a GPU stack.

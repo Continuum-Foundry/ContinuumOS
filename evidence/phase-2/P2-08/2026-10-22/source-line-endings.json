@@ -1,0 +1,40 @@
+{
+  "scope": "Working input bytes and LF-normalized representations. Exact-byte (-text) Git fixtures may already preserve CRLF and require no conversion. Retained evidence is -text.",
+  "files": [
+    {
+      "path": "fixtures/m2/slint-v1/goldens.json",
+      "working_sha256": "a1ba206ccaa39b9f37b27f61dd128436131267d099b5068fff15a9fb2125db7a",
+      "lf_normalized_sha256": "69b7c90be51e63c2bb3a96d63ff5db50f2982b639fb38dd86de92ab1abce60a4",
+      "crlf_lines": "all",
+      "reconstruction": "If the checkout already matches working_sha256, preserve it. Otherwise start with the recorded LF-normalized representation and restore CRLF on all lines or at the listed zero-based indexes; verify working_sha256. Do not normalize byte-pinned fixtures unnecessarily."
+    },
+    {
+      "path": "fixtures/m2/slint-v1/README.md",
+      "working_sha256": "959abaf6abf9740118026d519ba8682c223f4f389cc1b9d21a2e608273b77b38",
+      "lf_normalized_sha256": "c83259b008ea29ffac5d4522fc0f249e9fc0f9b25494a2a35699ab345629ac35",
+      "crlf_lines": "all",
+      "reconstruction": "If the checkout already matches working_sha256, preserve it. Otherwise start with the recorded LF-normalized representation and restore CRLF on all lines or at the listed zero-based indexes; verify working_sha256. Do not normalize byte-pinned fixtures unnecessarily."
+    },
+    {
+      "path": "fixtures/m2/text-v1/corpus.json",
+      "working_sha256": "d77c4654660e7ab74f1a153d2ae5ac2c182fe4b0b5c3a6d8757be1a2143fa409",
+      "lf_normalized_sha256": "feffdb751ea7db7c74261df557bb7812c49842572da7a760ebcc38b2570f08d2",
+      "crlf_lines": "all",
+      "reconstruction": "If the checkout already matches working_sha256, preserve it. Otherwise start with the recorded LF-normalized representation and restore CRLF on all lines or at the listed zero-based indexes; verify working_sha256. Do not normalize byte-pinned fixtures unnecessarily."
+    },
+    {
+      "path": "fixtures/m2/text-v1/shaping-reference.json",
+      "working_sha256": "1db3e2284610ef61747fffddb531a1833697fc51b14eb860f5bec0bac57f864f",
+      "lf_normalized_sha256": "51a9461deaf6f1f6fb7a0369dae13318109f8e3db2ab39995c6126344e7953a6",
+      "crlf_lines": "all",
+      "reconstruction": "If the checkout already matches working_sha256, preserve it. Otherwise start with the recorded LF-normalized representation and restore CRLF on all lines or at the listed zero-based indexes; verify working_sha256. Do not normalize byte-pinned fixtures unnecessarily."
+    },
+    {
+      "path": "tools/xtask/src/custom.rs",
+      "working_sha256": "a40e4c91a9930b97a3825cbb8e7cf186df8101a171e072f85a4b24413ad45994",
+      "lf_normalized_sha256": "6300c87be0910e1c3cef96f7727ab7a7d040e04ada1b71a34259b450b49d97b4",
+      "crlf_lines": "all",
+      "reconstruction": "If the checkout already matches working_sha256, preserve it. Otherwise start with the recorded LF-normalized representation and restore CRLF on all lines or at the listed zero-based indexes; verify working_sha256. Do not normalize byte-pinned fixtures unnecessarily."
+    }
+  ]
+}

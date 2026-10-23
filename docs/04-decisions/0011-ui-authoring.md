@@ -22,6 +22,15 @@ and explicit M3/M4 hooks. This does not establish guest execution, sustained hea
 use, native feature parity or runtime replacement. Reload and toolkit selection
 remain open; no new UI language or production toolkit is selected.
 
+P2-08's [comparison and conditional recommendation](../../evidence/phase-2/P2-08/2026-10-22/comparison-report.md)
+now supplies optimized host distributions, process retention, independent quality
+observations and direct resource/compiled-helper cases. Custom has more required
+fidelity but substantial frame-budget misses; Slint has lower costs in many cells
+while retaining shown components and missing required fidelity/rights closure.
+Those are current adapter/prototype findings. P2-09 must assess the conditional
+custom recommendation and bounded completion path; this ADR remains Proposed.
+No native-window/file-driven hosted reload or guest replacement is accepted here.
+
 ## Context and decision
 
 Compare Slint and a minimal Rust builder/renderer using the same scenes, action/state

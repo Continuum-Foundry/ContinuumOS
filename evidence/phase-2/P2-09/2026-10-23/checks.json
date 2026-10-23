@@ -1,0 +1,268 @@
+{
+  "story": "P2-09",
+  "status": "passed",
+  "scope": "Identity/closure/notice checks, not implementation or legal approval",
+  "selection_sha256": "5a574b458848db5e531d3ad803a460689d1c9811a9c05219f12bdd40fdc75a22",
+  "reviewer_sha256": "c63f99c13e74ff4a603c80f5fdde94367e0ac8873d7ae940c3e468541eb34739",
+  "linked_artifact": {
+    "fp_simd_instruction_count": 0,
+    "executed": false,
+    "candidate": "custom",
+    "final_link": "passed",
+    "negative_elf_checks": 13,
+    "file_bytes": 25476384,
+    "audit": "passed",
+    "sha256": "a0c99bba76e4eccb50963baa60ce109d5cff5ed3d58ed296ae4a985219b57c67"
+  },
+  "prerequisites_sha256": "88e3c0e3b4b6bdb328e8ef39049d410c71827d062d0d30bf0a67e6ef22ceea15",
+  "prerequisite_commands": [
+    {
+      "name": "signing",
+      "elapsed_ms": 22913,
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Test-DevSigning.ps1"
+      ],
+      "program": "pwsh"
+    },
+    {
+      "name": "compiler",
+      "elapsed_ms": 22505,
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Test-DevCompiler.ps1"
+      ],
+      "program": "pwsh"
+    },
+    {
+      "name": "host-metadata",
+      "elapsed_ms": 15289,
+      "exit_code": 0,
+      "arguments": [
+        "metadata",
+        "--locked",
+        "--offline",
+        "--format-version",
+        "1",
+        "--filter-platform",
+        "x86_64-pc-windows-msvc"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "doctor",
+      "elapsed_ms": 49845,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "doctor-json",
+      "elapsed_ms": 10390,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--json"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "build",
+      "elapsed_ms": 8487,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "build",
+        "--profile",
+        "feasibility"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "m0",
+      "elapsed_ms": 13595,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m0"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "acceptance",
+      "elapsed_ms": 217797,
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-M0.ps1"
+      ],
+      "program": "pwsh"
+    },
+    {
+      "name": "dependencies",
+      "elapsed_ms": 35778,
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Probe-Dependencies.ps1"
+      ],
+      "program": "pwsh"
+    },
+    {
+      "name": "m1-doctor",
+      "elapsed_ms": 10302,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--profile",
+        "m1",
+        "--json"
+      ],
+      "program": "cargo"
+    }
+  ],
+  "upstream_manifests": [
+    {
+      "manifest": "evidence/phase-2/P2-07/2026-10-22/SHA256SUMS.json",
+      "verified_files": 27
+    },
+    {
+      "manifest": "evidence/phase-2/P2-08/2026-10-22/SHA256SUMS.json",
+      "verified_files": 93
+    }
+  ],
+  "active_packages": 32,
+  "third_party_packages": 28,
+  "source_match": "P2-07 chosen files unchanged modulo CRLF/LF; no new target execution",
+  "selected_source_files": 22,
+  "frozen_comparison_files": 9,
+  "fonts_verified": 6,
+  "negative_cases": [
+    {
+      "case": "unknown version",
+      "rejected": true,
+      "reason": "unknown selection version"
+    },
+    {
+      "case": "unreviewed toolkit",
+      "rejected": true,
+      "reason": "unreviewed toolkit"
+    },
+    {
+      "case": "false ADR acceptance",
+      "rejected": true,
+      "reason": "unpassed ADR gate"
+    },
+    {
+      "case": "false distribution clearance",
+      "rejected": true,
+      "reason": "unpassed gate: distribution_cleared"
+    },
+    {
+      "case": "false guest confirmation",
+      "rejected": true,
+      "reason": "unpassed gate: guest_confirmed"
+    },
+    {
+      "case": "false M2 completion",
+      "rejected": true,
+      "reason": "unpassed gate: m2_complete"
+    },
+    {
+      "case": "host target",
+      "rejected": true,
+      "reason": "target mismatch"
+    },
+    {
+      "case": "new feature",
+      "rejected": true,
+      "reason": "unreviewed default feature"
+    },
+    {
+      "case": "wrong compiler",
+      "rejected": true,
+      "reason": "compiler mismatch"
+    },
+    {
+      "case": "wrong profile",
+      "rejected": true,
+      "reason": "profile mismatch"
+    },
+    {
+      "case": "wrong linked artifact",
+      "rejected": true,
+      "reason": "linked artifact mismatch"
+    },
+    {
+      "case": "missing M2 gate",
+      "rejected": true,
+      "reason": "missing completion gate"
+    },
+    {
+      "case": "missing package",
+      "rejected": true,
+      "reason": "package closure"
+    },
+    {
+      "case": "wrong feature graph",
+      "rejected": true,
+      "reason": "allocator-api2: changed normal_features"
+    },
+    {
+      "case": "wrong license",
+      "rejected": true,
+      "reason": "allocator-api2: unreviewed terms"
+    },
+    {
+      "case": "missing notice",
+      "rejected": true,
+      "reason": "allocator-api2: incomplete notices"
+    },
+    {
+      "case": "changed frozen source",
+      "rejected": true,
+      "reason": "pin: crates/slint-ui/Cargo.toml"
+    },
+    {
+      "case": "unsupported pin normalization",
+      "rejected": true,
+      "reason": "unknown pin normalization"
+    },
+    {
+      "case": "missing frozen source",
+      "rejected": true,
+      "reason": "incomplete pins: frozen_comparison"
+    },
+    {
+      "case": "missing selected source",
+      "rejected": true,
+      "reason": "incomplete pins: chosen_source"
+    },
+    {
+      "case": "missing lock pin",
+      "rejected": true,
+      "reason": "incomplete pins: input_pins"
+    },
+    {
+      "case": "wrong font",
+      "rejected": true,
+      "reason": "font identity/order"
+    }
+  ],
+  "guest_executed": false,
+  "new_measurements": false,
+  "distribution_cleared": false
+}

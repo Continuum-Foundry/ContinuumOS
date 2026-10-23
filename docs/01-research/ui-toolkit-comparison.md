@@ -1,6 +1,6 @@
 # UI toolkit comparison: Slint and a small custom core
 
-Status: required bounded experiment, not a toolkit selection. Revision 2.
+Status: bounded comparison reviewed; P2-09 provisional custom decision. Revision 2.
 
 P2-08's [local comparison report](../../evidence/phase-2/P2-08/2026-10-22/comparison-report.md)
 now fills every axis with measured evidence or precise unsupported/failing outcomes.
@@ -8,8 +8,11 @@ Its [host measurements](../../evidence/phase-2/P2-08/2026-10-22/measurement-summ
 retain all raw samples and separate resource continuity from compiled-helper
 restart. Custom is recommended conditionally for P2-09 review, with substantial
 performance completion work. Slint's current bridge retains shown components;
-native fidelity and OS/API terms remain unresolved. No toolkit is selected and
-these host results do not pass a guest performance or reload gate.
+native fidelity and OS/API terms remain unresolved. P2-09 now
+[provisionally selects custom Rust](../05-delivery/phase-2/ui-selection-review.md)
+with exact license choices, frozen Slint comparison inputs and mandatory M2
+completion/reconsideration gates. These host results do not pass a guest
+performance or reload gate; ADR-0011 remains Proposed.
 
 ## Purpose
 
@@ -81,4 +84,4 @@ production UI frameworks indefinitely merely because two prototypes were built.
 
 Artifacts: exact dependency/features manifest, two comparable scene implementations,
 measurement report, missing-feature inventory, license record and recorded decision.
-No toolkit is declared selected by this research update.
+The provisional custom direction is scoped by P2-09; final guest confirmation remains M4.

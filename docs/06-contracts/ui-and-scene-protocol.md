@@ -14,6 +14,14 @@ compositor. The optional SceneCommit design below remains a separate integration
 
 ## Scene transaction
 
+P2-09 [provisionally selects custom-ui](../05-delivery/phase-2/ui-selection-review.md)
+behind these boundaries. Its internal Rust Scene/Controller/surface types remain
+local implementation values. M3/M4 must validate explicit codecs, owner/session
+authority, epochs, quota and release semantics before any cross-process use.
+The guest backend receives software pixels through brokered leases and exports
+semantic snapshots/actions separately; it does not inherit hosted struct layouts
+or toolkit window authority. P2-11 owns coherent hosted generation publication.
+
 An app submits `SceneCommit(surface_id, scene_epoch, base_revision, new_revision,
 resource_generation, operations, declared_damage)`. The compositor validates the
 whole commit and publishes all or none of it. Reject stale base revisions, cycles,

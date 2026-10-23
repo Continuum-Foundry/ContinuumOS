@@ -5,7 +5,8 @@ minimal Limine UEFI optical route. P1-03 completes B04's checked boot metadata,
 fixed diagnostics and correlated identities on that profile; see its
 [runbook](phase-1/boot-metadata-runbook.md) and
 [acceptance review](../../evidence/phase-1/P1-03/2026-10-18/README.md).
-Later runtime gates remain open. B36 has preliminary reviews only.
+Later runtime gates remain open. B36 has a P2-09 provisional custom decision;
+M2 completion and M4 guest confirmation remain open.
 P1-04 implements B05's fatal exception subset; see its
 [runbook and acceptance status](phase-1/exception-diagnostics-runbook.md).
 P1-05 implements frame ownership, page tables, guards and actual double-fault
@@ -40,8 +41,10 @@ comparison findings. P2-06
 [adds Slint candidate evidence](../../evidence/phase-2/P2-06/2026-10-21/README.md)
 for B07/B08/B36 with shared text/input/semantic adapters and explicit native
 text/effect/clip/blend and distribution-term gaps.
-P2-07–P2-13 remain Not started; selection and guest linking,
-execution, reload and measured efficiency are still open.
+P2-07/P2-08 now supply accepted final-link feasibility and hosted comparison.
+P2-09 records the [provisional custom Rust direction](phase-2/ui-selection-review.md),
+terms/freeze and remaining selected-core work. P2-10–P2-13 remain Not started;
+guest execution, actual hosted resource reload and efficiency acceptance stay open.
 P2-02 through P2-09 cover B36 and initial
 B07/B08/B09/B37 boundaries, candidates, target links and decision. P2-10 completes
 the hosted portions of B07/B08/B09; P2-11 covers B10, and P2-12/P2-13 cover M2's

@@ -1,4 +1,4 @@
-# ADR-0011: Compare UI toolkits before committing to a custom core
+# ADR-0011: Provisional custom Rust UI after the toolkit comparison
 
 Status: Proposed. Date: 2026-10-17.
 Revision 2 replaces the untested custom-builder-first default with a bounded
@@ -19,22 +19,48 @@ resolve OS/API distribution terms. P2-07's
 [standalone final-link review](../../evidence/phase-2/P2-07/2026-10-22/README.md)
 now closes both actual scene/text/raster configurations with bounded probe memory
 and explicit M3/M4 hooks. This does not establish guest execution, sustained heap
-use, native feature parity or runtime replacement. Reload and toolkit selection
-remain open; no new UI language or production toolkit is selected.
+use, native feature parity or runtime replacement. At P2-07, reload and toolkit
+selection remained open; its result selected no new UI language or production toolkit.
 
 P2-08's [comparison and conditional recommendation](../../evidence/phase-2/P2-08/2026-10-22/comparison-report.md)
 now supplies optimized host distributions, process retention, independent quality
 observations and direct resource/compiled-helper cases. Custom has more required
 fidelity but substantial frame-budget misses; Slint has lower costs in many cells
 while retaining shown components and missing required fidelity/rights closure.
-Those are current adapter/prototype findings. P2-09 must assess the conditional
-custom recommendation and bounded completion path; this ADR remains Proposed.
+Those are current adapter/prototype findings. The P2-09 review below assesses the
+conditional recommendation and bounded completion path; this ADR remains Proposed.
 No native-window/file-driven hosted reload or guest replacement is accepted here.
+
+## P2-09 provisional decision — 2026-10-23
+
+Select custom-ui/text-core/editor-model 0.1.0 with the existing CPU renderer,
+Rust builders and validated token/layout data for bounded P2-10 onward completion.
+The [decision review](../05-delivery/phase-2/ui-selection-review.md) evaluates all
+eight axes, mandatory criteria, exact configuration, source ownership, guest
+integration, license choices and completion/reconsideration gates. The
+[selection inventory](../../legal/ui-selection.json) pins active target features,
+all 28 third-party packages, fonts, notices and frozen Slint comparison inputs.
+Review is local Codex self-review, not independent or owner architectural approval.
+
+Required fidelity and explicit ownership favor custom; performance does not:
+its trace-off frame p95 is 159.358 ms and every sampled frame misses 16.667 ms.
+Damage/cache/layout/motion work and optimized remeasurement remain required.
+Slint's primitive speed merits credit, but current feature/lifetime gaps and
+unresolved OS/API terms block its adoption. Freeze its prototype for comparison
+and relevant shared regressions; maintain one production direction.
+
+The chosen upstream terms are explicitly selected for the intended proprietary
+OS/app/SDK use, with notice obligations; no project distribution is cleared.
+P2-10/P2-11 must finish all M2 behavior and real same-process resource continuity;
+P2-12/P2-13 must measure/review the final core. M3 supplies isolated runtime hooks,
+M4 confirms this exact core and resource reload in the guest, and M5 proves
+behavior route transfer/retirement. Failure of these gates reopens the decision.
+This ADR remains Proposed; the earlier paragraphs preserve comparison history.
 
 ## Context and decision
 
-Compare Slint and a minimal Rust builder/renderer using the same scenes, action/state
-model and OS surface/input boundaries. Choose provisionally at M2 and confirm guest
+The comparison used the same scenes, action/state model and OS surface/input
+boundaries. P2-09 provisionally selects the custom Rust path; confirm guest
 behavior at M4. Semantic tokens, stable identity, accessibility and versioned reload
 state remain requirements whichever path wins.
 

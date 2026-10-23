@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "story": "P2-09",
+  "story_status": "Done",
+  "status": "passed provisional decision gate",
+  "reviewer": "Codex local implementation/self-review; not independent approval",
+  "date": "2026-10-23",
+  "source_base": "1e8468689bd12e2ea327e91ffad0616f3f33b95a",
+  "branch": "codex/p2-09-ui-selection",
+  "criteria": [
+    {
+      "criterion": 1,
+      "status": "passed",
+      "topic": "Every comparison axis and exact provisional path",
+      "finding": "decision review compares all eight axes and mandatory criteria; custom CPU path and exact profiles/features/fonts pinned"
+    },
+    {
+      "criterion": 2,
+      "status": "passed",
+      "topic": "Target closure and credible completion paths",
+      "finding": "accepted real custom ELF identity/zero closure and unchanged source rechecked; concrete M2/M3/M4/M5 surface/input/semantic/resource/behavior obligations recorded"
+    },
+    {
+      "criterion": 3,
+      "status": "passed",
+      "topic": "Applicable terms resolved for chosen configuration",
+      "finding": "28 exact upstream packages with selected license alternatives and notices; six unchanged OFL fonts and Unicode notices. Slint unselected with unresolved suitability; release/handling clearance remains false"
+    },
+    {
+      "criterion": 4,
+      "status": "passed",
+      "topic": "Specs, ADR and inventory agree",
+      "finding": "UI/render/action/surface specs, Proposed ADRs, dependency and notice inventories and P2-10/P2-11 handoffs updated together"
+    },
+    {
+      "criterion": 5,
+      "status": "passed",
+      "topic": "One production direction and explicit next story",
+      "finding": "Slint source/fixture/preview freeze pinned for comparison/test; P2-10 next, with no silent transfer of M2 behaviors to later guest milestones"
+    }
+  ],
+  "validation": {
+    "fresh_prerequisite_commands": 10,
+    "upstream_manifest_members_verified": 120,
+    "negative_selection_cases_rejected": 22,
+    "fonts_verified": 6,
+    "active_target_packages": 32,
+    "third_party_target_packages": 28,
+    "contract_positive": 9,
+    "contract_negative": 16,
+    "final_required_audits": [
+      "node audit/check-docs.cjs",
+      "node audit/check-governance.cjs",
+      "node audit/check-repository-hygiene.cjs"
+    ],
+    "audit_reports": "build/m2/P2-09/validation/ and work/; final exit status required before reporting completion"
+  },
+  "selected_path": "custom-ui/text-core/editor-model 0.1.0 CPU renderer; exact legal/ui-selection.json",
+  "selection_sha256": "5a574b458848db5e531d3ad803a460689d1c9811a9c05219f12bdd40fdc75a22",
+  "m2_complete": false,
+  "guest_confirmed": false,
+  "distribution_cleared": false,
+  "adr_status": "Proposed",
+  "next_story": "P2-10",
+  "limits": [
+    "No new UI rendering, runtime benchmark, ISO build/boot, guest UI or reload",
+    "Custom frame misses retained; no R09/256 MiB target acceptance or promised damage/cache speedup",
+    "Resource parser/native-window continuity and active behavior routing remain future implementation gates",
+    "Permissive input-term suitability is scoped engineering self-review; no release/legal certification or publication permission",
+    "Source changes and compact evidence local, staged, uncommitted; no push, PR, vendor contact or Jira creation"
+  ]
+}

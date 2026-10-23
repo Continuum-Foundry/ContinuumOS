@@ -26,6 +26,14 @@ locked; missing inputs must be supplied explicitly. Review changes and repeat th
 governance audit. Do not rewrite historical evidence to make its source hashes
 match a later policy change. Existing build identities refer to their recorded inputs.
 
+[ui-selection.json](ui-selection.json) records P2-09's provisional custom UI
+configuration, complete active target package/license choices and exact notices,
+font/fixture/source pins and frozen Slint prototype. The
+[decision review](../docs/05-delivery/phase-2/ui-selection-review.md) explains scoped
+OS/app/SDK suitability and delivery obligations. This complements the broader
+candidate inventory; `distribution_cleared` remains false. Neither this choice
+nor preserved comparison binaries authorize publication or resolve Slint terms.
+
 First-party Cargo packages use `license-file`, not a permissive SPDX identifier,
 and remain non-publishable. This records the actual reservation instead of
 mislabeling proprietary code as MIT or Apache. Actual artifact notice packaging,

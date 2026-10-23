@@ -1,9 +1,13 @@
 # P2-09 — Record the provisional UI toolkit and integration decision
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Codex local implementation/self-review.
 Depends on: P2-08 Done. Suggested labels: `phase-2`, `decision`, `ui-toolkit`.
 Backlog: B36 decision, B07 direction. Requirements: R08/R09/R15/R18; R04/R19 design.
 Test families: T13 review of hosted T02/T05/T07/T09/T10 evidence.
+
+Current review: [provisional custom Rust selection](ui-selection-review.md), with
+exact [configuration and license choices](../../../legal/ui-selection.json).
+P2-10 is the next bounded implementation story; ADRs remain Proposed.
 
 ## User story
 
@@ -32,15 +36,15 @@ so subsequent work finishes a coherent core rather than maintaining two toolkits
 
 ## Acceptance criteria
 
-- [ ] A recorded review names one provisional path with exact versions/features and
+- [x] A recorded review names one provisional path with exact versions/features and
   evidence-backed tradeoffs across every comparison axis.
-- [ ] Chosen target symbol closure, required scripts/semantics/effects and reload
+- [x] Chosen target symbol closure, required scripts/semantics/effects and reload
   completion paths are credible; a failed mandatory criterion blocks the decision.
-- [ ] Intended distribution terms and notices are resolved for commitment, with
+- [x] Intended distribution terms and notices are resolved for commitment, with
   unresolved rights questions explicitly blocking adoption where applicable.
-- [ ] Specs/ADR rationale, dependency inventory and completion checklist agree;
+- [x] Specs/ADR rationale, dependency inventory and completion checklist agree;
   architectural acceptance and M4 guest confirmation are not falsely marked complete.
-- [ ] Neither two full production toolkits nor a changed core requirement is implied;
+- [x] Neither two full production toolkits nor a changed core requirement is implied;
   the next bounded implementation story and any blockers are explicit.
 
 ## Tests and evidence

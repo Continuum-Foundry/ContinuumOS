@@ -71,7 +71,11 @@ remain later gates. P2-06
 matrix, 29 shared/adapter boundary checks, native primitive/API probes and Windows
 replay. Shared text Images pass; native Text setup, rich effects, rounded ancestor
 clips, launcher opacity, fractional blending and native semantics remain gaps.
-P2-09–P2-13 remain plans; P2-07/P2-08 evidence is described below.
+P2-09 records the [provisional custom Rust selection](phase-2/ui-selection-review.md)
+under T13 review: target closure, all comparison axes, exact licenses/notices,
+source ownership, Slint freeze and required P2-10–P2-13 completion cases. No
+new render/measurement/guest result follows. P2-10–P2-13 remain plans;
+P2-07/P2-08 evidence is described below.
 Hosted R04/R08/R09/R15 and R19 design remain distinct from full
 guest/product requirements, M3 isolation, M4 guest resources and M5 behavior transfer.
 
@@ -93,8 +97,9 @@ traffic, observer idle CPU and process peaks remain separate from guest metrics.
 Both candidates miss frame budgets; Slint retains shown components and exceeds
 1 GiB of host commit. Those are findings, not performance acceptance. Native
 clock/caret/drag/assistive workloads, file-driven resource publication and active
-behavior routing remain unsupported here. Selection and final hosted acceptance
-remain P2-09–P2-13; guest gates remain M3–M5.
+behavior routing remain unsupported here. P2-09 now records the provisional
+selection; final hosted completion/acceptance remains P2-10–P2-13 and guest gates
+remain M3–M5.
 
 [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
 pass version/capability/hash checks and rejection tests; this adds no ISO boot result.

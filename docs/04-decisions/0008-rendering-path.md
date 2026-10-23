@@ -22,6 +22,13 @@ no host result passes the guest budget or changes this Proposed status.
 
 ## Context and decision
 
+P2-09 now [provisionally selects the custom CPU path](../05-delivery/phase-2/ui-selection-review.md)
+with exact source/asset/license pins and M3/M4 surface/input/semantic integration
+obligations. Full damage, expensive raster and frame misses are retained findings;
+P2-10/P2-12 must complete invalidation, bounded caches, correct incremental damage
+and remeasurement. No acceleration, guest budget or final rendering gate passes
+by this decision; status remains Proposed.
+
 We need beautiful UI without pretending a new kernel already has a GPU stack.
 Share a retained scene/UI engine between a hosted preview and guest software
 presentation. Add damage tracking, bounded caches, pacing and clear color/alpha

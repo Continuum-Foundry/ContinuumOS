@@ -130,8 +130,18 @@ beyond 1 GiB. This is a current adapter defect, not an intrinsic toolkit footpri
 Fidelity/native-text/semantic/rights gaps remain explicit. The preliminary unpaced
 warm-up is preserved separately; the accepted run uses 50 identical paced frames.
 No resource loader/native-window continuity, active helper route, guest UI/reload,
-selected toolkit or completed efficiency target follows. P2-09 is next;
-P2-09–P2-13 remain Not started. They do not authorize remote Jira creation.
+selected toolkit or completed efficiency target follows from P2-08 alone.
+P2-09 now records the [provisional custom Rust decision](phase-2/ui-selection-review.md)
+and [exact selection/terms/freeze](../../legal/ui-selection.json), with all
+eight axes, mandatory criteria and a bounded M2 completion list. Custom is not
+selected for speed: measured frame misses remain material. Slint is frozen
+comparison/test material; its OS/API terms remain unresolved. Chosen permissive
+license alternatives and font/Unicode notices are recorded; distribution remains
+uncleared. Next is P2-10 layout/input/semantics/motion, then P2-11 real same-window
+resource reload, P2-12 damage/cache/performance and P2-13 acceptance. None of
+those behaviors is deferred to guest work. M3 runtime and M4 guest confirmation,
+M5 behavior routing/retirement remain pending; ADRs remain Proposed.
+P2-10–P2-13 remain Not started. No remote Jira creation is authorized.
 P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).

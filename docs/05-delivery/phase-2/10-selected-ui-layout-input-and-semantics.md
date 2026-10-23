@@ -5,6 +5,10 @@ Depends on: P2-09 Done. Suggested labels: `phase-2`, `layout`, `input`, `semanti
 Backlog: M2 portions of B07/B08/B09/B37. Requirements: R08/R15/R18; R19 design.
 Test families: hosted T05/T10/T14 subset.
 
+P2-09 handoff: use the [provisional custom core and required completion list](ui-selection-review.md#required-completion-and-reconsideration)
+with the [exact selection inventory](../../../legal/ui-selection.json). Slint is
+frozen comparison material. No required M2 behavior moves to a later guest gate.
+
 ## User story
 
 As a keyboard and pointer user, I need predictable layout, focus and semantic

@@ -14,6 +14,16 @@ authority, executable callback or production action-provider implementation.
 
 ## Action descriptor
 
+P2-09's [selected custom integration](../05-delivery/phase-2/ui-selection-review.md)
+keeps editor-model as the logical state owner and typed executor; UI, shortcut,
+script and semantic adapters share that path. Resource assets carry stable IDs
+and action references, never native callbacks or authority. P2-10/P2-11 reconcile
+focus/capture/composition at coherent scene generations. Compiled helpers remain
+snapshot-restoring proposals: M3 must enforce trusted caller/session authority,
+and M5 must prove revision/epoch-fenced single-writer route transfer and old-process
+retirement before active behavior replacement. No hosted model result freezes a
+secure wire ABI or implements production capabilities.
+
 An action has provider/component ID, action ID, protocol major/minor, input/output
 schema IDs, required capability types/constraints, expected revision fields, effect
 class, cancellation semantics, idempotency policy, preview support and optional undo/

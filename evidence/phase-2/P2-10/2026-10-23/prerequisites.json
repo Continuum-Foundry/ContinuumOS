@@ -1,0 +1,131 @@
+{
+  "status": "passed",
+  "utc": "2026-10-23T22:11:44.2973951Z",
+  "commands": [
+    {
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Test-DevSigning.ps1"
+      ],
+      "program": "pwsh",
+      "elapsed_ms": 7695,
+      "name": "signing"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Test-DevCompiler.ps1"
+      ],
+      "program": "pwsh",
+      "elapsed_ms": 19451,
+      "name": "compiler"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "metadata",
+        "--locked",
+        "--offline",
+        "--format-version",
+        "1",
+        "--filter-platform",
+        "x86_64-pc-windows-msvc"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 7435,
+      "name": "host-metadata"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 30488,
+      "name": "doctor"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--json"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 5110,
+      "name": "doctor-json"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "build",
+        "--profile",
+        "feasibility"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 3871,
+      "name": "build"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m0"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 9556,
+      "name": "m0"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-M0.ps1"
+      ],
+      "program": "pwsh",
+      "elapsed_ms": 123124,
+      "name": "acceptance"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Probe-Dependencies.ps1"
+      ],
+      "program": "pwsh",
+      "elapsed_ms": 18967,
+      "name": "dependencies"
+    },
+    {
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--profile",
+        "m1",
+        "--json"
+      ],
+      "program": "cargo",
+      "elapsed_ms": 21993,
+      "name": "m1-doctor"
+    }
+  ],
+  "signing": {
+    "expires_utc": "2027-10-20T22:28:05.0000000Z",
+    "runner_config_sha256": "d43ff6a50feb13c72b3f231a920ccfc867487a73a9c9a2425f65b3f39334406c",
+    "has_private_key": true,
+    "status": "passed"
+  },
+  "offline": true,
+  "guest_boot_tested": false
+}

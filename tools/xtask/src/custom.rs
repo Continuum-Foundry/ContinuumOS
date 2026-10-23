@@ -193,6 +193,10 @@ fn event(v: &Value) -> Result<Event> {
             down: strv(&v["phase"])? == "down",
         },
         "scroll" => EventKind::Scroll(num(&v["y"])?),
+        "pointer-move" => EventKind::Move {
+            x: num(&v["x"])?,
+            y: num(&v["y"])?,
+        },
         "focus" => EventKind::Focus,
         "capture" => EventKind::Capture,
         "reset" => EventKind::Reset,
@@ -291,7 +295,7 @@ fn assert_semantics(tree: &Tree, nodes: &[Semantic], layout: &Value) -> Result<(
         "List semantic count",
     )
 }
-fn capture_at(
+pub(crate) fn capture_at(
     candidate: Candidate,
     scene: &mut Scene,
     c: &Controller,
@@ -485,8 +489,8 @@ pub(crate) fn execute_with(candidate: Candidate) -> Result<()> {
         }
         require(observations.len() == 150, "Capture matrix incomplete")?;
         let negative = negatives(candidate, &corpus, &mut engine, &run)?;
-        let text = text_cases(candidate, &mut engine, &run)?;
-        let text_nodes = text_nodes(candidate, &corpus, &mut engine, &run)?;
+        let text = text_cases(candidate, &mut engine, &run, false)?;
+        let text_nodes = text_nodes(candidate, &corpus, &mut engine, &run, false)?;
         write_json(&run.join("timings.json"), &json!(timings))?;
         write_json(&run.join("traces.json"), &json!(traces))?;
         write_json(&run.join("semantics.json"), &json!(semantics))?;
@@ -923,6 +927,7 @@ fn text_cases(
     candidate: Candidate,
     engine: &mut text_core::Engine<'_>,
     run: &Path,
+    selected: bool,
 ) -> Result<Value> {
     let corpus = load("fixtures/m2/text-v1/corpus.json")?;
     let mut rows = Vec::new();
@@ -967,6 +972,7 @@ fn text_cases(
                 scale,
             ))?;
             let factor = scale as f32 / 100.0;
+            canvas.smooth_edges = selected;
             let clip = Rect([0.0, 0.0, width as f32 / factor, height as f32 / factor]);
             canvas.fill(clip, clip, 0.0, [0, 0, 0, 255], 255);
             checked(canvas.text(
@@ -1012,6 +1018,7 @@ fn text_nodes(
     corpus: &std::collections::BTreeMap<String, Value>,
     engine: &mut text_core::Engine<'_>,
     run: &Path,
+    selected: bool,
 ) -> Result<Value> {
     let mut rows = Vec::new();
     for (index, text) in array(&corpus["corpus"]["text_cases"])?.iter().enumerate() {
@@ -1040,6 +1047,7 @@ fn text_nodes(
                     tokens(&corpus["tokens"], &corpus["variants"]["variants"][0])?,
                 ))?;
                 let mut surface = checked(Surface::new(1280, 720, 5120, 1))?;
+                scene.selected = selected;
                 let name = format!("text-node-{index}-{scale}-{target}");
                 let (capture, _) = capture_at(
                     candidate,
@@ -1056,6 +1064,20 @@ fn text_nodes(
     }
     require(rows.len() == 63, "Scene text insertion matrix")?;
     Ok(json!(rows))
+}
+
+pub(crate) fn selected_text(
+    corpus: &std::collections::BTreeMap<String, Value>,
+    engine: &mut text_core::Engine<'_>,
+    run: &Path,
+) -> Result<Value> {
+    let text = text_cases(Candidate::Custom, engine, run, true)?;
+    let nodes = text_nodes(Candidate::Custom, corpus, engine, run, true)?;
+    let value = json!({"text":text,"nodes":nodes});
+    write_json(&run.join("selected-text.json"), &value)?;
+    Ok(
+        json!({"text_cases":45,"integrated_captures":63,"manifest_sha256":hash(&fs::read(run.join("selected-text.json")).map_err(|e|e.to_string())?)}),
+    )
 }
 
 /// Host-only JSON-line adapter. Output files are fixed under this process's run,
@@ -1085,6 +1107,8 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
     ))?;
     let mut c = controller(&corpus["corpus"])?;
     let mut surface = checked(Surface::new(1280, 720, 5120, 1))?;
+    let source = scene.tree.clone();
+    let mut scale = 100u16;
     let start = Instant::now();
     let mut sequence = 0;
     let mut frames = 0;
@@ -1119,6 +1143,73 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
             break;
         }
         let result: Result<Value> = (|| {
+            let prior_modal = c.modal.clone();
+            if command["selected"] == true {
+                require(
+                    candidate == Candidate::Custom,
+                    "Selected core is custom only",
+                )?;
+                scene.selected = true;
+                checked(scene.motion.timers(
+                    true,
+                    false,
+                    false,
+                    start.elapsed().as_micros() as u64,
+                    scene.tokens.reduced_motion,
+                ))?;
+            }
+            if let Some(size) = command["resize"].as_array() {
+                require(scene.selected && size.len() == 3, "Selected resize request")?;
+                let width = u32::try_from(uint(&size[0])?).map_err(|_| "width")?;
+                let height = u32::try_from(uint(&size[1])?).map_err(|_| "height")?;
+                let new_scale = u16::try_from(uint(&size[2])?).map_err(|_| "scale")?;
+                require([100, 150, 200].contains(&new_scale), "Declared scale")?;
+                let next_surface = checked(Surface::new(
+                    width,
+                    height,
+                    width.checked_mul(4).ok_or("stride")?,
+                    1,
+                ))?;
+                let view = Rect([
+                    0.0,
+                    0.0,
+                    width as f32 * 100.0 / new_scale as f32,
+                    height as f32 * 100.0 / new_scale as f32,
+                ]);
+                let mut active = source.clone();
+                active.nodes.retain(|n| scene.tree.node(&n.id).is_ok());
+                let ids: Vec<_> = active.nodes.iter().map(|n| n.id.clone()).collect();
+                for n in &mut active.nodes {
+                    n.children.retain(|id| ids.contains(id));
+                }
+                let plan = crate::selected::reference_plan(&active, view.0[2], view.0[3])?;
+                checked(scene.arrange(&active, &plan, view))?;
+                checked(c.reconcile(&scene.tree))?;
+                surface = next_surface;
+                scale = new_scale;
+            }
+            if let Some(id) = command["modal"].as_str() {
+                checked(c.open_modal(&scene.tree, id))?;
+            }
+            if command["dismiss_modal"] == true {
+                checked(c.dismiss_modal(&scene.tree))?;
+            }
+            if let Some(t) = command["transition"].as_array() {
+                require(scene.selected && t.len() == 2, "Transition request")?;
+                let id = strv(&t[0])?;
+                let node = checked(scene.tree.node(id))?;
+                checked(scene.motion.transition(
+                    id,
+                    node.opacity,
+                    num(&t[1])?,
+                    start.elapsed().as_micros() as u64,
+                    scene.tokens.reduced_motion || c.provider.model().preferences().reduced_motion,
+                ))?;
+            }
+            if scene.selected {
+                checked(scene.tick(start.elapsed().as_micros() as u64))?;
+                scene.caret_hidden = !scene.motion.caret_visible;
+            }
             if let Some(step) = command["step"].as_u64() {
                 let step = array(&corpus["workflow"]["steps"])?
                     .get(step as usize)
@@ -1138,15 +1229,22 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                 if v["target"].is_null() {
                     v["target"] = json!(c.provider.model().session().focus);
                 }
-                if v["kind"] == "pointer" {
-                    let x = num(&v["x"])?;
-                    let y = num(&v["y"])?;
+                if v["kind"] == "pointer" || v["kind"] == "pointer-move" {
+                    let [x, y] = checked(custom_ui::layout::logical_pointer(
+                        num(&v["x"])?,
+                        num(&v["y"])?,
+                        scale,
+                    ))?;
+                    v["x"] = json!(x);
+                    v["y"] = json!(y);
                     let target = if c.capture.is_empty() {
-                        scene
-                            .tree
-                            .hit(x, y)
-                            .map(|n| n.id.clone())
-                            .unwrap_or_else(|| "desktop".into())
+                        (if scene.selected {
+                            scene.tree.hit_rounded(x, y, &scene.tokens)
+                        } else {
+                            scene.tree.hit(x, y)
+                        })
+                        .map(|n| n.id.clone())
+                        .unwrap_or_else(|| "desktop".into())
                     } else {
                         c.capture.clone()
                     };
@@ -1157,25 +1255,57 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                     EventKind::Pointer {
                         x, y, down: true, ..
                     } if e.target == "editor" => Some((x, y)),
+                    EventKind::Move { x, y } if e.target == "editor" => Some((x, y)),
                     _ => None,
                 };
-                checked(c.event(&scene.tree, e))?;
+                if scene.selected {
+                    checked(c.event_shaped(&scene.tree, e, &mut engine, &scene.tokens, scale))?;
+                } else {
+                    checked(c.event(&scene.tree, e))?;
+                }
                 if let Some((x, y)) = caret {
                     let n = checked(scene.tree.node("editor"))?;
                     let cfg = text_core::Config {
                         mono: true,
                         size: scene.tokens.editor_size,
-                        scale: 100,
-                        width: (n.rect.0[2] - 2.0 * scene.tokens.spacing) as u16,
+                        scale,
+                        width: ((n.rect.0[2] - 2.0 * scene.tokens.spacing) * scale as f32 / 100.0
+                            + 0.5) as u16,
                         ligatures: true,
                     };
                     let layout = engine
                         .layout(c.provider.model().document().text(), cfg)
                         .map_err(|e| format!("caret shape: {e:?}"))?;
-                    let line = ((y - n.rect.0[1] - 2.0).max(0.0) / (cfg.pixels() * 1.5)) as usize;
+                    let line =
+                        ((y - n.rect.0[1] - 2.0).max(0.0) / (cfg.size as f32 * 1.5)) as usize;
                     let line = line.min(layout.lines.len().saturating_sub(1));
-                    checked(c.select_at(&layout, line, x - n.rect.0[0] - scene.tokens.spacing))?;
+                    let selected_x =
+                        (x - n.rect.0[0] - scene.tokens.spacing) * scale as f32 / 100.0;
+                    if command["kind"] == "pointer-move" {
+                        checked(c.drag_select_at(&layout, line, selected_x))?;
+                    } else {
+                        checked(c.select_at(&layout, line, selected_x))?;
+                    }
                 }
+                if scene.selected {
+                    let reduced = scene.tokens.reduced_motion
+                        || c.provider.model().preferences().reduced_motion;
+                    if reduced {
+                        scene.motion.settle();
+                    }
+                    checked(scene.motion.timers(
+                        c.provider.model().session().focus == "editor",
+                        false,
+                        !c.capture.is_empty(),
+                        start.elapsed().as_micros() as u64,
+                        reduced,
+                    ))?;
+                }
+            }
+            scene.visual_caret = c.visual_caret;
+            if scene.selected && !prior_modal.is_empty() && c.modal.is_empty() {
+                checked(scene.retire(&prior_modal))?;
+                checked(c.reconcile(&scene.tree))?;
             }
             scene.dirty.layout |= c.dirty.layout;
             scene.dirty.paint |= c.dirty.paint;
@@ -1187,7 +1317,7 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                 &c,
                 &mut engine,
                 &mut surface,
-                100,
+                scale,
                 &run.join("frame.ppm"),
             )?;
             frames += 1;
@@ -1199,9 +1329,22 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                 .nth(2)
                 .map(|(i, _)| i + 1)
                 .ok_or("PPM header")?;
-            let bmp = bitmap(&raw[offset..], 1280, 720)?;
+            let bmp = bitmap(&raw[offset..], surface.width, surface.height)?;
             fs::write(run.join("frame.bmp"), bmp).map_err(|e| e.to_string())?;
-            let value = json!({"ok":true,"state":state(&c,&scene.tree),"capture":capture,"timing":timing,"frame":run.join("frame.bmp"),"frame_number":frames,"submission_copy":"RGBA to RGB capture then bottom-up BGR24 BMP; WinForms clones into owned bitmap; explicit Rust lease released after RGB copy","semantics":semantic_json(&scene.tree.semantics(c.provider.model()))});
+            let selected_semantics = if scene.selected {
+                crate::selected::snapshot_json(&checked(custom_ui::semantics::Snapshot::build(
+                    &scene.tree,
+                    c.provider.model(),
+                ))?)
+            } else {
+                Value::Null
+            };
+            let now = start.elapsed().as_micros() as u64;
+            let delay = scene
+                .motion
+                .next_deadline()
+                .map(|d| d.saturating_sub(now).div_ceil(1000).max(1));
+            let value = json!({"ok":true,"state":state(&c,&scene.tree),"capture":capture,"timing":timing,"frame":run.join("frame.bmp"),"frame_number":frames,"selected":scene.selected,"next_delay_ms":delay,"scene_revision":scene.tree.revision,"selected_semantics":selected_semantics,"submission_copy":"RGBA to RGB capture then bottom-up BGR24 BMP; WinForms clones into owned bitmap; explicit Rust lease released after RGB copy","semantics":semantic_json(&scene.tree.semantics(c.provider.model()))});
             traces.push(json!({"command":command,"frame":frames,"state":value["state"],"rgba_sha256":value["capture"]["rgba_sha256"]}));
             Ok(value)
         })();

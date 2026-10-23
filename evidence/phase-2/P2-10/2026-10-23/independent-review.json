@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "configurations": 30,
+  "semantic_snapshots": 60,
+  "authored_visual_text_cases": 21,
+  "dense_edge_checks": [
+    {
+      "id": "rounded-100",
+      "max_channel_error": 5,
+      "edge_pixels": 152,
+      "status": "passed"
+    },
+    {
+      "id": "ancestor-100",
+      "max_channel_error": 5,
+      "edge_pixels": 152,
+      "status": "passed"
+    },
+    {
+      "id": "rounded-150",
+      "max_channel_error": 7,
+      "edge_pixels": 228,
+      "status": "passed"
+    },
+    {
+      "id": "ancestor-150",
+      "max_channel_error": 7,
+      "edge_pixels": 228,
+      "status": "passed"
+    },
+    {
+      "id": "rounded-200",
+      "max_channel_error": 5,
+      "edge_pixels": 304,
+      "status": "passed"
+    },
+    {
+      "id": "ancestor-200",
+      "max_channel_error": 5,
+      "edge_pixels": 304,
+      "status": "passed"
+    }
+  ],
+  "tolerances": "unchanged edge channel <=16; exact flat/exterior pixels; 64x64 mathematical sampling"
+}

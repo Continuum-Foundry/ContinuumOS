@@ -202,3 +202,9 @@ routing and full R04/R05/R19 remain unaccepted. P2-09 now records the
 [provisional custom direction](../05-delivery/phase-2/ui-selection-review.md)
 for R08/R09/R15/R18 and R04/R19 design, with exact terms and required M2
 completion cases. No target, behavior or guest acceptance follows from selection.
+
+P2-10's [local selected-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md) adds hosted R08/R15/R18
+evidence and R19 executor parity: bounded layout/invalidation, input reconciliation,
+virtual semantics, visual grapheme affinity and motion across the declared corpus.
+Native IME/assistive support, file-driven R04 continuity, P2-12 efficiency and all
+guest/product targets remain unaccepted.

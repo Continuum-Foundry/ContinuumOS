@@ -107,6 +107,7 @@ impl Tree {
             n.rect.validate()?;
             if !valid_id(&n.id)
                 || !valid_id(&n.semantic_id)
+                || n.semantic_id.starts_with("virtual:")
                 || ids.contains(&n.id.as_str())
                 || semantics.contains(&n.semantic_id.as_str())
             {
@@ -191,6 +192,57 @@ impl Tree {
             Rect([-16384.0, -16384.0, 32768.0, 32768.0]),
         )
     }
+    /// Selected input path uses the same rounded ancestor/control geometry as paint.
+    pub fn hit_rounded(&self, x: f32, y: f32, tokens: &Tokens) -> Option<&Node> {
+        fn inside(r: Rect, radius: f32, x: f32, y: f32) -> bool {
+            if !r.contains(x, y) {
+                return false;
+            }
+            let [a, b, w, h] = r.0;
+            let radius = radius.min(w / 2.0).min(h / 2.0);
+            let cx = x.clamp(a + radius, a + w - radius);
+            let cy = y.clamp(b + radius, b + h - radius);
+            (x - cx) * (x - cx) + (y - cy) * (y - cy) <= radius * radius
+        }
+        fn walk<'a>(t: &'a Tree, id: &str, x: f32, y: f32, tokens: &Tokens) -> Option<&'a Node> {
+            let n = t.node(id).ok()?;
+            let radius = if n.focusable {
+                tokens.control_radius
+            } else {
+                tokens.radius
+            };
+            if n.clip && !inside(n.rect, radius, x, y) {
+                return None;
+            }
+            for c in n.children.iter().rev() {
+                if let Some(n) = walk(t, c, x, y, tokens) {
+                    return Some(n);
+                }
+            }
+            inside(n.rect, radius, x, y).then_some(n)
+        }
+        if !x.is_finite() || !y.is_finite() {
+            return None;
+        }
+        walk(self, &self.root, x, y, tokens)
+    }
+    pub fn descendant(&self, child: &str, ancestor: &str) -> bool {
+        let mut id = child;
+        for _ in 0..32 {
+            if id == ancestor {
+                return true;
+            }
+            match self
+                .nodes
+                .iter()
+                .find(|p| p.children.iter().any(|c| c == id))
+            {
+                Some(p) => id = &p.id,
+                None => return false,
+            }
+        }
+        false
+    }
     pub fn semantics(&self, m: &Model) -> Vec<Semantic> {
         self.preorder()
             .iter()
@@ -250,8 +302,31 @@ pub struct Scene {
     pub layout_passes: u64,
     pub paint_passes: u64,
     pub semantic_passes: u64,
+    pub measured_nodes: u64,
+    pub arranged_nodes: u64,
+    pub motion: crate::motion::Motion,
+    pub selected: bool,
+    pub visual_caret: Option<text_core::VisualCaret>,
+    pub caret_hidden: bool,
+    semantic_cache: Vec<Semantic>,
+    semantic_model_revision: u64,
 }
 impl Scene {
+    /// Shell-owned modal retirement. Removing a subtree also retires its semantics.
+    pub fn retire(&mut self, id: &str) -> Result<()> {
+        if id == self.tree.root {
+            return Err(Error::Input);
+        }
+        self.tree.node(id)?;
+        let mut next = self.tree.clone();
+        next.nodes.retain(|n| !self.tree.descendant(&n.id, id));
+        for n in &mut next.nodes {
+            n.children.retain(|c| c != id);
+        }
+        next.revision = next.revision.checked_add(1).ok_or(Error::Revision)?;
+        self.publish(next, self.tokens.clone())?;
+        Ok(())
+    }
     pub fn new(tree: Tree, tokens: Tokens) -> Result<Self> {
         tree.validate()?;
         tokens.validate()?;
@@ -262,6 +337,14 @@ impl Scene {
             layout_passes: 0,
             paint_passes: 0,
             semantic_passes: 0,
+            measured_nodes: 0,
+            arranged_nodes: 0,
+            motion: crate::motion::Motion::default(),
+            selected: false,
+            visual_caret: None,
+            caret_hidden: false,
+            semantic_cache: Vec::new(),
+            semantic_model_revision: 0,
         })
     }
     /// Full staging before publication; rejection leaves current data untouched.
@@ -284,10 +367,62 @@ impl Scene {
         for n in &tree.nodes {
             damage = damage.union(n.rect)
         }
+        let layout = self.tree.root != tree.root
+            || self.tree.nodes.len() != tree.nodes.len()
+            || tree.nodes.iter().any(|n| {
+                self.tree.node(&n.id).map_or(true, |o| {
+                    o.kind != n.kind
+                        || o.rect != n.rect
+                        || o.children != n.children
+                        || o.text != n.text
+                        || o.clip != n.clip
+                })
+            })
+            || self.tokens.spacing != tokens.spacing
+            || self.tokens.body_size != tokens.body_size
+            || self.tokens.editor_size != tokens.editor_size
+            || self.tokens.title_size != tokens.title_size;
+        let semantics = layout
+            || tree.nodes.iter().any(|n| {
+                self.tree.node(&n.id).map_or(true, |o| {
+                    o.semantic_id != n.semantic_id
+                        || o.role != n.role
+                        || o.name != n.name
+                        || o.action != n.action
+                        || o.focusable != n.focusable
+                })
+            });
+        self.motion.retain(&tree);
+        if tokens.reduced_motion {
+            self.motion.settle();
+        }
         self.tree = tree;
         self.tokens = tokens;
-        self.dirty = Dirty::ALL;
+        self.dirty.layout |= layout;
+        self.dirty.paint = true;
+        self.dirty.semantics |= semantics;
         Ok(damage.expand(24.0))
+    }
+    pub fn arrange(
+        &mut self,
+        source: &Tree,
+        plan: &crate::layout::Plan,
+        viewport: Rect,
+    ) -> Result<crate::layout::Work> {
+        let (mut tree, work) = plan.arrange(source, viewport)?;
+        if tree.nodes != self.tree.nodes {
+            tree.revision = self.tree.revision.checked_add(1).ok_or(Error::Revision)?;
+            tree.generation = self.tree.generation;
+            self.publish(tree, self.tokens.clone())?;
+        }
+        self.measured_nodes += work.measured as u64;
+        self.arranged_nodes += work.arranged as u64;
+        Ok(work)
+    }
+    pub fn tick(&mut self, now: u64) -> Result<crate::motion::Tick> {
+        let tick = self.motion.tick(now)?;
+        self.dirty.paint |= tick.paint || tick.clock || tick.drag;
+        Ok(tick)
     }
     pub fn layout(&mut self) -> bool {
         if !self.dirty.layout {
@@ -298,8 +433,15 @@ impl Scene {
         true
     }
     pub fn semantics(&mut self, m: &Model) -> Vec<Semantic> {
-        self.semantic_passes += 1;
+        if self.dirty.semantics
+            || self.semantic_model_revision != m.revision()
+            || self.semantic_cache.is_empty()
+        {
+            self.semantic_cache = self.tree.semantics(m);
+            self.semantic_model_revision = m.revision();
+            self.semantic_passes += 1;
+        }
         self.dirty.semantics = false;
-        self.tree.semantics(m)
+        self.semantic_cache.clone()
     }
 }

@@ -52,6 +52,18 @@ pub fn words(text: &str) -> Vec<Range<usize>> {
         .map(|(i, s)| i..i + s.len())
         .collect()
 }
+pub fn validate_text(text: &str) -> Result<()> {
+    if text.len() > MAX_TEXT || text.bytes().filter(|b| *b == b'\n').count() >= MAX_LINES {
+        return Err(Error::Bounds);
+    }
+    if text.chars().any(|c| {
+        (c.is_control() && c != '\n')
+            || matches!(c,'\u{2028}'|'\u{2029}'|'\u{202a}'..='\u{202e}'|'\u{2066}'..='\u{2069}')
+    }) {
+        return Err(Error::Unsupported);
+    }
+    Ok(())
+}
 
 /// Shallow SFNT bounds check before any third-party parser; not a font sanitizer.
 pub fn preflight(bytes: &[u8]) -> Result<()> {
@@ -182,6 +194,128 @@ pub struct Layout {
     pub lines: Vec<Line>,
     pub missing: Vec<Range<usize>>,
     pub shape_work: usize,
+    /// Document-wide boundaries; shaping clusters can split an Indic/emoji grapheme.
+    pub graphemes: Vec<usize>,
+}
+
+/// Visual affinity is a line/stop, because a bidi boundary can have two x positions.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct VisualCaret {
+    pub line: usize,
+    pub stop: usize,
+    pub byte: usize,
+    pub x: f32,
+}
+impl Layout {
+    pub fn visual_stops(&self, line: usize) -> Result<Vec<Caret>> {
+        let mut stops = self.lines.get(line).ok_or(Error::Bounds)?.carets.clone();
+        stops.retain(|c| self.graphemes.contains(&c.byte));
+        stops.sort_by(|a, b| a.x.total_cmp(&b.x).then(a.byte.cmp(&b.byte)));
+        stops.dedup_by(|a, b| a.byte == b.byte && (a.x - b.x).abs() < 0.001);
+        Ok(stops)
+    }
+    pub fn visual_hit(&self, line: usize, x: f32) -> Result<VisualCaret> {
+        if !x.is_finite() {
+            return Err(Error::Bounds);
+        }
+        let stops = self.visual_stops(line)?;
+        let (stop, c) = stops
+            .iter()
+            .enumerate()
+            .min_by(|(_, a), (_, b)| {
+                (a.x - x)
+                    .abs()
+                    .total_cmp(&(b.x - x).abs())
+                    .then(a.byte.cmp(&b.byte))
+            })
+            .ok_or(Error::InvalidSelection)?;
+        Ok(VisualCaret {
+            line,
+            stop,
+            byte: c.byte,
+            x: c.x,
+        })
+    }
+    pub fn visual_move(
+        &self,
+        byte: usize,
+        affinity: Option<VisualCaret>,
+        usage: u16,
+    ) -> Result<VisualCaret> {
+        let current = affinity.filter(|a| {
+            a.byte == byte
+                && self.visual_stops(a.line).is_ok_and(|s| {
+                    s.get(a.stop)
+                        .is_some_and(|c| c.byte == a.byte && c.x == a.x)
+                })
+        });
+        let current = match current {
+            Some(c) => c,
+            None => {
+                let mut found = None;
+                for line in 0..self.lines.len() {
+                    for (stop, c) in self.visual_stops(line)?.iter().enumerate() {
+                        if c.byte == byte {
+                            found = Some(VisualCaret {
+                                line,
+                                stop,
+                                byte,
+                                x: c.x,
+                            });
+                            break;
+                        }
+                    }
+                    if found.is_some() {
+                        break;
+                    }
+                }
+                found.ok_or(Error::InvalidSelection)?
+            }
+        };
+        let mut line = current.line;
+        let mut stop = current.stop;
+        let stops = self.visual_stops(line)?;
+        match usage {
+            79 => {
+                if stop + 1 < stops.len() {
+                    stop += 1;
+                } else if line + 1 < self.lines.len() {
+                    line += 1;
+                    stop = 0;
+                }
+            }
+            80 => {
+                if stop > 0 {
+                    stop -= 1;
+                } else if line > 0 {
+                    line -= 1;
+                    stop = self.visual_stops(line)?.len().saturating_sub(1);
+                }
+            }
+            81 | 82 => {
+                line = if usage == 81 {
+                    (line + 1).min(self.lines.len() - 1)
+                } else {
+                    line.saturating_sub(1)
+                };
+                return self.visual_hit(line, current.x);
+            }
+            74 => stop = 0,
+            77 => stop = stops.len().saturating_sub(1),
+            _ => return Err(Error::Unsupported),
+        }
+        let c = self
+            .visual_stops(line)?
+            .get(stop)
+            .cloned()
+            .ok_or(Error::InvalidSelection)?;
+        Ok(VisualCaret {
+            line,
+            stop,
+            byte: c.byte,
+            x: c.x,
+        })
+    }
 }
 
 /// Borrowed, immutable raw font inputs; raster faces are lazily decoded and kept outside bitmap LRU.
@@ -391,6 +525,7 @@ impl<'a> Engine<'a> {
     }
     pub fn layout(&self, text: &str, cfg: Config) -> Result<Layout> {
         cfg.validate()?;
+        validate_text(text)?;
         if text.len() > MAX_TEXT {
             return Err(Error::Bounds);
         }
@@ -405,6 +540,7 @@ impl<'a> Engine<'a> {
             lines: Vec::new(),
             missing: Vec::new(),
             shape_work: 0,
+            graphemes: boundaries(text),
         };
         for (i, g) in text.grapheme_indices(true) {
             if g != "\n" && self.font_for(g, cfg.mono).1 {

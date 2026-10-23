@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "story": "P2-10",
+  "date": "2026-10-23",
+  "reviewer": "Codex local implementation/self-review; not independent approval",
+  "source_base": "d110b7407c87d35f63e1893f8f15d00e7969b57b",
+  "local_acceptance": "build/m2/P2-10/acceptance-1792795086303",
+  "tested_inputs_unchanged": true,
+  "commands_passed": 11,
+  "prerequisite_rows_passed": 10,
+  "rust_tests": {
+    "custom_ui": 22,
+    "editor_model": 17,
+    "text_core": 3,
+    "xtask": 22,
+    "explicit_ignored_paint_failure": 1,
+    "behavior_feature_repeat": 22
+  },
+  "criteria": [
+    {
+      "criterion": 1,
+      "result": "pass",
+      "evidence": [
+        "reference-raster-manifest.json",
+        "selected-text.json",
+        "capture-manifest.json",
+        "workflow-summary.json",
+        "native-preview.json"
+      ],
+      "scope": "150 unchanged reference checkpoints / 300 workflow states; 30 selected configurations, all 45 text / 63 integrated selected captures, keyboard navigation and visible focus/state cues"
+    },
+    {
+      "criterion": 2,
+      "result": "pass",
+      "evidence": [
+        "tests-excerpt.txt",
+        "selected-result.json"
+      ],
+      "scope": "Fixed/fill/content measure/arrange, cycle/depth/finite/realization limits, separate invalidation and cached semantics, 64 MiB temporary-paint pressure rejection"
+    },
+    {
+      "criterion": 3,
+      "result": "pass",
+      "evidence": [
+        "tests-excerpt.txt",
+        "native-traces.json"
+      ],
+      "scope": "Stale geometry, moved/removed capture, modifier release, modal retirement, composition commit/cancel and queue reset policies"
+    },
+    {
+      "criterion": 4,
+      "result": "pass",
+      "evidence": [
+        "semantic-sample.json",
+        "workflow-summary.json",
+        "independent-review.json"
+      ],
+      "scope": "Hierarchy/roles/names/values/state/actions, virtual row navigation and notifications; byte-identical full model checkpoints for keyboard and semantic workflow"
+    },
+    {
+      "criterion": 5,
+      "result": "pass",
+      "evidence": [
+        "corpus-summary.json",
+        "selected-result.json",
+        "paint-failure-excerpt.txt"
+      ],
+      "scope": "Missing resources, invalid geometry and pressure preserve accepted model state and reject honestly"
+    }
+  ],
+  "edge_max_channel_error": [
+    5,
+    7,
+    5
+  ],
+  "unchanged_edge_tolerance": 16,
+  "limits": [
+    "Hosted core only; no guest execution, isolation or ISO change",
+    "No native IME, UI Automation, screen reader or full Unicode/font coverage",
+    "No file-driven reload or performance/retention acceptance; P2-11/P2-12 remain open",
+    "Full redraw, full-surface group copies and allocator-wide OOM limits remain; 64 MiB temporary bound is not process or guest accounting",
+    "Native replay injects modeled input into real presented Windows frames; automatic DPI/device-driver acceptance remains open"
+  ],
+  "next": "P2-11 actual same-native-window resource/layout reload",
+  "visual_review": "Selected standard 150 percent and high-contrast 200 percent PNGs inspected locally; original comparison design retained, with geometric focus, checked mark and list selection bar. No multilingual/accessibility expert approval."
+}

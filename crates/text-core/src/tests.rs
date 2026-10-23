@@ -69,3 +69,46 @@ fn composition_stays_outside_document_until_authorized_commit() {
     assert_eq!(provider.model().document().text(), "ae\u{301}");
     assert_eq!(composition.preedit(), "e\u{301}");
 }
+#[test]
+fn visual_navigation_preserves_bidi_affinity_and_wraps_lines() {
+    use super::*;
+    let layout = Layout {
+        lines: vec![
+            Line {
+                bytes: 0..6,
+                glyphs: vec![],
+                carets: vec![
+                    Caret { byte: 0, x: 0.0 },
+                    Caret { byte: 1, x: 10.0 },
+                    Caret { byte: 5, x: 20.0 },
+                    Caret { byte: 3, x: 30.0 },
+                    Caret { byte: 1, x: 40.0 },
+                    Caret { byte: 6, x: 50.0 },
+                ],
+                width: 50.0,
+            },
+            Line {
+                bytes: 6..7,
+                glyphs: vec![],
+                carets: vec![Caret { byte: 6, x: 0.0 }, Caret { byte: 7, x: 10.0 }],
+                width: 10.0,
+            },
+        ],
+        missing: vec![],
+        shape_work: 0,
+        graphemes: vec![0, 1, 3, 5, 6, 7],
+    };
+    let a = layout.visual_hit(0, 39.0).unwrap();
+    assert_eq!((a.byte, a.x), (1, 40.0));
+    let b = layout.visual_move(a.byte, Some(a), 80).unwrap();
+    assert_eq!((b.byte, b.x), (3, 30.0));
+    let c = layout.visual_move(b.byte, Some(b), 79).unwrap();
+    assert_eq!(c, a);
+    let end = layout.visual_move(c.byte, Some(c), 77).unwrap();
+    assert_eq!((end.byte, end.x), (6, 50.0));
+    let wrapped = layout.visual_move(end.byte, Some(end), 79).unwrap();
+    assert_eq!((wrapped.line, wrapped.byte), (1, 6));
+    let up = layout.visual_move(wrapped.byte, Some(wrapped), 82).unwrap();
+    assert_eq!((up.line, up.x), (0, 0.0));
+    assert!(layout.visual_hit(0, f32::NAN).is_err());
+}

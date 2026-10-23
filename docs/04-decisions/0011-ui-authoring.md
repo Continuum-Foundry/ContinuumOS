@@ -64,6 +64,14 @@ boundaries. P2-09 provisionally selects the custom Rust path; confirm guest
 behavior at M4. Semantic tokens, stable identity, accessibility and versioned reload
 state remain requirements whichever path wins.
 
+## P2-10 selected hosted completion — 2026-10-23
+
+The [selected-core local review](../../evidence/phase-2/P2-10/2026-10-23/README.md) accepts bounded hosted
+layout/invalidation, input/semantic policies, visual text affinity and motion with
+the unchanged corpus and tolerances. Slint remains frozen. Real file reload and
+measured optimization still require P2-11/P2-12; M2 and guest confirmation remain
+open, so this ADR stays **Proposed**.
+
 ## Alternatives
 
 Slint may reduce widget/tooling work but needs an exact no-OS platform/reload and

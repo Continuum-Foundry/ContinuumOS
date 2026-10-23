@@ -65,6 +65,14 @@ replacement remains available if interpreter-backed layout reload is impractical
 
 ## Interaction
 
+P2-10 implements the bounded selected hosted core: fixed/fill/content two-pass
+layout, explicit local/scroll transforms, revision-checked input reconciliation,
+semantic hierarchy/virtual navigation, visual grapheme affinity and interruptible
+opacity/caret scheduling. The [runbook](../05-delivery/phase-2/selected-ui-runbook.md)
+records bounds and failure policies. CPU paint still redraws the full surface;
+actual file reload and measured optimization remain P2-11/P2-12. This does not
+establish guest compositor, IME or native assistive integration.
+
 Pointer routing uses current compositor hit-test transforms. Keep physical key,
 text input, modifiers and IME composition separate. Focus/capture have explicit
 lifetime and release rules. Do not lose pointer-up/key-up during an update: finish

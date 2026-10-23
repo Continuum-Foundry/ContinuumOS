@@ -1,0 +1,37 @@
+{
+  "preserved_locally": true,
+  "findings": [
+    {
+      "run": "build/m2/P2-01/prerequisites-1792792988710",
+      "outcome": "blocked",
+      "reason": "Sandbox certificate store could not see existing signer. The outside-sandbox recheck passed all ten rows; no certificate or policy changed."
+    },
+    {
+      "run": "Initial cargo test invocation, observed tool output",
+      "outcome": "failed test fixture",
+      "reason": "Test attempted text entry in editor while toggle still owned focus. Fixture now deliberately restores editor focus; unfocused text remains rejected.",
+      "raw_availability": "Scratch log was reused by the passing rerun; exact observed failure excerpt retained in development-excerpts.txt."
+    },
+    {
+      "run": "build/m2/P2-10/run-1792793708911326600-38212",
+      "outcome": "failed",
+      "reason": "Non-grapheme visual stop. Navigation now intersects shaping stops with document-wide grapheme boundaries; authored UTF-8/Indic/emoji assertions pass."
+    },
+    {
+      "run": "build/m2/P2-10/acceptance-1792794065788",
+      "outcome": "failed independent edge review",
+      "reason": "4x4 coverage produced channel error 17 against unchanged maximum 16. Replaced by 8x8 coverage."
+    },
+    {
+      "run": "build/m2/P2-10/run-1792794419606218000-48056",
+      "outcome": "failed independent ancestor review",
+      "reason": "Fractional rectangle/ancestor coverage applied twice (60 versus oracle 77). Isolated rounded clip now applies group coverage once with conditional ancestor masks.",
+      "raw_availability": "Raw historical images and run remain local; scratch reviewer log was reused. Exact observed failure excerpt retained in development-excerpts.txt."
+    },
+    {
+      "run": "build/m2/P2-10/acceptance-1792794454104 and acceptance-1792794736418",
+      "outcome": "passed development aggregates; superseded",
+      "reason": "Implementation and harness review continued during these runs. Final guarded run hashes tested code and fixtures before/after and rejects any change; it is the acceptance source."
+    }
+  ]
+}

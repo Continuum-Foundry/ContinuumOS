@@ -43,7 +43,8 @@ for B07/B08/B36 with shared text/input/semantic adapters and explicit native
 text/effect/clip/blend and distribution-term gaps.
 P2-07/P2-08 now supply accepted final-link feasibility and hosted comparison.
 P2-09 records the [provisional custom Rust direction](phase-2/ui-selection-review.md),
-terms/freeze and remaining selected-core work. P2-10–P2-13 remain Not started;
+terms/freeze and remaining selected-core work. P2-10 now passes
+[selected hosted-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md). P2-11–P2-13 remain Not started;
 guest execution, actual hosted resource reload and efficiency acceptance stay open.
 P2-02 through P2-09 cover B36 and initial
 B07/B08/B09/B37 boundaries, candidates, target links and decision. P2-10 completes

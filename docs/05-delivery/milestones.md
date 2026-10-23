@@ -85,7 +85,8 @@ symbol audits and explicit M3/M4 hooks. P2-08's
 quality/cost/retention and direct resource/compiled-helper observations. Frame
 misses and Slint's shown-component lifetime defect remain explicit. P2-09 now
 [provisionally selects custom Rust](phase-2/ui-selection-review.md), records scoped
-license choices and freezes Slint as comparison material. P2-10–P2-13 remain Not
+license choices and freezes Slint as comparison material. P2-10 now passes
+[selected hosted layout/input/semantic/motion acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md). P2-11–P2-13 remain Not
 started; M2 completion, guest UI/reload and efficiency targets remain unaccepted.
 No Jira issue was created. P2-02 through P2-09 establish shared fixtures, candidates,
 target feasibility and the provisional decision. P2-10 through P2-13 complete

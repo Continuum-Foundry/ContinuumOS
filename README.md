@@ -120,8 +120,9 @@ conditional custom consideration while preserving frame-budget misses and Slint
 component-lifetime/fidelity gaps. P2-09 now records the
 [provisional custom Rust selection](docs/05-delivery/phase-2/ui-selection-review.md),
 exact license choices and mandatory completion work. Slint is frozen comparison
-material. P2-10–P2-13 remain Not started; M2, guest UI/reload and efficiency targets
-remain unaccepted. No Jira issue was created.
+material. P2-10 now passes [selected hosted-core acceptance](evidence/phase-2/P2-10/2026-10-23/README.md): bounded layout,
+input/semantics, visual text navigation and motion. P2-11–P2-13 remain Not started;
+M2, guest UI/reload and efficiency targets remain unaccepted. No Jira issue was created.
 
 <details>
 <summary><strong>See the hosted UI experiments</strong> — real pixels from the shared reference corpus</summary>

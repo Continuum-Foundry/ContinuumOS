@@ -73,7 +73,7 @@ is approved.
 | Interfaces | [Kernel objects and IPC](06-contracts/ipc-and-objects.md), [update format](06-contracts/update-wire-format.md), [scene protocol](06-contracts/ui-and-scene-protocol.md), [package manifest](06-contracts/package-manifest.md) |
 | Execution | [Backlog](05-delivery/backlog.md), [build and release](05-delivery/build-and-release.md), [installer preparation](05-delivery/installer-preparation.md), [validation](05-delivery/validation.md), [risks and open questions](05-delivery/risks-and-open-questions.md) |
 | Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md), [host module layout](05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout), [metadata runbook](05-delivery/phase-1/boot-metadata-runbook.md) |
-| Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-08 evidence accepted locally; P2-09–P2-13 Not started |
+| Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-09 accepted locally; custom direction provisional; P2-10–P2-13 Not started |
 | Later desktop | [Feature/release matrix](05-delivery/desktop-feature-matrix.md), [service responsibilities](06-contracts/desktop-services.md), [Windows study](01-research/windows-compatibility-feasibility.md), [browser study](01-research/browser-feasibility.md); no later P-level decomposition yet |
 
 ## Status and interpretation
@@ -122,9 +122,11 @@ with explicit shared text/input/semantic adapters and native feature failures.
 both real candidate paths with bounded probe allocation and explicit runtime
 obligations. [P2-08's hosted comparison](../evidence/phase-2/P2-08/2026-10-22/README.md)
 now records quality, frame/retention costs and direct resource/helper continuity.
-Its conditional custom recommendation preserves both candidates' frame misses,
-Slint lifetime/fidelity gaps and unresolved selection questions. P2-09's decision
-and actual guest execution remain later gates.
+Its conditional custom recommendation preserves both candidates' frame misses
+and Slint lifetime/fidelity gaps. P2-09 now records the
+[provisional custom Rust decision](05-delivery/phase-2/ui-selection-review.md),
+license choices and mandatory completion plan. M2 completion and actual guest
+execution remain later gates.
 Establish user-mode isolation and a small
 authenticated development channel before native service replacement. This parallel
 sequence describes independent workstreams, not permission to skip their dependencies.

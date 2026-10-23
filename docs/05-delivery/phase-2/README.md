@@ -34,7 +34,7 @@ local tools and evidence availability before implementation.
 | P2-06 | [Build the Slint UI candidate](06-slint-ui-candidate.md) | P2-04 | B07/B08 Slint candidate, B36 | Done |
 | P2-07 | [Close freestanding integration feasibility](07-freestanding-integration-feasibility.md) | P2-05, P2-06 | B02 follow-up, B07/B36 target hooks | Done |
 | P2-08 | [Compare quality, reload paths and hosted cost](08-comparable-ui-evaluation.md) | P2-05, P2-06, P2-07 | B36, M2 subset of B32 | Done |
-| P2-09 | [Record the provisional UI selection](09-provisional-ui-selection.md) | P2-08 | B36 decision, B07 direction | Not started |
+| P2-09 | [Record the provisional UI selection](09-provisional-ui-selection.md) | P2-08 | B36 decision, B07 direction | Done |
 | P2-10 | [Complete selected layout, input and semantics](10-selected-ui-layout-input-and-semantics.md) | P2-09 | M2 portions of B07/B08/B09/B37 | Not started |
 | P2-11 | [Publish hosted token/layout reloads](11-hosted-resource-and-layout-reload.md) | P2-10 | B10, hosted R04 | Not started |
 | P2-12 | [Measure idle, damage and reload stability](12-hosted-performance-and-reload-stability.md) | P2-11 | M2 subset of B32, B10 stability | Not started |
@@ -110,8 +110,10 @@ Slint feature/license gaps remain explicit. P2-08's
 adds 20 paired measurement blocks, independent quality/state/semantic review,
 100 direct resource publications per candidate and bounded compiled-helper cases.
 Frame-budget misses and Slint component retention remain material findings.
-Use the [comparison runbook](comparable-ui-runbook.md). P2-09–P2-13 remain Not
-started; no toolkit is selected or guest UI executed.
+Use the [comparison runbook](comparable-ui-runbook.md). P2-09 now records a
+[provisional custom Rust direction](ui-selection-review.md), exact terms/source
+ownership, frozen Slint comparison and required completion cases. P2-10–P2-13
+remain Not started; M2, guest UI and guest reload remain unaccepted.
 Each run records:
 
 - Source commit/dirty-input hashes, harness revision, compiler/profile, dependency

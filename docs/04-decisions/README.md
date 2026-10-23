@@ -27,7 +27,7 @@ Check its story review; no whole-OS or user-mode isolation gate is implied.
 | [0008](0008-rendering-path.md) | Shared CPU renderer before GPU stack | Same scenes hosted and in guest |
 | [0009](0009-persistent-generations.md) | Immutable generations, distinct mutable data | Torn-write and recovery tests |
 | [0010](0010-capability-security.md) | Least-authority handles and explicit trust model | Rights, stale-handle and escalation tests |
-| [0011](0011-ui-authoring.md) | Compare Slint and minimal custom UI | Hosted comparison, guest compile and reload confirmation |
+| [0011](0011-ui-authoring.md) | Provisional custom Rust after Slint comparison | Complete hosted core/reload; M4 guest confirmation |
 | [0012](0012-network-and-crypto.md) | Isolated stack and maintained crypto | Stack/resource/time/entropy integration |
 | [0013](0013-build-and-distribution.md) | Pinned build inputs and traceable artifacts | Two clean builds and boot evidence |
 | [0014](0014-quality-and-scope.md) | Correctness gates and measured efficiency | Gate evidence and workload baseline |

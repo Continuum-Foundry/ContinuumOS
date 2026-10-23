@@ -55,6 +55,7 @@ $report = [ordered]@{
     scope='Resolved Cargo graphs filtered for x86_64-unknown-none; includes host/candidate packages, not an artifact-level SBOM'
     first_party_rights='All rights reserved; LICENSE applies only to original material'
     distribution_cleared=$false
+    selection_record='legal/ui-selection.json'
     method='cargo metadata --locked --offline; declared upstream terms and Cargo.lock registry checksums; no independent legal or signature verification'
     lockfiles=@($locks)
     packages=@($records.GetEnumerator() | Sort-Object Name | ForEach-Object {$_.Value})

@@ -5,6 +5,10 @@ Depends on: P2-10 Done. Suggested labels: `phase-2`, `resource-reload`, `continu
 Backlog: B10, hosted R04. Requirements: R04/R08/R15/R18; early R07/R17/R19.
 Test families: hosted L0/L1 portions of T05/T07/T10/T14.
 
+P2-09 handoff: use the [provisional custom core and required completion list](ui-selection-review.md#required-completion-and-reconsideration)
+with the [exact selection inventory](../../../legal/ui-selection.json). Slint is
+frozen comparison material. No required M2 behavior moves to a later guest gate.
+
 ## User story
 
 As an OS UI developer, I need valid theme/layout edits to appear in the running

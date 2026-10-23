@@ -3,7 +3,9 @@
 These are independent compile/link experiments. Neither ELF is bootable or
 executed. They introduce no kernel dependency, heap, process loader or guest UI.
 The same `custom-ui` implementation and extracted `slint-ui` no-std AOT/text-image
-adapter are used by the hosted harness and these probes. No toolkit is selected.
+adapter are used by the hosted harness and these probes. This link experiment
+selects no toolkit; P2-09 separately records the
+[provisional custom decision](ui-selection-review.md). Neither result executes a guest UI.
 
 ```powershell
 . ./tools/Enter-Dev.ps1

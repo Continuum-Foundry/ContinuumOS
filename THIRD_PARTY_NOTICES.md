@@ -100,6 +100,17 @@ questions and all existing upstream obligations remain open. See the
 
 ## Reference material and updates
 
+P2-09 [provisionally selects the custom Rust UI](docs/05-delivery/phase-2/ui-selection-review.md).
+[ui-selection.json](legal/ui-selection.json) enumerates the 28 third-party target
+packages, exact features/checksums, selected MIT alternatives, Apache-2.0 for
+unicode-linebreak and Zlib for foldhash, plus six unchanged OFL fonts and Unicode
+notices. The exact upstream Microsoft MIT notice from rustybuzz's ms-use generator
+is now retained with its original hash; no generator code is newly incorporated.
+Existing supplemental notices are preserved. These choices resolve the scoped
+custom-toolkit terms for continued local development and intended OS/app/SDK use;
+actual artifact notice packaging and project distribution remain release gates.
+Slint is frozen comparison material with no distribution license selected.
+
 [The research catalogue](docs/01-research/sources.md) identifies upstream sources.
 Links, excerpts, license texts, and diagnostic output keep their underlying terms.
 Maintainers must investigate attribution/rights concerns through the private

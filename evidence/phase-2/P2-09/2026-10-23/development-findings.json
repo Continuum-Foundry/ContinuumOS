@@ -1,0 +1,23 @@
+{
+  "scope": "Local review tooling and notice completion; no runtime result",
+  "findings": [
+    {
+      "finding": "Review caught CRLF/LF conversion in frozen comparison text; pins now declare LF normalization, while font and upstream notice hashes remain exact bytes",
+      "resolved": true
+    },
+    {
+      "finding": "Initial sandbox Git writes denied; switch/pull and local branch creation succeeded in the approved execution context",
+      "resolved": true
+    },
+    {
+      "finding": "Selection generator initially assumed registry fields on first-party rows and an incorrect Slint harness filename; corrected before writing the retained selection",
+      "resolved": true
+    },
+    {
+      "finding": "P2-07 lists rustybuzz scripts/ms-use/COPYING but retained notices lacked the file; copied exact verified cached bytes, retained SHA-256 and provenance without incorporating generator code",
+      "resolved": true
+    }
+  ],
+  "source_scripts_local": "work/create-p2-09.py; work/update-p2-09-docs.py; work/finalize-p2-09.py",
+  "failed_os_experiment": false
+}

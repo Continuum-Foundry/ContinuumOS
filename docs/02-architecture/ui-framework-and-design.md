@@ -13,6 +13,15 @@ implemented renderer; P2-04 still owns exact font/Unicode provenance.
 
 ## Design principles
 
+P2-09 [provisionally selects custom Rust](../05-delivery/phase-2/ui-selection-review.md)
+with text-core and editor-model, CPU presentation, Rust builders and validated
+versioned token/layout assets. The [exact selection](../../legal/ui-selection.json)
+freezes Slint as comparison material. P2-10 must finish bounded measure/arrange,
+stable IDs/semantics, focus/capture/composition, visual bidi navigation and
+interruptible normal/reduced motion; P2-11 must prove actual same-window/process
+resource publication and reader retirement. These required M2 behaviors are not
+deferred to guest work. Performance and M4 guest confirmation remain open.
+
 Prioritize clear hierarchy, precise typography, coherent spacing, immediate feedback,
 predictable window behavior and excellent keyboard use. Richness comes from quality
 and consistency; effects are selected by purpose and measured cost. Maintain
@@ -48,9 +57,9 @@ virtualized list. Initial controls: label, button, text field, checkbox/toggle,
 slider, menu, dialog and tree/list item. Stable identity restores focus and selection
 across a compatible reload. If a focused control is removed, move focus deliberately.
 
-The custom candidate uses a Rust builder and data assets; Slint uses its supported
-frontend and a custom OS adapter. Choose by prototype evidence before broad widget
-investment. Bind domain behavior through [typed actions](actions-and-optional-ai.md)
+The provisionally selected custom core uses a Rust builder and data assets;
+Slint's frontend/OS adapter remains frozen comparison material. Finish the bounded
+M2 gates before broad widget investment. Bind domain behavior through [typed actions](actions-and-optional-ai.md)
 and stable event IDs, not native function pointers in assets. Guest compiled-code
 replacement remains available if interpreter-backed layout reload is impractical.
 

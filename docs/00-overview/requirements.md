@@ -198,4 +198,7 @@ resource publication and snapshot-restoring compiled helpers. It retains all
 misses and Slint shown-component retention are measured failures to address;
 host process memory is not the guest 256 MiB target. Native clock/caret/drag and
 assistive paths, actual resource-loader/native-window continuity, active behavior
-routing, toolkit commitment and full R04/R05/R19 remain unaccepted.
+routing and full R04/R05/R19 remain unaccepted. P2-09 now records the
+[provisional custom direction](../05-delivery/phase-2/ui-selection-review.md)
+for R08/R09/R15/R18 and R04/R19 design, with exact terms and required M2
+completion cases. No target, behavior or guest acceptance follows from selection.

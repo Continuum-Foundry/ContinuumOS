@@ -24,6 +24,15 @@ surface damage and frame pacing are explicit in mature compositor designs.
 
 ## Baseline renderer
 
+P2-09 [provisionally chooses the existing custom CPU renderer](../05-delivery/phase-2/ui-selection-review.md).
+Portable scene/paint/surface code stays in custom-ui, text in text-core, host
+presentation in xtask. M4 must adapt versioned brokered surface leases, monotonic
+frame/wait services and input/semantic dispatch; no kernel renderer or working
+guest surface is implied. P2-12 must validate partial damage against full redraw,
+including blur backgrounds, old/new bounds and translucent overlap, and bound
+cache/scratch/old+new generation memory before claiming an optimization. Existing
+frame misses do not change the targets or justify silently reducing rich mode.
+
 Implement clear/fill, rectangles/rounded rectangles, clipped images, glyph runs,
 transforms and alpha composition. Define premultiplied alpha, pixel format, stride,
 color-space conversion and blend behavior. sRGB versus linear-light choices must

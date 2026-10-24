@@ -1,0 +1,294 @@
+{
+  "guest": false,
+  "status": "passed",
+  "source_base": "b4d394fdb0173afd72240859518c3ae11a52fcab",
+  "profile": "m2-comparison",
+  "measurements": [
+    {
+      "repetition": 0,
+      "directory": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792816902462\\measure-0-off",
+      "trace": "off",
+      "reaped": true,
+      "exit_code": 0
+    },
+    {
+      "repetition": 0,
+      "directory": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792816902462\\measure-0-on",
+      "trace": "on",
+      "reaped": true,
+      "exit_code": 0
+    },
+    {
+      "repetition": 1,
+      "directory": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792816902462\\measure-1-on",
+      "trace": "on",
+      "reaped": true,
+      "exit_code": 0
+    },
+    {
+      "repetition": 1,
+      "directory": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792816902462\\measure-1-off",
+      "trace": "off",
+      "reaped": true,
+      "exit_code": 0
+    },
+    {
+      "repetition": 2,
+      "directory": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792816902462\\measure-2-off",
+      "trace": "off",
+      "reaped": true,
+      "exit_code": 0
+    },
+    {
+      "repetition": 2,
+      "directory": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792816902462\\measure-2-on",
+      "trace": "on",
+      "reaped": true,
+      "exit_code": 0
+    },
+    {
+      "repetition": 3,
+      "directory": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792816902462\\measure-3-on",
+      "trace": "on",
+      "reaped": true,
+      "exit_code": 0
+    },
+    {
+      "repetition": 3,
+      "directory": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792816902462\\measure-3-off",
+      "trace": "off",
+      "reaped": true,
+      "exit_code": 0
+    },
+    {
+      "repetition": 4,
+      "directory": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792816902462\\measure-4-off",
+      "trace": "off",
+      "reaped": true,
+      "exit_code": 0
+    },
+    {
+      "repetition": 4,
+      "directory": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792816902462\\measure-4-on",
+      "trace": "on",
+      "reaped": true,
+      "exit_code": 0
+    }
+  ],
+  "commands": [
+    {
+      "name": "format",
+      "elapsed_ms": 936,
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "program": "cargo",
+      "exit_code": 0
+    },
+    {
+      "name": "tests",
+      "elapsed_ms": 24128,
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "-p",
+        "editor-model",
+        "-p",
+        "text-core",
+        "-p",
+        "xtask"
+      ],
+      "program": "cargo",
+      "exit_code": 0
+    },
+    {
+      "name": "behavior-v2",
+      "elapsed_ms": 1874,
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "--features",
+        "behavior-v2"
+      ],
+      "program": "cargo",
+      "exit_code": 0
+    },
+    {
+      "name": "portable",
+      "elapsed_ms": 486,
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "--target",
+        "x86_64-unknown-none"
+      ],
+      "program": "cargo",
+      "exit_code": 0
+    },
+    {
+      "name": "comparison-feature-check",
+      "elapsed_ms": 2738,
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--features",
+        "slint-candidate"
+      ],
+      "program": "cargo",
+      "exit_code": 0
+    },
+    {
+      "name": "build",
+      "elapsed_ms": 70135,
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--profile",
+        "m2-comparison"
+      ],
+      "program": "cargo",
+      "exit_code": 0
+    },
+    {
+      "name": "damage",
+      "elapsed_ms": 82800,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "ui-damage"
+      ],
+      "program": "pwsh",
+      "exit_code": 0
+    },
+    {
+      "name": "stability",
+      "elapsed_ms": 198872,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "ui-stability"
+      ],
+      "program": "pwsh",
+      "exit_code": 0
+    },
+    {
+      "name": "reload",
+      "elapsed_ms": 5063,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "resource-reload"
+      ],
+      "program": "pwsh",
+      "exit_code": 0
+    },
+    {
+      "name": "corpus",
+      "elapsed_ms": 21013,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "custom-ui"
+      ],
+      "program": "pwsh",
+      "exit_code": 0
+    },
+    {
+      "name": "selected",
+      "elapsed_ms": 18745,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "${WORKSPACE}\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "selected-ui"
+      ],
+      "program": "pwsh",
+      "exit_code": 0
+    },
+    {
+      "name": "native-reload",
+      "elapsed_ms": 5458,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Preview-Custom.ps1",
+        "-ResourceReload",
+        "-Replay"
+      ],
+      "program": "pwsh",
+      "exit_code": 0
+    },
+    {
+      "name": "native-idle",
+      "elapsed_ms": 33056,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Preview-Custom.ps1",
+        "-IdleReplay"
+      ],
+      "program": "pwsh",
+      "exit_code": 0
+    }
+  ],
+  "utc": "2026-10-24T05:05:17.6743915Z",
+  "signed_executable_sha256": "8eb80d7d9d912b25a9571a0f8c7e22d3d55023f363ef10759f2b28dd5fc9ed2c",
+  "os": "Microsoft Windows NT 10.0.26300.0",
+  "cargo_lock_sha256": "13795cbc037e6ac8255da381bd02b3c6268fccb370f29bf09ff3aee24b58e1bf",
+  "outputs": {
+    "native-idle": "${WORKSPACE}\\build/m2/P2-05/host-1792817541748871200-24436",
+    "damage": "${WORKSPACE}\\build/m2/P2-12/damage-1792817207689-34480",
+    "native-reload": "${WORKSPACE}\\build/m2/P2-05/host-1792817535906086000-31748",
+    "corpus": "${WORKSPACE}\\build/m2/P2-05/run-1792817493082089400-36920",
+    "stability": "${WORKSPACE}\\build/m2/P2-12/stability-1792817288647-34132",
+    "reload": "${WORKSPACE}\\build/m2/P2-11/reload-1792817487916825300-36556",
+    "selected": "${WORKSPACE}\\build/m2/P2-10/run-1792817517174731700-37852"
+  },
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+  "compiler": [
+    "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "binary: rustc",
+    "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+    "commit-date: 2026-10-13",
+    "host: x86_64-pc-windows-msvc",
+    "release: 1.99.1",
+    "LLVM version: 23.1.1"
+  ],
+  "prerequisites": "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1792816903057"
+}

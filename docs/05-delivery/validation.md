@@ -78,7 +78,7 @@ new render/measurement/guest result follows from selection. P2-10 now passes
 [selected hosted-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md): layout/input/semantic/motion tests,
 30 selected configurations, all 45 text/63 integrated captures, full checkpoint
 parity, independent edge/semantic assertions, pressure rejection and native replay.
-P2-11 now passes [hosted T07 continuity and T05/T10/T14 publication/input checks](../../evidence/phase-2/P2-11/2026-10-23/README.md): 21 publications, 20 negatives, full checkpoints and native same-window generation 7-to-8 proof. P2-12–P2-13 remain plans;
+P2-11 now passes [hosted T07 continuity and T05/T10/T14 publication/input checks](../../evidence/phase-2/P2-11/2026-10-23/README.md): 21 publications, 20 negatives, full checkpoints and native same-window generation 7-to-8 proof. P2-12 now passes [hosted T09 damage/idle/metrics and T07 repeated-update checks](../../evidence/phase-2/P2-12/2026-10-24/README.md): 108 exact images, 300 cache probes, 3,000 frame / 6,763 process samples and 100 compatible file publications at each resolution, plus headroom and opaque-root rejection. Frame/resource-latency misses remain explicit. P2-13 remains planned;
 P2-07/P2-08 evidence is described below.
 Hosted R04/R08/R09/R15 and R19 design remain distinct from full
 guest/product requirements, M3 isolation, M4 guest resources and M5 behavior transfer.

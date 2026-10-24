@@ -1,0 +1,194 @@
+{
+  "geometry": [
+    1280,
+    720,
+    100
+  ],
+  "observations": [
+    {
+      "phase": "static",
+      "after": {
+        "worker": {
+          "peak_working_set": 63766528,
+          "cpu_ms": 578.125,
+          "pid": 24436,
+          "working_set": 58228736,
+          "handles": 83,
+          "private_commit": 54272000
+        },
+        "presenter": {
+          "peak_working_set": 154304512,
+          "cpu_ms": 4093.75,
+          "pid": 31596,
+          "working_set": 154304512,
+          "handles": 773,
+          "private_commit": 61468672
+        }
+      },
+      "elapsed_ms": 10108.5622,
+      "os_scheduler_wakes": null,
+      "observer_wakes": 91,
+      "submitted_frames": 0,
+      "window_handle": 919298,
+      "before": {
+        "worker": {
+          "peak_working_set": 63766528,
+          "cpu_ms": 578.125,
+          "pid": 24436,
+          "working_set": 58228736,
+          "handles": 83,
+          "private_commit": 54272000
+        },
+        "presenter": {
+          "peak_working_set": 154112000,
+          "cpu_ms": 2171.875,
+          "pid": 31596,
+          "working_set": 144941056,
+          "handles": 772,
+          "private_commit": 56713216
+        }
+      }
+    },
+    {
+      "phase": "caret",
+      "after": {
+        "worker": {
+          "peak_working_set": 63905792,
+          "cpu_ms": 3187.5,
+          "pid": 24436,
+          "working_set": 58368000,
+          "handles": 83,
+          "private_commit": 54272000
+        },
+        "presenter": {
+          "peak_working_set": 177700864,
+          "cpu_ms": 5828.125,
+          "pid": 31596,
+          "working_set": 164990976,
+          "handles": 762,
+          "private_commit": 71114752
+        }
+      },
+      "elapsed_ms": 10064.6519,
+      "os_scheduler_wakes": null,
+      "observer_wakes": 59,
+      "submitted_frames": 20,
+      "window_handle": 919298,
+      "before": {
+        "worker": {
+          "peak_working_set": 63840256,
+          "cpu_ms": 671.875,
+          "pid": 24436,
+          "working_set": 58302464,
+          "handles": 83,
+          "private_commit": 54272000
+        },
+        "presenter": {
+          "peak_working_set": 159989760,
+          "cpu_ms": 4171.875,
+          "pid": 31596,
+          "working_set": 150503424,
+          "handles": 765,
+          "private_commit": 58298368
+        }
+      }
+    },
+    {
+      "phase": "hidden",
+      "after": {
+        "worker": {
+          "peak_working_set": 63905792,
+          "cpu_ms": 3187.5,
+          "pid": 24436,
+          "working_set": 58368000,
+          "handles": 83,
+          "private_commit": 54272000
+        },
+        "presenter": {
+          "peak_working_set": 177700864,
+          "cpu_ms": 6031.25,
+          "pid": 31596,
+          "working_set": 165289984,
+          "handles": 762,
+          "private_commit": 71098368
+        }
+      },
+      "elapsed_ms": 5085.075,
+      "os_scheduler_wakes": null,
+      "observer_wakes": 46,
+      "submitted_frames": 0,
+      "window_handle": 919298,
+      "before": {
+        "worker": {
+          "peak_working_set": 63905792,
+          "cpu_ms": 3187.5,
+          "pid": 24436,
+          "working_set": 58368000,
+          "handles": 83,
+          "private_commit": 54272000
+        },
+        "presenter": {
+          "peak_working_set": 177700864,
+          "cpu_ms": 5875.0,
+          "pid": 31596,
+          "working_set": 165036032,
+          "handles": 762,
+          "private_commit": 71098368
+        }
+      }
+    },
+    {
+      "phase": "minimized",
+      "after": {
+        "worker": {
+          "peak_working_set": 63905792,
+          "cpu_ms": 3187.5,
+          "pid": 24436,
+          "working_set": 58322944,
+          "handles": 83,
+          "private_commit": 54181888
+        },
+        "presenter": {
+          "peak_working_set": 177700864,
+          "cpu_ms": 6265.625,
+          "pid": 31596,
+          "working_set": 172310528,
+          "handles": 896,
+          "private_commit": 72187904
+        }
+      },
+      "elapsed_ms": 5056.9548,
+      "os_scheduler_wakes": null,
+      "observer_wakes": 46,
+      "submitted_frames": 0,
+      "window_handle": 919298,
+      "before": {
+        "worker": {
+          "peak_working_set": 63905792,
+          "cpu_ms": 3187.5,
+          "pid": 24436,
+          "working_set": 58368000,
+          "handles": 83,
+          "private_commit": 54272000
+        },
+        "presenter": {
+          "peak_working_set": 177700864,
+          "cpu_ms": 6062.5,
+          "pid": 31596,
+          "working_set": 165310464,
+          "handles": 762,
+          "private_commit": 71098368
+        }
+      }
+    }
+  ],
+  "status": "passed",
+  "scanout_measured": false,
+  "accessibility_timer": "none",
+  "deadline_timer_ms": 1000,
+  "clock_timer": "none in native adapter; separately measured in Rust RAM scheduler",
+  "bitmap_ownership": "one disposed/replaced bitmap per submitted frame; GDI/WinForms storage charged to presenter process",
+  "caret_period_ms": 500,
+  "guest": false,
+  "resource_polling": "disabled for this idle baseline; resource mode has an additional 100ms file poll"
+}

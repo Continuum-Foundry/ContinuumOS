@@ -1,6 +1,6 @@
 # P2-12 — Measure hosted idle, damage and repeated reload stability
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Unassigned.
 Depends on: P2-11 Done. Suggested labels: `phase-2`, `performance`, `reload-stability`.
 Backlog: M2 subset of B32, B10 stability. Requirements: R09/R18; hosted R04/R08/R15.
 Test families: hosted T05/T07/T09/T10; no guest efficiency acceptance.
@@ -33,17 +33,17 @@ checks so unnecessary work and reload resource growth are caught before guest po
 
 ## Acceptance criteria
 
-- [ ] Final optimized workload results include raw samples, distributions, sample
+- [x] Final optimized workload results include raw samples, distributions, sample
   counts, build/profile identities, trace overhead and complete memory attribution.
-- [ ] Static content has no perpetual repaint/busy loop; declared clock/caret timers
+- [x] Static content has no perpetual repaint/busy loop; declared clock/caret timers
   and their measured idle costs remain in the report.
-- [ ] Incremental and full redraw agree within predeclared tolerances across damage
+- [x] Incremental and full redraw agree within predeclared tolerances across damage
   fixtures; effect/occlusion/cache invalidation never exposes stale pixels.
-- [ ] At least 100 consecutive compatible reloads preserve required state with no
+- [x] At least 100 consecutive compatible reloads preserve required state with no
   unexplained monotonic resource growth after quiescence under the fixed tolerance.
-- [ ] Headroom rejection preserves the active generation, and reload peaks/latency
+- [x] Headroom rejection preserves the active generation, and reload peaks/latency
   are measured honestly; target misses have causes and bounded follow-up issues.
-- [ ] Hosted limits and estimated guest costs are separate; neither VM RAM capacity
+- [x] Hosted limits and estimated guest costs are separate; neither VM RAM capacity
   nor host process footprint is reported as meeting the guest desktop budget.
 
 ## Tests and evidence
@@ -64,3 +64,19 @@ P2-13 receives final workload/damage/idle results and the 100-cycle review. Sour
 [performance](../../02-architecture/observability-and-performance.md),
 [validation](../validation.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+## Implementation review — 2026-10-24
+
+[Local acceptance](../../../evidence/phase-2/P2-12/2026-10-24/README.md) passes ten
+fresh prerequisites, 13 commands, four separate Python consumers, 108 exact
+incremental/full images, 300 layout-cache probes, 3,000 frame / 6,763 process
+samples and 100 real file publications at each resolution. Static/hidden/minimized
+pacing, cache/root bounds, checkpoint continuity and staging refusal pass. A
+translucent-root publication defect is fixed before activation and its original
+native-host failure is preserved. Use the [runbook](performance-stability-runbook.md).
+
+This accepts the hosted measurement/stability gate, not efficiency targets:
+2,899/3,000 frames exceed the elapsed frame budget and both resource p95 values
+miss 500 ms. PERF-12-01–03 bound follow-up work without reducing fidelity or
+validation. Phase timings are elapsed; aggregate process CPU is separate. M2,
+P2-13 and guest memory/render/reload acceptance remain open; ADRs stay Proposed.

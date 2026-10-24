@@ -304,8 +304,18 @@ pub(crate) fn capture_at(
     scale: u16,
     path: &Path,
 ) -> Result<(Value, Value)> {
-    #[cfg(not(feature = "slint-candidate"))]
-    let _ = candidate;
+    capture_impl(candidate, scene, c, engine, surface, scale, path, None)
+}
+fn capture_impl(
+    candidate: Candidate,
+    scene: &mut Scene,
+    c: &Controller,
+    engine: &mut text_core::Engine<'_>,
+    surface: &mut Surface,
+    scale: u16,
+    path: &Path,
+    retained: Option<&mut custom_ui::retained::Frame>,
+) -> Result<(Value, Value)> {
     let layout_clock = Instant::now();
     scene.layout();
     let layout_ns = layout_clock.elapsed().as_nanos();
@@ -319,26 +329,42 @@ pub(crate) fn capture_at(
         stride,
         scale,
     ))?;
-    #[cfg(feature = "slint-candidate")]
-    let painted = if candidate == Candidate::Slint {
-        crate::slint_candidate::paint(scene, c, engine, &mut canvas)
+    let painted = if let Some(frame) = retained {
+        frame
+            .draw(
+                scene,
+                c.provider.model(),
+                c.composition.as_ref().map(|p| p.preedit()),
+                engine,
+                scale,
+            )
+            .map(|(_, counters)| {
+                canvas.bytes.copy_from_slice(&frame.pixels);
+                counters
+            })
     } else {
-        paint::render(
+        #[cfg(feature = "slint-candidate")]
+        let result = if candidate == Candidate::Slint {
+            crate::slint_candidate::paint(scene, c, engine, &mut canvas)
+        } else {
+            paint::render(
+                scene,
+                c.provider.model(),
+                c.composition.as_ref().map(|p| p.preedit()),
+                engine,
+                &mut canvas,
+            )
+        };
+        #[cfg(not(feature = "slint-candidate"))]
+        let result = paint::render(
             scene,
             c.provider.model(),
             c.composition.as_ref().map(|p| p.preedit()),
             engine,
             &mut canvas,
-        )
+        );
+        result
     };
-    #[cfg(not(feature = "slint-candidate"))]
-    let painted = paint::render(
-        scene,
-        c.provider.model(),
-        c.composition.as_ref().map(|p| p.preedit()),
-        engine,
-        &mut canvas,
-    );
     let counters = match painted {
         Ok(c) => c,
         Err(error) => {
@@ -1108,6 +1134,7 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
     let mut c = controller(&corpus["corpus"])?;
     let mut surface = checked(Surface::new(1280, 720, 5120, 1))?;
     let mut source = scene.tree.clone();
+    let mut retained_frame = checked(custom_ui::retained::Frame::new(1280, 720))?;
     let mut resources = crate::reload::Resources::new()?;
     let mut resource_trigger = crate::reload::Trigger::default();
     let resource_file = run.join("resources.json");
@@ -1116,6 +1143,7 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
     let start = Instant::now();
     let mut sequence = 0;
     let mut frames = 0;
+    let mut suspended = false;
     let mut traces = Vec::new();
     println!(
         "{}",
@@ -1148,6 +1176,17 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
         }
         let result: Result<Value> = (|| {
             let prior_modal = c.modal.clone();
+            if let Some(visible) = command["visible"].as_bool() {
+                suspended = !visible;
+                checked(scene.motion.timers(
+                    visible && c.provider.model().session().focus == "editor",
+                    false,
+                    false,
+                    start.elapsed().as_micros() as u64,
+                    scene.tokens.reduced_motion,
+                ))?;
+                scene.dirty.paint |= visible;
+            }
             if let Some(path) = command["resource_poll"].as_str() {
                 require(
                     scene.selected && candidate == Candidate::Custom,
@@ -1213,6 +1252,7 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                 };
                 checked(scene.arrange(&active, &plan, view))?;
                 checked(c.reconcile(&scene.tree))?;
+                retained_frame = checked(custom_ui::retained::Frame::new(width, height))?;
                 surface = next_surface;
                 scale = new_scale;
             }
@@ -1372,12 +1412,18 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
             scene.dirty.paint |= c.dirty.paint;
             scene.dirty.semantics |= c.dirty.semantics;
             c.dirty = scene::Dirty::default();
+            if suspended {
+                return Ok(
+                    json!({"ok":true,"unchanged":true,"suspended":true,"next_delay_ms":null,"resources":resources.query()}),
+                );
+            }
             let frame_reader = resources.reader();
             require(
                 frame_reader.id() == scene.tree.generation,
                 "Mixed resource/frame generation",
             )?;
-            let (capture, timing) = capture_at(
+            let selected_frame = scene.selected;
+            let (capture, timing) = capture_impl(
                 candidate,
                 &mut scene,
                 &c,
@@ -1385,6 +1431,11 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                 &mut surface,
                 scale,
                 &run.join("frame.ppm"),
+                if selected_frame {
+                    Some(&mut retained_frame)
+                } else {
+                    None
+                },
             )?;
             frames += 1;
             let raw = fs::read(run.join("frame.ppm")).map_err(|e| e.to_string())?;

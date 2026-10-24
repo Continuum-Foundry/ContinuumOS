@@ -1,0 +1,109 @@
+{
+  "story": "P2-12",
+  "date": "2026-10-24",
+  "status": "passed",
+  "reviewer": "Codex local implementation/self-review; separate raw-record consumers are not independent approval",
+  "source_base": "b4d394fdb0173afd72240859518c3ae11a52fcab",
+  "artifact_sha256": "8eb80d7d9d912b25a9571a0f8c7e22d3d55023f363ef10759f2b28dd5fc9ed2c",
+  "local_run": "build/m2/P2-12/acceptance-1792816902462",
+  "tested_inputs_unchanged": true,
+  "criteria": [
+    {
+      "criterion": 1,
+      "result": "pass",
+      "evidence": [
+        "acceptance.json",
+        "tested-inputs.json",
+        "source-provenance.json",
+        "metrics.json",
+        "phases-1280.json",
+        "phases-1920.json",
+        "frames-0-off.csv",
+        "process-0-off.csv"
+      ],
+      "conclusion": "Ten fresh prerequisites, 13 commands, 3000 frames and 6763 independent process observations. Five fresh-process repetitions with paired tracing; raw samples and exact signed artifact identity retained. Phase clocks are elapsed QPC durations, aggregate CPU uses process counters; tracing deltas are noisy and not subtracted."
+    },
+    {
+      "criterion": 2,
+      "result": "pass",
+      "evidence": [
+        "native-idle.json",
+        "metrics.json"
+      ],
+      "conclusion": "Static/hidden/minimized paints are zero. Native caret submits 20 frames in 10.065 s; worker CPU delta 0 ms in quiet phases, 2515.625 ms with caret. Presenter/observer cost remains separately charged. Rust clock/caret uses actual deadlines with skipped elapsed periods; accessibility has no timer."
+    },
+    {
+      "criterion": 3,
+      "result": "pass",
+      "evidence": [
+        "damage.json",
+        "damage-review.json",
+        "corpus-pixel-review.json",
+        "selected-review.json"
+      ],
+      "conclusion": "108 incremental/full comparisons at both resolutions/all scales match exactly; 300 exact layout-key/eviction probes. Old/new bounds, translucency, clips, reorder/removal, scroll, scale, caret/preedit and changed backgrounds are covered. Rich effects, >32 contributions or >60% coverage conservatively repaint fully."
+    },
+    {
+      "criterion": 4,
+      "result": "pass",
+      "evidence": [
+        "cycles-1280x720.csv",
+        "cycles-1920x1080.csv",
+        "layout-cycles-1280x720.csv",
+        "layout-cycles-1920x1080.csv",
+        "stability-1280x720.json",
+        "stability-1920x1080.json"
+      ],
+      "conclusion": "100 measured consecutive file publications after five warm-up cycles at each resolution. Complete checkpoints match after every commit, provider remains fixed and no retired root survives settlement. Exact normalized Rust-live plateau; 704-byte one-time baseline counter Value plus four decimal build-ID bytes explain the 708-byte maximum raw increase. Process/private and cache bounds pass."
+    },
+    {
+      "criterion": 5,
+      "result": "pass with recorded target misses",
+      "evidence": [
+        "metrics.json",
+        "opacity-1280x720.json",
+        "opacity-1920x1080.json",
+        "opaque-root-before-fix.json",
+        "opaque-root-after-fix.json",
+        "resource-independent-review.json"
+      ],
+      "conclusion": "Delayed readers retain roots, fourth-root staging rejects without active-state loss and release enables retry. Old/new requested-allocation peaks and completed-build-to-RAM latency are retained separately from building. The 500 ms resource target is missed. Translucent-root rejection now precedes publication in builder and API."
+    },
+    {
+      "criterion": 6,
+      "result": "pass",
+      "evidence": [
+        "additional-memory-review.json",
+        "host-environment.json",
+        "metrics.json"
+      ],
+      "conclusion": "Six-view harness, fonts, bounded caches, observation records, native worker and presenter are accounted as hosted costs; no guest budget or scanout claim. Kernel, scheduler, isolation, drivers, services and guest compositor remain unmeasured. 256 MiB guest cold-idle target is unchanged."
+    }
+  ],
+  "performance_gate": "Hosted measurement/stability gate passes; efficiency and guest targets do not. P2-13/M2 remain open.",
+  "bounded_followups": [
+    {
+      "id": "PERF-12-01",
+      "trigger": "2899/3000 frames exceed the 16.667 ms elapsed budget",
+      "work": "Profile primitive/text/filter work; cull outside damage, reduce full-surface group copies/masks and validate any effect cache dependencies with the unchanged oracle. Retain rich/reduced quality and fixed memory caps."
+    },
+    {
+      "id": "PERF-12-02",
+      "trigger": "Resource p95 completed-build-to-RAM latency 900.691 ms at 720p and 1107.989 ms at 1080p",
+      "work": "Transfer the validated staged frame through an owned generation-tagged presentation lease instead of repainting it, then remeasure 100 cycles including delayed readers/headroom/opacity failures. Do not remove validation or debounce from the metric."
+    },
+    {
+      "id": "PERF-12-03",
+      "trigger": "Clock/caret costs consume about 9.5\u201310.4 process CPU seconds in the ten-second six-view timed phase",
+      "work": "Tighten caret/clock damage and background invalidation; native full BMP/WinForms copies require separate improvement. Preserve hidden/minimized suspension and report observer costs."
+    }
+  ],
+  "limits": [
+    "RAM consumer frame/input latency is not native display or guest timing",
+    "Elapsed render distributions do not establish per-frame thread CPU cost",
+    "Cold means fresh process; OS file cache and host load/power were not isolated",
+    "Trace-on/off deltas include host variation; no constant overhead correction is claimed",
+    "No retained blur/shadow cache, guest runtime, native IME or native assistive consumer",
+    "P2-13 must revalidate clean final selected freestanding linkage and M2 acceptance"
+  ]
+}

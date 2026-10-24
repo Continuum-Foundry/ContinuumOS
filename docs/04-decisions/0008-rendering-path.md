@@ -59,3 +59,14 @@ resource/fence/reset tests, measured workload distributions and a maintained fal
 
 Evidence: [S39](../01-research/sources.md#s39), [S43](../01-research/sources.md#s43),
 [S37](../01-research/sources.md#s37), [graphics spec](../02-architecture/graphics-and-compositor.md).
+
+## P2-12 hosted measurement update — 2026-10-24
+
+[Local acceptance](../../evidence/phase-2/P2-12/2026-10-24/README.md) now supplies
+bounded retained damage and layout caching, exact full-render parity, static and
+hidden pacing, measured timer costs and 100 real file reloads at each resolution
+with an exact normalized live-allocation plateau. It also fixes opaque-root
+validation before publication. Frame and resource-latency misses are substantial;
+PERF-12-01–03 name bounded optimization work. Host elapsed/process observations do
+not pass guest targets. P2-13 must review the final clean selected link and M2 gate;
+M4 guest confirmation remains open. This ADR remains **Proposed**.

@@ -53,6 +53,10 @@ pub struct Controller {
     pub last_action: String,
     pub actions: Vec<String>,
     pub dirty: Dirty,
+    /// Optional synchronous host phase clock; no worker or guest timer.
+    pub phase_clock: Option<fn() -> u64>,
+    pub state_ns: u64,
+    pub dispatch_ns: u64,
     sequence: u64,
     time_us: u64,
     request: u64,
@@ -84,6 +88,9 @@ impl Controller {
             last_action: String::new(),
             actions: vec![],
             dirty: Dirty::ALL,
+            phase_clock: None,
+            state_ns: 0,
+            dispatch_ns: 0,
             sequence: 0,
             time_us: 0,
             request: 0,
@@ -114,6 +121,7 @@ impl Controller {
         })
     }
     pub fn invoke(&mut self, action: Action, entry: Entry) -> Result<()> {
+        let dispatch_start = self.phase_clock.map(|clock| clock());
         if let Action::Insert(ref text) = action {
             self.admit_insert(text)?;
         }
@@ -136,10 +144,12 @@ impl Controller {
         );
         let name = action.name().to_string();
         let request = self.request(action)?;
+        let state_start = self.phase_clock.map(|clock| clock());
         Adapter::new(&mut self.provider, entry)
             .invoke(request, self.time_us, false)
             .status
             .map_err(|_| Error::Model)?;
+        let state_end = self.phase_clock.map(|clock| clock());
         self.last_action = alloc::format!("{name}@1");
         if self.actions.len() == 256 {
             self.actions.remove(0);
@@ -153,6 +163,12 @@ impl Controller {
         self.dirty.semantics = true;
         if !paint_only {
             self.dirty.layout = true
+        }
+        if let (Some(a), Some(b), Some(c)) = (dispatch_start, state_start, state_end) {
+            self.state_ns += c.saturating_sub(b);
+            self.dispatch_ns += (self.phase_clock.unwrap())()
+                .saturating_sub(a)
+                .saturating_sub(c.saturating_sub(b));
         }
         Ok(())
     }

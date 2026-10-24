@@ -1,3 +1,4 @@
+mod accounting;
 #[cfg(feature = "slint-candidate")]
 mod comparison;
 mod custom;
@@ -5,6 +6,7 @@ mod editor;
 mod elf;
 mod m1;
 mod m2;
+mod performance;
 #[cfg(test)]
 #[path = "../../../experiments/ui-link/src/arena.rs"]
 mod probe_arena;
@@ -298,6 +300,9 @@ fn run() -> Result<()> {
         ["test", "--suite", "custom-ui"] => custom::execute(),
         ["test", "--suite", "selected-ui"] => selected::execute(),
         ["test", "--suite", "resource-reload"] => reload::execute(),
+        ["test", "--suite", "ui-damage"] => performance::damage(),
+        ["test", "--suite", "ui-stability"] => performance::stability(),
+        ["ui-performance", trace, repetition, directory] => performance::measure(trace, repetition, Path::new(directory)),
         ["resource-template", path] => reload::template(Path::new(path)),
         ["resource-build", input, output] => reload::build(Path::new(input), Path::new(output)),
         ["custom-host"] => custom::host(),

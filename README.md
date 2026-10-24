@@ -121,7 +121,7 @@ component-lifetime/fidelity gaps. P2-09 now records the
 [provisional custom Rust selection](docs/05-delivery/phase-2/ui-selection-review.md),
 exact license choices and mandatory completion work. Slint is frozen comparison
 material. P2-10 now passes [selected hosted-core acceptance](evidence/phase-2/P2-10/2026-10-23/README.md): bounded layout,
-input/semantics, visual text navigation and motion. P2-11 now passes [same-window hosted resource reload](evidence/phase-2/P2-11/2026-10-23/README.md), with exact state continuity, bounded reader lifetime and failure rejection. P2-12–P2-13 remain Not started;
+input/semantics, visual text navigation and motion. P2-11 now passes [same-window hosted resource reload](evidence/phase-2/P2-11/2026-10-23/README.md), with exact state continuity, bounded reader lifetime and failure rejection. P2-12 now passes [hosted damage/idle/stability acceptance](evidence/phase-2/P2-12/2026-10-24/README.md), with exact pixel equality and 200 measured reloads; frame/resource latency misses remain explicit. P2-13 remains Not started;
 M2, guest UI/reload and efficiency targets remain unaccepted. No Jira issue was created.
 
 <details>

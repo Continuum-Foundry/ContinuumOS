@@ -10,7 +10,7 @@ object, then constructs and validates ordinary typed values.
 | `schema_version` | Exactly 1; unknown fields reject at every supported object level |
 | `build_id` | Nonempty UTF-8 string, at most 64 bytes; diagnostic identity |
 | `base_generation`, `generation` | Unsigned integers; target is base + 1, base must equal the actual active resource generation |
-| `tokens` | Complete version-1 shared tokens, target generation; seven RGBA8 colors, bounded sizes/spacing/radii, fixed existing effect and motion algorithms, three pinned font slots |
+| `tokens` | Complete version-1 shared tokens, target generation; seven RGBA8 colors with an opaque `surface` bottom layer (alpha 255), bounded sizes/spacing/radii, fixed existing effect and motion algorithms, three pinned font slots |
 | `variant` | `standard`, same palette as tokens, explicit reduced effects/motion booleans; user preferences still apply |
 | `layout` | Complete shared version-1 node object and target generation; bounded tree, explicit IDs/children/rectangles/actions/semantics; authored revision pair is consecutive, publication uses the next local scene revision |
 | `assets` | Ordered six `{name, sha256, bytes}` identities matching the actual hash-checked immutable startup fonts; no discovery, arbitrary asset paths, new fonts or image decode |
@@ -55,3 +55,9 @@ submission and builder durations are measured separately. A lost acknowledgement
 requires querying actual active identity; replaying an old base rejects without a
 second publication. No boot ID, kernel uptime, guest transport, persistence,
 security boundary or native code replacement is claimed.
+
+P2-12 tightens the existing opaque desktop invariant at validation: a translucent
+`surface` rejects in both the builder and live parser before publication. The
+completed build file, active generation, scene, checkpoint and displayed pixels
+remain intact. Other palette colors can retain alpha. This repairs a native
+post-publication failure; it adds no field or frozen ABI.

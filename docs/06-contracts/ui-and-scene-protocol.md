@@ -102,3 +102,13 @@ from screenshots and include focus/action behavior after reload.
 ## P2-11 hosted resource publication
 
 The [experimental local file contract](hosted-resource-reload.md) now has accepted hosted evidence for complete hashed token/layout/asset generations, pre-publication paint/semantic validation, unchanged document ownership and bounded old readers. Resource generation, local scene revision and model revision remain separate identities. This does not freeze a process ABI, implement the proposed guest SceneCommit codec or satisfy M4 guest continuity.
+
+## P2-12 hosted damage refinement
+
+[The retained selected path](../05-delivery/phase-2/performance-stability-runbook.md)
+now computes conservative old/new primitive/subtree bounds, merges physical regions
+and validates pixel equality against uncached full redraw. Rich backdrops,
+fragmentation and large coverage fall back fully. Text-layout keys include exact
+text and every shaping parameter within one immutable font engine; eviction drops
+owned values. Hidden/minimized native surfaces suspend animation. Internal Rust
+Frame/Damage/cache values are not a broker protocol or frozen guest ABI.

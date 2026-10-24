@@ -93,3 +93,14 @@ algorithms with fuzz/property tests; use Miri/Loom only where their supported mo
 apply. They do not validate MMIO or a complete scheduler automatically.
 [S35](../01-research/sources.md#s35), [S36](../01-research/sources.md#s36),
 [S70](../01-research/sources.md#s70), [S71](../01-research/sources.md#s71)
+
+## P2-12 hosted baseline
+
+[The final selected-core review](../../evidence/phase-2/P2-12/2026-10-24/README.md)
+records 3,000 optimized frame and 6,763 process samples, exact damage/cache oracles,
+visibility/timer costs and 100 real reloads per resolution with bounded quiescent
+resources. Phase timings are elapsed QPC durations; process CPU and requested
+Rust allocations are separate counters. Host load and paired tracing deltas remain
+visible. Frame/resource-latency targets miss; no guest efficiency result follows.
+The [runbook](../05-delivery/phase-2/performance-stability-runbook.md) defines the
+fixed protocol, scope, accounting, failure retention and bounded follow-ups.

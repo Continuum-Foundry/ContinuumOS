@@ -1,0 +1,81 @@
+{
+  "active_frames": 300,
+  "active_ms": 30000,
+  "cache_bytes_max": 1048576,
+  "cache_entries_max": 128,
+  "damage_fragments_max": 32,
+  "damage_full_coverage_percent": 60,
+  "geometry": [
+    [
+      1280,
+      720,
+      100
+    ],
+    [
+      1280,
+      720,
+      150
+    ],
+    [
+      1280,
+      720,
+      200
+    ],
+    [
+      1920,
+      1080,
+      100
+    ],
+    [
+      1920,
+      1080,
+      150
+    ],
+    [
+      1920,
+      1080,
+      200
+    ]
+  ],
+  "idle_ms": 30000,
+  "idle_schedule": "10 seconds static, 10 seconds caret 500ms plus clock 1000ms, 5 seconds hidden, 5 seconds minimized; observer every 100ms, hidden/minimized no paints",
+  "layout_cache_bytes_max": 2097152,
+  "layout_cache_entries_max": 128,
+  "limits": [
+    "RAM submission is not native display completion",
+    "shared text engine and six views are harness costs",
+    "OS scheduler wake count unavailable; observer and requested timer wakes counted separately",
+    "cold means fresh process, OS file cache not flushed",
+    "rich backdrop uses conservative full redraw",
+    "no guest memory or latency acceptance"
+  ],
+  "pixel_tolerance": 0,
+  "private_commit_growth_tolerance_bytes": 4194304,
+  "process_timeout_ms": 180000,
+  "profile": "m2-comparison",
+  "reload_cycles": 100,
+  "repetitions": 5,
+  "retired_generations_after_settle": 0,
+  "rust_live_growth_tolerance_bytes": 65536,
+  "sample_ms": 100,
+  "sampling": "independent process observer; actual timestamps and missed slots retained; no catch-up replay; active duration may overrun with all 300 requested frames preserved",
+  "schedule": "n%6 geometry, floor(n/6)%6 workload, floor(n/36)%2 effects; 100-ms absolute slots; no dropped frames; late/overrun retained",
+  "schema_version": 3,
+  "seed": 20261020,
+  "settle_ms": 100,
+  "trace_modes": [
+    "off",
+    "on"
+  ],
+  "warmup_frames": 50,
+  "warmup_ms": 5000,
+  "working_set_growth_tolerance_bytes": 8388608,
+  "workloads": [
+    "focus",
+    "complex-script-type-search",
+    "10000-row-scroll",
+    "move-resize-overlap",
+    "effects-and-motion",
+    "token-layout-publication"
+  ]
+}

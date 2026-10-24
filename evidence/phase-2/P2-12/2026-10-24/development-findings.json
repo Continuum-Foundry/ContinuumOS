@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-24",
+  "status": "resolved within P2-12; performance misses remain explicit",
+  "records": [
+    {
+      "finding": "Sandbox certificate view lacks existing developer key",
+      "local_evidence": "build/m2/P2-01/prerequisites-1792813961711",
+      "resolution": "Reused the enrolled account for authorized checks; no key export, new certificate, enrollment or policy change."
+    },
+    {
+      "finding": "Prerequisite process overlapped an incomplete source edit",
+      "local_evidence": "build/m2/P2-01/prerequisites-1792813984462",
+      "resolution": "Retained failed compile logs; final run reran all ten prerequisites against coherent frozen code."
+    },
+    {
+      "finding": "Protocol-1 idle observer replayed overdue slots under load",
+      "local_evidence": "build/m2/P2-12/development-measure-v4",
+      "observed_idle_ns": 125470006600,
+      "resolution": "Protocol 2 introduced independent process sampling and elapsed-time timer scheduling. Prior data excluded from acceptance."
+    },
+    {
+      "finding": "Translucent desktop root published before native-host opacity rejection",
+      "local_evidence": "build/m2/P2-12/opaque-root-reproduction",
+      "retained": "opaque-root-before-fix.json",
+      "before_generation": 7,
+      "incorrect_active_generation": 8,
+      "resolution": "Added opaque-bottom-layer validation before generation construction; unit alpha 0/128/254 and builder/API negatives at both resolutions; native host remains on 7 and accepts continued editing. See opaque-root-after-fix.json."
+    },
+    {
+      "finding": "Superseded protocol-2 measurement run",
+      "local_evidence": "build/m2/P2-12/acceptance-1792815270641",
+      "completed_measurement_blocks": 9,
+      "resolution": "Stopped the exact owned tenth worker after confirming the opacity defect; retained logs and completed samples. Final protocol-3 run reran prerequisites, all commands and all ten measurement blocks."
+    }
+  ],
+  "final_local_run": "build/m2/P2-12/acceptance-1792816902462",
+  "source_and_dependency_policy": "No dependency pins, frozen Slint inputs, kernel/ISO source, signing enrollment or host policy changed; no remote transfer."
+}

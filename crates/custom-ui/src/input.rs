@@ -40,6 +40,7 @@ pub struct Event {
     pub target: String,
     pub kind: EventKind,
 }
+#[derive(Clone)]
 pub struct Controller {
     pub provider: Provider,
     pub capture: String,

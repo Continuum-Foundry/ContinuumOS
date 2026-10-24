@@ -1,6 +1,6 @@
 # P2-11 — Publish hosted token and layout reloads without losing state
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Unassigned.
 Depends on: P2-10 Done. Suggested labels: `phase-2`, `resource-reload`, `continuity`.
 Backlog: B10, hosted R04. Requirements: R04/R08/R15/R18; early R07/R17/R19.
 Test families: hosted L0/L1 portions of T05/T07/T10/T14.
@@ -40,17 +40,17 @@ hosted preview while my unsaved document, selection, focus and window survive.
 
 ## Acceptance criteria
 
-- [ ] Visible token and supported structural layout changes occur in the same running
+- [x] Visible token and supported structural layout changes occur in the same running
   host process, with monotonic host time and independent process-lifecycle evidence.
-- [ ] Before/after state assertions prove unsaved text, revision, selection, undo,
+- [x] Before/after state assertions prove unsaved text, revision, selection, undo,
   scroll, dirty state, compatible focus and window geometry remain correct.
-- [ ] Invalid/unknown/stale/oversized content, missing assets and failed builds leave
+- [x] Invalid/unknown/stale/oversized content, missing assets and failed builds leave
   the previous complete generation visible and editable with a precise error.
-- [ ] Reload during typing, drag/capture and composition follows the declared policy;
+- [x] Reload during typing, drag/capture and composition follows the declared policy;
   removed IDs and queue overflow cannot leave stuck modifiers/capture or lost edits.
-- [ ] Frame/semantic publication and resource retirement obey ownership and headroom
+- [x] Frame/semantic publication and resource retirement obey ownership and headroom
   rules; no in-use resource is freed and no unbounded old-generation list remains.
-- [ ] Trace and UI status identify actual generations/outcomes and ephemeral hosted
+- [x] Trace and UI status identify actual generations/outcomes and ephemeral hosted
   scope; kernel boot/uptime, guest transport and native code replacement are not claimed.
 
 ## Tests and evidence
@@ -71,3 +71,6 @@ updates, negative fixtures, resource accounting and continuity assertions. Sourc
 [live-update classes](../../03-live-update/model-and-guarantees.md#supported-classes),
 [surface resources](../../06-contracts/ui-and-scene-protocol.md#resources).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+Implementation: see the [hosted resource reload runbook](resource-reload-runbook.md).
+All criteria pass [local acceptance/self-review](../../../evidence/phase-2/P2-11/2026-10-23/README.md): ten prerequisites, nine guarded commands, 21 publications, 20 negative cases and real same-window generation 7-to-8 continuity. P2-12 performance/stability and P2-13 remain pending.

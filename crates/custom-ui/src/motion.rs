@@ -18,7 +18,7 @@ impl Transition {
         self.from + (self.to - self.from) * t
     }
 }
-#[derive(Default)]
+#[derive(Clone, Default)]
 pub struct Motion {
     transitions: Vec<Transition>,
     now: u64,
@@ -34,6 +34,10 @@ pub struct Tick {
     pub drag: bool,
 }
 impl Motion {
+    /// Scheduler clock domain retained across a hosted resource publication.
+    pub fn now(&self) -> u64 {
+        self.now
+    }
     pub fn opacity(&self, id: &str, base: f32) -> f32 {
         self.transitions
             .iter()

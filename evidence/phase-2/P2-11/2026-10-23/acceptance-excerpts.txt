@@ -1,0 +1,29 @@
+tests:
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.37s
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 25 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 13.46s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+behavior-v2:
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.85s
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+portable:
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.74s
+reload:
+{"build_id":"reload-8","build_ns":30856800,"completed_sha256":"81aa7007ffbfb5d8132a70c83e59ffce0040c0b75be97e67cfbfa6bdbf0d0fa1","digest":"81aa7007ffbfb5d8132a70c83e59ffce0040c0b75be97e67cfbfa6bdbf0d0fa1","generation":8,"outcome":"built","scope":"ephemeral-hosted","source_sha256":"b232342618d4fa13b50e20e5dbe60d56bd2075877dd6d7b3c918058ad6cac060"}
+Resource reload checks passed: ${WORKSPACE}\build/m2/P2-11/reload-1792813067445444100-14680
+native:
+Native preview evidence: ${WORKSPACE}\build/m2/P2-05/host-1792813100062927800-27764
+corpus-review:
+Independent pixel checks passed: 150 captures; PNGs: ${WORKSPACE}\build\m2\P2-05\run-1792813070494700600-28956\review
+selected-review:
+{"status": "passed", "configurations": 30, "semantic_snapshots": 60, "authored_visual_text_cases": 21, "dense_edge_checks": [{"id": "rounded-100", "max_channel_error": 5, "edge_pixels": 152, "status": "passed"}, {"id": "ancestor-100", "max_channel_error": 5, "edge_pixels": 152, "status": "passed"}, {"id": "rounded-150", "max_channel_error": 7, "edge_pixels": 228, "status": "passed"}, {"id": "ancestor-150", "max_channel_error": 7, "edge_pixels": 228, "status": "passed"}, {"id": "rounded-200", "max_channel_error": 5, "edge_pixels": 304, "status": "passed"}, {"id": "ancestor-200", "max_channel_error": 5, "edge_pixels": 304, "status": "passed"}], "tolerances": "unchanged edge channel <=16; exact flat/exterior pixels; 64x64 mathematical sampling"}
+reload-review:
+  "status": "passed",
+  "negative_cases": 20,
+  "publications": 21,
+  "native_completed_build_to_submitted_ms": 494.133,

@@ -16,6 +16,7 @@ their assertions in [m1/records.rs](../../tools/xtask/src/m1/records.rs).
 | Development updates | [Wire format](update-wire-format.md) | [Schema](schemas/update-manifest.schema.json), [synthetic fixture](examples/update-manifest.json) |
 | UI/compositor | [Scene protocol](ui-and-scene-protocol.md) | Freeze encoding after renderer/IPC experiments |
 | Hosted UI comparison | [Shared boundaries/corpus](hosted-ui-fixtures.md) | Version-1 [authored fixtures and lock](../../fixtures/m2/ui-v1/README.md); seven `hosted-*.schema.json` drafts |
+| Hosted resource reload | [Experimental version-1 file boundary](hosted-resource-reload.md) | P2-11 bounded JSON builder/parser and negative fixtures in the [runbook](../05-delivery/phase-2/resource-reload-runbook.md); no process ABI |
 | Hosted text | [Bounded pipeline and composition](hosted-text.md) | [Font/data/corpus locks](../../fixtures/m2/text-v1/README.md); no process ABI |
 | Packages/generations | [Package format](package-manifest.md) | [Schema](schemas/package-manifest.schema.json), [synthetic fixture](examples/package-manifest.json) |
 | Installation/account setup | [Installer responsibilities](../05-delivery/installer-preparation.md#service-boundary-and-draft-interfaces), [identity](../02-architecture/identity-and-authorization.md) | Draft service boundary only; M6/M7 define tested versioned encodings before freezing; no executable command or credential protocol supplied |

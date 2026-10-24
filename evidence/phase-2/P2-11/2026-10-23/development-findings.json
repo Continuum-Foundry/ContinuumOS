@@ -1,0 +1,50 @@
+{
+  "status": "resolved in final guarded run",
+  "findings": [
+    {
+      "finding": "Sandbox certificate view blocked",
+      "evidence": "build/m2/P2-01/prerequisites-1792798348926/prerequisites.json",
+      "resolution": "Use existing enrolled signer outside sandbox; no certificate/enrollment/policy modification."
+    },
+    {
+      "finding": "Prerequisite attempts overlapped incomplete development source",
+      "evidence": [
+        "build/m2/P2-01/prerequisites-1792798407393",
+        "build/m2/P2-01/prerequisites-1792812500547"
+      ],
+      "resolution": "Preserved as failed development runs; all ten fresh rows pass in prerequisites-1792812774330. Final acceptance separately guards final tested input hashes."
+    },
+    {
+      "finding": "Composition fixture targeted search; pointer fixture missed editor bounds",
+      "evidence": [
+        "work/p2-11-reload.log",
+        "work/p2-11-reload3.log"
+      ],
+      "resolution": "Corrected authored inputs to the declared editor-only composition and actual pointer geometry; did not broaden implementation policy."
+    },
+    {
+      "finding": "Narrow-width paint-negative fixture remained renderable",
+      "evidence": "work/p2-11-reload2.log",
+      "resolution": "Replaced invalid expectation with a valid deep clipped subtree that genuinely exceeds 64 MiB paint headroom; final stage rejection preserves scene/model."
+    },
+    {
+      "finding": "PowerShell optional status fields failed strict-mode native replay",
+      "evidence": "work/p2-11-native4.log",
+      "resolution": "Explicit optional property checks, surfaced event failures and required completed native proof; no silent replay pass."
+    },
+    {
+      "finding": "New template initially reused 640x360 historical layout; first viewport fix had a mutable-map compile error",
+      "evidence": [
+        "build/m2/P2-05/host-1792812465873779400-20824/native-after.png",
+        "build/m2/P2-11/acceptance-1792812773808/tests.log"
+      ],
+      "resolution": "Template now retains the selected arranged 1280x720 baseline; demo moves panel descendants coherently; final visual inspection checks actual new images."
+    },
+    {
+      "finding": "Review found resource publication discarded caret deadlines",
+      "evidence": "Source review of initial staged Scene construction",
+      "resolution": "Retain compatible transition clock, rearm caret/drag deadlines, test deadline survives publication; reduced motion settles."
+    }
+  ],
+  "raw_records": "Full original failures and images remain local under ignored build/ and work/."
+}

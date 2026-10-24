@@ -1,6 +1,7 @@
-param([switch]$Replay, [switch]$Selected, [int]$TimeoutSeconds=120, [ValidateSet("Custom","Slint")][string]$Candidate="Custom")
+param([switch]$Replay, [switch]$Selected, [switch]$ResourceReload, [string]$ResourcePath="", [int]$TimeoutSeconds=120, [ValidateSet("Custom","Slint")][string]$Candidate="Custom")
 # Host-only adapter. Pixel generation, input routing and state remain in Rust.
 $ErrorActionPreference='Stop'
+if ($ResourceReload) {$Selected=$true}
 if ($Selected -and $Candidate -ne 'Custom') {throw 'Selected behavior is custom only; Slint is frozen comparison material.'}
 $root=Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'Enter-Dev.ps1')
@@ -20,6 +21,7 @@ $stderr=$script:customProcess.StandardError.ReadToEndAsync()
 $script:customForm=$null; $script:customImage=$null; $script:customResponse=$null
 $script:customSequence=0; $script:customHighSurrogate=''; $script:customFrames=0
 $script:customAnimation=$null
+$script:customFailure=$null
 function Read-CustomResponse {
     $pending=$script:customProcess.StandardOutput.ReadLineAsync()
     if (-not $pending.Wait(30000)) {throw 'Rust host response timed out'}
@@ -31,6 +33,13 @@ function Send-Custom($command) {
     $script:customProcess.StandardInput.Flush()
     $answer=Read-CustomResponse
     if (-not $answer.ok) {throw "Rust host rejected input: $($answer.reason)"}
+    if ($ResourceReload -and $answer.resources) {
+        $status=$answer.resources.status
+        $reason=if ($status.PSObject.Properties["reason"]) {$status.reason} else {""}
+        $script:customForm.Text="ContinuumOS - ephemeral hosted L0/L1 - generation $($answer.resources.active_generation) - $($status.outcome) $reason"
+        if ($script:customResponse) {$script:customResponse.resources=$answer.resources}
+    }
+    if ($answer.PSObject.Properties["unchanged"] -and $answer.unchanged) {return}
     $script:customResponse=$answer
     $stream=[IO.MemoryStream]::new([IO.File]::ReadAllBytes($answer.frame))
     try {$temporary=[Drawing.Bitmap]::new($stream);try {$next=[Drawing.Bitmap]::new($temporary)}finally{$temporary.Dispose()}}finally{$stream.Dispose()}
@@ -85,13 +94,16 @@ try {
         $script:customAnimation.Add_Tick({$script:customAnimation.Stop();Send-Custom @{tick=$true}})
     }
     $script:customForm.Add_MouseWheel({param($sender,$e) Send-Custom @{kind='scroll';target='files-window';y=(-$e.Delta/120*72)}})
-    $script:customForm.Add_Deactivate({$script:customPressed=@();$script:customHighSurrogate='';Send-Custom @{kind='reset';target=''}})
+    $script:customForm.Add_Deactivate({if ($ResourceReload -and $Replay) {return};$script:customPressed=@();$script:customHighSurrogate='';Send-Custom @{kind='reset';target=''}})
     $timer=[Windows.Forms.Timer]::new();$timer.Interval=1000
     $script:customDeadline=[DateTime]::UtcNow.AddSeconds($TimeoutSeconds)
     $timer.Add_Tick({if ([DateTime]::UtcNow -ge $script:customDeadline) {$script:customForm.Close()}})
     $script:customForm.Add_Shown({
+        try {
         if ($Replay) {
-            if ($Selected) {
+            if ($ResourceReload) {
+                . (Join-Path $PSScriptRoot 'Replay-ResourceReload.ps1')
+            } elseif ($Selected) {
                 Send-Custom @{selected=$true;resize=@(1280,720,100)}
                 Send-Custom @{kind='text';target='editor';text='notes'}
                 $saved=$script:customResponse.state.document_sha256
@@ -117,7 +129,16 @@ try {
             }
             $script:customForm.Close()
         }else{if($Selected){Send-Custom @{selected=$true;resize=@(1280,720,100)}}else{Send-Custom @{frame=$true}}}
+        } catch { $script:customFailure=$_;$_ | Format-List * -Force | Out-String | Set-Content (Join-Path $ready.run 'native-failure.txt');$script:customForm.Close() }
     })
+    $script:resourceTimer=$null
+    if ($ResourceReload -and -not $Replay) {
+        if (-not $ResourcePath) {$ResourcePath=$ready.resource_file}
+        $script:resourceTimer=[Windows.Forms.Timer]::new();$script:resourceTimer.Interval=100
+        $script:resourceTimer.Add_Tick({Send-Custom @{resource_poll=$ResourcePath}})
+        $script:resourceTimer.Start()
+        Write-Output "Edit resource generation: $ResourcePath"
+    }
     $timer.Start()
     [Windows.Forms.Application]::Run($script:customForm)
     $timer.Stop();$timer.Dispose()
@@ -125,9 +146,12 @@ try {
     $script:customProcess.StandardInput.Flush()
     if (-not $script:customProcess.WaitForExit(10000)) {throw 'Rust host did not stop after quit'}
     if ($script:customProcess.ExitCode -ne 0) {throw ($stderr.Result)}
+    if ($script:customFailure) {throw $script:customFailure}
+    if ($ResourceReload -and $Replay -and -not (Test-Path (Join-Path $ready.run 'native-reload.json'))) {throw 'Missing completed native reload proof'}
     @{schema_version=1;candidate=$Candidate;status='passed';selected=[bool]$Selected;replay=[bool]$Replay;pid=$ready.pid;submitted_frames=$script:customFrames;host_pixel_conversion='Rust RGBA to BGR24 BMP; WinForms owned bitmap clone';dpi=$(if($Selected){'Explicit shell resize/scale; replay 100/150 percent; native automatic DPI changes unaccepted'}else{'PerMonitorV2; fixed 1280x720 physical client, scale 1; no stretch'});native_ime=$false;native_accessibility=$false;final=$script:customResponse.state} | ConvertTo-Json -Depth 8 | Set-Content (Join-Path $ready.run 'native-preview.json')
     Write-Output "Native preview evidence: $($ready.run)"
 }finally{
+    if ($script:resourceTimer) {$script:resourceTimer.Stop();$script:resourceTimer.Dispose()}
     if ($script:customAnimation) {$script:customAnimation.Stop();$script:customAnimation.Dispose()}
     if ($script:customProcess -and -not $script:customProcess.HasExited) {$script:customProcess.Kill($true);$script:customProcess.WaitForExit()}
     if ($script:customForm) {$script:customForm.BackgroundImage=$null;$script:customForm.Dispose()}

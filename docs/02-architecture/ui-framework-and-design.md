@@ -16,11 +16,11 @@ implemented renderer; P2-04 still owns exact font/Unicode provenance.
 P2-09 [provisionally selects custom Rust](../05-delivery/phase-2/ui-selection-review.md)
 with text-core and editor-model, CPU presentation, Rust builders and validated
 versioned token/layout assets. The [exact selection](../../legal/ui-selection.json)
-freezes Slint as comparison material. P2-10 must finish bounded measure/arrange,
+freezes Slint as comparison material. P2-10 now accepts bounded measure/arrange,
 stable IDs/semantics, focus/capture/composition, visual bidi navigation and
-interruptible normal/reduced motion; P2-11 must prove actual same-window/process
-resource publication and reader retirement. These required M2 behaviors are not
-deferred to guest work. Performance and M4 guest confirmation remain open.
+interruptible normal/reduced motion. P2-11 now accepts actual same-window/process
+resource publication and reader retirement. Performance/stability, final M2
+acceptance and M4 guest confirmation remain open.
 
 Prioritize clear hierarchy, precise typography, coherent spacing, immediate feedback,
 predictable window behavior and excellent keyboard use. Richness comes from quality
@@ -70,7 +70,7 @@ layout, explicit local/scroll transforms, revision-checked input reconciliation,
 semantic hierarchy/virtual navigation, visual grapheme affinity and interruptible
 opacity/caret scheduling. The [runbook](../05-delivery/phase-2/selected-ui-runbook.md)
 records bounds and failure policies. CPU paint still redraws the full surface;
-actual file reload and measured optimization remain P2-11/P2-12. This does not
+P2-11 now adds [actual bounded same-window file reload](../05-delivery/phase-2/resource-reload-runbook.md); measured optimization remains P2-12. This does not
 establish guest compositor, IME or native assistive integration.
 
 Pointer routing uses current compositor hit-test transforms. Keep physical key,

@@ -1,0 +1,165 @@
+{
+  "source_base": "625243df7969b1b03dc896c1657fad4880298308",
+  "prerequisites": "build/m2/P2-01/prerequisites-1792812774330",
+  "compiler": [
+    "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "binary: rustc",
+    "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+    "commit-date: 2026-10-13",
+    "host: x86_64-pc-windows-msvc",
+    "release: 1.99.1",
+    "LLVM version: 23.1.1"
+  ],
+  "cargo_lock_sha256": "13795cbc037e6ac8255da381bd02b3c6268fccb370f29bf09ff3aee24b58e1bf",
+  "os": "Microsoft Windows NT 10.0.26300.0",
+  "native_behavior": false,
+  "status": "passed",
+  "performance_gate": false,
+  "durable": false,
+  "profile": "m2-comparison",
+  "signed_executable_sha256": "d6747f0ddfbc34a4184c9c6f80044cfb4824ddb05073aeb93e2b90812cdb7620",
+  "utc": "2026-10-24T03:38:37.7586546Z",
+  "outputs": {
+    "selected": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m2/P2-10/run-1792813085524663900-8720",
+    "reload": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m2/P2-11/reload-1792813067445444100-14680",
+    "native": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m2/P2-05/host-1792813100062927800-27764",
+    "corpus": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m2/P2-05/run-1792813070494700600-28956"
+  },
+  "commands": [
+    {
+      "name": "format",
+      "elapsed_ms": 1078,
+      "program": "cargo",
+      "arguments": [
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "tests",
+      "elapsed_ms": 29359,
+      "program": "cargo",
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "-p",
+        "editor-model",
+        "-p",
+        "text-core",
+        "-p",
+        "xtask"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "behavior-v2",
+      "elapsed_ms": 11294,
+      "program": "cargo",
+      "arguments": [
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "--features",
+        "behavior-v2"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "portable",
+      "elapsed_ms": 2876,
+      "program": "cargo",
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "custom-ui",
+        "--target",
+        "x86_64-unknown-none"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "build",
+      "elapsed_ms": 32868,
+      "program": "cargo",
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--profile",
+        "m2-comparison"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "reload",
+      "elapsed_ms": 3564,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "resource-reload"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "corpus",
+      "elapsed_ms": 15169,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "custom-ui"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "selected",
+      "elapsed_ms": 14132,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/windows/Invoke-DevExecutable.ps1",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\cargo\\signed\\m2-comparison\\xtask.exe",
+        "test",
+        "--suite",
+        "selected-ui"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "native",
+      "elapsed_ms": 6265,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Preview-Custom.ps1",
+        "-ResourceReload",
+        "-Replay"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "cpu": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+  "guest": false
+}

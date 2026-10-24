@@ -98,3 +98,7 @@ Golden scenes include rounded clips, gradients, text, translucent overlap, scrol
 old/new window bounds, fractional scaling and missing resources. Compare software
 and accelerated paths against declared pixel tolerances. Semantic tests are separate
 from screenshots and include focus/action behavior after reload.
+
+## P2-11 hosted resource publication
+
+The [experimental local file contract](hosted-resource-reload.md) now has accepted hosted evidence for complete hashed token/layout/asset generations, pre-publication paint/semantic validation, unchanged document ownership and bounded old readers. Resource generation, local scene revision and model revision remain separate identities. This does not freeze a process ABI, implement the proposed guest SceneCommit codec or satisfy M4 guest continuity.

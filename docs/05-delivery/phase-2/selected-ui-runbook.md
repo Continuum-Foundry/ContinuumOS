@@ -125,3 +125,5 @@ composition reconciliation and reader/resource lifetimes in the same native
 window/process. P2-10's in-memory publication and native resize are not file reload.
 Keep the exact unsaved document/history/checkpoint and shell state, retain all
 rejections, and preserve the original kernel/ISO path separately.
+
+P2-11 has now completed this hosted handoff; see the [resource reload runbook](resource-reload-runbook.md) and [local acceptance](../../../evidence/phase-2/P2-11/2026-10-23/README.md). P2-12 optimization and repeated stability remain pending.

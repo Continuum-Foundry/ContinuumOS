@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "story": "P2-11",
+  "date": "2026-10-23",
+  "reviewer": "Codex local implementation/self-review; not independent approval",
+  "source_base": "625243df7969b1b03dc896c1657fad4880298308",
+  "local_acceptance": "build/m2/P2-11/acceptance-1792812988032",
+  "tested_inputs_unchanged": true,
+  "prerequisite_rows_passed": 10,
+  "acceptance_commands_passed": 9,
+  "independent_consumers": [
+    "Review-Custom.py",
+    "Review-Selected.py",
+    "Review-ResourceReload.py"
+  ],
+  "criteria": [
+    {
+      "criterion": 1,
+      "result": "pass",
+      "scope": "same-process visible token/structural publication",
+      "evidence": [
+        "native-lifecycle.json",
+        "native-before.json",
+        "native-after.json",
+        "native-before.png",
+        "native-after.png"
+      ]
+    },
+    {
+      "criterion": 2,
+      "result": "pass",
+      "scope": "exact complete model and live owner continuity",
+      "evidence": [
+        "reload-result.json",
+        "native-before.json",
+        "native-after.json",
+        "native-final.json"
+      ]
+    },
+    {
+      "criterion": 3,
+      "result": "pass",
+      "scope": "validation/build/headroom failures preserve active generation",
+      "evidence": [
+        "reload-result.json",
+        "native-partial.json",
+        "native-retry.json"
+      ]
+    },
+    {
+      "criterion": 4,
+      "result": "pass",
+      "scope": "typing, capture, composition, retirement and overflow policies",
+      "evidence": [
+        "reload-result.json",
+        "native-final.json"
+      ]
+    },
+    {
+      "criterion": 5,
+      "result": "pass",
+      "scope": "coherent frame/semantic revision and bounded reader lifetime",
+      "evidence": [
+        "reload-result.json",
+        "independent-review.json"
+      ]
+    },
+    {
+      "criterion": 6,
+      "result": "pass",
+      "scope": "actual generation status, phase clocks and explicit ephemeral scope",
+      "evidence": [
+        "native-lifecycle.json",
+        "native-after.json",
+        "reload-result.json"
+      ]
+    }
+  ],
+  "limits": [
+    "Ephemeral hosted L0/L1 only; no guest UI, kernel boot ID/uptime or transport.",
+    "No native code replacement, durable activation, native IME or native assistive consumer.",
+    "Pinned startup assets shared unchanged; no new font/image parser.",
+    "Full redraw, polling, copies and extra staged paint remain; P2-12 owns optimization, statistical latency and 100-reload stability.",
+    "No measured process-wide OOM or 256 MiB guest idle claim.",
+    "ADRs remain Proposed; M2 completion and distribution remain unaccepted."
+  ]
+}

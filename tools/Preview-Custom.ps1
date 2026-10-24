@@ -1,7 +1,7 @@
-param([switch]$Replay, [switch]$Selected, [switch]$ResourceReload, [string]$ResourcePath="", [int]$TimeoutSeconds=120, [ValidateSet("Custom","Slint")][string]$Candidate="Custom")
+param([switch]$IdleReplay, [switch]$Replay, [switch]$Selected, [switch]$ResourceReload, [string]$ResourcePath="", [int]$TimeoutSeconds=120, [ValidateSet("Custom","Slint")][string]$Candidate="Custom")
 # Host-only adapter. Pixel generation, input routing and state remain in Rust.
 $ErrorActionPreference='Stop'
-if ($ResourceReload) {$Selected=$true}
+if ($ResourceReload -or $IdleReplay) {$Selected=$true}
 if ($Selected -and $Candidate -ne 'Custom') {throw 'Selected behavior is custom only; Slint is frozen comparison material.'}
 $root=Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'Enter-Dev.ps1')
@@ -39,6 +39,7 @@ function Send-Custom($command) {
         $script:customForm.Text="ContinuumOS - ephemeral hosted L0/L1 - generation $($answer.resources.active_generation) - $($status.outcome) $reason"
         if ($script:customResponse) {$script:customResponse.resources=$answer.resources}
     }
+    if ($answer.PSObject.Properties["suspended"] -and $answer.suspended -and $script:customAnimation) {$script:customAnimation.Stop()}
     if ($answer.PSObject.Properties["unchanged"] -and $answer.unchanged) {return}
     $script:customResponse=$answer
     $stream=[IO.MemoryStream]::new([IO.File]::ReadAllBytes($answer.frame))
@@ -92,6 +93,14 @@ try {
         $script:customForm.Add_ResizeEnd({Send-Custom @{resize=@($script:customForm.ClientSize.Width,$script:customForm.ClientSize.Height,100)}})
         $script:customAnimation=[Windows.Forms.Timer]::new()
         $script:customAnimation.Add_Tick({$script:customAnimation.Stop();Send-Custom @{tick=$true}})
+        $script:customSuspended=$false
+        $visibilityHandler={
+            if (-not $script:customResponse) {return}
+            $suspended=-not $script:customForm.Visible -or $script:customForm.WindowState -eq 'Minimized'
+            if ($suspended -ne $script:customSuspended) {$script:customSuspended=$suspended;Send-Custom @{visible=(-not $suspended)}}
+        }
+        $script:customForm.Add_Resize($visibilityHandler)
+        $script:customForm.Add_VisibleChanged($visibilityHandler)
     }
     $script:customForm.Add_MouseWheel({param($sender,$e) Send-Custom @{kind='scroll';target='files-window';y=(-$e.Delta/120*72)}})
     $script:customForm.Add_Deactivate({if ($ResourceReload -and $Replay) {return};$script:customPressed=@();$script:customHighSurrogate='';Send-Custom @{kind='reset';target=''}})
@@ -100,7 +109,10 @@ try {
     $timer.Add_Tick({if ([DateTime]::UtcNow -ge $script:customDeadline) {$script:customForm.Close()}})
     $script:customForm.Add_Shown({
         try {
-        if ($Replay) {
+        if ($IdleReplay) {
+            . (Join-Path $PSScriptRoot 'Replay-HostedIdle.ps1')
+            $script:customForm.Close()
+        } elseif ($Replay) {
             if ($ResourceReload) {
                 . (Join-Path $PSScriptRoot 'Replay-ResourceReload.ps1')
             } elseif ($Selected) {

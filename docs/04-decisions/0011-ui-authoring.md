@@ -97,4 +97,15 @@ Evidence: [UI design](../02-architecture/ui-framework-and-design.md),
 
 ## P2-11 hosted resource continuity — 2026-10-23
 
-The [local resource reload review](../../evidence/phase-2/P2-11/2026-10-23/README.md) now accepts bounded file building, coherent token/topology publication and real same-window/process state continuity with explicit input/reader retirement. The selected baseline geometry survives the initial reload, and caret/transition scheduling is retained. P2-12 optimization/stability, P2-13 M2 acceptance and M4 guest confirmation remain open. This ADR remains **Proposed**.
+The [local resource reload review](../../evidence/phase-2/P2-11/2026-10-23/README.md) now accepts bounded file building, coherent token/topology publication and real same-window/process state continuity with explicit input/reader retirement. The selected baseline geometry survives the initial reload, and caret/transition scheduling is retained. At that review P2-12 optimization/stability, P2-13 M2 acceptance and M4 guest confirmation remained open; see the P2-12 update below. This ADR remains **Proposed**.
+
+## P2-12 hosted measurement update — 2026-10-24
+
+[Local acceptance](../../evidence/phase-2/P2-12/2026-10-24/README.md) now supplies
+bounded retained damage and layout caching, exact full-render parity, static and
+hidden pacing, measured timer costs and 100 real file reloads at each resolution
+with an exact normalized live-allocation plateau. It also fixes opaque-root
+validation before publication. Frame and resource-latency misses are substantial;
+PERF-12-01–03 name bounded optimization work. Host elapsed/process observations do
+not pass guest targets. P2-13 must review the final clean selected link and M2 gate;
+M4 guest confirmation remains open. This ADR remains **Proposed**.

@@ -8,6 +8,7 @@ pub mod input;
 pub mod layout;
 pub mod motion;
 pub mod paint;
+pub mod retained;
 pub mod scene;
 pub mod semantics;
 pub mod surface;

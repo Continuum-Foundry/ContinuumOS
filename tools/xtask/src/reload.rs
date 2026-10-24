@@ -391,6 +391,12 @@ impl Resources {
             "No eligible focus target",
         )?;
         let tokens = custom::tokens(t, variant)?;
+        // The hosted desktop is the opaque bottom layer. Validate this before
+        // staging/publication, rather than discovering it in native submission.
+        need(
+            tokens.colors[0][3] == 255,
+            "Hosted desktop surface must be opaque",
+        )?;
         Ok(Generation {
             id,
             digest: digest(&v),

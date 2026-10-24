@@ -52,7 +52,7 @@ impl Dirty {
         semantics: true,
     };
 }
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct Tokens {
     /// surface/panel/text/muted/accent/focus/danger, straight RGBA8.
     pub colors: [[u8; 4]; 7],

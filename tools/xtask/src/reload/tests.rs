@@ -1,4 +1,20 @@
 use super::*;
+
+#[test]
+fn desktop_opacity_is_validated_before_a_generation_can_publish() {
+    let valid = fixture().unwrap();
+    let pinned = valid["assets"].clone();
+    assert!(Resources::parse(valid.clone(), &pinned).is_ok());
+    for alpha in [0, 128, 254] {
+        let mut invalid = valid.clone();
+        invalid["tokens"]["colors"]["surface"][3] = json!(alpha);
+        invalid["variant"]["colors"]["surface"][3] = json!(alpha);
+        let result = Resources::parse(invalid, &pinned);
+        assert!(
+            matches!(result, Err(ref reason) if reason == "Hosted desktop surface must be opaque")
+        );
+    }
+}
 #[test]
 fn generation_codec_rejects_unknown_and_wrapping_numeric_fields() {
     let r = Resources::new().unwrap();

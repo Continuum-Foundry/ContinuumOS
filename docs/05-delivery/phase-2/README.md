@@ -37,7 +37,7 @@ local tools and evidence availability before implementation.
 | P2-09 | [Record the provisional UI selection](09-provisional-ui-selection.md) | P2-08 | B36 decision, B07 direction | Done |
 | P2-10 | [Complete selected layout, input and semantics](10-selected-ui-layout-input-and-semantics.md) | P2-09 | M2 portions of B07/B08/B09/B37 | Done |
 | P2-11 | [Publish hosted token/layout reloads](11-hosted-resource-and-layout-reload.md) | P2-10 | B10, hosted R04 | Done |
-| P2-12 | [Measure idle, damage and reload stability](12-hosted-performance-and-reload-stability.md) | P2-11 | M2 subset of B32, B10 stability | Not started |
+| P2-12 | [Measure idle, damage and reload stability](12-hosted-performance-and-reload-stability.md) | P2-11 | M2 subset of B32, B10 stability | Done |
 | P2-13 | [Run and review Phase 2 acceptance](13-phase-2-acceptance.md) | P2-01 through P2-12 | M2 gate, early B32 | Not started |
 
 Work in this order, accepting one bounded story at a time. P2-05/P2-06 are sibling
@@ -114,8 +114,8 @@ Use the [comparison runbook](comparable-ui-runbook.md). P2-09 now records a
 [provisional custom Rust direction](ui-selection-review.md), exact terms/source
 ownership, frozen Slint comparison and required completion cases. P2-10 now passes
 [selected hosted-core acceptance](../../../evidence/phase-2/P2-10/2026-10-23/README.md): bounded layout, input reconciliation,
-semantic hierarchy/virtual navigation, visual text affinity and motion. P2-11 now passes [hosted resource reload acceptance](../../../evidence/phase-2/P2-11/2026-10-23/README.md): bounded builder/publication, reader retirement and real same-window continuity. P2-12–P2-13
-remain Not started; M2, guest UI and guest reload remain unaccepted.
+semantic hierarchy/virtual navigation, visual text affinity and motion. P2-11 now passes [hosted resource reload acceptance](../../../evidence/phase-2/P2-11/2026-10-23/README.md): bounded builder/publication, reader retirement and real same-window continuity. P2-12 now passes [hosted damage/idle/stability acceptance](../../../evidence/phase-2/P2-12/2026-10-24/README.md), with measured target misses preserved. P2-13
+remains Not started; M2, guest UI and guest reload remain unaccepted.
 Each run records:
 
 - Source commit/dirty-input hashes, harness revision, compiler/profile, dependency

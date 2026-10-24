@@ -210,4 +210,6 @@ At P2-10, native IME/assistive support, file-driven R04 continuity, P2-12
 efficiency and guest/product targets remained unaccepted. P2-11 adds the hosted
 continuity result below.
 
-P2-11's [local resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md) adds the hosted L0/L1 portion of R04 and R07/R08/R15/R17/R18 preparation: coherent file-driven publication, exact complete state continuity, reader retirement and explicit negative outcomes in the same native window/process. Guest R04 boot-ID/uptime evidence, P2-12 efficiency/stability and final M2 acceptance remain open.
+P2-11's [local resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md) adds the hosted L0/L1 portion of R04 and R07/R08/R15/R17/R18 preparation: coherent file-driven publication, exact complete state continuity, reader retirement and explicit negative outcomes in the same native window/process. Guest R04 boot-ID/uptime evidence and final M2 acceptance remain open.
+
+P2-12's [hosted measurement/stability acceptance](../../evidence/phase-2/P2-12/2026-10-24/README.md) adds R09/R18 observations and hosted R04/R08/R15 preparation: bounded damage/caches, exact full-render parity, declared timer/visibility costs and 100 file reloads per resolution without unexplained settled growth. The 3,000 frame samples retain 2,899 elapsed-budget exceedances; resource p95 also misses 500 ms. These are hosted elapsed/process observations, not guest CPU, scanout, memory or whole-system efficiency acceptance. P2-13 and M3/M4/M5 remain open.

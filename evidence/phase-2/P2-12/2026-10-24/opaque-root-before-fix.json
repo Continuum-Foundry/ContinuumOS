@@ -1,0 +1,43 @@
+{
+  "query": {
+    "ok": true,
+    "resources": {
+      "active_generation": 8,
+      "digest": "759eaa979b9d11abcd5fc9e9bbc603d7be3d6994e61f051e9ed757548fab7e78",
+      "generation_budget_bytes": 25165824,
+      "live_generations": 1,
+      "reserved_generation_bytes": 8388608,
+      "shared_font_bytes": 18005976,
+      "status": {
+        "active_before": 7,
+        "active_generation": 8,
+        "build_id": "opaque-root-negative",
+        "cancellation_reason": "",
+        "digest": "759eaa979b9d11abcd5fc9e9bbc603d7be3d6994e61f051e9ed757548fab7e78",
+        "focus_after": "editor",
+        "generation": 8,
+        "motion_policy": "retain compatible transitions; rearm caret/drag; reduced motion settles",
+        "outcome": "published",
+        "published_us": 540254,
+        "receive_us": 413453,
+        "request_id": 1,
+        "scope": "ephemeral-hosted",
+        "semantic_revision": 6,
+        "source_sha256": "759eaa979b9d11abcd5fc9e9bbc603d7be3d6994e61f051e9ed757548fab7e78",
+        "stage_bytes": 3686400,
+        "stage_rgba_sha256": "44d355217af46b1ac2f56ebba57e79467766c11df8f52780c9cd6e42886fecea",
+        "staged_us": 537679,
+        "validated_us": 415531
+      }
+    },
+    "unchanged": true
+  },
+  "executable_sha256": "5dd48ab85e3c39932062b9bbab1e79c78a942d0de5c9b3359ecda2c7e3dbc480",
+  "scope": "local negative reproduction",
+  "builder_exit": 0,
+  "after": {
+    "ok": false,
+    "reason": "Final desktop must be opaque"
+  },
+  "before": 7
+}

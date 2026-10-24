@@ -140,9 +140,9 @@ license alternatives and font/Unicode notices are recorded; distribution remains
 uncleared. P2-10 now passes [selected hosted-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md): bounded
 layout/invalidation, input retirement and modal/queue policies, semantic hierarchy
 and virtual navigation, visual grapheme affinity, rounded coverage and motion.
-Use the [selected-core runbook](phase-2/selected-ui-runbook.md). P2-11 now passes [hosted resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md): bounded atomic file builds, coherent token/topology publication, reader headroom and native same-window generation 7-to-8 continuity with complete checkpoint preservation. Use the [resource reload runbook](phase-2/resource-reload-runbook.md). P2-12 damage/cache/performance is next, then P2-13 acceptance. Neither is deferred to guest work. M3 runtime and M4 guest confirmation,
+Use the [selected-core runbook](phase-2/selected-ui-runbook.md). P2-11 now passes [hosted resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md): bounded atomic file builds, coherent token/topology publication, reader headroom and native same-window generation 7-to-8 continuity with complete checkpoint preservation. Use the [resource reload runbook](phase-2/resource-reload-runbook.md). P2-12 now passes [hosted damage/idle/stability acceptance](../../evidence/phase-2/P2-12/2026-10-24/README.md): bounded retained damage/layout caching, 108 exact images, 3,000 frames, 6,763 process samples and 100 file reloads per resolution. Its [runbook](phase-2/performance-stability-runbook.md) preserves frame/latency misses and PERF-12-01–03. Opaque-root validation now precedes publication; the original native failure is retained. P2-13 acceptance is next, including clean linkage of the final retained/cache path. Mandatory M2 work is not deferred to guest work. M3 runtime and M4 guest confirmation,
 M5 behavior routing/retirement remain pending; ADRs remain Proposed.
-P2-12–P2-13 remain Not started. No remote Jira creation is authorized.
+P2-12 is Done; P2-13 remains Not started. No remote Jira creation is authorized.
 P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).

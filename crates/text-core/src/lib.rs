@@ -24,6 +24,8 @@ pub const MAX_TABLES: usize = 128;
 pub const MAX_TABLE_BYTES: usize = 20 * 1024 * 1024;
 pub const MAX_CACHE_BYTES: usize = 1024 * 1024;
 pub const MAX_CACHE_ENTRIES: usize = 128;
+pub const MAX_LAYOUT_CACHE_BYTES: usize = 2 * 1024 * 1024;
+pub const MAX_LAYOUT_CACHE_ENTRIES: usize = 128;
 pub const MAX_BITMAP: usize = 256 * 256;
 pub const MAX_SHAPE_WORK: usize = 131072;
 
@@ -325,6 +327,9 @@ pub struct Engine<'a> {
     raster: Vec<Option<fontdue::Font>>,
     cache: VecDeque<(RasterKey, Bitmap)>,
     cache_bytes: usize,
+    layouts: VecDeque<(String, Config, Layout)>,
+    layout_hits: u64,
+    layout_misses: u64,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 struct RasterKey {
@@ -369,10 +374,77 @@ impl<'a> Engine<'a> {
             raster: (0..fonts.len()).map(|_| None).collect(),
             cache: VecDeque::new(),
             cache_bytes: 0,
+            layouts: VecDeque::new(),
+            layout_hits: 0,
+            layout_misses: 0,
         })
     }
     pub fn cache_usage(&self) -> (usize, usize) {
         (self.cache.len(), self.cache_bytes)
+    }
+    /// Exact text + all shaping/layout parameters; immutable pinned fonts belong
+    /// to this engine. This selected-path cache never keys by generation or a hash
+    /// alone. Eviction drops owned values and cannot invalidate returned clones.
+    pub fn layout_cached(&mut self, text: &str, cfg: Config) -> Result<Layout> {
+        cfg.validate()?;
+        validate_text(text)?;
+        if let Some(i) = self
+            .layouts
+            .iter()
+            .position(|(key, c, _)| key == text && *c == cfg)
+        {
+            self.layout_hits += 1;
+            let item = self.layouts.remove(i).unwrap();
+            let mut result = item.2.clone();
+            result.shape_work = 0;
+            self.layouts.push_back(item);
+            return Ok(result);
+        }
+        self.layout_misses += 1;
+        let result = self.layout(text, cfg)?;
+        let estimate = Self::layout_bytes(&result) + text.len();
+        if estimate + core::mem::size_of::<(String, Config, Layout)>() * MAX_LAYOUT_CACHE_ENTRIES
+            <= MAX_LAYOUT_CACHE_BYTES
+        {
+            if self.layouts.capacity() == 0 {
+                self.layouts.reserve_exact(MAX_LAYOUT_CACHE_ENTRIES);
+            }
+            while self.layouts.len() >= MAX_LAYOUT_CACHE_ENTRIES
+                || self.layout_cache_usage().1 + estimate > MAX_LAYOUT_CACHE_BYTES
+            {
+                if self.layouts.pop_front().is_none() {
+                    break;
+                }
+            }
+            self.layouts
+                .push_back((String::from(text), cfg, result.clone()));
+        }
+        Ok(result)
+    }
+    fn layout_bytes(l: &Layout) -> usize {
+        l.lines.capacity() * core::mem::size_of::<Line>()
+            + l.missing.capacity() * core::mem::size_of::<Range<usize>>()
+            + l.graphemes.capacity() * core::mem::size_of::<usize>()
+            + l.lines
+                .iter()
+                .map(|line| {
+                    line.glyphs.capacity() * core::mem::size_of::<Glyph>()
+                        + line.carets.capacity() * core::mem::size_of::<Caret>()
+                })
+                .sum::<usize>()
+    }
+    pub fn layout_cache_usage(&self) -> (usize, usize, u64, u64) {
+        (
+            self.layouts.len(),
+            self.layouts.capacity() * core::mem::size_of::<(String, Config, Layout)>()
+                + self
+                    .layouts
+                    .iter()
+                    .map(|(text, _, l)| text.capacity() + Self::layout_bytes(l))
+                    .sum::<usize>(),
+            self.layout_hits,
+            self.layout_misses,
+        )
     }
     fn font_for(&self, grapheme: &str, mono: bool) -> (usize, bool) {
         // A missing cluster is wholly tofu; never split a ZWJ/combining sequence between faces.

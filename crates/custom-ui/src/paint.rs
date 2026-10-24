@@ -35,6 +35,10 @@ pub struct Canvas<'a> {
     pub smooth_edges: bool,
     pub caret: Option<text_core::VisualCaret>,
     pub hide_caret: bool,
+    /// Optional host monotonic instrumentation; absent in portable execution.
+    pub clock: Option<fn() -> u64>,
+    pub cache_layouts: bool,
+    scissor: Option<[u32; 4]>,
     rounded_clips: Vec<(Rect, f32)>,
     deferred_clips: Vec<(Rect, f32)>,
 }
@@ -67,6 +71,9 @@ impl<'a> Canvas<'a> {
             smooth_edges: false,
             caret: None,
             hide_caret: false,
+            clock: None,
+            cache_layouts: false,
+            scissor: None,
             rounded_clips: Vec::new(),
             deferred_clips: Vec::new(),
         })
@@ -110,6 +117,12 @@ impl<'a> Canvas<'a> {
         mask
     }
     fn covered_pixel(&mut self, x: u32, y: u32, mut c: [u8; 4], mut mask: u64) {
+        if self
+            .scissor
+            .is_some_and(|[l, t, w, h]| x < l || y < t || x >= l + w || y >= t + h)
+        {
+            return;
+        }
         if self.smooth_edges {
             for (rect, radius) in &self.rounded_clips {
                 mask &= self.mask(*rect, *radius, x, y);
@@ -223,7 +236,12 @@ impl<'a> Canvas<'a> {
             width: width.min(4096),
             ligatures: true,
         };
-        let layout = engine.layout(text, cfg).map_err(|_| Error::Text)?;
+        let layout = if self.cache_layouts {
+            engine.layout_cached(text, cfg)
+        } else {
+            engine.layout(text, cfg)
+        }
+        .map_err(|_| Error::Text)?;
         let scale = self.scale as f32 / 100.0;
         let clip = rect.intersect(clip);
         let [l, t, r, b] = clip.pixels(self.scale, self.width, self.height);
@@ -428,6 +446,7 @@ pub fn blur(
 
 #[derive(Clone, Debug, Default)]
 pub struct Counters {
+    pub composition_ns: u64,
     pub nodes: u64,
     pub touched: u64,
     pub shape_work: u64,
@@ -444,6 +463,20 @@ pub fn render(
     engine: &mut Engine<'_>,
     canvas: &mut Canvas<'_>,
 ) -> Result<Counters> {
+    render_region(scene, m, preedit, engine, canvas, None)
+}
+
+/// Repaint an integer pixel region from the background in painter order. Callers
+/// must use full redraw for backdrop reads; see retained::Frame.
+pub(crate) fn render_region(
+    scene: &mut Scene,
+    m: &Model,
+    preedit: Option<&str>,
+    engine: &mut Engine<'_>,
+    canvas: &mut Canvas<'_>,
+    region: Option<[u32; 4]>,
+) -> Result<Counters> {
+    canvas.scissor = region;
     scene.layout();
     canvas.smooth_edges |= scene.selected;
     canvas.caret = scene.visual_caret;
@@ -472,8 +505,17 @@ pub fn render(
     let t = &scene.tokens;
     let s = canvas.scale as f32 / 100.0;
     let surface = Rect([0.0, 0.0, canvas.width as f32 / s, canvas.height as f32 / s]);
-    canvas.bytes.fill(0); // Includes padding; no uninitialized bytes are published.
-    canvas.fill(surface, surface, 0.0, t.colors[0], 255);
+    let clip = if let Some([x, y, w, h]) = region {
+        for row in y..y + h {
+            let start = row as usize * canvas.stride as usize + x as usize * 4;
+            canvas.bytes[start..start + w as usize * 4].fill(0);
+        }
+        Rect([x as f32 / s, y as f32 / s, w as f32 / s, h as f32 / s])
+    } else {
+        canvas.bytes.fill(0); // Padding is initialized before publication.
+        surface
+    };
+    canvas.fill(surface, clip, 0.0, t.colors[0], 255);
     fn walk(
         scene: &Scene,
         id: &str,
@@ -497,11 +539,15 @@ pub fn render(
         } else {
             t.radius
         };
+        let composition_start = cv.clock.map(|clock| clock());
         let before = if (group_alpha < 255 && !reduced_launcher) || deferred_clip {
             Some(cv.bytes.to_vec())
         } else {
             None
         };
+        if let Some(start) = composition_start {
+            c.composition_ns += (cv.clock.unwrap())().saturating_sub(start);
+        }
         let opacity = if before.is_some() { 255 } else { group_alpha };
         if deferred_clip {
             cv.deferred_clips.push((n.rect, radius));
@@ -731,6 +777,7 @@ pub fn render(
             cv.deferred_clips.pop();
         }
         if let Some(before) = before {
+            let composition_start = cv.clock.map(|clock| clock());
             c.scratch_peak = c.scratch_peak.max(before.len() + c.scratch_peak);
             let masks = if deferred_clip {
                 // One mask for the entire isolated clip, avoiding repeated edge
@@ -783,6 +830,9 @@ pub fn render(
                     after.copy_from_slice(&over(crate::paint::opacity(source, alpha), destination));
                 }
             }
+            if let Some(start) = composition_start {
+                c.composition_ns += (cv.clock.unwrap())().saturating_sub(start);
+            }
         }
         Ok(())
     }
@@ -793,7 +843,7 @@ pub fn render(
         preedit,
         engine,
         canvas,
-        surface,
+        clip,
         &mut c,
     )?;
     c.touched = canvas.touched;

@@ -1,0 +1,32 @@
+{
+  "source_base": "625243df7969b1b03dc896c1657fad4880298308",
+  "local_acceptance": "build/m2/P2-11/acceptance-1792812988032",
+  "tested_inputs": "tested-inputs.json",
+  "compiler": [
+    "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "binary: rustc",
+    "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+    "commit-date: 2026-10-13",
+    "host: x86_64-pc-windows-msvc",
+    "release: 1.99.1",
+    "LLVM version: 23.1.1"
+  ],
+  "profile": "m2-comparison",
+  "signed_executable_sha256": "d6747f0ddfbc34a4184c9c6f80044cfb4824ddb05073aeb93e2b90812cdb7620",
+  "cargo_lock_sha256": "13795cbc037e6ac8255da381bd02b3c6268fccb370f29bf09ff3aee24b58e1bf",
+  "local_raw_runs": {
+    "selected": "build/m2/P2-10/run-1792813085524663900-8720",
+    "reload": "build/m2/P2-11/reload-1792813067445444100-14680",
+    "native": "build/m2/P2-05/host-1792813100062927800-27764",
+    "corpus": "build/m2/P2-05/run-1792813070494700600-28956"
+  },
+  "raw_file_sha256": {
+    "build/m2/P2-11/reload-1792813067445444100-14680/result.json": "e85304784335f25efd35d8928ab2affeaaadd4a7253a9c9f816f83ee06289276",
+    "build/m2/P2-05/host-1792813100062927800-27764/native-reload.json": "271efce4c613c800d922ae5fb02d7e1f63482103649d875908b0dbdf36a55fce",
+    "build/m2/P2-05/host-1792813100062927800-27764/host-traces.json": "77d1fff6e8d9c1eee61f9256f2ca6efb35202acf0f4748b92f36108fa4fc0438",
+    "build/m2/P2-05/host-1792813100062927800-27764/resource-traces.json": "233b72da4e057982dc82cc5244a0555db419e533b32b6dbb0d60aa8817ded256",
+    "build/m2/P2-05/run-1792813070494700600-28956/result.json": "c956315f85371b27bccf517bf7c10d243353861f964d753423aabe1191321a98",
+    "build/m2/P2-10/run-1792813085524663900-8720/result.json": "36313ef3323a0c5317c878a97aad7f645cdb9f646d784d2150c52e15abd7a819"
+  },
+  "retention": "Native response objects normalized into separate JSON files; original monolithic raw bytes remain local and hashed."
+}

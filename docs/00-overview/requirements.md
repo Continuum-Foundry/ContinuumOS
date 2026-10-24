@@ -206,5 +206,8 @@ completion cases. No target, behavior or guest acceptance follows from selection
 P2-10's [local selected-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md) adds hosted R08/R15/R18
 evidence and R19 executor parity: bounded layout/invalidation, input reconciliation,
 virtual semantics, visual grapheme affinity and motion across the declared corpus.
-Native IME/assistive support, file-driven R04 continuity, P2-12 efficiency and all
-guest/product targets remain unaccepted.
+At P2-10, native IME/assistive support, file-driven R04 continuity, P2-12
+efficiency and guest/product targets remained unaccepted. P2-11 adds the hosted
+continuity result below.
+
+P2-11's [local resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md) adds the hosted L0/L1 portion of R04 and R07/R08/R15/R17/R18 preparation: coherent file-driven publication, exact complete state continuity, reader retirement and explicit negative outcomes in the same native window/process. Guest R04 boot-ID/uptime evidence, P2-12 efficiency/stability and final M2 acceptance remain open.

@@ -8,6 +8,7 @@ mod m2;
 #[cfg(test)]
 #[path = "../../../experiments/ui-link/src/arena.rs"]
 mod probe_arena;
+mod reload;
 mod selected;
 #[cfg(feature = "slint-candidate")]
 mod slint_candidate;
@@ -296,6 +297,9 @@ fn run() -> Result<()> {
         ["test", "--suite", "text"] => text::execute(),
         ["test", "--suite", "custom-ui"] => custom::execute(),
         ["test", "--suite", "selected-ui"] => selected::execute(),
+        ["test", "--suite", "resource-reload"] => reload::execute(),
+        ["resource-template", path] => reload::template(Path::new(path)),
+        ["resource-build", input, output] => reload::build(Path::new(input), Path::new(output)),
         ["custom-host"] => custom::host(),
         #[cfg(feature = "slint-candidate")]
         ["slint-host"] => custom::host_with(custom::Candidate::Slint),

@@ -463,6 +463,7 @@ struct Record {
     request: Request,
     outcome: Outcome,
 }
+#[derive(Clone)]
 pub struct Provider {
     model: Model,
     epoch: u64,

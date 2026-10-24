@@ -121,7 +121,7 @@ component-lifetime/fidelity gaps. P2-09 now records the
 [provisional custom Rust selection](docs/05-delivery/phase-2/ui-selection-review.md),
 exact license choices and mandatory completion work. Slint is frozen comparison
 material. P2-10 now passes [selected hosted-core acceptance](evidence/phase-2/P2-10/2026-10-23/README.md): bounded layout,
-input/semantics, visual text navigation and motion. P2-11–P2-13 remain Not started;
+input/semantics, visual text navigation and motion. P2-11 now passes [same-window hosted resource reload](evidence/phase-2/P2-11/2026-10-23/README.md), with exact state continuity, bounded reader lifetime and failure rejection. P2-12–P2-13 remain Not started;
 M2, guest UI/reload and efficiency targets remain unaccepted. No Jira issue was created.
 
 <details>
@@ -251,7 +251,7 @@ named cases and strict serial-record checks remain separate.
 | :--- | :--- | :--- |
 | **Phase 0** | Native tooling, independent links, dependency feasibility | Compile/tooling evidence retained |
 | **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-07 pass local experimental-baseline acceptance |
-| **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01 through P2-06 candidate evidence accepted locally; target links/comparison, hosted reload and measurements remain planned |
+| **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01 through P2-11 accepted locally, including target links, provisional custom direction and hosted resource reload; optimization/stability and final M2 acceptance remain |
 | **M3** | User-mode isolation, bounded IPC and trusted identity/ownership foundations | Planned |
 | **M4** | Authenticated development channel, guest resource reload and trusted setup/login input foundations | Planned |
 | **M5** | App replacement with preserved state | Planned |

@@ -215,7 +215,7 @@ pub(crate) fn state(c: &Controller, tree: &Tree) -> Value {
     let d = m.document();
     let s = m.session();
     let selection = d.selection();
-    json!({"document":d.text(),"document_sha256":hash(d.text().as_bytes()),"revision":d.revision(),"document_revision":d.revision(),"model_revision":m.revision(),"checkpoint_sha256":hash(&m.encode().unwrap()),"selection":[selection.anchor,selection.caret],"dirty":d.dirty(),"focus":s.focus,"window":s.window,"search":d.query(),"match_count":d.matches().len(),"scroll_row":s.file_scroll,"selected_file":s.selected_file,"capture":c.capture,"pressed_keys":c.keys.len(),"pressed_buttons":c.buttons.len(),"composition_active":c.composition.is_some(),"cancelled":c.cancelled,"resets":c.resets,"dropped":c.dropped,"action":c.last_action,"semantic_logical_count":10000,"realized_max":scene::realize(s.file_scroll,10000,tree.node("files-window").unwrap().rect.0[3],24.0).unwrap().len(),"effects":if m.preferences().reduced_effects{"opaque-fallback"}else{"backdrop-box-blur"},"motion_ms":if m.preferences().reduced_motion{0}else{120}})
+    json!({"document":d.text(),"document_sha256":hash(d.text().as_bytes()),"revision":d.revision(),"document_revision":d.revision(),"model_revision":m.revision(),"checkpoint_sha256":hash(&m.encode().unwrap()),"undo_len":d.undo_len(),"redo_len":d.redo_len(),"document_scroll":d.scroll(),"reset_reason":c.reset_reason,"selection":[selection.anchor,selection.caret],"dirty":d.dirty(),"focus":s.focus,"window":s.window,"search":d.query(),"match_count":d.matches().len(),"scroll_row":s.file_scroll,"selected_file":s.selected_file,"capture":c.capture,"pressed_keys":c.keys.len(),"pressed_buttons":c.buttons.len(),"composition_active":c.composition.is_some(),"cancelled":c.cancelled,"resets":c.resets,"dropped":c.dropped,"action":c.last_action,"semantic_logical_count":10000,"realized_max":scene::realize(s.file_scroll,10000,tree.node("files-window").unwrap().rect.0[3],24.0).unwrap().len(),"effects":if m.preferences().reduced_effects{"opaque-fallback"}else{"backdrop-box-blur"},"motion_ms":if m.preferences().reduced_motion{0}else{120}})
 }
 fn assert_state(c: &Controller, tree: &Tree, expected: &Value) -> Result<Value> {
     let mut actual = state(c, tree);
@@ -1107,7 +1107,11 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
     ))?;
     let mut c = controller(&corpus["corpus"])?;
     let mut surface = checked(Surface::new(1280, 720, 5120, 1))?;
-    let source = scene.tree.clone();
+    let mut source = scene.tree.clone();
+    let mut resources = crate::reload::Resources::new()?;
+    let mut resource_trigger = crate::reload::Trigger::default();
+    let resource_file = run.join("resources.json");
+    crate::reload::template(&resource_file)?;
     let mut scale = 100u16;
     let start = Instant::now();
     let mut sequence = 0;
@@ -1115,7 +1119,7 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
     let mut traces = Vec::new();
     println!(
         "{}",
-        json!({"ready":true,"run":run,"pid":std::process::id(),"size":[1280,720],"scale":100})
+        json!({"ready":true,"run":run,"pid":std::process::id(),"size":[1280,720],"scale":100,"resource_file":resource_file,"session":format!("{}-{}",std::process::id(),run.file_name().unwrap().to_string_lossy())})
     );
     std::io::stdout().flush().map_err(|e| e.to_string())?;
     let stdin = std::io::stdin();
@@ -1144,6 +1148,26 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
         }
         let result: Result<Value> = (|| {
             let prior_modal = c.modal.clone();
+            if let Some(path) = command["resource_poll"].as_str() {
+                require(
+                    scene.selected && candidate == Candidate::Custom,
+                    "Resource poll requires selected custom core",
+                )?;
+                match resource_trigger.poll(Path::new(path), resources.now()) {
+                    Ok(true) => {}
+                    Ok(false) => {
+                        return Ok(
+                            json!({"ok":true,"unchanged":true,"resources":resources.query()}),
+                        );
+                    }
+                    Err(e) => {
+                        resources.status = json!({"outcome":"rejected","reason":e,"active_generation":resources.id(),"scope":"ephemeral-hosted"});
+                        return Ok(
+                            json!({"ok":true,"unchanged":true,"resources":resources.query()}),
+                        );
+                    }
+                }
+            }
             if command["selected"] == true {
                 require(
                     candidate == Candidate::Custom,
@@ -1182,11 +1206,48 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                 for n in &mut active.nodes {
                     n.children.retain(|id| ids.contains(id));
                 }
-                let plan = crate::selected::reference_plan(&active, view.0[2], view.0[3])?;
+                let plan = if resources.id() > 7 {
+                    checked(custom_ui::layout::Plan::anchored(&active))?
+                } else {
+                    crate::selected::reference_plan(&active, view.0[2], view.0[3])?
+                };
                 checked(scene.arrange(&active, &plan, view))?;
                 checked(c.reconcile(&scene.tree))?;
                 surface = next_surface;
                 scale = new_scale;
+            }
+            if let Some(path) = command["reload"]
+                .as_str()
+                .or_else(|| command["resource_poll"].as_str())
+            {
+                require(
+                    scene.selected && candidate == Candidate::Custom,
+                    "Resource reload requires selected custom core",
+                )?;
+                let path = Path::new(path);
+                if resources
+                    .apply(
+                        path,
+                        &mut scene,
+                        &mut c,
+                        &mut engine,
+                        surface.width,
+                        surface.height,
+                        scale,
+                    )
+                    .is_ok()
+                {
+                    source = resources.source().clone();
+                }
+            }
+            if let Some(window) = command["window"].as_array() {
+                require(window.len() == 4, "Window geometry")?;
+                let mut geometry = [0; 4];
+                for (i, v) in window.iter().enumerate() {
+                    geometry[i] = i32::try_from(v.as_i64().ok_or("Window integer")?)
+                        .map_err(|_| "Window bound")?;
+                }
+                checked(c.invoke(Action::Window(geometry), Entry::Automation))?;
             }
             if let Some(id) = command["modal"].as_str() {
                 checked(c.open_modal(&scene.tree, id))?;
@@ -1311,6 +1372,11 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
             scene.dirty.paint |= c.dirty.paint;
             scene.dirty.semantics |= c.dirty.semantics;
             c.dirty = scene::Dirty::default();
+            let frame_reader = resources.reader();
+            require(
+                frame_reader.id() == scene.tree.generation,
+                "Mixed resource/frame generation",
+            )?;
             let (capture, timing) = capture_at(
                 candidate,
                 &mut scene,
@@ -1344,8 +1410,8 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                 .motion
                 .next_deadline()
                 .map(|d| d.saturating_sub(now).div_ceil(1000).max(1));
-            let value = json!({"ok":true,"state":state(&c,&scene.tree),"capture":capture,"timing":timing,"frame":run.join("frame.bmp"),"frame_number":frames,"selected":scene.selected,"next_delay_ms":delay,"scene_revision":scene.tree.revision,"selected_semantics":selected_semantics,"submission_copy":"RGBA to RGB capture then bottom-up BGR24 BMP; WinForms clones into owned bitmap; explicit Rust lease released after RGB copy","semantics":semantic_json(&scene.tree.semantics(c.provider.model()))});
-            traces.push(json!({"command":command,"frame":frames,"state":value["state"],"rgba_sha256":value["capture"]["rgba_sha256"]}));
+            let value = json!({"ok":true,"state":state(&c,&scene.tree),"capture":capture,"timing":timing,"frame":run.join("frame.bmp"),"frame_number":frames,"selected":scene.selected,"next_delay_ms":delay,"scene_revision":scene.tree.revision,"resource_generation":scene.tree.generation,"resources":resources.first_frame(),"host_time_us":start.elapsed().as_micros(),"selected_semantics":selected_semantics,"submission_copy":"RGBA to RGB capture then bottom-up BGR24 BMP; WinForms clones into owned bitmap; explicit Rust lease released after RGB copy","semantics":semantic_json(&scene.tree.semantics(c.provider.model()))});
+            traces.push(json!({"command":command,"frame":frames,"state":value["state"],"rgba_sha256":value["capture"]["rgba_sha256"],"resources":value["resources"],"host_time_us":value["host_time_us"],"scene_revision":value["scene_revision"]}));
             Ok(value)
         })();
         let response = match result {
@@ -1355,6 +1421,10 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
         println!("{response}");
         std::io::stdout().flush().map_err(|e| e.to_string())?;
     }
+    write_json(
+        &run.join("resource-traces.json"),
+        &json!({"trace":resources.trace,"query":resources.query(),"coalesced":resource_trigger.coalesced}),
+    )?;
     write_json(
         &run.join("host-traces.json"),
         &json!({"pid":std::process::id(),"frames":frames,"trace":traces,"elapsed_ns":start.elapsed().as_nanos(),"native_ime":false,"guest":false}),

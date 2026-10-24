@@ -94,3 +94,7 @@ Do not maintain two full production UI stacks by default.
 Evidence: [UI design](../02-architecture/ui-framework-and-design.md),
 [comparison](../01-research/ui-toolkit-comparison.md),
 [S76](../01-research/sources.md#s76), [S78](../01-research/sources.md#s78).
+
+## P2-11 hosted resource continuity — 2026-10-23
+
+The [local resource reload review](../../evidence/phase-2/P2-11/2026-10-23/README.md) now accepts bounded file building, coherent token/topology publication and real same-window/process state continuity with explicit input/reader retirement. The selected baseline geometry survives the initial reload, and caret/transition scheduling is retained. P2-12 optimization/stability, P2-13 M2 acceptance and M4 guest confirmation remain open. This ADR remains **Proposed**.

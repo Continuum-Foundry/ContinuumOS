@@ -487,6 +487,28 @@ push, release, remote build, new recipient or standing remote-environment approv
 is authorized. Geographic containment remains unverified; this administrative
 exception is not legal clearance and does not waive applicable law.
 
+### One-time owner authorization — P3-01, 2026-10-25
+
+After local P3-01 acceptance, the owner instructed: "i give you exemption to make
+PR". This authorizes one push of the completed P3-01 runtime prerequisite/contract
+gate, single-source draft SDK metadata and generation, locked profiles, bounded
+host runner and acceptance/review tools, signing-test race fix, accompanying
+specifications/status/handoff updates, sanitized compact acceptance evidence,
+commit metadata and this authorization record to the existing GitHub
+`origin/codex/p3-01-runtime-contracts`, followed by creation of its pull request
+against `main`, including the prepared PR text and metadata. The reviewed compact
+bundle includes the selected serial diagnostic text and launch contexts. Private
+keys, certificates, generated executables/SDK binaries, ISOs, font binaries, full
+logs/disassembly, source copies and full local run trees are excluded.
+
+The push authorization is exhausted by the first successful push containing this
+record; the PR authorization is exhausted by creation of that one pull request.
+The pre-push hold may be bypassed for that single invocation only and must remain
+installed afterward; the pre-commit hygiene check still runs. No merge, force
+push, release, remote build, new recipient or standing remote-environment approval
+is authorized. Geographic containment remains unverified; this administrative
+exception is not legal clearance and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

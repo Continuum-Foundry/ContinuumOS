@@ -1,0 +1,124 @@
+{
+  "hooks_sha256": "6be1620a1d2dfda9bf5a917390c8a36dfee508d016e1814edce426b0ae85ce3d",
+  "gaps": [
+    {
+      "candidate": "common",
+      "hook": "allocation",
+      "owner": "P3-02/P3-09",
+      "kernel_implemented": false,
+      "obligation": "M3 address-space-owned heap/quota, mapping and zeroing, fallible admission, OOM/panic termination and diagnostics; sustained allocation/reclaim tests"
+    },
+    {
+      "candidate": "common",
+      "hook": "entry and memory",
+      "owner": "P3-03/P3-04",
+      "kernel_implemented": false,
+      "obligation": "M3 user ELF loader, checked mappings, guarded correctly aligned SysV stack, startup/termination, image lifetime and quota accounting"
+    },
+    {
+      "candidate": "common",
+      "hook": "memory and math",
+      "owner": "P3-05",
+      "kernel_implemented": false,
+      "obligation": "M3 establish user FP/SIMD enablement, initial state, save/restore and exception policy before UI execution; preserve M1 kernel exclusion; review actual instruction set/CPU dispatch and baseline CPU support"
+    },
+    {
+      "candidate": "common",
+      "hook": "fonts and text",
+      "owner": "M4-or-later",
+      "kernel_implemented": false,
+      "obligation": "M4 immutable font resources, bounded package/handle lifetimes and parser failure isolation; native IME/coverage remain separate"
+    },
+    {
+      "candidate": "common",
+      "hook": "input and typed actions",
+      "owner": "M4-or-later",
+      "kernel_implemented": false,
+      "obligation": "M3 trusted caller/session enforcement; M4 device input, translation, ordering/reset, focus/capture and real event dispatch"
+    },
+    {
+      "candidate": "common",
+      "hook": "semantics",
+      "owner": "M4-or-later",
+      "kernel_implemented": false,
+      "obligation": "M4 semantic export and action routing; native assistive consumer remains a later gate"
+    },
+    {
+      "candidate": "common",
+      "hook": "presentation",
+      "owner": "M4-or-later",
+      "kernel_implemented": false,
+      "obligation": "M4 brokered surface/damage/lease transport, compositor/display ownership, wait and release; actual guest raster/presentation acceptance"
+    },
+    {
+      "candidate": "common",
+      "hook": "clipboard and external services",
+      "owner": "M4-or-later",
+      "kernel_implemented": false,
+      "obligation": "Implement explicit scoped services when required; no std/host backend fallback"
+    },
+    {
+      "candidate": "common",
+      "hook": "failure",
+      "owner": "P3-04/P3-09",
+      "kernel_implemented": false,
+      "obligation": "M3 bounded process failure/reaping and diagnostics; panic=abort alone is not a supervisor"
+    },
+    {
+      "candidate": "custom",
+      "hook": "clock/event loop",
+      "owner": "P3-08/M4",
+      "kernel_implemented": false,
+      "obligation": "M4 monotonic timestamp and frame/input opportunities, wake/sleep/pacing and bounded callback execution"
+    },
+    {
+      "candidate": "custom",
+      "hook": "threading",
+      "owner": "P3-05/P3-09",
+      "kernel_implemented": false,
+      "obligation": "M3 process/thread ownership and retirement; no IRQ rendering or concurrent mutation"
+    },
+    {
+      "candidate": "slint_aot",
+      "hook": "platform/window",
+      "owner": "M4-or-later",
+      "kernel_implemented": false,
+      "obligation": "M4 actual window/surface and input integration; present common software pixels, not toolkit compositor authority"
+    },
+    {
+      "candidate": "slint_aot",
+      "hook": "clock/timers",
+      "owner": "M4-or-later",
+      "kernel_implemented": false,
+      "obligation": "M4 replace deterministic fixture time with monotonic service and wake/deadline scheduling; no wall-time or timer-accuracy claim"
+    },
+    {
+      "candidate": "slint_aot",
+      "hook": "event loop/proxy",
+      "owner": "M4-or-later",
+      "kernel_implemented": false,
+      "obligation": "M3/M4 one owning execution thread, authenticated input/event queue and wait; implement proxy/futures only with their own tests"
+    },
+    {
+      "candidate": "slint_aot",
+      "hook": "single-thread global state",
+      "owner": "P3-05/P3-09/M4",
+      "kernel_implemented": false,
+      "obligation": "M3 enforce one execution thread for all Slint access, no IRQ/preemptive concurrent entry; preserve context/callback/resource lifetime and safe process retirement"
+    },
+    {
+      "candidate": "slint_aot",
+      "hook": "native services",
+      "owner": "M4-or-later",
+      "kernel_implemented": false,
+      "obligation": "M4 integrate or explicitly reject missing platform functionality; do not credit defaults as working clipboard/logging/native text/semantics"
+    },
+    {
+      "candidate": "slint_aot",
+      "hook": "code generation and configuration",
+      "owner": "M4-or-later",
+      "kernel_implemented": false,
+      "obligation": "Preserve exact compile/runtime feature split; OS/API distribution terms and native feature gaps remain P2-08/P2-09 decisions"
+    }
+  ]
+}

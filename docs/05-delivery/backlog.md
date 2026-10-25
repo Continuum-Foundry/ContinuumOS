@@ -52,8 +52,7 @@ B32 measurements/acceptance. B37 remains interface/model work until its B13 and
 replacement dependencies pass; B07/B36 still need M4 guest confirmation. This
 decomposition does not change the Bxx dependencies or mark later requirements Done.
 
-M3 is decomposed into [fourteen local Phase 3 stories](phase-3/README.md), all
-Not started. P3-01 rechecks prerequisites/contracts; P3-02–P3-05 cover memory,
+M3 has [fourteen local Phase 3 stories](phase-3/README.md). P3-01 [passes local prerequisites/contracts](../../evidence/phase-3/P3-01/2026-10-25/README.md); this is B01/B02 follow-up, B06/B11–B13 design and B32 profile setup, not runtime implementation. P3-02–P3-14 remain Not started. P3-02–P3-05 cover memory,
 static loading, user entry/syscalls and B06 preemption/FP state. P3-06–P3-08 cover
 B12 objects/handles/channels/waits. P3-09–P3-11 complete B13 supervision, quotas,
 scoped policy and proxy-route fencing. P3-12 proves independent SDK interoperability,

@@ -3,6 +3,11 @@
 Status: proposed. R01, R03, R10, R14. References: [CPU manual](../01-research/sources.md#s30),
 [Rust target](../01-research/sources.md#s01), [ELF](../01-research/sources.md#s31).
 
+P3-01's [runtime draft](../06-contracts/runtime-v0.md) records the implementation
+defaults and owning test gates; [locked profiles](../../config/m3-profiles.json)
+fix capacities, CPU policy and measurement rules before runtime experiments.
+This does not implement isolation, scheduling or a guest heap.
+
 ## Boot-to-process path
 
 Validate the boot response, establish serial output, reserve physical ranges,

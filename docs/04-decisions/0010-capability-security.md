@@ -30,6 +30,12 @@ Confused-deputy checks, stale handles, transfer teardown and revocation semantic
 must be implemented. DMA and privileged brokers remain important trust boundaries.
 No claim of formal verification or complete hostile-app containment is made.
 
+P3-01 records explicit startup/syscall/IPC and trusted-context rules in the
+[runtime implementation draft](../06-contracts/runtime-v0.md), with one
+machine-readable source for generated SDK names/offsets. Numeric ABI assignment,
+hardware enforcement and independent interoperability remain their Phase 3 gates;
+this ADR remains Proposed.
+
 ## Gate and reconsideration
 
 M3 tests forged handles/rights/process isolation, caller/role spoofing, cross-owner

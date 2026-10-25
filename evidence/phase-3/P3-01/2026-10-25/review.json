@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "review": "local Codex self-review; not independent approval",
+  "review_tool_sha256": "f50ff9bd5bc508b0102915c5361775edc30ac1714912035d615ae69c6d723b52",
+  "acceptance_rows": 42,
+  "m1_rows": 33,
+  "m1_launches": [
+    {
+      "number": 0,
+      "fixture": "acpi-corrupt",
+      "outcome": "expected-rejection",
+      "serial_sha256": "58505caf367701cf2ce6f82da389ae0ea23f2198d564112c101591192f923189"
+    },
+    {
+      "number": 1,
+      "fixture": "normal",
+      "outcome": "ready",
+      "serial_sha256": "321e3fc03db641a502b020534f05418a89ae8993f51ae2643ea7cf70e5dce8ec"
+    },
+    {
+      "number": 2,
+      "fixture": "normal",
+      "outcome": "ready",
+      "serial_sha256": "eda1c24010959c06369108af8ccda2232b5e35b96eb48dae915cfb0a0c429986"
+    },
+    {
+      "number": 3,
+      "fixture": "normal",
+      "outcome": "ready",
+      "serial_sha256": "ec76292a8853769343a8b1315f34715913a22d990f9622ba62948d5a1516894d"
+    },
+    {
+      "number": 4,
+      "fixture": "serial-only",
+      "outcome": "ready",
+      "serial_sha256": "f6892bac6506a928a6e7766355aaf9c4632e100aa311479a9ee2322399c188b3"
+    },
+    {
+      "number": 5,
+      "fixture": "excessive-count",
+      "outcome": "expected-rejection",
+      "serial_sha256": "4594a8839105a5a2f77f001a585c377cbf0deae82ddf329265135636ec3ee541"
+    },
+    {
+      "number": 6,
+      "fixture": "framebuffer-format",
+      "outcome": "expected-rejection",
+      "serial_sha256": "9e00177e8ad9e2a2b7891d770ed63e41163b7bcae6681d65bf45eb72778c4067"
+    },
+    {
+      "number": 7,
+      "fixture": "framebuffer-pitch",
+      "outcome": "expected-rejection",
+      "serial_sha256": "bef72a43fce87369d93f54ba412af74f8bd27d9bf81eff527503b5b7c578bdad"
+    },
+    {
+      "number": 8,
+      "fixture": "framebuffer-range",
+      "outcome": "expected-rejection",
+      "serial_sha256": "2175ac42676c3065f542b4f4c3a3d49737dac45e1c085b8d298e2d203b015dce"
+    },
+    {
+      "number": 9,
+      "fixture": "missing-required",
+      "outcome": "expected-rejection",
+      "serial_sha256": "210fba0cede8dc3b21f2a447a2b39e15dc1b09010f3b1c7c1f5b7de90908ad13"
+    },
+    {
+      "number": 10,
+      "fixture": "range-overflow",
+      "outcome": "expected-rejection",
+      "serial_sha256": "7b21731516d2ba16bbe7fa82b9303821be2a58cdd8c8fb0d828849c8e394af5f"
+    },
+    {
+      "number": 11,
+      "fixture": "unsupported-revision",
+      "outcome": "expected-rejection",
+      "serial_sha256": "44e3f111128ddb30e64f9aa3a32587454e5647b17f183a6fb7919cc0bff591f6"
+    },
+    {
+      "number": 12,
+      "fixture": "unterminated-string",
+      "outcome": "expected-rejection",
+      "serial_sha256": "885e2461179af2c575482f27969057d474d1efe921cba4f4de87f945e01fd52b"
+    },
+    {
+      "number": 13,
+      "fixture": "clock-read",
+      "outcome": "ready",
+      "serial_sha256": "2dc1e1467d8feab0c40ee3f3ab662cd5a26a0b8ebc0592055ca94d2f02e7bdbd"
+    },
+    {
+      "number": 14,
+      "fixture": "clock-read",
+      "outcome": "ready",
+      "serial_sha256": "7060a165e5d2fd045234de58210fd8b2e434a8ac4aa41fc7c5cb239c9b7442a5"
+    },
+    {
+      "number": 15,
+      "fixture": "emergency-stack",
+      "outcome": "expected-fatal",
+      "serial_sha256": "1d306f1a04954f52e12fd1bda06b80fdf7231455a97c99bcf4d266a30aec1215"
+    },
+    {
+      "number": 16,
+      "fixture": "exception-emergency",
+      "outcome": "expected-fatal",
+      "serial_sha256": "c932e409d0f295980b01f2b1dfefcc2a3a94e97e6491a17b1bab083a640d8fa7"
+    },
+    {
+      "number": 17,
+      "fixture": "exception-invalid-opcode",
+      "outcome": "expected-fatal",
+      "serial_sha256": "de77885558a34a79f0cba2c09247bf33d05d6a63a3b228996ef923cd9b7b4d00"
+    },
+    {
+      "number": 18,
+      "fixture": "exception-page-fault",
+      "outcome": "expected-fatal",
+      "serial_sha256": "213100f651b81ec40ed1e192614c32296517fd5488adb539d4a5e57414e5df45"
+    },
+    {
+      "number": 19,
+      "fixture": "execute-disable-fault",
+      "outcome": "expected-fatal",
+      "serial_sha256": "14cd9633728e2ce6fe0e56aab9496b8c296f4d7f65418a9eaff8777ab88b38dc"
+    },
+    {
+      "number": 20,
+      "fixture": "acceptance-exit",
+      "outcome": "ready",
+      "serial_sha256": "b01e4905639d3a8d875281f80e2d84f61d5ea917b72b22bd7bf22b4871a6b9b7"
+    },
+    {
+      "number": 21,
+      "fixture": "acceptance-exit",
+      "outcome": "ready",
+      "serial_sha256": "4df58cad58d9d24e92efeac9dfea6391cedff42de366a0b8f74015fce6ca1869"
+    },
+    {
+      "number": 22,
+      "fixture": "acceptance-exit",
+      "outcome": "ready",
+      "serial_sha256": "456893b43d19bc6f9964906a79265d44ad524e4db086f3e05605e98828683df6"
+    },
+    {
+      "number": 23,
+      "fixture": "acceptance-exit",
+      "outcome": "ready",
+      "serial_sha256": "4f8d0b355ae9a85b863e201a7963e58433e2e31c5b5677a49cb02565410f4377"
+    },
+    {
+      "number": 24,
+      "fixture": "acceptance-exit",
+      "outcome": "ready",
+      "serial_sha256": "225a8dd57356dcfb81f0c0008430354e71827c27a5193de2030e3dd83445c60c"
+    },
+    {
+      "number": 25,
+      "fixture": "guard-fault",
+      "outcome": "expected-fatal",
+      "serial_sha256": "9144ae4e657947f39804d2d8a873b6b221686ba966069bcbcf1f76d74f532c53"
+    },
+    {
+      "number": 26,
+      "fixture": "idle-wakeup",
+      "outcome": "ready",
+      "serial_sha256": "8b7175d0a3300568193eb0d118b105bf2c8d91cf4d7c510389bd0770a5d2aa67"
+    },
+    {
+      "number": 27,
+      "fixture": "normal",
+      "outcome": "broken-before-entry",
+      "serial_sha256": "1b5e999c101d05ff9309f6fea77abde6ed817e75abad29208fa85c7b815cc78a"
+    },
+    {
+      "number": 28,
+      "fixture": "normal",
+      "outcome": "broken-before-entry",
+      "serial_sha256": "c1f3a4b582c6f9fc57f103f28a3d4e8896da856149b67cd6d7372bc86a68ef1a"
+    },
+    {
+      "number": 29,
+      "fixture": "normal",
+      "outcome": "ready",
+      "serial_sha256": "cb9cc821769b8ce17cf8e3a2f2d290d11f806c5a2817aee66f7c57e6557e6b2a"
+    },
+    {
+      "number": 30,
+      "fixture": "normal",
+      "outcome": "ready",
+      "serial_sha256": "64d8273b002307efdd536983e16a6db81306d78e7b13217fdc8ae8089d2c2f39"
+    },
+    {
+      "number": 31,
+      "fixture": "memory-exhaustion",
+      "outcome": "ready",
+      "serial_sha256": "884d8d49d5de96062f9b50c3c7848581c494db29004636ff2546b9f73b519956"
+    },
+    {
+      "number": 32,
+      "fixture": "memory-ownership",
+      "outcome": "ready",
+      "serial_sha256": "bd1bdb1ea23764dd9b80c0a108407acabeee7be73fbccda003b8baa054ac1a19"
+    },
+    {
+      "number": 33,
+      "fixture": "panic",
+      "outcome": "expected-fatal",
+      "serial_sha256": "37b113182ec6e658b3a5c2ba3249d43ea470a9c4d7ac94bcac9960aa924b9282"
+    },
+    {
+      "number": 34,
+      "fixture": "normal",
+      "outcome": "ready",
+      "serial_sha256": "477d034538e218df953cc311d8049118d0bef31664283dea41950fbc98f99eec"
+    },
+    {
+      "number": 35,
+      "fixture": "acceptance-exit",
+      "outcome": "ready",
+      "serial_sha256": "ed05401924562ebac8a00e31e351e5b8c3171dded02ae796f585cf40481eb042"
+    },
+    {
+      "number": 36,
+      "fixture": "timer-calibration",
+      "outcome": "expected-rejection",
+      "serial_sha256": "6c5fa20053b932256a049221f5a0db84f67da4fdb936baaa2ff7356f0ff69fee"
+    },
+    {
+      "number": 37,
+      "fixture": "timer-exception",
+      "outcome": "expected-fatal",
+      "serial_sha256": "4ec2f5ad667e92cb64c96f2fea33338dcf9a1fa142473dd1d0464863d05044a7"
+    },
+    {
+      "number": 38,
+      "fixture": "timer-masked",
+      "outcome": "ready",
+      "serial_sha256": "1de545d180709588724ae1334a4e57a51f0f06d8d7191c1729e0d3c0b97c3172"
+    },
+    {
+      "number": 39,
+      "fixture": "timer-progress",
+      "outcome": "ready",
+      "serial_sha256": "62d485906e943ecf3b3158d52381d2335e2b2391dd61ad7263b4cebc12177302"
+    },
+    {
+      "number": 40,
+      "fixture": "timer-unsupported",
+      "outcome": "expected-rejection",
+      "serial_sha256": "38834601c5a94205998ffb596b2ee864dac0d8f56baaaed07bb88e3581ba1d65"
+    },
+    {
+      "number": 41,
+      "fixture": "write-protect-fault",
+      "outcome": "expected-fatal",
+      "serial_sha256": "63c7130d9698dfd75f1467863f03020ce5d1b7011b3e73501bfdee0a3bbe5166"
+    }
+  ],
+  "criteria": {
+    "current_prerequisites_baseline": "passed",
+    "draft_runtime_SDK": "passed",
+    "scheduling_IRQ_FP_deadline_owners": "passed",
+    "locked_limits_measurements": "passed",
+    "bounded_host_runner_negatives_cleanup": "passed"
+  },
+  "guest_runtime_implemented": false,
+  "ABI_frozen": false,
+  "desktop_targets_accepted": false
+}

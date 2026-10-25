@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "findings": [
+    {
+      "finding": "interrupted-sandbox-prerequisite",
+      "local_run": "build/m2/P2-01/prerequisites-1792947931223",
+      "status": "interrupted before a prerequisite report; no pass credited"
+    },
+    {
+      "finding": "overlapping-host-fixture-deadline",
+      "description": "First M1 run overlapped the prerequisite acceptance workload. A PowerShell host fixture exceeded the unchanged 3000 ms deadline (3103 ms observed); the suite stopped before guest launches. Contention is a possible contributor, not a proven VM defect.",
+      "local_raw_path": "work/acceptance/1792948402130/host-tests.log",
+      "raw_sha256": "5345bd220a966e5f29865dba1d08a0ec17b038458026af8edf5e811236205696",
+      "selected_verbatim_excerpt": "failures:\n\n---- m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped stdout ----\n\nthread 'm1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped' (38140) panicked at tools\\xtask\\src\\m1\\observe.rs:152:13:\n{\"build_id\":\"abc\",\"cleanup_reaped\":true,\"deadline_ms\":3000,\"elapsed_host_ms\":3103,\"emulator_test_exit\":null,\"error\":\"Guest deadline exceeded\",\"final_process_exit\":1,\"fixture\":\"normal\",\"guest_shutdown_claimed\":false,\"host_session_id\":\"def\",\"host_stopped_after_checkpoint\":false,\"kernel_entry_observed\":false,\"pid\":11944,\"schema_version\":1,\"status\":\"failed\",\"timed_out\":true}\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped\n\ntest result: FAILED. 28 passed; 1 failed; 1 ignored; 0 measured; 0 filtered out; finished in 92.25s\n\nerror: test failed, to rerun pass `-p xtask --bin xtask`\n"
+    },
+    {
+      "finding": "mapped-executed-probe",
+      "description": "Serial M1 attempt stopped before guest launches: Windows refused rewriting the just-executed signed image because a user-mapped section was open. The test now mutates a never-executed signed copy. No signing or host-policy bypass was introduced.",
+      "local_raw_path": "work/acceptance/1792948600307/host-signing-preflight.log",
+      "raw_sha256": "d4beabab3129a96d19046d71e2c5209f8395d5d709c64200257a0ea03f74f2c8",
+      "selected_verbatim_excerpt": "ParentContainsErrorRecordException: ${WORKSPACE}\\tools\\windows\\Test-DevSigning.ps1:36\nLine |\n  36 |      [IO.File]::WriteAllBytes($executable, $bytes)\n     |      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n     | Exception calling \"WriteAllBytes\" with \"2\" argument(s): \"The requested operation cannot be performed on a file\n     | with a user-mapped section open. :\n     | '${WORKSPACE}\\build\\windows-dev-signing\\afb77cdd37a2498d970371638d4feeba\\dev-probe-1fff7888141c4e60b0b77d0c92efa86b.exe'.\"\n"
+    },
+    {
+      "finding": "superseded-pre-fix-prerequisites",
+      "local_run": "build/m2/P2-01/prerequisites-1792948047956",
+      "status": "ten checks passed before the signing-test fix; all ten were repeated afterward in prerequisites-1792948703470"
+    }
+  ],
+  "final_resolution": "post-fix ten prerequisites, full 33-row/42-launch M1 and 42 P3 checks pass; all original runs remain local",
+  "host_policy_changed": false,
+  "guest_launch_retries": 0
+}

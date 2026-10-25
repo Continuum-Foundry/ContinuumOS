@@ -10,6 +10,8 @@ this is not a usable OS. See
 `docs/05-delivery/phase-1/interrupts-timekeeping-runbook.md` and retained evidence.
 The user approved the reconciled revision-2 roadmap. See
 `docs/00-overview/reconciled-plan.md`; individual library integrations still need validation.
+P3-01's prerequisite/contract gate passes local self-review; see
+`evidence/phase-3/P3-01/2026-10-25/README.md`. Next is P3-02; no guest runtime exists yet.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other

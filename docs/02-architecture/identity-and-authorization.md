@@ -80,7 +80,7 @@ Keep positive and negative outcomes, identity lifetimes, scope, policy epoch and
 the actual exercised boundary in acceptance evidence. The
 [fourteen planned Phase 3 stories](../05-delivery/phase-3/README.md) carry these
 rows into implementation gates and the [final acceptance matrix](../05-delivery/phase-3/14-phase-3-acceptance.md#required-acceptance-matrix).
-All are Not started; no account UI or credential handling is needed to test them.
+P3-01 accepts prerequisites/contracts only; P3-02–P3-14 remain Not started. No guest authority enforcement, account UI or credential handling is implemented.
 
 ## Later accounts gate
 

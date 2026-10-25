@@ -1,6 +1,6 @@
 # P3-01 — Recheck prerequisites and define runtime contracts/profiles
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done. Owner: Codex (local implementation/self-review).
 Depends on: P1-07 and P2-13 Done; current Phase 0 acceptance recheck.
 Suggested labels: `phase-3`, `prerequisites`, `runtime-contracts`.
 Backlog: B01/B02 follow-up, B06/B11–B13 design, B32 setup.
@@ -37,19 +37,25 @@ contract so user-mode work preserves accepted boot behavior and tests real bound
 
 ## Acceptance criteria
 
-- [ ] Current Phase 0, tool/signing/doctor and baseline VM results are recorded;
+- [x] Current Phase 0, tool/signing/doctor and baseline VM results are recorded;
   a failed prerequisite blocks extension instead of borrowing a historical pass.
-- [ ] Draft runtime/SDK contracts cover startup, privilege transitions, pointers,
+- [x] Draft runtime/SDK contracts cover startup, privilege transitions, pointers,
   allocation, identity, errors, lifetime and version discovery without native-layout
   serialization or premature ABI freeze.
-- [ ] Scheduling, lock order, IRQ restrictions, FP/SIMD enablement gate and deadline
+- [x] Scheduling, lock order, IRQ restrictions, FP/SIMD enablement gate and deadline
   clock obligations have named owning stories and testable policies.
-- [ ] Resource limits, profile/CPU features, seeds, stress counts, tolerances and
+- [x] Resource limits, profile/CPU features, seeds, stress counts, tolerances and
   measurement rules are fixed; runtime memory is distinct from VM capacity.
-- [ ] Bounded runner configuration rejects missing/invalid inputs and records
+- [x] Bounded runner configuration rejects missing/invalid inputs and records
   nonzero exit, timeout and cleanup distinctly; actual documented commands work.
 
 ## Tests and evidence
+
+[Local acceptance passes](../../../evidence/phase-3/P3-01/2026-10-25/README.md):
+ten current prerequisites, complete M1 33-row/42-launch baseline, 42 P3 checks
+and eight reaped host children. Use the [runbook](runtime-prerequisites-runbook.md),
+[runtime draft](../../06-contracts/runtime-v0.md) and locked profile/contract source.
+This accepts prerequisite/design infrastructure only, not a guest runtime.
 
 Retain compact current prerequisite results, contract/profile hashes and the hook
 gap map. Exercise invalid CPU/profile/limits, unavailable image/tool, missing final

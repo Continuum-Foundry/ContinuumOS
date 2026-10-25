@@ -1,6 +1,6 @@
 # P3 epic — Isolated processes and stable interfaces
 
-Issue type: Epic. Status: Not started. Owner: Unassigned.
+Issue type: Epic. Status: In progress. Owner: Unassigned.
 Created: 2026-10-24. Milestone: M3. Suggested labels: `phase-3`, `milestone-m3`.
 These are repository-local, Jira-ready stories; no Jira issues have been created.
 This directory follows the [Phase 2 story format](../phase-2/README.md).
@@ -27,7 +27,7 @@ Reinspect actual source, tools and evidence availability before implementation.
 
 | ID | Story | Depends on | Backlog coverage | Status |
 | --- | --- | --- | --- | --- |
-| P3-01 | [Recheck prerequisites and define runtime contracts/profiles](01-runtime-prerequisites-and-contract-plan.md) | P1-07 and P2-13 Done; Phase 0 recheck | B01/B02 follow-up, B06/B11–B13 design, B32 setup | Not started |
+| P3-01 | [Recheck prerequisites and define runtime contracts/profiles](01-runtime-prerequisites-and-contract-plan.md) | P1-07 and P2-13 Done; Phase 0 recheck | B01/B02 follow-up, B06/B11–B13 design, B32 setup | Done |
 | P3-02 | [Build bounded allocation and owned user address spaces](02-bounded-allocation-and-user-address-spaces.md) | P3-01 | B05 follow-up, B11/B13 memory foundation | Not started |
 | P3-03 | [Load static user images and bind trusted launch context](03-static-elf-loader-and-launch-context.md) | P3-02 | B11 loader/launch | Not started |
 | P3-04 | [Enter user mode and enforce the syscall/fault boundary](04-user-entry-syscalls-and-fault-containment.md) | P3-03 | B11 entry/syscalls, B13 failure groundwork | Not started |
@@ -50,6 +50,11 @@ adversarial stress and aggregate review. P3-13 owns sustained fault/resource
 experiments; P3-14 aggregates and reviews final-source evidence. This avoids
 making the final review a second implementation milestone. Dependencies describe
 gates, not a request to run agents concurrently.
+
+P3-01 [passes local acceptance](../../../evidence/phase-3/P3-01/2026-10-25/README.md):
+current prerequisites, full M1 baseline, draft runtime/SDK, locked profiles and
+bounded host lifecycle faults. Use its [runbook](runtime-prerequisites-runbook.md).
+Next is P3-02; no user-mode runtime or M3 enforcement is implemented yet.
 
 ## Fixed scope and defaults
 

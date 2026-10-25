@@ -3,6 +3,12 @@
 Status: design draft, version 0.1; freeze only after M3 interoperability tests.
 No syscall numbers or compiler-dependent layouts are frozen by this document.
 
+P3-01's [implementation-level runtime draft](runtime-v0.md) supplies startup,
+register/pointer/error rules, explicit message bytes, allocation/lifetime policy,
+trusted provenance and per-story test gates. Its [single contract source](../../contracts/runtime-v0.json)
+generates draft SDK offsets/names only; guest enforcement and independent ABI
+interoperability remain P3-02–P3-12 work.
+
 ## Kernel API families
 
 | Family | Initial operations | Required semantics |

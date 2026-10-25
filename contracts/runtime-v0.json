@@ -1,0 +1,19 @@
+{
+  "revision": 0,
+  "status": "experimental-unfrozen",
+  "target": "x86_64-unknown-none",
+  "user_code_model": "small",
+  "relocation_model": "static",
+  "entry": {"address": 4194304, "stack_alignment": 16, "entry_rsp_modulo": 8, "context_register": "rdi", "context_bytes": 64, "magic_hex": "434e544d33525430", "return_policy": "synthetic return trampoline calls process_exit"},
+  "user_range": {"minimum": 65536, "exclusive_end": 2147483648, "page_bytes": 4096},
+  "syscall": {"instruction": "syscall", "number": "rax", "arguments": ["rdi", "rsi", "rdx", "r10", "r8", "r9"], "status": "rax", "value": "rdx", "clobbers": ["rcx", "r11", "rax", "rdx", "memory"], "return_instruction": "iretq", "numbers_frozen": false},
+  "startup_fields": [["magic", 8], ["revision", 4], ["length", 4], ["features", 8], ["bootstrap_handle", 8], ["page_bytes", 4], ["reserved", 4], ["clock_resolution_ns", 8], ["reserved_tail", 16]],
+  "message_fields": [["protocol", 4], ["major", 2], ["minor", 2], ["operation", 4], ["required_features", 4], ["payload_bytes", 4], ["handle_count", 2], ["reserved", 2], ["request_id", 8], ["route_epoch", 8], ["policy_epoch", 8]],
+  "handle": {"bytes": 8, "slot_bits": 32, "generation_bits": 32, "zero_invalid": true, "wrap": "retire slot until containing process dies"},
+  "errors": ["BadHandle", "WrongType", "AccessDenied", "InvalidArgument", "BufferTooSmall", "WouldBlock", "TimedOut", "Cancelled", "PeerClosed", "OutOfMemory", "QuotaExceeded", "Unsupported", "StaleEpoch", "IncompatibleProtocol", "InternalFailure"],
+  "operations": ["abi_query", "object_info", "handle_close", "handle_duplicate", "process_create", "process_start", "process_exit", "process_terminate", "process_join", "thread_create", "thread_start", "thread_exit", "thread_join", "thread_yield", "memory_create", "memory_map", "memory_unmap", "memory_protect", "channel_create", "channel_send", "channel_receive", "wait_many", "event_create", "event_signal", "wait_token_create", "wait_cancel", "timer_create", "timer_arm", "timer_read", "timer_cancel", "clock_read", "diagnostic_log"],
+  "unsupported_families": ["device", "irq", "dma", "accounts", "installer", "filesystem", "network", "presentation"],
+  "byte_order": "little",
+  "unknown_required_features": "reject",
+  "identity": "kernel-bound caller principal/session/process generation; payload claims never grant authority"
+}

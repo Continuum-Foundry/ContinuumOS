@@ -4,6 +4,7 @@
 mod boot;
 mod exceptions;
 mod paging;
+mod runtime_memory;
 mod timer;
 use continuum_kernel::{BootInfoV1, Error, Text, identity};
 use core::{
@@ -232,6 +233,7 @@ pub extern "C" fn kernel_entry() -> ! {
         && !(cfg!(feature = "exception-test") && exceptions::mode(fixture).is_some())
         && !(cfg!(feature = "memory-test") && paging::mode(fixture).is_some())
         && !(cfg!(feature = "timer-test") && timer::mode(fixture).is_some())
+        && !(cfg!(feature = "runtime-memory-test") && fixture == "owned-memory")
     {
         reject(continuum_kernel::error("fixture", "disabled"));
     }
@@ -334,6 +336,13 @@ pub extern "C" fn kernel_entry() -> ! {
         exceptions::mode(fixture)
             .or_else(|| paging::mode(fixture))
             .or_else(|| timer::mode(fixture))
+            .or_else(|| {
+                if cfg!(feature = "runtime-memory-test") && fixture == "owned-memory" {
+                    Some(30)
+                } else {
+                    None
+                }
+            })
             .unwrap_or(if fixture == "acceptance-exit" { 100 } else { 0 }),
     )
 }

@@ -87,6 +87,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         preflight(dir, "initial-preflight")?;
     }
     let flavor = match action {
+        "owned-memory" => Flavor::RuntimeMemory,
         "iso-smoke" | "boot-metadata" => Flavor::Smoke,
         "iso-negative" => Flavor::NoEntry,
         "boot-reject" => Flavor::Inject,
@@ -110,6 +111,20 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
     if action == "iso" {
         let image = package(dir, dir, &manifest, false, "normal", false)?;
         return Ok(json!({"compile":"passed","package":"passed","boot":"not_run","image":image}));
+    }
+    if flavor == Flavor::RuntimeMemory {
+        let run = boot_run(dir, action, dir, &manifest, action, false, true, false)?;
+        accepted(&run)?;
+        let records = json_read(&dir.join("owned-memory-run/guest-records.json"))?;
+        if records["records"]
+            .as_array()
+            .is_none_or(|rows| !rows.iter().any(|r| r["event"] == "m1.runtime_memory_ready"))
+        {
+            return Err("Missing runtime memory completion".into());
+        }
+        return Ok(
+            json!({"compile":"passed","package":"passed","owned_memory":"passed","user_execution":false,"run":run}),
+        );
     }
     if flavor == Flavor::Timer {
         let a = boot_run(dir, action, dir, &manifest, action, false, true, false)?;

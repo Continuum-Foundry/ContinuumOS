@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "story": "P3-02",
+  "status": "passed",
+  "review": "local Codex self-review; not independent approval",
+  "reviewer_sha256": "caa28c672e59a88341c5feb1f90fcd1909255e1f2d38693eed55b93a8aa37a91",
+  "acceptance_sha256": "b250cd02706793ff55b79e64a0b597d7b8f44803212cf404d4b638ffc11a4b4b",
+  "memory_build_id": "92a36437b5c324abeecbfd4fc56d1c6a7622e660cfbca368e19553cd39b24259",
+  "memory_kernel_sha256": "35e5e6d755f2de8e03078d91e0e724706806b765a4e98f7fde935b7e2579aba4",
+  "memory_iso_sha256": "7716d43ca02721629851a454c8c2289935d531f3164f791363c7ba3e7f05ee1b",
+  "memory_serial_sha256": "6c98a2abdc1394e4b1f94382e23391819d6d6470305b59ff0cc3acda4f75536f",
+  "m1_rows": 33,
+  "m1_launches": 42,
+  "prerequisite_rows": 10,
+  "kernel_host_tests": 22,
+  "host_tests_sha256": "81f04a1f4e5ca5cadf855383e8ba6bdc931e94922366ce0c7d59795990d8c8bd",
+  "table_audit": {
+    "fixed_kernel_storage_bytes": 9854976,
+    "active_table_pages": {
+      "0": 6,
+      "1": 4
+    },
+    "private_user_pages": {
+      "0": 20,
+      "1": 16
+    },
+    "cycles": 1000,
+    "resident_after": 0
+  },
+  "reviewer_mutations": [
+    {
+      "case": "writable-RX",
+      "status": "rejected"
+    },
+    {
+      "case": "supervisor-alias-write",
+      "status": "rejected"
+    },
+    {
+      "case": "guard-mapped",
+      "status": "rejected"
+    },
+    {
+      "case": "settlement-leak",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-cycles",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-table-pages",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.runtime_memory_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.runtime_alias",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.runtime_space",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.runtime_entry",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.runtime_settlement",
+      "status": "rejected"
+    }
+  ],
+  "criteria": {
+    "owned_tables_and_guards": "passed",
+    "allocation_reclamation": "passed",
+    "failure_rollback": "passed",
+    "copy_and_shared_lifetimes": "passed",
+    "M1_regression": "passed"
+  },
+  "user_execution": false,
+  "public_memory_API": false,
+  "desktop_targets_accepted": false
+}

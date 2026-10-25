@@ -661,6 +661,21 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                 }
                 p.boot_complete = true;
             }
+            "m1.runtime_memory"
+            | "m1.runtime_walk"
+            | "m1.runtime_space"
+            | "m1.runtime_entry"
+            | "m1.runtime_stack"
+            | "m1.runtime_alias"
+            | "m1.runtime_settlement"
+            | "m1.runtime_memory_ready" => {
+                if !p.memory || stage != "runtime-memory" || outcome != "ok" || p.boot_complete {
+                    return Err("Unexpected runtime memory record".into());
+                }
+                if event != "m1.runtime_memory" && expected.fixture != "owned-memory" {
+                    return Err("Runtime fixture disabled".into());
+                }
+            }
             "m1.ready" => {
                 if !p.boot_complete
                     || stage != "ready"
@@ -688,6 +703,20 @@ pub(super) fn assertions(
         return Err("Guest deadline exceeded".into());
     }
     let p = check(serial, expected, true)?;
+    if expected.fixture == "owned-memory" {
+        let final_rows = p
+            .records
+            .iter()
+            .filter(|r| r["event"] == "m1.runtime_memory_ready")
+            .collect::<Vec<_>>();
+        if final_rows.len() != 1
+            || final_rows[0]["fields"]["cycles"] != "1000"
+            || final_rows[0]["fields"]["settled"] != "true"
+            || final_rows[0]["fields"]["user_execution"] != "false"
+        {
+            return Err("Missing/invalid runtime memory completion".into());
+        }
+    }
     if !p.ready() {
         return Err("Missing complete guest outcome".into());
     }

@@ -1,0 +1,27 @@
+
+running 22 tests
+test memory::tests::mapping_conflicts_capacity_and_permissions ... ok
+test memory::tests::reservations_edges_holes_and_exhaustion ... ok
+test owned_memory::tests::generation_wrap_retires_slots_and_precharge_is_global ... ok
+test owned_memory::tests::every_parent_table_stage_and_mapping_quota_rolls_back ... ok
+test memory::tests::malformed_capacity_and_all_reserved ... ok
+test owned_memory::tests::ranges_metadata_quotas_and_poisoned_owner_tokens ... ok
+test owned_memory::tests::private_walk_wx_shared_backing_and_copy_interleavings ... ok
+test platform::tests::rsdp_revision_signature_and_both_checksums ... ok
+test owned_memory::tests::table_failure_keeps_old_root_mapping_and_inventory ... ok
+test platform::tests::acpi_boundaries_and_checksums ... ok
+test platform::tests::clock_wrap_overflow_and_calibration ... ok
+test owned_memory::tests::alignment_realloc_zero_and_transactional_oom ... ok
+test platform::tests::topology_and_hpet_fail_closed ... ok
+test tests::exact_host_session_configuration ... ok
+test tests::framebuffer_arithmetic_pitch_formats_and_backing ... ok
+test tests::ranges_and_address_translations ... ok
+test tests::required_revision_and_capacities_fail_closed ... ok
+test tests::owned_text_checks_termination_encoding_and_boundaries ... ok
+test tests::reservations_cover_live_kernel_loader_module_and_acpi_storage ... ok
+test tests::memory_map_alignment_order_and_protocol_overlap_rules ... ok
+test owned_memory::tests::fixed_storage_repeated_settlement_and_pin_capacity ... ok
+test memory::tests::run_failures_each_zero_stage_and_poisoned_physical_reuse ... ok
+
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.47s
+

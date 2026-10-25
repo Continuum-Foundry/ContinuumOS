@@ -1,0 +1,78 @@
+{
+  "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "92a36437b5c324abeecbfd4fc56d1c6a7622e660cfbca368e19553cd39b24259",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "runtime-memory-test",
+  "inspection": {
+    "diagnostic_sites": {
+      "diagnostic_double_site": 18446744071562076955,
+      "diagnostic_guard_site": 18446744071562076930,
+      "diagnostic_invalid_opcode": 18446744071562076517,
+      "diagnostic_nx_page": 18446744071562178560,
+      "diagnostic_page_fault_site": 18446744071562076529,
+      "diagnostic_panic_report": 18446744071562076534,
+      "diagnostic_write_site": 18446744071562076935
+    },
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "kernel_image_bounds": {
+      "all_load_memory_including_bss": true,
+      "end": "0xffffffff81314000",
+      "load_memory_end": "0xffffffff81314000",
+      "start": "0xffffffff80000000"
+    },
+    "machine": "x86_64",
+    "relocations": 0,
+    "returning_interrupt_entry": {
+      "df_cleared_before_rust": true,
+      "gprs": 15,
+      "return": "iretq",
+      "sysv_alignment": 16,
+      "vectors": [
+        64,
+        255
+      ]
+    },
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 91109,
+        "flags": 5,
+        "memory_size": 91109,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff80017000",
+        "alignment": 4096,
+        "file_size": 8234,
+        "flags": 4,
+        "memory_size": 8234,
+        "offset": 98304
+      },
+      {
+        "address": "0xffffffff8001a000",
+        "alignment": 4096,
+        "file_size": 8970904,
+        "flags": 6,
+        "memory_size": 19898368,
+        "offset": 110592
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "35e5e6d755f2de8e03078d91e0e724706806b765a4e98f7fde935b7e2579aba4",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "c2caf9b9bb6496ab66c7968463e1357f7698875a",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M audit/check-docs.cjs\n M docs/04-decisions/README.md\n M docs/05-delivery/phase-3/02-bounded-allocation-and-user-address-spaces.md\n M docs/05-delivery/phase-3/README.md\n M docs/06-contracts/runtime-v0.md\n M kernel/Cargo.toml\n M kernel/src/exceptions.rs\n M kernel/src/lib.rs\n M kernel/src/main.rs\n M kernel/src/memory.rs\n M kernel/src/paging.rs\n M tools/xtask/src/m1/build.rs\n M tools/xtask/src/m1/cases.rs\n M tools/xtask/src/m1/records.rs\n M tools/xtask/src/main.rs\n?? docs/04-decisions/0018-bounded-owned-memory.md\n?? docs/05-delivery/phase-3/owned-memory-runbook.md\n?? kernel/src/owned_memory.rs\n?? kernel/src/owned_memory/\n?? kernel/src/runtime_memory.rs\n?? tools/Review-P3-02.py\n?? tools/Test-P3-02.ps1"
+}

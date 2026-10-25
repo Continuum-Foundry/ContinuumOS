@@ -107,7 +107,7 @@ selection; P2-10–P2-13 now pass the final hosted subset. Guest gates remain M3
 [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
 pass version/capability/hash checks and rejection tests; this adds no ISO boot result.
 
-M3 has [fourteen Phase 3 stories](phase-3/README.md). P3-01 [passes local acceptance](../../evidence/phase-3/P3-01/2026-10-25/README.md): ten current prerequisites, full M1 baseline, 42 P3 contract/profile/host lifecycle checks and eight reaped children. This adds T02/T13 prerequisite and T09 profile setup only. P3-02–P3-14 remain Not started.
+M3 has [fourteen Phase 3 stories](phase-3/README.md). P3-01 [passes local acceptance](../../evidence/phase-3/P3-01/2026-10-25/README.md): ten current prerequisites, full M1 baseline, 42 P3 contract/profile/host lifecycle checks and eight reaped children. This adds T02/T13 prerequisite and T09 profile setup only. P3-02 [passes local owned-memory acceptance](../../evidence/phase-3/P3-02/2026-10-25/README.md): 22 kernel host tests, independent ELF/raw-table audits, 11 evidence mutations, 1000 exact guest settlements and the complete current 33-row/42-launch M1 gate. This adds the internal T02/T03 memory subset and T09 inventory groundwork; ring-3 enforcement remains P3-04/P3-06. P3-03–P3-14 remain Not started.
 Its [required final matrix](phase-3/14-phase-3-acceptance.md#required-acceptance-matrix)
 covers T02/T03 user entry, loader, CPU state and isolation; T06/T11 handles, IPC,
 trusted provenance, scoped ownership/grants, invalidation and writer fencing;

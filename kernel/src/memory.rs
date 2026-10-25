@@ -130,6 +130,77 @@ impl Frames {
         }
         Err(error("frames", "exhausted"))
     }
+    /// Contiguous eager runs. Preflight every frame; zero before publication.
+    /// Fragmentation is a fallible OOM, never permission to reclaim reservations.
+    pub fn allocate_run(
+        &mut self,
+        pages: usize,
+        alignment: u64,
+        mut zero: impl FnMut(PhysAddr) -> Result<()>,
+    ) -> Result<PhysAddr> {
+        if !self.ready
+            || pages == 0
+            || !alignment.is_power_of_two()
+            || !(PAGE..=2 * 1024 * 1024).contains(&alignment)
+        {
+            return Err(error("run", "invalid"));
+        }
+        if pages > self.quota.saturating_sub(self.allocated) || pages as u64 > LIMIT / PAGE {
+            return Err(error("frames", "exhausted"));
+        }
+        let mut first = alignment;
+        while first / PAGE + pages as u64 <= LIMIT / PAGE {
+            let mut available = true;
+            for n in 0..pages {
+                let p = PhysAddr(first + n as u64 * PAGE);
+                if !self.eligible(p)
+                    || self.live[(p.0 / PAGE / 64) as usize] & (1 << (p.0 / PAGE % 64)) != 0
+                {
+                    first = (p.0 + PAGE).div_ceil(alignment) * alignment;
+                    available = false;
+                    break;
+                }
+            }
+            if !available {
+                continue;
+            }
+            for n in 0..pages {
+                zero(PhysAddr(first + n as u64 * PAGE))?;
+            }
+            for n in 0..pages {
+                let p = first / PAGE + n as u64;
+                self.live[(p / 64) as usize] |= 1 << (p % 64);
+            }
+            self.allocated += pages;
+            return Ok(PhysAddr(first));
+        }
+        Err(error("frames", "exhausted"))
+    }
+    pub fn release_run(&mut self, base: PhysAddr, pages: usize) -> Result<()> {
+        page(base.0)?;
+        let end = base
+            .0
+            .checked_add(
+                (pages as u64)
+                    .checked_mul(PAGE)
+                    .ok_or(error("run", "overflow"))?,
+            )
+            .ok_or(error("run", "overflow"))?;
+        if !self.ready || pages == 0 || end > LIMIT {
+            return Err(error("run", "invalid"));
+        }
+        for p in (base.0..end).step_by(PAGE as usize) {
+            if !self.eligible(PhysAddr(p))
+                || self.live[(p / PAGE / 64) as usize] & (1 << (p / PAGE % 64)) == 0
+            {
+                return Err(error("run", "not_owned"));
+            }
+        }
+        for p in (base.0..end).step_by(PAGE as usize) {
+            self.release(PhysAddr(p))?;
+        }
+        Ok(())
+    }
     pub fn release(&mut self, p: PhysAddr) -> Result<()> {
         page(p.0)?;
         if !self.ready || !self.eligible(p) {
@@ -235,7 +306,7 @@ impl<const N: usize> Tables<N> {
         }
     }
     fn child(&self, entry: u64) -> Result<usize> {
-        if entry & (PRESENT | WRITE | 4 | 128 | NX) != PRESENT | WRITE {
+        if entry & (PRESENT | WRITE | 128 | NX) != PRESENT | WRITE {
             return Err(error("mapping", "parent_flags"));
         }
         let offset = (entry & ADDRESS)
@@ -253,6 +324,26 @@ impl<const N: usize> Tables<N> {
         Ok([39, 30, 21, 12].map(|s| ((v.0 >> s) & 511) as usize))
     }
     pub fn map(&mut self, v: VirtAddr, p: PhysAddr, permission: Permission) -> Result<()> {
+        self.map_inner(v, p, permission, false)
+    }
+    pub(crate) fn map_user(
+        &mut self,
+        v: VirtAddr,
+        p: PhysAddr,
+        permission: Permission,
+    ) -> Result<()> {
+        if !(0x10000..0x80000000).contains(&v.0) {
+            return Err(error("mapping", "user_range"));
+        }
+        self.map_inner(v, p, permission, true)
+    }
+    fn map_inner(
+        &mut self,
+        v: VirtAddr,
+        p: PhysAddr,
+        permission: Permission,
+        user: bool,
+    ) -> Result<()> {
         if self.used == 0 {
             return Err(error("tables", "uninitialized"));
         }
@@ -272,18 +363,64 @@ impl<const N: usize> Tables<N> {
                 self.write(
                     t,
                     index,
-                    self.physical + next as u64 * PAGE | PRESENT | WRITE,
+                    self.physical + next as u64 * PAGE | PRESENT | WRITE | if user { 4 } else { 0 },
                 );
                 next
             } else {
+                if (entry & 4 != 0) != user {
+                    return Err(error("mapping", "privilege_conflict"));
+                }
                 self.child(entry)?
             };
         }
         if self.read(t, indices[3]) != 0 {
             return Err(error("mapping", "conflict"));
         }
-        self.write(t, indices[3], p.0 | permission.bits());
+        self.write(
+            t,
+            indices[3],
+            p.0 | permission.bits() | if user { 4 } else { 0 },
+        );
         Ok(())
+    }
+    /// Supervisor alias permission change; physical identity is unchanged.
+    pub fn protect(&mut self, v: VirtAddr, permission: Permission) -> Result<()> {
+        let old = self.inspect(v)?;
+        if old & PRESENT == 0 {
+            return Err(error("mapping", "absent"));
+        }
+        let indices = Self::indices(v)?;
+        let mut t = 0;
+        for &i in &indices[..3] {
+            t = self.child(self.read(t, i))?;
+        }
+        self.write(
+            t,
+            indices[3],
+            (old & ADDRESS) | permission.bits() | (old & 4),
+        );
+        Ok(())
+    }
+    /// Kernel root snapshot for owned spaces. Foreign high-half descendants are
+    /// immutable to this builder; only the checked low user range is mutated.
+    pub fn kernel_entries(&self) -> [u64; 256] {
+        core::array::from_fn(|i| self.read(0, i + 256))
+    }
+    pub(crate) fn inherit_kernel(&mut self, entries: &[u64; 256]) -> Result<()> {
+        if entries.iter().any(|e| e & 4 != 0) {
+            return Err(error("tables", "kernel_user"));
+        }
+        for (i, &e) in entries.iter().enumerate() {
+            self.write(0, i + 256, e);
+        }
+        Ok(())
+    }
+    /// Independent readers can inspect exact hardware bytes without native casts.
+    pub fn entry(&self, table: usize, index: usize) -> Result<u64> {
+        if table >= self.used || index >= 512 {
+            return Err(error("tables", "index"));
+        }
+        Ok(self.read(table, index))
     }
     pub fn inspect(&self, v: VirtAddr) -> Result<u64> {
         if self.used == 0 {
@@ -325,6 +462,55 @@ mod tests {
             range: Range { base, len },
             kind,
         }
+    }
+    #[test]
+    fn run_failures_each_zero_stage_and_poisoned_physical_reuse() {
+        let mut f = Frames::EMPTY;
+        f.initialize(&[r(0x200000, 16 * PAGE, 0), r(0x210000, PAGE, 5)])
+            .unwrap();
+        f.seal();
+        let mut bytes = std::vec![0xa5u8;16*4096];
+        for fail in 0..16 {
+            let mut calls = 0;
+            assert!(
+                f.allocate_run(16, 2 * 1024 * 1024, |p| {
+                    let n = ((p.0 - 0x200000) / PAGE) as usize;
+                    if calls == fail {
+                        return Err(error("zero", "injected"));
+                    }
+                    bytes[n * 4096..(n + 1) * 4096].fill(0);
+                    calls += 1;
+                    Ok(())
+                })
+                .is_err()
+            );
+            assert_eq!(f.allocated, 0);
+        }
+        for _ in 0..1000 {
+            let p = f
+                .allocate_run(16, 2 * 1024 * 1024, |p| {
+                    let n = ((p.0 - 0x200000) / PAGE) as usize;
+                    bytes[n * 4096..(n + 1) * 4096].fill(0);
+                    Ok(())
+                })
+                .unwrap();
+            assert_eq!(p, PhysAddr(0x200000));
+            assert!(bytes.iter().all(|b| *b == 0));
+            bytes.fill(0xa5);
+            assert!(f.release_run(p, 17).is_err());
+            assert_eq!(f.allocated, 16);
+            f.release_run(p, 16).unwrap();
+            assert!(f.release_run(p, 16).is_err());
+            assert_eq!(f.allocated, 0);
+        }
+        for align in [0, 1, 3, 8193, 4 * 1024 * 1024] {
+            assert!(f.allocate_run(1, align, |_| Ok(())).is_err());
+        }
+        assert!(f.allocate_run(0, PAGE, |_| Ok(())).is_err());
+        assert!(
+            f.release_run(PhysAddr(u64::MAX - 4095), usize::MAX)
+                .is_err()
+        );
     }
     #[test]
     fn reservations_edges_holes_and_exhaustion() {

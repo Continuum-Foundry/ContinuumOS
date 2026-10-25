@@ -38,7 +38,7 @@ const requirementIds=[...req.matchAll(/^\| (R\d{2}) \|/gm)].map(m=>m[1]);
 if(requirementIds.length!==19)errors.push(`Expected 19 requirements, got ${requirementIds.length}`);
 for(const id of requirementIds)if(!val.includes(id))errors.push(`Missing requirement trace ${id}`);
 const adrs=docs.filter(p=>/04-decisions[\\/]\d{4}-.*\.md$/.test(p));
-if(adrs.length!==17)errors.push(`Expected 17 ADRs, got ${adrs.length}`);
+if(adrs.length!==18)errors.push(`Expected 18 ADRs, got ${adrs.length}`);
 for(const f of adrs)if(!fs.readFileSync(f,'utf8').includes('Status: Proposed.'))errors.push(`Unexpected ADR status: ${f}`);
 const backlog=fs.readFileSync(path.join(root,'docs/05-delivery/backlog.md'),'utf8');
 const tasks=[...backlog.matchAll(/^\| (B\d{2}) \| (.*?) \| (.*?) \|/gm)].map(m=>({id:m[1],dependencies:[...m[3].matchAll(/\bB\d{2}\b/g)].map(m=>m[0])}));

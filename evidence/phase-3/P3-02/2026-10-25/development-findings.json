@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "scope": "Authored development findings; full generated artifacts remain ignored/local. These are not accepted guest failures.",
+  "findings": [
+    {
+      "case": "incomplete-host-test-scaffold",
+      "outcome": "compile-failed",
+      "observation": "An early host compile ran before owned_memory/tests.rs existed and reported E0583. The missing test module was implemented before the passing host test runs.",
+      "raw_log": "No separate command log was created; diagnostic was returned in the chat tool output."
+    },
+    {
+      "case": "sandbox-certificate-store",
+      "outcome": "host-signing-unavailable-in-sandbox",
+      "observation": "A host test build could not access the existing CurrentUser certificate-store entry inside the sandbox. The documented execution context outside that sandbox successfully used the already enrolled signer.",
+      "correction": "No certificate, enrollment, Cargo lock, compiler pin or App Control policy was changed.",
+      "raw_log": "No separate command log was created; diagnostic was returned in the chat tool output. Final prerequisite/signing logs remain local under their reported runs."
+    },
+    {
+      "case": "new-ADR-count",
+      "outcome": "manual-document-audit-failed",
+      "observation": "Adding ADR-0018 caused the existing exact-count check to report Expected 17 ADRs, got 18. The index and expected count were updated together; the unchanged remaining documentation checks pass.",
+      "raw_log": "No separate command log was created for the manual check. The final M1 docs/check.stdout.log is retained locally."
+    },
+    {
+      "case": "development-guest-runs",
+      "outcome": "passed-superseded-development-inputs",
+      "runs": [
+        "build/m1/owned-memory-1792954105447268700-49888",
+        "build/m1/owned-memory-1792954268588139400-15160",
+        "build/m1/owned-memory-1792954373580186900-37196"
+      ],
+      "observation": "Three bounded guest memory runs passed while kernel-stack ownership and complete raw table-entry auditing were added. Only the fresh final acceptance command's guest run is promoted. No failed VM launch was retried or given a longer deadline."
+    }
+  ]
+}

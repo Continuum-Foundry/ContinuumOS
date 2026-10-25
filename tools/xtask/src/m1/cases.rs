@@ -53,7 +53,13 @@ pub(super) fn boot_run(
             .find(|r| r["event"] == "m1.boot_info_validated")
             .ok_or("Missing checked summary")?;
         let fields = &summary["fields"];
-        let want_modules = if module { "1" } else { "0" };
+        let want_modules = if fixture == "static-loader" {
+            "3"
+        } else if module {
+            "1"
+        } else {
+            "0"
+        };
         if fields["modules"] != want_modules
             || fields["acpi"] != "locator-only"
             || (fixture == "serial-only"
@@ -88,6 +94,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
     }
     let flavor = match action {
         "owned-memory" => Flavor::RuntimeMemory,
+        "static-loader" => Flavor::StaticLoader,
         "iso-smoke" | "boot-metadata" => Flavor::Smoke,
         "iso-negative" => Flavor::NoEntry,
         "boot-reject" => Flavor::Inject,
@@ -111,6 +118,13 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
     if action == "iso" {
         let image = package(dir, dir, &manifest, false, "normal", false)?;
         return Ok(json!({"compile":"passed","package":"passed","boot":"not_run","image":image}));
+    }
+    if flavor == Flavor::StaticLoader {
+        let run = boot_run(dir, action, dir, &manifest, action, false, true, false)?;
+        accepted(&run)?;
+        return Ok(
+            json!({"compile":"passed","package":"passed","static_loader":"passed","user_execution":false,"run":run}),
+        );
     }
     if flavor == Flavor::RuntimeMemory {
         let run = boot_run(dir, action, dir, &manifest, action, false, true, false)?;

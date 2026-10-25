@@ -13,6 +13,21 @@ const TABLE_CAPACITY: usize = 2304;
 static FRAMES: Local<Frames> = Local(core::cell::UnsafeCell::new(Frames::EMPTY));
 static TABLES: Local<Tables<TABLE_CAPACITY>> = Local(core::cell::UnsafeCell::new(Tables::EMPTY));
 const SCRATCH: u64 = 0xffff_c000_0000_0000;
+#[cfg(feature = "static-loader-test")]
+const MODULE_BASE: u64 = 0xffff_c200_0000_0000;
+#[cfg(feature = "static-loader-test")]
+pub fn module(index: usize) -> Result<&'static [u8]> {
+    let info = unsafe { &*crate::BOOT_INFO.0.get() };
+    let m = info
+        .modules
+        .get(index)
+        .filter(|_| index < info.module_count)
+        .ok_or(error("module", "missing"))?;
+    need(m.range.len > 0 && m.range.len <= continuum_kernel::user_image::MAX_IMAGE as u64)?;
+    // Exact reserved module, mapped RO/NX/WB before any owned root is copied.
+    let v = MODULE_BASE + index as u64 * 0x200000 + m.range.base % PAGE;
+    Ok(unsafe { core::slice::from_raw_parts(v as *const u8, m.range.len as usize) })
+}
 unsafe extern "C" {
     static __image_start: u8;
     static __text_end: u8;
@@ -254,6 +269,22 @@ pub fn establish(mode: u64) -> Result<()> {
             Permission::ReadWrite,
         )
     })?;
+    #[cfg(feature = "static-loader-test")]
+    if mode == 31 {
+        need(info.module_count == 3)?;
+        for (i, m) in info.modules[..info.module_count].iter().enumerate() {
+            need(m.range.len > 0 && m.range.len <= continuum_kernel::user_image::MAX_IMAGE as u64)?;
+            let base = m.range.base & !(PAGE - 1);
+            let pages = (m.range.base % PAGE + m.range.len).div_ceil(PAGE);
+            for n in 0..pages {
+                tables.map(
+                    VirtAddr(MODULE_BASE + i as u64 * 0x200000 + n * PAGE),
+                    PhysAddr(base + n * PAGE),
+                    Permission::ReadOnly,
+                )?;
+            }
+        }
+    }
     need(
         tables.inspect(VirtAddr(addr_of!(diagnostic_nx_page) as u64))? & (NX | WRITE) == NX | WRITE,
     )?;

@@ -35,6 +35,7 @@ Check its story review; no whole-OS or user-mode isolation gate is implied.
 | [0016](0016-optional-inference.md) | Optional isolated inference after baseline | Small-model quota/crash tests; no core release dependency |
 | [0017](0017-bootstrap-timekeeping.md) | ACPI-discovered xAPIC/HPET bootstrap uptime | Real timer delivery, monotonic reads, masks, idle and failure diagnostics |
 | [0018](0018-bounded-owned-memory.md) | Fixed transactional table banks and reclaiming owned page runs | Failure rollback, alias/pin audits, guest root switching and exact reclamation |
+| [0019](0019-static-images-and-trusted-launch.md) | Coherent static boot images and staged trusted launch records | Independent ELF/page/startup audit, authority/reuse denial and complete M1 regression |
 
 ## Lifecycle
 

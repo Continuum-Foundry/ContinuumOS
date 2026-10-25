@@ -1,6 +1,6 @@
 # P3-03 — Load static user images and bind trusted launch context
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done. Owner: Unassigned.
 Depends on: P3-02 Done. Suggested labels: `phase-3`, `elf-loader`, `launch`.
 Backlog: B11 loader/launch. Requirements: R03/R10/R14/R18. Test families: T02/T03/T11.
 
@@ -33,15 +33,15 @@ so executable bytes and caller-supplied identities cannot bypass launch authorit
 
 ## Acceptance criteria
 
-- [ ] Real static fixture images load into separate owned spaces with correct RX/R/RW,
+- [x] Real static fixture images load into separate owned spaces with correct RX/R/RW,
   zero BSS, guarded stack, entry and byte-for-byte audited contents.
-- [ ] Malformed/unsupported images fail before runnable publication with precise
+- [x] Malformed/unsupported images fail before runnable publication with precise
   bounded reasons and no partial object, frame or trusted-context leak.
-- [ ] Trusted user A, user B and service launch records remain distinct across process
+- [x] Trusted user A, user B and service launch records remain distinct across process
   reuse; stale identifiers and payload principal/session/role edits grant nothing.
-- [ ] Startup/entry/image lifetime and child authority ceilings are documented in
+- [x] Startup/entry/image lifetime and child authority ceilings are documented in
   draft contracts; no native Rust layout becomes an external startup ABI.
-- [ ] Actual ISO packaging and affected M1 metadata/boot regressions still pass;
+- [x] Actual ISO packaging and affected M1 metadata/boot regressions still pass;
   loaded-image validation is not reported as successful user-mode execution.
 
 ## Tests and evidence
@@ -61,3 +61,20 @@ entry; P3-09/P3-10 own authorized child launch and policy enforcement. Sources:
 [identity model](../../02-architecture/identity-and-authorization.md),
 [build/release](../build-and-release.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+## Local acceptance — 2026-10-25
+
+P3-03 passes [local Codex self-review](../../../evidence/phase-3/P3-03/2026-10-25/README.md),
+not independent approval. Use the [loader runbook](static-loader-runbook.md).
+Three separately linked Rust fixtures load 72 independently audited private pages,
+including exact file/BSS/padding/startup/stack bytes and raw hardware tables.
+All 28 kernel host tests pass; guest admission rejects 19 malformed/truncated
+cases, every insufficient 0–23-page quota, wrong digest and 15 forged authority
+requests, then rejects stale process generation after slot reuse and settles exactly.
+The complete current M1 gate passes 33 rows/42 launches, and the separate P3-02
+1000-cycle memory regression passes. Full raw artifacts remain local.
+
+No user instruction executes. The return page deliberately contains UD2 until
+P3-04 installs process_exit and IRETQ; public child launch/authorization remain
+P3-09/P3-10. This accepts staged loading, not ring-3 containment, account identity,
+public rights, a scheduler, general signed package admission or the M3 milestone.

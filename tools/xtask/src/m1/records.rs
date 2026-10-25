@@ -676,6 +676,17 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     return Err("Runtime fixture disabled".into());
                 }
             }
+            "m1.loader_image" | "m1.loader_page" | "m1.loader_table" | "m1.loader_binding"
+            | "m1.loader_rejected" | "m1.loader_ready" => {
+                if !p.memory
+                    || stage != "static-loader"
+                    || outcome != "ok"
+                    || p.boot_complete
+                    || expected.fixture != "static-loader"
+                {
+                    return Err("Unexpected loader record".into());
+                }
+            }
             "m1.ready" => {
                 if !p.boot_complete
                     || stage != "ready"
@@ -703,6 +714,20 @@ pub(super) fn assertions(
         return Err("Guest deadline exceeded".into());
     }
     let p = check(serial, expected, true)?;
+    if expected.fixture == "static-loader" {
+        let rows = p
+            .records
+            .iter()
+            .filter(|r| r["event"] == "m1.loader_ready")
+            .collect::<Vec<_>>();
+        if rows.len() != 1
+            || rows[0]["fields"]["images"] != "3"
+            || rows[0]["fields"]["settled"] != "true"
+            || rows[0]["fields"]["user_execution"] != "false"
+        {
+            return Err("Missing loader completion".into());
+        }
+    }
     if expected.fixture == "owned-memory" {
         let final_rows = p
             .records

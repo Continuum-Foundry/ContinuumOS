@@ -1,7 +1,8 @@
 # Experimental M3 runtime contract
 
-Status: implementation draft, revision 0, P3-01. No guest implementation or frozen
-ABI follows from this document. [runtime-v0.json](../../contracts/runtime-v0.json)
+Status: implementation draft, revision 0, P3-01 through P3-03. The internal memory
+backend and staged loader exist; no executing user ABI is frozen.
+[runtime-v0.json](../../contracts/runtime-v0.json)
 is the single source for generated SDK field offsets and operation/error names.
 `python tools/m3_runtime.py generate <local-output.rs>` generates compiler-local
 names, not syscall numbers or serializable enum layouts. P3-04 adds experimental
@@ -36,6 +37,20 @@ the call-shaped stack; it does not CALL across privilege levels. P3-04 enters vi
 IRETQ with kernel-controlled selectors, RFLAGS and canonical RIP/RSP. No SYSRET
 fast path is planned at this gate. A forged return trampoline or invalid stack
 fault terminates the process, without a kernel unwind.
+
+P3-03 implements only staged memory and trusted bindings; see the
+[loader runbook](../05-delivery/phase-3/static-loader-runbook.md). The current
+return page contains UD2 until P3-04 assigns process_exit and supplies IRETQ.
+No fixture is runnable yet. Startup R/NX page is `0x7ffd0000`, return RX page is
+`0x7ffd1000`, and initial RSP is `0x7fff0000 - 8`. Features, bootstrap handle and
+clock are zero; no live channel or grant is encoded. Trusted descriptors are exact
+ELF SHA-256/size pairs compiled into the kernel, never accepted from module data.
+The coherent optical image/loader is the trust root; module memory stays reserved.
+Image bytes are eagerly copied; failure reclaims all staged process state before
+publishing any binding. The fixed boot launcher owns synthetic principals/sessions
+and internal grant ceilings. Child launch must authenticate supervisor delegation,
+derive principal/session/class from a live generation and narrow grant/resource
+ceilings in P3-09/10. Payload identity/role/handle bytes never mint authority.
 
 Startup bytes, in JSON field order, are explicitly encoded little-endian:
 

@@ -1,0 +1,8 @@
+<fixture_entry>:
+  400000:      	movzbl	(%rdi), %ecx
+  400003:      	xorq	0x1ff6(%rip), %rcx      # 0x402000 <_RNvCseXTE2hPOqV1_7fixture4DATA>
+  40000a:      	movzbl	0xfef(%rip), %eax       # 0x401000 <_RNvCseXTE2hPOqV1_7fixture5LABEL>
+  400011:      	xorq	%rcx, %rax
+  400014:      	movb	%al, 0x2fe6(%rip)       # 0x403000 <_RNvCseXTE2hPOqV1_7fixture3BSS>
+  40001a:      	retq
+

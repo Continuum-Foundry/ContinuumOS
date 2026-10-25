@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "story": "P3-03",
+  "status": "passed",
+  "review": "local Codex self-review; not independent approval",
+  "reviewer_sha256": "b97ac31204f9609e5c5cde267926af5e0aec03d733a9892c2d7e4930324d8298",
+  "acceptance_sha256": "da5916c7f4bfd8ec51058e6a786494e47c17e3c41135ed3e6da7f93d023d2e44",
+  "source_commit": "9553ae3971f60f45501f3f1fd5a69ca8dd4c5c78",
+  "loader_build_id": "6f8f5db29de70863575d43d419ccf5033b7959ed9850b8fdc18da2c9b425675f",
+  "kernel_sha256": "501af730a343f42f76fe248e980e62cf5454540febe4e15ef8f244014d077c89",
+  "iso_sha256": "a44d62b6ffc42d40012fd5145557fc3b006eacee9b6b178595e9ee14cce4d761",
+  "serial_sha256": "00e6b6df14a1d8192b430d82dc11d5fd47691cae03431ea56be511489a39fc74",
+  "audit": {
+    "images": [
+      {
+        "image": 0,
+        "sha256": "4307b5ea8a83967d4ca71cfee99cf85f231fa00cb93b12c71fd266b2334f342c",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 1,
+        "sha256": "315356d58045b4bf95f0ead8f714a0636660e9635f482bdd98f0a87a1d27b590",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 2,
+        "sha256": "136964ed96bd400903b517745e74c9f6f663038d064fae61f59da24b69be9211",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      }
+    ],
+    "private_pages": 72,
+    "allocation_failures": 24,
+    "malformed_cases": 19,
+    "trusted_bindings": 4,
+    "settled_frames": 0
+  },
+  "memory_audit": {
+    "fixed_kernel_storage_bytes": 9854976,
+    "active_table_pages": {
+      "0": 6,
+      "1": 4
+    },
+    "private_user_pages": {
+      "0": 20,
+      "1": 16
+    },
+    "cycles": 1000,
+    "resident_after": 0
+  },
+  "reviewer_mutations": [
+    {
+      "case": "wrong-page",
+      "status": "rejected"
+    },
+    {
+      "case": "writable-alias",
+      "status": "rejected"
+    },
+    {
+      "case": "forged-principal",
+      "status": "rejected"
+    },
+    {
+      "case": "stale-reuse",
+      "status": "rejected"
+    },
+    {
+      "case": "false-settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.loader_image",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.loader_table",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.loader_page",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.loader_binding",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.loader_rejected",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.loader_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "writable-RX-table",
+      "status": "rejected"
+    },
+    {
+      "case": "forged-startup",
+      "status": "rejected"
+    },
+    {
+      "case": "stale-reuse-generation",
+      "status": "rejected"
+    }
+  ],
+  "prerequisite_checks": 10,
+  "m1_rows": 33,
+  "m1_launches": 42,
+  "kernel_host_tests": 28,
+  "user_execution": false,
+  "public_launch_API": false,
+  "desktop_targets_accepted": false
+}

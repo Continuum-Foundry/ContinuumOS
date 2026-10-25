@@ -107,5 +107,19 @@ Published backing has RO/NX supervisor aliases and allocation-wide W^X checks.
 Quota/OOM and failed construction preserve existing state. Pins reject mutation;
 foreign references conservatively make owner teardown Busy until P3-06 supplies
 independent memory-object ownership. Read [ADR-0018](../04-decisions/0018-bounded-owned-memory.md)
-for fragmentation, fixed-storage and rebuild tradeoffs. The loader, ring-3 fault
-containment, public rights, scheduling and desktop memory acceptance remain open.
+for fragmentation, fixed-storage and rebuild tradeoffs. Ring-3 fault containment,
+public rights, scheduling and desktop memory acceptance remain open; P3-03 staging
+is described below.
+
+## P3-03 static-image staging
+
+The [loader implementation](../05-delivery/phase-3/static-loader-runbook.md) adds
+separately linked Rust ELF fixtures packaged as reserved read-only boot modules,
+kernel-compiled exact digest/size descriptors, bounded static ELF admission and
+transactional image/stack/startup construction. The trusted boot launcher publishes
+principal/session/class/generation and grant/resource ceilings only after all
+memory succeeds. Startup bytes carry no authority. The live-parent child-context
+hook only narrows trusted identity/ceilings; authenticated public child launch is
+still P3-09/10. See [ADR-0019](../04-decisions/0019-static-images-and-trusted-launch.md).
+No user instruction is executed: the synthetic return traps until P3-04 supplies
+process_exit and IRETQ. Ring-3 faults, syscalls, rights and scheduling remain open.

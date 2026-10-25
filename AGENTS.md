@@ -12,8 +12,10 @@ The user approved the reconciled revision-2 roadmap. See
 `docs/00-overview/reconciled-plan.md`; individual library integrations still need validation.
 P3-01's prerequisite/contract gate passes local self-review; see
 `evidence/phase-3/P3-01/2026-10-25/README.md`. P3-02's owned-memory backend passes
-local self-review; see `evidence/phase-3/P3-02/2026-10-25/README.md`. Next is P3-03;
-no loader, ring-3 execution or scheduler exists yet.
+local self-review; see `evidence/phase-3/P3-02/2026-10-25/README.md`. P3-03's staged
+static-image loader and trusted launch bindings pass local self-review; see
+`evidence/phase-3/P3-03/2026-10-25/README.md`. Next is P3-04;
+no ring-3 execution or scheduler exists yet.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other

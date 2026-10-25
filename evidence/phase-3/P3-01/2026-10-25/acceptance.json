@@ -1,0 +1,473 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "P3-01 prerequisites/contracts/host lifecycle only",
+  "source_base": "b346f9426639aa22222b5e45a2e2f44a88bc4cfc",
+  "inputs": {
+    "config/m3-profiles.json": "d06ecc996cde597e172c44b56f3bd8daa55cc5100caf1a2da27ea731c550b781",
+    "contracts/runtime-v0.json": "abbe718c32d7492e7ce56d77c67afb1304bc391727fc1c7b0f7e3327d0d50ac0",
+    "tools/m3_runtime.py": "f978cfb4871f5f1619dcff689d74cc08cbe62f302a0144a20bd6cade35828ab6",
+    "tools/Test-P3-01.py": "339e7fd80266b21d189d7a54c480449c675180392e9a1fa7b1daf12f4f1b9f59",
+    "tools/Review-P3-01.py": "f50ff9bd5bc508b0102915c5361775edc30ac1714912035d615ae69c6d723b52",
+    "docs/06-contracts/runtime-v0.md": "51591cd88cae30d1bad2e6bc4c75e5caa260d8236816378050fcf95f1e147a6f",
+    "docs/05-delivery/phase-3/runtime-prerequisites-runbook.md": "e0ac8346c95e257ae98e2a9765aa667f525c66b0bd90b77b78ab1b5f0981c8fb"
+  },
+  "rows": [
+    {
+      "name": "ten-current-prerequisites",
+      "status": "passed"
+    },
+    {
+      "name": "source-base-current",
+      "status": "passed"
+    },
+    {
+      "name": "current-compiled-source-inputs",
+      "status": "passed"
+    },
+    {
+      "name": "fresh-real-user-link-image",
+      "status": "passed"
+    },
+    {
+      "name": "complete-M1-baseline-and-raw-review",
+      "status": "passed"
+    },
+    {
+      "name": "current-M1-build-and-harness-inputs",
+      "status": "passed"
+    },
+    {
+      "name": "baseline-after-prerequisite-start",
+      "status": "passed"
+    },
+    {
+      "name": "profile-matches-actual-M1-CPU",
+      "status": "passed"
+    },
+    {
+      "name": "independent-startup-layout",
+      "status": "passed"
+    },
+    {
+      "name": "independent-message-layout",
+      "status": "passed"
+    },
+    {
+      "name": "deterministic-generated-SDK",
+      "status": "passed"
+    },
+    {
+      "name": "independent-startup-offsets",
+      "status": "passed"
+    },
+    {
+      "name": "independent-message-offsets",
+      "status": "passed"
+    },
+    {
+      "name": "generated-SDK-target-compiles",
+      "status": "passed"
+    },
+    {
+      "name": "reject-profile",
+      "status": "passed"
+    },
+    {
+      "name": "reject-CPU",
+      "status": "passed"
+    },
+    {
+      "name": "reject-SMP",
+      "status": "passed"
+    },
+    {
+      "name": "reject-capacity",
+      "status": "passed"
+    },
+    {
+      "name": "reject-limits",
+      "status": "passed"
+    },
+    {
+      "name": "reject-deadline",
+      "status": "passed"
+    },
+    {
+      "name": "reject-type",
+      "status": "passed"
+    },
+    {
+      "name": "reject-clock",
+      "status": "passed"
+    },
+    {
+      "name": "unknown-field",
+      "status": "passed"
+    },
+    {
+      "name": "missing-field",
+      "status": "passed"
+    },
+    {
+      "name": "duplicate-JSON-key",
+      "status": "passed"
+    },
+    {
+      "name": "reject-missing-config",
+      "status": "passed"
+    },
+    {
+      "name": "reject-malformed-config",
+      "status": "passed"
+    },
+    {
+      "name": "reject-oversized-config",
+      "status": "passed"
+    },
+    {
+      "name": "reject-missing-image",
+      "status": "passed"
+    },
+    {
+      "name": "reject-changed-image",
+      "status": "passed"
+    },
+    {
+      "name": "reject-malformed-image",
+      "status": "passed"
+    },
+    {
+      "name": "reject-missing-tool",
+      "status": "passed"
+    },
+    {
+      "name": "reject-alternate-tool",
+      "status": "passed"
+    },
+    {
+      "name": "reject-unknown-case",
+      "status": "passed"
+    },
+    {
+      "name": "actual-child-success",
+      "status": "passed"
+    },
+    {
+      "name": "actual-child-nonzero",
+      "status": "passed"
+    },
+    {
+      "name": "actual-child-missing-final",
+      "status": "passed"
+    },
+    {
+      "name": "actual-child-timeout",
+      "status": "passed"
+    },
+    {
+      "name": "documented-CLI-success",
+      "status": "passed"
+    },
+    {
+      "name": "documented-CLI-nonzero",
+      "status": "passed"
+    },
+    {
+      "name": "documented-CLI-missing-final",
+      "status": "passed"
+    },
+    {
+      "name": "documented-CLI-timeout",
+      "status": "passed"
+    }
+  ],
+  "prerequisites": "build\\m2\\P2-01\\prerequisites-1792948703470",
+  "prerequisites_sha256": "b767055f85838f15623f142c19460f3e3e02461eaac8897f7d179a8c4131e09a",
+  "m1": "build\\m1\\suite-1792948961946196100-42912",
+  "m1_review_sha256": "71000fa6106a4f61df0dd059217842f5e907877d27963dd89874d248b2835937",
+  "image_sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522",
+  "generated_sdk_sha256": "1361dd415930a280381966278acfa821d54305f3b303a3ddf37f085f4372c832",
+  "lifecycle": [
+    {
+      "path": "build/m3/P3-01/run-1792950913309433400-44412",
+      "result_sha256": "ff965d96cf337b884388d03f49742c5f4e57db95f9e7061eeedc102cf0434a58",
+      "result": {
+        "schema_version": 1,
+        "scope": "host-lifecycle-only; image never executed",
+        "case": "success",
+        "launched": true,
+        "cleanup": "reaped",
+        "exit_code": 0,
+        "outcome": "complete",
+        "parent_pid": 44412,
+        "run_id": "run-1792950913309433400-44412",
+        "runner_sha256": "f978cfb4871f5f1619dcff689d74cc08cbe62f302a0144a20bd6cade35828ab6",
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "host_platform": "win32",
+        "profile_sha256": "d06ecc996cde597e172c44b56f3bd8daa55cc5100caf1a2da27ea731c550b781",
+        "contract_sha256": "abbe718c32d7492e7ce56d77c67afb1304bc391727fc1c7b0f7e3327d0d50ac0",
+        "image_sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522",
+        "image_bytes": 9264,
+        "interpreter_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "arguments": [
+          "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "${WORKSPACE}\\tools\\m3_runtime.py",
+          "child",
+          "success",
+          "run-1792950913309433400-44412",
+          "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522"
+        ],
+        "deadline_ms": 1000,
+        "child_pid": 44976,
+        "elapsed_ns": 405580000
+      }
+    },
+    {
+      "path": "build/m3/P3-01/run-1792950913753582700-44412",
+      "result_sha256": "2a34f3175560b77a65e39b25ade58a1ba57372d77b1c69c6b920df55184613e8",
+      "result": {
+        "schema_version": 1,
+        "scope": "host-lifecycle-only; image never executed",
+        "case": "nonzero",
+        "launched": true,
+        "cleanup": "reaped",
+        "exit_code": 7,
+        "outcome": "exited-nonzero",
+        "parent_pid": 44412,
+        "run_id": "run-1792950913753582700-44412",
+        "runner_sha256": "f978cfb4871f5f1619dcff689d74cc08cbe62f302a0144a20bd6cade35828ab6",
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "host_platform": "win32",
+        "profile_sha256": "d06ecc996cde597e172c44b56f3bd8daa55cc5100caf1a2da27ea731c550b781",
+        "contract_sha256": "abbe718c32d7492e7ce56d77c67afb1304bc391727fc1c7b0f7e3327d0d50ac0",
+        "image_sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522",
+        "image_bytes": 9264,
+        "interpreter_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "arguments": [
+          "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "${WORKSPACE}\\tools\\m3_runtime.py",
+          "child",
+          "nonzero",
+          "run-1792950913753582700-44412",
+          "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522"
+        ],
+        "deadline_ms": 1000,
+        "child_pid": 43976,
+        "elapsed_ns": 350091600,
+        "error": "exited-nonzero"
+      }
+    },
+    {
+      "path": "build/m3/P3-01/run-1792950914122338200-44412",
+      "result_sha256": "51e68d49d69a350dd9922ed545fdf367732cb28314fbd49d182e56567849ba01",
+      "result": {
+        "schema_version": 1,
+        "scope": "host-lifecycle-only; image never executed",
+        "case": "missing-final",
+        "launched": true,
+        "cleanup": "reaped",
+        "exit_code": 0,
+        "outcome": "missing-final-record",
+        "parent_pid": 44412,
+        "run_id": "run-1792950914122338200-44412",
+        "runner_sha256": "f978cfb4871f5f1619dcff689d74cc08cbe62f302a0144a20bd6cade35828ab6",
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "host_platform": "win32",
+        "profile_sha256": "d06ecc996cde597e172c44b56f3bd8daa55cc5100caf1a2da27ea731c550b781",
+        "contract_sha256": "abbe718c32d7492e7ce56d77c67afb1304bc391727fc1c7b0f7e3327d0d50ac0",
+        "image_sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522",
+        "image_bytes": 9264,
+        "interpreter_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "arguments": [
+          "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "${WORKSPACE}\\tools\\m3_runtime.py",
+          "child",
+          "missing-final",
+          "run-1792950914122338200-44412",
+          "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522"
+        ],
+        "deadline_ms": 1000,
+        "child_pid": 1944,
+        "elapsed_ns": 369258500,
+        "error": "missing-final-record"
+      }
+    },
+    {
+      "path": "build/m3/P3-01/run-1792950914550574600-44412",
+      "result_sha256": "7fd48b71ebe7b0e02698e92d27242cfcab86ab48eeda5f3fb78d9426b1bb973a",
+      "result": {
+        "schema_version": 1,
+        "scope": "host-lifecycle-only; image never executed",
+        "case": "timeout",
+        "launched": true,
+        "cleanup": "reaped",
+        "exit_code": 1,
+        "outcome": "timeout",
+        "parent_pid": 44412,
+        "run_id": "run-1792950914550574600-44412",
+        "runner_sha256": "f978cfb4871f5f1619dcff689d74cc08cbe62f302a0144a20bd6cade35828ab6",
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "host_platform": "win32",
+        "profile_sha256": "d06ecc996cde597e172c44b56f3bd8daa55cc5100caf1a2da27ea731c550b781",
+        "contract_sha256": "abbe718c32d7492e7ce56d77c67afb1304bc391727fc1c7b0f7e3327d0d50ac0",
+        "image_sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522",
+        "image_bytes": 9264,
+        "interpreter_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "arguments": [
+          "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "${WORKSPACE}\\tools\\m3_runtime.py",
+          "child",
+          "timeout",
+          "run-1792950914550574600-44412",
+          "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522"
+        ],
+        "deadline_ms": 100,
+        "child_pid": 44328,
+        "elapsed_ns": 106429200,
+        "error": "timeout"
+      }
+    },
+    {
+      "path": "build/m3/P3-01/run-1792950915047125200-35180",
+      "result_sha256": "f1a14f6baa234c7c91337c8f97c862c7eac566ff371addbf425d7dde62a01c11",
+      "result": {
+        "schema_version": 1,
+        "scope": "host-lifecycle-only; image never executed",
+        "case": "success",
+        "launched": true,
+        "cleanup": "reaped",
+        "exit_code": 0,
+        "outcome": "complete",
+        "parent_pid": 35180,
+        "run_id": "run-1792950915047125200-35180",
+        "runner_sha256": "f978cfb4871f5f1619dcff689d74cc08cbe62f302a0144a20bd6cade35828ab6",
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "host_platform": "win32",
+        "profile_sha256": "d06ecc996cde597e172c44b56f3bd8daa55cc5100caf1a2da27ea731c550b781",
+        "contract_sha256": "abbe718c32d7492e7ce56d77c67afb1304bc391727fc1c7b0f7e3327d0d50ac0",
+        "image_sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522",
+        "image_bytes": 9264,
+        "interpreter_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "arguments": [
+          "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "${WORKSPACE}\\tools\\m3_runtime.py",
+          "child",
+          "success",
+          "run-1792950915047125200-35180",
+          "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522"
+        ],
+        "deadline_ms": 1000,
+        "child_pid": 44080,
+        "elapsed_ns": 294619400
+      }
+    },
+    {
+      "path": "build/m3/P3-01/run-1792950915655546600-36952",
+      "result_sha256": "94ce01c0cf9b7138d2de8911563582a3ff6fc1e3d43ad3b2fd662f7a1d7b4ed5",
+      "result": {
+        "schema_version": 1,
+        "scope": "host-lifecycle-only; image never executed",
+        "case": "nonzero",
+        "launched": true,
+        "cleanup": "reaped",
+        "exit_code": 7,
+        "outcome": "exited-nonzero",
+        "parent_pid": 36952,
+        "run_id": "run-1792950915655546600-36952",
+        "runner_sha256": "f978cfb4871f5f1619dcff689d74cc08cbe62f302a0144a20bd6cade35828ab6",
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "host_platform": "win32",
+        "profile_sha256": "d06ecc996cde597e172c44b56f3bd8daa55cc5100caf1a2da27ea731c550b781",
+        "contract_sha256": "abbe718c32d7492e7ce56d77c67afb1304bc391727fc1c7b0f7e3327d0d50ac0",
+        "image_sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522",
+        "image_bytes": 9264,
+        "interpreter_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "arguments": [
+          "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "${WORKSPACE}\\tools\\m3_runtime.py",
+          "child",
+          "nonzero",
+          "run-1792950915655546600-36952",
+          "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522"
+        ],
+        "deadline_ms": 1000,
+        "child_pid": 27832,
+        "elapsed_ns": 245657800,
+        "error": "exited-nonzero"
+      }
+    },
+    {
+      "path": "build/m3/P3-01/run-1792950916188787200-5156",
+      "result_sha256": "6af7588eb3d8874fc6616af56eab4b793579bdc319c19eb170ddf84693c14db6",
+      "result": {
+        "schema_version": 1,
+        "scope": "host-lifecycle-only; image never executed",
+        "case": "missing-final",
+        "launched": true,
+        "cleanup": "reaped",
+        "exit_code": 0,
+        "outcome": "missing-final-record",
+        "parent_pid": 5156,
+        "run_id": "run-1792950916188787200-5156",
+        "runner_sha256": "f978cfb4871f5f1619dcff689d74cc08cbe62f302a0144a20bd6cade35828ab6",
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "host_platform": "win32",
+        "profile_sha256": "d06ecc996cde597e172c44b56f3bd8daa55cc5100caf1a2da27ea731c550b781",
+        "contract_sha256": "abbe718c32d7492e7ce56d77c67afb1304bc391727fc1c7b0f7e3327d0d50ac0",
+        "image_sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522",
+        "image_bytes": 9264,
+        "interpreter_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "arguments": [
+          "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "${WORKSPACE}\\tools\\m3_runtime.py",
+          "child",
+          "missing-final",
+          "run-1792950916188787200-5156",
+          "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522"
+        ],
+        "deadline_ms": 1000,
+        "child_pid": 27248,
+        "elapsed_ns": 315628000,
+        "error": "missing-final-record"
+      }
+    },
+    {
+      "path": "build/m3/P3-01/run-1792950916927166000-40636",
+      "result_sha256": "23fdd6aff11315b1c9b7ddcad8133597a3192f154dee7b6940e2f7a19973d9fa",
+      "result": {
+        "schema_version": 1,
+        "scope": "host-lifecycle-only; image never executed",
+        "case": "timeout",
+        "launched": true,
+        "cleanup": "reaped",
+        "exit_code": 1,
+        "outcome": "timeout",
+        "parent_pid": 40636,
+        "run_id": "run-1792950916927166000-40636",
+        "runner_sha256": "f978cfb4871f5f1619dcff689d74cc08cbe62f302a0144a20bd6cade35828ab6",
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "host_platform": "win32",
+        "profile_sha256": "d06ecc996cde597e172c44b56f3bd8daa55cc5100caf1a2da27ea731c550b781",
+        "contract_sha256": "abbe718c32d7492e7ce56d77c67afb1304bc391727fc1c7b0f7e3327d0d50ac0",
+        "image_sha256": "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522",
+        "image_bytes": 9264,
+        "interpreter_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+        "arguments": [
+          "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "${WORKSPACE}\\tools\\m3_runtime.py",
+          "child",
+          "timeout",
+          "run-1792950916927166000-40636",
+          "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522"
+        ],
+        "deadline_ms": 100,
+        "child_pid": 26736,
+        "elapsed_ns": 106678300,
+        "error": "timeout"
+      }
+    }
+  ],
+  "guest_runtime_executed": false,
+  "abi_frozen": false
+}

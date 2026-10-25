@@ -186,6 +186,7 @@ extern "C" fn run(mode: u64) -> ! {
     // Switch while already running on the final runtime stack. The two end
     // pages of every stack are excluded from the new mapping, including aliases.
     crate::paging::establish(mode).unwrap_or_else(|e| crate::reject(e));
+    crate::runtime_memory::establish(mode).unwrap_or_else(|e| crate::reject(e));
     #[cfg(feature = "exception-test")]
     match mode {
         1 => unsafe { diagnostic_invalid_opcode() },

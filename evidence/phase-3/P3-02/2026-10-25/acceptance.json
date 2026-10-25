@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "story": "P3-02",
+  "status": "passed",
+  "commands": [
+    {
+      "exit_code": 0,
+      "program": "pwsh",
+      "name": "prerequisites",
+      "elapsed_ms": 232647,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "pwsh",
+      "name": "m1",
+      "elapsed_ms": 2267339,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-P1-07.ps1"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "pwsh",
+      "name": "m1-review",
+      "elapsed_ms": 6981,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Review-P1-07.ps1",
+        "-Run",
+        "${WORKSPACE}\\build/m1\\suite-1792954788819797200-48584"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "name": "owned-memory",
+      "elapsed_ms": 55044,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ]
+    }
+  ],
+  "runs": {
+    "m1": "${WORKSPACE}\\build/m1\\suite-1792954788819797200-48584",
+    "prerequisites": "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1792954554479",
+    "memory": "${WORKSPACE}\\build/m1\\owned-memory-1792957065353319400-41156"
+  },
+  "source_commit": "c2caf9b9bb6496ab66c7968463e1357f7698875a",
+  "user_execution": false
+}

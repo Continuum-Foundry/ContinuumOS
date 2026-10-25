@@ -92,3 +92,20 @@ Checked uptime counts delivered ticks at the calibrated resolution, and can lag
 elapsed time while interrupts are masked/coalesced. It is not wall time or a
 scheduler deadline clock. Read the story review before treating its gate as passed.
 Scheduling, FP/SIMD context, SMP and user isolation remain later work.
+
+## P3-02 owned-memory backend
+
+The [bounded memory implementation](../05-delivery/phase-3/owned-memory-runbook.md)
+adds generation-checked reclaiming page runs, private user table roots, guarded
+user/kernel stacks, copy pins and explicit shared-backing references. It uses
+two fixed 64-page table banks per space and rebuilds before publication; active
+roots reload CR3 before old backing can be reused. All fixed metadata, table
+padding and kernel-stack storage count against the 16-MiB kernel dynamic ceiling.
+Data runs charge full eager commitment separately. P2's bump arena is absent.
+
+Published backing has RO/NX supervisor aliases and allocation-wide W^X checks.
+Quota/OOM and failed construction preserve existing state. Pins reject mutation;
+foreign references conservatively make owner teardown Busy until P3-06 supplies
+independent memory-object ownership. Read [ADR-0018](../04-decisions/0018-bounded-owned-memory.md)
+for fragmentation, fixed-storage and rebuild tradeoffs. The loader, ring-3 fault
+containment, public rights, scheduling and desktop memory acceptance remain open.

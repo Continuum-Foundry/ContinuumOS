@@ -136,6 +136,17 @@ future blocking registrations. No blocked operation retains a user buffer pointe
 
 ## Allocation, ownership and teardown
 
+P3-02 implements this internal subset in the [owned-memory runbook](../05-delivery/phase-3/owned-memory-runbook.md)
+and [ADR-0018](../04-decisions/0018-bounded-owned-memory.md). Page tables use two
+fixed 64-page banks per space, charged in full with metadata and guarded kernel
+stack storage. Data backing uses reclaiming contiguous page runs; fragmentation
+can return OOM. A mutation rebuilds the inactive bank before atomic CR3 publication.
+Executable backing has only RO/NX supervisor data aliases; staging writes require
+zero mapping references. Shared references currently return Busy on owner death;
+P3-06 must add independent memory-object ownership and public rights. Copy pins
+block all mutations of the pinned space; P3-04 adds preemption/copy-fault handling.
+No public ABI IDs, user allocator or ring-3 execution follow from this subset.
+
 P3-02 uses preallocated bounded kernel tables and a reclaiming 4 KiB page allocator;
 no general kernel Rust global heap is required. Kernel dynamic page storage has a
 16 MiB ceiling, separate from existing reserved kernel/boot metadata and accounted

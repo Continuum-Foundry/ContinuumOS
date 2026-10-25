@@ -1,6 +1,6 @@
 # P3-02 — Build bounded allocation and owned user address spaces
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done. Owner: Unassigned.
 Depends on: P3-01 Done. Suggested labels: `phase-3`, `memory`, `allocation`.
 Backlog: B05 follow-up, B11/B13 memory foundation. Requirements: R03/R10/R18;
 preparatory R09/R14. Test families: T02/T03; T09 accounting groundwork.
@@ -32,15 +32,19 @@ so an image can be loaded without exposing kernel/other-process data or leaking 
 
 ## Acceptance criteria
 
-- [ ] Private address spaces, user/supervisor permissions, W^X/NX and guard mappings
+Implementation and bounded commands: [memory runbook](owned-memory-runbook.md).
+The [final-source acceptance and recorded local self-review](../../../evidence/phase-3/P3-02/2026-10-25/README.md)
+pass. This accepts the internal backend; ring-3 enforcement remains P3-04/P3-06.
+
+- [x] Private address spaces, user/supervisor permissions, W^X/NX and guard mappings
   pass independent page-table/ELF audits; kernel aliases do not expose user writes.
-- [ ] Allocation/free/realloc honors alignment and limits, zeroes newly exposed bytes
+- [x] Allocation/free/realloc honors alignment and limits, zeroes newly exposed bytes
   and reclaims storage; P2's bump-arena behavior is absent from the runtime path.
-- [ ] Failed mapping, permission change and partial construction preserve the prior
+- [x] Failed mapping, permission change and partial construction preserve the prior
   valid state with no frame/reference/accounting leak.
-- [ ] Mapping stabilization and teardown rules cover active copies and shared backing;
+- [x] Mapping stabilization and teardown rules cover active copies and shared backing;
   internal deterministic interleavings pass before public syscall races are added.
-- [ ] Existing actual M1 guard/RO/NX/double-fault and reservation regressions pass;
+- [x] Existing actual M1 guard/RO/NX/double-fault and reservation regressions pass;
   hardware cross-process enforcement is explicitly handed to P3-04/P3-06.
 
 ## Tests and evidence

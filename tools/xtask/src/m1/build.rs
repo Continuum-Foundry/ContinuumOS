@@ -35,6 +35,7 @@ pub(super) enum Flavor {
     Exceptions,
     Memory,
     Timer,
+    RuntimeMemory,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -46,6 +47,7 @@ impl Flavor {
             Self::Exceptions => "exception-test",
             Self::Memory => "memory-test",
             Self::Timer => "timer-test",
+            Self::RuntimeMemory => "runtime-memory-test",
         }
     }
     fn features(self) -> &'static str {
@@ -57,6 +59,7 @@ impl Flavor {
             Self::Exceptions => "exception-test",
             Self::Memory => "memory-test",
             Self::Timer => "timer-test",
+            Self::RuntimeMemory => "runtime-memory-test",
         }
     }
 }

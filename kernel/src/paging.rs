@@ -120,6 +120,76 @@ fn check_zero(address: u64) -> Result<()> {
     }
     Ok(())
 }
+pub(crate) fn image_bounds() -> (u64, u64) {
+    (addr_of!(__image_start) as u64, addr_of!(__image_end) as u64)
+}
+pub(crate) fn kernel_entries() -> [u64; 256] {
+    unsafe { (&*TABLES.0.get()).kernel_entries() }
+}
+pub(crate) fn kernel_leaf(v: u64) -> Result<u64> {
+    unsafe { (&*TABLES.0.get()).inspect(VirtAddr(v)) }
+}
+pub(crate) fn runtime_frames() -> usize {
+    unsafe { (&*FRAMES.0.get()).allocated }
+}
+pub(crate) fn runtime_quota(quota: usize) -> Result<()> {
+    unsafe { (&mut *FRAMES.0.get()).set_test_quota(quota) }
+}
+pub(crate) fn runtime_alias(p: PhysAddr) -> Result<u64> {
+    let info = unsafe { &*crate::BOOT_INFO.0.get() };
+    unsafe { (&*TABLES.0.get()).inspect(VirtAddr(info.hhdm.0 + p.0)) }
+}
+pub(crate) fn runtime_allocate(pages: usize, alignment: u64) -> Result<PhysAddr> {
+    let info = unsafe { &*crate::BOOT_INFO.0.get() };
+    let frames = unsafe { &mut *FRAMES.0.get() };
+    let p = frames.allocate_run(pages, alignment, |p| zero(p, info.hhdm.0))?;
+    // Eligible RAM is guaranteed present by M1's complete direct-map audit.
+    // This is a supervisor-only RO/NX alias before any user publication.
+    let tables = unsafe { &mut *TABLES.0.get() };
+    for n in 0..pages {
+        let v = info.hhdm.0 + p.0 + n as u64 * PAGE;
+        tables
+            .protect(VirtAddr(v), Permission::ReadOnly)
+            .unwrap_or_else(|e| crate::reject(e));
+        invalidate(v);
+    }
+    Ok(p)
+}
+pub(crate) fn runtime_release(p: PhysAddr, pages: usize) {
+    let info = unsafe { &*crate::BOOT_INFO.0.get() };
+    let tables = unsafe { &mut *TABLES.0.get() };
+    for n in 0..pages {
+        let v = info.hhdm.0 + p.0 + n as u64 * PAGE;
+        tables
+            .protect(VirtAddr(v), Permission::ReadWrite)
+            .unwrap_or_else(|e| crate::reject(e));
+        invalidate(v);
+    }
+    unsafe { (&mut *FRAMES.0.get()).release_run(p, pages) }.unwrap_or_else(|e| crate::reject(e));
+}
+pub(crate) fn runtime_read(p: PhysAddr, offset: u64) -> u8 {
+    let info = unsafe { &*crate::BOOT_INFO.0.get() };
+    unsafe { ((info.hhdm.0 + p.0 + offset) as *const u8).read_volatile() }
+}
+pub(crate) fn runtime_write(p: PhysAddr, offset: u64, byte: u8) {
+    // Only called by Runtime for an exclusive, unmapped staging run. No user
+    // executable/writable alias exists. IF is clear; no intermediate state escapes.
+    let info = unsafe { &*crate::BOOT_INFO.0.get() };
+    let v = info.hhdm.0 + p.0 + offset;
+    let page = v & !(PAGE - 1);
+    let tables = unsafe { &mut *TABLES.0.get() };
+    tables
+        .protect(VirtAddr(page), Permission::ReadWrite)
+        .unwrap_or_else(|e| crate::reject(e));
+    invalidate(page);
+    unsafe {
+        (v as *mut u8).write_volatile(byte);
+    }
+    tables
+        .protect(VirtAddr(page), Permission::ReadOnly)
+        .unwrap_or_else(|e| crate::reject(e));
+    invalidate(page);
+}
 pub fn establish(mode: u64) -> Result<()> {
     // Single CPU, IF clear; references are never published to handlers. All
     // handlers terminate, so fatal interruption cannot resume these mutations.
@@ -155,7 +225,7 @@ pub fn establish(mode: u64) -> Result<()> {
     tables.initialize(physical(TABLES.0.get() as u64)?)?;
     let stacks = crate::exceptions::stacks();
     for v in (start..end).step_by(PAGE as usize) {
-        if stacks.iter().any(|&s| v == s || v == s + 69632) {
+        if stacks.iter().any(|&s| v == s || v == s + 69632) || crate::runtime_memory::guard(v) {
             continue;
         }
         tables.map(
@@ -198,7 +268,7 @@ pub fn establish(mode: u64) -> Result<()> {
             tables.used,
             frames.total,
             frames.total,
-            (end - start) / PAGE - 6
+            (end - start) / PAGE - 6 - 32
         ),
     );
     // NX is required for this declared profile: fail instead of quietly weakening
@@ -237,7 +307,8 @@ pub fn establish(mode: u64) -> Result<()> {
     )?;
     // Inspect every image leaf, every direct-map leaf and both ends of all stacks.
     for v in (start..end).step_by(PAGE as usize) {
-        let guard = stacks.iter().any(|&s| v == s || v == s + 69632);
+        let guard =
+            stacks.iter().any(|&s| v == s || v == s + 69632) || crate::runtime_memory::guard(v);
         let leaf = tables.inspect(VirtAddr(v))?;
         if guard {
             need(leaf == 0)?;

@@ -28,7 +28,7 @@ Reinspect actual source, tools and evidence availability before implementation.
 | ID | Story | Depends on | Backlog coverage | Status |
 | --- | --- | --- | --- | --- |
 | P3-01 | [Recheck prerequisites and define runtime contracts/profiles](01-runtime-prerequisites-and-contract-plan.md) | P1-07 and P2-13 Done; Phase 0 recheck | B01/B02 follow-up, B06/B11–B13 design, B32 setup | Done |
-| P3-02 | [Build bounded allocation and owned user address spaces](02-bounded-allocation-and-user-address-spaces.md) | P3-01 | B05 follow-up, B11/B13 memory foundation | Not started |
+| P3-02 | [Build bounded allocation and owned user address spaces](02-bounded-allocation-and-user-address-spaces.md) | P3-01 | B05 follow-up, B11/B13 memory foundation | Done |
 | P3-03 | [Load static user images and bind trusted launch context](03-static-elf-loader-and-launch-context.md) | P3-02 | B11 loader/launch | Not started |
 | P3-04 | [Enter user mode and enforce the syscall/fault boundary](04-user-entry-syscalls-and-fault-containment.md) | P3-03 | B11 entry/syscalls, B13 failure groundwork | Not started |
 | P3-05 | [Preempt tasks and preserve integer/FP/SIMD context](05-preemptive-scheduling-and-cpu-context.md) | P3-04 | Remaining M3 B06 scheduling/context | Not started |
@@ -54,7 +54,11 @@ gates, not a request to run agents concurrently.
 P3-01 [passes local acceptance](../../../evidence/phase-3/P3-01/2026-10-25/README.md):
 current prerequisites, full M1 baseline, draft runtime/SDK, locked profiles and
 bounded host lifecycle faults. Use its [runbook](runtime-prerequisites-runbook.md).
-Next is P3-02; no user-mode runtime or M3 enforcement is implemented yet.
+P3-02 [passes local memory-backend acceptance](../../../evidence/phase-3/P3-02/2026-10-25/README.md):
+reclaiming runs, private staged tables, guarded stacks, aliases/pins, 1000 exact
+guest settlements and the complete current M1 gate. Use the
+[memory runbook](owned-memory-runbook.md). Next is P3-03; no loader, user-mode
+execution, public rights, scheduler or M3 exit is accepted yet.
 
 ## Fixed scope and defaults
 

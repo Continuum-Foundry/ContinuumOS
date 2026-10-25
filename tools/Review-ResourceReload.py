@@ -116,6 +116,9 @@ for tag in ['before','after']:
     require((w,h)==(1280,720),'Native image geometry')
     require(hashlib.sha256(rgba).hexdigest()==n[tag]['capture']['rgba_sha256'],f'Native presented pixels: {tag}')
 require(n['before']['capture']['rgba_sha256']!=n['after']['capture']['rgba_sha256'],'Native visible change')
+require(all(x == '--require-staged-frame' for x in sys.argv[3:]), 'Unknown review option')
+if '--require-staged-frame' in sys.argv[3:]:
+    require(n['after']['timing'].get('staged_frame_reused') is True,'Native first frame did not reuse staged pixels')
 report={'status':'passed','logical_fields':fields,'negative_cases':len(cases),'publications':len(published),
         'native_generation':[7,8],'native_pid':n['lifecycle_before']['worker_pid'],
         'native_same_window':True,'pixel_identities_checked':4,'semantics_separate':True,

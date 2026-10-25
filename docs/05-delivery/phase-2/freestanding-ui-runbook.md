@@ -32,7 +32,10 @@ VM boot. P1-07's previous acceptance remains the guest baseline.
 `slint-aot`. The exported one-shot `ui_probe_entry(seed, milliseconds)` creates a
 small editor/list scene, dispatches a real Controller text event/typed action,
 validates all six font hashes, and calls actual layout/shaping/raster APIs.
-Custom uses `paint::render`. Slint uses the exact shared `slint_ui::paint`, AOT
+The original P2-07 custom probe used `paint::render`. P2-13 updates only that
+selected branch to `retained::Frame::draw`, retaining damage planning and the
+bounded layout cache as well as raster output. Its clean link must preserve both
+retained-draw and cached-layout symbols. Slint uses the exact shared `slint_ui::paint`, AOT
 component, scene-to-layer builder, text-image adapter, platform window and software
 renderer. Both create semantic observations and commit/release the common surface.
 The returned checksum depends on output pixels, counters, semantics and allocation,

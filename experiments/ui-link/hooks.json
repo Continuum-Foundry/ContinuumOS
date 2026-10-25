@@ -13,7 +13,7 @@
     {"hook":"failure","probe":"Rust panic/OOM reaches terminal spin, never a success return; ELF is not run","guest_obligation":"M3 bounded process failure/reaping and diagnostics; panic=abort alone is not a supervisor","implemented_in_kernel":false}
   ],
   "custom": [
-    {"hook":"clock/event loop","probe":"Layout/raster are synchronous; Controller receives explicit timestamp; no clock read or wait implementation","guest_obligation":"M4 monotonic timestamp and frame/input opportunities, wake/sleep/pacing and bounded callback execution"},
+    {"hook":"clock/event loop","probe":"Selected retained damage/raster and bounded layout cache are synchronous; Controller receives explicit timestamp; no clock read or wait implementation","guest_obligation":"M4 monotonic timestamp and frame/input opportunities, wake/sleep/pacing and bounded callback execution"},
     {"hook":"threading","probe":"Single synchronous call with exclusive mutable model/scene/surface references","guest_obligation":"M3 process/thread ownership and retirement; no IRQ rendering or concurrent mutation"}
   ],
   "slint_aot": [

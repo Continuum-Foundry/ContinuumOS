@@ -98,7 +98,10 @@ fn paint_bounds(n: &crate::scene::Node) -> Rect {
     bounds.expand(1.0)
 }
 
+#[derive(Debug)]
 struct Previous {
+    width: u32,
+    height: u32,
     tree: Tree,
     tokens: Tokens,
     model: Model,
@@ -109,6 +112,7 @@ struct Previous {
     selected: bool,
     scale: u16,
 }
+#[derive(Debug)]
 pub struct Frame {
     pub pixels: Vec<u8>,
     pub width: u32,
@@ -116,6 +120,7 @@ pub struct Frame {
     previous: Option<Previous>,
     pub paints: u64,
     pub clock: Option<fn() -> u64>,
+    unsubmitted: bool,
 }
 impl Frame {
     pub fn new(width: u32, height: u32) -> Result<Self> {
@@ -134,10 +139,16 @@ impl Frame {
             previous: None,
             paints: 0,
             clock: None,
+            unsubmitted: false,
         })
     }
     pub fn invalidate(&mut self) {
         self.previous = None;
+    }
+    /// The pixels were fully validated before publication, but the consumer
+    /// still owns the previous generation. The next submission must be full.
+    pub fn mark_unsubmitted(&mut self) {
+        self.unsubmitted = true;
     }
     pub fn bytes(&self) -> usize {
         self.pixels.capacity()
@@ -150,10 +161,18 @@ impl Frame {
         engine: &mut text_core::Engine<'_>,
         scale: u16,
     ) -> Result<(Damage, paint::Counters)> {
-        if ![100, 150, 200].contains(&scale) {
+        if ![100, 150, 200].contains(&scale)
+            || self.width == 0
+            || self.height == 0
+            || self.width > 4096
+            || self.height > 4096
+            || self.pixels.len() != self.width as usize * self.height as usize * 4
+            || self.pixels.len() > 16 * 1024 * 1024
+        {
             return Err(Error::Bounds);
         }
         let mut damage = Damage::new(self.width, self.height);
+        let unsubmitted = core::mem::take(&mut self.unsubmitted);
         let mut add_subtree = |tree: &Tree, id: &str| {
             for n in &tree.nodes {
                 if tree.descendant(&n.id, id) {
@@ -162,7 +181,24 @@ impl Frame {
             }
         };
         if let Some(old) = &self.previous {
-            if old.tokens != scene.tokens || old.scale != scale || old.selected != scene.selected {
+            if old.width != self.width
+                || old.height != self.height
+                || old.tokens != scene.tokens
+                || old.scale != scale
+                || old.selected != scene.selected
+                || old.tree.root != scene.tree.root
+                || (unsubmitted
+                    && (old.tree.generation != scene.tree.generation
+                        || old.tree.revision != scene.tree.revision
+                        || old.tree.nodes != scene.tree.nodes
+                        || old.model != *model
+                        || old.preedit.as_deref() != preedit
+                        || old.caret != scene.visual_caret
+                        || old.hidden != scene.caret_hidden
+                        || scene.tree.nodes.iter().enumerate().any(|(i, n)| {
+                            scene.motion.opacity(&n.id, n.opacity) != old.opacity[i]
+                        })))
+            {
                 damage.full();
             } else {
                 // Include both old/new descendants for movement, clipping, reorder,
@@ -187,6 +223,12 @@ impl Frame {
                     || old.caret != scene.visual_caret
                     || old.hidden != scene.caret_hidden
                 {
+                    let caret_only = old.model == *model
+                        && old.preedit.is_none()
+                        && preedit.is_none()
+                        && old.caret == scene.visual_caret
+                        && old.tree.nodes == scene.tree.nodes
+                        && old.hidden != scene.caret_hidden;
                     for tree in [&old.tree, &scene.tree] {
                         for n in &tree.nodes {
                             if (n.kind == Kind::Editor
@@ -207,7 +249,20 @@ impl Frame {
                                     && (n.id == old.model.session().focus
                                         || n.id == model.session().focus))
                             {
-                                damage.add(paint_bounds(n), scale);
+                                if caret_only && n.kind == Kind::Editor {
+                                    for rect in paint::caret_damage(
+                                        n,
+                                        &scene.tokens,
+                                        model,
+                                        scene.visual_caret,
+                                        engine,
+                                        scale,
+                                    )? {
+                                        damage.add(rect, scale);
+                                    }
+                                } else {
+                                    damage.add(paint_bounds(n), scale);
+                                }
                             }
                         }
                     }
@@ -226,14 +281,44 @@ impl Frame {
         }) {
             damage.full();
         }
-        // Backdrop pixels depend on an expanded lower-layer neighborhood. Until
-        // that dependency is tiled/cached, any changed rich scene repaints fully.
+        if unsubmitted {
+            if damage.regions.is_empty() {
+                damage.full();
+                return Ok((
+                    damage,
+                    paint::Counters {
+                        reused_frame: true,
+                        ..Default::default()
+                    },
+                ));
+            }
+            // Intervening edits/ticks/scale changes invalidate staged pixels.
+            // Render and submit fully so an old consumer cannot retain stale areas.
+            damage.full();
+        }
+        // Partial redraw is valid only outside every backdrop source footprint.
+        // Any damage touching the exact clamped multi-pass support still uses
+        // full redraw, which reconstructs lower layers before reading them.
         if !damage.regions.is_empty()
             && !scene.tokens.reduced_effects
             && !model.preferences().reduced_effects
-            && scene.tree.nodes.iter().any(|n| n.id == "launcher")
         {
-            damage.full();
+            let radius = (scene.tokens.blur_radius * scale as u32).div_ceil(100);
+            let support = (radius * scene.tokens.passes) as f32 * 100.0 / scale as f32;
+            for n in scene.tree.nodes.iter().filter(|n| n.id == "launcher") {
+                let [l, t, r, b] = n
+                    .rect
+                    .expand(support)
+                    .pixels(scale, self.width, self.height);
+                if damage
+                    .regions
+                    .iter()
+                    .any(|q| q[0] < r && q[0] + q[2] > l && q[1] < b && q[1] + q[3] > t)
+                {
+                    damage.full();
+                    break;
+                }
+            }
         }
         let mut counters = paint::Counters::default();
         for region in &damage.regions {
@@ -262,6 +347,7 @@ impl Frame {
                 }
             };
             counters.composition_ns += c.composition_ns;
+            counters.work.add(&c.work);
             counters.nodes += c.nodes;
             counters.touched += c.touched;
             counters.shape_work += c.shape_work;
@@ -273,7 +359,10 @@ impl Frame {
         }
         if !damage.regions.is_empty() {
             self.paints += 1;
+            let start = self.clock.map(|clock| clock());
             self.previous = Some(Previous {
+                width: self.width,
+                height: self.height,
                 tree: scene.tree.clone(),
                 tokens: scene.tokens.clone(),
                 model: model.clone(),
@@ -289,6 +378,9 @@ impl Frame {
                 selected: scene.selected,
                 scale,
             });
+            if let Some(start) = start {
+                counters.work.snapshot_ns += (self.clock.unwrap())().saturating_sub(start);
+            }
         }
         Ok((damage, counters))
     }

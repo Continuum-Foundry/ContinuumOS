@@ -1,5 +1,9 @@
 # P2-12 — Selected hosted damage, idle and reload stability
 
+Follow-up: the [2026-10-24 remediation plan](performance-remediation-plan.md)
+records the performance fixes after P2-13. The [distinct local review](../../../evidence/phase-2/performance-remediation/2026-10-24/README.md)
+passes the bounded follow-up; original evidence stays immutable and guest targets remain open.
+
 Status: [local acceptance passes](../../../evidence/phase-2/P2-12/2026-10-24/README.md). No guest measurements.
 
 Run the complete optimized acceptance with the existing enrolled developer account:
@@ -19,7 +23,7 @@ The final input-hash guard rejects source changes during acceptance.
 ## Fixed experiment
 
 [The protocol](../../../config/p2-12-performance.json) is declared before execution.
-Version 3 preserves P2-01's optimized profile, six geometry/scale configurations, five
+Version 4 preserves P2-01's optimized profile, six geometry/scale configurations, five
 fresh-process repetitions, paired tracing, 5 s warm-up, 30 s active/idle windows
 and nominal 100 ms process sampling on an independent observer thread. Actual
 observation timestamps, skipped slots and coverage are retained. Each active block interleaves six workloads in 300 absolute
@@ -29,7 +33,7 @@ idle timers skip elapsed periods instead of replaying overdue observations.
 The native adapter is a
 separate single-window observation, with its worker and presenter charged separately.
 
-Tracing adds exact executor/dispatch and group-composition clocks, allocation
+Tracing adds exact executor/dispatch, fill/text/backdrop/group/snapshot clocks, allocation
 event counters and framebuffer hashing. Both modes retain outer phase timers,
 raw record storage and Rust live/peak allocation tracking. Paired differences
 measure this incremental instrumentation, not the cost of all observation.
@@ -37,7 +41,8 @@ The layout interval measures selected dirty/layout bookkeeping; fixed authored
 rectangles are arranged on setup/publication, not a general layout solve per frame.
 Raster includes text/cache access, damage planning and snapshot maintenance;
 composition clocks charge isolated group copies, masks and blending separately.
-Backdrop filtering remains within raster. RAM submission copies only damage into
+Backdrop filtering remains within raster. Text clocks include selection/caret
+fills; overlapping clocks must not be summed as disjoint CPU costs. RAM submission copies only damage into
 the measurement RGB consumer. Native BMP/WinForms copies are separately reported.
 
 Idle contains 10 s static, 10 s scheduled 500 ms caret/1000 ms clock invalidations (no wall-clock text widget),
@@ -55,9 +60,14 @@ It compares owned previous values, computes old/new subtree bounds including
 primitive overscan, merges intersecting physical rectangles and redraws from the
 background in painter order. Translucent and clipped ancestors participate.
 More than 32 contributions or over 60% surface coverage falls back to full redraw.
-Any changed scene with a rich backdrop also falls back fully: this safely includes
-filter support and changed backgrounds. No retained blur/shadow cache is claimed.
-There is no independent shadow primitive. Group copies still use full-size scratch.
+Damage touching the rich backdrop output or its clamped multi-pass source
+support falls back fully; disjoint damage can redraw partially. Caret-only
+changes use the exact shaped caret bounds when document, geometry and style
+are unchanged. No retained blur/shadow cache is introduced. There is no independent
+shadow primitive. Group snapshots/masks are restricted to conservative paint bounds
+intersected with clip/damage. Opaque interiors use exact spans; curved/fractional
+edges retain the existing coverage math. A per-paint scratch pool retains at most
+4 MiB/32 buffers within the existing 64 MiB admission bound, then drops all buffers.
 
 Text layout caching is selected-path-only and keyed by exact UTF-8 plus every
 Config field, scoped to one immutable pinned-font engine. Its LRU has 128 entries
@@ -89,9 +99,13 @@ trace is flushed, so evidence accumulation cannot be mistaken for UI retention.
 Full failed development runs remain local and are not overwritten by acceptance.
 
 Builder time is separate. Completed-build-to-RAM visibility includes real 100 ms
-debounce, validation, staging and repaint/submission; it excludes compilation and
+debounce, validation, staging and first submission; it excludes compilation and
 does not measure native scanout. Rust peak is reset before staging, including old
-and new roots/pixels/model copies. Process peak counters include the full process
+and new roots/pixels/model copies. A successful publication transfers its owned
+validated retained frame to the presenter; exact unchanged render state reuses
+those pixels and submits the full surface. Model, composition, caret, motion,
+tree/revision, tokens, scale or dimensions changes invalidate reuse. Invalid
+surface dimensions reject. Semantic export still occurs. Process peak counters include the full process
 lifetime, including builders and font initialization. Generation reservations are
 policy headroom, not physically allocated bytes. Known allocation categories
 overlap total Rust/process counters and must not be added as disjoint quantities.
@@ -136,3 +150,10 @@ The accepted run records host load/power/display context without isolating DVFS 
 other host activity; noisy positive/negative tracing deltas are retained rather
 than converted into a constant correction. Full distributions and bounded target
 follow-ups are in the acceptance review; the guest targets remain open.
+
+## Final M2 status — 2026-10-24
+
+The pending P2-13 work described above now passes [final local hosted
+acceptance](../../../evidence/phase-2/P2-13/2026-10-24/README.md), including the clean selected retained/cache link.
+The earlier story review remains scoped to its original run. Guest execution,
+efficiency targets and M3/M4/M5 obligations remain open.

@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "runs": {
+    "m1": "${WORKSPACE}\\build\\m1\\suite-1792886294714763900-21672",
+    "hosted": "${WORKSPACE}\\build\\m2\\P2-13\\acceptance-1792887978669184400",
+    "baseline_sha256": "b1640ee0be81ebe86fb5e62a891caefd6bff5cd9e5a579d828f75bd626d8c358",
+    "candidate_sha256": "ddad7af445a94777e492acdc427db193160400f88818eb8f4d1487e7193fc330",
+    "baseline": "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\baseline",
+    "candidate": "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\candidate",
+    "tails": [
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\tails-0",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\tails-1",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\tails-2",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\tails-3",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\tails-4"
+    ]
+  },
+  "cleanup": "reaped",
+  "source_guard": "matching",
+  "guest": false
+}

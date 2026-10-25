@@ -1,0 +1,415 @@
+[
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/acpi-corrupt/acpi-corrupt-run/serial.log",
+    "sha256": "bbdd897034edec464aeadc4b24094e3953dc147bc9df2bcf3a6ff2676ff22d2b",
+    "bytes": 27189,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=e48f8a7c1c3b9d075840a5a65c7657628aad729107e7c8af3bdddfbefe3874eb session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=acpi-corrupt",
+      "m1.boot_info_validated version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=e48f8a7c1c3b9d075840a5a65c7657628aad729107e7c8af3bdddfbefe3874eb session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-metadata/cold-boot-a-run/serial.log",
+    "sha256": "7542ddb55686c2127d8cf63700c7e5a64cb4d1eb19e21191bcab8af8397fe046",
+    "bytes": 59564,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=f8a7bd9058b8b35650f77550ae6a6cdba5325c325e32a3c3162e2a1aee35b3ca session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=normal",
+      "m1.boot_info_validated version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=f8a7bd9058b8b35650f77550ae6a6cdba5325c325e32a3c3162e2a1aee35b3ca session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=f8a7bd9058b8b35650f77550ae6a6cdba5325c325e32a3c3162e2a1aee35b3ca session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999700 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=f8a7bd9058b8b35650f77550ae6a6cdba5325c325e32a3c3162e2a1aee35b3ca session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-metadata/cold-boot-b-run/serial.log",
+    "sha256": "680ee665a5dd40160954acbf147ae6ca99665a5b21654c5a52a1cd260fdefe72",
+    "bytes": 59564,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=488e83af545605f60c31d68b6437a654469fa50304bf9b1ab22c1cb6f7f8b39e session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=normal",
+      "m1.boot_info_validated version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=488e83af545605f60c31d68b6437a654469fa50304bf9b1ab22c1cb6f7f8b39e session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=488e83af545605f60c31d68b6437a654469fa50304bf9b1ab22c1cb6f7f8b39e session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999700 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=488e83af545605f60c31d68b6437a654469fa50304bf9b1ab22c1cb6f7f8b39e session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-metadata/module-run/serial.log",
+    "sha256": "4a6a0d1c930948e9b3cb376898ddcd9f0ebb7bba181c43cce9a9a3498bda69da",
+    "bytes": 61809,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=30430d9e7ebdf64c5140237f67921ffd9936ddeaa5bd7b02a837d19d09da32d0 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=normal",
+      "m1.boot_info_validated version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=30430d9e7ebdf64c5140237f67921ffd9936ddeaa5bd7b02a837d19d09da32d0 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=35 modules=1 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=30430d9e7ebdf64c5140237f67921ffd9936ddeaa5bd7b02a837d19d09da32d0 session_origin=host seq=187 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999998400 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=30430d9e7ebdf64c5140237f67921ffd9936ddeaa5bd7b02a837d19d09da32d0 session_origin=host seq=189 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-metadata/serial-only-run/serial.log",
+    "sha256": "505f51f9f76cb8040ea7b7a46f2707ac981799b4925912d3273530b34ca6d120",
+    "bytes": 58901,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=60101c8bb6287ce8c78d61eea25e8541c589fb1d54a8477c9a52c6d5acdc008f session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=serial-only",
+      "m1.boot_info_validated version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=60101c8bb6287ce8c78d61eea25e8541c589fb1d54a8477c9a52c6d5acdc008f session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=0 mode=serial-only acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=60101c8bb6287ce8c78d61eea25e8541c589fb1d54a8477c9a52c6d5acdc008f session_origin=host seq=179 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999400 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=60101c8bb6287ce8c78d61eea25e8541c589fb1d54a8477c9a52c6d5acdc008f session_origin=host seq=181 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-reject/excessive-count-run/serial.log",
+    "sha256": "fded594412fdc292a59f628df756baffc8d58411879fb86773801e1c991bc660",
+    "bytes": 4181,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=0044c5531a62d19a0a6a6c99ef08ce25d14de976900734c5a49e49f465164fbe session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=excessive-count",
+      "m1.boot_rejected version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=0044c5531a62d19a0a6a6c99ef08ce25d14de976900734c5a49e49f465164fbe session_origin=host seq=1 stage=metadata outcome=rejected emergency=false field=memory reason=capacity"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-reject/framebuffer-format-run/serial.log",
+    "sha256": "99cb950903362dd8645ca54e81c21675c494c3b6b1f8ecfacc5d1a7f0fa755ee",
+    "bytes": 4187,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=00c9c23841add77a16785b09275d210f6ed2ec1c9b0eca99e646db0addebe9ff session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=framebuffer-format",
+      "m1.boot_rejected version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=00c9c23841add77a16785b09275d210f6ed2ec1c9b0eca99e646db0addebe9ff session_origin=host seq=1 stage=metadata outcome=rejected emergency=false field=framebuffer reason=format"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-reject/framebuffer-pitch-run/serial.log",
+    "sha256": "0c59cd36afdc945f1f5bd391305b3556bb44780b0d8d9b974999cede93668296",
+    "bytes": 4185,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=7515419cbd347d6b78d048a63ad043a7e7ac19a08f3ec0480f817abcbc0120ab session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=framebuffer-pitch",
+      "m1.boot_rejected version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=7515419cbd347d6b78d048a63ad043a7e7ac19a08f3ec0480f817abcbc0120ab session_origin=host seq=1 stage=metadata outcome=rejected emergency=false field=framebuffer reason=pitch"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-reject/framebuffer-range-run/serial.log",
+    "sha256": "e773e2ccee39ba1b7759c426785587a9c62d7cf4e7891129356f2ad82af15126",
+    "bytes": 4185,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=4d95aba54bb6a19bddbfbe179d09efdc3df505ce8514fd74fa9c1fc2e94294b2 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=framebuffer-range",
+      "m1.boot_rejected version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=4d95aba54bb6a19bddbfbe179d09efdc3df505ce8514fd74fa9c1fc2e94294b2 session_origin=host seq=1 stage=metadata outcome=rejected emergency=false field=framebuffer reason=range"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-reject/missing-required-run/serial.log",
+    "sha256": "1717cb7cda2f53d36329d31d09f7505f8e6afeb4ac80a72940b54ce762dd7874",
+    "bytes": 4179,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=1660effe7f40b55e13939d0de76f09aa80716152565ba8ce1543d4609bcd7d6d session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=missing-required",
+      "m1.boot_rejected version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=1660effe7f40b55e13939d0de76f09aa80716152565ba8ce1543d4609bcd7d6d session_origin=host seq=1 stage=metadata outcome=rejected emergency=false field=hhdm reason=missing"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-reject/range-overflow-run/serial.log",
+    "sha256": "a852df2c5c24f15eb4f19a281c4bcce97ed13ff84d48a586762e28ad9be790b8",
+    "bytes": 4180,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=929ea657f762c893ca8163ac3a25efcd789dacccb88b2262ce99fa84a0cd2f53 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=range-overflow",
+      "m1.boot_rejected version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=929ea657f762c893ca8163ac3a25efcd789dacccb88b2262ce99fa84a0cd2f53 session_origin=host seq=1 stage=metadata outcome=rejected emergency=false field=memory reason=overflow"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-reject/unsupported-revision-run/serial.log",
+    "sha256": "aeb975474c56d91a28dbee98062184ce7d7da97eb55570bd6ff846c1b63ba4e8",
+    "bytes": 4186,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=cb8322e71c8e746ba377ebd077a73dd065033cf1d4d684e8811001d43f005bcc session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=unsupported-revision",
+      "m1.boot_rejected version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=cb8322e71c8e746ba377ebd077a73dd065033cf1d4d684e8811001d43f005bcc session_origin=host seq=1 stage=metadata outcome=rejected emergency=false field=memory reason=revision"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/boot-reject/unterminated-string-run/serial.log",
+    "sha256": "ac52548acd9a89d97d534b7856ebf0014f7135f3340ebbc0ffab2e41b6eeefc1",
+    "bytes": 4198,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=802e87c0f650c28a079b4cc67763f358978d8b1ba73110117b81772834b8c82c session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=unterminated-string",
+      "m1.boot_rejected version=5 build=69905541587f91ede3c4007994f405c04e9d1b7119acb771ee01b6d3be266cd1 session=802e87c0f650c28a079b4cc67763f358978d8b1ba73110117b81772834b8c82c session_origin=host seq=1 stage=metadata outcome=rejected emergency=false field=executable_path reason=unterminated"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/clock-read/clock-read-run/serial.log",
+    "sha256": "7ee35ba36565a473deb5ac96b5ca26da72a7ec6ad340f6a9f2bb054854f05c9b",
+    "bytes": 59568,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=1af64d1c414ded2ec043841cc1a397e3097094904282e6cc30e0b675d690f8c7 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=clock-read",
+      "m1.boot_info_validated version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=1af64d1c414ded2ec043841cc1a397e3097094904282e6cc30e0b675d690f8c7 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=1af64d1c414ded2ec043841cc1a397e3097094904282e6cc30e0b675d690f8c7 session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999300 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=1af64d1c414ded2ec043841cc1a397e3097094904282e6cc30e0b675d690f8c7 session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/clock-read/fresh-epoch-run/serial.log",
+    "sha256": "170f96da01ee4bf5499e29b41021e23d8ba9ddda02cbcc9cfdadb923304c446b",
+    "bytes": 59568,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=6dea70bfeca204f6c468994d1132c82ccf756e7c04baa2c69c293e130882de32 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=clock-read",
+      "m1.boot_info_validated version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=6dea70bfeca204f6c468994d1132c82ccf756e7c04baa2c69c293e130882de32 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=6dea70bfeca204f6c468994d1132c82ccf756e7c04baa2c69c293e130882de32 session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999100 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=6dea70bfeca204f6c468994d1132c82ccf756e7c04baa2c69c293e130882de32 session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/emergency-stack/emergency-stack-run/serial.log",
+    "sha256": "25165a169a04b4efa74180b1af0e44cada6f103ad94619090e214b8d1d09c1bf",
+    "bytes": 27573,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=a99860879467408e14e36c5fa2b2fb0c6fad0e12727a71b74a142f18a04c4e92 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=emergency-stack",
+      "m1.boot_info_validated version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=a99860879467408e14e36c5fa2b2fb0c6fad0e12727a71b74a142f18a04c4e92 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/exception-emergency/exception-emergency-run/serial.log",
+    "sha256": "512e08203be2b88883c4767c2bc770cb826def8afe20b6022768c4b8f1241f89",
+    "bytes": 27286,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=237f707427b884ec6701a0f4e8b42f5b4be496d2839f73b191e0bfab731fb7bd session=72a5eb03389b3e8dada965fb4bced092c3ed750c181167af5cf577acc63ca91b session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=exception-emergency",
+      "m1.boot_info_validated version=5 build=237f707427b884ec6701a0f4e8b42f5b4be496d2839f73b191e0bfab731fb7bd session=72a5eb03389b3e8dada965fb4bced092c3ed750c181167af5cf577acc63ca91b session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/exception-invalid-opcode/exception-invalid-opcode-run/serial.log",
+    "sha256": "dc49444a43cf6a2f5cc7a9844a923895e1d491ed660197119e88e2da5aeca9b6",
+    "bytes": 27291,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=237f707427b884ec6701a0f4e8b42f5b4be496d2839f73b191e0bfab731fb7bd session=f2863d8f37b918a556912cd5d6d7c3f6ac48f114e0b72840cafeddfe20060d6d session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=exception-invalid-opcode",
+      "m1.boot_info_validated version=5 build=237f707427b884ec6701a0f4e8b42f5b4be496d2839f73b191e0bfab731fb7bd session=f2863d8f37b918a556912cd5d6d7c3f6ac48f114e0b72840cafeddfe20060d6d session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/exception-page-fault/exception-page-fault-run/serial.log",
+    "sha256": "20455332a75ac72e382f6cac70c2978d99348815f718a6015baa3f626e6e8738",
+    "bytes": 27299,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=237f707427b884ec6701a0f4e8b42f5b4be496d2839f73b191e0bfab731fb7bd session=888236192c263c10f2d1f1e7380b07419a20d7a90aa58e5f1397b6659456f132 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=exception-page-fault",
+      "m1.boot_info_validated version=5 build=237f707427b884ec6701a0f4e8b42f5b4be496d2839f73b191e0bfab731fb7bd session=888236192c263c10f2d1f1e7380b07419a20d7a90aa58e5f1397b6659456f132 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/execute-disable-fault/execute-disable-fault-run/serial.log",
+    "sha256": "a834541667b2ab1ff9bcd8c71059d9b16db91be030be68d1944582beb1d1c679",
+    "bytes": 27599,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=5a186b4985918f11910c56d4c3884fd5a786581d011dc3c6a9e18663b42a9311 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=execute-disable-fault",
+      "m1.boot_info_validated version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=5a186b4985918f11910c56d4c3884fd5a786581d011dc3c6a9e18663b42a9311 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/final-1-run/serial.log",
+    "sha256": "4e399819060101b475eb197f74e4da1998c19b05af5c75b94699109d49a6d5d5",
+    "bytes": 59573,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=568a8f3f40a3dd9dac577bf9296ca3fa192287bea02bd34271807380c6b59e37 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=acceptance-exit",
+      "m1.boot_info_validated version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=568a8f3f40a3dd9dac577bf9296ca3fa192287bea02bd34271807380c6b59e37 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=568a8f3f40a3dd9dac577bf9296ca3fa192287bea02bd34271807380c6b59e37 session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999998900 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=568a8f3f40a3dd9dac577bf9296ca3fa192287bea02bd34271807380c6b59e37 session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/final-2-run/serial.log",
+    "sha256": "769f906bd05e0de71faea67e971952542c20dcbd148fc188d5fa94785cc68cc4",
+    "bytes": 59573,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=a13f3022756c8df4b985201d7caa1f962118f7e7ed53d14a9af2f269699ae7cd session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=acceptance-exit",
+      "m1.boot_info_validated version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=a13f3022756c8df4b985201d7caa1f962118f7e7ed53d14a9af2f269699ae7cd session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=a13f3022756c8df4b985201d7caa1f962118f7e7ed53d14a9af2f269699ae7cd session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999200 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=a13f3022756c8df4b985201d7caa1f962118f7e7ed53d14a9af2f269699ae7cd session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/final-3-run/serial.log",
+    "sha256": "fe22fdb4416fb54d03f222a6b9b7d3712357a1af78451f69778c6ccd47d4efd2",
+    "bytes": 59573,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=b71b6b6c6fb3fc4f05631abf14224ea7043811399d5ff085ff26add712f33eef session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=acceptance-exit",
+      "m1.boot_info_validated version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=b71b6b6c6fb3fc4f05631abf14224ea7043811399d5ff085ff26add712f33eef session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=b71b6b6c6fb3fc4f05631abf14224ea7043811399d5ff085ff26add712f33eef session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999998700 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=b71b6b6c6fb3fc4f05631abf14224ea7043811399d5ff085ff26add712f33eef session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/final-4-run/serial.log",
+    "sha256": "6a3b99d5a0f5461a5dbfc139fcc728ef74b75eb185ea93c3fb26577cfd5b9403",
+    "bytes": 59573,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=0f08519ffec0dd8aade354012f03cbcfeff9dcab644a30e2e1223c922875ca81 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=acceptance-exit",
+      "m1.boot_info_validated version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=0f08519ffec0dd8aade354012f03cbcfeff9dcab644a30e2e1223c922875ca81 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=0f08519ffec0dd8aade354012f03cbcfeff9dcab644a30e2e1223c922875ca81 session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999998600 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=0f08519ffec0dd8aade354012f03cbcfeff9dcab644a30e2e1223c922875ca81 session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/final-5-run/serial.log",
+    "sha256": "1961d1bbd9fe78537eb88cb2fa3f8e079b41b7f4ae982b3e344e37e751d25e9f",
+    "bytes": 59573,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=f9e1ffb8ba058837ed3fa2e110b891edaac5abcbeaa42ac032786a93031e7213 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=acceptance-exit",
+      "m1.boot_info_validated version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=f9e1ffb8ba058837ed3fa2e110b891edaac5abcbeaa42ac032786a93031e7213 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=f9e1ffb8ba058837ed3fa2e110b891edaac5abcbeaa42ac032786a93031e7213 session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999998400 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=f9e1ffb8ba058837ed3fa2e110b891edaac5abcbeaa42ac032786a93031e7213 session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/guard-fault/guard-fault-run/serial.log",
+    "sha256": "8d6a425d15ecfd6700e6f6542fe48ee3fa3d94932abde90d64585f3f219a274e",
+    "bytes": 27588,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=74f4361bb3fb83143384e6dff8d5f754a82e6ca38c919c9cf46ba9402d11a867 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=guard-fault",
+      "m1.boot_info_validated version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=74f4361bb3fb83143384e6dff8d5f754a82e6ca38c919c9cf46ba9402d11a867 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/idle-wakeup/idle-wakeup-run/serial.log",
+    "sha256": "6e77c5200072d31190502d86d50b2a6d86ee3372d32b42105a2d3ab00570fb96",
+    "bytes": 59575,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=a6a564ce74bf21690b3c71e862c2baeb1c78bc1a174e9303329aac5572e89511 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=idle-wakeup",
+      "m1.boot_info_validated version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=a6a564ce74bf21690b3c71e862c2baeb1c78bc1a174e9303329aac5572e89511 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=a6a564ce74bf21690b3c71e862c2baeb1c78bc1a174e9303329aac5572e89511 session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=1000000000 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=a6a564ce74bf21690b3c71e862c2baeb1c78bc1a174e9303329aac5572e89511 session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/iso-negative/bad-config-run/serial.log",
+    "sha256": "1b5e999c101d05ff9309f6fea77abde6ed817e75abad29208fa85c7b815cc78a",
+    "bytes": 3446,
+    "selected_records": []
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/iso-negative/no-entry-run/serial.log",
+    "sha256": "c1f3a4b582c6f9fc57f103f28a3d4e8896da856149b67cd6d7372bc86a68ef1a",
+    "bytes": 3648,
+    "selected_records": []
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/iso-smoke/cold-boot-a-run/serial.log",
+    "sha256": "0735537f1169a0236ae310f9b7eecb47687d0c79194ea5384b672da93d6780d3",
+    "bytes": 59564,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=0a51ceca11cc673f28e72bf1fa52cedad4620bfa690cb9e24e3da8e4a1c8b00e session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=normal",
+      "m1.boot_info_validated version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=0a51ceca11cc673f28e72bf1fa52cedad4620bfa690cb9e24e3da8e4a1c8b00e session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=0a51ceca11cc673f28e72bf1fa52cedad4620bfa690cb9e24e3da8e4a1c8b00e session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999500 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=0a51ceca11cc673f28e72bf1fa52cedad4620bfa690cb9e24e3da8e4a1c8b00e session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/iso-smoke/cold-boot-b-run/serial.log",
+    "sha256": "149af1d3c9c22582600f1155c1f206c9e82553a4c57baf81d5966a86f56447df",
+    "bytes": 59564,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=67c049196c348df8358364ca52baf97c7c52cc1ae64451c182415e963ebf226e session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=normal",
+      "m1.boot_info_validated version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=67c049196c348df8358364ca52baf97c7c52cc1ae64451c182415e963ebf226e session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=67c049196c348df8358364ca52baf97c7c52cc1ae64451c182415e963ebf226e session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999600 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77 session=67c049196c348df8358364ca52baf97c7c52cc1ae64451c182415e963ebf226e session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/memory-exhaustion/memory-exhaustion-run/serial.log",
+    "sha256": "6a23c47d0f28762b7f77a2a9a5838a08c240fe6024b0c983befdfc5a0dbd208a",
+    "bytes": 59568,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=7a9bd7731a26aebd6aa8d2ae3e8e9b56dc9566a5380d887cafcd7909092e4604 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=memory-exhaustion",
+      "m1.boot_info_validated version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=7a9bd7731a26aebd6aa8d2ae3e8e9b56dc9566a5380d887cafcd7909092e4604 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=7a9bd7731a26aebd6aa8d2ae3e8e9b56dc9566a5380d887cafcd7909092e4604 session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999200 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=7a9bd7731a26aebd6aa8d2ae3e8e9b56dc9566a5380d887cafcd7909092e4604 session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/memory-ownership/memory-ownership-run/serial.log",
+    "sha256": "4cb8f4f6184e1f9701b4dbc646a695d02852fbb70cb815998b7db63c7ee61973",
+    "bytes": 59574,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=e04e469f8d48bd103eb6c528511785e7b664355d27abe1a633f5e3322d8a8008 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=memory-ownership",
+      "m1.boot_info_validated version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=e04e469f8d48bd103eb6c528511785e7b664355d27abe1a633f5e3322d8a8008 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=e04e469f8d48bd103eb6c528511785e7b664355d27abe1a633f5e3322d8a8008 session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999500 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=e04e469f8d48bd103eb6c528511785e7b664355d27abe1a633f5e3322d8a8008 session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/panic/panic-run/serial.log",
+    "sha256": "b3fa00e77c909f47ebfd61db01f5cab39aabfbb693fa4f0b506b884d01e0ade5",
+    "bytes": 27251,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=237f707427b884ec6701a0f4e8b42f5b4be496d2839f73b191e0bfab731fb7bd session=680727cb7660d60f8f3ce12109b99a620884a98a38999c8dc462c811c1d17c8f session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=panic",
+      "m1.boot_info_validated version=5 build=237f707427b884ec6701a0f4e8b42f5b4be496d2839f73b191e0bfab731fb7bd session=680727cb7660d60f8f3ce12109b99a620884a98a38999c8dc462c811c1d17c8f session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/run/cold-boot-a-run/serial.log",
+    "sha256": "bc8b9abedbc222ba19061c917e06d8e1a2afc62c0b0c53c5603684ee4970164e",
+    "bytes": 59570,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=d82e75e3e327ebe80381fbf507221f25e88bd2b5b693935130e2e136f4e4493c session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=normal",
+      "m1.boot_info_validated version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=d82e75e3e327ebe80381fbf507221f25e88bd2b5b693935130e2e136f4e4493c session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=d82e75e3e327ebe80381fbf507221f25e88bd2b5b693935130e2e136f4e4493c session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=1000000000 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=d82e75e3e327ebe80381fbf507221f25e88bd2b5b693935130e2e136f4e4493c session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/second-clean-run/serial.log",
+    "sha256": "7723f6f63667b7214ea19e0a718a5795e1c86042123b1bfd0bb39cec2d2ba006",
+    "bytes": 59573,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=0350dd8c40912aec25b4b882db5a49be43f966b702d722fe5a2d59c26f10d970 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=acceptance-exit",
+      "m1.boot_info_validated version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=0350dd8c40912aec25b4b882db5a49be43f966b702d722fe5a2d59c26f10d970 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=0350dd8c40912aec25b4b882db5a49be43f966b702d722fe5a2d59c26f10d970 session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999998600 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7 session=0350dd8c40912aec25b4b882db5a49be43f966b702d722fe5a2d59c26f10d970 session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/timer-calibration/timer-calibration-run/serial.log",
+    "sha256": "8101bc0ad3ce38fdf323b89abec750cb28055f1142133c8adb34d0792bd8c661",
+    "bytes": 27550,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=3d9e9748ca87ab792bb9dcf0201fa6b2cba356269ebce6f6993ebce54b8dc926 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=timer-calibration",
+      "m1.boot_info_validated version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=3d9e9748ca87ab792bb9dcf0201fa6b2cba356269ebce6f6993ebce54b8dc926 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/timer-exception/timer-exception-run/serial.log",
+    "sha256": "d27e4d3c95eb0e5b3f634a4d27c100565e90549cc6c7c160d529a36fd2052867",
+    "bytes": 59408,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=2937d9f306240d1eeff84a12a0ea5fc29624cbe9fd5497fc02687585b921e83a session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=timer-exception",
+      "m1.boot_info_validated version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=2937d9f306240d1eeff84a12a0ea5fc29624cbe9fd5497fc02687585b921e83a session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=2937d9f306240d1eeff84a12a0ea5fc29624cbe9fd5497fc02687585b921e83a session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999300 reads=100 changes=100 halts=100 registers=true spurious=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/timer-masked/timer-masked-run/serial.log",
+    "sha256": "1a47d3415fabeededc770513bf6866f41f2f03a19dfb0496b7de819b7b228c78",
+    "bytes": 59876,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=6600c8172e219b8d6e7ca1016044a143a36f9cbd9c0ba19caa640d9f42e74d7a session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=timer-masked",
+      "m1.boot_info_validated version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=6600c8172e219b8d6e7ca1016044a143a36f9cbd9c0ba19caa640d9f42e74d7a session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=6600c8172e219b8d6e7ca1016044a143a36f9cbd9c0ba19caa640d9f42e74d7a session_origin=host seq=182 stage=timer outcome=ok emergency=false ticks=101 uptime_ns=1009999293 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=6600c8172e219b8d6e7ca1016044a143a36f9cbd9c0ba19caa640d9f42e74d7a session_origin=host seq=184 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/timer-progress/timer-progress-run/serial.log",
+    "sha256": "708d55de6d5eade1d40d56f8aff030fa9f7d2ce3baab608dde5e4b3b336fec55",
+    "bytes": 59572,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=a2997e2b6f3dd027595edc8b3044fb945551cd4c7b23834f4d0f2b93c93bf352 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=timer-progress",
+      "m1.boot_info_validated version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=a2997e2b6f3dd027595edc8b3044fb945551cd4c7b23834f4d0f2b93c93bf352 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000",
+      "m1.timer_progress version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=a2997e2b6f3dd027595edc8b3044fb945551cd4c7b23834f4d0f2b93c93bf352 session_origin=host seq=181 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999600 reads=100 changes=100 halts=100 registers=true spurious=0",
+      "m1.ready version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=a2997e2b6f3dd027595edc8b3044fb945551cd4c7b23834f4d0f2b93c93bf352 session_origin=host seq=183 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/timer-unsupported/timer-unsupported-run/serial.log",
+    "sha256": "a52b1b29e439e09758f428246f8b4b8e7c32e884e661924b1ca79546c7c9b047",
+    "bytes": 27193,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=9ca7811b48da51bf7684c29b0bd316e15a510807a3e753edb3be26d091798cde session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=timer-unsupported",
+      "m1.boot_info_validated version=5 build=b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4 session=9ca7811b48da51bf7684c29b0bd316e15a510807a3e753edb3be26d091798cde session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  },
+  {
+    "path": "build/m1/suite-1792886294714763900-21672/write-protect-fault/write-protect-fault-run/serial.log",
+    "sha256": "ca0105b90b9d60e4591b0e71b82727b434f6d49bafe7138905c59d2a9c28dee2",
+    "bytes": 27596,
+    "selected_records": [
+      "m1.kernel_entry version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=c83196d884a1a51b0a9eb5d14c2f4dc7898c56020446974639ffd6a2d1d61249 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=write-protect-fault",
+      "m1.boot_info_validated version=5 build=48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc session=c83196d884a1a51b0a9eb5d14c2f4dc7898c56020446974639ffd6a2d1d61249 session_origin=host seq=1 stage=metadata outcome=ok emergency=false boot_info=1 regions=33 modules=0 framebuffers=1 mode=framebuffer acpi=locator-only hhdm=0xffff800000000000"
+    ]
+  }
+]

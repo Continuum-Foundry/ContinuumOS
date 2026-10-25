@@ -303,6 +303,7 @@ fn run() -> Result<()> {
         ["test", "--suite", "ui-damage"] => performance::damage(),
         ["test", "--suite", "ui-stability"] => performance::stability(),
         ["ui-performance", trace, repetition, directory] => performance::measure(trace, repetition, Path::new(directory)),
+        ["ui-focused", mode, directory] => performance::focused(mode, Path::new(directory)),
         ["resource-template", path] => reload::template(Path::new(path)),
         ["resource-build", input, output] => reload::build(Path::new(input), Path::new(output)),
         ["custom-host"] => custom::host(),

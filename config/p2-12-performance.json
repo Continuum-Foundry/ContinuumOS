@@ -1,5 +1,6 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
+  "tracing_detail": "Existing phase/allocation clocks plus primitive fill/text/backdrop/group/snapshot clocks and structural work counts; text includes selection/caret fills, so overlapping clocks are not summed; trace-off retains structural counters",
   "seed": 20261020,
   "profile": "m2-comparison",
   "geometry": [[1280,720,100],[1280,720,150],[1280,720,200],[1920,1080,100],[1920,1080,150],[1920,1080,200]],

@@ -1,0 +1,35 @@
+[
+  {
+    "name": "early-exit",
+    "arguments": [
+      "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-c",
+      "raise SystemExit(7)"
+    ],
+    "timeout_seconds": 10,
+    "pid": 43640,
+    "exit_code": 7,
+    "timed_out": false,
+    "elapsed_seconds": 0.17200000000593718,
+    "cleanup": "reaped",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "passed": false
+  },
+  {
+    "name": "timeout",
+    "arguments": [
+      "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-c",
+      "import time; time.sleep(30)"
+    ],
+    "timeout_seconds": 1,
+    "pid": 39264,
+    "tree_kill_exit_code": 0,
+    "exit_code": 1,
+    "timed_out": true,
+    "elapsed_seconds": 1.4219999999913853,
+    "cleanup": "reaped",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "passed": false
+  }
+]

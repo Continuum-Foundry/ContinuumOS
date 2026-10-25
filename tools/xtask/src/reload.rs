@@ -4,7 +4,6 @@ use custom_ui::{
     Rect,
     input::Controller,
     layout::Plan,
-    paint,
     scene::{Scene, Tokens, Tree},
 };
 use serde_json::{Value, json};
@@ -417,10 +416,10 @@ impl Resources {
         width: u32,
         height: u32,
         scale: u16,
-    ) -> Result<()> {
+    ) -> Result<custom_ui::retained::Frame> {
         self.request += 1;
         let mut row = json!({"request_id":self.request,"receive_us":self.now(),"active_before":self.id(),"scope":"ephemeral-hosted"});
-        let outcome: Result<()> = (|| {
+        let outcome: Result<custom_ui::retained::Frame> = (|| {
             need(self.trace.len() < 1024, "Resource request trace budget")?;
             checked(c.drain(&scene.tree))?;
             need(
@@ -498,27 +497,20 @@ impl Resources {
                 .and_then(|x| x.checked_mul(4))
                 .filter(|n| *n <= 16 * 1024 * 1024)
                 .ok_or("Staging surface exceeds 16 MiB")?;
-            let mut pixels = vec![0; len];
-            let mut canvas = checked(paint::Canvas::new(
-                &mut pixels,
-                width,
-                height,
-                width * 4,
-                scale,
-            ))?;
-            checked(paint::render(
+            let mut frame = checked(custom_ui::retained::Frame::new(width, height))?;
+            checked(frame.draw(
                 &mut stage,
                 trial.provider.model(),
                 trial.composition.as_ref().map(|p| p.preedit()),
                 engine,
-                &mut canvas,
+                scale,
             ))?;
             let sem = checked(custom_ui::semantics::Snapshot::build(
                 &stage.tree,
                 trial.provider.model(),
             ))?;
             row["staged_us"] = json!(self.now());
-            row["stage_rgba_sha256"] = json!(hash(&pixels));
+            row["stage_rgba_sha256"] = json!(hash(&frame.pixels));
             row["semantic_revision"] = json!(sem.scene_revision);
             row["stage_bytes"] = json!(len);
             // No callbacks/interleaving or fallible rendering after this point.
@@ -527,6 +519,12 @@ impl Resources {
             }
             checked(c.reconcile(&stage.tree))?;
             c.visual_caret = None;
+            // Staging consumed all already accepted paint/layout changes.
+            // Semantics still needs export through the normal consumer path.
+            c.dirty = custom_ui::scene::Dirty {
+                semantics: true,
+                ..Default::default()
+            };
             row["cancellation_reason"] = json!(c.reset_reason);
             row["focus_after"] = json!(c.provider.model().session().focus);
             *scene = stage;
@@ -535,7 +533,8 @@ impl Resources {
                 self.retired.push(Arc::downgrade(&old));
             }
             row["published_us"] = json!(self.now());
-            Ok(())
+            frame.mark_unsubmitted();
+            Ok(frame)
         })();
         row["outcome"] = json!(if outcome.is_ok() {
             "published"

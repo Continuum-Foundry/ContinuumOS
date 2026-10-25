@@ -1,0 +1,515 @@
+[
+  {
+    "name": "prerequisites",
+    "arguments": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "tools/Recheck-P2Prerequisites.ps1"
+    ],
+    "timeout_seconds": 900,
+    "pid": 14884,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 206.25,
+    "cleanup": "reaped",
+    "log_sha256": "c6a0895f8a291ebf9b3d8ad2e6c0559231fbf06418b0f31c8363ac236c5565a8",
+    "passed": true
+  },
+  {
+    "name": "selected-acceptance",
+    "arguments": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "tools/Test-P2-12.ps1",
+      "-Prerequisites",
+      "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1792868583842",
+      "-TargetDirectory",
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792868580682524600"
+    ],
+    "timeout_seconds": 3600,
+    "pid": 16104,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 1633.2810000000027,
+    "cleanup": "reaped",
+    "log_sha256": "1b83c61ca696e83d66033a7578d1f5f1628ee1613c97291c167a82ae06633ecc",
+    "passed": true
+  },
+  {
+    "name": "ui-fixtures-0",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792868580682524600\\m2-comparison\\xtask.exe",
+      "test",
+      "--suite",
+      "ui-fixtures"
+    ],
+    "timeout_seconds": 900,
+    "pid": 39244,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.23399999999674037,
+    "cleanup": "reaped",
+    "log_sha256": "7f0c3a2bda7a8e84e40c73472f3fba7a08552292d0db432a4b2fcb372bce7328",
+    "passed": true
+  },
+  {
+    "name": "ui-fixtures-1",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792868580682524600\\m2-comparison\\xtask.exe",
+      "test",
+      "--suite",
+      "ui-fixtures"
+    ],
+    "timeout_seconds": 900,
+    "pid": 40236,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.20299999999406282,
+    "cleanup": "reaped",
+    "log_sha256": "79c6abe38a39d5e6b8040a63e52bd5f8a722bd17b33ee1164361f485ce7d50fc",
+    "passed": true
+  },
+  {
+    "name": "editor-model-0",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792868580682524600\\m2-comparison\\xtask.exe",
+      "test",
+      "--suite",
+      "editor-model"
+    ],
+    "timeout_seconds": 900,
+    "pid": 3708,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.20300000000861473,
+    "cleanup": "reaped",
+    "log_sha256": "434a5c7674a6b5fe6e4b208418d6583a6024c4fb83eedec42bd4ff946e70a30e",
+    "passed": true
+  },
+  {
+    "name": "editor-model-1",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792868580682524600\\m2-comparison\\xtask.exe",
+      "test",
+      "--suite",
+      "editor-model"
+    ],
+    "timeout_seconds": 900,
+    "pid": 16096,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.1870000000053551,
+    "cleanup": "reaped",
+    "log_sha256": "6c7ae56a0ddf5360a774318eeb44afe25cf8f324886b7bd1955e310b6d88efbd",
+    "passed": true
+  },
+  {
+    "name": "text-0",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792868580682524600\\m2-comparison\\xtask.exe",
+      "test",
+      "--suite",
+      "text"
+    ],
+    "timeout_seconds": 900,
+    "pid": 8124,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 2.0,
+    "cleanup": "reaped",
+    "log_sha256": "169948e420480d521332141bd3b960207e5f360ddc5df6bef016674d8aa65c13",
+    "passed": true
+  },
+  {
+    "name": "text-1",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792868580682524600\\m2-comparison\\xtask.exe",
+      "test",
+      "--suite",
+      "text"
+    ],
+    "timeout_seconds": 900,
+    "pid": 43120,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 1.9219999999913853,
+    "cleanup": "reaped",
+    "log_sha256": "b21e8410325a748c4d58a90ceb955df1b80b447a1e64ccd5dc1c1881289d73f4",
+    "passed": true
+  },
+  {
+    "name": "text-oracle",
+    "arguments": [
+      "python",
+      "tools/Reference-TextShape.py",
+      "--verify",
+      "fixtures/m2/text-v1/shaping-reference.json"
+    ],
+    "timeout_seconds": 900,
+    "pid": 39780,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.4850000000005821,
+    "cleanup": "reaped",
+    "log_sha256": "8d97454299fde81ccd0ac71ec9a8c5f096e5bea6457eb3c15c584b89667bd3b2",
+    "passed": true
+  },
+  {
+    "name": "checkpoint-button",
+    "arguments": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "tools/Test-EditorCheckpoint.ps1",
+      "-Path",
+      "${WORKSPACE}\\build\\m2\\P2-03\\run-1792870422992302700-3708\\button.checkpoint",
+      "-Fixture",
+      "fixtures/m2/actions-v1/replay.json"
+    ],
+    "timeout_seconds": 900,
+    "pid": 41604,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.9060000000026776,
+    "cleanup": "reaped",
+    "log_sha256": "2d1ba14dde51345e365c54bbd5ddc2d105dfc12ac967f8518dbd7c8d622604a4",
+    "passed": true
+  },
+  {
+    "name": "checkpoint-shortcut",
+    "arguments": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "tools/Test-EditorCheckpoint.ps1",
+      "-Path",
+      "${WORKSPACE}\\build\\m2\\P2-03\\run-1792870422992302700-3708\\shortcut.checkpoint",
+      "-Fixture",
+      "fixtures/m2/actions-v1/replay.json"
+    ],
+    "timeout_seconds": 900,
+    "pid": 33216,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.8909999999887077,
+    "cleanup": "reaped",
+    "log_sha256": "3afd40c03792de41ad0fd91003aa6a72d893fffffddfbf8f75326a4cbf1a53ec",
+    "passed": true
+  },
+  {
+    "name": "checkpoint-semantic",
+    "arguments": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "tools/Test-EditorCheckpoint.ps1",
+      "-Path",
+      "${WORKSPACE}\\build\\m2\\P2-03\\run-1792870422992302700-3708\\semantic.checkpoint",
+      "-Fixture",
+      "fixtures/m2/actions-v1/replay.json"
+    ],
+    "timeout_seconds": 900,
+    "pid": 28724,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.8589999999967404,
+    "cleanup": "reaped",
+    "log_sha256": "e0aaa3e3b8c1de6d19d91de4639530a7c6d42b090c0fe24f50a20d50e48129e0",
+    "passed": true
+  },
+  {
+    "name": "checkpoint-automation",
+    "arguments": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "tools/Test-EditorCheckpoint.ps1",
+      "-Path",
+      "${WORKSPACE}\\build\\m2\\P2-03\\run-1792870422992302700-3708\\automation.checkpoint",
+      "-Fixture",
+      "fixtures/m2/actions-v1/replay.json"
+    ],
+    "timeout_seconds": 900,
+    "pid": 9056,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 1.2030000000086147,
+    "cleanup": "reaped",
+    "log_sha256": "c3f042d81b1a0c6246864a718fbee815cddba3c5ada8a8267c552baea603599e",
+    "passed": true
+  },
+  {
+    "name": "lifecycle-success",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792868580682524600\\m2-comparison\\xtask.exe",
+      "hosted",
+      "--config",
+      "config/m2-profiles.json",
+      "--profile",
+      "hd",
+      "--scale",
+      "1.0",
+      "--case",
+      "success"
+    ],
+    "timeout_seconds": 900,
+    "pid": 42424,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.34300000000803266,
+    "cleanup": "reaped",
+    "log_sha256": "44afa14a79c65732de9f82566d38275436840379bef97d4bd597fb38b8f1d09c",
+    "passed": true
+  },
+  {
+    "name": "lifecycle-nonzero",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792868580682524600\\m2-comparison\\xtask.exe",
+      "hosted",
+      "--config",
+      "config/m2-profiles.json",
+      "--profile",
+      "hd",
+      "--scale",
+      "1.0",
+      "--case",
+      "nonzero"
+    ],
+    "timeout_seconds": 900,
+    "pid": 42504,
+    "exit_code": 1,
+    "timed_out": false,
+    "elapsed_seconds": 0.42199999999138527,
+    "cleanup": "reaped",
+    "log_sha256": "8cfeec3ef292ce859949d48e880f783e09d5d803129d18fa83b2fc7346096c52",
+    "passed": true
+  },
+  {
+    "name": "lifecycle-timeout",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792868580682524600\\m2-comparison\\xtask.exe",
+      "hosted",
+      "--config",
+      "config/m2-profiles.json",
+      "--profile",
+      "hd",
+      "--scale",
+      "1.0",
+      "--case",
+      "timeout"
+    ],
+    "timeout_seconds": 900,
+    "pid": 44952,
+    "exit_code": 1,
+    "timed_out": false,
+    "elapsed_seconds": 0.3120000000053551,
+    "cleanup": "reaped",
+    "log_sha256": "b8eb283c31cc71035169c525828027cbc09a3e4937ef3ec85efe33950ec35c37",
+    "passed": true
+  },
+  {
+    "name": "probe-format",
+    "arguments": [
+      "cargo",
+      "fmt",
+      "--manifest-path",
+      "experiments/ui-link/Cargo.toml",
+      "--check"
+    ],
+    "timeout_seconds": 900,
+    "pid": 38808,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 1.1560000000026776,
+    "cleanup": "reaped",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "passed": true
+  },
+  {
+    "name": "link-inputs",
+    "arguments": [
+      "python",
+      "tools/Review-UiLinkInputs.py",
+      "${WORKSPACE}\\build\\m2\\P2-13\\acceptance-1792868580682524600\\inputs"
+    ],
+    "timeout_seconds": 900,
+    "pid": 29376,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 73.70300000000861,
+    "cleanup": "reaped",
+    "log_sha256": "ec12bff2fa25c7d757828df47b62e5c6d6fe2aa0479407a3ad151c186f19327c",
+    "passed": true
+  },
+  {
+    "name": "selected-link",
+    "arguments": [
+      "cargo",
+      "rustc",
+      "--locked",
+      "--offline",
+      "--manifest-path",
+      "experiments/ui-link/Cargo.toml",
+      "--target",
+      "x86_64-unknown-none",
+      "--release",
+      "--bin",
+      "ui-link",
+      "--",
+      "-C",
+      "code-model=small",
+      "-C",
+      "relocation-model=static",
+      "-C",
+      "link-arg=-T${WORKSPACE}\\experiments\\ui-link\\link.ld",
+      "-C",
+      "link-arg=--no-undefined"
+    ],
+    "timeout_seconds": 900,
+    "pid": 39200,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 35.42200000000594,
+    "cleanup": "reaped",
+    "log_sha256": "dae2f66f2cc208f82679f32336a5600a02919d040399b87fa708bd6978f3c643",
+    "passed": true
+  },
+  {
+    "name": "link-audit",
+    "arguments": [
+      "python",
+      "tools/Review-UiLink.py",
+      "${WORKSPACE}\\build\\m2\\P2-13\\acceptance-1792868580682524600\\link-target\\x86_64-unknown-none\\release\\ui-link",
+      "${WORKSPACE}\\build\\m2\\P2-13\\acceptance-1792868580682524600\\elf-audit",
+      "--llvm",
+      "${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc\\lib\\rustlib\\x86_64-pc-windows-msvc\\bin"
+    ],
+    "timeout_seconds": 900,
+    "pid": 9284,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 3.312000000005355,
+    "cleanup": "reaped",
+    "log_sha256": "7676cee0d3232162a07f03ccd7eadd611f72e490194d6b0dc16c55122c3d7cfc",
+    "passed": true
+  },
+  {
+    "name": "missing-hook",
+    "arguments": [
+      "cargo",
+      "rustc",
+      "--locked",
+      "--offline",
+      "--manifest-path",
+      "experiments/ui-link/Cargo.toml",
+      "--target",
+      "x86_64-unknown-none",
+      "--release",
+      "--bin",
+      "ui-link",
+      "--features",
+      "missing-hook",
+      "--",
+      "-C",
+      "code-model=small",
+      "-C",
+      "relocation-model=static",
+      "-C",
+      "link-arg=-T${WORKSPACE}\\experiments\\ui-link\\link.ld",
+      "-C",
+      "link-arg=--no-undefined"
+    ],
+    "timeout_seconds": 900,
+    "pid": 22132,
+    "exit_code": 101,
+    "timed_out": false,
+    "elapsed_seconds": 2.812999999994645,
+    "cleanup": "reaped",
+    "log_sha256": "14d78920c37012f1730ab8abc08d854c9d83ef05c783fc9a233844281810ec6d",
+    "passed": true
+  },
+  {
+    "name": "host-feature",
+    "arguments": [
+      "cargo",
+      "rustc",
+      "--locked",
+      "--offline",
+      "--manifest-path",
+      "experiments/ui-link/Cargo.toml",
+      "--target",
+      "x86_64-unknown-none",
+      "--release",
+      "--bin",
+      "ui-link",
+      "--features",
+      "host-feature",
+      "--",
+      "-C",
+      "code-model=small",
+      "-C",
+      "relocation-model=static",
+      "-C",
+      "link-arg=-T${WORKSPACE}\\experiments\\ui-link\\link.ld",
+      "-C",
+      "link-arg=--no-undefined"
+    ],
+    "timeout_seconds": 900,
+    "pid": 44480,
+    "exit_code": 101,
+    "timed_out": false,
+    "elapsed_seconds": 1.0160000000032596,
+    "cleanup": "reaped",
+    "log_sha256": "6fd73c5ad2ded49ca7525f2250c65122436083071add943548a746ab9c2f4537",
+    "passed": true
+  },
+  {
+    "name": "docs",
+    "arguments": [
+      "node",
+      "audit/check-docs.cjs"
+    ],
+    "timeout_seconds": 900,
+    "pid": 28340,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.9379999999946449,
+    "cleanup": "reaped",
+    "log_sha256": "bfe23136ced04d22fda3d3cb26ea130110be0a8a99a63efab13e59676f516639",
+    "passed": true
+  },
+  {
+    "name": "governance",
+    "arguments": [
+      "node",
+      "audit/check-governance.cjs"
+    ],
+    "timeout_seconds": 900,
+    "pid": 41344,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 38.21799999999348,
+    "cleanup": "reaped",
+    "log_sha256": "bf2c48138864199348e2ad543a2a3f4c79a2d486dfe6316904acfefd3f516c3c",
+    "passed": true
+  },
+  {
+    "name": "contracts",
+    "arguments": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "audit/validate-contracts.ps1"
+    ],
+    "timeout_seconds": 900,
+    "pid": 42908,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 1.3280000000086147,
+    "cleanup": "reaped",
+    "log_sha256": "d77c79c1dec2385f67a34dfc38b781e7afbe95d361a2fe2774084e498c883fc8",
+    "passed": true
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "case": "stale",
+    "rejected": true,
+    "reason": "stale run"
+  },
+  {
+    "case": "build",
+    "rejected": true,
+    "reason": "build mismatch"
+  },
+  {
+    "case": "profile",
+    "rejected": true,
+    "reason": "profile mismatch"
+  },
+  {
+    "case": "missing",
+    "rejected": true,
+    "reason": "missing/duplicate row"
+  },
+  {
+    "case": "skipped",
+    "rejected": true,
+    "reason": "failed/skipped/unbacked row"
+  },
+  {
+    "case": "unreaped",
+    "rejected": true,
+    "reason": "unreaped helper"
+  },
+  {
+    "case": "missing-result",
+    "rejected": true,
+    "reason": "missing evidence output"
+  }
+]

@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "run_id": "acceptance-1792887978669184400",
+  "profile": "m2-comparison",
+  "artifact": "ddad7af445a94777e492acdc427db193160400f88818eb8f4d1487e7193fc330",
+  "source_base": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+  "rows": [
+    {
+      "name": "prerequisites-clean-artifacts",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1792887981043",
+        "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792888159660",
+        "${WORKSPACE}\\build\\m2\\P2-13\\acceptance-1792887978669184400\\elf-audit\\audit.json"
+      ]
+    },
+    {
+      "name": "comparison-selection",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build\\m2\\P2-13\\acceptance-1792887978669184400\\selection-review.json"
+      ]
+    },
+    {
+      "name": "renderer-fixtures",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build/m2/P2-05/run-1792888530896703600-26916"
+      ]
+    },
+    {
+      "name": "keyboard-pointer",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build/m2/P2-10/run-1792888542412686600-26320"
+      ]
+    },
+    {
+      "name": "text",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build\\m2\\P2-04\\run-1792889249751050900"
+      ]
+    },
+    {
+      "name": "semantics-readability",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build/m2/P2-10/run-1792888542412686600-26320"
+      ]
+    },
+    {
+      "name": "typed-actions-context",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build\\m2\\P2-03\\run-1792889249554451700-22128"
+      ]
+    },
+    {
+      "name": "token-reload",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build/m2/P2-11/reload-1792888529265191500-26304",
+        "${WORKSPACE}\\build/m2/P2-05/host-1792888548971801300-15624"
+      ]
+    },
+    {
+      "name": "layout-reload",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build/m2/P2-11/reload-1792888529265191500-26304",
+        "${WORKSPACE}\\build/m2/P2-05/host-1792888548971801300-15624"
+      ]
+    },
+    {
+      "name": "failed-update",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build/m2/P2-11/reload-1792888529265191500-26304",
+        "${WORKSPACE}\\build/m2/P2-05/host-1792888548971801300-15624"
+      ]
+    },
+    {
+      "name": "reader-retirement",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build/m2/P2-11/reload-1792888529265191500-26304",
+        "${WORKSPACE}\\build/m2/P2-05/host-1792888548971801300-15624"
+      ]
+    },
+    {
+      "name": "repeated-reload",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build/m2/P2-12/stability-1792888474729-25632"
+      ]
+    },
+    {
+      "name": "damage-idle",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792888159660\\review\\damage-review.json",
+        "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792888159660\\review\\native-idle.json"
+      ]
+    },
+    {
+      "name": "metrics",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792888159660\\review\\performance-review.json",
+        "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792888159660\\review\\metrics.json"
+      ]
+    },
+    {
+      "name": "harness-cleanup",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build\\m2\\P2-13\\acceptance-1792887978669184400\\commands.json"
+      ]
+    },
+    {
+      "name": "documentation-regressions",
+      "status": "passed",
+      "evidence": [
+        "${WORKSPACE}\\build\\m2\\P2-13\\acceptance-1792887978669184400\\commands.json"
+      ]
+    }
+  ],
+  "cleanup": "reaped",
+  "performance": "${WORKSPACE}\\build\\m2\\P2-12\\acceptance-1792888159660",
+  "outputs": {
+    "ui-fixtures": "${WORKSPACE}\\build\\m2\\P2-02\\run-1792889249339738500-26388",
+    "editor-model": "${WORKSPACE}\\build\\m2\\P2-03\\run-1792889249554451700-22128",
+    "text": "${WORKSPACE}\\build\\m2\\P2-04\\run-1792889249751050900"
+  },
+  "link_sha256": "87b3bc723d2ea6a9e8f3f5785cdcc90919f2cdc4fbda33b94e63aef3133fdabe",
+  "guest": false
+}

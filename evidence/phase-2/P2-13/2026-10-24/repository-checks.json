@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "commands": [
+    {
+      "name": "docs",
+      "command": "node audit/check-docs.cjs",
+      "exit_code": 0,
+      "log_sha256": "a58bad46dbdd0888e068d3bbea73b0e20a09e2ae78b4d3f8a56740d80bdd1cc1"
+    },
+    {
+      "name": "governance",
+      "command": "node audit/check-governance.cjs",
+      "exit_code": 0,
+      "log_sha256": "ad440f232dab8245af57bc9eb39328869e603fe871248ed3e6b26b7f4c82482f"
+    },
+    {
+      "name": "contracts",
+      "command": "pwsh -NoProfile -File audit/validate-contracts.ps1",
+      "exit_code": 0,
+      "log_sha256": "d77c79c1dec2385f67a34dfc38b781e7afbe95d361a2fe2774084e498c883fc8"
+    },
+    {
+      "name": "hygiene",
+      "command": "node audit/check-repository-hygiene.cjs",
+      "exit_code": 0,
+      "log_sha256": "b7c951a461bb2854eae4720fc750244d8e6c5557ca2127788516e9336fc52b8f",
+      "scope": "Git index, frozen members, historical fingerprints and evidence budgets"
+    }
+  ],
+  "source_gate": "All 16 aggregate rows passed before documentation/evidence promotion",
+  "note": "Checks apply to local hosted acceptance and compact retention; no guest boot/performance or independent approval claim.",
+  "tested_inputs_still_match": true,
+  "source_regression_scope": {
+    "kernel_changed": false,
+    "m1_build_package_launch_changed": false,
+    "m1_new_boot_claim": false
+  },
+  "rust_unit_tests": {
+    "custom_ui": 23,
+    "editor_model": 17,
+    "text_core": 3,
+    "xtask": 26,
+    "preexisting_ignored_paint_case": 1,
+    "behavior_v2": 23
+  },
+  "process_cleanup": {
+    "status": "passed",
+    "checked_utc": "2026-10-24T19:39:47.5813937Z",
+    "owned_acceptance_processes_remaining": 0
+  }
+}

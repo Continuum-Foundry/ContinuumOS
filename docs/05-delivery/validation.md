@@ -78,7 +78,7 @@ new render/measurement/guest result follows from selection. P2-10 now passes
 [selected hosted-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md): layout/input/semantic/motion tests,
 30 selected configurations, all 45 text/63 integrated captures, full checkpoint
 parity, independent edge/semantic assertions, pressure rejection and native replay.
-P2-11 now passes [hosted T07 continuity and T05/T10/T14 publication/input checks](../../evidence/phase-2/P2-11/2026-10-23/README.md): 21 publications, 20 negatives, full checkpoints and native same-window generation 7-to-8 proof. P2-12 now passes [hosted T09 damage/idle/metrics and T07 repeated-update checks](../../evidence/phase-2/P2-12/2026-10-24/README.md): 108 exact images, 300 cache probes, 3,000 frame / 6,763 process samples and 100 compatible file publications at each resolution, plus headroom and opaque-root rejection. Frame/resource-latency misses remain explicit. P2-13 remains planned;
+P2-11 now passes [hosted T07 continuity and T05/T10/T14 publication/input checks](../../evidence/phase-2/P2-11/2026-10-23/README.md): 21 publications, 20 negatives, full checkpoints and native same-window generation 7-to-8 proof. P2-12 now passes [hosted T09 damage/idle/metrics and T07 repeated-update checks](../../evidence/phase-2/P2-12/2026-10-24/README.md): 108 exact images, 300 cache probes, 3,000 frame / 6,763 process samples and 100 compatible file publications at each resolution, plus headroom and opaque-root rejection. Frame/resource-latency misses remain explicit. P2-13 now passes [final T02/T05/T07/T09/T10/T13/T14 hosted acceptance](../../evidence/phase-2/P2-13/2026-10-24/README.md), including clean selected links and current-source regressions;
 P2-07/P2-08 evidence is described below.
 Hosted R04/R08/R09/R15 and R19 design remain distinct from full
 guest/product requirements, M3 isolation, M4 guest resources and M5 behavior transfer.
@@ -102,8 +102,7 @@ Both candidates miss frame budgets; Slint retains shown components and exceeds
 1 GiB of host commit. Those are findings, not performance acceptance. Native
 clock/caret/drag/assistive workloads, file-driven resource publication and active
 behavior routing remain unsupported here. P2-09 now records the provisional
-selection; final hosted completion/acceptance remains P2-10–P2-13 and guest gates
-remain M3–M5.
+selection; P2-10–P2-13 now pass the final hosted subset. Guest gates remain M3–M5.
 
 [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
 pass version/capability/hash checks and rejection tests; this adds no ISO boot result.
@@ -301,3 +300,11 @@ Proposed `evidence/<run-id>/`: `config.json`, input revision/locks, artifact has
 serial log, guest events, host lifecycle log, metrics, screenshots, fault script/seed,
 assertion results and limitations. Include exact test/harness revision. Any manual
 intervention is recorded. Redact secrets and document content before sharing.
+
+
+The [post-P2-13 performance follow-up](../../evidence/phase-2/performance-remediation/2026-10-24/README.md)
+re-runs complete M1 (33 rows/42 launches), all sixteen hosted acceptance rows and
+24,000 primary tail frames. Separate raw consumers validate exact before/after
+pixels, 108 incremental/full images, 200 file reloads and six malformed-profile
+mutations. These hosted elapsed/RAM observations leave all guest CPU/input/memory
+targets unaccepted; the original P2-13 bundle remains immutable.

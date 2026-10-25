@@ -304,7 +304,9 @@ pub(crate) fn capture_at(
     scale: u16,
     path: &Path,
 ) -> Result<(Value, Value)> {
-    capture_impl(candidate, scene, c, engine, surface, scale, path, None)
+    capture_impl(
+        candidate, scene, c, engine, surface, scale, path, None, None,
+    )
 }
 fn capture_impl(
     candidate: Candidate,
@@ -315,6 +317,7 @@ fn capture_impl(
     scale: u16,
     path: &Path,
     retained: Option<&mut custom_ui::retained::Frame>,
+    native_pixels: Option<&mut Vec<u8>>,
 ) -> Result<(Value, Value)> {
     let layout_clock = Instant::now();
     scene.layout();
@@ -377,7 +380,9 @@ fn capture_impl(
     let submission_clock = Instant::now();
     let pixels = checked(surface.read(lease))?;
     let digest = hash(pixels);
-    let mut image = format!("P6\n{width} {height}\n255\n").into_bytes();
+    let header = format!("P6\n{width} {height}\n255\n");
+    let mut image = Vec::with_capacity(header.len() + width as usize * height as usize * 3);
+    image.extend_from_slice(header.as_bytes());
     for row in pixels.chunks_exact(stride as usize) {
         for p in row[..width as usize * 4].chunks_exact(4) {
             require(p[3] == 255, "Final desktop must be opaque")?;
@@ -385,7 +390,9 @@ fn capture_impl(
         }
     }
     let submission_ns = submission_clock.elapsed().as_nanos();
-    fs::write(path, &image).map_err(|e| e.to_string())?;
+    if native_pixels.is_none() {
+        fs::write(path, &image).map_err(|e| e.to_string())?;
+    }
     checked(surface.release(lease))?;
     let sem = scene.semantics(c.provider.model());
     let semantic = semantic_json(&sem);
@@ -403,7 +410,10 @@ fn capture_impl(
         geometry["semantic_origin"] =
             json!("shared adapter-derived logical tree; no Slint/native accessibility export");
     }
-    let timing = json!({"layout_ns":layout_ns,"raster_ns":raster_ns,"submission_hash_and_rgb_copy_ns":submission_ns,"file_write_excluded":true});
+    let timing = json!({"staged_frame_reused":counters.reused_frame,"layout_ns":layout_ns,"raster_ns":raster_ns,"submission_hash_and_rgb_copy_ns":submission_ns,"file_write_excluded":true});
+    if let Some(pixels) = native_pixels {
+        *pixels = image;
+    }
     Ok((geometry, timing))
 }
 pub fn execute() -> Result<()> {
@@ -1265,18 +1275,16 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                     "Resource reload requires selected custom core",
                 )?;
                 let path = Path::new(path);
-                if resources
-                    .apply(
-                        path,
-                        &mut scene,
-                        &mut c,
-                        &mut engine,
-                        surface.width,
-                        surface.height,
-                        scale,
-                    )
-                    .is_ok()
-                {
+                if let Ok(frame) = resources.apply(
+                    path,
+                    &mut scene,
+                    &mut c,
+                    &mut engine,
+                    surface.width,
+                    surface.height,
+                    scale,
+                ) {
+                    retained_frame = frame;
                     source = resources.source().clone();
                 }
             }
@@ -1423,6 +1431,7 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                 "Mixed resource/frame generation",
             )?;
             let selected_frame = scene.selected;
+            let mut native_pixels = Vec::new();
             let (capture, timing) = capture_impl(
                 candidate,
                 &mut scene,
@@ -1436,9 +1445,13 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                 } else {
                     None
                 },
+                Some(&mut native_pixels),
             )?;
             frames += 1;
-            let raw = fs::read(run.join("frame.ppm")).map_err(|e| e.to_string())?;
+            let raw = &native_pixels;
+            if command["export_capture"] == true {
+                fs::write(run.join("frame.ppm"), raw).map_err(|e| e.to_string())?;
+            }
             let offset = raw
                 .iter()
                 .enumerate()
@@ -1461,7 +1474,7 @@ pub(crate) fn host_with(candidate: Candidate) -> Result<()> {
                 .motion
                 .next_deadline()
                 .map(|d| d.saturating_sub(now).div_ceil(1000).max(1));
-            let value = json!({"ok":true,"state":state(&c,&scene.tree),"capture":capture,"timing":timing,"frame":run.join("frame.bmp"),"frame_number":frames,"selected":scene.selected,"next_delay_ms":delay,"scene_revision":scene.tree.revision,"resource_generation":scene.tree.generation,"resources":resources.first_frame(),"host_time_us":start.elapsed().as_micros(),"selected_semantics":selected_semantics,"submission_copy":"RGBA to RGB capture then bottom-up BGR24 BMP; WinForms clones into owned bitmap; explicit Rust lease released after RGB copy","semantics":semantic_json(&scene.tree.semantics(c.provider.model()))});
+            let value = json!({"ok":true,"state":state(&c,&scene.tree),"capture":capture,"timing":timing,"frame":run.join("frame.bmp"),"frame_number":frames,"selected":scene.selected,"next_delay_ms":delay,"scene_revision":scene.tree.revision,"resource_generation":scene.tree.generation,"resources":resources.first_frame(),"host_time_us":start.elapsed().as_micros(),"selected_semantics":selected_semantics,"submission_copy":"RGBA to owned RGB in memory then bottom-up BGR24 BMP; optional PPM export; WinForms owned bitmap; Rust lease released after RGB copy","semantics":semantic_json(&scene.tree.semantics(c.provider.model()))});
             traces.push(json!({"command":command,"frame":frames,"state":value["state"],"rgba_sha256":value["capture"]["rgba_sha256"],"resources":value["resources"],"host_time_us":value["host_time_us"],"scene_revision":value["scene_revision"]}));
             Ok(value)
         })();

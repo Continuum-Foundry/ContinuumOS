@@ -1,0 +1,171 @@
+[
+  {
+    "name": "m1-regression",
+    "arguments": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "tools/Test-P1-07.ps1"
+    ],
+    "timeout_seconds": 5400,
+    "pid": 21880,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 1695.0,
+    "cleanup": "reaped",
+    "log_sha256": "69c9cda8961d037009f5941ebe6d89adb880e2a6fc631c3450ea57295aa94281",
+    "passed": true
+  },
+  {
+    "name": "hosted-regression",
+    "arguments": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "tools/Test-P2-13.ps1"
+    ],
+    "timeout_seconds": 5400,
+    "pid": 24932,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 1369.4840000000004,
+    "cleanup": "reaped",
+    "log_sha256": "eab05687cb17f90742b7134cd87c824d0b93df3d4b05f19dcff155ca6e714614",
+    "passed": true
+  },
+  {
+    "name": "focused-baseline",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\perf-remediation-baseline\\xtask.exe",
+      "ui-focused",
+      "diagnostic",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\baseline"
+    ],
+    "timeout_seconds": 900,
+    "pid": 26856,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 461.1720000000005,
+    "cleanup": "reaped",
+    "log_sha256": "64d26fc61903f2c6edf0414c670b130811252b539ecd0047dcce05dcd3e8e3a6",
+    "passed": true
+  },
+  {
+    "name": "focused-candidate",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792887978669184400\\m2-comparison\\xtask.exe",
+      "ui-focused",
+      "diagnostic",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\candidate"
+    ],
+    "timeout_seconds": 900,
+    "pid": 19196,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 47.28099999999904,
+    "cleanup": "reaped",
+    "log_sha256": "9e101c8baaf7d5e3a947b35dac1cf024de9b91baf94bed5fe47de91f35c57496",
+    "passed": true
+  },
+  {
+    "name": "tails-0",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792887978669184400\\m2-comparison\\xtask.exe",
+      "ui-focused",
+      "tails",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\tails-0"
+    ],
+    "timeout_seconds": 900,
+    "pid": 26216,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 52.0,
+    "cleanup": "reaped",
+    "log_sha256": "2aaee5dadcc95916b6b4009565b2900341ad7d207a6c0d8d17d5a4c6c827616d",
+    "passed": true
+  },
+  {
+    "name": "tails-1",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792887978669184400\\m2-comparison\\xtask.exe",
+      "ui-focused",
+      "tails",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\tails-1"
+    ],
+    "timeout_seconds": 900,
+    "pid": 27528,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 53.64000000000124,
+    "cleanup": "reaped",
+    "log_sha256": "67be320612ecc72001929971f46f4a78964572511d9cf14b0ef5ac3de896088a",
+    "passed": true
+  },
+  {
+    "name": "tails-2",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792887978669184400\\m2-comparison\\xtask.exe",
+      "ui-focused",
+      "tails",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\tails-2"
+    ],
+    "timeout_seconds": 900,
+    "pid": 27024,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 54.79699999999866,
+    "cleanup": "reaped",
+    "log_sha256": "e2f82e4df03933df404bbcad7a641c56e5e2dfde330a759e1729f506cadf59ae",
+    "passed": true
+  },
+  {
+    "name": "tails-3",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792887978669184400\\m2-comparison\\xtask.exe",
+      "ui-focused",
+      "tails",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\tails-3"
+    ],
+    "timeout_seconds": 900,
+    "pid": 24444,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 52.71899999999914,
+    "cleanup": "reaped",
+    "log_sha256": "99f275890a363fad9b901abad367dd958cd1e3c75ee8328f405172a6fac2aa95",
+    "passed": true
+  },
+  {
+    "name": "tails-4",
+    "arguments": [
+      "${WORKSPACE}\\build\\cargo\\p2-13-acceptance-1792887978669184400\\m2-comparison\\xtask.exe",
+      "ui-focused",
+      "tails",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700\\tails-4"
+    ],
+    "timeout_seconds": 900,
+    "pid": 21200,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 51.90600000000086,
+    "cleanup": "reaped",
+    "log_sha256": "cd128955272725b50ac9fc45fa56bb2bca36cdf1b9aa51939e479ca6c1f7fea6",
+    "passed": true
+  },
+  {
+    "name": "profile-review",
+    "arguments": [
+      "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "tools/Review-UiPerformanceRemediation.py",
+      "${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886282462867700"
+    ],
+    "timeout_seconds": 900,
+    "pid": 25956,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.875,
+    "cleanup": "reaped",
+    "log_sha256": "11f8cd90c274cdc7bb8c7d9510562555678d91e3d8adf0aa80fba457a7b06a0d",
+    "passed": true
+  }
+]

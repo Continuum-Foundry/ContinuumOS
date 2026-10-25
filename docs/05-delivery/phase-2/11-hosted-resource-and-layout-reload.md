@@ -74,3 +74,10 @@ Apply the [epic definition of done](README.md#evidence-and-story-completion).
 
 Implementation: see the [hosted resource reload runbook](resource-reload-runbook.md).
 All criteria pass [local acceptance/self-review](../../../evidence/phase-2/P2-11/2026-10-23/README.md): ten prerequisites, nine guarded commands, 21 publications, 20 negative cases and real same-window generation 7-to-8 continuity. P2-12 performance/stability and P2-13 remain pending.
+
+## Final M2 status — 2026-10-24
+
+The pending P2-13 work described above now passes [final local hosted
+acceptance](../../../evidence/phase-2/P2-13/2026-10-24/README.md), including the clean selected retained/cache link.
+The earlier story review remains scoped to its original run. Guest execution,
+efficiency targets and M3/M4/M5 obligations remain open.

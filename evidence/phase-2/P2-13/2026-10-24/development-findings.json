@@ -1,0 +1,40 @@
+{
+  "attempts": [
+    {
+      "run": "build/m2/P2-13/acceptance-1792867980698520500",
+      "finding": "Signer rejected custom-ui test artifact outside the existing build/cargo allowlist. Compilation succeeded; the unit test executable was not admitted.",
+      "next_experiment": "Use a distinct absent build/cargo/p2-13-<run> directory; no signer or Windows-policy change.",
+      "local_records": [
+        {
+          "path": "build/m2/P2-13/acceptance-1792867980698520500/failure.json",
+          "sha256": "625697a3907f7a35ad320968e34e6d86f24b9488201136cab56c31aed8a185d9",
+          "bytes": 105
+        },
+        {
+          "path": "build/m2/P2-13/acceptance-1792867980698520500/commands.json",
+          "sha256": "8cf3f392df55ec7005856fe003d817f44320f10cd672fc9841863d5f32134922",
+          "bytes": 1133
+        },
+        {
+          "path": "build/m2/P2-13/acceptance-1792867980698520500/selected-acceptance.log",
+          "sha256": "61381f6ddfc27e83d75b4b9fb77c2a683d1b605a867ce2763d7545411d4647ac",
+          "bytes": 379
+        }
+      ]
+    },
+    {
+      "run": "build/m2/P2-13/acceptance-1792868361023629700",
+      "finding": "Interrupted before measurements after preflight showed <Type>::method demangling did not match literal Type::method symbol probes. Both methods were present in the linked ELF.",
+      "next_experiment": "Normalize angle brackets for symbol queries and start a distinct frozen-source run.",
+      "local_records": [
+        {
+          "path": "build/m2/P2-13/acceptance-1792868361023629700/failure.json",
+          "sha256": "ebbc83b0039f16e2531d488f6aedf728cf5a75ad6b0592f00a365ab805354418",
+          "bytes": 300
+        }
+      ]
+    }
+  ],
+  "full_failed_runs_preserved": true,
+  "automatic_retry": false
+}

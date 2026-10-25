@@ -446,6 +446,27 @@ release, remote build, new recipient or standing remote-environment approval is
 authorized. Geographic containment remains unverified; this administrative
 exception is not legal clearance and does not waive applicable law.
 
+### One-time owner authorization — P2-13 and performance fixes, 2026-10-24
+
+After local P2-13 acceptance and the bounded hosted performance fixes were
+reviewed, the owner instructed: "I give you extraordinary exemption to push
+directly to main". This authorizes one direct push to the existing GitHub
+`origin/main` of the completed P2-13 acceptance harness, selected renderer and
+publication optimizations, accompanying specifications/documentation, sanitized
+compact acceptance/profile evidence (including the selected native PNGs), commit
+metadata and this authorization record. Private keys, certificates, generated
+executables, font binaries, ISOs, full logs, unselected raw captures and full
+local run/source trees are excluded.
+
+This is a scoped exception to the administrative transfer hold and ordinary
+topic-branch/PR procedure. Review is local agent self-review, not independent
+approval. The authorization is exhausted by the first successful push containing
+this record. The pre-push hold may be bypassed for that single invocation only
+and must remain installed afterward; the pre-commit hygiene check still runs.
+No force push, release, remote build, new recipient or standing remote-environment
+approval is authorized. Geographic containment remains unverified; this
+administrative exception is not legal clearance and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

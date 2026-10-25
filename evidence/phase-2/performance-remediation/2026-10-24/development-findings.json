@@ -1,0 +1,98 @@
+[
+  {
+    "local_path": "work/perf-spans-tests-2.log",
+    "sha256": "0530475cda8df7fc0f7e62fe91f90189ca603a4770ded46dff7bc91bf41eabe0",
+    "reason": "Adversarial fractional half-radius geometry panicked because floating subtraction reversed clamp endpoints.",
+    "resolution": "Clamp the collapsed interval consistently; scalar/span tests pass.",
+    "excerpt": [
+      "test tests::fractional_clip_and_padding_are_exact ... ok",
+      "test tests::fully_offscreen_backdrop_is_an_empty_paint ... ok",
+      "test tests::malformed_images_and_surface_geometry_reject ... ok",
+      "test tests::unpublished_frame_abandonment_preserves_lease_ownership ... ok",
+      "test tests::random_access_list_matches_sequential_generator ... ok",
+      "test paint::span_tests::opaque_spans_match_scalar_coverage_with_padding_and_scissors ... FAILED",
+      "",
+      "failures:",
+      "",
+      "---- paint::span_tests::opaque_spans_match_scalar_coverage_with_padding_and_scissors stdout ----",
+      "",
+      "thread 'paint::span_tests::opaque_spans_match_scalar_coverage_with_padding_and_scissors' (45848) panicked at /rustc/58cf8f9c35b355199727627d07ae34a4e2846d67/library\\core\\src\\num\\f32.rs:1605:9:",
+      "min > max, or either was NaN. min = 7.8, max = 7.7999997",
+      "note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace",
+      "",
+      "",
+      "failures:",
+      "    paint::span_tests::opaque_spans_match_scalar_coverage_with_padding_and_scissors",
+      "",
+      "test result: FAILED. 23 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s",
+      "",
+      "error: test failed, to rerun pass `-p custom-ui --lib`"
+    ]
+  },
+  {
+    "local_path": "work/perf-stage3-tests.log",
+    "sha256": "c073fd9164d5527a35c6cb57ac5808bf82b341e92cd81a9548967321826d90b5",
+    "reason": "Caret-only invisible change incorrectly reused staged pixels.",
+    "resolution": "Strict staged key now includes the complete caret/render state; stale-state tests pass.",
+    "excerpt": [
+      "test ui_fixtures::tests::shared_corpus_and_all_negative_cases ... ok",
+      "test m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped ... ok",
+      "test m1::inputs::tests::locked_kernel_loader_and_firmware_inputs_fail_closed ... ok",
+      "test reload::tests::staged_frame_reuse_requires_unchanged_render_state_and_submits_fully ... FAILED",
+      "",
+      "failures:",
+      "",
+      "---- reload::tests::staged_frame_reuse_requires_unchanged_render_state_and_submits_fully stdout ----",
+      "",
+      "thread 'reload::tests::staged_frame_reuse_requires_unchanged_render_state_and_submits_fully' (33216) panicked at tools\\xtask\\src\\reload\\tests.rs:62:9:",
+      "assertion `left == right` failed: caret",
+      "  left: true",
+      " right: false",
+      "note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace",
+      "",
+      "",
+      "failures:",
+      "    reload::tests::staged_frame_reuse_requires_unchanged_render_state_and_submits_fully",
+      "",
+      "test result: FAILED. 26 passed; 1 failed; 1 ignored; 0 measured; 0 filtered out; finished in 14.57s",
+      "",
+      "error: test failed, to rerun pass `-p xtask --bin xtask`"
+    ]
+  },
+  {
+    "local_path": "work/perf-remediation-final.log",
+    "sha256": "231c6472875c7c89c64c57417c2536786badae6e85d7b01ec20fabe7db69a850",
+    "reason": "First final run intentionally stopped during M1 m0 after review found missing public dimension identity.",
+    "resolution": "Owned runner PID 18796 tree was terminated. Add dimension bounds/key and resize rejection/oracle regression; fresh final run supersedes it.",
+    "excerpt": [
+      "UI remediation run: ${WORKSPACE}\\build\\m2\\performance-remediation\\acceptance-1792886121016717900",
+      "Exception: ${WORKSPACE}\\tools\\Test-UiPerformanceRemediation.ps1:9",
+      "Line |",
+      "   9 |  \u2026 TEXITCODE) {throw 'UI remediation failed; retain the printed local ru \u2026",
+      "     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+      "     | UI remediation failed; retain the printed local run directory"
+    ]
+  },
+  {
+    "reason": "Scratch-peak bookkeeping changed from recursive estimates to live plus cached pixel/mask capacities.",
+    "resolution": "Do not interpret the raw baseline/candidate scratch-peak delta as an exact like-for-like memory reduction. Copy/visit counts and complete requested-Rust/process peaks are separately retained."
+  },
+  {
+    "reason": "Initial focused baseline left allocation-event counting disabled.",
+    "resolution": "Exclude its zero allocation counts from comparison; final tracing enables the counter. No zero-allocation claim."
+  },
+  {
+    "reason": "Exploratory profiles overlapped build/other profile work.",
+    "resolution": "Development profiles are not final timing evidence. Final runner executes the baseline, candidate and five tail processes sequentially after builds."
+  },
+  {
+    "reason": "Trace overhead and process CPU granularity differ from elapsed frame timing.",
+    "resolution": [
+      "Single quiet sequential baseline/final diagnostic pair: scheduling and instrumentation differ; no universal speedup claim.",
+      "Baseline allocation counting was not enabled; its zero counts are unavailable and excluded.",
+      "Final instrumentation adds dispatch/CPU-probe/allocation clocks; trace-off pixels/timings and final paired overhead are reported without correction.",
+      "Process CPU is batched; per-frame clocks are elapsed. Text clocks overlap fills and must not be summed.",
+      "Tail CPU and input are host proxies; guest CPU, guest input and whole-guest 256 MiB targets remain unaccepted."
+    ]
+  }
+]

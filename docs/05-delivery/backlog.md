@@ -44,7 +44,7 @@ text/effect/clip/blend and distribution-term gaps.
 P2-07/P2-08 now supply accepted final-link feasibility and hosted comparison.
 P2-09 records the [provisional custom Rust direction](phase-2/ui-selection-review.md),
 terms/freeze and remaining selected-core work. P2-10 now passes
-[selected hosted-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md). P2-11 now passes [hosted resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md), completing B10's bounded continuity/publication slice. P2-12 now passes [hosted B32 damage/idle/stability acceptance](../../evidence/phase-2/P2-12/2026-10-24/README.md), with exact pixel comparisons, 200 measured file reloads and explicit performance follow-ups. P2-13 remains Not started; guest execution and efficiency targets stay open.
+[selected hosted-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md). P2-11 now passes [hosted resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md), completing B10's bounded continuity/publication slice. P2-12 now passes [hosted B32 damage/idle/stability acceptance](../../evidence/phase-2/P2-12/2026-10-24/README.md), with exact pixel comparisons, 200 measured file reloads and explicit performance follow-ups. P2-13 now passes [final M2 hosted acceptance](../../evidence/phase-2/P2-13/2026-10-24/README.md); guest execution and efficiency targets stay open. B32 remains partial across later gates.
 P2-02 through P2-09 cover B36 and initial
 B07/B08/B09/B37 boundaries, candidates, target links and decision. P2-10 completes
 the hosted portions of B07/B08/B09; P2-11 covers B10, and P2-12/P2-13 cover M2's

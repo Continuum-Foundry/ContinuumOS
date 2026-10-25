@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "case": "artifact",
+      "rejected": true,
+      "reason": "artifact/guest identity"
+    },
+    {
+      "case": "missing-cell",
+      "rejected": true,
+      "reason": "missing/duplicate summary cell"
+    },
+    {
+      "case": "missing-sample",
+      "rejected": true,
+      "reason": "missing/duplicate/out-of-order samples"
+    },
+    {
+      "case": "duplicate-sample",
+      "rejected": true,
+      "reason": "missing/duplicate/out-of-order samples"
+    },
+    {
+      "case": "quantile",
+      "rejected": true,
+      "reason": "summary quantiles"
+    },
+    {
+      "case": "pixel",
+      "rejected": true,
+      "reason": "trace pixel identity unavailable"
+    }
+  ],
+  "consumer_sha256": "80fca4f7986caffdbaa9d4efe847487865915fb33538f9565cec5411cc00cb96"
+}

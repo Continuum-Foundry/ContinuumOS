@@ -48,7 +48,9 @@ pub extern "C" fn ui_probe_entry(seed: u64, milliseconds: u64) -> u64 {
     let mut engine = text_core::Engine::new(&fonts).unwrap();
     let mut surface = Surface::new(640, 360, 640 * 4, 1).unwrap();
     let lease = surface.acquire(1).unwrap();
-    let mut canvas = Canvas::new(surface.write(lease).unwrap(), 640, 360, 640 * 4, 100).unwrap();
+    let canvas = Canvas::new(surface.write(lease).unwrap(), 640, 360, 640 * 4, 100).unwrap();
+    #[cfg(feature = "slint-aot")]
+    let mut canvas = canvas;
     #[cfg(feature = "slint-aot")]
     let counters = {
         let runtime = slint_ui::Runtime::new().unwrap();
@@ -56,14 +58,24 @@ pub extern "C" fn ui_probe_entry(seed: u64, milliseconds: u64) -> u64 {
         slint_ui::paint(&runtime, &mut scene, &controller, &mut engine, &mut canvas).unwrap()
     };
     #[cfg(not(feature = "slint-aot"))]
-    let counters = custom_ui::paint::render(
-        &mut scene,
-        controller.provider.model(),
-        None,
-        &mut engine,
-        &mut canvas,
-    )
-    .unwrap();
+    let counters = {
+        // Keep the final selected retained/damage/layout-cache path live in the
+        // linked image. This remains a one-shot, non-executed closure fixture.
+        scene.selected = true;
+        let mut frame = custom_ui::retained::Frame::new(640, 360).unwrap();
+        let (damage, counters) = frame
+            .draw(
+                &mut scene,
+                controller.provider.model(),
+                None,
+                &mut engine,
+                100,
+            )
+            .unwrap();
+        assert!(!damage.regions.is_empty());
+        canvas.bytes.copy_from_slice(&frame.pixels);
+        counters
+    };
     let mut checksum = seed ^ counters.shape_work ^ counters.nodes;
     for b in canvas.bytes.iter() {
         checksum = checksum.rotate_left(5) ^ u64::from(*b);

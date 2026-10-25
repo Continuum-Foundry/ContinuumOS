@@ -1,0 +1,3589 @@
+{
+  "blocks": [
+    {
+      "repetition": 0,
+      "trace": "off",
+      "cold_process_repetition": true,
+      "frames": {
+        "count": 300,
+        "p50": 152043800,
+        "p95": 414235100,
+        "p99": 509691800,
+        "max": 575223700
+      },
+      "active_ns": 55091872600,
+      "idle_ns": 31013055900,
+      "idle_cpu_ms": 10062.5,
+      "missed_60hz": 298,
+      "peak_private_commit": 142155776,
+      "peak_working_set": 146149376,
+      "clock_caret_surface_wakes": 30,
+      "observer_wakes": 310,
+      "missed_process_observations": 0,
+      "idle_phases": [
+        {
+          "after": {
+            "cpu_100ns": 545625000,
+            "page_faults": 2138183,
+            "peak_commit": 142221312,
+            "peak_working_set": 146173952,
+            "private_commit": 131756032,
+            "working_set": 135839744
+          },
+          "before": {
+            "cpu_100ns": 545468750,
+            "page_faults": 2138180,
+            "peak_commit": 142221312,
+            "peak_working_set": 146173952,
+            "private_commit": 131739648,
+            "working_set": 135827456
+          },
+          "elapsed_ns": 10000239900,
+          "frames": 0,
+          "phase": "static"
+        },
+        {
+          "after": {
+            "cpu_100ns": 646093750,
+            "page_faults": 2329758,
+            "peak_commit": 142221312,
+            "peak_working_set": 146194432,
+            "private_commit": 131756032,
+            "working_set": 135831552
+          },
+          "before": {
+            "cpu_100ns": 545625000,
+            "page_faults": 2138183,
+            "peak_commit": 142221312,
+            "peak_working_set": 146173952,
+            "private_commit": 131756032,
+            "working_set": 135839744
+          },
+          "elapsed_ns": 11011730300,
+          "frames": 30,
+          "phase": "clock-caret"
+        },
+        {
+          "after": {
+            "cpu_100ns": 646093750,
+            "page_faults": 2329758,
+            "peak_commit": 142221312,
+            "peak_working_set": 146194432,
+            "private_commit": 131756032,
+            "working_set": 135827456
+          },
+          "before": {
+            "cpu_100ns": 646093750,
+            "page_faults": 2329758,
+            "peak_commit": 142221312,
+            "peak_working_set": 146194432,
+            "private_commit": 131756032,
+            "working_set": 135831552
+          },
+          "elapsed_ns": 5000553400,
+          "frames": 0,
+          "phase": "hidden"
+        },
+        {
+          "after": {
+            "cpu_100ns": 646093750,
+            "page_faults": 2329758,
+            "peak_commit": 142221312,
+            "peak_working_set": 146194432,
+            "private_commit": 131756032,
+            "working_set": 135827456
+          },
+          "before": {
+            "cpu_100ns": 646093750,
+            "page_faults": 2329758,
+            "peak_commit": 142221312,
+            "peak_working_set": 146194432,
+            "private_commit": 131756032,
+            "working_set": 135827456
+          },
+          "elapsed_ns": 5000385200,
+          "frames": 0,
+          "phase": "minimized"
+        }
+      ],
+      "static_hidden_minimized_frames": 0
+    },
+    {
+      "repetition": 0,
+      "trace": "on",
+      "cold_process_repetition": true,
+      "frames": {
+        "count": 300,
+        "p50": 155068300,
+        "p95": 382575000,
+        "p99": 416237400,
+        "max": 437440000
+      },
+      "active_ns": 59110457600,
+      "idle_ns": 30581769700,
+      "idle_cpu_ms": 9937.5,
+      "missed_60hz": 300,
+      "peak_private_commit": 142426112,
+      "peak_working_set": 146583552,
+      "clock_caret_surface_wakes": 48,
+      "observer_wakes": 305,
+      "missed_process_observations": 0,
+      "idle_phases": [
+        {
+          "after": {
+            "cpu_100ns": 594218750,
+            "page_faults": 2138687,
+            "peak_commit": 142491648,
+            "peak_working_set": 146595840,
+            "private_commit": 132026368,
+            "working_set": 136286208
+          },
+          "before": {
+            "cpu_100ns": 594062500,
+            "page_faults": 2138684,
+            "peak_commit": 142491648,
+            "peak_working_set": 146595840,
+            "private_commit": 132009984,
+            "working_set": 136278016
+          },
+          "elapsed_ns": 10000335100,
+          "frames": 0,
+          "phase": "static"
+        },
+        {
+          "after": {
+            "cpu_100ns": 693281250,
+            "page_faults": 2445670,
+            "peak_commit": 142491648,
+            "peak_working_set": 146653184,
+            "private_commit": 132026368,
+            "working_set": 136286208
+          },
+          "before": {
+            "cpu_100ns": 594218750,
+            "page_faults": 2138687,
+            "peak_commit": 142491648,
+            "peak_working_set": 146595840,
+            "private_commit": 132026368,
+            "working_set": 136286208
+          },
+          "elapsed_ns": 10580781900,
+          "frames": 48,
+          "phase": "clock-caret"
+        },
+        {
+          "after": {
+            "cpu_100ns": 693437500,
+            "page_faults": 2445670,
+            "peak_commit": 142491648,
+            "peak_working_set": 146653184,
+            "private_commit": 132026368,
+            "working_set": 136286208
+          },
+          "before": {
+            "cpu_100ns": 693281250,
+            "page_faults": 2445670,
+            "peak_commit": 142491648,
+            "peak_working_set": 146653184,
+            "private_commit": 132026368,
+            "working_set": 136286208
+          },
+          "elapsed_ns": 5000244800,
+          "frames": 0,
+          "phase": "hidden"
+        },
+        {
+          "after": {
+            "cpu_100ns": 693437500,
+            "page_faults": 2445670,
+            "peak_commit": 142491648,
+            "peak_working_set": 146653184,
+            "private_commit": 132026368,
+            "working_set": 136286208
+          },
+          "before": {
+            "cpu_100ns": 693437500,
+            "page_faults": 2445670,
+            "peak_commit": 142491648,
+            "peak_working_set": 146653184,
+            "private_commit": 132026368,
+            "working_set": 136286208
+          },
+          "elapsed_ns": 5000232200,
+          "frames": 0,
+          "phase": "minimized"
+        }
+      ],
+      "static_hidden_minimized_frames": 0
+    },
+    {
+      "repetition": 1,
+      "trace": "off",
+      "cold_process_repetition": false,
+      "frames": {
+        "count": 300,
+        "p50": 125646200,
+        "p95": 326860600,
+        "p99": 360184900,
+        "max": 375390400
+      },
+      "active_ns": 46067094200,
+      "idle_ns": 30559080200,
+      "idle_cpu_ms": 10015.625,
+      "missed_60hz": 295,
+      "peak_private_commit": 142798848,
+      "peak_working_set": 146583552,
+      "clock_caret_surface_wakes": 48,
+      "observer_wakes": 305,
+      "missed_process_observations": 0,
+      "idle_phases": [
+        {
+          "after": {
+            "cpu_100ns": 472343750,
+            "page_faults": 2138437,
+            "peak_commit": 142864384,
+            "peak_working_set": 146653184,
+            "private_commit": 132399104,
+            "working_set": 136318976
+          },
+          "before": {
+            "cpu_100ns": 472343750,
+            "page_faults": 2138434,
+            "peak_commit": 142864384,
+            "peak_working_set": 146653184,
+            "private_commit": 132382720,
+            "working_set": 136306688
+          },
+          "elapsed_ns": 10000187600,
+          "frames": 0,
+          "phase": "static"
+        },
+        {
+          "after": {
+            "cpu_100ns": 572500000,
+            "page_faults": 2445280,
+            "peak_commit": 142864384,
+            "peak_working_set": 146661376,
+            "private_commit": 132399104,
+            "working_set": 136310784
+          },
+          "before": {
+            "cpu_100ns": 472343750,
+            "page_faults": 2138437,
+            "peak_commit": 142864384,
+            "peak_working_set": 146653184,
+            "private_commit": 132399104,
+            "working_set": 136318976
+          },
+          "elapsed_ns": 10558184900,
+          "frames": 48,
+          "phase": "clock-caret"
+        },
+        {
+          "after": {
+            "cpu_100ns": 572500000,
+            "page_faults": 2445280,
+            "peak_commit": 142864384,
+            "peak_working_set": 146661376,
+            "private_commit": 132399104,
+            "working_set": 136306688
+          },
+          "before": {
+            "cpu_100ns": 572500000,
+            "page_faults": 2445280,
+            "peak_commit": 142864384,
+            "peak_working_set": 146661376,
+            "private_commit": 132399104,
+            "working_set": 136310784
+          },
+          "elapsed_ns": 5000222200,
+          "frames": 0,
+          "phase": "hidden"
+        },
+        {
+          "after": {
+            "cpu_100ns": 572500000,
+            "page_faults": 2445280,
+            "peak_commit": 142864384,
+            "peak_working_set": 146661376,
+            "private_commit": 132399104,
+            "working_set": 136306688
+          },
+          "before": {
+            "cpu_100ns": 572500000,
+            "page_faults": 2445280,
+            "peak_commit": 142864384,
+            "peak_working_set": 146661376,
+            "private_commit": 132399104,
+            "working_set": 136306688
+          },
+          "elapsed_ns": 5000315300,
+          "frames": 0,
+          "phase": "minimized"
+        }
+      ],
+      "static_hidden_minimized_frames": 0
+    },
+    {
+      "repetition": 1,
+      "trace": "on",
+      "cold_process_repetition": false,
+      "frames": {
+        "count": 300,
+        "p50": 143943200,
+        "p95": 343877700,
+        "p99": 371482700,
+        "max": 412756800
+      },
+      "active_ns": 55552059500,
+      "idle_ns": 30862522600,
+      "idle_cpu_ms": 9515.625,
+      "missed_60hz": 300,
+      "peak_private_commit": 142569472,
+      "peak_working_set": 146534400,
+      "clock_caret_surface_wakes": 42,
+      "observer_wakes": 308,
+      "missed_process_observations": 0,
+      "idle_phases": [
+        {
+          "after": {
+            "cpu_100ns": 563750000,
+            "page_faults": 2137481,
+            "peak_commit": 142635008,
+            "peak_working_set": 146542592,
+            "private_commit": 132173824,
+            "working_set": 136204288
+          },
+          "before": {
+            "cpu_100ns": 563750000,
+            "page_faults": 2137478,
+            "peak_commit": 142635008,
+            "peak_working_set": 146542592,
+            "private_commit": 132157440,
+            "working_set": 136192000
+          },
+          "elapsed_ns": 10000777300,
+          "frames": 0,
+          "phase": "static"
+        },
+        {
+          "after": {
+            "cpu_100ns": 658906250,
+            "page_faults": 2406180,
+            "peak_commit": 142635008,
+            "peak_working_set": 146558976,
+            "private_commit": 132173824,
+            "working_set": 136196096
+          },
+          "before": {
+            "cpu_100ns": 563750000,
+            "page_faults": 2137481,
+            "peak_commit": 142635008,
+            "peak_working_set": 146542592,
+            "private_commit": 132173824,
+            "working_set": 136204288
+          },
+          "elapsed_ns": 10860985500,
+          "frames": 42,
+          "phase": "clock-caret"
+        },
+        {
+          "after": {
+            "cpu_100ns": 658906250,
+            "page_faults": 2406180,
+            "peak_commit": 142635008,
+            "peak_working_set": 146558976,
+            "private_commit": 132173824,
+            "working_set": 136192000
+          },
+          "before": {
+            "cpu_100ns": 658906250,
+            "page_faults": 2406180,
+            "peak_commit": 142635008,
+            "peak_working_set": 146558976,
+            "private_commit": 132173824,
+            "working_set": 136196096
+          },
+          "elapsed_ns": 5000350300,
+          "frames": 0,
+          "phase": "hidden"
+        },
+        {
+          "after": {
+            "cpu_100ns": 658906250,
+            "page_faults": 2406181,
+            "peak_commit": 142635008,
+            "peak_working_set": 146558976,
+            "private_commit": 132173824,
+            "working_set": 136192000
+          },
+          "before": {
+            "cpu_100ns": 658906250,
+            "page_faults": 2406180,
+            "peak_commit": 142635008,
+            "peak_working_set": 146558976,
+            "private_commit": 132173824,
+            "working_set": 136192000
+          },
+          "elapsed_ns": 5000263700,
+          "frames": 0,
+          "phase": "minimized"
+        }
+      ],
+      "static_hidden_minimized_frames": 0
+    },
+    {
+      "repetition": 2,
+      "trace": "off",
+      "cold_process_repetition": false,
+      "frames": {
+        "count": 300,
+        "p50": 250533900,
+        "p95": 690254900,
+        "p99": 740498500,
+        "max": 839437200
+      },
+      "active_ns": 85410084500,
+      "idle_ns": 32365897700,
+      "idle_cpu_ms": 11765.625,
+      "missed_60hz": 300,
+      "peak_private_commit": 143302656,
+      "peak_working_set": 147197952,
+      "clock_caret_surface_wakes": 24,
+      "observer_wakes": 323,
+      "missed_process_observations": 0,
+      "idle_phases": [
+        {
+          "after": {
+            "cpu_100ns": 850937500,
+            "page_faults": 2138399,
+            "peak_commit": 142438400,
+            "peak_working_set": 146489344,
+            "private_commit": 131973120,
+            "working_set": 136175616
+          },
+          "before": {
+            "cpu_100ns": 850781250,
+            "page_faults": 2138396,
+            "peak_commit": 142438400,
+            "peak_working_set": 146489344,
+            "private_commit": 131956736,
+            "working_set": 136163328
+          },
+          "elapsed_ns": 10000452000,
+          "frames": 0,
+          "phase": "static"
+        },
+        {
+          "after": {
+            "cpu_100ns": 968281250,
+            "page_faults": 2292506,
+            "peak_commit": 143368192,
+            "peak_working_set": 147378176,
+            "private_commit": 132902912,
+            "working_set": 137048064
+          },
+          "before": {
+            "cpu_100ns": 850937500,
+            "page_faults": 2138399,
+            "peak_commit": 142438400,
+            "peak_working_set": 146489344,
+            "private_commit": 131973120,
+            "working_set": 136175616
+          },
+          "elapsed_ns": 12364503200,
+          "frames": 24,
+          "phase": "clock-caret"
+        },
+        {
+          "after": {
+            "cpu_100ns": 968437500,
+            "page_faults": 2292506,
+            "peak_commit": 143368192,
+            "peak_working_set": 147378176,
+            "private_commit": 132902912,
+            "working_set": 137048064
+          },
+          "before": {
+            "cpu_100ns": 968281250,
+            "page_faults": 2292506,
+            "peak_commit": 143368192,
+            "peak_working_set": 147378176,
+            "private_commit": 132902912,
+            "working_set": 137048064
+          },
+          "elapsed_ns": 5000413600,
+          "frames": 0,
+          "phase": "hidden"
+        },
+        {
+          "after": {
+            "cpu_100ns": 968437500,
+            "page_faults": 2292506,
+            "peak_commit": 143368192,
+            "peak_working_set": 147378176,
+            "private_commit": 132902912,
+            "working_set": 137043968
+          },
+          "before": {
+            "cpu_100ns": 968437500,
+            "page_faults": 2292506,
+            "peak_commit": 143368192,
+            "peak_working_set": 147378176,
+            "private_commit": 132902912,
+            "working_set": 137048064
+          },
+          "elapsed_ns": 5000264200,
+          "frames": 0,
+          "phase": "minimized"
+        }
+      ],
+      "static_hidden_minimized_frames": 0
+    },
+    {
+      "repetition": 2,
+      "trace": "on",
+      "cold_process_repetition": false,
+      "frames": {
+        "count": 300,
+        "p50": 176744000,
+        "p95": 724441400,
+        "p99": 827339200,
+        "max": 868599100
+      },
+      "active_ns": 74103862800,
+      "idle_ns": 31033043300,
+      "idle_cpu_ms": 10390.625,
+      "missed_60hz": 294,
+      "peak_private_commit": 143007744,
+      "peak_working_set": 147062784,
+      "clock_caret_surface_wakes": 66,
+      "observer_wakes": 310,
+      "missed_process_observations": 0,
+      "idle_phases": [
+        {
+          "after": {
+            "cpu_100ns": 743281250,
+            "page_faults": 2137135,
+            "peak_commit": 143073280,
+            "peak_working_set": 147030016,
+            "private_commit": 132612096,
+            "working_set": 136740864
+          },
+          "before": {
+            "cpu_100ns": 742968750,
+            "page_faults": 2137132,
+            "peak_commit": 143073280,
+            "peak_working_set": 147030016,
+            "private_commit": 132595712,
+            "working_set": 136732672
+          },
+          "elapsed_ns": 10000428200,
+          "frames": 0,
+          "phase": "static"
+        },
+        {
+          "after": {
+            "cpu_100ns": 846875000,
+            "page_faults": 2560947,
+            "peak_commit": 143073280,
+            "peak_working_set": 147062784,
+            "private_commit": 132612096,
+            "working_set": 136744960
+          },
+          "before": {
+            "cpu_100ns": 743281250,
+            "page_faults": 2137135,
+            "peak_commit": 143073280,
+            "peak_working_set": 147030016,
+            "private_commit": 132612096,
+            "working_set": 136740864
+          },
+          "elapsed_ns": 11031865200,
+          "frames": 66,
+          "phase": "clock-caret"
+        },
+        {
+          "after": {
+            "cpu_100ns": 846875000,
+            "page_faults": 2560947,
+            "peak_commit": 143073280,
+            "peak_working_set": 147062784,
+            "private_commit": 132612096,
+            "working_set": 136744960
+          },
+          "before": {
+            "cpu_100ns": 846875000,
+            "page_faults": 2560947,
+            "peak_commit": 143073280,
+            "peak_working_set": 147062784,
+            "private_commit": 132612096,
+            "working_set": 136744960
+          },
+          "elapsed_ns": 5000277200,
+          "frames": 0,
+          "phase": "hidden"
+        },
+        {
+          "after": {
+            "cpu_100ns": 846875000,
+            "page_faults": 2560947,
+            "peak_commit": 143073280,
+            "peak_working_set": 147062784,
+            "private_commit": 132612096,
+            "working_set": 136744960
+          },
+          "before": {
+            "cpu_100ns": 846875000,
+            "page_faults": 2560947,
+            "peak_commit": 143073280,
+            "peak_working_set": 147062784,
+            "private_commit": 132612096,
+            "working_set": 136744960
+          },
+          "elapsed_ns": 5000335000,
+          "frames": 0,
+          "phase": "minimized"
+        }
+      ],
+      "static_hidden_minimized_frames": 0
+    },
+    {
+      "repetition": 3,
+      "trace": "off",
+      "cold_process_repetition": false,
+      "frames": {
+        "count": 300,
+        "p50": 107252800,
+        "p95": 269847500,
+        "p99": 288600300,
+        "max": 296332200
+      },
+      "active_ns": 40453743000,
+      "idle_ns": 30354749400,
+      "idle_cpu_ms": 9765.625,
+      "missed_60hz": 295,
+      "peak_private_commit": 142098432,
+      "peak_working_set": 146202624,
+      "clock_caret_surface_wakes": 60,
+      "observer_wakes": 303,
+      "missed_process_observations": 0,
+      "idle_phases": [
+        {
+          "after": {
+            "cpu_100ns": 420625000,
+            "page_faults": 2138248,
+            "peak_commit": 142159872,
+            "peak_working_set": 146124800,
+            "private_commit": 131641344,
+            "working_set": 135815168
+          },
+          "before": {
+            "cpu_100ns": 420468750,
+            "page_faults": 2138245,
+            "peak_commit": 142159872,
+            "peak_working_set": 146124800,
+            "private_commit": 131624960,
+            "working_set": 135806976
+          },
+          "elapsed_ns": 10000539200,
+          "frames": 0,
+          "phase": "static"
+        },
+        {
+          "after": {
+            "cpu_100ns": 517968750,
+            "page_faults": 2524314,
+            "peak_commit": 142159872,
+            "peak_working_set": 146231296,
+            "private_commit": 131641344,
+            "working_set": 135868416
+          },
+          "before": {
+            "cpu_100ns": 420625000,
+            "page_faults": 2138248,
+            "peak_commit": 142159872,
+            "peak_working_set": 146124800,
+            "private_commit": 131641344,
+            "working_set": 135815168
+          },
+          "elapsed_ns": 10352931700,
+          "frames": 60,
+          "phase": "clock-caret"
+        },
+        {
+          "after": {
+            "cpu_100ns": 518125000,
+            "page_faults": 2524314,
+            "peak_commit": 142159872,
+            "peak_working_set": 146231296,
+            "private_commit": 131641344,
+            "working_set": 135868416
+          },
+          "before": {
+            "cpu_100ns": 517968750,
+            "page_faults": 2524314,
+            "peak_commit": 142159872,
+            "peak_working_set": 146231296,
+            "private_commit": 131641344,
+            "working_set": 135868416
+          },
+          "elapsed_ns": 5000565500,
+          "frames": 0,
+          "phase": "hidden"
+        },
+        {
+          "after": {
+            "cpu_100ns": 518125000,
+            "page_faults": 2524314,
+            "peak_commit": 142159872,
+            "peak_working_set": 146231296,
+            "private_commit": 131641344,
+            "working_set": 135864320
+          },
+          "before": {
+            "cpu_100ns": 518125000,
+            "page_faults": 2524314,
+            "peak_commit": 142159872,
+            "peak_working_set": 146231296,
+            "private_commit": 131641344,
+            "working_set": 135868416
+          },
+          "elapsed_ns": 5000385500,
+          "frames": 0,
+          "phase": "minimized"
+        }
+      ],
+      "static_hidden_minimized_frames": 0
+    },
+    {
+      "repetition": 3,
+      "trace": "on",
+      "cold_process_repetition": false,
+      "frames": {
+        "count": 300,
+        "p50": 108604100,
+        "p95": 262029600,
+        "p99": 291627200,
+        "max": 341178700
+      },
+      "active_ns": 41763709200,
+      "idle_ns": 30787602600,
+      "idle_cpu_ms": 10203.125,
+      "missed_60hz": 293,
+      "peak_private_commit": 142233600,
+      "peak_working_set": 146448384,
+      "clock_caret_surface_wakes": 60,
+      "observer_wakes": 307,
+      "missed_process_observations": 0,
+      "idle_phases": [
+        {
+          "after": {
+            "cpu_100ns": 426406250,
+            "page_faults": 2138383,
+            "peak_commit": 142299136,
+            "peak_working_set": 146436096,
+            "private_commit": 131829760,
+            "working_set": 136105984
+          },
+          "before": {
+            "cpu_100ns": 426406250,
+            "page_faults": 2138381,
+            "peak_commit": 142299136,
+            "peak_working_set": 146436096,
+            "private_commit": 131817472,
+            "working_set": 136101888
+          },
+          "elapsed_ns": 10000547700,
+          "frames": 0,
+          "phase": "static"
+        },
+        {
+          "after": {
+            "cpu_100ns": 528437500,
+            "page_faults": 2523873,
+            "peak_commit": 142299136,
+            "peak_working_set": 146452480,
+            "private_commit": 131829760,
+            "working_set": 136105984
+          },
+          "before": {
+            "cpu_100ns": 426406250,
+            "page_faults": 2138383,
+            "peak_commit": 142299136,
+            "peak_working_set": 146436096,
+            "private_commit": 131829760,
+            "working_set": 136105984
+          },
+          "elapsed_ns": 10785937400,
+          "frames": 60,
+          "phase": "clock-caret"
+        },
+        {
+          "after": {
+            "cpu_100ns": 528437500,
+            "page_faults": 2523873,
+            "peak_commit": 142299136,
+            "peak_working_set": 146452480,
+            "private_commit": 131829760,
+            "working_set": 136101888
+          },
+          "before": {
+            "cpu_100ns": 528437500,
+            "page_faults": 2523873,
+            "peak_commit": 142299136,
+            "peak_working_set": 146452480,
+            "private_commit": 131829760,
+            "working_set": 136105984
+          },
+          "elapsed_ns": 5000469100,
+          "frames": 0,
+          "phase": "hidden"
+        },
+        {
+          "after": {
+            "cpu_100ns": 528437500,
+            "page_faults": 2523873,
+            "peak_commit": 142299136,
+            "peak_working_set": 146452480,
+            "private_commit": 131829760,
+            "working_set": 136097792
+          },
+          "before": {
+            "cpu_100ns": 528437500,
+            "page_faults": 2523873,
+            "peak_commit": 142299136,
+            "peak_working_set": 146452480,
+            "private_commit": 131829760,
+            "working_set": 136101888
+          },
+          "elapsed_ns": 5000324000,
+          "frames": 0,
+          "phase": "minimized"
+        }
+      ],
+      "static_hidden_minimized_frames": 0
+    },
+    {
+      "repetition": 4,
+      "trace": "off",
+      "cold_process_repetition": false,
+      "frames": {
+        "count": 300,
+        "p50": 103023300,
+        "p95": 246850500,
+        "p99": 266492000,
+        "max": 298653400
+      },
+      "active_ns": 39200807900,
+      "idle_ns": 30162229700,
+      "idle_cpu_ms": 9562.5,
+      "missed_60hz": 294,
+      "peak_private_commit": 142450688,
+      "peak_working_set": 146485248,
+      "clock_caret_surface_wakes": 60,
+      "observer_wakes": 301,
+      "missed_process_observations": 0,
+      "idle_phases": [
+        {
+          "after": {
+            "cpu_100ns": 399531250,
+            "page_faults": 2137940,
+            "peak_commit": 142516224,
+            "peak_working_set": 146448384,
+            "private_commit": 132050944,
+            "working_set": 136130560
+          },
+          "before": {
+            "cpu_100ns": 399531250,
+            "page_faults": 2137937,
+            "peak_commit": 142516224,
+            "peak_working_set": 146448384,
+            "private_commit": 132034560,
+            "working_set": 136122368
+          },
+          "elapsed_ns": 10000294500,
+          "frames": 0,
+          "phase": "static"
+        },
+        {
+          "after": {
+            "cpu_100ns": 495000000,
+            "page_faults": 2523035,
+            "peak_commit": 142516224,
+            "peak_working_set": 146485248,
+            "private_commit": 132050944,
+            "working_set": 136126464
+          },
+          "before": {
+            "cpu_100ns": 399531250,
+            "page_faults": 2137940,
+            "peak_commit": 142516224,
+            "peak_working_set": 146448384,
+            "private_commit": 132050944,
+            "working_set": 136130560
+          },
+          "elapsed_ns": 10161060500,
+          "frames": 60,
+          "phase": "clock-caret"
+        },
+        {
+          "after": {
+            "cpu_100ns": 495000000,
+            "page_faults": 2523035,
+            "peak_commit": 142516224,
+            "peak_working_set": 146485248,
+            "private_commit": 132050944,
+            "working_set": 136126464
+          },
+          "before": {
+            "cpu_100ns": 495000000,
+            "page_faults": 2523035,
+            "peak_commit": 142516224,
+            "peak_working_set": 146485248,
+            "private_commit": 132050944,
+            "working_set": 136126464
+          },
+          "elapsed_ns": 5000335200,
+          "frames": 0,
+          "phase": "hidden"
+        },
+        {
+          "after": {
+            "cpu_100ns": 495156250,
+            "page_faults": 2523035,
+            "peak_commit": 142516224,
+            "peak_working_set": 146485248,
+            "private_commit": 132050944,
+            "working_set": 136122368
+          },
+          "before": {
+            "cpu_100ns": 495000000,
+            "page_faults": 2523035,
+            "peak_commit": 142516224,
+            "peak_working_set": 146485248,
+            "private_commit": 132050944,
+            "working_set": 136126464
+          },
+          "elapsed_ns": 5000410600,
+          "frames": 0,
+          "phase": "minimized"
+        }
+      ],
+      "static_hidden_minimized_frames": 0
+    },
+    {
+      "repetition": 4,
+      "trace": "on",
+      "cold_process_repetition": false,
+      "frames": {
+        "count": 300,
+        "p50": 103268100,
+        "p95": 244793700,
+        "p99": 277661000,
+        "max": 358190200
+      },
+      "active_ns": 40510103300,
+      "idle_ns": 30733283700,
+      "idle_cpu_ms": 10171.875,
+      "missed_60hz": 293,
+      "peak_private_commit": 141807616,
+      "peak_working_set": 145977344,
+      "clock_caret_surface_wakes": 60,
+      "observer_wakes": 307,
+      "missed_process_observations": 0,
+      "idle_phases": [
+        {
+          "after": {
+            "cpu_100ns": 413906250,
+            "page_faults": 2136875,
+            "peak_commit": 141864960,
+            "peak_working_set": 145952768,
+            "private_commit": 131317760,
+            "working_set": 135618560
+          },
+          "before": {
+            "cpu_100ns": 413906250,
+            "page_faults": 2136872,
+            "peak_commit": 141864960,
+            "peak_working_set": 145952768,
+            "private_commit": 131301376,
+            "working_set": 135614464
+          },
+          "elapsed_ns": 10000195400,
+          "frames": 0,
+          "phase": "static"
+        },
+        {
+          "after": {
+            "cpu_100ns": 515625000,
+            "page_faults": 2521199,
+            "peak_commit": 141864960,
+            "peak_working_set": 145997824,
+            "private_commit": 131317760,
+            "working_set": 135634944
+          },
+          "before": {
+            "cpu_100ns": 413906250,
+            "page_faults": 2136875,
+            "peak_commit": 141864960,
+            "peak_working_set": 145952768,
+            "private_commit": 131317760,
+            "working_set": 135618560
+          },
+          "elapsed_ns": 10732206700,
+          "frames": 60,
+          "phase": "clock-caret"
+        },
+        {
+          "after": {
+            "cpu_100ns": 515625000,
+            "page_faults": 2521199,
+            "peak_commit": 141864960,
+            "peak_working_set": 145997824,
+            "private_commit": 131317760,
+            "working_set": 135634944
+          },
+          "before": {
+            "cpu_100ns": 515625000,
+            "page_faults": 2521199,
+            "peak_commit": 141864960,
+            "peak_working_set": 145997824,
+            "private_commit": 131317760,
+            "working_set": 135634944
+          },
+          "elapsed_ns": 5000386700,
+          "frames": 0,
+          "phase": "hidden"
+        },
+        {
+          "after": {
+            "cpu_100ns": 515625000,
+            "page_faults": 2521199,
+            "peak_commit": 141864960,
+            "peak_working_set": 145997824,
+            "private_commit": 131317760,
+            "working_set": 135630848
+          },
+          "before": {
+            "cpu_100ns": 515625000,
+            "page_faults": 2521199,
+            "peak_commit": 141864960,
+            "peak_working_set": 145997824,
+            "private_commit": 131317760,
+            "working_set": 135634944
+          },
+          "elapsed_ns": 5000363400,
+          "frames": 0,
+          "phase": "minimized"
+        }
+      ],
+      "static_hidden_minimized_frames": 0
+    }
+  ],
+  "groups": [
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "focus",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 111185100,
+        "p95": 276944400,
+        "p99": 300242900,
+        "max": 300242900
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 110035500,
+        "p95": 271194000,
+        "p99": 294235400,
+        "max": 294235400
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 111199600,
+        "p95": 276964600,
+        "p99": 300282500,
+        "max": 300282500
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "focus",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 113067900,
+        "p95": 226328300,
+        "p99": 317107100,
+        "max": 317107100
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 111409300,
+        "p95": 222983900,
+        "p99": 313769300,
+        "max": 313769300
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 113087500,
+        "p95": 226353400,
+        "p99": 317159300,
+        "max": 317159300
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 107155600,
+        "p95": 277973900,
+        "p99": 333690100,
+        "max": 333690100
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 105418800,
+        "p95": 274640200,
+        "p99": 325961800,
+        "max": 325961800
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 107176200,
+        "p95": 278029400,
+        "p99": 333768900,
+        "max": 333768900
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 108654700,
+        "p95": 274558000,
+        "p99": 428811800,
+        "max": 428811800
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 107426100,
+        "p95": 267562200,
+        "p99": 425396000,
+        "max": 425396000
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 108685300,
+        "p95": 274614000,
+        "p99": 428869500,
+        "max": 428869500
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 86582300,
+        "p95": 242049300,
+        "p99": 308060000,
+        "max": 308060000
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 85398000,
+        "p95": 236495900,
+        "p99": 304653700,
+        "max": 304653700
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 86594500,
+        "p95": 242075100,
+        "p99": 308084200,
+        "max": 308084200
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 88047400,
+        "p95": 230117700,
+        "p99": 412428400,
+        "max": 412428400
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 85826600,
+        "p95": 226786500,
+        "p99": 409081700,
+        "max": 409081700
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 88061500,
+        "p95": 230129200,
+        "p99": 412494100,
+        "max": 412494100
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 82733900,
+        "p95": 229746200,
+        "p99": 261059100,
+        "max": 261059100
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 81602100,
+        "p95": 222434200,
+        "p99": 255461900,
+        "max": 255461900
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 82772900,
+        "p95": 229804000,
+        "p99": 261132400,
+        "max": 261132400
+      },
+      "missed_60hz": 34,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 83801600,
+        "p95": 230711100,
+        "p99": 264279200,
+        "max": 264279200
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 81764300,
+        "p95": 227361000,
+        "p99": 260969200,
+        "max": 260969200
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 83838300,
+        "p95": 230778000,
+        "p99": 264318700,
+        "max": 264318700
+      },
+      "missed_60hz": 32,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "effects-and-motion",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 107401200,
+        "p95": 307767300,
+        "p99": 405517200,
+        "max": 405517200
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 105729800,
+        "p95": 301706800,
+        "p99": 401333700,
+        "max": 401333700
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 107414200,
+        "p95": 307786000,
+        "p99": 405537800,
+        "max": 405537800
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "effects-and-motion",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 113788000,
+        "p95": 266469800,
+        "p99": 384537300,
+        "max": 384537300
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 112646900,
+        "p95": 261560800,
+        "p99": 376910400,
+        "max": 376910400
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 113808100,
+        "p95": 266506200,
+        "p99": 384558000,
+        "max": 384558000
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "token-layout-publication",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 35745900,
+        "p95": 226707000,
+        "p99": 331925000,
+        "max": 331925000
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 35599400,
+        "p95": 223592600,
+        "p99": 328512400,
+        "max": 328512400
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 35839300,
+        "p95": 226761000,
+        "p99": 331995200,
+        "max": 331995200
+      },
+      "missed_60hz": 28,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "workload": "token-layout-publication",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 43540200,
+        "p95": 170437200,
+        "p99": 329916500,
+        "max": 329916500
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 43322400,
+        "p95": 167601100,
+        "p99": 322347500,
+        "max": 322347500
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 43636400,
+        "p95": 170489800,
+        "p99": 329982000,
+        "max": 329982000
+      },
+      "missed_60hz": 29,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "focus",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 105627700,
+        "p95": 234974000,
+        "p99": 250533900,
+        "max": 250533900
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 104384100,
+        "p95": 231520600,
+        "p99": 246716200,
+        "max": 246716200
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 105654100,
+        "p95": 234996700,
+        "p99": 250562200,
+        "max": 250562200
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "focus",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 98655300,
+        "p95": 272981800,
+        "p99": 328371100,
+        "max": 328371100
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 97833200,
+        "p95": 265395500,
+        "p99": 323411100,
+        "max": 323411100
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 98676400,
+        "p95": 273010700,
+        "p99": 328390800,
+        "max": 328390800
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 94759000,
+        "p95": 267856000,
+        "p99": 280820300,
+        "max": 280820300
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 93518000,
+        "p95": 265573100,
+        "p99": 274063300,
+        "max": 274063300
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 94781600,
+        "p95": 267936400,
+        "p99": 280868600,
+        "max": 280868600
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 104900600,
+        "p95": 254230000,
+        "p99": 311032300,
+        "max": 311032300
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 104105700,
+        "p95": 250197900,
+        "p99": 303438300,
+        "max": 303438300
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 104923800,
+        "p95": 254276300,
+        "p99": 311087500,
+        "max": 311087500
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 90953100,
+        "p95": 254954900,
+        "p99": 268331600,
+        "max": 268331600
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 89127200,
+        "p95": 250544400,
+        "p99": 261798100,
+        "max": 261798100
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 90962400,
+        "p95": 254979200,
+        "p99": 268367600,
+        "max": 268367600
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 89434400,
+        "p95": 264692300,
+        "p99": 345276200,
+        "max": 345276200
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 88228800,
+        "p95": 261238000,
+        "p99": 337520400,
+        "max": 337520400
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 89445400,
+        "p95": 264716700,
+        "p99": 345295200,
+        "max": 345295200
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 89239800,
+        "p95": 243786000,
+        "p99": 287818700,
+        "max": 287818700
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 87555700,
+        "p95": 237651400,
+        "p99": 280190200,
+        "max": 280190200
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 89271100,
+        "p95": 243857700,
+        "p99": 287918700,
+        "max": 287918700
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 91377800,
+        "p95": 231159700,
+        "p99": 276554900,
+        "max": 276554900
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 88787900,
+        "p95": 226371100,
+        "p99": 273232900,
+        "max": 273232900
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 91408400,
+        "p95": 231222900,
+        "p99": 276598900,
+        "max": 276598900
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "effects-and-motion",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 107250900,
+        "p95": 269761300,
+        "p99": 361865100,
+        "max": 361865100
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 106041100,
+        "p95": 268269000,
+        "p99": 356894700,
+        "max": 356894700
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 107262700,
+        "p95": 269784900,
+        "p99": 361908400,
+        "max": 361908400
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "effects-and-motion",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 107357900,
+        "p95": 285496000,
+        "p99": 361711000,
+        "max": 361711000
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 105253900,
+        "p95": 282732800,
+        "p99": 358376500,
+        "max": 358376500
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 107373400,
+        "p95": 285577000,
+        "p99": 361733100,
+        "max": 361733100
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "token-layout-publication",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 76745800,
+        "p95": 261258200,
+        "p99": 306059100,
+        "max": 306059100
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 76469400,
+        "p95": 257801800,
+        "p99": 298104800,
+        "max": 298104800
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 76786800,
+        "p95": 261313400,
+        "p99": 306126200,
+        "max": 306126200
+      },
+      "missed_60hz": 40,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "workload": "token-layout-publication",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 51585000,
+        "p95": 168240300,
+        "p99": 354020500,
+        "max": 354020500
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 51351800,
+        "p95": 165985000,
+        "p99": 348423700,
+        "max": 348423700
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 51687200,
+        "p95": 168270400,
+        "p99": 354096800,
+        "max": 354096800
+      },
+      "missed_60hz": 39,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "focus",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 99878100,
+        "p95": 183030100,
+        "p99": 319461400,
+        "max": 319461400
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 98484900,
+        "p95": 180249400,
+        "p99": 314664900,
+        "max": 314664900
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 99900500,
+        "p95": 183057500,
+        "p99": 319491000,
+        "max": 319491000
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "focus",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 96561500,
+        "p95": 307786100,
+        "p99": 340262100,
+        "max": 340262100
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 95838900,
+        "p95": 304350000,
+        "p99": 332525000,
+        "max": 332525000
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 96577900,
+        "p95": 307830100,
+        "p99": 340277400,
+        "max": 340277400
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 105209300,
+        "p95": 208212200,
+        "p99": 388278900,
+        "max": 388278900
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 104256500,
+        "p95": 206896200,
+        "p99": 381686600,
+        "max": 381686600
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 105247600,
+        "p95": 208255300,
+        "p99": 388306900,
+        "max": 388306900
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 93812700,
+        "p95": 262096300,
+        "p99": 294180300,
+        "max": 294180300
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 92681300,
+        "p95": 256501600,
+        "p99": 290621800,
+        "max": 290621800
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 93834800,
+        "p95": 262149000,
+        "p99": 294227600,
+        "max": 294227600
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 100294100,
+        "p95": 261344800,
+        "p99": 273518200,
+        "max": 273518200
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 98867500,
+        "p95": 255861800,
+        "p99": 266960800,
+        "max": 266960800
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 100313500,
+        "p95": 261378300,
+        "p99": 273545900,
+        "max": 273545900
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 100513400,
+        "p95": 300486500,
+        "p99": 313971800,
+        "max": 313971800
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 99153900,
+        "p95": 296990400,
+        "p99": 306364800,
+        "max": 306364800
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 100523500,
+        "p95": 300508900,
+        "p99": 313997300,
+        "max": 313997300
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 97093400,
+        "p95": 278991200,
+        "p99": 324327500,
+        "max": 324327500
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 95784300,
+        "p95": 272842200,
+        "p99": 316596800,
+        "max": 316596800
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 97122900,
+        "p95": 279098000,
+        "p99": 324429100,
+        "max": 324429100
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 99584500,
+        "p95": 268402000,
+        "p99": 314623600,
+        "max": 314623600
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 98403100,
+        "p95": 265593100,
+        "p99": 311709200,
+        "max": 311709200
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 99614800,
+        "p95": 268475100,
+        "p99": 314709200,
+        "max": 314709200
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "effects-and-motion",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 114325900,
+        "p95": 263576500,
+        "p99": 333509000,
+        "max": 333509000
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 113169300,
+        "p95": 255944200,
+        "p99": 325960400,
+        "max": 325960400
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 114342900,
+        "p95": 263590900,
+        "p99": 333547500,
+        "max": 333547500
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "effects-and-motion",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 109040900,
+        "p95": 270577600,
+        "p99": 407666100,
+        "max": 407666100
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 107892200,
+        "p95": 267410600,
+        "p99": 401861700,
+        "max": 401861700
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 109055700,
+        "p95": 270597400,
+        "p99": 407688900,
+        "max": 407688900
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "token-layout-publication",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 74451400,
+        "p95": 218990000,
+        "p99": 325004900,
+        "max": 325004900
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 73051300,
+        "p95": 214573100,
+        "p99": 321691100,
+        "max": 321691100
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 74515100,
+        "p95": 219039600,
+        "p99": 325103900,
+        "max": 325103900
+      },
+      "missed_60hz": 40,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "workload": "token-layout-publication",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 90515900,
+        "p95": 193607400,
+        "p99": 317891700,
+        "max": 317891700
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 89591900,
+        "p95": 192008900,
+        "p99": 315521500,
+        "max": 315521500
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 90544500,
+        "p95": 193653400,
+        "p99": 318085700,
+        "max": 318085700
+      },
+      "missed_60hz": 40,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "focus",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 258114300,
+        "p95": 685983300,
+        "p99": 740498500,
+        "max": 740498500
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 255343100,
+        "p95": 680432900,
+        "p99": 723234300,
+        "max": 723234300
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 258127200,
+        "p95": 686007300,
+        "p99": 740540200,
+        "max": 740540200
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "focus",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 249160000,
+        "p95": 565041000,
+        "p99": 832772000,
+        "max": 832772000
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 246579500,
+        "p95": 548153400,
+        "p99": 819332000,
+        "max": 819332000
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 249182700,
+        "p95": 565075500,
+        "p99": 832811100,
+        "max": 832811100
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 249532300,
+        "p95": 682627800,
+        "p99": 705917200,
+        "max": 705917200
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 245593500,
+        "p95": 674854100,
+        "p99": 688746000,
+        "max": 688746000
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 249566900,
+        "p95": 682681800,
+        "p99": 705945400,
+        "max": 705945400
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 262376500,
+        "p95": 546131900,
+        "p99": 827339200,
+        "max": 827339200
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 259361700,
+        "p95": 535070100,
+        "p99": 819798000,
+        "max": 819798000
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 262413600,
+        "p95": 546169200,
+        "p99": 827376500,
+        "max": 827376500
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 191143500,
+        "p95": 526052100,
+        "p99": 591671500,
+        "max": 591671500
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 186530100,
+        "p95": 518354700,
+        "p99": 582804700,
+        "max": 582804700
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 191155000,
+        "p95": 526077500,
+        "p99": 591691100,
+        "max": 591691100
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 187444000,
+        "p95": 522727600,
+        "p99": 720258800,
+        "max": 720258800
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 184670300,
+        "p95": 515408200,
+        "p99": 713395600,
+        "max": 713395600
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 187464000,
+        "p95": 522749000,
+        "p99": 720277300,
+        "max": 720277300
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 199265800,
+        "p95": 513009900,
+        "p99": 571208000,
+        "max": 571208000
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 196758200,
+        "p95": 506295300,
+        "p99": 563776400,
+        "max": 563776400
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 199296300,
+        "p95": 513106500,
+        "p99": 571312800,
+        "max": 571312800
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 186642900,
+        "p95": 517695900,
+        "p99": 745108200,
+        "max": 745108200
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 183987700,
+        "p95": 510130400,
+        "p99": 729334000,
+        "max": 729334000
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 186672500,
+        "p95": 517770200,
+        "p99": 745186500,
+        "max": 745186500
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "effects-and-motion",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 246232000,
+        "p95": 555682600,
+        "p99": 839437200,
+        "max": 839437200
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 243511800,
+        "p95": 546899900,
+        "p99": 826646100,
+        "max": 826646100
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 246243100,
+        "p95": 555700100,
+        "p99": 839476200,
+        "max": 839476200
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "effects-and-motion",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 242747300,
+        "p95": 388880300,
+        "p99": 868599100,
+        "max": 868599100
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 239104000,
+        "p95": 385676400,
+        "p99": 861098300,
+        "max": 861098300
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 242760500,
+        "p95": 388891900,
+        "p99": 868629700,
+        "max": 868629700
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "token-layout-publication",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 68216500,
+        "p95": 453156300,
+        "p99": 673682900,
+        "max": 673682900
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 68049100,
+        "p95": 446779900,
+        "p99": 662233300,
+        "max": 662233300
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 68302300,
+        "p95": 453196200,
+        "p99": 673786500,
+        "max": 673786500
+      },
+      "missed_60hz": 40,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "workload": "token-layout-publication",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 80143300,
+        "p95": 427901500,
+        "p99": 738751300,
+        "max": 738751300
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 79983200,
+        "p95": 424706700,
+        "p99": 731349900,
+        "max": 731349900
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 80244000,
+        "p95": 427941200,
+        "p99": 738843900,
+        "max": 738843900
+      },
+      "missed_60hz": 40,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "focus",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 243787400,
+        "p95": 678210100,
+        "p99": 706014200,
+        "max": 706014200
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 241217500,
+        "p95": 664045400,
+        "p99": 692397400,
+        "max": 692397400
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 243802200,
+        "p95": 678232300,
+        "p99": 706055500,
+        "max": 706055500
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "focus",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 241073400,
+        "p95": 553917300,
+        "p99": 788157200,
+        "max": 788157200
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 237724200,
+        "p95": 545354400,
+        "p99": 775743400,
+        "max": 775743400
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 241085600,
+        "p95": 553959600,
+        "p99": 788191100,
+        "max": 788191100
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 253705100,
+        "p95": 605040200,
+        "p99": 704875600,
+        "max": 704875600
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 251007300,
+        "p95": 600837800,
+        "p99": 688754900,
+        "max": 688754900
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 253725900,
+        "p95": 605093900,
+        "p99": 704958100,
+        "max": 704958100
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 271256300,
+        "p95": 585098000,
+        "p99": 742865900,
+        "max": 742865900
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 267266400,
+        "p95": 579931500,
+        "p99": 731232800,
+        "max": 731232800
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 271279900,
+        "p95": 585140500,
+        "p99": 742926100,
+        "max": 742926100
+      },
+      "missed_60hz": 45,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 190211000,
+        "p95": 577474700,
+        "p99": 614337100,
+        "max": 614337100
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 187688200,
+        "p95": 570190600,
+        "p99": 606900000,
+        "max": 606900000
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 190224300,
+        "p95": 577503700,
+        "p99": 614356800,
+        "max": 614356800
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 195033200,
+        "p95": 522779600,
+        "p99": 723060200,
+        "max": 723060200
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 192307300,
+        "p95": 515274500,
+        "p99": 709970200,
+        "max": 709970200
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 195046600,
+        "p95": 522814400,
+        "p99": 723072200,
+        "max": 723072200
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 194443300,
+        "p95": 532091900,
+        "p99": 580267300,
+        "max": 580267300
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 191712700,
+        "p95": 524355500,
+        "p99": 565626900,
+        "max": 565626900
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 194479700,
+        "p95": 532145500,
+        "p99": 580322000,
+        "max": 580322000
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 181595000,
+        "p95": 416237400,
+        "p99": 728617400,
+        "max": 728617400
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 179028400,
+        "p95": 412437600,
+        "p99": 716515800,
+        "max": 716515800
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 181629400,
+        "p95": 416292000,
+        "p99": 728661300,
+        "max": 728661300
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "effects-and-motion",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 269593800,
+        "p95": 575223700,
+        "p99": 784380400,
+        "max": 784380400
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 266530400,
+        "p95": 568047600,
+        "p99": 777125200,
+        "max": 777125200
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 269605100,
+        "p95": 575244100,
+        "p99": 784421900,
+        "max": 784421900
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "effects-and-motion",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 244490400,
+        "p95": 395136700,
+        "p99": 802738300,
+        "max": 802738300
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 241120800,
+        "p95": 390240300,
+        "p99": 785781100,
+        "max": 785781100
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 244506900,
+        "p95": 395147800,
+        "p99": 802753000,
+        "max": 802753000
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "token-layout-publication",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 84722500,
+        "p95": 481249900,
+        "p99": 727421800,
+        "max": 727421800
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 84005200,
+        "p95": 474041700,
+        "p99": 715113200,
+        "max": 715113200
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 84833000,
+        "p95": 481325700,
+        "p99": 727480000,
+        "max": 727480000
+      },
+      "missed_60hz": 40,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "workload": "token-layout-publication",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 82496900,
+        "p95": 437440000,
+        "p99": 846551400,
+        "max": 846551400
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 82043300,
+        "p95": 433931500,
+        "p99": 839135000,
+        "max": 839135000
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 82562800,
+        "p95": 437495800,
+        "p99": 846616900,
+        "max": 846616900
+      },
+      "missed_60hz": 40,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "focus",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 225197100,
+        "p95": 543407200,
+        "p99": 670773200,
+        "max": 670773200
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 220042600,
+        "p95": 534098900,
+        "p99": 663846800,
+        "max": 663846800
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 225208400,
+        "p95": 543447000,
+        "p99": 670811700,
+        "max": 670811700
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "focus",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 236641200,
+        "p95": 570110600,
+        "p99": 698515200,
+        "max": 698515200
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 234475300,
+        "p95": 562669600,
+        "p99": 693849500,
+        "max": 693849500
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 236661300,
+        "p95": 570135100,
+        "p99": 698545200,
+        "max": 698545200
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "off",
+      "frames_ns": {
+        "count": 45,
+        "p50": 236409600,
+        "p95": 550785700,
+        "p99": 621853000,
+        "max": 621853000
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 230418900,
+        "p95": 541989000,
+        "p99": 613741900,
+        "max": 613741900
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 236426500,
+        "p95": 550831100,
+        "p99": 621906000,
+        "max": 621906000
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "complex-script-type-search",
+      "trace": "on",
+      "frames_ns": {
+        "count": 45,
+        "p50": 239846700,
+        "p95": 583165500,
+        "p99": 797248500,
+        "max": 797248500
+      },
+      "raster_compose_ns": {
+        "count": 45,
+        "p50": 236658800,
+        "p95": 574137300,
+        "p99": 787003800,
+        "max": 787003800
+      },
+      "input_to_ram_ns": {
+        "count": 45,
+        "p50": 239863700,
+        "p95": 583191800,
+        "p99": 797273100,
+        "max": 797273100
+      },
+      "missed_60hz": 45,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 203922900,
+        "p95": 562848100,
+        "p99": 586962900,
+        "max": 586962900
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 201235600,
+        "p95": 559074100,
+        "p99": 576869700,
+        "max": 576869700
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 203937300,
+        "p95": 562873000,
+        "p99": 586981700,
+        "max": 586981700
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "10000-row-scroll",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 194262700,
+        "p95": 558043500,
+        "p99": 689840400,
+        "max": 689840400
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 191173800,
+        "p95": 553173900,
+        "p99": 686478100,
+        "max": 686478100
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 194273600,
+        "p95": 558070900,
+        "p99": 689861700,
+        "max": 689861700
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 206070500,
+        "p95": 517570100,
+        "p99": 624332200,
+        "max": 624332200
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 203432500,
+        "p95": 510513600,
+        "p99": 615781800,
+        "max": 615781800
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 206105200,
+        "p95": 517641300,
+        "p99": 624405000,
+        "max": 624405000
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "move-resize-overlap",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 199362500,
+        "p95": 358914900,
+        "p99": 634391100,
+        "max": 634391100
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 196970200,
+        "p95": 352136400,
+        "p99": 627809000,
+        "max": 627809000
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 199409400,
+        "p95": 358962600,
+        "p99": 634458700,
+        "max": 634458700
+      },
+      "missed_60hz": 40,
+      "partial_frames": 15,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "effects-and-motion",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 243397600,
+        "p95": 577452500,
+        "p99": 757307700,
+        "max": 757307700
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 240650300,
+        "p95": 570783500,
+        "p99": 747595100,
+        "max": 747595100
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 243417500,
+        "p95": 577483300,
+        "p99": 757327500,
+        "max": 757327500
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "effects-and-motion",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 249526400,
+        "p95": 603944800,
+        "p99": 731262200,
+        "max": 731262200
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 244981200,
+        "p95": 591071300,
+        "p99": 723749900,
+        "max": 723749900
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 249540500,
+        "p95": 603965500,
+        "p99": 731284800,
+        "max": 731284800
+      },
+      "missed_60hz": 40,
+      "partial_frames": 0,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "token-layout-publication",
+      "trace": "off",
+      "frames_ns": {
+        "count": 40,
+        "p50": 104729200,
+        "p95": 492678100,
+        "p99": 704471100,
+        "max": 704471100
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 104143200,
+        "p95": 484906800,
+        "p99": 697303300,
+        "max": 697303300
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 104839100,
+        "p95": 492762800,
+        "p99": 704571400,
+        "max": 704571400
+      },
+      "missed_60hz": 40,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    },
+    {
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "workload": "token-layout-publication",
+      "trace": "on",
+      "frames_ns": {
+        "count": 40,
+        "p50": 112290900,
+        "p95": 398764900,
+        "p99": 724441400,
+        "max": 724441400
+      },
+      "raster_compose_ns": {
+        "count": 40,
+        "p50": 111724300,
+        "p95": 391301600,
+        "p99": 709753700,
+        "max": 709753700
+      },
+      "input_to_ram_ns": {
+        "count": 40,
+        "p50": 112362300,
+        "p95": 398797400,
+        "p99": 724507000,
+        "max": 724507000
+      },
+      "missed_60hz": 40,
+      "partial_frames": 20,
+      "no_paint_frames": 0
+    }
+  ],
+  "instrumentation_pairs": [
+    {
+      "repetition": 0,
+      "p50_frame_delta_ns": 3024500,
+      "p95_frame_delta_ns": -31660100,
+      "idle_cpu_delta_ms": -125.0,
+      "private_commit_peak_delta": 270336
+    },
+    {
+      "repetition": 1,
+      "p50_frame_delta_ns": 18297000,
+      "p95_frame_delta_ns": 17017100,
+      "idle_cpu_delta_ms": -500.0,
+      "private_commit_peak_delta": -229376
+    },
+    {
+      "repetition": 2,
+      "p50_frame_delta_ns": -73789900,
+      "p95_frame_delta_ns": 34186500,
+      "idle_cpu_delta_ms": -1375.0,
+      "private_commit_peak_delta": -294912
+    },
+    {
+      "repetition": 3,
+      "p50_frame_delta_ns": 1351300,
+      "p95_frame_delta_ns": -7817900,
+      "idle_cpu_delta_ms": 437.5,
+      "private_commit_peak_delta": 135168
+    },
+    {
+      "repetition": 4,
+      "p50_frame_delta_ns": 244800,
+      "p95_frame_delta_ns": -2056800,
+      "idle_cpu_delta_ms": 609.375,
+      "private_commit_peak_delta": -643072
+    }
+  ],
+  "stability": [
+    {
+      "geometry": "1280x720",
+      "cycles": 100,
+      "warmup": 5,
+      "headroom_rejected": true,
+      "reader_recovery": true,
+      "completed_build_to_ram_visible_ns": {
+        "count": 100,
+        "p50": 630622100,
+        "p95": 930548800,
+        "p99": 1120945400,
+        "max": 1131332500
+      },
+      "build_ns": {
+        "count": 100,
+        "p50": 64182800,
+        "p95": 110861200,
+        "p99": 135672900,
+        "max": 137151200
+      },
+      "max_growth": {
+        "private_commit": 184320,
+        "rust_live": 708,
+        "working_set": 299008
+      },
+      "final_minus_baseline_rust_live": 708,
+      "normalized_rust_live_plateau": 48296826,
+      "identity_growth_explanation": "four owned build-ID string copies; decimal generation width only; baseline process-counter Value allocated once after warmup",
+      "peak_rust_live": 56636513,
+      "checkpoint_sha256": "c646b16f84316b9c4029f4c0309fb4fa4e006b15380d11bf2037a1b70ef325d7"
+    },
+    {
+      "geometry": "1920x1080",
+      "cycles": 100,
+      "warmup": 5,
+      "headroom_rejected": true,
+      "reader_recovery": true,
+      "completed_build_to_ram_visible_ns": {
+        "count": 100,
+        "p50": 502177100,
+        "p95": 875283500,
+        "p99": 900080700,
+        "max": 973585300
+      },
+      "build_ns": {
+        "count": 100,
+        "p50": 42229700,
+        "p95": 70196900,
+        "p99": 81568300,
+        "max": 117205200
+      },
+      "max_growth": {
+        "private_commit": 0,
+        "rust_live": 708,
+        "working_set": 16384
+      },
+      "final_minus_baseline_rust_live": 708,
+      "normalized_rust_live_plateau": 56360830,
+      "identity_growth_explanation": "four owned build-ID string copies; decimal generation width only; baseline process-counter Value allocated once after warmup",
+      "peak_rust_live": 75068517,
+      "checkpoint_sha256": "d562b9bf963070f8b771cf2ae980588085aa44d630d0c0a73f5f8c249d427cda"
+    }
+  ],
+  "accounting": {
+    "host_process_peaks": {
+      "peak_working_set": 147378176,
+      "peak_commit": 143368192
+    },
+    "frame_and_rgb_bytes": 62899200,
+    "rust_live_peak": 134936634,
+    "font_source_bytes": 18005976,
+    "unattributed": "Process includes mapped code, stacks, runtime/OS heaps, allocator retention, text font tables, trees/model/log records; Rust LIVE charges all Rust requested bytes, including these data owners. Known categories overlap, never summed as disjoint totals.",
+    "native_presenter": "separate worker and WinForms presenter counters in native-idle.json"
+  },
+  "targets": {
+    "guest_memory_budget_bytes": 268435456,
+    "guest_measured": false,
+    "photon_latency_measured": false,
+    "hosted_1080p_p95_8ms_and_p99_16ms": "Compare each named geometry/workload group; misses remain open bounded optimization work.",
+    "reload_target_ns": 500000000
+  },
+  "limits": [
+    "RAM submission is not native display completion",
+    "shared text engine and six views are harness costs",
+    "OS scheduler wake count unavailable; observer and requested timer wakes counted separately",
+    "cold means fresh process, OS file cache not flushed",
+    "rich backdrop uses conservative full redraw",
+    "no guest memory or latency acceptance"
+  ]
+}

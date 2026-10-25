@@ -80,3 +80,10 @@ This accepts the hosted measurement/stability gate, not efficiency targets:
 miss 500 ms. PERF-12-01–03 bound follow-up work without reducing fidelity or
 validation. Phase timings are elapsed; aggregate process CPU is separate. M2,
 P2-13 and guest memory/render/reload acceptance remain open; ADRs stay Proposed.
+
+## Final M2 status — 2026-10-24
+
+The pending P2-13 work described above now passes [final local hosted
+acceptance](../../../evidence/phase-2/P2-13/2026-10-24/README.md), including the clean selected retained/cache link.
+The earlier story review remains scoped to its original run. Guest execution,
+efficiency targets and M3/M4/M5 obligations remain open.

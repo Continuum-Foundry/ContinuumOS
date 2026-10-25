@@ -69,8 +69,10 @@ are enforcing. Fresh executable and clean Cargo build-script/proc-macro/test/run
 preflights pass. See the [signing lifecycle and recovery runbook](windows-development-signing.md).
 The runner uses an argument array in the local Cargo home and a fresh signed build
 cache. Check enrollment/key expiry and actual tool pins before future acceptance runs.
-The next bounded workstream is M2's hosted Slint/minimal-custom comparison; no UI
-toolkit is selected by dependency compilation, and no guest reload exists yet.
+M2's hosted comparison and selected-core completion now pass local acceptance.
+Custom Rust remains provisional pending M4 guest confirmation; no guest reload
+exists yet. The next workstream is M3 isolation/runtime story planning at the
+owner's request; no P3 stories exist yet.
 Follow the [Phase 2 epic and thirteen ordered local stories](phase-2/README.md).
 [P2-01's prerequisite/profile recheck](phase-2/01-hosted-prerequisites-and-profiles.md)
 now passes [local acceptance](../../evidence/phase-2/P2-01/2026-10-20/README.md):
@@ -140,9 +142,17 @@ license alternatives and font/Unicode notices are recorded; distribution remains
 uncleared. P2-10 now passes [selected hosted-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md): bounded
 layout/invalidation, input retirement and modal/queue policies, semantic hierarchy
 and virtual navigation, visual grapheme affinity, rounded coverage and motion.
-Use the [selected-core runbook](phase-2/selected-ui-runbook.md). P2-11 now passes [hosted resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md): bounded atomic file builds, coherent token/topology publication, reader headroom and native same-window generation 7-to-8 continuity with complete checkpoint preservation. Use the [resource reload runbook](phase-2/resource-reload-runbook.md). P2-12 now passes [hosted damage/idle/stability acceptance](../../evidence/phase-2/P2-12/2026-10-24/README.md): bounded retained damage/layout caching, 108 exact images, 3,000 frames, 6,763 process samples and 100 file reloads per resolution. Its [runbook](phase-2/performance-stability-runbook.md) preserves frame/latency misses and PERF-12-01–03. Opaque-root validation now precedes publication; the original native failure is retained. P2-13 acceptance is next, including clean linkage of the final retained/cache path. Mandatory M2 work is not deferred to guest work. M3 runtime and M4 guest confirmation,
+Use the [selected-core runbook](phase-2/selected-ui-runbook.md). P2-11 now passes [hosted resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md): bounded atomic file builds, coherent token/topology publication, reader headroom and native same-window generation 7-to-8 continuity with complete checkpoint preservation. Use the [resource reload runbook](phase-2/resource-reload-runbook.md). P2-12 now passes [hosted damage/idle/stability acceptance](../../evidence/phase-2/P2-12/2026-10-24/README.md): bounded retained damage/layout caching, 108 exact images, 3,000 frames, 6,763 process samples and 100 file reloads per resolution. Its [runbook](phase-2/performance-stability-runbook.md) preserves frame/latency misses and PERF-12-01–03. Opaque-root validation now precedes publication; the original native failure is retained. P2-13 now passes [final aggregate acceptance](../../evidence/phase-2/P2-13/2026-10-24/README.md), including clean linkage of the final retained/cache path. Use its [runbook](phase-2/acceptance-runbook.md). M2's declared hosted subset is accepted locally; M3 decomposition is next at the owner's request, with no P3 stories yet. Mandatory M2 work is not deferred to guest work. M3 runtime and M4 guest confirmation,
 M5 behavior routing/retirement remain pending; ADRs remain Proposed.
-P2-12 is Done; P2-13 remains Not started. No remote Jira creation is authorized.
+P2-01 through P2-13 are Done under local self-review. The owner's subsequent
+performance review recommends the [bounded hosted remediation plan](phase-2/performance-remediation-plan.md)
+before guest UI integration. The owner authorized implementation; the
+[bounded local follow-up](../../evidence/phase-2/performance-remediation/2026-10-24/README.md) now passes with
+opaque spans/bounded groups, validated-frame publication, shaped caret damage and
+conservative backdrop dependencies. No filtered-backdrop cache was introduced.
+Primary 1080p/scale-1 trace-off elapsed frame p95 ranges from 0.789 to 18.642 ms across the twelve workload/effect cells (1,000 samples each). Real file-reload completed-build-to-RAM p95 is 129.527 ms at 720p / 128.116 ms at 1080p. Rich typing/search p95 (18.642 ms) and effects/motion p95 (17.424 ms) still exceed the 16.667 ms period; ten other primary trace-off cells are below it. All misses remain recorded; elapsed/RAM results do not accept renderer-thread CPU, guest input or whole-guest memory targets. M1 passes 33 rows/42 launches; final hosted acceptance and 24,000 primary
+tail frames pass their evidence checks. Original P2-13 evidence is unchanged.
+No remote Jira creation or transfer is authorized.
 P1-03's corrected acceptance and superseded/failed experiments are
 retained; P1-02's review is unchanged, and P1-01 has
 [host prerequisite evidence](phase-1/prerequisites-runbook.md).

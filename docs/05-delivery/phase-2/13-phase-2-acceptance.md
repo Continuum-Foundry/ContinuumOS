@@ -1,6 +1,6 @@
 # P2-13 — Run and review the Phase 2 acceptance gate
 
-Issue type: Story. Epic: P2. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P2. Status: Done. Owner: Codex (local implementation/review).
 Depends on: P2-01 through P2-12 Done, including mandatory selected-path fixes.
 Suggested labels: `phase-2`, `acceptance`, `evidence`.
 Backlog: M2 gate, early B32. Requirements: hosted R04/R08/R09/R15, R19 design, R18;
@@ -55,17 +55,17 @@ UI milestone and its limits before isolated guest processes and desktop integrat
 
 ## Acceptance criteria
 
-- [ ] Every required row has exact artifact/source identities, reproducible commands,
+- [x] Every required row has exact artifact/source identities, reproducible commands,
   raw supporting outcomes and explicit review; none is silently waived.
-- [ ] Provisional selection rests on comparable evidence, selected target link closure
+- [x] Provisional selection rests on comparable evidence, selected target link closure
   and resolved distribution terms; M4 guest confirmation remains open.
-- [ ] Hosted renderer, keyboard, text/semantics, L0/L1 continuity, idle/damage and
+- [x] Hosted renderer, keyboard, text/semantics, L0/L1 continuity, idle/damage and
   repeated-reload criteria pass against the final selected build.
-- [ ] Metrics and failure records state actual results and limits; same-process host
+- [x] Metrics and failure records state actual results and limits; same-process host
   continuity is never described as unchanged kernel boot ID or guest uptime.
-- [ ] Compact evidence retention, source/notices/contracts and relevant regression
+- [x] Compact evidence retention, source/notices/contracts and relevant regression
   checks pass; generated binaries/full runs/private signing material stay local.
-- [ ] Story/index/status and roadmap/handoff agree with a recorded reviewer conclusion.
+- [x] Story/index/status and roadmap/handoff agree with a recorded reviewer conclusion.
   Any mandatory blocker leaves M2 incomplete with a named next experiment.
 
 ## Completion boundaries and next work
@@ -81,3 +81,17 @@ state transfer. Optional inference remains after that first meaningful guest dem
 Apply the [epic evidence rules](README.md#evidence-and-story-completion) and
 [validation strategy](../validation.md). Local self-review is labeled as such;
 do not imply independent approval or publish Jira issues as part of this gate.
+
+## Implementation review — 2026-10-24
+
+[Local aggregate acceptance](../../../evidence/phase-2/P2-13/2026-10-24/README.md) passes all sixteen required rows,
+clean selected host and retained/cache target links, current prerequisites,
+independent conformance/state/metric consumers and deliberate harness negatives.
+Use the [acceptance runbook](acceptance-runbook.md). Failed attempts are preserved.
+This is Codex local implementation/self-review, not independent approval.
+
+M2's declared hosted subset passes. Frame/resource-latency misses and
+PERF-12-01–03 remain explicit; no guest efficiency target is accepted. M3 runtime
+and isolation, M4 selected-backend/guest resource continuity, and M5 behavior
+replacement remain open. No P3 stories are created here; decompose M3 at the
+owner's request. ADRs remain Proposed.

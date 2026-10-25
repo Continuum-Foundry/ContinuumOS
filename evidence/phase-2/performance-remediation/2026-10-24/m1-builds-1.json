@@ -1,0 +1,1263 @@
+[
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\iso-negative",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "fault-before-entry",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "8d8d4dec5864dc79b4b1d57cfa0597b7110d41b323d76e8c0ae727bd0ace780b",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "fault-before-entry",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562068859,
+          "diagnostic_guard_site": 18446744071562068834,
+          "diagnostic_invalid_opcode": 18446744071562068421,
+          "diagnostic_nx_page": 18446744071562121216,
+          "diagnostic_page_fault_site": 18446744071562068433,
+          "diagnostic_panic_report": 18446744071562068438,
+          "diagnostic_write_site": 18446744071562068839
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff8099f000",
+          "load_memory_end": "0xffffffff8099f000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 39493,
+            "flags": 5,
+            "memory_size": 39493,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff8000a000",
+            "alignment": 4096,
+            "file_size": 4295,
+            "flags": 4,
+            "memory_size": 4295,
+            "offset": 45056
+          },
+          {
+            "address": "0xffffffff8000c000",
+            "alignment": 4096,
+            "file_size": 294072,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 53248
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "c38a0a3437ad1b4071a58e0ee578038f4410843182273759665e6747575b237e",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\iso-negative\\bad-config-kernel",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "iso-smoke",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "iso-smoke",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076891,
+          "diagnostic_guard_site": 18446744071562076866,
+          "diagnostic_invalid_opcode": 18446744071562076453,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076465,
+          "diagnostic_panic_report": 18446744071562076470,
+          "diagnostic_write_site": 18446744071562076871
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 63957,
+            "flags": 5,
+            "memory_size": 63957,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6267,
+            "flags": 4,
+            "memory_size": 6267,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "00dfde8742f540a0f63f52ed5b5d342a1f376343dc30b0834c4f3b0421d8080c",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\iso-smoke",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "iso-smoke",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "0d9f8685f82cacbed47902113b088b7f1749faa7b3ac84316ce681437e8dcc77",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "iso-smoke",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076891,
+          "diagnostic_guard_site": 18446744071562076866,
+          "diagnostic_invalid_opcode": 18446744071562076453,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076465,
+          "diagnostic_panic_report": 18446744071562076470,
+          "diagnostic_write_site": 18446744071562076871
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 63957,
+            "flags": 5,
+            "memory_size": 63957,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6267,
+            "flags": 4,
+            "memory_size": 6267,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "00dfde8742f540a0f63f52ed5b5d342a1f376343dc30b0834c4f3b0421d8080c",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\memory-exhaustion",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "memory-test",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "memory-test",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076891,
+          "diagnostic_guard_site": 18446744071562076866,
+          "diagnostic_invalid_opcode": 18446744071562076453,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076465,
+          "diagnostic_panic_report": 18446744071562076470,
+          "diagnostic_write_site": 18446744071562076871
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 64213,
+            "flags": 5,
+            "memory_size": 64213,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6475,
+            "flags": 4,
+            "memory_size": 6475,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "30afc4ffd69cd8f043a486ae7029a0fff9d9aa127f406ba7781d3fc936799610",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\memory-ownership",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "memory-test",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "memory-test",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076891,
+          "diagnostic_guard_site": 18446744071562076866,
+          "diagnostic_invalid_opcode": 18446744071562076453,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076465,
+          "diagnostic_panic_report": 18446744071562076470,
+          "diagnostic_write_site": 18446744071562076871
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 64213,
+            "flags": 5,
+            "memory_size": 64213,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6475,
+            "flags": 4,
+            "memory_size": 6475,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "30afc4ffd69cd8f043a486ae7029a0fff9d9aa127f406ba7781d3fc936799610",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\panic",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "exception-test",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "237f707427b884ec6701a0f4e8b42f5b4be496d2839f73b191e0bfab731fb7bd",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "exception-test",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076891,
+          "diagnostic_guard_site": 18446744071562076866,
+          "diagnostic_invalid_opcode": 18446744071562076453,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076465,
+          "diagnostic_panic_report": 18446744071562076470,
+          "diagnostic_write_site": 18446744071562076871
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 63301,
+            "flags": 5,
+            "memory_size": 63301,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6371,
+            "flags": 4,
+            "memory_size": 6371,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "e0f9f74b3c16b9fb4126bda9b033c633d574464cbb53f302f82195ec43b44046",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\run",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "normal",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "27687482ed103cc9deb34d53e197ddbae7b00484116fa05566a50dfb8625bed7",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "normal",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076891,
+          "diagnostic_guard_site": 18446744071562076866,
+          "diagnostic_invalid_opcode": 18446744071562076453,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076465,
+          "diagnostic_panic_report": 18446744071562076470,
+          "diagnostic_write_site": 18446744071562076871
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 63413,
+            "flags": 5,
+            "memory_size": 63413,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6267,
+            "flags": 4,
+            "memory_size": 6267,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "ceb96359b40666ca71cf45428b455b886d9f80d5f93e4f9fd4501422bd6a43c4",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\timer-calibration",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "timer-test",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "timer-test",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076923,
+          "diagnostic_guard_site": 18446744071562076898,
+          "diagnostic_invalid_opcode": 18446744071562076485,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076497,
+          "diagnostic_panic_report": 18446744071562076502,
+          "diagnostic_write_site": 18446744071562076903
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 63397,
+            "flags": 5,
+            "memory_size": 63397,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6395,
+            "flags": 4,
+            "memory_size": 6395,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "1e9211f25e0957ceb7bc6a1e04af7941fbdb2fc6a63f6bf665f7a21d5ccb985c",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\timer-exception",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "timer-test",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "timer-test",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076923,
+          "diagnostic_guard_site": 18446744071562076898,
+          "diagnostic_invalid_opcode": 18446744071562076485,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076497,
+          "diagnostic_panic_report": 18446744071562076502,
+          "diagnostic_write_site": 18446744071562076903
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 63397,
+            "flags": 5,
+            "memory_size": 63397,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6395,
+            "flags": 4,
+            "memory_size": 6395,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "1e9211f25e0957ceb7bc6a1e04af7941fbdb2fc6a63f6bf665f7a21d5ccb985c",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\timer-masked",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "timer-test",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "timer-test",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076923,
+          "diagnostic_guard_site": 18446744071562076898,
+          "diagnostic_invalid_opcode": 18446744071562076485,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076497,
+          "diagnostic_panic_report": 18446744071562076502,
+          "diagnostic_write_site": 18446744071562076903
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 63397,
+            "flags": 5,
+            "memory_size": 63397,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6395,
+            "flags": 4,
+            "memory_size": 6395,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "1e9211f25e0957ceb7bc6a1e04af7941fbdb2fc6a63f6bf665f7a21d5ccb985c",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\timer-progress",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "timer-test",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "timer-test",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076923,
+          "diagnostic_guard_site": 18446744071562076898,
+          "diagnostic_invalid_opcode": 18446744071562076485,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076497,
+          "diagnostic_panic_report": 18446744071562076502,
+          "diagnostic_write_site": 18446744071562076903
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 63397,
+            "flags": 5,
+            "memory_size": 63397,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6395,
+            "flags": 4,
+            "memory_size": 6395,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "1e9211f25e0957ceb7bc6a1e04af7941fbdb2fc6a63f6bf665f7a21d5ccb985c",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\timer-unsupported",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "timer-test",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "b8cecb7e4fbb8b6d447eb19751eb023e51ad9856c35bc664676cdfffb83541e4",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "timer-test",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076923,
+          "diagnostic_guard_site": 18446744071562076898,
+          "diagnostic_invalid_opcode": 18446744071562076485,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076497,
+          "diagnostic_panic_report": 18446744071562076502,
+          "diagnostic_write_site": 18446744071562076903
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 63397,
+            "flags": 5,
+            "memory_size": 63397,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6395,
+            "flags": 4,
+            "memory_size": 6395,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "1e9211f25e0957ceb7bc6a1e04af7941fbdb2fc6a63f6bf665f7a21d5ccb985c",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  },
+  {
+    "directory": "${WORKSPACE}\\build/m1\\suite-1792886294714763900-21672\\write-protect-fault",
+    "inputs": {
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-pc-windows-msvc\nrelease: 1.99.1\nLLVM version: 23.1.1",
+      "flags": [
+        "code-model=kernel",
+        "relocation-model=static",
+        "link-arg=--build-id=none",
+        "link-arg=-Tkernel/link.ld",
+        "remap-path-prefix=/continuum"
+      ],
+      "flavor": "memory-test",
+      "profile": "kernel-dev",
+      "rustc_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+      "schema_version": 1,
+      "target": "x86_64-unknown-none",
+      "sources_reference": "m1-suite-source-inputs.json"
+    },
+    "manifest": {
+      "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+      "base_revision": 3,
+      "binding": "limine =0.5.0; defaults off",
+      "boot_tested": false,
+      "build_id": "48f3386160bc92192698137cefebfc6742d28ed8b58d808d340b9aa986fbf2dc",
+      "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+      "flavor": "memory-test",
+      "inspection": {
+        "diagnostic_sites": {
+          "diagnostic_double_site": 18446744071562076891,
+          "diagnostic_guard_site": 18446744071562076866,
+          "diagnostic_invalid_opcode": 18446744071562076453,
+          "diagnostic_nx_page": 18446744071562145792,
+          "diagnostic_page_fault_site": 18446744071562076465,
+          "diagnostic_panic_report": 18446744071562076470,
+          "diagnostic_write_site": 18446744071562076871
+        },
+        "dynamic_linking": false,
+        "entry": "0xffffffff80000000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "kernel_image_bounds": {
+          "all_load_memory_including_bss": true,
+          "end": "0xffffffff809a5000",
+          "load_memory_end": "0xffffffff809a5000",
+          "start": "0xffffffff80000000"
+        },
+        "machine": "x86_64",
+        "relocations": 0,
+        "returning_interrupt_entry": {
+          "df_cleared_before_rust": true,
+          "gprs": 15,
+          "return": "iretq",
+          "sysv_alignment": 16,
+          "vectors": [
+            64,
+            255
+          ]
+        },
+        "segments": [
+          {
+            "address": "0xffffffff80000000",
+            "alignment": 4096,
+            "file_size": 64213,
+            "flags": 5,
+            "memory_size": 64213,
+            "offset": 4096
+          },
+          {
+            "address": "0xffffffff80010000",
+            "alignment": 4096,
+            "file_size": 6475,
+            "flags": 4,
+            "memory_size": 6475,
+            "offset": 69632
+          },
+          {
+            "address": "0xffffffff80012000",
+            "alignment": 4096,
+            "file_size": 294232,
+            "flags": 6,
+            "memory_size": 10039296,
+            "offset": 77824
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "kernel_sha256": "30afc4ffd69cd8f043a486ae7029a0fff9d9aa127f406ba7781d3fc936799610",
+      "loader": "12.9.3",
+      "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+      "schema_version": 1,
+      "source_commit": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+      "source_dirty": true,
+      "source_identity": "build-inputs.json contains hashes of all build source inputs",
+      "source_status": "M  AGENTS.md\nM  README.md\n M config/p2-12-performance.json\nA  config/p2-13-acceptance.json\n M crates/custom-ui/src/paint.rs\n M crates/custom-ui/src/retained.rs\nM  docs/00-overview/requirements.md\nM  docs/04-decisions/0008-rendering-path.md\nM  docs/04-decisions/0011-ui-authoring.md\nMM docs/05-delivery/agent-handoff.md\nM  docs/05-delivery/backlog.md\nM  docs/05-delivery/milestones.md\nM  docs/05-delivery/phase-2/11-hosted-resource-and-layout-reload.md\nM  docs/05-delivery/phase-2/12-hosted-performance-and-reload-stability.md\nM  docs/05-delivery/phase-2/13-phase-2-acceptance.md\nM  docs/05-delivery/phase-2/README.md\nA  docs/05-delivery/phase-2/acceptance-runbook.md\nM  docs/05-delivery/phase-2/freestanding-ui-runbook.md\nMM docs/05-delivery/phase-2/performance-stability-runbook.md\nM  docs/05-delivery/phase-2/ui-selection-review.md\nM  docs/05-delivery/validation.md\nM  docs/README.md\nM  docs/assets/continuumos-roadmap.svg\nA  evidence/phase-2/P2-13/2026-10-24/README.md\nA  evidence/phase-2/P2-13/2026-10-24/SHA256SUMS.json\nA  evidence/phase-2/P2-13/2026-10-24/acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/commands.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-pixel-review.json\nA  evidence/phase-2/P2-13/2026-10-24/corpus-result.json\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/damage-review.json\nA  evidence/phase-2/P2-13/2026-10-24/damage.json\nA  evidence/phase-2/P2-13/2026-10-24/development-findings.json\nA  evidence/phase-2/P2-13/2026-10-24/editor-model-result.json\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/frames-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/harness-negatives.json\nA  evidence/phase-2/P2-13/2026-10-24/host-environment.json\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/idle-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1280x720.csv\nA  evidence/phase-2/P2-13/2026-10-24/layout-cycles-1920x1080.csv\nA  evidence/phase-2/P2-13/2026-10-24/metrics.json\nA  evidence/phase-2/P2-13/2026-10-24/native-after.png\nA  evidence/phase-2/P2-13/2026-10-24/native-before.png\nA  evidence/phase-2/P2-13/2026-10-24/native-idle-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-idle.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload-preview.json\nA  evidence/phase-2/P2-13/2026-10-24/native-reload.json\nA  evidence/phase-2/P2-13/2026-10-24/negative-processes.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/opacity-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/performance-review.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1280.json\nA  evidence/phase-2/P2-13/2026-10-24/phases-1920.json\nA  evidence/phase-2/P2-13/2026-10-24/prerequisites.json\nA  evidence/phase-2/P2-13/2026-10-24/process-0-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-0-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-1-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-2-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-3-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-off.csv\nA  evidence/phase-2/P2-13/2026-10-24/process-4-on.csv\nA  evidence/phase-2/P2-13/2026-10-24/protocol.json\nA  evidence/phase-2/P2-13/2026-10-24/raw-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/reload-result.json\nA  evidence/phase-2/P2-13/2026-10-24/repository-checks.json\nA  evidence/phase-2/P2-13/2026-10-24/resource-independent-review.json\nA  evidence/phase-2/P2-13/2026-10-24/review.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-acceptance.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-elf-audit.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-result.json\nA  evidence/phase-2/P2-13/2026-10-24/selected-review.json\nA  evidence/phase-2/P2-13/2026-10-24/selection-review.json\nA  evidence/phase-2/P2-13/2026-10-24/source-provenance.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1280x720.json\nA  evidence/phase-2/P2-13/2026-10-24/stability-1920x1080.json\nA  evidence/phase-2/P2-13/2026-10-24/tested-inputs.json\nA  evidence/phase-2/P2-13/2026-10-24/text-result.json\nA  evidence/phase-2/P2-13/2026-10-24/ui-fixtures-result.json\nM  experiments/ui-link/hooks.json\nM  experiments/ui-link/src/main.rs\nM  tools/Preview-Custom.ps1\n M tools/Review-P2Performance.py\n M tools/Review-ResourceReload.py\nM  tools/Review-UiLink.py\nA  tools/Run-P2Acceptance.py\nMM tools/Test-P2-12.ps1\nA  tools/Test-P2-13.ps1\n M tools/xtask/src/custom.rs\n M tools/xtask/src/main.rs\n M tools/xtask/src/performance.rs\n M tools/xtask/src/reload.rs\n M tools/xtask/src/reload/tests.rs\n?? config/ui-performance-remediation.json\n?? docs/05-delivery/phase-2/performance-remediation-plan.md\n?? tools/Review-UiPerformanceRemediation.py\n?? tools/Run-UiPerformanceRemediation.py\n?? tools/Test-UiPerformanceRemediation.ps1"
+    }
+  }
+]

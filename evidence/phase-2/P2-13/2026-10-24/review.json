@@ -1,0 +1,195 @@
+{
+  "story": "P2-13",
+  "date": "2026-10-24",
+  "status": "passed",
+  "reviewer": "Codex local implementation/self-review, not independent approval",
+  "source_base": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+  "local_run": "build\\m2\\P2-13\\acceptance-1792868580682524600",
+  "host_sha256": "2e37e09059db0473b1d87ca6f4067ad4123331e880016179c3b563da59327a5e",
+  "selected_elf_sha256": "1439de70bd36c6d5ddc8673b5917460ab27d84e79d36beb87df3b5db0acab214",
+  "rows": [
+    {
+      "name": "prerequisites-clean-artifacts",
+      "status": "passed",
+      "evidence": [
+        "prerequisites.json",
+        "selected-acceptance.json",
+        "selected-elf-audit.json"
+      ],
+      "conclusion": "Ten fresh prerequisites, clean selected optimized host build and clean retained/cache ELF link. Every native/measurement worker uses the exact signed host hash."
+    },
+    {
+      "name": "comparison-selection",
+      "status": "passed",
+      "evidence": [
+        "selection-review.json",
+        "selected-inputs.json"
+      ],
+      "conclusion": "All eight preserved comparison axes reviewed; 32 selected packages, existing chosen terms/notices and frozen Slint inputs unchanged. Historical candidate failures and P2-09 source pins remain historical; final source is rebuilt separately. Actual release clearance remains false."
+    },
+    {
+      "name": "renderer-fixtures",
+      "status": "passed",
+      "evidence": [
+        "corpus-result.json",
+        "corpus-pixel-review.json"
+      ],
+      "conclusion": "Unchanged locked 30-configuration/150-capture renderer corpus, workflow and integrated text fixtures pass. Independent pixel/edge consumers pass without tolerance changes."
+    },
+    {
+      "name": "keyboard-pointer",
+      "status": "passed",
+      "evidence": [
+        "selected-result.json",
+        "selected-review.json"
+      ],
+      "conclusion": "Selected keyboard/pointer, focus, capture, modal dismissal, transforms, queue/reset and semantic-action parity pass."
+    },
+    {
+      "name": "text",
+      "status": "passed",
+      "evidence": [
+        "text-result.json"
+      ],
+      "conclusion": "Two byte-identical final text runs pass 45 observations, six composition cases and fourteen negatives; separate pinned native HarfBuzz verification passes. Full Unicode/native IME remains outside this subset."
+    },
+    {
+      "name": "semantics-readability",
+      "status": "passed",
+      "evidence": [
+        "selected-result.json",
+        "selected-review.json"
+      ],
+      "conclusion": "Independent semantic/geometry/edge assertions, virtual list navigation, high contrast, reduced motion and scale behavior pass. No native assistive consumer is claimed."
+    },
+    {
+      "name": "typed-actions-context",
+      "status": "passed",
+      "evidence": [
+        "editor-model-result.json",
+        "commands.json"
+      ],
+      "conclusion": "Four entry adapters use one typed executor; 56 modeled context/action negatives and independent checkpoint decoding pass. Hosted rights remain a model, not enforced guest capabilities."
+    },
+    {
+      "name": "token-reload",
+      "status": "passed",
+      "evidence": [
+        "native-reload.json",
+        "resource-independent-review.json"
+      ],
+      "conclusion": "Native generation 7-to-8 publication visibly changes tokens in the same worker/window with complete unsaved state and geometry preserved; continued editing passes."
+    },
+    {
+      "name": "layout-reload",
+      "status": "passed",
+      "evidence": [
+        "reload-result.json",
+        "native-reload.json"
+      ],
+      "conclusion": "Supported structural layout publication reconciles stable IDs. Removed focus, active capture/gesture, composition and queued-input policies pass."
+    },
+    {
+      "name": "failed-update",
+      "status": "passed",
+      "evidence": [
+        "reload-result.json",
+        "opacity-1280x720.json",
+        "opacity-1920x1080.json"
+      ],
+      "conclusion": "Invalid, stale, missing, oversize, build, validation, opacity and staging failures preserve the old editable generation. Original development failures remain local."
+    },
+    {
+      "name": "reader-retirement",
+      "status": "passed",
+      "evidence": [
+        "reload-result.json",
+        "metrics.json"
+      ],
+      "conclusion": "In-use readers retain immutable resources; delayed release, queue bounds and fourth-root headroom refusal/retry have bounded outcomes."
+    },
+    {
+      "name": "repeated-reload",
+      "status": "passed",
+      "evidence": [
+        "cycles-1280x720.csv",
+        "cycles-1920x1080.csv",
+        "layout-cycles-1280x720.csv",
+        "layout-cycles-1920x1080.csv"
+      ],
+      "conclusion": "100 measured file publications after five warm-up cycles at each resolution preserve complete checkpoints. No retired roots remain and the independently normalized Rust-live plateau and fixed process/cache tolerances pass."
+    },
+    {
+      "name": "damage-idle",
+      "status": "passed",
+      "evidence": [
+        "damage.json",
+        "damage-review.json",
+        "native-idle.json"
+      ],
+      "conclusion": "108 exact incremental/full images and 300 layout-cache probes pass. Static/hidden/minimized native phases submit zero frames; caret/clock/observer costs are measured separately."
+    },
+    {
+      "name": "metrics",
+      "status": "passed",
+      "evidence": [
+        "metrics.json",
+        "frames-0-off.csv",
+        "process-0-off.csv"
+      ],
+      "conclusion": "3000 frame and 8444 process samples across five paired optimized repetitions. 2962/3000 frames exceed 16.667 ms elapsed budget. Raw p50/p95/p99, phase/input/submission, idle, growth/peaks and file visibility remain recorded; these do not pass guest targets."
+    },
+    {
+      "name": "harness-cleanup",
+      "status": "passed",
+      "evidence": [
+        "harness-negatives.json",
+        "negative-processes.json",
+        "commands.json"
+      ],
+      "conclusion": "Seven stale/build/profile/missing/skipped/unreaped/missing-result mutations reject. Real early-exit/timeout processes reject and reap; the exact final executable separately exercises normal/nonzero/timeout child lifecycles."
+    },
+    {
+      "name": "documentation-regressions",
+      "status": "passed",
+      "evidence": [
+        "commands.json",
+        "repository-checks.json"
+      ],
+      "conclusion": "Fresh Phase 0, final documentation/governance/schema checks pass. Post-promotion index hygiene is separately recorded. No kernel, M1 build/package/launch or pinned tool/dependency input changed, so no new M1 boot regression was required or claimed."
+    }
+  ],
+  "source_guard": "matching before/after source, schema, fixture, lock, notice and configuration hashes",
+  "m2_hosted_subset": "accepted",
+  "guest_execution": false,
+  "guest_efficiency_accepted": false,
+  "distribution_cleared": false,
+  "adr_status": "Proposed",
+  "target_misses": {
+    "elapsed_frame_budget_exceedances": 2962,
+    "total_frames": 3000,
+    "reload_p95_ns": {
+      "1280x720": 930548800,
+      "1920x1080": 875283500
+    }
+  },
+  "follow_ups": [
+    {
+      "id": "PERF-12-01",
+      "experiment": "Profile/reduce raster and full-size composition scratch/copies while preserving the rich and reduced-effects pixel oracle."
+    },
+    {
+      "id": "PERF-12-02",
+      "experiment": "Reuse a validated staged frame for first publication; retain builder/debounce/visibility clocks and rejection invariants."
+    },
+    {
+      "id": "PERF-12-03",
+      "experiment": "Bound caret/clock damage and measure timer costs without periodic static repaint or dropping required updates."
+    }
+  ],
+  "next_gates": [
+    "M3 user runtime/ELF, isolation, IPC/handles, scheduling/FP context, quotas and trusted authority",
+    "M4 selected guest backend, immutable resources and L0/L1 boot-ID/uptime proof",
+    "M5 native behavior routing, versioned state migration and old-process retirement"
+  ]
+}

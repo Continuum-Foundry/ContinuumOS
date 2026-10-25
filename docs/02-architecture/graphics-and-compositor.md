@@ -92,3 +92,23 @@ Keep surfaces visible while shell/app behavior updates if their owner survives.
 When the compositor restarts, clients must reconnect and resubmit scene/resources;
 initially allow a visible recovery interval. GPU device loss invalidates GPU handles
 and requires reconstruction. It does not justify trusting serialized pointer values.
+
+
+## Current hosted implementation and qualification
+
+The [post-P2-13 performance follow-up](../../evidence/phase-2/performance-remediation/2026-10-24/README.md)
+validates exact opaque-span rendering, conservative bounded group copies/masks
+and a per-paint 4 MiB/32-buffer scratch pool within the existing buffer admission
+policy. All pool storage dies after paint; vector metadata is included in total
+Rust/process allocations. The renderer does not retain a filtered backdrop. Damage
+touching its clamped multi-pass source support redraws fully; disjoint changes and
+unchanged-state shaped caret damage can redraw partially.
+
+Hosted L0/L1 publication transfers an owned validated retained frame. Reuse requires
+exact generation/revision/tree/model/composition/caret/motion/token/scale/dimension
+identity, with full first submission; any intervening change redraws. Invalid
+surfaces reject. The native adapter passes owned RGB in memory with optional PPM
+export; BMP/WinForms transport and ownership copies remain separate costs.
+
+Primary 1080p/scale-1 trace-off elapsed frame p95 ranges from 0.789 to 18.642 ms across the twelve workload/effect cells (1,000 samples each). Real file-reload completed-build-to-RAM p95 is 129.527 ms at 720p / 128.116 ms at 1080p. Rich typing/search p95 (18.642 ms) and effects/motion p95 (17.424 ms) still exceed the 16.667 ms period; ten other primary trace-off cells are below it. All misses remain recorded; elapsed/RAM results do not accept renderer-thread CPU, guest input or whole-guest memory targets. Guest display, process isolation and whole-system resource accounting
+are later gates; no host Rust layout becomes a wire protocol or guest ABI.

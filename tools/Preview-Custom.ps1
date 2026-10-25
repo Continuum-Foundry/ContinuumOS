@@ -1,4 +1,4 @@
-param([switch]$IdleReplay, [switch]$Replay, [switch]$Selected, [switch]$ResourceReload, [string]$ResourcePath="", [int]$TimeoutSeconds=120, [ValidateSet("Custom","Slint")][string]$Candidate="Custom")
+param([switch]$IdleReplay, [switch]$Replay, [switch]$Selected, [switch]$ResourceReload, [string]$ResourcePath="", [int]$TimeoutSeconds=120, [ValidateSet("Custom","Slint")][string]$Candidate="Custom", [string]$Executable="")
 # Host-only adapter. Pixel generation, input routing and state remain in Rust.
 $ErrorActionPreference='Stop'
 if ($ResourceReload -or $IdleReplay) {$Selected=$true}
@@ -6,7 +6,7 @@ if ($Selected -and $Candidate -ne 'Custom') {throw 'Selected behavior is custom 
 $root=Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'Enter-Dev.ps1')
 . (Join-Path $PSScriptRoot 'windows/DevSigning.ps1')
-$exe=Join-Path $env:CARGO_TARGET_DIR 'm2-comparison/xtask.exe'
+$exe=if ($Executable) {(Resolve-Path -LiteralPath $Executable).Path} else {Join-Path $env:CARGO_TARGET_DIR 'm2-comparison/xtask.exe'}
 if (-not (Test-Path -LiteralPath $exe)) {throw 'Build the comparison profile first: cargo build --locked --offline -p xtask --profile m2-comparison'}
 $null=Set-DevExecutableSignature $exe
 Add-Type -AssemblyName System.Windows.Forms,System.Drawing
@@ -160,7 +160,7 @@ try {
     if ($script:customProcess.ExitCode -ne 0) {throw ($stderr.Result)}
     if ($script:customFailure) {throw $script:customFailure}
     if ($ResourceReload -and $Replay -and -not (Test-Path (Join-Path $ready.run 'native-reload.json'))) {throw 'Missing completed native reload proof'}
-    @{schema_version=1;candidate=$Candidate;status='passed';selected=[bool]$Selected;replay=[bool]$Replay;pid=$ready.pid;submitted_frames=$script:customFrames;host_pixel_conversion='Rust RGBA to BGR24 BMP; WinForms owned bitmap clone';dpi=$(if($Selected){'Explicit shell resize/scale; replay 100/150 percent; native automatic DPI changes unaccepted'}else{'PerMonitorV2; fixed 1280x720 physical client, scale 1; no stretch'});native_ime=$false;native_accessibility=$false;final=$script:customResponse.state} | ConvertTo-Json -Depth 8 | Set-Content (Join-Path $ready.run 'native-preview.json')
+    @{executable_sha256=(Get-FileHash -LiteralPath $exe).Hash.ToLowerInvariant();schema_version=1;candidate=$Candidate;status='passed';selected=[bool]$Selected;replay=[bool]$Replay;pid=$ready.pid;submitted_frames=$script:customFrames;host_pixel_conversion='Rust RGBA to BGR24 BMP; WinForms owned bitmap clone';dpi=$(if($Selected){'Explicit shell resize/scale; replay 100/150 percent; native automatic DPI changes unaccepted'}else{'PerMonitorV2; fixed 1280x720 physical client, scale 1; no stretch'});native_ime=$false;native_accessibility=$false;final=$script:customResponse.state} | ConvertTo-Json -Depth 8 | Set-Content (Join-Path $ready.run 'native-preview.json')
     Write-Output "Native preview evidence: $($ready.run)"
 }finally{
     if ($script:resourceTimer) {$script:resourceTimer.Stop();$script:resourceTimer.Dispose()}

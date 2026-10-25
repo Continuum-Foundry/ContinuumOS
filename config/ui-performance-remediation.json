@@ -1,0 +1,19 @@
+{
+  "schema_version": 3,
+  "scratch_pool_bytes": 4194304,
+  "scratch_pool_buffers": 32,
+  "seed": 20261020,
+  "profile": "m2-comparison",
+  "geometry": [[1280,720,100],[1280,720,150],[1280,720,200],[1920,1080,100],[1920,1080,150],[1920,1080,200]],
+  "effects": ["rich", "reduced"],
+  "tracing": [false, true],
+  "warmup_frames": 8,
+  "diagnostic_frames_per_cell": 16,
+  "tail_frames_per_primary_cell": 200,
+  "tail_repetitions": 5,
+  "tail_primary_geometry": [1920,1080,100],
+  "workloads": ["focus", "complex-script-type-search", "10000-row-scroll", "move-resize-overlap", "effects-and-motion", "token-layout-publication"],
+  "pixel_tolerance": 0,
+  "timeout_seconds": 900,
+  "limits": ["Unpaced single-active-view diagnostic; original paced six-view acceptance is separate", "phase clocks are elapsed, not CPU percentiles", "process CPU is batched and includes runtime/instrumentation", "primitive text clocks include selection/caret fills; do not sum overlapping clocks", "no guest acceptance"]
+}

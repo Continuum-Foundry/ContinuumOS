@@ -1,0 +1,353 @@
+{
+  "action_execution_tested": false,
+  "arithmetic_overflow_cases": 2,
+  "declared_capture_cases": 150,
+  "declared_profile_configurations": 30,
+  "deterministic_bytes": true,
+  "generated_file_list_sha256": "ba16344854638caeaaaa34c69696ba4dac54fb4742c6ec41dc947af9a1ac0196",
+  "generated_rows": 10000,
+  "guest_tested": false,
+  "negative_cases": [
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "unsupported-version",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "executable-callback",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "nonfinite-geometry",
+      "passed": true
+    },
+    {
+      "actual": "geometry",
+      "expected": "geometry",
+      "name": "negative-size",
+      "passed": true
+    },
+    {
+      "actual": "identity",
+      "expected": "identity",
+      "name": "duplicate-widget",
+      "passed": true
+    },
+    {
+      "actual": "identity",
+      "expected": "identity",
+      "name": "duplicate-semantic",
+      "passed": true
+    },
+    {
+      "actual": "tree",
+      "expected": "tree",
+      "name": "cycle",
+      "passed": true
+    },
+    {
+      "actual": "tree",
+      "expected": "tree",
+      "name": "unknown-child",
+      "passed": true
+    },
+    {
+      "actual": "tree",
+      "expected": "tree",
+      "name": "multiple-parents",
+      "passed": true
+    },
+    {
+      "actual": "tree",
+      "expected": "tree",
+      "name": "orphan",
+      "passed": true
+    },
+    {
+      "actual": "resource",
+      "expected": "resource",
+      "name": "missing-resource",
+      "passed": true
+    },
+    {
+      "actual": "action",
+      "expected": "action",
+      "name": "unknown-action",
+      "passed": true
+    },
+    {
+      "actual": "revision",
+      "expected": "revision",
+      "name": "stale-scene-revision",
+      "passed": true
+    },
+    {
+      "actual": "revision",
+      "expected": "revision",
+      "name": "skipped-scene-revision",
+      "passed": true
+    },
+    {
+      "actual": "generation",
+      "expected": "generation",
+      "name": "stale-generation",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "excessive-node-count",
+      "passed": true
+    },
+    {
+      "actual": "tree",
+      "expected": "tree",
+      "name": "excessive-depth",
+      "passed": true
+    },
+    {
+      "actual": "stride",
+      "expected": "stride",
+      "name": "stride-too-small",
+      "passed": true
+    },
+    {
+      "actual": "stride",
+      "expected": "stride",
+      "name": "unaligned-stride",
+      "passed": true
+    },
+    {
+      "actual": "length",
+      "expected": "length",
+      "name": "short-buffer",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "oversize-buffer",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "width-overflow",
+      "passed": true
+    },
+    {
+      "actual": "damage",
+      "expected": "damage",
+      "name": "damage-outside",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "damage-fragmentation",
+      "passed": true
+    },
+    {
+      "actual": "lease",
+      "expected": "lease",
+      "name": "write-in-use",
+      "passed": true
+    },
+    {
+      "actual": "lease",
+      "expected": "lease",
+      "name": "commit-without-acquire",
+      "passed": true
+    },
+    {
+      "actual": "lease",
+      "expected": "lease",
+      "name": "release-without-commit",
+      "passed": true
+    },
+    {
+      "actual": "lease",
+      "expected": "lease",
+      "name": "wrong-release-generation",
+      "passed": true
+    },
+    {
+      "actual": "lease",
+      "expected": "lease",
+      "name": "double-acquire",
+      "passed": true
+    },
+    {
+      "actual": "lease",
+      "expected": "lease",
+      "name": "unreleased-buffer",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "unknown-color",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "negative-font-size",
+      "passed": true
+    },
+    {
+      "actual": "resource",
+      "expected": "resource",
+      "name": "unknown-font-slot",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "unknown-effect",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "unknown-operation",
+      "passed": true
+    },
+    {
+      "actual": "ordering",
+      "expected": "ordering",
+      "name": "duplicate-event-sequence",
+      "passed": true
+    },
+    {
+      "actual": "ordering",
+      "expected": "ordering",
+      "name": "backward-time",
+      "passed": true
+    },
+    {
+      "actual": "revision",
+      "expected": "revision",
+      "name": "stale-pointer",
+      "passed": true
+    },
+    {
+      "actual": "identity",
+      "expected": "identity",
+      "name": "unknown-event-target",
+      "passed": true
+    },
+    {
+      "actual": "focus",
+      "expected": "focus",
+      "name": "capture-nonfocusable",
+      "passed": true
+    },
+    {
+      "actual": "input",
+      "expected": "input",
+      "name": "empty-text",
+      "passed": true
+    },
+    {
+      "actual": "input",
+      "expected": "input",
+      "name": "unpaired-key-up",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "excessive-events",
+      "passed": true
+    },
+    {
+      "actual": "input",
+      "expected": "input",
+      "name": "invalid-composition-order",
+      "passed": true
+    },
+    {
+      "actual": "input",
+      "expected": "input",
+      "name": "missing-composition-commit",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "unsupported-profile",
+      "passed": true
+    },
+    {
+      "actual": "shape",
+      "expected": "shape",
+      "name": "mismatched-list-seed",
+      "passed": true
+    },
+    {
+      "actual": "state",
+      "expected": "state",
+      "name": "invalid-selection",
+      "passed": true
+    },
+    {
+      "actual": "state",
+      "expected": "state",
+      "name": "utf8-split-selection",
+      "passed": true
+    },
+    {
+      "actual": "color",
+      "expected": "color",
+      "name": "invalid-premultiplied-alpha",
+      "passed": true
+    },
+    {
+      "actual": "color",
+      "expected": "color",
+      "name": "incorrect-blend-vector",
+      "passed": true
+    },
+    {
+      "actual": "variant",
+      "expected": "variant",
+      "name": "unknown-variant",
+      "passed": true
+    },
+    {
+      "actual": "variant",
+      "expected": "variant",
+      "name": "missing-capture-checkpoint",
+      "passed": true
+    },
+    {
+      "actual": "generation",
+      "expected": "generation",
+      "name": "stale-token-generation",
+      "passed": true
+    },
+    {
+      "actual": "lease",
+      "expected": "lease",
+      "name": "stale-release-lease",
+      "passed": true
+    },
+    {
+      "actual": "lease",
+      "expected": "lease",
+      "name": "reused-lease-serial",
+      "passed": true
+    }
+  ],
+  "nonfinite_parser_cases": 3,
+  "positive_fixture_files": 7,
+  "render_tested": false,
+  "schema_version": 1,
+  "status": "passed"
+}

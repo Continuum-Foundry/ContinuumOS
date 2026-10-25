@@ -149,6 +149,8 @@ for geometry in ("1280x720", "1920x1080"):
     base = rows[4]
     require(len({r["checkpoint_sha256"] for r in rows}) == 1, "Checkpoint changed")
     for i, r in enumerate(rows):
+        if p['schema_version'] >= 4:
+            require(r['frame']['staged_frame_reused'] is True, 'Validated staged frame was repainted or lost')
         require(r["cycle"] == i and r["generation"] == 8 + i and r["owner_address_unchanged"], "Continuity or cycle identity failure")
         require(r["resources"]["live_generations"] == 1 and r["cache_entries"] <= 128 and r["cache_bytes"] <= 1048576 and r["layout_cache_entries"] <= 128 and r["layout_cache_bytes"] <= 2097152, "Retired generation or unbounded cache")
         if i >= 5:

@@ -121,8 +121,7 @@ component-lifetime/fidelity gaps. P2-09 now records the
 [provisional custom Rust selection](docs/05-delivery/phase-2/ui-selection-review.md),
 exact license choices and mandatory completion work. Slint is frozen comparison
 material. P2-10 now passes [selected hosted-core acceptance](evidence/phase-2/P2-10/2026-10-23/README.md): bounded layout,
-input/semantics, visual text navigation and motion. P2-11 now passes [same-window hosted resource reload](evidence/phase-2/P2-11/2026-10-23/README.md), with exact state continuity, bounded reader lifetime and failure rejection. P2-12 now passes [hosted damage/idle/stability acceptance](evidence/phase-2/P2-12/2026-10-24/README.md), with exact pixel equality and 200 measured reloads; frame/resource latency misses remain explicit. P2-13 remains Not started;
-M2, guest UI/reload and efficiency targets remain unaccepted. No Jira issue was created.
+input/semantics, visual text navigation and motion. P2-11 now passes [same-window hosted resource reload](evidence/phase-2/P2-11/2026-10-23/README.md), with exact state continuity, bounded reader lifetime and failure rejection. P2-12 now passes [hosted damage/idle/stability acceptance](evidence/phase-2/P2-12/2026-10-24/README.md), with exact pixel equality and 200 measured reloads; frame/resource latency misses remain explicit. P2-13 now passes [final aggregate acceptance](evidence/phase-2/P2-13/2026-10-24/README.md); M2's declared hosted subset is accepted locally. Guest UI/reload and efficiency targets remain open. No Jira issue was created.
 
 <details>
 <summary><strong>See the hosted UI experiments</strong> — real pixels from the shared reference corpus</summary>
@@ -245,13 +244,13 @@ named cases and strict serial-record checks remain separate.
 
 ## From first instruction to a living desktop
 
-![Roadmap snapshot: M1 local baseline passes, M2 is in progress, later release gates are planned, and M16–M21 are independent experiments.](docs/assets/continuumos-roadmap.svg)
+![Roadmap snapshot: M1 local baseline passes, M2 hosted baseline passes locally, later release gates are planned, and M16–M21 are independent experiments.](docs/assets/continuumos-roadmap.svg)
 
 | Gate | Outcome | Current state |
 | :--- | :--- | :--- |
 | **Phase 0** | Native tooling, independent links, dependency feasibility | Compile/tooling evidence retained |
 | **M1** | Standalone ISO boot, validated handoff, exceptions, memory, timers | P1-01–P1-07 pass local experimental-baseline acceptance |
-| **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01 through P2-11 accepted locally, including target links, provisional custom direction and hosted resource reload; optimization/stability and final M2 acceptance remain |
+| **M2** | Hosted UI comparison, accessibility foundations, resource continuity | P2-01–P2-13 pass local hosted acceptance, including clean selected links, state continuity and measured cost; guest confirmation and efficiency targets remain open |
 | **M3** | User-mode isolation, bounded IPC and trusted identity/ownership foundations | Planned |
 | **M4** | Authenticated development channel, guest resource reload and trusted setup/login input foundations | Planned |
 | **M5** | App replacement with preserved state | Planned |

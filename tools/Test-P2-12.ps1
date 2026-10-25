@@ -1,7 +1,13 @@
-param([string]$Prerequisites='')
+param([string]$Prerequisites='', [string]$TargetDirectory='')
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'Enter-Dev.ps1')
+if ($TargetDirectory) {
+    $target=[IO.Path]::GetFullPath($TargetDirectory)
+    if (-not $target.StartsWith((Join-Path $root 'build')+[IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) {throw 'Acceptance target must be under build/'}
+    if (Test-Path -LiteralPath $target) {throw 'Clean acceptance target already exists'}
+    $env:CARGO_TARGET_DIR=$target
+}
 $env:CARGO_NET_OFFLINE='true'
 $run=Join-Path $root ('build/m2/P2-12/acceptance-'+[DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds())
 New-Item -ItemType Directory -Force $run | Out-Null
@@ -32,8 +38,8 @@ try {
         @{name='reload';exe='pwsh';args=@('-NoProfile','-File','tools/windows/Invoke-DevExecutable.ps1',$exe,'test','--suite','resource-reload')},
         @{name='corpus';exe='pwsh';args=@('-NoProfile','-File','tools/windows/Invoke-DevExecutable.ps1',$exe,'test','--suite','custom-ui')},
         @{name='selected';exe='pwsh';args=@('-NoProfile','-File','tools/windows/Invoke-DevExecutable.ps1',$exe,'test','--suite','selected-ui')},
-        @{name='native-reload';exe='pwsh';args=@('-NoProfile','-File','tools/Preview-Custom.ps1','-ResourceReload','-Replay')},
-        @{name='native-idle';exe='pwsh';args=@('-NoProfile','-File','tools/Preview-Custom.ps1','-IdleReplay')}
+        @{name='native-reload';exe='pwsh';args=@('-NoProfile','-File','tools/Preview-Custom.ps1','-ResourceReload','-Replay','-Executable',$exe)},
+        @{name='native-idle';exe='pwsh';args=@('-NoProfile','-File','tools/Preview-Custom.ps1','-IdleReplay','-Executable',$exe)}
     )
     $environment=@{power_scheme=(& powercfg /getactivescheme);video=@(Get-CimInstance Win32_VideoController | Select-Object Name,CurrentHorizontalResolution,CurrentVerticalResolution,CurrentRefreshRate);cpu_load_start=(Get-CimInstance Win32_Processor | Select-Object Name,LoadPercentage);free_host_memory_start_kib=(Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory;actual_display_cadence='unmeasured; RAM submission is not VSync'}
     $environment | ConvertTo-Json -Depth 8 | Set-Content (Join-Path $run 'host-environment.json')
@@ -78,7 +84,7 @@ try {
     if ($LASTEXITCODE) {throw 'Common corpus independent review failed'}
     & python tools/Review-Selected.py $outputs.selected *> (Join-Path $run 'selected-review.log')
     if ($LASTEXITCODE) {throw 'Selected independent review failed'}
-    & python tools/Review-ResourceReload.py $outputs.reload $outputs.'native-reload' *> (Join-Path $run 'reload-review.log')
+    & python tools/Review-ResourceReload.py $outputs.reload $outputs.'native-reload' --require-staged-frame *> (Join-Path $run 'reload-review.log')
     if ($LASTEXITCODE) {throw 'Resource reload independent review failed'}
     foreach ($inputFile in $tested) {if ((Get-FileHash -LiteralPath $inputFile.path).Hash.ToLowerInvariant() -ne $inputFile.sha256) {throw "Tested input changed during acceptance: $($inputFile.path)"}}
     git diff --binary | Set-Content (Join-Path $run 'source.patch')

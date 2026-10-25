@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "reviewer": "Codex local implementation/self-review; separate Python raw-record consumer, not independent approval",
+  "source_base": "82ef69d7f5546e2d54d1b2ca2cdae82ae9feeb8a",
+  "artifact": "ddad7af445a94777e492acdc427db193160400f88818eb8f4d1487e7193fc330",
+  "selected_elf_sha256": "87b3bc723d2ea6a9e8f3f5785cdcc90919f2cdc4fbda33b94e63aef3133fdabe",
+  "m1": {
+    "rows": 33,
+    "launches": 42,
+    "source_guard": true
+  },
+  "hosted": {
+    "rows": 16,
+    "frames": 3000,
+    "elapsed_60hz_exceedances": 338,
+    "process_samples": 5985,
+    "reload_cycles": 200,
+    "damage_images": 108
+  },
+  "focused": {
+    "cells": 144,
+    "per_frame_pixel_pairs": 1152,
+    "tail_samples": 24000,
+    "samples_per_primary_cell": 1000
+  },
+  "reload_p95_ns": {
+    "1280x720": 129527000,
+    "1920x1080": 128115800
+  },
+  "guest": false,
+  "guest_efficiency_accepted": false,
+  "distribution_cleared": false,
+  "adr_status": "Proposed",
+  "conclusion": "Bounded software-renderer and publication fixes pass regression; elapsed/reload improvements are hosted evidence. Guest and per-frame CPU targets remain open.",
+  "retained_profile": "../../performance-profile/2026-10-24",
+  "scratch_accounting": "scratch peak charges pixel/mask capacities; pool/vector metadata remains in complete Rust/process allocation counters; ephemeral pool dies after paint",
+  "remaining": [
+    "Renderer-thread CPU p95<8ms/p99<16ms not measured",
+    "Guest input-to-submit p95<25ms not measured",
+    "Whole-guest 256MiB cold-idle not measured",
+    "BMP/WinForms full-image adapter costs remain",
+    "General desktop/many-window and guest qualification remain later gates"
+  ]
+}

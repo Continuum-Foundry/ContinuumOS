@@ -1,6 +1,6 @@
 # P2 epic — Hosted UI core and state-preserving resource reload
 
-Issue type: Epic. Status: In progress. Owner: Unassigned.
+Issue type: Epic. Status: Done. Owner: Unassigned.
 Created: 2026-10-20. Milestone: M2. Suggested labels: `phase-2`, `milestone-m2`.
 These are repository-local, Jira-ready stories; no Jira issues have been created.
 This directory follows the [Phase 1 story format](../phase-1/README.md).
@@ -38,7 +38,7 @@ local tools and evidence availability before implementation.
 | P2-10 | [Complete selected layout, input and semantics](10-selected-ui-layout-input-and-semantics.md) | P2-09 | M2 portions of B07/B08/B09/B37 | Done |
 | P2-11 | [Publish hosted token/layout reloads](11-hosted-resource-and-layout-reload.md) | P2-10 | B10, hosted R04 | Done |
 | P2-12 | [Measure idle, damage and reload stability](12-hosted-performance-and-reload-stability.md) | P2-11 | M2 subset of B32, B10 stability | Done |
-| P2-13 | [Run and review Phase 2 acceptance](13-phase-2-acceptance.md) | P2-01 through P2-12 | M2 gate, early B32 | Not started |
+| P2-13 | [Run and review Phase 2 acceptance](13-phase-2-acceptance.md) | P2-01 through P2-12 | M2 gate, early B32 | Done |
 
 Work in this order, accepting one bounded story at a time. P2-05/P2-06 are sibling
 candidate slices with the same prerequisites; numbering gives a default execution
@@ -114,8 +114,7 @@ Use the [comparison runbook](comparable-ui-runbook.md). P2-09 now records a
 [provisional custom Rust direction](ui-selection-review.md), exact terms/source
 ownership, frozen Slint comparison and required completion cases. P2-10 now passes
 [selected hosted-core acceptance](../../../evidence/phase-2/P2-10/2026-10-23/README.md): bounded layout, input reconciliation,
-semantic hierarchy/virtual navigation, visual text affinity and motion. P2-11 now passes [hosted resource reload acceptance](../../../evidence/phase-2/P2-11/2026-10-23/README.md): bounded builder/publication, reader retirement and real same-window continuity. P2-12 now passes [hosted damage/idle/stability acceptance](../../../evidence/phase-2/P2-12/2026-10-24/README.md), with measured target misses preserved. P2-13
-remains Not started; M2, guest UI and guest reload remain unaccepted.
+semantic hierarchy/virtual navigation, visual text affinity and motion. P2-11 now passes [hosted resource reload acceptance](../../../evidence/phase-2/P2-11/2026-10-23/README.md): bounded builder/publication, reader retirement and real same-window continuity. P2-12 now passes [hosted damage/idle/stability acceptance](../../../evidence/phase-2/P2-12/2026-10-24/README.md), with measured target misses preserved. P2-13 now passes [final aggregate acceptance](../../../evidence/phase-2/P2-13/2026-10-24/README.md); M2's declared hosted subset is accepted locally. Guest UI/reload and efficiency targets remain open.
 Each run records:
 
 - Source commit/dirty-input hashes, harness revision, compiler/profile, dependency
@@ -133,7 +132,7 @@ Each run records:
 
 Implementation/harness commands are supplied by their owning story. P2-01's
 `hosted` lifecycle command is documented in its runbook. P2-05/P2-06 provide
-candidate render/acceptance commands; no M2 aggregate acceptance command exists yet. Use argument arrays, bounded runs and
+candidate render/acceptance commands; P2-13 adds the [aggregate acceptance runner](acceptance-runbook.md). Use argument arrays, bounded runs and
 explicit process cleanup. Reuse local signing without changing host policy implicitly.
 These local stories do not authorize Jira creation or remote uploads.
 
@@ -155,3 +154,8 @@ Read [milestones](../milestones.md), [backlog](../backlog.md),
 [ADR-0008](../../04-decisions/0008-rendering-path.md),
 [ADR-0011](../../04-decisions/0011-ui-authoring.md) and
 [ADR-0015](../../04-decisions/0015-typed-actions.md).
+
+
+The owner-authorized [performance follow-up](../../../evidence/phase-2/performance-remediation/2026-10-24/README.md)
+now passes bounded local regression and focused profiling without changing the
+thirteen-story completion or original P2-13 evidence. Guest efficiency remains open.

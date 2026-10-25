@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "seed": 20261020,
+  "host_profile": "m2-comparison",
+  "target": "x86_64-unknown-none",
+  "step_timeout_seconds": 900,
+  "performance_timeout_seconds": 3600,
+  "pixel_tolerance": 0,
+  "performance_protocol": "config/p2-12-performance.json",
+  "required_rows": [
+    "prerequisites-clean-artifacts",
+    "comparison-selection",
+    "renderer-fixtures",
+    "keyboard-pointer",
+    "text",
+    "semantics-readability",
+    "typed-actions-context",
+    "token-reload",
+    "layout-reload",
+    "failed-update",
+    "reader-retirement",
+    "repeated-reload",
+    "damage-idle",
+    "metrics",
+    "harness-cleanup",
+    "documentation-regressions"
+  ],
+  "limits": [
+    "local self-review",
+    "no guest execution or efficiency acceptance",
+    "no release clearance",
+    "preserved comparison is historical; selected path is rerun"
+  ]
+}

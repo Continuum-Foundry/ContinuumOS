@@ -1,0 +1,5276 @@
+{
+  "cases": [
+    {
+      "case": "baseline",
+      "full_render_ns": 154020900,
+      "full_rgba_sha256": "c762dec9f5e8990f6ff3525ab3c641c16709a30c19662805c56040fed4a1a5e1",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3667900,
+        "cache_bytes": 5078,
+        "cache_entries": 69,
+        "compose_ns": 42765100,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 239929300,
+        "layout_cache_bytes": 291706,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 300,
+        "layout_cache_misses": 339,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 236100900,
+        "raster_ns": 193335800,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "c762dec9f5e8990f6ff3525ab3c641c16709a30c19662805c56040fed4a1a5e1",
+        "rust_live": 48403306,
+        "rust_peak": 53018424,
+        "shape_work": 907,
+        "submission_ns": 3828000,
+        "touched": 3653522
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-effects",
+      "full_render_ns": 140923400,
+      "full_rgba_sha256": "908279737556932b9a21d9d86c3cfca296978c0abf3a217f84287e6af039f9cc",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3387400,
+        "cache_bytes": 5078,
+        "cache_entries": 69,
+        "compose_ns": 37694600,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 134353100,
+        "layout_cache_bytes": 291706,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 339,
+        "layout_cache_misses": 339,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 132858800,
+        "raster_ns": 95164200,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "908279737556932b9a21d9d86c3cfca296978c0abf3a217f84287e6af039f9cc",
+        "rust_live": 48408810,
+        "rust_peak": 56699103,
+        "shape_work": 0,
+        "submission_ns": 1494100,
+        "touched": 3653538
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scroll",
+      "full_render_ns": 133189600,
+      "full_rgba_sha256": "ede1025c7273383ff0f78838603983e3b386a66791ec29d85156fe331db0e5f3",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3272900,
+        "cache_bytes": 5078,
+        "cache_entries": 69,
+        "compose_ns": 15856000,
+        "damage_pixels": 138322,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 27646000,
+        "layout_cache_bytes": 277880,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 348,
+        "layout_cache_misses": 369,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 27243700,
+        "raster_ns": 11387700,
+        "realized": 30,
+        "regions": [
+          [
+            1079,
+            7,
+            194,
+            713
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "ede1025c7273383ff0f78838603983e3b386a66791ec29d85156fe331db0e5f3",
+        "rust_live": 48399683,
+        "rust_peak": 56704607,
+        "shape_work": 810,
+        "submission_ns": 401600,
+        "touched": 350767
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "type",
+      "full_render_ns": 137375700,
+      "full_rgba_sha256": "126bff52d5ddfa212517e6ab898806c317b8ea25c6b1d1213e5962ab87fb3481",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3316400,
+        "cache_bytes": 5529,
+        "cache_entries": 77,
+        "compose_ns": 35622500,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 167776800,
+        "layout_cache_bytes": 277509,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 386,
+        "layout_cache_misses": 370,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 166352400,
+        "raster_ns": 130729900,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "126bff52d5ddfa212517e6ab898806c317b8ea25c6b1d1213e5962ab87fb3481",
+        "rust_live": 60502339,
+        "rust_peak": 65107917,
+        "shape_work": 34,
+        "submission_ns": 1424100,
+        "touched": 3648389
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "focus",
+      "full_render_ns": 108959700,
+      "full_rgba_sha256": "8c8397b81a6857f2291c77abad1e98e8844cbe158fd4dd0f37f672e8267e4d45",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3661600,
+        "cache_bytes": 5529,
+        "cache_entries": 77,
+        "compose_ns": 48149600,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 125687600,
+        "layout_cache_bytes": 277509,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 425,
+        "layout_cache_misses": 370,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 123950400,
+        "raster_ns": 75800800,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "8c8397b81a6857f2291c77abad1e98e8844cbe158fd4dd0f37f672e8267e4d45",
+        "rust_live": 60506950,
+        "rust_peak": 68798136,
+        "shape_work": 0,
+        "submission_ns": 1736800,
+        "touched": 2587703
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "old-new-translucent-bounds",
+      "full_render_ns": 125000600,
+      "full_rgba_sha256": "a515f8febfc9a07657dbfb66e86ac0516b14bb6d39ef4f2059848fa996c56a56",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3300200,
+        "cache_bytes": 5529,
+        "cache_entries": 77,
+        "compose_ns": 13760200,
+        "damage_pixels": 38836,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 20030100,
+        "layout_cache_bytes": 275855,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 463,
+        "layout_cache_misses": 371,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 19954200,
+        "raster_ns": 6194000,
+        "realized": 30,
+        "regions": [
+          [
+            995,
+            91,
+            266,
+            146
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "a515f8febfc9a07657dbfb66e86ac0516b14bb6d39ef4f2059848fa996c56a56",
+        "rust_live": 60510107,
+        "rust_peak": 68802747,
+        "shape_work": 8,
+        "submission_ns": 75500,
+        "touched": 144670
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "rounded-clipped-descendants",
+      "full_render_ns": 128095900,
+      "full_rgba_sha256": "8cf3d834f132866a1221c9481a6aed05042f6a69b03ac2290320dfb3c47d31fe",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3597000,
+        "cache_bytes": 5529,
+        "cache_entries": 77,
+        "compose_ns": 69058700,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 147940700,
+        "layout_cache_bytes": 275855,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 502,
+        "layout_cache_misses": 371,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 18432000,
+        "painted": true,
+        "raster_compose_ns": 145903200,
+        "raster_ns": 76844500,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "8cf3d834f132866a1221c9481a6aed05042f6a69b03ac2290320dfb3c47d31fe",
+        "rust_live": 60514811,
+        "rust_peak": 68806856,
+        "shape_work": 0,
+        "submission_ns": 2036100,
+        "touched": 2554053
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reorder-overlap",
+      "full_render_ns": 131200500,
+      "full_rgba_sha256": "4a8856d01e240b1f68a9aac3ddd145137cdef869cf6bcee65622367891085b33",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3306800,
+        "cache_bytes": 5529,
+        "cache_entries": 77,
+        "compose_ns": 69886200,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 133669300,
+        "layout_cache_bytes": 275855,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 541,
+        "layout_cache_misses": 371,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 18432000,
+        "painted": true,
+        "raster_compose_ns": 131947900,
+        "raster_ns": 62061700,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "4a8856d01e240b1f68a9aac3ddd145137cdef869cf6bcee65622367891085b33",
+        "rust_live": 60519516,
+        "rust_peak": 72497008,
+        "shape_work": 0,
+        "submission_ns": 1721000,
+        "touched": 2554053
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "exposed-removal",
+      "full_render_ns": 126498300,
+      "full_rgba_sha256": "108b0d35730703a7e0bebff988e21f6f81c052e2a2cf3add4d30f6278e0ef252",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3596500,
+        "cache_bytes": 5529,
+        "cache_entries": 77,
+        "compose_ns": 62016200,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 125020400,
+        "layout_cache_bytes": 275855,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 577,
+        "layout_cache_misses": 371,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 122491100,
+        "raster_ns": 60474900,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "108b0d35730703a7e0bebff988e21f6f81c052e2a2cf3add4d30f6278e0ef252",
+        "rust_live": 60522923,
+        "rust_peak": 72501713,
+        "shape_work": 0,
+        "submission_ns": 2528900,
+        "touched": 2502754
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "backdrop-full",
+      "full_render_ns": 141929700,
+      "full_rgba_sha256": "108b0d35730703a7e0bebff988e21f6f81c052e2a2cf3add4d30f6278e0ef252",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3188200,
+        "cache_bytes": 5529,
+        "cache_entries": 77,
+        "compose_ns": 60218200,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 119519800,
+        "layout_cache_bytes": 275855,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 613,
+        "layout_cache_misses": 371,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15118592,
+        "painted": true,
+        "raster_compose_ns": 117667500,
+        "raster_ns": 57449300,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "108b0d35730703a7e0bebff988e21f6f81c052e2a2cf3add4d30f6278e0ef252",
+        "rust_live": 60528536,
+        "rust_peak": 72505120,
+        "shape_work": 0,
+        "submission_ns": 1851900,
+        "touched": 2502754
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "background-under-filter",
+      "full_render_ns": 124836300,
+      "full_rgba_sha256": "11b636c7746e6a6559ad4404a82c67841d430b7f97b63e319618c658978723d9",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3342000,
+        "cache_bytes": 5529,
+        "cache_entries": 77,
+        "compose_ns": 65156700,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 137979000,
+        "layout_cache_bytes": 275855,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 649,
+        "layout_cache_misses": 371,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15118592,
+        "painted": true,
+        "raster_compose_ns": 136440100,
+        "raster_ns": 71283400,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "11b636c7746e6a6559ad4404a82c67841d430b7f97b63e319618c658978723d9",
+        "rust_live": 60533227,
+        "rust_peak": 72510733,
+        "shape_work": 0,
+        "submission_ns": 1538400,
+        "touched": 2502754
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scale-change",
+      "full_render_ns": 139672200,
+      "full_rgba_sha256": "acaf6561c753ea1ee9032847fa049490ec9703cb82626952c4be3aaf1fa4315d",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3319400,
+        "cache_bytes": 13589,
+        "cache_entries": 128,
+        "compose_ns": 68990300,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 139745600,
+        "layout_cache_bytes": 253498,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 649,
+        "layout_cache_misses": 407,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15360768,
+        "painted": true,
+        "raster_compose_ns": 138213500,
+        "raster_ns": 69223200,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "acaf6561c753ea1ee9032847fa049490ec9703cb82626952c4be3aaf1fa4315d",
+        "rust_live": 60523631,
+        "rust_peak": 72515424,
+        "shape_work": 890,
+        "submission_ns": 1531800,
+        "touched": 2758289
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "caret",
+      "full_render_ns": 150877000,
+      "full_rgba_sha256": "acaf6561c753ea1ee9032847fa049490ec9703cb82626952c4be3aaf1fa4315d",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4199700,
+        "cache_bytes": 13589,
+        "cache_entries": 128,
+        "compose_ns": 63382900,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 134274900,
+        "layout_cache_bytes": 253498,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 685,
+        "layout_cache_misses": 407,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15360768,
+        "painted": true,
+        "raster_compose_ns": 131796200,
+        "raster_ns": 68413300,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "acaf6561c753ea1ee9032847fa049490ec9703cb82626952c4be3aaf1fa4315d",
+        "rust_live": 60528321,
+        "rust_peak": 72515424,
+        "shape_work": 0,
+        "submission_ns": 2478300,
+        "touched": 2758289
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "preedit",
+      "full_render_ns": 176682100,
+      "full_rgba_sha256": "95d9d3a4f4762d28141a792011be039d24c258ba19d4acc5b7d93e7d0ba437d6",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3519000,
+        "cache_bytes": 13738,
+        "cache_entries": 128,
+        "compose_ns": 65034500,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 174468500,
+        "layout_cache_bytes": 252378,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 721,
+        "layout_cache_misses": 408,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15360768,
+        "painted": true,
+        "raster_compose_ns": 172721800,
+        "raster_ns": 107687300,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "95d9d3a4f4762d28141a792011be039d24c258ba19d4acc5b7d93e7d0ba437d6",
+        "rust_live": 60532092,
+        "rust_peak": 72515424,
+        "shape_work": 22,
+        "submission_ns": 1746200,
+        "touched": 4028626
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-return",
+      "full_render_ns": 172384500,
+      "full_rgba_sha256": "5223dc49d5e3071964d9878cc3c3eeb1a7d31b40f728395dbf0e7d9dbea34aa2",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3169600,
+        "cache_bytes": 13738,
+        "cache_entries": 128,
+        "compose_ns": 70217600,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 166984900,
+        "layout_cache_bytes": 252378,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 757,
+        "layout_cache_misses": 408,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 165555000,
+        "raster_ns": 95337400,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "5223dc49d5e3071964d9878cc3c3eeb1a7d31b40f728395dbf0e7d9dbea34aa2",
+        "rust_live": 60536757,
+        "rust_peak": 72515424,
+        "shape_work": 0,
+        "submission_ns": 1429700,
+        "touched": 4026731
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "compatible-motion",
+      "full_render_ns": 172765700,
+      "full_rgba_sha256": "5223dc49d5e3071964d9878cc3c3eeb1a7d31b40f728395dbf0e7d9dbea34aa2",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4357800,
+        "cache_bytes": 13738,
+        "cache_entries": 128,
+        "compose_ns": 16911900,
+        "damage_pixels": 55328,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 28058900,
+        "layout_cache_bytes": 252378,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 793,
+        "layout_cache_misses": 408,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 27823800,
+        "raster_ns": 10911900,
+        "realized": 30,
+        "regions": [
+          [
+            958,
+            538,
+            304,
+            182
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "5223dc49d5e3071964d9878cc3c3eeb1a7d31b40f728395dbf0e7d9dbea34aa2",
+        "rust_live": 60541649,
+        "rust_peak": 72518954,
+        "shape_work": 0,
+        "submission_ns": 234500,
+        "touched": 344088
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "paint-invalidation",
+      "full_render_ns": 173095400,
+      "full_rgba_sha256": "5223dc49d5e3071964d9878cc3c3eeb1a7d31b40f728395dbf0e7d9dbea34aa2",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3268400,
+        "cache_bytes": 13738,
+        "cache_entries": 128,
+        "compose_ns": 69674900,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 162611300,
+        "layout_cache_bytes": 252378,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 829,
+        "layout_cache_misses": 408,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 161126900,
+        "raster_ns": 91452000,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "5223dc49d5e3071964d9878cc3c3eeb1a7d31b40f728395dbf0e7d9dbea34aa2",
+        "rust_live": 60546344,
+        "rust_peak": 72523846,
+        "shape_work": 0,
+        "submission_ns": 1484000,
+        "touched": 4026731
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "static-no-paint",
+      "full_render_ns": 188573500,
+      "full_rgba_sha256": "5223dc49d5e3071964d9878cc3c3eeb1a7d31b40f728395dbf0e7d9dbea34aa2",
+      "geometry": [
+        1280,
+        720,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3479800,
+        "cache_bytes": 13738,
+        "cache_entries": 128,
+        "compose_ns": 0,
+        "damage_pixels": 0,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 7300,
+        "layout_cache_bytes": 252378,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 829,
+        "layout_cache_misses": 408,
+        "layout_ns": 100,
+        "missed_60hz": false,
+        "paint_scratch_peak": 0,
+        "painted": false,
+        "raster_compose_ns": 6900,
+        "raster_ns": 6900,
+        "realized": 0,
+        "regions": [],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "5223dc49d5e3071964d9878cc3c3eeb1a7d31b40f728395dbf0e7d9dbea34aa2",
+        "rust_live": 60551328,
+        "rust_peak": 72528541,
+        "shape_work": 0,
+        "submission_ns": 100,
+        "touched": 0
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "baseline",
+      "full_render_ns": 149601500,
+      "full_rgba_sha256": "d1b883ca273df3ffb686727f02a96844caa809ba7074e104af4f6e1d686ea03d",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3287100,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 35526100,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 138166400,
+        "layout_cache_bytes": 237431,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 832,
+        "layout_cache_misses": 434,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 136259000,
+        "raster_ns": 100732900,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "d1b883ca273df3ffb686727f02a96844caa809ba7074e104af4f6e1d686ea03d",
+        "rust_live": 60541800,
+        "rust_peak": 72533589,
+        "shape_work": 614,
+        "submission_ns": 1907100,
+        "touched": 3339347
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-effects",
+      "full_render_ns": 121837600,
+      "full_rgba_sha256": "46806ab8fcfbbb7499488235eb56fd06f3675d6270414a15ce3f9f070968f17f",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3574800,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 45612300,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 159947400,
+        "layout_cache_bytes": 237431,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 861,
+        "layout_cache_misses": 434,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 156636700,
+        "raster_ns": 111024400,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "46806ab8fcfbbb7499488235eb56fd06f3675d6270414a15ce3f9f070968f17f",
+        "rust_live": 60547176,
+        "rust_peak": 72533589,
+        "shape_work": 0,
+        "submission_ns": 3310300,
+        "touched": 3339392
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scroll",
+      "full_render_ns": 131568700,
+      "full_rgba_sha256": "a6ace2e245259bf769ab96c9ee064a124784c3e5669e1a2f6ab59338bebd0e0c",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4318000,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 18753100,
+        "damage_pixels": 207320,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 31152800,
+        "layout_cache_bytes": 237431,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 890,
+        "layout_cache_misses": 434,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 29936800,
+        "raster_ns": 11183700,
+        "realized": 20,
+        "regions": [
+          [
+            978,
+            10,
+            292,
+            710
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "a6ace2e245259bf769ab96c9ee064a124784c3e5669e1a2f6ab59338bebd0e0c",
+        "rust_live": 60551875,
+        "rust_peak": 72533589,
+        "shape_work": 0,
+        "submission_ns": 1215000,
+        "touched": 540219
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "type",
+      "full_render_ns": 130472500,
+      "full_rgba_sha256": "7dddc33859ea31410a23c9c6d73cf82674f94bea984b82558d017836e6dbf994",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4362500,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 37227200,
+        "damage_pixels": 413436,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 98505900,
+        "layout_cache_bytes": 237567,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 918,
+        "layout_cache_misses": 435,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 96894200,
+        "raster_ns": 59667000,
+        "realized": 20,
+        "regions": [
+          [
+            154,
+            112,
+            786,
+            526
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "7dddc33859ea31410a23c9c6d73cf82674f94bea984b82558d017836e6dbf994",
+        "rust_live": 60556963,
+        "rust_peak": 72533589,
+        "shape_work": 34,
+        "submission_ns": 1611300,
+        "touched": 2142948
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "focus",
+      "full_render_ns": 121032800,
+      "full_rgba_sha256": "b7d5680869cc0fc4390892e68bd650d0fa12880e01bfb8a9bfe63fdeed9ab8eb",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3432100,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 36378800,
+        "damage_pixels": 449592,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 77605000,
+        "layout_cache_bytes": 237567,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 976,
+        "layout_cache_misses": 435,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 76539000,
+        "raster_ns": 40160200,
+        "realized": 40,
+        "regions": [
+          [
+            154,
+            58,
+            786,
+            46
+          ],
+          [
+            154,
+            112,
+            786,
+            526
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "b7d5680869cc0fc4390892e68bd650d0fa12880e01bfb8a9bfe63fdeed9ab8eb",
+        "rust_live": 60561734,
+        "rust_peak": 72533589,
+        "shape_work": 0,
+        "submission_ns": 1065500,
+        "touched": 1499088
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "old-new-translucent-bounds",
+      "full_render_ns": 131897800,
+      "full_rgba_sha256": "4289bfc3322cb26535edcebe914243619e754d53e081dde84312499447a42985",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4483300,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 18883800,
+        "damage_pixels": 87780,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 33838300,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1004,
+        "layout_cache_misses": 436,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 33523600,
+        "raster_ns": 14639800,
+        "realized": 20,
+        "regions": [
+          [
+            853,
+            136,
+            399,
+            220
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "4289bfc3322cb26535edcebe914243619e754d53e081dde84312499447a42985",
+        "rust_live": 60565174,
+        "rust_peak": 72533589,
+        "shape_work": 8,
+        "submission_ns": 314100,
+        "touched": 323527
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "rounded-clipped-descendants",
+      "full_render_ns": 129494100,
+      "full_rgba_sha256": "9c841e5c0076f12883131416ff268da4aeb71db1a73c8db318d0ee7c133a5216",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3278800,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 65256100,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 127075500,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1033,
+        "layout_cache_misses": 436,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 18432000,
+        "painted": true,
+        "raster_compose_ns": 125596500,
+        "raster_ns": 60340400,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "9c841e5c0076f12883131416ff268da4aeb71db1a73c8db318d0ee7c133a5216",
+        "rust_live": 60569878,
+        "rust_peak": 72533589,
+        "shape_work": 0,
+        "submission_ns": 1478500,
+        "touched": 2530557
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reorder-overlap",
+      "full_render_ns": 134017600,
+      "full_rgba_sha256": "bc30d83c2a9c0f474c493ff2ac374e7e78aeaf67d9543b7faa37dddfa1b0b88e",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3209300,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 63917000,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 125248800,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1062,
+        "layout_cache_misses": 436,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 18432000,
+        "painted": true,
+        "raster_compose_ns": 123381100,
+        "raster_ns": 59464100,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "bc30d83c2a9c0f474c493ff2ac374e7e78aeaf67d9543b7faa37dddfa1b0b88e",
+        "rust_live": 60574583,
+        "rust_peak": 72552075,
+        "shape_work": 0,
+        "submission_ns": 1867200,
+        "touched": 2530557
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "exposed-removal",
+      "full_render_ns": 122247500,
+      "full_rgba_sha256": "90cac83a91741997e352cd6a255c6b2a76f7b91986ff3a19cb2ff081135c5341",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3756000,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 65319500,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 134333700,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1088,
+        "layout_cache_misses": 436,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 130956600,
+        "raster_ns": 65637100,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "90cac83a91741997e352cd6a255c6b2a76f7b91986ff3a19cb2ff081135c5341",
+        "rust_live": 60577990,
+        "rust_peak": 72556780,
+        "shape_work": 0,
+        "submission_ns": 3376800,
+        "touched": 2415828
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "backdrop-full",
+      "full_render_ns": 137193500,
+      "full_rgba_sha256": "cc1c947ddd9a4c81c9769381e1480578c250f9c98e85ddf306b11e0b1f1af7d0",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3287300,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 57243300,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 131456600,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1114,
+        "layout_cache_misses": 436,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15584832,
+        "painted": true,
+        "raster_compose_ns": 129954800,
+        "raster_ns": 72711500,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "cc1c947ddd9a4c81c9769381e1480578c250f9c98e85ddf306b11e0b1f1af7d0",
+        "rust_live": 60583347,
+        "rust_peak": 72560187,
+        "shape_work": 0,
+        "submission_ns": 1501700,
+        "touched": 2415828
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "background-under-filter",
+      "full_render_ns": 113934800,
+      "full_rgba_sha256": "e113866b3dd8c79f5b757a5dcbf318b2cac28e686b45c66238fb643a77006d5d",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3303400,
+        "cache_bytes": 14910,
+        "cache_entries": 128,
+        "compose_ns": 61510900,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 125442300,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1140,
+        "layout_cache_misses": 436,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15584832,
+        "painted": true,
+        "raster_compose_ns": 123961800,
+        "raster_ns": 62450900,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "e113866b3dd8c79f5b757a5dcbf318b2cac28e686b45c66238fb643a77006d5d",
+        "rust_live": 60588038,
+        "rust_peak": 72565544,
+        "shape_work": 0,
+        "submission_ns": 1480100,
+        "touched": 2415828
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scale-change",
+      "full_render_ns": 155771100,
+      "full_rgba_sha256": "0ed4f2f920d972af8adfa27e56f32d3297253c4d86a75bee5fb4498fe639b3d5",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3615600,
+        "cache_bytes": 24992,
+        "cache_entries": 128,
+        "compose_ns": 62019300,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 151218700,
+        "layout_cache_bytes": 234465,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1140,
+        "layout_cache_misses": 462,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15840000,
+        "painted": true,
+        "raster_compose_ns": 149488400,
+        "raster_ns": 87469100,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "0ed4f2f920d972af8adfa27e56f32d3297253c4d86a75bee5fb4498fe639b3d5",
+        "rust_live": 60600962,
+        "rust_peak": 72570235,
+        "shape_work": 620,
+        "submission_ns": 1729300,
+        "touched": 2720457
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "caret",
+      "full_render_ns": 152290000,
+      "full_rgba_sha256": "0ed4f2f920d972af8adfa27e56f32d3297253c4d86a75bee5fb4498fe639b3d5",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3167000,
+        "cache_bytes": 24992,
+        "cache_entries": 128,
+        "compose_ns": 64192800,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 152605800,
+        "layout_cache_bytes": 234465,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1166,
+        "layout_cache_misses": 462,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15840000,
+        "painted": true,
+        "raster_compose_ns": 151166200,
+        "raster_ns": 86973400,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "0ed4f2f920d972af8adfa27e56f32d3297253c4d86a75bee5fb4498fe639b3d5",
+        "rust_live": 60605652,
+        "rust_peak": 72583159,
+        "shape_work": 0,
+        "submission_ns": 1439200,
+        "touched": 2720457
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "preedit",
+      "full_render_ns": 222996700,
+      "full_rgba_sha256": "f43ce284355a5b0e66513fb475157a4e09cd7e6a0a21ceac801962a5cc4ab61c",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3462600,
+        "cache_bytes": 25157,
+        "cache_entries": 128,
+        "compose_ns": 59776600,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 207684200,
+        "layout_cache_bytes": 234561,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1192,
+        "layout_cache_misses": 463,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15840000,
+        "painted": true,
+        "raster_compose_ns": 205245900,
+        "raster_ns": 145469300,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "f43ce284355a5b0e66513fb475157a4e09cd7e6a0a21ceac801962a5cc4ab61c",
+        "rust_live": 60610655,
+        "rust_peak": 72587849,
+        "shape_work": 22,
+        "submission_ns": 2438000,
+        "touched": 3761050
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-return",
+      "full_render_ns": 202315600,
+      "full_rgba_sha256": "21d2b8fa88ac0657695bba0fc1eebe88ae9a211227fe2dc83645751f67b6999e",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3357500,
+        "cache_bytes": 25157,
+        "cache_entries": 128,
+        "compose_ns": 69408500,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 194388400,
+        "layout_cache_bytes": 234561,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1218,
+        "layout_cache_misses": 463,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 192905900,
+        "raster_ns": 123497400,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "21d2b8fa88ac0657695bba0fc1eebe88ae9a211227fe2dc83645751f67b6999e",
+        "rust_live": 60615320,
+        "rust_peak": 72592852,
+        "shape_work": 0,
+        "submission_ns": 1482100,
+        "touched": 3757760
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "compatible-motion",
+      "full_render_ns": 199503400,
+      "full_rgba_sha256": "21d2b8fa88ac0657695bba0fc1eebe88ae9a211227fe2dc83645751f67b6999e",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4098700,
+        "cache_bytes": 25157,
+        "cache_entries": 128,
+        "compose_ns": 24335100,
+        "damage_pixels": 98010,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 41749600,
+        "layout_cache_bytes": 234561,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1244,
+        "layout_cache_misses": 463,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 41312500,
+        "raster_ns": 16977400,
+        "realized": 20,
+        "regions": [
+          [
+            851,
+            478,
+            405,
+            242
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "21d2b8fa88ac0657695bba0fc1eebe88ae9a211227fe2dc83645751f67b6999e",
+        "rust_live": 60621236,
+        "rust_peak": 72597517,
+        "shape_work": 0,
+        "submission_ns": 436700,
+        "touched": 575322
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "paint-invalidation",
+      "full_render_ns": 194804000,
+      "full_rgba_sha256": "21d2b8fa88ac0657695bba0fc1eebe88ae9a211227fe2dc83645751f67b6999e",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3533700,
+        "cache_bytes": 25157,
+        "cache_entries": 128,
+        "compose_ns": 69185100,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 212801400,
+        "layout_cache_bytes": 234561,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1270,
+        "layout_cache_misses": 463,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 210945200,
+        "raster_ns": 141760100,
+        "realized": 20,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "21d2b8fa88ac0657695bba0fc1eebe88ae9a211227fe2dc83645751f67b6999e",
+        "rust_live": 60625931,
+        "rust_peak": 72603433,
+        "shape_work": 0,
+        "submission_ns": 1855700,
+        "touched": 3757760
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "static-no-paint",
+      "full_render_ns": 215197600,
+      "full_rgba_sha256": "21d2b8fa88ac0657695bba0fc1eebe88ae9a211227fe2dc83645751f67b6999e",
+      "geometry": [
+        1280,
+        720,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3413200,
+        "cache_bytes": 25157,
+        "cache_entries": 128,
+        "compose_ns": 0,
+        "damage_pixels": 0,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 8000,
+        "layout_cache_bytes": 234561,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1270,
+        "layout_cache_misses": 463,
+        "layout_ns": 200,
+        "missed_60hz": false,
+        "paint_scratch_peak": 0,
+        "painted": false,
+        "raster_compose_ns": 7600,
+        "raster_ns": 7600,
+        "realized": 0,
+        "regions": [],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "21d2b8fa88ac0657695bba0fc1eebe88ae9a211227fe2dc83645751f67b6999e",
+        "rust_live": 60630403,
+        "rust_peak": 72608128,
+        "shape_work": 0,
+        "submission_ns": 0,
+        "touched": 0
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "baseline",
+      "full_render_ns": 136734800,
+      "full_rgba_sha256": "de032a88ed3a9486bc707a4d15b514385218a603135afd8ec12c6b5db0895596",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 5030400,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 42198900,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 153712500,
+        "layout_cache_bytes": 231586,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1273,
+        "layout_cache_misses": 484,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 151389100,
+        "raster_ns": 109190200,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "de032a88ed3a9486bc707a4d15b514385218a603135afd8ec12c6b5db0895596",
+        "rust_live": 60633512,
+        "rust_peak": 72612664,
+        "shape_work": 479,
+        "submission_ns": 2322900,
+        "touched": 3140810
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-effects",
+      "full_render_ns": 128631200,
+      "full_rgba_sha256": "df9a371470ac64d040c3b6696542c1d64f4587c3de2caa92a69acb8b04e8494b",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4098700,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 37128600,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 125833500,
+        "layout_cache_bytes": 231586,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1297,
+        "layout_cache_misses": 484,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 122266200,
+        "raster_ns": 85137600,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "df9a371470ac64d040c3b6696542c1d64f4587c3de2caa92a69acb8b04e8494b",
+        "rust_live": 60638888,
+        "rust_peak": 72612664,
+        "shape_work": 0,
+        "submission_ns": 3566800,
+        "touched": 3140874
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scroll",
+      "full_render_ns": 156527200,
+      "full_rgba_sha256": "52fba84b824d61042bf03d47cccc14eeea015397d879b6ea565d5123a1615279",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3416100,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 25508700,
+        "damage_pixels": 273928,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 47920800,
+        "layout_cache_bytes": 231586,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1321,
+        "layout_cache_misses": 484,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 47227200,
+        "raster_ns": 21718500,
+        "realized": 15,
+        "regions": [
+          [
+            878,
+            14,
+            388,
+            706
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "52fba84b824d61042bf03d47cccc14eeea015397d879b6ea565d5123a1615279",
+        "rust_live": 60643587,
+        "rust_peak": 72612664,
+        "shape_work": 0,
+        "submission_ns": 693200,
+        "touched": 798012
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "type",
+      "full_render_ns": 153737600,
+      "full_rgba_sha256": "a5e0b378fa0825fc0324b67a7dd59cb8ccbd80b47c3169db9d1e23397a2f361b",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4301100,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 23569100,
+        "damage_pixels": 285200,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 75136900,
+        "layout_cache_bytes": 231722,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1344,
+        "layout_cache_misses": 485,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 74552600,
+        "raster_ns": 50983500,
+        "realized": 15,
+        "regions": [
+          [
+            206,
+            150,
+            620,
+            460
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "a5e0b378fa0825fc0324b67a7dd59cb8ccbd80b47c3169db9d1e23397a2f361b",
+        "rust_live": 60648675,
+        "rust_peak": 72612664,
+        "shape_work": 34,
+        "submission_ns": 583700,
+        "touched": 1499502
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "focus",
+      "full_render_ns": 191766300,
+      "full_rgba_sha256": "3a503cfda01fac75dc2f55c198c1baa46c00daeca92c3749af489760a258ccf0",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3568200,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 40097900,
+        "damage_pixels": 322400,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 80193300,
+        "layout_cache_bytes": 231722,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1392,
+        "layout_cache_misses": 485,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 78876900,
+        "raster_ns": 38779000,
+        "realized": 30,
+        "regions": [
+          [
+            206,
+            78,
+            620,
+            60
+          ],
+          [
+            206,
+            150,
+            620,
+            460
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "3a503cfda01fac75dc2f55c198c1baa46c00daeca92c3749af489760a258ccf0",
+        "rust_live": 60653446,
+        "rust_peak": 72612664,
+        "shape_work": 0,
+        "submission_ns": 1315900,
+        "touched": 1118489
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "old-new-translucent-bounds",
+      "full_render_ns": 224460800,
+      "full_rgba_sha256": "ab07ef795e77d4c8dd7eaf401e0507036b60b0181cbacbf536ed2cad18ee03f3",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4386100,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 49810400,
+        "damage_pixels": 155052,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 95121500,
+        "layout_cache_bytes": 230479,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1415,
+        "layout_cache_misses": 486,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 94571400,
+        "raster_ns": 44761000,
+        "realized": 15,
+        "regions": [
+          [
+            711,
+            182,
+            531,
+            292
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "ab07ef795e77d4c8dd7eaf401e0507036b60b0181cbacbf536ed2cad18ee03f3",
+        "rust_live": 60656886,
+        "rust_peak": 72612664,
+        "shape_work": 8,
+        "submission_ns": 549700,
+        "touched": 621507
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "rounded-clipped-descendants",
+      "full_render_ns": 161226400,
+      "full_rgba_sha256": "600380c1c383b5f947152f86237847dfd38e6e2642c891daf97ea8574e31a3a6",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4548000,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 85035900,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 176400400,
+        "layout_cache_bytes": 230479,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1439,
+        "layout_cache_misses": 486,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 18432000,
+        "painted": true,
+        "raster_compose_ns": 172287300,
+        "raster_ns": 87251400,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "600380c1c383b5f947152f86237847dfd38e6e2642c891daf97ea8574e31a3a6",
+        "rust_live": 60661590,
+        "rust_peak": 72612664,
+        "shape_work": 0,
+        "submission_ns": 4112500,
+        "touched": 2568976
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reorder-overlap",
+      "full_render_ns": 134566100,
+      "full_rgba_sha256": "25e3e2a6d328a9c4500a44d45e7ad368b71dd3057a7fbfaa375463febec72c3b",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4041800,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 71167100,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 161360200,
+        "layout_cache_bytes": 230479,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1463,
+        "layout_cache_misses": 486,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 18432000,
+        "painted": true,
+        "raster_compose_ns": 159708900,
+        "raster_ns": 88541800,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "25e3e2a6d328a9c4500a44d45e7ad368b71dd3057a7fbfaa375463febec72c3b",
+        "rust_live": 60666295,
+        "rust_peak": 72643787,
+        "shape_work": 0,
+        "submission_ns": 1650900,
+        "touched": 2568976
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "exposed-removal",
+      "full_render_ns": 125798100,
+      "full_rgba_sha256": "09601eb9f9024c9de5ba786dd174cf1d1dd01b532b6a8ae4b6ef240f1c33efa3",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 5399600,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 60240300,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 124045300,
+        "layout_cache_bytes": 230479,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1484,
+        "layout_cache_misses": 486,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 121422800,
+        "raster_ns": 61182500,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "09601eb9f9024c9de5ba786dd174cf1d1dd01b532b6a8ae4b6ef240f1c33efa3",
+        "rust_live": 60669702,
+        "rust_peak": 72648492,
+        "shape_work": 0,
+        "submission_ns": 2622100,
+        "touched": 2365457
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "backdrop-full",
+      "full_render_ns": 152674600,
+      "full_rgba_sha256": "16fb4489779ccc9eff89d1e703aeaafd7235f0b986e179abe4ac9659633d2593",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3463400,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 65061200,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 159548500,
+        "layout_cache_bytes": 230479,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1505,
+        "layout_cache_misses": 486,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 16237568,
+        "painted": true,
+        "raster_compose_ns": 157988400,
+        "raster_ns": 92927200,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "16fb4489779ccc9eff89d1e703aeaafd7235f0b986e179abe4ac9659633d2593",
+        "rust_live": 60675059,
+        "rust_peak": 72651899,
+        "shape_work": 0,
+        "submission_ns": 1559900,
+        "touched": 2365457
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "background-under-filter",
+      "full_render_ns": 126433300,
+      "full_rgba_sha256": "777f08e7ec2e0ca47d014c6bf5dc9b93cd0821d934f89767d2d351be92367596",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3599400,
+        "cache_bytes": 26994,
+        "cache_entries": 128,
+        "compose_ns": 55163700,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 139377900,
+        "layout_cache_bytes": 230479,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1526,
+        "layout_cache_misses": 486,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 16237568,
+        "painted": true,
+        "raster_compose_ns": 137553700,
+        "raster_ns": 82390000,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "777f08e7ec2e0ca47d014c6bf5dc9b93cd0821d934f89767d2d351be92367596",
+        "rust_live": 60679750,
+        "rust_peak": 72657256,
+        "shape_work": 0,
+        "submission_ns": 1823600,
+        "touched": 2365457
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scale-change",
+      "full_render_ns": 76873300,
+      "full_rgba_sha256": "3d8ed9ae9617943c0fce0ae652ec2d7f2567ab5370e2338ccd4191ce44ed900b",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3407900,
+        "cache_bytes": 23427,
+        "cache_entries": 128,
+        "compose_ns": 38385400,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 96947100,
+        "layout_cache_bytes": 228496,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1544,
+        "layout_cache_misses": 489,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15584832,
+        "painted": true,
+        "raster_compose_ns": 94553800,
+        "raster_ns": 56168400,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "3d8ed9ae9617943c0fce0ae652ec2d7f2567ab5370e2338ccd4191ce44ed900b",
+        "rust_live": 60678901,
+        "rust_peak": 72661947,
+        "shape_work": 57,
+        "submission_ns": 2392900,
+        "touched": 1735713
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "caret",
+      "full_render_ns": 93244900,
+      "full_rgba_sha256": "3d8ed9ae9617943c0fce0ae652ec2d7f2567ab5370e2338ccd4191ce44ed900b",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3149400,
+        "cache_bytes": 23427,
+        "cache_entries": 128,
+        "compose_ns": 31185500,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 77145700,
+        "layout_cache_bytes": 228496,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1565,
+        "layout_cache_misses": 489,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15584832,
+        "painted": true,
+        "raster_compose_ns": 75724900,
+        "raster_ns": 44539400,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "3d8ed9ae9617943c0fce0ae652ec2d7f2567ab5370e2338ccd4191ce44ed900b",
+        "rust_live": 60683591,
+        "rust_peak": 72661947,
+        "shape_work": 0,
+        "submission_ns": 1420500,
+        "touched": 1735713
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "preedit",
+      "full_render_ns": 104395400,
+      "full_rgba_sha256": "007804050dc65165b57ebd049192ff83903e59fff8eeeaeed0cb0dc0c566e4d5",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4329300,
+        "cache_bytes": 23279,
+        "cache_entries": 128,
+        "compose_ns": 32398000,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 90426700,
+        "layout_cache_bytes": 227787,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1586,
+        "layout_cache_misses": 490,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 15584832,
+        "painted": true,
+        "raster_compose_ns": 88737100,
+        "raster_ns": 56339100,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "007804050dc65165b57ebd049192ff83903e59fff8eeeaeed0cb0dc0c566e4d5",
+        "rust_live": 60687476,
+        "rust_peak": 72665788,
+        "shape_work": 22,
+        "submission_ns": 1689100,
+        "touched": 2000714
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-return",
+      "full_render_ns": 97782100,
+      "full_rgba_sha256": "e8a4d23b9d1e0f105b45def775d90689eb77416ba7a267047663b9302975a89e",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3860000,
+        "cache_bytes": 23279,
+        "cache_entries": 128,
+        "compose_ns": 36993200,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 94563000,
+        "layout_cache_bytes": 227787,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1607,
+        "layout_cache_misses": 490,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 92756200,
+        "raster_ns": 55763000,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "e8a4d23b9d1e0f105b45def775d90689eb77416ba7a267047663b9302975a89e",
+        "rust_live": 60692141,
+        "rust_peak": 72669673,
+        "shape_work": 0,
+        "submission_ns": 1806300,
+        "touched": 1998819
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "compatible-motion",
+      "full_render_ns": 103522500,
+      "full_rgba_sha256": "e8a4d23b9d1e0f105b45def775d90689eb77416ba7a267047663b9302975a89e",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 4324500,
+        "cache_bytes": 23279,
+        "cache_entries": 128,
+        "compose_ns": 19349800,
+        "damage_pixels": 65056,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 27526100,
+        "layout_cache_bytes": 227787,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1628,
+        "layout_cache_misses": 490,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 27154000,
+        "raster_ns": 7804200,
+        "realized": 15,
+        "regions": [
+          [
+            478,
+            268,
+            304,
+            214
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "e8a4d23b9d1e0f105b45def775d90689eb77416ba7a267047663b9302975a89e",
+        "rust_live": 60697033,
+        "rust_peak": 72674338,
+        "shape_work": 0,
+        "submission_ns": 371700,
+        "touched": 266315
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "paint-invalidation",
+      "full_render_ns": 94095400,
+      "full_rgba_sha256": "e8a4d23b9d1e0f105b45def775d90689eb77416ba7a267047663b9302975a89e",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3408100,
+        "cache_bytes": 23279,
+        "cache_entries": 128,
+        "compose_ns": 39423700,
+        "damage_pixels": 921600,
+        "fallback": true,
+        "frame_bytes": 3686400,
+        "frame_ns": 99104700,
+        "layout_cache_bytes": 227787,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1649,
+        "layout_cache_misses": 490,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 14745600,
+        "painted": true,
+        "raster_compose_ns": 97566100,
+        "raster_ns": 58142400,
+        "realized": 15,
+        "regions": [
+          [
+            0,
+            0,
+            1280,
+            720
+          ]
+        ],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "e8a4d23b9d1e0f105b45def775d90689eb77416ba7a267047663b9302975a89e",
+        "rust_live": 60701728,
+        "rust_peak": 72679230,
+        "shape_work": 0,
+        "submission_ns": 1538100,
+        "touched": 1998819
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "static-no-paint",
+      "full_render_ns": 83181400,
+      "full_rgba_sha256": "e8a4d23b9d1e0f105b45def775d90689eb77416ba7a267047663b9302975a89e",
+      "geometry": [
+        1280,
+        720,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 3586300,
+        "cache_bytes": 23279,
+        "cache_entries": 128,
+        "compose_ns": 0,
+        "damage_pixels": 0,
+        "fallback": false,
+        "frame_bytes": 3686400,
+        "frame_ns": 7100,
+        "layout_cache_bytes": 227787,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1649,
+        "layout_cache_misses": 490,
+        "layout_ns": 100,
+        "missed_60hz": false,
+        "paint_scratch_peak": 0,
+        "painted": false,
+        "raster_compose_ns": 6700,
+        "raster_ns": 6700,
+        "realized": 0,
+        "regions": [],
+        "rgb_bytes": 2764800,
+        "rgba_sha256": "e8a4d23b9d1e0f105b45def775d90689eb77416ba7a267047663b9302975a89e",
+        "rust_live": 60706200,
+        "rust_peak": 72683925,
+        "shape_work": 0,
+        "submission_ns": 0,
+        "touched": 0
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "baseline",
+      "full_render_ns": 377073900,
+      "full_rgba_sha256": "81cde902a2bbca9ee7df1a63852bebf7efe6712f7729bf9b581dd8c8b136dfbf",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 9558600,
+        "cache_bytes": 12938,
+        "cache_entries": 128,
+        "compose_ns": 114718400,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 395675500,
+        "layout_cache_bytes": 230391,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1650,
+        "layout_cache_misses": 543,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 388358300,
+        "raster_ns": 273639900,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "81cde902a2bbca9ee7df1a63852bebf7efe6712f7729bf9b581dd8c8b136dfbf",
+        "rust_live": 68766710,
+        "rust_peak": 79134682,
+        "shape_work": 1303,
+        "submission_ns": 7316500,
+        "touched": 8822344
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-effects",
+      "full_render_ns": 352024600,
+      "full_rgba_sha256": "10a6f1215a9b7b644c6f269cd6d16ae9960dc33cdede1a76d7af73a6fd293f9e",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7807900,
+        "cache_bytes": 12938,
+        "cache_entries": 128,
+        "compose_ns": 96918800,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 365413800,
+        "layout_cache_bytes": 230391,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1704,
+        "layout_cache_misses": 543,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 360583100,
+        "raster_ns": 263664300,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "10a6f1215a9b7b644c6f269cd6d16ae9960dc33cdede1a76d7af73a6fd293f9e",
+        "rust_live": 68772086,
+        "rust_peak": 87430507,
+        "shape_work": 0,
+        "submission_ns": 4830300,
+        "touched": 8822360
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scroll",
+      "full_render_ns": 383493100,
+      "full_rgba_sha256": "be3397ae22a82e6599f4b80c2344ec463685e0f90843e6217754c1a74f22aace",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8564200,
+        "cache_bytes": 12938,
+        "cache_entries": 128,
+        "compose_ns": 34523400,
+        "damage_pixels": 208162,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 57781900,
+        "layout_cache_bytes": 241136,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1713,
+        "layout_cache_misses": 588,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 56801000,
+        "raster_ns": 22277600,
+        "realized": 45,
+        "regions": [
+          [
+            1719,
+            7,
+            194,
+            1073
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "be3397ae22a82e6599f4b80c2344ec463685e0f90843e6217754c1a74f22aace",
+        "rust_live": 68787530,
+        "rust_peak": 87435883,
+        "shape_work": 1215,
+        "submission_ns": 980000,
+        "touched": 512123
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "type",
+      "full_render_ns": 385395300,
+      "full_rgba_sha256": "1f381b97ce883cabb35ecb321adf024a7f4c20dc4c39bc0af14edd692832aa1e",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 10953600,
+        "cache_bytes": 12298,
+        "cache_entries": 128,
+        "compose_ns": 98733100,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 386652800,
+        "layout_cache_bytes": 241272,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1766,
+        "layout_cache_misses": 589,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 382950500,
+        "raster_ns": 284217400,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "1f381b97ce883cabb35ecb321adf024a7f4c20dc4c39bc0af14edd692832aa1e",
+        "rust_live": 68791978,
+        "rust_peak": 87451327,
+        "shape_work": 34,
+        "submission_ns": 3701900,
+        "touched": 8816945
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "focus",
+      "full_render_ns": 348389400,
+      "full_rgba_sha256": "9292440c39aee924fd2e3d5ece521eaa1ce03417507a31e330d15f92e40bc7d4",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 9710200,
+        "cache_bytes": 12298,
+        "cache_entries": 128,
+        "compose_ns": 133814900,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 335235100,
+        "layout_cache_bytes": 241272,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1820,
+        "layout_cache_misses": 589,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 328827000,
+        "raster_ns": 195012100,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "9292440c39aee924fd2e3d5ece521eaa1ce03417507a31e330d15f92e40bc7d4",
+        "rust_live": 68796589,
+        "rust_peak": 87455775,
+        "shape_work": 0,
+        "submission_ns": 6407300,
+        "touched": 5896819
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "old-new-translucent-bounds",
+      "full_render_ns": 386222300,
+      "full_rgba_sha256": "f40d452bc4b167fda5bc5c55ac054397baa38ef47d7333eb02eefaf5e02bb5b2",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 10445600,
+        "cache_bytes": 12298,
+        "cache_entries": 128,
+        "compose_ns": 29784600,
+        "damage_pixels": 38836,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 38779700,
+        "layout_cache_bytes": 240029,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1873,
+        "layout_cache_misses": 590,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 38654400,
+        "raster_ns": 8869800,
+        "realized": 45,
+        "regions": [
+          [
+            1635,
+            91,
+            266,
+            146
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "f40d452bc4b167fda5bc5c55ac054397baa38ef47d7333eb02eefaf5e02bb5b2",
+        "rust_live": 68800029,
+        "rust_peak": 87460386,
+        "shape_work": 8,
+        "submission_ns": 124800,
+        "touched": 144670
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "rounded-clipped-descendants",
+      "full_render_ns": 364173100,
+      "full_rgba_sha256": "188745b6bc7f9dffdee28018f78f76efaa90259dde8d425466b6977106ee2151",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 9952600,
+        "cache_bytes": 12298,
+        "cache_entries": 128,
+        "compose_ns": 221259600,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 408153800,
+        "layout_cache_bytes": 240029,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1927,
+        "layout_cache_misses": 590,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 41472000,
+        "painted": true,
+        "raster_compose_ns": 403495800,
+        "raster_ns": 182236200,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "188745b6bc7f9dffdee28018f78f76efaa90259dde8d425466b6977106ee2151",
+        "rust_live": 68804733,
+        "rust_peak": 87464778,
+        "shape_work": 0,
+        "submission_ns": 4657500,
+        "touched": 5844049
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reorder-overlap",
+      "full_render_ns": 361743300,
+      "full_rgba_sha256": "198dd4c60593225011d36804b2a8b1f96e17922343bd5a74bc638d4fca6b9b47",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8856700,
+        "cache_bytes": 12298,
+        "cache_entries": 128,
+        "compose_ns": 191366000,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 345900900,
+        "layout_cache_bytes": 240029,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 1981,
+        "layout_cache_misses": 590,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 41472000,
+        "painted": true,
+        "raster_compose_ns": 340220400,
+        "raster_ns": 148854400,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "198dd4c60593225011d36804b2a8b1f96e17922343bd5a74bc638d4fca6b9b47",
+        "rust_live": 68809438,
+        "rust_peak": 95762930,
+        "shape_work": 0,
+        "submission_ns": 5679800,
+        "touched": 5844049
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "exposed-removal",
+      "full_render_ns": 285800900,
+      "full_rgba_sha256": "48d240a8ae01073bf776b8a1fb9a860478b410993041037d7a459d4e4e173c64",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8418200,
+        "cache_bytes": 12298,
+        "cache_entries": 128,
+        "compose_ns": 164289900,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 316696100,
+        "layout_cache_bytes": 240029,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2032,
+        "layout_cache_misses": 590,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 313269000,
+        "raster_ns": 148979100,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "48d240a8ae01073bf776b8a1fb9a860478b410993041037d7a459d4e4e173c64",
+        "rust_live": 68812845,
+        "rust_peak": 95767635,
+        "shape_work": 0,
+        "submission_ns": 3426600,
+        "touched": 5792750
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "backdrop-full",
+      "full_render_ns": 405668300,
+      "full_rgba_sha256": "48d240a8ae01073bf776b8a1fb9a860478b410993041037d7a459d4e4e173c64",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 9903200,
+        "cache_bytes": 12298,
+        "cache_entries": 128,
+        "compose_ns": 188796900,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 324162600,
+        "layout_cache_bytes": 240029,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2083,
+        "layout_cache_misses": 590,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33550592,
+        "painted": true,
+        "raster_compose_ns": 318129400,
+        "raster_ns": 129332500,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "48d240a8ae01073bf776b8a1fb9a860478b410993041037d7a459d4e4e173c64",
+        "rust_live": 68818202,
+        "rust_peak": 95771042,
+        "shape_work": 0,
+        "submission_ns": 6032700,
+        "touched": 5792750
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "background-under-filter",
+      "full_render_ns": 297269100,
+      "full_rgba_sha256": "d7caad312a57ac722a8eec2699d4b36e44e57a6eeb3bc76c78f9eceee7f6024e",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7869900,
+        "cache_bytes": 12298,
+        "cache_entries": 128,
+        "compose_ns": 177682000,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 330884900,
+        "layout_cache_bytes": 240029,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2134,
+        "layout_cache_misses": 590,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33550592,
+        "painted": true,
+        "raster_compose_ns": 325419500,
+        "raster_ns": 147737500,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "d7caad312a57ac722a8eec2699d4b36e44e57a6eeb3bc76c78f9eceee7f6024e",
+        "rust_live": 68822893,
+        "rust_peak": 95776399,
+        "shape_work": 0,
+        "submission_ns": 5464800,
+        "touched": 5792750
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scale-change",
+      "full_render_ns": 336935200,
+      "full_rgba_sha256": "85bc729aa48a36d253ca95dc4414c83e3935ed5ede9d4416d5e7f493efb312ca",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 6802000,
+        "cache_bytes": 13589,
+        "cache_entries": 128,
+        "compose_ns": 181112300,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 357441000,
+        "layout_cache_bytes": 243939,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2151,
+        "layout_cache_misses": 624,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34016832,
+        "painted": true,
+        "raster_compose_ns": 350473800,
+        "raster_ns": 169361500,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "85bc729aa48a36d253ca95dc4414c83e3935ed5ede9d4416d5e7f493efb312ca",
+        "rust_live": 68834843,
+        "rust_peak": 95781090,
+        "shape_work": 876,
+        "submission_ns": 6966700,
+        "touched": 6161529
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "caret",
+      "full_render_ns": 353276000,
+      "full_rgba_sha256": "85bc729aa48a36d253ca95dc4414c83e3935ed5ede9d4416d5e7f493efb312ca",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8040700,
+        "cache_bytes": 13589,
+        "cache_entries": 128,
+        "compose_ns": 181841700,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 327728000,
+        "layout_cache_bytes": 243939,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2202,
+        "layout_cache_misses": 624,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34016832,
+        "painted": true,
+        "raster_compose_ns": 320502600,
+        "raster_ns": 138660900,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "85bc729aa48a36d253ca95dc4414c83e3935ed5ede9d4416d5e7f493efb312ca",
+        "rust_live": 68839533,
+        "rust_peak": 95793040,
+        "shape_work": 0,
+        "submission_ns": 7225000,
+        "touched": 6161529
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "preedit",
+      "full_render_ns": 443710700,
+      "full_rgba_sha256": "41a88219be04bbf3e80a827fc016040e46d457b3fb17e63e385b2c179b26c328",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7175300,
+        "cache_bytes": 13738,
+        "cache_entries": 128,
+        "compose_ns": 163583900,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 445313200,
+        "layout_cache_bytes": 243230,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2253,
+        "layout_cache_misses": 625,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34016832,
+        "painted": true,
+        "raster_compose_ns": 442116400,
+        "raster_ns": 278532500,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "41a88219be04bbf3e80a827fc016040e46d457b3fb17e63e385b2c179b26c328",
+        "rust_live": 68843715,
+        "rust_peak": 95797730,
+        "shape_work": 22,
+        "submission_ns": 3196400,
+        "touched": 9424146
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-return",
+      "full_render_ns": 458819700,
+      "full_rgba_sha256": "4064e125c838d393e03ad7109d690a7ac3c13dbb8da664f2a43be80ea964e87d",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7309900,
+        "cache_bytes": 13738,
+        "cache_entries": 128,
+        "compose_ns": 188957400,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 497577300,
+        "layout_cache_bytes": 243230,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2304,
+        "layout_cache_misses": 625,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 493171100,
+        "raster_ns": 304213700,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "4064e125c838d393e03ad7109d690a7ac3c13dbb8da664f2a43be80ea964e87d",
+        "rust_live": 68848380,
+        "rust_peak": 95801912,
+        "shape_work": 0,
+        "submission_ns": 4405900,
+        "touched": 9422251
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "compatible-motion",
+      "full_render_ns": 468295700,
+      "full_rgba_sha256": "4064e125c838d393e03ad7109d690a7ac3c13dbb8da664f2a43be80ea964e87d",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7841200,
+        "cache_bytes": 13738,
+        "cache_entries": 128,
+        "compose_ns": 30353000,
+        "damage_pixels": 65056,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 45012000,
+        "layout_cache_bytes": 243230,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2355,
+        "layout_cache_misses": 625,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 44745800,
+        "raster_ns": 14392800,
+        "realized": 45,
+        "regions": [
+          [
+            1438,
+            808,
+            304,
+            214
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "4064e125c838d393e03ad7109d690a7ac3c13dbb8da664f2a43be80ea964e87d",
+        "rust_live": 68853272,
+        "rust_peak": 95806577,
+        "shape_work": 0,
+        "submission_ns": 265800,
+        "touched": 401728
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "paint-invalidation",
+      "full_render_ns": 406976300,
+      "full_rgba_sha256": "4064e125c838d393e03ad7109d690a7ac3c13dbb8da664f2a43be80ea964e87d",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7291700,
+        "cache_bytes": 13738,
+        "cache_entries": 128,
+        "compose_ns": 159135800,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 391963800,
+        "layout_cache_bytes": 243230,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2406,
+        "layout_cache_misses": 625,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 384976100,
+        "raster_ns": 225840300,
+        "realized": 45,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "4064e125c838d393e03ad7109d690a7ac3c13dbb8da664f2a43be80ea964e87d",
+        "rust_live": 68857967,
+        "rust_peak": 95811469,
+        "shape_work": 0,
+        "submission_ns": 6987200,
+        "touched": 9422251
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "static-no-paint",
+      "full_render_ns": 441677900,
+      "full_rgba_sha256": "4064e125c838d393e03ad7109d690a7ac3c13dbb8da664f2a43be80ea964e87d",
+      "geometry": [
+        1920,
+        1080,
+        100
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7563200,
+        "cache_bytes": 13738,
+        "cache_entries": 128,
+        "compose_ns": 0,
+        "damage_pixels": 0,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 7500,
+        "layout_cache_bytes": 243230,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2406,
+        "layout_cache_misses": 625,
+        "layout_ns": 100,
+        "missed_60hz": false,
+        "paint_scratch_peak": 0,
+        "painted": false,
+        "raster_compose_ns": 7200,
+        "raster_ns": 7200,
+        "realized": 0,
+        "regions": [],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "4064e125c838d393e03ad7109d690a7ac3c13dbb8da664f2a43be80ea964e87d",
+        "rust_live": 68862439,
+        "rust_peak": 95816164,
+        "shape_work": 0,
+        "submission_ns": 0,
+        "touched": 0
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "baseline",
+      "full_render_ns": 351527400,
+      "full_rgba_sha256": "cebd55684151c4b8d6468c829edaaae954ba4951183b0ed09d633c88288eaee4",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8748200,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 91419900,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 362592600,
+        "layout_cache_bytes": 244938,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2409,
+        "layout_cache_misses": 661,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 354280400,
+        "raster_ns": 262860500,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "cebd55684151c4b8d6468c829edaaae954ba4951183b0ed09d633c88288eaee4",
+        "rust_live": 68869548,
+        "rust_peak": 95820700,
+        "shape_work": 884,
+        "submission_ns": 8311700,
+        "touched": 8209138
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-effects",
+      "full_render_ns": 413691300,
+      "full_rgba_sha256": "3a41765a90e0b892ad50eb4f2ed63c95d12863619676b2db304662986df9246c",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 9047600,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 112870300,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 410814400,
+        "layout_cache_bytes": 244938,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2448,
+        "layout_cache_misses": 661,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 402528300,
+        "raster_ns": 289658000,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "3a41765a90e0b892ad50eb4f2ed63c95d12863619676b2db304662986df9246c",
+        "rust_live": 68874924,
+        "rust_peak": 95820700,
+        "shape_work": 0,
+        "submission_ns": 8285700,
+        "touched": 8209183
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scroll",
+      "full_render_ns": 359770600,
+      "full_rgba_sha256": "2ee5e66d3c9d0d6d96137ba7e740a60e94e49111357a172799abaf4df8a2c139",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 6870300,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 31951300,
+        "damage_pixels": 312440,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 50350500,
+        "layout_cache_bytes": 244938,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2487,
+        "layout_cache_misses": 661,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 49468300,
+        "raster_ns": 17517000,
+        "realized": 30,
+        "regions": [
+          [
+            1618,
+            10,
+            292,
+            1070
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "2ee5e66d3c9d0d6d96137ba7e740a60e94e49111357a172799abaf4df8a2c139",
+        "rust_live": 68879623,
+        "rust_peak": 95820700,
+        "shape_work": 0,
+        "submission_ns": 881800,
+        "touched": 778241
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "type",
+      "full_render_ns": 299661300,
+      "full_rgba_sha256": "4094045dc5458e14b369a1b43bf5861b0e9d62bbd8f38724b8d9792dc2c5647b",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8634200,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 94842000,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 372940200,
+        "layout_cache_bytes": 245074,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2525,
+        "layout_cache_misses": 662,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 369432200,
+        "raster_ns": 274590200,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "4094045dc5458e14b369a1b43bf5861b0e9d62bbd8f38724b8d9792dc2c5647b",
+        "rust_live": 68884711,
+        "rust_peak": 95820700,
+        "shape_work": 34,
+        "submission_ns": 3507400,
+        "touched": 8197508
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "focus",
+      "full_render_ns": 299932400,
+      "full_rgba_sha256": "5913d65349743a3792c6a5c03038b155107b51999f06386640b566c48c4f02e2",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7137900,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 82673900,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 240006800,
+        "layout_cache_bytes": 245074,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2564,
+        "layout_cache_misses": 662,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 234914300,
+        "raster_ns": 152240400,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "5913d65349743a3792c6a5c03038b155107b51999f06386640b566c48c4f02e2",
+        "rust_live": 68889322,
+        "rust_peak": 95820700,
+        "shape_work": 0,
+        "submission_ns": 5091600,
+        "touched": 5810152
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "old-new-translucent-bounds",
+      "full_render_ns": 297438000,
+      "full_rgba_sha256": "5802e6ba739d1ca0c37e7985dac622c27a37d9c549f541a019ecb41712bf261a",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7956600,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 27560600,
+        "damage_pixels": 87780,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 38792600,
+        "layout_cache_bytes": 243831,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2602,
+        "layout_cache_misses": 663,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 38532700,
+        "raster_ns": 10972100,
+        "realized": 30,
+        "regions": [
+          [
+            1493,
+            136,
+            399,
+            220
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "5802e6ba739d1ca0c37e7985dac622c27a37d9c549f541a019ecb41712bf261a",
+        "rust_live": 68892762,
+        "rust_peak": 95820700,
+        "shape_work": 8,
+        "submission_ns": 259500,
+        "touched": 323527
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "rounded-clipped-descendants",
+      "full_render_ns": 281862100,
+      "full_rgba_sha256": "894073953d6255627d5608711817bdae46a8c5ae4856ccc1a2265db0b0570944",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 6657200,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 148373400,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 301930200,
+        "layout_cache_bytes": 243831,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2641,
+        "layout_cache_misses": 663,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 41472000,
+        "painted": true,
+        "raster_compose_ns": 298573000,
+        "raster_ns": 150199600,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "894073953d6255627d5608711817bdae46a8c5ae4856ccc1a2265db0b0570944",
+        "rust_live": 68897466,
+        "rust_peak": 95820700,
+        "shape_work": 0,
+        "submission_ns": 3356800,
+        "touched": 5733459
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reorder-overlap",
+      "full_render_ns": 277662900,
+      "full_rgba_sha256": "093085ab7d5a2884063950d2ea2d0f1f3c41fb22a3b0c8dc0ca561e653e72df2",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8449100,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 183053000,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 345108700,
+        "layout_cache_bytes": 243831,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2680,
+        "layout_cache_misses": 663,
+        "layout_ns": 400,
+        "missed_60hz": true,
+        "paint_scratch_peak": 41472000,
+        "painted": true,
+        "raster_compose_ns": 337826000,
+        "raster_ns": 154773000,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "093085ab7d5a2884063950d2ea2d0f1f3c41fb22a3b0c8dc0ca561e653e72df2",
+        "rust_live": 68902171,
+        "rust_peak": 95855663,
+        "shape_work": 0,
+        "submission_ns": 7281900,
+        "touched": 5733459
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "exposed-removal",
+      "full_render_ns": 279428500,
+      "full_rgba_sha256": "73c8fc8d33b3fb13145ef919b3fedd9c17d30c5020f184e916f481874f032073",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 6230200,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 137601000,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 266916000,
+        "layout_cache_bytes": 243831,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2716,
+        "layout_cache_misses": 663,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 264074600,
+        "raster_ns": 126473600,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "73c8fc8d33b3fb13145ef919b3fedd9c17d30c5020f184e916f481874f032073",
+        "rust_live": 68905578,
+        "rust_peak": 95860368,
+        "shape_work": 0,
+        "submission_ns": 2841200,
+        "touched": 5618730
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "backdrop-full",
+      "full_render_ns": 293814700,
+      "full_rgba_sha256": "73c8fc8d33b3fb13145ef919b3fedd9c17d30c5020f184e916f481874f032073",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8850400,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 167917400,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 323541400,
+        "layout_cache_bytes": 243831,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2752,
+        "layout_cache_misses": 663,
+        "layout_ns": 300,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34016832,
+        "painted": true,
+        "raster_compose_ns": 319253800,
+        "raster_ns": 151336400,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "73c8fc8d33b3fb13145ef919b3fedd9c17d30c5020f184e916f481874f032073",
+        "rust_live": 68910935,
+        "rust_peak": 95863775,
+        "shape_work": 0,
+        "submission_ns": 4286500,
+        "touched": 5618730
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "background-under-filter",
+      "full_render_ns": 343976500,
+      "full_rgba_sha256": "5119533768bf7234bfe7613576b32455f54df5fd4368ecac476a0d2a04474686",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 9760900,
+        "cache_bytes": 14892,
+        "cache_entries": 128,
+        "compose_ns": 161890600,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 333594200,
+        "layout_cache_bytes": 243831,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2788,
+        "layout_cache_misses": 663,
+        "layout_ns": 300,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34016832,
+        "painted": true,
+        "raster_compose_ns": 327696400,
+        "raster_ns": 165805800,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "5119533768bf7234bfe7613576b32455f54df5fd4368ecac476a0d2a04474686",
+        "rust_live": 68915626,
+        "rust_peak": 95869132,
+        "shape_work": 0,
+        "submission_ns": 5897000,
+        "touched": 5618730
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scale-change",
+      "full_render_ns": 446470300,
+      "full_rgba_sha256": "1d7f875e27379c62a92f82ec077b370d39770231c3439ea2c1a58d7b92266a3f",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 9373400,
+        "cache_bytes": 24992,
+        "cache_entries": 128,
+        "compose_ns": 229976700,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 444400100,
+        "layout_cache_bytes": 240557,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2788,
+        "layout_cache_misses": 699,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34669568,
+        "painted": true,
+        "raster_compose_ns": 440471000,
+        "raster_ns": 210494300,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "1d7f875e27379c62a92f82ec077b370d39770231c3439ea2c1a58d7b92266a3f",
+        "rust_live": 68927153,
+        "rust_peak": 95873823,
+        "shape_work": 890,
+        "submission_ns": 3928400,
+        "touched": 6195133
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "caret",
+      "full_render_ns": 386015200,
+      "full_rgba_sha256": "1d7f875e27379c62a92f82ec077b370d39770231c3439ea2c1a58d7b92266a3f",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7316600,
+        "cache_bytes": 24992,
+        "cache_entries": 128,
+        "compose_ns": 178024100,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 371402000,
+        "layout_cache_bytes": 240557,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2824,
+        "layout_cache_misses": 699,
+        "layout_ns": 300,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34669568,
+        "painted": true,
+        "raster_compose_ns": 366881200,
+        "raster_ns": 188857100,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "1d7f875e27379c62a92f82ec077b370d39770231c3439ea2c1a58d7b92266a3f",
+        "rust_live": 68931843,
+        "rust_peak": 95885350,
+        "shape_work": 0,
+        "submission_ns": 4520100,
+        "touched": 6195133
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "preedit",
+      "full_render_ns": 521685700,
+      "full_rgba_sha256": "5c926216aa1216ea684e3f6f165b98522e4a83a143fc1dd48be41fd17f44c697",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8359700,
+        "cache_bytes": 25157,
+        "cache_entries": 128,
+        "compose_ns": 180013000,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 574142400,
+        "layout_cache_bytes": 239712,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2860,
+        "layout_cache_misses": 700,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34669568,
+        "painted": true,
+        "raster_compose_ns": 568792200,
+        "raster_ns": 388779200,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "5c926216aa1216ea684e3f6f165b98522e4a83a143fc1dd48be41fd17f44c697",
+        "rust_live": 68935905,
+        "rust_peak": 95890040,
+        "shape_work": 22,
+        "submission_ns": 5349700,
+        "touched": 9185846
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-return",
+      "full_render_ns": 532406600,
+      "full_rgba_sha256": "5420a947a80f9fdcaa333a8b13e46311e7d8f22482962d6a9665afe67842bfe1",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 7709700,
+        "cache_bytes": 25157,
+        "cache_entries": 128,
+        "compose_ns": 175130800,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 510633400,
+        "layout_cache_bytes": 239712,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2896,
+        "layout_cache_misses": 700,
+        "layout_ns": 300,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 503496900,
+        "raster_ns": 328366100,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "5420a947a80f9fdcaa333a8b13e46311e7d8f22482962d6a9665afe67842bfe1",
+        "rust_live": 68940570,
+        "rust_peak": 95894102,
+        "shape_work": 0,
+        "submission_ns": 7135800,
+        "touched": 9182556
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "compatible-motion",
+      "full_render_ns": 558718100,
+      "full_rgba_sha256": "5420a947a80f9fdcaa333a8b13e46311e7d8f22482962d6a9665afe67842bfe1",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8722900,
+        "cache_bytes": 25157,
+        "cache_entries": 128,
+        "compose_ns": 39697500,
+        "damage_pixels": 114736,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 62809900,
+        "layout_cache_bytes": 239712,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2932,
+        "layout_cache_misses": 700,
+        "layout_ns": 0,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 62323200,
+        "raster_ns": 22625700,
+        "realized": 30,
+        "regions": [
+          [
+            1278,
+            718,
+            404,
+            284
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "5420a947a80f9fdcaa333a8b13e46311e7d8f22482962d6a9665afe67842bfe1",
+        "rust_live": 68945462,
+        "rust_peak": 95898767,
+        "shape_work": 0,
+        "submission_ns": 486100,
+        "touched": 709516
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "paint-invalidation",
+      "full_render_ns": 868487500,
+      "full_rgba_sha256": "5420a947a80f9fdcaa333a8b13e46311e7d8f22482962d6a9665afe67842bfe1",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8586700,
+        "cache_bytes": 25157,
+        "cache_entries": 128,
+        "compose_ns": 259804500,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 635065200,
+        "layout_cache_bytes": 239712,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2968,
+        "layout_cache_misses": 700,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 627544300,
+        "raster_ns": 367739800,
+        "realized": 30,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "5420a947a80f9fdcaa333a8b13e46311e7d8f22482962d6a9665afe67842bfe1",
+        "rust_live": 68950157,
+        "rust_peak": 95903659,
+        "shape_work": 0,
+        "submission_ns": 7519900,
+        "touched": 9182556
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "static-no-paint",
+      "full_render_ns": 817363800,
+      "full_rgba_sha256": "5420a947a80f9fdcaa333a8b13e46311e7d8f22482962d6a9665afe67842bfe1",
+      "geometry": [
+        1920,
+        1080,
+        150
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 12879600,
+        "cache_bytes": 25157,
+        "cache_entries": 128,
+        "compose_ns": 0,
+        "damage_pixels": 0,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 11200,
+        "layout_cache_bytes": 239712,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2968,
+        "layout_cache_misses": 700,
+        "layout_ns": 100,
+        "missed_60hz": false,
+        "paint_scratch_peak": 0,
+        "painted": false,
+        "raster_compose_ns": 10600,
+        "raster_ns": 10600,
+        "realized": 0,
+        "regions": [],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "5420a947a80f9fdcaa333a8b13e46311e7d8f22482962d6a9665afe67842bfe1",
+        "rust_live": 68954629,
+        "rust_peak": 95908354,
+        "shape_work": 0,
+        "submission_ns": 100,
+        "touched": 0
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "baseline",
+      "full_render_ns": 540802900,
+      "full_rgba_sha256": "acf298f3c51f15fdac47b56c724d15bc4a41690a70319849f0890412e79015d1",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 11564900,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 148035000,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 562670900,
+        "layout_cache_bytes": 237431,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 2971,
+        "layout_cache_misses": 729,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 548397000,
+        "raster_ns": 400362000,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "acf298f3c51f15fdac47b56c724d15bc4a41690a70319849f0890412e79015d1",
+        "rust_live": 68958365,
+        "rust_peak": 95912890,
+        "shape_work": 695,
+        "submission_ns": 14273200,
+        "touched": 7708071
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-effects",
+      "full_render_ns": 533800400,
+      "full_rgba_sha256": "fe2c6c9dabfaa5dbdd3576282be6c00095c35fe8f12aa5b3aa7012bccf28ac46",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 11234000,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 145621500,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 543896500,
+        "layout_cache_bytes": 237431,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3003,
+        "layout_cache_misses": 729,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 534429300,
+        "raster_ns": 388807800,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "fe2c6c9dabfaa5dbdd3576282be6c00095c35fe8f12aa5b3aa7012bccf28ac46",
+        "rust_live": 68963741,
+        "rust_peak": 95912890,
+        "shape_work": 0,
+        "submission_ns": 9466600,
+        "touched": 7708135
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scroll",
+      "full_render_ns": 515718900,
+      "full_rgba_sha256": "4650f89b37d77f88a0b8e8e11de6b503d8a22311c473a7e8bca704b02b12e1fd",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 9150900,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 67622500,
+        "damage_pixels": 413608,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 115455000,
+        "layout_cache_bytes": 237431,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3035,
+        "layout_cache_misses": 729,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 113706300,
+        "raster_ns": 46083800,
+        "realized": 23,
+        "regions": [
+          [
+            1518,
+            14,
+            388,
+            1066
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "4650f89b37d77f88a0b8e8e11de6b503d8a22311c473a7e8bca704b02b12e1fd",
+        "rust_live": 68968440,
+        "rust_peak": 95912890,
+        "shape_work": 0,
+        "submission_ns": 1748200,
+        "touched": 1058870
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "type",
+      "full_render_ns": 691834900,
+      "full_rgba_sha256": "bca0ecb7c7526269d0d4465ec487b04cba99a27242809ed191cc5d0482c60a87",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 12414900,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 140985500,
+        "damage_pixels": 1033200,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 410176400,
+        "layout_cache_bytes": 237567,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3066,
+        "layout_cache_misses": 730,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 405847500,
+        "raster_ns": 264862000,
+        "realized": 23,
+        "regions": [
+          [
+            206,
+            150,
+            1260,
+            820
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "bca0ecb7c7526269d0d4465ec487b04cba99a27242809ed191cc5d0482c60a87",
+        "rust_live": 68973528,
+        "rust_peak": 95912890,
+        "shape_work": 34,
+        "submission_ns": 4327900,
+        "touched": 5299626
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "focus",
+      "full_render_ns": 400721000,
+      "full_rgba_sha256": "f62c702642a6ab867903bb7cdcf52b1ffdc0d35f6f4940d082c517e20e397866",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 11236000,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 171298400,
+        "damage_pixels": 1108800,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 382938500,
+        "layout_cache_bytes": 237567,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3130,
+        "layout_cache_misses": 730,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 376105800,
+        "raster_ns": 204807400,
+        "realized": 46,
+        "regions": [
+          [
+            206,
+            78,
+            1260,
+            60
+          ],
+          [
+            206,
+            150,
+            1260,
+            820
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "f62c702642a6ab867903bb7cdcf52b1ffdc0d35f6f4940d082c517e20e397866",
+        "rust_live": 68978299,
+        "rust_peak": 95912890,
+        "shape_work": 0,
+        "submission_ns": 6832100,
+        "touched": 3616373
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "old-new-translucent-bounds",
+      "full_render_ns": 416069600,
+      "full_rgba_sha256": "73d948fe8fd6c2cfc752e32f46967b292255abea1021350cac2d9088046fea51",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 11821100,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 53501500,
+        "damage_pixels": 155052,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 87832200,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3161,
+        "layout_cache_misses": 731,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 87093600,
+        "raster_ns": 33592100,
+        "realized": 23,
+        "regions": [
+          [
+            1351,
+            182,
+            531,
+            292
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "73d948fe8fd6c2cfc752e32f46967b292255abea1021350cac2d9088046fea51",
+        "rust_live": 68981739,
+        "rust_peak": 95912890,
+        "shape_work": 8,
+        "submission_ns": 738000,
+        "touched": 571254
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "rounded-clipped-descendants",
+      "full_render_ns": 625322300,
+      "full_rgba_sha256": "a585c8fa14afd0e675e170d0915b71586b1395c9d6c78aad1c1c450b487baf9f",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 12275800,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 248062500,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 479605400,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3193,
+        "layout_cache_misses": 731,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 41472000,
+        "painted": true,
+        "raster_compose_ns": 468360100,
+        "raster_ns": 220297600,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "a585c8fa14afd0e675e170d0915b71586b1395c9d6c78aad1c1c450b487baf9f",
+        "rust_live": 68986443,
+        "rust_peak": 95912890,
+        "shape_work": 0,
+        "submission_ns": 11244400,
+        "touched": 5683466
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reorder-overlap",
+      "full_render_ns": 579498600,
+      "full_rgba_sha256": "a72cb42b3d5d10e9f982ed2a00cfa95915e7be0ef1de901b503edfe15f5394b1",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 14237300,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 313672900,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 593490900,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3225,
+        "layout_cache_misses": 731,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 41472000,
+        "painted": true,
+        "raster_compose_ns": 587642000,
+        "raster_ns": 273969100,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "a72cb42b3d5d10e9f982ed2a00cfa95915e7be0ef1de901b503edfe15f5394b1",
+        "rust_live": 68991148,
+        "rust_peak": 95944640,
+        "shape_work": 0,
+        "submission_ns": 5848100,
+        "touched": 5683466
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "exposed-removal",
+      "full_render_ns": 510322300,
+      "full_rgba_sha256": "4154b71c774a0cb1fd6da855b939511e1b3274ca1ab8c986bc844d2381665041",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 12224700,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 233754000,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 482633900,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3254,
+        "layout_cache_misses": 731,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 474069700,
+        "raster_ns": 240315700,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "4154b71c774a0cb1fd6da855b939511e1b3274ca1ab8c986bc844d2381665041",
+        "rust_live": 68994555,
+        "rust_peak": 95949345,
+        "shape_work": 0,
+        "submission_ns": 8563500,
+        "touched": 5479947
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "backdrop-full",
+      "full_render_ns": 480146500,
+      "full_rgba_sha256": "4154b71c774a0cb1fd6da855b939511e1b3274ca1ab8c986bc844d2381665041",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 15565900,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 274820500,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 549807300,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3283,
+        "layout_cache_misses": 731,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34669568,
+        "painted": true,
+        "raster_compose_ns": 542300600,
+        "raster_ns": 267480100,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "4154b71c774a0cb1fd6da855b939511e1b3274ca1ab8c986bc844d2381665041",
+        "rust_live": 68999912,
+        "rust_peak": 95952752,
+        "shape_work": 0,
+        "submission_ns": 7506100,
+        "touched": 5479947
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "background-under-filter",
+      "full_render_ns": 552885900,
+      "full_rgba_sha256": "37c271c4359a7fc347d4fce42dafe75f192af469da2b2c0f96508ab8710bc484",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 13627900,
+        "cache_bytes": 26927,
+        "cache_entries": 128,
+        "compose_ns": 269692200,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 597216600,
+        "layout_cache_bytes": 236324,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3312,
+        "layout_cache_misses": 731,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34669568,
+        "painted": true,
+        "raster_compose_ns": 588549200,
+        "raster_ns": 318857000,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "37c271c4359a7fc347d4fce42dafe75f192af469da2b2c0f96508ab8710bc484",
+        "rust_live": 69004603,
+        "rust_peak": 95958109,
+        "shape_work": 0,
+        "submission_ns": 8666500,
+        "touched": 5479947
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "scale-change",
+      "full_render_ns": 253883200,
+      "full_rgba_sha256": "df60ae6d02e246a9329b13de4c615ac3e9d1ad1c29cd4cd1970a0b453bc2ccbf",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8941100,
+        "cache_bytes": 23427,
+        "cache_entries": 128,
+        "compose_ns": 116914000,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 282384800,
+        "layout_cache_bytes": 234341,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3338,
+        "layout_cache_misses": 734,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34016832,
+        "painted": true,
+        "raster_compose_ns": 277278100,
+        "raster_ns": 160364100,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "df60ae6d02e246a9329b13de4c615ac3e9d1ad1c29cd4cd1970a0b453bc2ccbf",
+        "rust_live": 69003821,
+        "rust_peak": 95962800,
+        "shape_work": 57,
+        "submission_ns": 5105800,
+        "touched": 3992724
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "caret",
+      "full_render_ns": 286041100,
+      "full_rgba_sha256": "df60ae6d02e246a9329b13de4c615ac3e9d1ad1c29cd4cd1970a0b453bc2ccbf",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 8840500,
+        "cache_bytes": 23427,
+        "cache_entries": 128,
+        "compose_ns": 117613700,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 262780800,
+        "layout_cache_bytes": 234341,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3367,
+        "layout_cache_misses": 734,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34016832,
+        "painted": true,
+        "raster_compose_ns": 257002100,
+        "raster_ns": 139388400,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "df60ae6d02e246a9329b13de4c615ac3e9d1ad1c29cd4cd1970a0b453bc2ccbf",
+        "rust_live": 69008511,
+        "rust_peak": 95962800,
+        "shape_work": 0,
+        "submission_ns": 5778200,
+        "touched": 3992724
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "preedit",
+      "full_render_ns": 355172600,
+      "full_rgba_sha256": "e7e6b0682c860a7b31dfaf8183072ad1cd5c014d131d9661016f1f318df39e80",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 10908800,
+        "cache_bytes": 23199,
+        "cache_entries": 128,
+        "compose_ns": 117956700,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 304229900,
+        "layout_cache_bytes": 233632,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3396,
+        "layout_cache_misses": 735,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 34016832,
+        "painted": true,
+        "raster_compose_ns": 296614700,
+        "raster_ns": 178658000,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "e7e6b0682c860a7b31dfaf8183072ad1cd5c014d131d9661016f1f318df39e80",
+        "rust_live": 69012316,
+        "rust_peak": 95966708,
+        "shape_work": 22,
+        "submission_ns": 7614600,
+        "touched": 5041715
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "reduced-return",
+      "full_render_ns": 358788000,
+      "full_rgba_sha256": "b87d07c0fb579912d92fe13576bb1aafec63e7d4bec96cfbdc8e3f90cd53482c",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 11146000,
+        "cache_bytes": 23199,
+        "cache_entries": 128,
+        "compose_ns": 122467500,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 274022700,
+        "layout_cache_bytes": 233632,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3425,
+        "layout_cache_misses": 735,
+        "layout_ns": 100,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 267016700,
+        "raster_ns": 144549200,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "b87d07c0fb579912d92fe13576bb1aafec63e7d4bec96cfbdc8e3f90cd53482c",
+        "rust_live": 69016981,
+        "rust_peak": 95970513,
+        "shape_work": 0,
+        "submission_ns": 7002700,
+        "touched": 5039820
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "compatible-motion",
+      "full_render_ns": 354760200,
+      "full_rgba_sha256": "b87d07c0fb579912d92fe13576bb1aafec63e7d4bec96cfbdc8e3f90cd53482c",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 43398200,
+        "cache_bytes": 23199,
+        "cache_entries": 128,
+        "compose_ns": 75540800,
+        "damage_pixels": 65056,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 113509200,
+        "layout_cache_bytes": 233632,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3454,
+        "layout_cache_misses": 735,
+        "layout_ns": 400,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 109994400,
+        "raster_ns": 34453600,
+        "realized": 23,
+        "regions": [
+          [
+            718,
+            403,
+            304,
+            214
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "b87d07c0fb579912d92fe13576bb1aafec63e7d4bec96cfbdc8e3f90cd53482c",
+        "rust_live": 69021873,
+        "rust_peak": 95975178,
+        "shape_work": 0,
+        "submission_ns": 3513600,
+        "touched": 401728
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "paint-invalidation",
+      "full_render_ns": 354555000,
+      "full_rgba_sha256": "b87d07c0fb579912d92fe13576bb1aafec63e7d4bec96cfbdc8e3f90cd53482c",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 12245300,
+        "cache_bytes": 23199,
+        "cache_entries": 128,
+        "compose_ns": 153325900,
+        "damage_pixels": 2073600,
+        "fallback": true,
+        "frame_bytes": 8294400,
+        "frame_ns": 365607100,
+        "layout_cache_bytes": 233632,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3483,
+        "layout_cache_misses": 735,
+        "layout_ns": 200,
+        "missed_60hz": true,
+        "paint_scratch_peak": 33177600,
+        "painted": true,
+        "raster_compose_ns": 355242400,
+        "raster_ns": 201916500,
+        "realized": 23,
+        "regions": [
+          [
+            0,
+            0,
+            1920,
+            1080
+          ]
+        ],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "b87d07c0fb579912d92fe13576bb1aafec63e7d4bec96cfbdc8e3f90cd53482c",
+        "rust_live": 69026568,
+        "rust_peak": 95980070,
+        "shape_work": 0,
+        "submission_ns": 10364000,
+        "touched": 5039820
+      },
+      "max_channel_error": 0
+    },
+    {
+      "case": "static-no-paint",
+      "full_render_ns": 354574100,
+      "full_rgba_sha256": "b87d07c0fb579912d92fe13576bb1aafec63e7d4bec96cfbdc8e3f90cd53482c",
+      "geometry": [
+        1920,
+        1080,
+        200
+      ],
+      "incremental": {
+        "allocated_bytes": 0,
+        "allocations": 0,
+        "audit_ns": 10806300,
+        "cache_bytes": 23199,
+        "cache_entries": 128,
+        "compose_ns": 0,
+        "damage_pixels": 0,
+        "fallback": false,
+        "frame_bytes": 8294400,
+        "frame_ns": 13300,
+        "layout_cache_bytes": 233632,
+        "layout_cache_entries": 128,
+        "layout_cache_hits": 3483,
+        "layout_cache_misses": 735,
+        "layout_ns": 0,
+        "missed_60hz": false,
+        "paint_scratch_peak": 0,
+        "painted": false,
+        "raster_compose_ns": 13000,
+        "raster_ns": 13000,
+        "realized": 0,
+        "regions": [],
+        "rgb_bytes": 6220800,
+        "rgba_sha256": "b87d07c0fb579912d92fe13576bb1aafec63e7d4bec96cfbdc8e3f90cd53482c",
+        "rust_live": 69031040,
+        "rust_peak": 95984765,
+        "shape_work": 0,
+        "submission_ns": 0,
+        "touched": 0
+      },
+      "max_channel_error": 0
+    }
+  ],
+  "fragmentation_fallback": true,
+  "guest": false,
+  "pixel_tolerance": 0,
+  "status": "passed"
+}

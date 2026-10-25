@@ -190,3 +190,18 @@ results, with deliberate invalid selection mutations. It does not render, boot,
 benchmark or supply legal approval. Full command logs stay local. The retained
 [review bundle](../../../evidence/phase-2/P2-09/2026-10-23/README.md) records the
 five story criteria and exact review inputs. No upload or Jira issue is authorized.
+
+## Final hosted completion review — 2026-10-24
+
+[P2-13 aggregate acceptance](../../../evidence/phase-2/P2-13/2026-10-24/README.md) now closes P2-10–P2-13's
+declared M2 hosted completion list, including clean retained/cache final linking.
+The original P2-09 JSON and its chosen-source pins remain a historical decision
+snapshot; final source identities, exact tested artifacts and current raw samples
+are recorded by P2-13. All eight comparison axes, license choices and frozen
+Slint findings remain intact. Actual distribution clearance remains false.
+
+No required hosted behavior is deferred to guest work. PERF-12-01–03 retain the
+measured raster/copy, staging and timer work; guest numeric targets are unchanged
+and unaccepted. M3 runtime/authority, M4 backend/resource continuity and M5 behavior
+replacement remain the next integration gates. Reconsideration rules above and
+the ADRs' Proposed status remain in force.

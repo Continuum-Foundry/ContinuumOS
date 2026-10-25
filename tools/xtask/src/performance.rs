@@ -186,7 +186,7 @@ impl View {
         let (layout_entries, layout_bytes, layout_hits, layout_misses) =
             engine.layout_cache_usage();
         Ok(
-            json!({"layout_ns":layout,"raster_compose_ns":raster_compose,"raster_ns":if trace{Some(raster_compose.saturating_sub(c.composition_ns))}else{None},"compose_ns":if trace{Some(c.composition_ns)}else{None},"submission_ns":submission,"frame_ns":frame_ns,"audit_ns":audit.elapsed().as_nanos() as u64,"rgba_sha256":digest,"painted":!damage.regions.is_empty(),"damage_pixels":damage.pixels(),"regions":damage.regions,"fallback":damage.fallback,"allocations":if trace{Some(ac::ALLOCS.load(Relaxed)-a)}else{None},"allocated_bytes":if trace{Some(ac::BYTES.load(Relaxed)-b)}else{None},"rust_live":ac::LIVE.load(Relaxed),"rust_peak":ac::PEAK.load(Relaxed),"frame_bytes":self.frame.bytes(),"rgb_bytes":self.rgb.capacity(),"layout_cache_entries":layout_entries,"layout_cache_bytes":layout_bytes,"layout_cache_hits":layout_hits,"layout_cache_misses":layout_misses,"cache_entries":cache_entries,"cache_bytes":cache_bytes,"paint_scratch_peak":c.scratch_peak,"touched":c.touched,"shape_work":c.shape_work,"realized":c.realized,"missed_60hz":frame_ns>16_666_667}),
+            json!({"staged_frame_reused":c.reused_frame,"work": {"fill_ns":c.work.fill_ns,"text_ns":c.work.text_ns,"backdrop_ns":c.work.backdrop_ns,"group_copy_ns":c.work.group_copy_ns,"group_mask_blend_ns":c.work.group_mask_blend_ns,"snapshot_ns":c.work.snapshot_ns,"fill_pixels":c.work.fill_pixels,"copied_bytes":c.work.copied_bytes,"mask_pixels":c.work.mask_pixels,"blend_pixels":c.work.blend_pixels,"opaque_span_pixels":c.work.opaque_span_pixels},"layout_ns":layout,"raster_compose_ns":raster_compose,"raster_ns":if trace{Some(raster_compose.saturating_sub(c.composition_ns))}else{None},"compose_ns":if trace{Some(c.composition_ns)}else{None},"submission_ns":submission,"frame_ns":frame_ns,"audit_ns":audit.elapsed().as_nanos() as u64,"rgba_sha256":digest,"painted":!damage.regions.is_empty(),"damage_pixels":damage.pixels(),"regions":damage.regions,"fallback":damage.fallback,"allocations":if trace{Some(ac::ALLOCS.load(Relaxed)-a)}else{None},"allocated_bytes":if trace{Some(ac::BYTES.load(Relaxed)-b)}else{None},"rust_live":ac::LIVE.load(Relaxed),"rust_peak":ac::PEAK.load(Relaxed),"frame_bytes":self.frame.bytes(),"rgb_bytes":self.rgb.capacity(),"layout_cache_entries":layout_entries,"layout_cache_bytes":layout_bytes,"layout_cache_hits":layout_hits,"layout_cache_misses":layout_misses,"cache_entries":cache_entries,"cache_bytes":cache_bytes,"paint_scratch_peak":c.scratch_peak,"touched":c.touched,"shape_work":c.shape_work,"realized":c.realized,"missed_60hz":frame_ns>16_666_667}),
         )
     }
     fn script(&mut self, n: usize, trace: bool) -> Result<Value> {
@@ -287,6 +287,107 @@ impl View {
         )?;
         Ok((hash(&pixels), ns))
     }
+}
+
+/// Fixed single-view diagnostic, separate from the paced six-view acceptance.
+pub fn focused(mode: &str, run: &Path) -> Result<()> {
+    need(matches!(mode, "diagnostic" | "tails"), "Focused mode")?;
+    fs::create_dir_all(run).map_err(|e| e.to_string())?;
+    let bytes = fs::read(root().join("config/ui-performance-remediation.json"))
+        .map_err(|e| e.to_string())?;
+    let p: Value = serde_json::from_slice(&bytes).map_err(|e| e.to_string())?;
+    write_json(&run.join("protocol.json"), &p)?;
+    // Empirical granularity probe. This is process CPU, not a renderer-thread
+    // clock; a 100ns storage unit is not a 100ns resolution claim.
+    let mut cpu_rows = Vec::new();
+    let mut last = ac::process()?["cpu_100ns"].as_u64().unwrap();
+    let data = vec![73u8; 16384];
+    for _ in 0..256 {
+        let start = Instant::now();
+        std::hint::black_box(hash(&data));
+        let now = ac::process()?["cpu_100ns"].as_u64().unwrap();
+        cpu_rows.push(
+            json!({"elapsed_ns":start.elapsed().as_nanos() as u64,"cpu_delta_100ns":now-last}),
+        );
+        last = now;
+    }
+    write_json(
+        &run.join("cpu-clock-probe.json"),
+        &json!({"samples":cpu_rows,"scope":"empirical process-clock granularity; no per-frame CPU percentile credit"}),
+    )?;
+    let corpus = crate::ui_fixtures::checked_inputs()?;
+    let fonts = crate::text::inputs()?;
+    let refs: Vec<_> = fonts.iter().map(Vec::as_slice).collect();
+    let mut summaries = Vec::new();
+    use std::io::Write;
+    let mut output = fs::File::create(run.join("frames.jsonl")).map_err(|e| e.to_string())?;
+    for g in p["geometry"].as_array().ok_or("Focused geometry")? {
+        if mode == "tails" && *g != p["tail_primary_geometry"] {
+            continue;
+        }
+        let (w, h, scale) = (
+            g[0].as_u64().unwrap() as u32,
+            g[1].as_u64().unwrap() as u32,
+            g[2].as_u64().unwrap() as u16,
+        );
+        for reduced in [false, true] {
+            for trace in [false, true] {
+                for workload in 0..6 {
+                    let mut engine = text_core::Engine::new(&refs).map_err(|e| format!("{e:?}"))?;
+                    let mut v = View::new(&corpus, w, h, scale)?;
+                    let warm = p["warmup_frames"].as_u64().unwrap() as usize;
+                    let samples = p[if mode == "tails" {
+                        "tail_frames_per_primary_cell"
+                    } else {
+                        "diagnostic_frames_per_cell"
+                    }]
+                    .as_u64()
+                    .unwrap() as usize;
+                    ac::COUNT.store(trace, Relaxed);
+                    let mut times = Vec::with_capacity(samples);
+                    let mut cpu_before = json!(null);
+                    let mut start = Instant::now();
+                    for i in 0..warm + samples {
+                        if i == warm {
+                            cpu_before = ac::process()?;
+                            start = Instant::now();
+                        }
+                        // Existing fixed scripts, with effects held explicitly constant.
+                        let dispatch = Instant::now();
+                        let input = v.script(i * 36 + workload * 6, trace)?;
+                        checked(v.owner.invoke(Action::Effects(reduced), Entry::Automation))?;
+                        let dispatch_ns = dispatch.elapsed().as_nanos() as u64;
+                        let mut row = v.draw(&mut engine, trace)?;
+                        row["input_to_ram_submission_ns"] =
+                            json!(dispatch_ns + row["frame_ns"].as_u64().unwrap());
+                        if i >= warm {
+                            times.push(row["frame_ns"].as_u64().unwrap());
+                            row["sample"] = json!(i - warm);
+                            row["geometry"] = g.clone();
+                            row["workload"] = json!(workload);
+                            row["reduced"] = json!(reduced);
+                            row["trace"] = json!(trace);
+                            row["input"] = input;
+                            writeln!(output, "{}", row).map_err(|e| e.to_string())?;
+                        }
+                    }
+                    let elapsed = start.elapsed().as_nanos() as u64;
+                    let cpu_after = ac::process()?;
+                    ac::COUNT.store(false, Relaxed);
+                    times.sort_unstable();
+                    let percentile = |q: usize| times[(times.len() * q).div_ceil(100) - 1];
+                    summaries.push(json!({"geometry":g,"workload":workload,"reduced":reduced,"trace":trace,"samples":samples,"frame_ns":{"p50":percentile(50),"p95":percentile(95),"p99":percentile(99)},"batch_elapsed_ns":elapsed,"batch_cpu_100ns":cpu_after["cpu_100ns"].as_u64().unwrap()-cpu_before["cpu_100ns"].as_u64().unwrap(),"final_rgba_sha256":hash(&v.frame.pixels),"checkpoint_sha256":hash(&encoded(&v.owner)?)}));
+                }
+            }
+        }
+    }
+    let executable = std::env::current_exe().map_err(|e| e.to_string())?;
+    write_json(
+        &run.join("result.json"),
+        &json!({"status":"passed","mode":mode,"protocol_sha256":hash(&bytes),"executable_sha256":hash(&fs::read(&executable).map_err(|e|e.to_string())?),"cells":summaries,"cpu_precision":"batched process CPU only; 100ns representation does not establish clock resolution or per-frame CPU percentiles","guest":false}),
+    )?;
+    println!("Focused UI profile: {}", run.display());
+    Ok(())
 }
 
 pub fn damage() -> Result<()> {
@@ -751,7 +852,7 @@ fn stability_at(run: &Path, width: u32, height: u32) -> Result<()> {
         )?;
         let before_live = ac::LIVE.load(Relaxed);
         ac::PEAK.store(before_live, Relaxed);
-        resources.apply(
+        v.frame = resources.apply(
             &file,
             &mut v.scene,
             &mut v.owner,
@@ -769,6 +870,10 @@ fn stability_at(run: &Path, width: u32, height: u32) -> Result<()> {
             "Document owner replaced",
         )?;
         let frame = v.draw(&mut engine, true)?;
+        need(
+            frame["staged_frame_reused"] == true,
+            "Staged frame was repainted",
+        )?;
         resources.first_frame();
         let visible_ns = complete.elapsed().as_nanos() as u64;
         let peak_live = ac::PEAK.load(Relaxed);
@@ -925,4 +1030,113 @@ fn stability_at(run: &Path, width: u32, height: u32) -> Result<()> {
         "Reload resource growth exceeded preregistered tolerance",
     )?;
     Ok(())
+}
+
+#[cfg(test)]
+mod remediation_tests {
+    use super::*;
+    #[test]
+    fn rich_caret_damage_is_small_and_matches_full_render() {
+        let corpus = crate::ui_fixtures::checked_inputs().unwrap();
+        let fonts = crate::text::inputs().unwrap();
+        let refs: Vec<_> = fonts.iter().map(Vec::as_slice).collect();
+        let mut engine = text_core::Engine::new(&refs).unwrap();
+        for (w, h, scale) in [
+            (1280, 720, 100),
+            (1280, 720, 150),
+            (1280, 720, 200),
+            (1920, 1080, 100),
+            (1920, 1080, 150),
+            (1920, 1080, 200),
+        ] {
+            let mut v = View::new(&corpus, w, h, scale).unwrap();
+            v.owner
+                .invoke(Action::Focus("editor".into()), Entry::Automation)
+                .unwrap();
+            v.owner
+                .invoke(Action::Select(Selection::new(0, 0)), Entry::Automation)
+                .unwrap();
+            v.scene.tokens.reduced_effects = false;
+            v.owner
+                .invoke(Action::Effects(false), Entry::Automation)
+                .unwrap();
+            v.draw(&mut engine, false).unwrap();
+            v.scene.caret_hidden = true;
+            v.scene.dirty.paint = true;
+            let row = v.draw(&mut engine, false).unwrap();
+            assert_eq!(row["fallback"], false, "{w} {h} {scale}");
+            assert!(
+                row["damage_pixels"].as_u64().unwrap() < 1000,
+                "{w} {h} {scale}"
+            );
+            v.oracle(&mut engine).unwrap();
+        }
+    }
+    #[test]
+    fn backdrop_halo_changes_fall_back_but_disjoint_damage_stays_partial() {
+        let corpus = crate::ui_fixtures::checked_inputs().unwrap();
+        let fonts = crate::text::inputs().unwrap();
+        let refs: Vec<_> = fonts.iter().map(Vec::as_slice).collect();
+        let mut engine = text_core::Engine::new(&refs).unwrap();
+        for (w, h, scale) in [
+            (1280, 720, 100),
+            (1280, 720, 150),
+            (1280, 720, 200),
+            (1920, 1080, 100),
+            (1920, 1080, 150),
+            (1920, 1080, 200),
+        ] {
+            for halo in [false, true] {
+                let mut v = View::new(&corpus, w, h, scale).unwrap();
+                v.scene.tokens.reduced_effects = false;
+                v.owner
+                    .invoke(Action::Effects(false), Entry::Automation)
+                    .unwrap();
+                let launcher = v.scene.tree.node("launcher").unwrap().rect;
+                let support = (v.scene.tokens.blur_radius * scale as u32).div_ceil(100)
+                    * v.scene.tokens.passes;
+                let distance = support as f32 * 100.0 / scale as f32;
+                let mut marker = v.scene.tree.node("desktop").unwrap().clone();
+                marker.id = "halo-marker".into();
+                marker.semantic_id = "sem.halo-marker".into();
+                marker.children.clear();
+                marker.kind = custom_ui::scene::Kind::Overlay;
+                marker.clip = false;
+                marker.opacity = 0.4;
+                marker.rect = Rect([
+                    launcher.0[0]
+                        - if halo {
+                            distance / 2.0
+                        } else {
+                            distance + 12.0
+                        },
+                    launcher.0[1] + 20.0,
+                    4.0,
+                    4.0,
+                ]);
+                v.scene.tree.nodes.push(marker);
+                v.scene
+                    .tree
+                    .nodes
+                    .iter_mut()
+                    .find(|n| n.id == "desktop")
+                    .unwrap()
+                    .children
+                    .insert(0, "halo-marker".into());
+                v.draw(&mut engine, false).unwrap();
+                v.scene
+                    .tree
+                    .nodes
+                    .iter_mut()
+                    .find(|n| n.id == "halo-marker")
+                    .unwrap()
+                    .opacity = 0.8;
+                v.scene.tree.revision += 1;
+                v.scene.dirty.paint = true;
+                let row = v.draw(&mut engine, false).unwrap();
+                assert_eq!(row["fallback"], json!(halo), "{w} {h} {scale} halo {halo}");
+                v.oracle(&mut engine).unwrap();
+            }
+        }
+    }
 }

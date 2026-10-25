@@ -70,3 +70,23 @@ validation before publication. Frame and resource-latency misses are substantial
 PERF-12-01–03 name bounded optimization work. Host elapsed/process observations do
 not pass guest targets. P2-13 must review the final clean selected link and M2 gate;
 M4 guest confirmation remains open. This ADR remains **Proposed**.
+
+## P2-13 final hosted review — 2026-10-24
+
+[Final aggregate acceptance](../../evidence/phase-2/P2-13/2026-10-24/README.md) now passes the declared M2
+hosted subset and clean final linking of the selected retained/damage/layout-cache
+path. Final conformance, same-window L0/L1 continuity, 200 measured file reloads,
+idle and five paired optimized measurements pass their evidence gates. Frame and
+resource-latency misses remain in the review and PERF-12-01–03; no guest budget is
+accepted. This ADR remains **Proposed** pending its guest and later gates.
+
+
+## Hosted performance remediation — 2026-10-24
+
+[The bounded local follow-up](../../evidence/phase-2/performance-remediation/2026-10-24/README.md) now verifies
+exact opaque spans, clipped group scratch, owned validated-frame publication and
+conservative caret/backdrop damage against the unchanged oracle. No persistent
+filtered-backdrop cache or new dependency was needed. Primary 1080p/scale-1 trace-off elapsed frame p95 ranges from 0.789 to 18.642 ms across the twelve workload/effect cells (1,000 samples each). Real file-reload completed-build-to-RAM p95 is 129.527 ms at 720p / 128.116 ms at 1080p. Rich typing/search p95 (18.642 ms) and effects/motion p95 (17.424 ms) still exceed the 16.667 ms period; ten other primary trace-off cells are below it. All misses remain recorded; elapsed/RAM results do not accept renderer-thread CPU, guest input or whole-guest memory targets.
+All M1 and final hosted regressions pass. The evidence supports continuing the
+software path to guest qualification while keeping remaining misses visible.
+This ADR remains **Proposed**; M4 guest and distribution gates are unchanged.

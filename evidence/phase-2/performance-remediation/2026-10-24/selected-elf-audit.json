@@ -1,0 +1,241 @@
+{
+  "format": "ELF64-LE",
+  "machine": "x86_64",
+  "entry": "0x400000",
+  "segments": [
+    {
+      "address": "0x400000",
+      "offset": 4096,
+      "file_bytes": 739228,
+      "memory_bytes": 739228,
+      "flags": 5,
+      "alignment": 4096
+    },
+    {
+      "address": "0x4b5000",
+      "offset": 745472,
+      "file_bytes": 18267556,
+      "memory_bytes": 18267556,
+      "flags": 4,
+      "alignment": 4096
+    },
+    {
+      "address": "0x1621000",
+      "offset": 19013632,
+      "file_bytes": 68200,
+      "memory_bytes": 67182640,
+      "flags": 6,
+      "alignment": 4096
+    }
+  ],
+  "allocated_sections": [
+    {
+      "name": ".text",
+      "bytes": 739228,
+      "flags": "0x6"
+    },
+    {
+      "name": ".rodata",
+      "bytes": 18267459,
+      "flags": "0x32"
+    },
+    {
+      "name": ".eh_frame_hdr",
+      "bytes": 28,
+      "flags": "0x2"
+    },
+    {
+      "name": ".eh_frame",
+      "bytes": 68,
+      "flags": "0x2"
+    },
+    {
+      "name": ".data",
+      "bytes": 68200,
+      "flags": "0x3"
+    },
+    {
+      "name": ".bss",
+      "bytes": 67113008,
+      "flags": "0x3"
+    }
+  ],
+  "unresolved_symbols": 0,
+  "remaining_relocations": 0,
+  "dynamic": false,
+  "tls": false,
+  "unwinding": false,
+  "executed": false,
+  "sha256": "87b3bc723d2ea6a9e8f3f5785cdcc90919f2cdc4fbda33b94e63aef3133fdabe",
+  "file_bytes": 26055872,
+  "llvm_undefined_empty": true,
+  "unexpected_os_symbols": false,
+  "passive_cfi_sections": [
+    {
+      "name": ".eh_frame_hdr",
+      "bytes": 28,
+      "flags": "0x2"
+    },
+    {
+      "name": ".eh_frame",
+      "bytes": 68,
+      "flags": "0x2"
+    }
+  ],
+  "cfi_augmentations": [
+    "zR"
+  ],
+  "runtime_unwinder_linked": false,
+  "fp_simd_instruction_count": 0,
+  "fp_simd_opcodes": {},
+  "fp_simd_excerpt": [],
+  "symbol_excerpts": {
+    "ui_probe_entry": [
+      "0000000000400000 T ui_probe_entry"
+    ],
+    "ui_link::ARENA": [
+      "0000000001632000 b ui_link::ARENA"
+    ],
+    "__rust_alloc": [
+      "0000000000401bd0 t __rustc::__rust_alloc",
+      "0000000000401d30 t __rustc::__rust_alloc_zeroed",
+      "0000000000401e40 T __rustc::__rust_alloc_error_handler"
+    ],
+    "custom_ui::scene": [
+      "0000000000402010 t <core::result::Result<&custom_ui::scene::Node, custom_ui::Error>>::map_or::<bool, <custom_ui::retained::Frame>::draw::{closure#2}>",
+      "00000000004023d0 t core::ptr::drop_glue::<custom_ui::scene::Node>",
+      "00000000004024c0 T <core::iter::adapters::map::Map<core::slice::iter::Iter<&custom_ui::scene::Node>, <custom_ui::scene::Tree>::semantics::{closure#0}> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::traits::iterator::Iterator::for_each::call<custom_ui::Semantic, <alloc::vec::Vec<custom_ui::Semantic>>::extend_trusted<core::iter::adapters::map::Map<core::slice::iter::Iter<&custom_ui::scene::Node>, <custom_ui::scene::Tree>::semantics::{closure#0}>>::{closure#0}>::{closure#0}>",
+      "0000000000402a20 t <core::slice::iter::Iter<&custom_ui::scene::Node> as core::iter::traits::iterator::Iterator>::position::<<custom_ui::input::Controller>::event::{closure#8}>",
+      "0000000000402ac0 T <alloc::vec::into_iter::IntoIter<&custom_ui::scene::Node> as core::iter::traits::iterator::Iterator>::try_fold::<alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, core::iter::adapters::filter::filter_try_fold<&custom_ui::scene::Node, alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, core::result::Result<alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, !>, <custom_ui::input::Controller>::event::{closure#6}, core::iter::adapters::filter::filter_try_fold<&custom_ui::scene::Node, alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, core::result::Result<alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, !>, <custom_ui::input::Controller>::event::{closure#7}, alloc::vec::in_place_collect::write_in_place_with_drop<&custom_ui::scene::Node>::{closure#0}>::{closure#0}>::{closure#0}, core::result::Result<alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, !>>"
+    ],
+    "custom_ui::retained::Frame::draw": [
+      "0000000000402010 t <core::result::Result<&custom_ui::scene::Node, custom_ui::Error>>::map_or::<bool, <custom_ui::retained::Frame>::draw::{closure#2}>",
+      "0000000000402da0 t <core::iter::adapters::enumerate::Enumerate<core::slice::iter::Iter<custom_ui::scene::Node>> as core::iter::traits::iterator::Iterator>::any::<<custom_ui::retained::Frame>::draw::{closure#1}>",
+      "0000000000402e70 t <custom_ui::retained::Frame>::draw::{closure#0}",
+      "000000000040c0a0 T <custom_ui::retained::Frame>::draw",
+      "0000000000412e70 T <alloc::vec::Vec<f32> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<f32, core::iter::adapters::map::Map<core::slice::iter::Iter<custom_ui::scene::Node>, <custom_ui::retained::Frame>::draw::{closure#7}>>>::from_iter"
+    ],
+    "text_core::Engine::layout_cached": [
+      "0000000000420a00 T <alloc::collections::vec_deque::iter::Iter<(alloc::string::String, text_core::Config, text_core::Layout)> as core::iter::traits::iterator::Iterator>::try_fold::<(), core::iter::traits::iterator::Iterator::position::check<&(alloc::string::String, text_core::Config, text_core::Layout), <text_core::Engine>::layout_cached::{closure#0}>::{closure#0}, core::ops::control_flow::ControlFlow<usize>>",
+      "0000000000423ea0 T <text_core::Engine>::layout_cached"
+    ],
+    "text_core::Engine": [
+      "00000000004143f0 t <[text_core::Caret]>::sort_by::<<text_core::Engine>::shape_line::{closure#5}>",
+      "0000000000417340 T <alloc::vec::Vec<text_core::Caret>>::dedup_by::<<text_core::Engine>::shape_line::{closure#6}>",
+      "000000000041ab00 T core::slice::sort::stable::driftsort_main::<text_core::Caret, <[text_core::Caret]>::sort_by<<text_core::Engine>::shape_line::{closure#5}>::{closure#0}, alloc::vec::Vec<text_core::Caret>>",
+      "000000000041af40 T core::slice::sort::shared::pivot::median3_rec::<text_core::Caret, <[text_core::Caret]>::sort_by<<text_core::Engine>::shape_line::{closure#5}>::{closure#0}>",
+      "000000000041b3d0 T core::slice::sort::shared::smallsort::sort4_stable::<text_core::Caret, <[text_core::Caret]>::sort_by<<text_core::Engine>::shape_line::{closure#5}>::{closure#0}>"
+    ],
+    "fontdue": [
+      "0000000000414430 T <ttf_parser::tables::cmap::Subtable>::codepoints::<<fontdue::font::Font>::from_bytes<&[u8]>::{closure#1}>",
+      "0000000000415090 T <fontdue::font::Font>::from_bytes::<&[u8]>",
+      "0000000000417450 T <ttf_parser::tables::cmap::format2::Subtable2>::codepoints::<<fontdue::font::Font>::from_bytes<&[u8]>::{closure#1}>",
+      "0000000000417970 t core::ptr::drop_glue::<core::option::Option<fontdue::font::Font>>",
+      "0000000000417c00 t core::ptr::drop_glue::<fontdue::math::Geometry>"
+    ],
+    "rustybuzz": [
+      "0000000000436e50 t core::ptr::drop_glue::<rustybuzz::hb::paint_extents::hb_paint_extents_context_t>",
+      "0000000000436ece T core::panicking::assert_failed::<rustybuzz::hb::common::Direction, rustybuzz::hb::common::Direction>",
+      "0000000000436f10 T core::slice::sort::stable::driftsort_main::<rustybuzz::hb::buffer::hb_glyph_info_t, <[rustybuzz::hb::buffer::hb_glyph_info_t]>::sort_by_key<u8, rustybuzz::hb::ot_shaper_indic::initial_reordering_consonant_syllable::{closure#0}>::{closure#0}, alloc::vec::Vec<rustybuzz::hb::buffer::hb_glyph_info_t>>",
+      "0000000000437040 T core::slice::sort::stable::driftsort_main::<rustybuzz::hb::ot_map::lookup_map_t, <rustybuzz::hb::ot_map::lookup_map_t as core::cmp::PartialOrd>::lt, alloc::vec::Vec<rustybuzz::hb::ot_map::lookup_map_t>>",
+      "0000000000437170 T core::slice::sort::stable::driftsort_main::<rustybuzz::hb::ot_map::feature_map_t, <rustybuzz::hb::ot_map::feature_map_t as core::cmp::PartialOrd>::lt, alloc::vec::Vec<rustybuzz::hb::ot_map::feature_map_t>>"
+    ],
+    "memcpy": [
+      "00000000004b3d90 t memcpy"
+    ],
+    "memmove": [
+      "00000000004b46f0 t memmove"
+    ],
+    "memset": [
+      "00000000004b44f0 t memset"
+    ],
+    "memcmp": [
+      "00000000004b40c0 t memcmp"
+    ],
+    "slint_ui::paint": [],
+    "CandidateWindow": [],
+    "i_slint_renderer_software": [],
+    "libm": [
+      "00000000004a1ab0 t libm::math::rem_pio2_large::rem_pio2_large",
+      "00000000004a29f0 T libm::math::cosf::cosf",
+      "00000000004a2d80 T libm::math::sinf::sinf",
+      "00000000004a30a0 T libm::math::tanf::tanf",
+      "00000000004a31f0 T libm::math::round::roundf"
+    ],
+    "__addsf3": [
+      "00000000004b3880 t compiler_builtins::float::add::__addsf3",
+      "00000000004b3618 t __addsf3"
+    ],
+    "__mulsf3": [
+      "00000000004b3440 t compiler_builtins::float::mul::__mulsf3",
+      "00000000004b3218 t __mulsf3"
+    ],
+    "__divsf3": [
+      "00000000004b2ff0 t compiler_builtins::float::div::__divsf3",
+      "00000000004b2d38 t __divsf3"
+    ]
+  },
+  "negative_checks": [
+    {
+      "case": "wrong-machine",
+      "rejected": true,
+      "reason": "not x86-64 ET_EXEC"
+    },
+    {
+      "case": "wrong-entry",
+      "rejected": true,
+      "reason": "wrong probe entry"
+    },
+    {
+      "case": "wx",
+      "rejected": true,
+      "reason": "invalid or WX load permissions"
+    },
+    {
+      "case": "dynamic",
+      "rejected": true,
+      "reason": "dynamic/interpreter/TLS segment"
+    },
+    {
+      "case": "interpreter",
+      "rejected": true,
+      "reason": "dynamic/interpreter/TLS segment"
+    },
+    {
+      "case": "tls-segment",
+      "rejected": true,
+      "reason": "dynamic/interpreter/TLS segment"
+    },
+    {
+      "case": "tls-section",
+      "rejected": true,
+      "reason": "TLS section"
+    },
+    {
+      "case": "relocations",
+      "rejected": true,
+      "reason": "unresolved relocations"
+    },
+    {
+      "case": "unresolved-symbol",
+      "rejected": true,
+      "reason": "unresolved named symbol"
+    },
+    {
+      "case": "truncated-0",
+      "rejected": true
+    },
+    {
+      "case": "truncated-16",
+      "rejected": true
+    },
+    {
+      "case": "truncated-63",
+      "rejected": true
+    },
+    {
+      "case": "truncated-13027936",
+      "rejected": true
+    }
+  ]
+}

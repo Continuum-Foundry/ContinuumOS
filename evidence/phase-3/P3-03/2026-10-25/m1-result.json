@@ -1,0 +1,189 @@
+{
+  "action": "suite",
+  "schema_version": 2,
+  "stages": {
+    "clean_comparison": {
+      "build_ids_identical": true,
+      "gpt_guid": "61464790-57e2-4a64-a66d-7c6fd0e6770a; fixed experimental-image disk GUID and derived partition GUIDs",
+      "iso_a_sha256": "bab092a79219020ebce3237ea67ff6fb6df4cfb96d8f797f4fc59d2f655f3966",
+      "iso_b_sha256": "7557efd80db807a946be595f6e804fbab90a1d621f399adc50b44477b4d02a24",
+      "iso_bytes_identical": false,
+      "kernel_bytes_identical": true,
+      "normalized_iso_sha256": "7182d27dacfccb28bf77baca45a782438d02be9df9afb2640bc94dd4eb32e9d6",
+      "only_iso_difference": "64 ASCII host-session bytes at each listed offset",
+      "order_and_path_effects": "whole normalized ISO byte comparison includes directory order, catalog and padding; second clean target path includes spaces",
+      "release_reproducibility_claimed": false,
+      "session_byte_offsets": [
+        14354581
+      ],
+      "timestamps": "volume and all file dates fixed to 2026102000000000"
+    },
+    "distinct_sessions": 42,
+    "launch_count": 42,
+    "limits": "single-core experimental Q35/TCG baseline; no desktop, isolation, scheduler, persistence, live update, physical support or release reproducibility",
+    "matrix": "P1-07",
+    "required_cases": [
+      "run",
+      "iso-smoke",
+      "iso-negative",
+      "boot-metadata",
+      "boot-reject",
+      "exception-invalid-opcode",
+      "exception-page-fault",
+      "panic",
+      "exception-emergency",
+      "memory-ownership",
+      "memory-exhaustion",
+      "guard-fault",
+      "write-protect-fault",
+      "execute-disable-fault",
+      "emergency-stack",
+      "timer-progress",
+      "timer-masked",
+      "clock-read",
+      "idle-wakeup",
+      "timer-exception",
+      "acpi-corrupt",
+      "timer-unsupported",
+      "timer-calibration"
+    ],
+    "rows": [
+      {
+        "case": "format",
+        "status": "passed"
+      },
+      {
+        "case": "m0",
+        "status": "passed"
+      },
+      {
+        "case": "dependencies",
+        "status": "passed"
+      },
+      {
+        "case": "kernel-host",
+        "status": "passed"
+      },
+      {
+        "case": "doctor",
+        "status": "passed"
+      },
+      {
+        "case": "prerequisites",
+        "status": "passed"
+      },
+      {
+        "case": "docs",
+        "status": "passed"
+      },
+      {
+        "case": "contracts",
+        "status": "passed"
+      },
+      {
+        "case": "governance",
+        "status": "passed"
+      },
+      {
+        "case": "final-normal-boots",
+        "count": 5,
+        "second_clean_boot": true,
+        "status": "passed"
+      },
+      {
+        "case": "run",
+        "status": "passed"
+      },
+      {
+        "case": "iso-smoke",
+        "status": "passed"
+      },
+      {
+        "case": "iso-negative",
+        "status": "passed"
+      },
+      {
+        "case": "boot-metadata",
+        "status": "passed"
+      },
+      {
+        "case": "boot-reject",
+        "status": "passed"
+      },
+      {
+        "case": "exception-invalid-opcode",
+        "status": "passed"
+      },
+      {
+        "case": "exception-page-fault",
+        "status": "passed"
+      },
+      {
+        "case": "panic",
+        "status": "passed"
+      },
+      {
+        "case": "exception-emergency",
+        "status": "passed"
+      },
+      {
+        "case": "memory-ownership",
+        "status": "passed"
+      },
+      {
+        "case": "memory-exhaustion",
+        "status": "passed"
+      },
+      {
+        "case": "guard-fault",
+        "status": "passed"
+      },
+      {
+        "case": "write-protect-fault",
+        "status": "passed"
+      },
+      {
+        "case": "execute-disable-fault",
+        "status": "passed"
+      },
+      {
+        "case": "emergency-stack",
+        "status": "passed"
+      },
+      {
+        "case": "timer-progress",
+        "status": "passed"
+      },
+      {
+        "case": "timer-masked",
+        "status": "passed"
+      },
+      {
+        "case": "clock-read",
+        "status": "passed"
+      },
+      {
+        "case": "idle-wakeup",
+        "status": "passed"
+      },
+      {
+        "case": "timer-exception",
+        "status": "passed"
+      },
+      {
+        "case": "acpi-corrupt",
+        "status": "passed"
+      },
+      {
+        "case": "timer-unsupported",
+        "status": "passed"
+      },
+      {
+        "case": "timer-calibration",
+        "status": "passed"
+      }
+    ],
+    "sources_unchanged": true
+  },
+  "status": "passed"
+}

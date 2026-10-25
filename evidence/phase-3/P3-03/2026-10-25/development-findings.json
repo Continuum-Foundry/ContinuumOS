@@ -1,0 +1,47 @@
+{
+  "story": "P3-03",
+  "policy": "Original complete runs stay local; all failed experiments remain failed. No deadline was increased and no case was retried inside final acceptance.",
+  "findings": [
+    {
+      "case": "prerequisite-host-process-timeout",
+      "classification": "failed development prerequisite",
+      "resolution": "Separate serial reruns passed the unchanged host harness and complete prerequisite gate; no VM limit changed.",
+      "evidence": {
+        "local_path": "work\\acceptance\\1792967865957\\host-tests.log",
+        "sha256": "3e5474bf0f99a46f96954a038f078d603b9de2ec9602af1d6326f3e6da8cf454",
+        "selected_original_text": "failures:\n\n---- m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped stdout ----\n\nthread 'm1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped' (46280) panicked at tools\\xtask\\src\\m1\\observe.rs:152:13:\n{\"build_id\":\"abc\",\"cleanup_reaped\":true,\"deadline_ms\":3000,\"elapsed_host_ms\":3066,\"emulator_test_exit\":null,\"error\":\"Guest deadline exceeded\",\"final_process_exit\":1,\"fixture\":\"normal\",\"guest_shutdown_claimed\":false,\"host_session_id\":\"def\",\"host_stopped_after_checkpoint\":false,\"kernel_entry_observed\":false,\"pid\":51176,\"schema_version\":1,\"status\":\"failed\",\"timed_out\":true}\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped\n\ntest result: FAILED. 28 passed; 1 failed; 1 ignored; 0 measured; 0 filtered out; finished in 64.93s\n\nerror: test failed, to rerun pass `-p xtask --bin xtask`\n"
+      }
+    },
+    {
+      "case": "table-capacity-test-expectation",
+      "classification": "failed new host test",
+      "resolution": "Six table pages suffice for this layout. Failure injection covers capacities one through five; six-page success is independently reconstructed in guest evidence.",
+      "evidence": {
+        "local_path": "work\\p3-03-host-tests-initial-failure.log",
+        "sha256": "6d8ae7643f443665d88f3801d06d7c738abaeeb840087c3be9905889380cf1dc",
+        "selected_original_text": "failures:\n\n---- user_image::tests::transactional_allocation_and_table_failures stdout ----\n\nthread 'user_image::tests::transactional_allocation_and_table_failures' (45788) panicked at kernel\\src\\user_image\\tests.rs:281:18:\nassertion failed: l.bootstrap(&mut r, &mut ram, trusted(&b), Binding::UserA).is_err()\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    user_image::tests::transactional_allocation_and_table_failures\n\ntest result: FAILED. 27 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s\n\nerror: test failed, to rerun pass `-p continuum-kernel --lib`\n"
+      }
+    },
+    {
+      "case": "fixture-label-length",
+      "classification": "failed user compile; no ISO/VM claim",
+      "resolution": "Corrected the static array length from 16 to the literal 17 bytes.",
+      "evidence": {
+        "local_path": "build\\m1\\static-loader-1792968585313668300-58324\\user_a-build.stderr.log",
+        "sha256": "33efa675a4539aaa38ceab4bb164ef028bb09f4d07313b3553ea2ec04e8b4b04",
+        "selected_original_text": "error[E0308]: mismatched types\n --> /continuum\\experiments/user-images/fixture.rs:7:30\n  |\n7 | #[used] static LABEL:[u8;16]=*b\"CNTM3 fixture v0!\";\n  |                      ------- ^^^^^^^^^^^^^^^^^^^^^ expected an array with a size of 16, found one with a size of 17\n  |                      |\n  |                      expected because of the type of the static\n\nerror: aborting due to 1 previous error\n\nFor more information about this error, try `rustc --explain E0308`.\n"
+      }
+    },
+    {
+      "case": "gnu-osabi-tag",
+      "classification": "failed loader ISO experiment; boot rejection, not expected acceptance",
+      "resolution": "Inspected exact headers and SHF_GNU_RETAIN sections. Admit System-V/GNU OSABI tags with zero ABI version/padding; retain explicit static runtime/undefined-symbol checks. Subsequent distinct ISO experiment passed.",
+      "header_hex": "7f454c46020101030000000000000000",
+      "evidence": {
+        "local_path": "build\\m1\\static-loader-1792968625082609300-57984\\static-loader-run\\serial.log",
+        "sha256": "ec8832ffab48ca6265b86ba715304425d7e7d818386f52e01bd5a64d9dc89cc3",
+        "selected_original_text": "m1.boot_rejected version=5 build=583eab8edfbd4c5e7138c61457af346f756b4cd7a4c09062ce9f4d8e5a4b020e session=ee169036b83b3efecc69900b3a50702c2fa56dd0bd45695bea6df2d0a4762750 session_origin=host seq=97 stage=metadata outcome=rejected emergency=false field=elf reason=identity"
+      }
+    }
+  ]
+}

@@ -9,6 +9,7 @@ mod process;
 mod records;
 mod suite;
 mod support;
+mod user_images;
 
 pub fn execute(action: &str) -> crate::Result<()> {
     cases::execute(action)

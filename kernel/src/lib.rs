@@ -3,6 +3,7 @@
 pub mod memory;
 pub mod owned_memory;
 pub mod platform;
+pub mod user_image;
 
 pub const MAX_REGIONS: usize = 512;
 pub const MAX_MODULES: usize = 16;

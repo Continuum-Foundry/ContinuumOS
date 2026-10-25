@@ -1,0 +1,28 @@
+{
+  "arguments": [
+    "${WORKSPACE}\\experiments/user-images/fixture.rs",
+    "--edition=2024",
+    "--target=x86_64-unknown-none",
+    "--crate-type=bin",
+    "--cfg",
+    "service",
+    "-C",
+    "panic=abort",
+    "-C",
+    "opt-level=1",
+    "-C",
+    "code-model=small",
+    "-C",
+    "relocation-model=static",
+    "-C",
+    "no-redzone=yes",
+    "-C",
+    "link-arg=--build-id=none",
+    "-C",
+    "link-arg=-T${WORKSPACE}\\experiments/user-images/link.ld",
+    "--remap-path-prefix=${WORKSPACE}=/continuum",
+    "-o",
+    "${WORKSPACE}\\build/m1\\static-loader-1792971560149427700-57676\\service.elf"
+  ],
+  "program": "rustc"
+}

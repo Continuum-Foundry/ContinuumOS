@@ -15,5 +15,6 @@
   "unsupported_families": ["device", "irq", "dma", "accounts", "installer", "filesystem", "network", "presentation"],
   "byte_order": "little",
   "unknown_required_features": "reject",
-  "identity": "kernel-bound caller principal/session/process generation; payload claims never grant authority"
+  "identity": "kernel-bound caller principal/session/process generation; payload claims never grant authority",
+  "staged_loader": {"story": "P3-03", "startup_address": 2147287040, "return_address": 2147291136, "entry_rsp": 2147418104, "return_code_hex": "0f0b", "return_code_status": "UD2 placeholder; P3-04 must install process_exit before entry", "image_digest": "sha256", "image_bytes_max": 1048576, "program_headers_max": 16, "section_headers_max": 128, "load_segments_max": 8, "bootstrap_handle": 0, "features": 0, "clock_resolution_ns": 0, "runnable": false, "child_launch": "P3-09/P3-10; trusted live-parent identity and narrowed ceilings only"}
 }

@@ -36,6 +36,7 @@ pub(super) enum Flavor {
     Memory,
     Timer,
     RuntimeMemory,
+    StaticLoader,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -48,6 +49,7 @@ impl Flavor {
             Self::Memory => "memory-test",
             Self::Timer => "timer-test",
             Self::RuntimeMemory => "runtime-memory-test",
+            Self::StaticLoader => "static-loader-test",
         }
     }
     fn features(self) -> &'static str {
@@ -60,6 +62,7 @@ impl Flavor {
             Self::Memory => "memory-test",
             Self::Timer => "timer-test",
             Self::RuntimeMemory => "runtime-memory-test",
+            Self::StaticLoader => "static-loader-test",
         }
     }
 }
@@ -246,7 +249,12 @@ fn audit_disassembly(text: &str) -> Result<()> {
 }
 pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
     let mut sources = BTreeMap::new();
-    for p in ["kernel", "tools/xtask", "tools/windows"] {
+    for p in [
+        "kernel",
+        "tools/xtask",
+        "tools/windows",
+        "experiments/user-images",
+    ] {
         collect(&root().join(p), &mut sources)?;
     }
     for p in [
@@ -273,6 +281,11 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
 }
 pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     check_pin()?;
+    let user_descriptors = if flavor == Flavor::StaticLoader {
+        Some(super::user_images::build(dir)?)
+    } else {
+        None
+    };
     let sources = source_inputs()?;
     let compiler = rust_version()?;
     let sysroot = output(Command::new(tool("rustc")?).args(["--print", "sysroot"]))?;
@@ -285,7 +298,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         "link-arg=-Tkernel/link.ld",
         "remap-path-prefix=/continuum",
     ];
-    let identity = json!({"schema_version":1,"sources":sources,"compiler":compiler,"rustc_sha256":compiler_hash,"profile":"kernel-dev","target":TARGET,"flavor":flavor.name(),"flags":flags});
+    let identity = json!({"schema_version":1,"sources":sources,"compiler":compiler,"rustc_sha256":compiler_hash,"profile":"kernel-dev","target":TARGET,"flavor":flavor.name(),"flags":flags,"user_images":if user_descriptors.is_some(){Some(digest(&dir.join("user-images.json"))?)}else{None}});
     let id = hash(&serde_json::to_vec(&identity).map_err(|e| e.to_string())?);
     write_json(&dir.join("build-inputs.json"), &identity)?;
     let mut c = Command::new(tool("cargo")?);
@@ -306,6 +319,9 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         .arg(dir.join("cargo"));
     if !flavor.features().is_empty() {
         c.args(["--features", flavor.features()]);
+    }
+    if let Some(path) = user_descriptors {
+        c.env("CONTINUUM_TRUSTED_IMAGES", path);
     }
     c.args([
         "--",

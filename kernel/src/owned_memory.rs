@@ -221,6 +221,17 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
         })
     }
     pub fn create_with_stack(&mut self, store: &mut impl Store) -> Result<SpaceId> {
+        self.create_with_stack_bytes(store, &[])
+    }
+    /// Trusted loader tail (synthetic return address), written before publication.
+    pub fn create_with_stack_bytes(
+        &mut self,
+        store: &mut impl Store,
+        tail: &[u8],
+    ) -> Result<SpaceId> {
+        if tail.len() as u64 > STACK_BYTES {
+            return Err(error("stack", "tail"));
+        }
         let space = self.create()?;
         let result = (|| {
             let stack = store.prepare_kernel_stack(space.slot)?;
@@ -233,6 +244,7 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
             }
             self.spaces[space.slot].kernel_stack = Some(stack);
             let stack = self.allocate(store, space, STACK_BYTES, PAGE)?.unwrap();
+            self.write_staging(store, space, stack, STACK_BYTES - tail.len() as u64, tail)?;
             self.map(
                 store,
                 space,

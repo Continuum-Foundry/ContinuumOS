@@ -8,7 +8,7 @@ use continuum_kernel::{
     owned_memory::{Access, Runtime, STACK_BASE, STACK_BYTES, Store},
 };
 use core::{arch::asm, cell::UnsafeCell};
-type Memory = Runtime<16, 256, 128, 64>;
+pub(crate) type Memory = Runtime<16, 256, 128, 64>;
 static MEMORY: Local<Memory> = Local(UnsafeCell::new(Memory::EMPTY));
 #[repr(C, align(4096))]
 struct Stacks([[u8; 73728]; 16]);
@@ -31,7 +31,7 @@ fn switch(root: u64) {
         asm!("mov cr3, {}",in(reg) root,options(nostack));
     }
 }
-struct GuestStore {
+pub(crate) struct GuestStore {
     kernel: PhysAddr,
 }
 impl Store for GuestStore {
@@ -107,6 +107,15 @@ pub fn establish(mode: u64) -> Result<()> {
         ),
     );
     if mode != 30 {
+        #[cfg(feature = "static-loader-test")]
+        if mode == 31 {
+            crate::runtime_loader::check(
+                r,
+                &mut GuestStore {
+                    kernel: PhysAddr(cr3()),
+                },
+            )?;
+        }
         return Ok(());
     }
     let mut b = GuestStore {

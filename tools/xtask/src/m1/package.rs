@@ -103,11 +103,19 @@ pub(super) fn package(
         )
         .as_bytes(),
     );
-    fs::write(
-        stage.join("boot/limine/limine.conf"),
-        config(missing, &session, fixture, module),
-    )
-    .map_err(|e| e.to_string())?;
+    let mut configuration = config(missing, &session, fixture, module);
+    if fixture == "static-loader" {
+        for name in ["user_a", "user_b", "service"] {
+            let filename = format!("boot/{name}.elf");
+            fs::copy(build_dir.join(format!("{name}.elf")), stage.join(&filename))
+                .map_err(|e| e.to_string())?;
+            payload.insert(filename.clone(), digest(&stage.join(&filename))?);
+            configuration.push_str(&format!(
+                "    module_path: boot():/{filename}\n    module_string: p3-03-{name}\n"
+            ));
+        }
+    }
+    fs::write(stage.join("boot/limine/limine.conf"), configuration).map_err(|e| e.to_string())?;
     if module {
         fs::write(
             stage.join("boot/fixture.bin"),

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "story": "P3-03",
+  "status": "passed",
+  "commands": [
+    {
+      "program": "pwsh",
+      "exit_code": 0,
+      "name": "prerequisites",
+      "elapsed_ms": 242116,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ]
+    },
+    {
+      "program": "pwsh",
+      "exit_code": 0,
+      "name": "m1",
+      "elapsed_ms": 2327548,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-P1-07.ps1"
+      ]
+    },
+    {
+      "program": "pwsh",
+      "exit_code": 0,
+      "name": "m1-review",
+      "elapsed_ms": 7825,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Review-P1-07.ps1",
+        "-Run",
+        "${WORKSPACE}\\build/m1\\suite-1792969178156864100-58800"
+      ]
+    },
+    {
+      "program": "cargo",
+      "exit_code": 0,
+      "name": "owned-memory",
+      "elapsed_ms": 46820,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ]
+    },
+    {
+      "program": "cargo",
+      "exit_code": 0,
+      "name": "static-loader",
+      "elapsed_ms": 50601,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "static-loader"
+      ]
+    }
+  ],
+  "runs": {
+    "loader": "${WORKSPACE}\\build/m1\\static-loader-1792971560149427700-57676",
+    "m1": "${WORKSPACE}\\build/m1\\suite-1792969178156864100-58800",
+    "prerequisites": "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1792968934756",
+    "memory": "${WORKSPACE}\\build/m1\\owned-memory-1792971515729839400-53536"
+  },
+  "source_commit": "9553ae3971f60f45501f3f1fd5a69ca8dd4c5c78",
+  "user_execution": false
+}

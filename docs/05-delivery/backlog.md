@@ -52,6 +52,15 @@ B32 measurements/acceptance. B37 remains interface/model work until its B13 and
 replacement dependencies pass; B07/B36 still need M4 guest confirmation. This
 decomposition does not change the Bxx dependencies or mark later requirements Done.
 
+M3 is decomposed into [fourteen local Phase 3 stories](phase-3/README.md), all
+Not started. P3-01 rechecks prerequisites/contracts; P3-02–P3-05 cover memory,
+static loading, user entry/syscalls and B06 preemption/FP state. P3-06–P3-08 cover
+B12 objects/handles/channels/waits. P3-09–P3-11 complete B13 supervision, quotas,
+scoped policy and proxy-route fencing. P3-12 proves independent SDK interoperability,
+P3-13 stresses lifecycle/resource bounds and P3-14 reviews final guest acceptance.
+B15/B37 receive authority/interface handoffs only; M4 guest UI and M5 behavior
+replacement remain separate. Existing Bxx IDs, dependencies and exits are preserved.
+
 | ID | Owner / task | Depends on | Definition of done | Requirements |
 | --- | --- | --- | --- | --- |
 | B01 | Build: inventory host and candidate tools | Docs | Paths, versions, licenses, host constraints and fallback report | R03,R16,R18 |
@@ -118,8 +127,9 @@ decomposition does not change the Bxx dependencies or mark later requirements Do
 ## Task working format
 
 The [M3 identity/authority plan](../02-architecture/identity-and-authorization.md#m3-work-items-and-acceptance)
-expands B11–B13's local acceptance cases and the B15/B37 handoff. There is no
-separate P3 story decomposition yet. Synthetic principals and ephemeral role
+expands B11–B13's local acceptance cases and the B15/B37 handoff. The
+[Phase 3 decomposition](phase-3/README.md) carries these cases into stories and
+the final acceptance matrix. Synthetic principals and ephemeral role
 fixtures do not imply implemented accounts. Full accounts and operational RBAC
 have a mandatory M7 gate after M6 in [milestones](milestones.md#accounts-sessions-and-rbac--required-for-m8).
 B41 implements it; decompose that gate before starting it.
@@ -129,7 +139,7 @@ B22–B24/B40 and the later B33/B34 handoff. It does not add P6 stories or requi
 a complete installer for M6. Include its preparation cases when M6 is decomposed;
 decompose mandatory M7 B41–B44 before implementation. These four newly added broad
 tasks brought the installer-era backlog to 44; existing IDs are preserved. B44 makes all four
-transitive prerequisites of B35/M8, while B39 remains optional. Detailed P3–P8
+transitive prerequisites of B35/M8, while B39 remains optional. Detailed P4–P8
 stories are created only at the owner's milestone decomposition request.
 
 The approved desktop/platform expansion adds B45–B60 (60 total broad tasks) and

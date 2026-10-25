@@ -74,7 +74,8 @@ is approved.
 | Execution | [Backlog](05-delivery/backlog.md), [build and release](05-delivery/build-and-release.md), [installer preparation](05-delivery/installer-preparation.md), [validation](05-delivery/validation.md), [risks and open questions](05-delivery/risks-and-open-questions.md) |
 | Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md), [host module layout](05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout), [metadata runbook](05-delivery/phase-1/boot-metadata-runbook.md) |
 | Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-13 accepted locally; M2 hosted subset passes; custom direction remains provisional until guest confirmation |
-| Later desktop | [Feature/release matrix](05-delivery/desktop-feature-matrix.md), [service responsibilities](06-contracts/desktop-services.md), [Windows study](01-research/windows-compatibility-feasibility.md), [browser study](01-research/browser-feasibility.md); no later P-level decomposition yet |
+| Phase 3 stories | [Isolated runtime epic and fourteen ordered stories](05-delivery/phase-3/README.md): P3-01 through P3-14 planned; all Not started; guest enforcement, independent SDK and final acceptance required |
+| Later desktop | [Feature/release matrix](05-delivery/desktop-feature-matrix.md), [service responsibilities](06-contracts/desktop-services.md), [Windows study](01-research/windows-compatibility-feasibility.md), [browser study](01-research/browser-feasibility.md); no P4–P21 decomposition yet |
 
 ## Status and interpretation
 
@@ -130,7 +131,7 @@ execution remain later gates.
 P2-10 now passes [selected hosted-core acceptance](../evidence/phase-2/P2-10/2026-10-23/README.md), including
 bounded two-pass layout, input reconciliation, semantic virtual navigation, visual
 grapheme affinity and interruptible motion. Use its
-[selected-core runbook](05-delivery/phase-2/selected-ui-runbook.md). P2-11 now passes [same-window hosted resource reload](../evidence/phase-2/P2-11/2026-10-23/README.md); use its [runbook](05-delivery/phase-2/resource-reload-runbook.md). P2-12 now passes [hosted damage/idle/stability acceptance](../evidence/phase-2/P2-12/2026-10-24/README.md), retaining substantial frame/resource-latency misses; use its [runbook](05-delivery/phase-2/performance-stability-runbook.md). P2-13 now passes [final aggregate acceptance](../evidence/phase-2/P2-13/2026-10-24/README.md); use its [runbook](05-delivery/phase-2/acceptance-runbook.md). M3 isolation/runtime planning is next; no P3 stories exist yet.
+[selected-core runbook](05-delivery/phase-2/selected-ui-runbook.md). P2-11 now passes [same-window hosted resource reload](../evidence/phase-2/P2-11/2026-10-23/README.md); use its [runbook](05-delivery/phase-2/resource-reload-runbook.md). P2-12 now passes [hosted damage/idle/stability acceptance](../evidence/phase-2/P2-12/2026-10-24/README.md), retaining substantial frame/resource-latency misses; use its [runbook](05-delivery/phase-2/performance-stability-runbook.md). P2-13 now passes [final aggregate acceptance](../evidence/phase-2/P2-13/2026-10-24/README.md); use its [runbook](05-delivery/phase-2/acceptance-runbook.md). M3 is decomposed into [fourteen planned stories](05-delivery/phase-3/README.md); all are Not started. Begin with P3-01 when implementation is requested.
 Establish user-mode isolation and a small
 authenticated development channel before native service replacement. This parallel
 sequence describes independent workstreams, not permission to skip their dependencies.

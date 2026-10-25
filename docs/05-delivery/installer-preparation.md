@@ -6,8 +6,9 @@ The owner's approved 2026-10-21 amendment makes the graphical VM installer,
 real local accounts, repair and data-preserving reinstall mandatory for M8.
 M6 seeds the foundations; [M7 readiness](milestones.md#vm-disk-installer--required-for-m8)
 implements B41–B44 in the [local backlog](backlog.md). Earlier live previews have
-separate scoped release reviews and cannot complete M8. Detailed P3–P8 stories
-are created at the owner's request before each milestone, not by this plan.
+separate scoped release reviews and cannot complete M8. M3 now has
+[fourteen planned stories](phase-3/README.md); detailed P4–P8 stories are created
+at the owner's request before each milestone, not by this installer plan.
 
 ## M6 preparation
 

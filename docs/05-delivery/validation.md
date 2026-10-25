@@ -107,6 +107,16 @@ selection; P2-10–P2-13 now pass the final hosted subset. Guest gates remain M3
 [P1-01 host prerequisites](phase-1/prerequisites-runbook.md)
 pass version/capability/hash checks and rejection tests; this adds no ISO boot result.
 
+M3 is planned as [fourteen Phase 3 stories](phase-3/README.md), all Not started.
+Its [required final matrix](phase-3/14-phase-3-acceptance.md#required-acceptance-matrix)
+covers T02/T03 user entry, loader, CPU state and isolation; T06/T11 handles, IPC,
+trusted provenance, scoped ownership/grants, invalidation and writer fencing;
+and T09 runtime resource/fairness measurements. P3-12 requires separate clean SDK
+client/service builds and an independent codec consumer. P3-13 owns sustained
+adversarial lifecycle/accounting; P3-14 aggregates final-source guest tests and
+complete M1 regressions. These are future tests, not new passing evidence for
+R10/R14 or guest UI, live updating, accounts, durability or desktop efficiency.
+
 ## Requirement matrix
 
 The approved M9–M21 expansion has a [feature/release matrix](desktop-feature-matrix.md)

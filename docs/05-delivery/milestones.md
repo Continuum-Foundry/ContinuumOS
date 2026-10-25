@@ -12,7 +12,8 @@ Its 2026-10-21 installer amendment makes M7 account/installation readiness a
 required dependency of M8. Existing M0–M2 acceptance and P2 story boundaries remain
 unchanged. The approved desktop/platform expansion adds M9–M21 without extending
 M8's release exit; see the [feature matrix](desktop-feature-matrix.md).
-Detailed P3–P21 stories are decomposed at the owner's request before
+M3 now has [fourteen planned Phase 3 stories](phase-3/README.md), all Not started.
+Detailed P4–P21 stories are decomposed at the owner's request before
 each milestone; the broad backlog does not substitute for that decomposition.
 
 ## M0 — Feasibility and locked toolchain
@@ -103,6 +104,11 @@ Supports R04, R08, R09, R15 and R19 interface design. Hosted preview does not pr
 guest interpreter support or compiled behavior replacement.
 
 ## M3 — Isolated processes and stable interfaces
+
+Implementation plan: [P3 epic and fourteen ordered stories](phase-3/README.md).
+All are Not started. The [final story's required matrix](phase-3/14-phase-3-acceptance.md#required-acceptance-matrix)
+maps the existing exit to guest enforcement and independent SDK evidence; this
+decomposition changes no milestone exit or implementation status.
 
 Add static user ELF loader, user stacks, syscall entry/return, handles, channels,
 waits, preemptive task scheduling, quotas and supervisor. Implement proxy routes

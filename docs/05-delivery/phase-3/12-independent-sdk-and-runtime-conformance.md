@@ -1,0 +1,78 @@
+# P3-12 — Prove independent SDK interoperability and runtime closure
+
+Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Depends on: P3-11 Done. Suggested labels: `phase-3`, `sdk`, `interoperability`.
+Backlog: B02/B11/B12 ABI closure, B13 conformance, B15/B37 handoff.
+Requirements: R03/R10/R14/R18; preparatory R05/R06/R19.
+Test families: T02/T03/T06/T11/T13; T14 contract subset.
+
+## User story
+
+As an SDK consumer, I need to build without private kernel/service code and still
+interoperate so compiler layout or shared implementation mistakes cannot define the ABI.
+
+## Implementation scope
+
+1. Package the smallest public no-std Rust startup/syscall/object/IPC/route SDK and
+   its contract source, generated bindings and byte fixtures. Build client and
+   service in separate clean output roots against declared SDK versions, without
+   private kernel structs/modules or shared native-layout definitions.
+2. Supply a separately implemented reference encoder/decoder and semantic checks
+   that do not call the production codec. Test every supported operation/message
+   and error/ownership rule, version discovery, compatible minor/features and explicit
+   incompatible major/mandatory-feature outcomes. Compare exact canonical bytes.
+3. Execute independently built clients/services inside the actual ISO guest,
+   including handle transfer, trusted sender context, waits, policy checks and
+   proxy route switch/fencing. Keep a prior compatible client artifact unchanged
+   while rebuilding the service; record both input/artifact identities.
+4. Close M3's selected runtime hook obligations using real reclaiming allocation,
+   zeroing, startup/termination, preempted math/FP state and bounded process failure.
+   Use a nonrendering portable text/model/math smoke workload under these hooks;
+   review the exact selected dependency instruction/features. Do not run a display
+   backend or imply the hosted raster pipeline has passed guest confirmation.
+5. Freeze only the tested syscall numbers, explicit startup/message encodings,
+   error/version/ownership rules and SDK subset after these tests. Synchronize
+   specs, schemas/examples, generated bindings and compatibility fixtures. Reserve
+   unimplemented families as unsupported rather than freezing invented behavior.
+6. Record M4/M5 handoff: dev-session binding, real clock/wait usage, presentation/
+   input/immutable-resource obligations, provider-side scope/revision/deadline checks,
+   replacement reauthorization and checkpoint authority exclusion. Distinguish
+   monotonic deadlines from wall-clock values in public types; later file/control/
+   diagnostic service seeds are interfaces only.
+
+## Acceptance criteria
+
+- [ ] Client and service build independently from clean locked inputs using public
+  contracts only, then interoperate in the guest without private native-layout sharing.
+- [ ] An independent codec/semantic consumer verifies every supported message and
+  malformed fixture; changing one production codec cannot make both sides agree falsely.
+- [ ] Unchanged compatible clients work across a fixture service rebuild/route switch;
+  incompatible versions/features fail before mutation without a stale-writer bypass.
+- [ ] Actual runtime hook tests demonstrate reclaiming allocation, FP/context
+  isolation and bounded failure for the nonrendering portable workload; remaining
+  M4 presentation/text/font/input/resource obligations are itemized explicitly.
+- [ ] The tested ABI subset and compatibility policy are reviewed/frozen coherently;
+  no untested family, credential format or desktop-service implementation is claimed.
+- [ ] Public SDK types and M4/M5 authority/lifetime handoff distinguish process,
+  session, policy and route epochs, monotonic/wall time and data versus authority.
+
+## Tests and evidence
+
+Retain clean build recipes, public dependency graph, byte fixtures, independent
+codec outcomes and exact kernel/client/service/SDK hashes. Test truncation, all
+length/rights/enum/reserved-bit classes, required-feature mismatch, old/new minor
+versions and deliberate producer/consumer byte mutations. Use separate guest
+artifacts for nonrendering runtime stress; absent presentation is not a stub success.
+Rerun affected M2 portable/link checks if public build/shared code changes.
+
+## Exclusions and handoff
+
+No general native application SDK release, UI guest backend, dev transport or real
+behavior reload. P3-13 stresses the final interoperable runtime; M4/M5 receive the
+tested bounded subset and open obligations. Sources:
+[contracts index](../../06-contracts/README.md),
+[objects contract](../../06-contracts/ipc-and-objects.md),
+[actions contract](../../06-contracts/actions-and-context.md),
+[runtime hooks](../../../experiments/ui-link/hooks.json),
+[desktop service seeds](../../06-contracts/desktop-services.md).
+Apply the [epic definition of done](README.md#evidence-and-story-completion).

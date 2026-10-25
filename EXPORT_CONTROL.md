@@ -467,6 +467,26 @@ No force push, release, remote build, new recipient or standing remote-environme
 approval is authorized. Geographic containment remains unverified; this
 administrative exception is not legal clearance and does not waive applicable law.
 
+### One-time owner authorization — M3 story decomposition, 2026-10-25
+
+After the local M3 planning work, the owner instructed: "i give you exemption to
+make PR so we can get these stories merged". This authorizes one push of the
+fourteen planned Phase 3 stories, their epic/index, accompanying backlog,
+specification/navigation/validation/handoff updates, commit metadata and this
+authorization record to the existing GitHub
+`origin/codex/m3-story-decomposition`, followed by creation of its pull request
+against `main`, including the prepared PR text and metadata. This is a
+documentation-only submission; generated artifacts, raw logs, binaries, ISOs,
+credentials and unrelated local material are excluded.
+
+The push authorization is exhausted by the first successful push containing this
+record; the PR authorization is exhausted by creation of that one pull request.
+The pre-push hold may be bypassed for that single invocation only and must remain
+installed afterward; the pre-commit hygiene check still runs. No merge, force
+push, release, remote build, new recipient or standing remote-environment approval
+is authorized. Geographic containment remains unverified; this administrative
+exception is not legal clearance and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

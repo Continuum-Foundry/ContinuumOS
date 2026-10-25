@@ -77,9 +77,10 @@ built clients/services; hosted policy-model fixtures alone are insufficient.
 | B37 handoff at M3/M5 | Preserve provider-side principal/session/scope checks across UI and automation; role removal between preview and execution denies the operation; replacement requires fresh grants and rejects checkpoint-supplied authority |
 
 Keep positive and negative outcomes, identity lifetimes, scope, policy epoch and
-the actual exercised boundary in acceptance evidence. Include these rows in M3's
-future story decomposition and final gate; no account UI or credential handling
-is needed to test them.
+the actual exercised boundary in acceptance evidence. The
+[fourteen planned Phase 3 stories](../05-delivery/phase-3/README.md) carry these
+rows into implementation gates and the [final acceptance matrix](../05-delivery/phase-3/14-phase-3-acceptance.md#required-acceptance-matrix).
+All are Not started; no account UI or credential handling is needed to test them.
 
 ## Later accounts gate
 

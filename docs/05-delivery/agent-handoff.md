@@ -71,8 +71,10 @@ The runner uses an argument array in the local Cargo home and a fresh signed bui
 cache. Check enrollment/key expiry and actual tool pins before future acceptance runs.
 M2's hosted comparison and selected-core completion now pass local acceptance.
 Custom Rust remains provisional pending M4 guest confirmation; no guest reload
-exists yet. The next workstream is M3 isolation/runtime story planning at the
-owner's request; no P3 stories exist yet.
+exists yet. At the owner's request, M3 now has
+[fourteen planned Phase 3 stories](phase-3/README.md), all Not started. When
+implementation is requested, begin with P3-01's prerequisite/runtime-contract gate
+and accept one bounded story at a time; this decomposition adds no runtime evidence.
 Follow the [Phase 2 epic and thirteen ordered local stories](phase-2/README.md).
 [P2-01's prerequisite/profile recheck](phase-2/01-hosted-prerequisites-and-profiles.md)
 now passes [local acceptance](../../evidence/phase-2/P2-01/2026-10-20/README.md):
@@ -142,7 +144,7 @@ license alternatives and font/Unicode notices are recorded; distribution remains
 uncleared. P2-10 now passes [selected hosted-core acceptance](../../evidence/phase-2/P2-10/2026-10-23/README.md): bounded
 layout/invalidation, input retirement and modal/queue policies, semantic hierarchy
 and virtual navigation, visual grapheme affinity, rounded coverage and motion.
-Use the [selected-core runbook](phase-2/selected-ui-runbook.md). P2-11 now passes [hosted resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md): bounded atomic file builds, coherent token/topology publication, reader headroom and native same-window generation 7-to-8 continuity with complete checkpoint preservation. Use the [resource reload runbook](phase-2/resource-reload-runbook.md). P2-12 now passes [hosted damage/idle/stability acceptance](../../evidence/phase-2/P2-12/2026-10-24/README.md): bounded retained damage/layout caching, 108 exact images, 3,000 frames, 6,763 process samples and 100 file reloads per resolution. Its [runbook](phase-2/performance-stability-runbook.md) preserves frame/latency misses and PERF-12-01–03. Opaque-root validation now precedes publication; the original native failure is retained. P2-13 now passes [final aggregate acceptance](../../evidence/phase-2/P2-13/2026-10-24/README.md), including clean linkage of the final retained/cache path. Use its [runbook](phase-2/acceptance-runbook.md). M2's declared hosted subset is accepted locally; M3 decomposition is next at the owner's request, with no P3 stories yet. Mandatory M2 work is not deferred to guest work. M3 runtime and M4 guest confirmation,
+Use the [selected-core runbook](phase-2/selected-ui-runbook.md). P2-11 now passes [hosted resource reload acceptance](../../evidence/phase-2/P2-11/2026-10-23/README.md): bounded atomic file builds, coherent token/topology publication, reader headroom and native same-window generation 7-to-8 continuity with complete checkpoint preservation. Use the [resource reload runbook](phase-2/resource-reload-runbook.md). P2-12 now passes [hosted damage/idle/stability acceptance](../../evidence/phase-2/P2-12/2026-10-24/README.md): bounded retained damage/layout caching, 108 exact images, 3,000 frames, 6,763 process samples and 100 file reloads per resolution. Its [runbook](phase-2/performance-stability-runbook.md) preserves frame/latency misses and PERF-12-01–03. Opaque-root validation now precedes publication; the original native failure is retained. P2-13 now passes [final aggregate acceptance](../../evidence/phase-2/P2-13/2026-10-24/README.md), including clean linkage of the final retained/cache path. Use its [runbook](phase-2/acceptance-runbook.md). M2's declared hosted subset is accepted locally; M3 now has [fourteen planned stories](phase-3/README.md), all Not started. Mandatory M2 work is not deferred to guest work. M3 runtime and M4 guest confirmation,
 M5 behavior routing/retirement remain pending; ADRs remain Proposed.
 P2-01 through P2-13 are Done under local self-review. The owner's subsequent
 performance review recommends the [bounded hosted remediation plan](phase-2/performance-remediation-plan.md)
@@ -195,10 +197,11 @@ deliverables under `outputs/`; later source layout is proposed in the build spec
 The owner's M3 planning clarification adds [identity/ownership/authorization foundations](../02-architecture/identity-and-authorization.md)
 to local B11–B13 and aligns B15/B37's handoff. Include trusted caller/session
 provenance, scoped role-to-capability grants, cross-owner/same-user app denial and
-brokered invalidation tests when decomposing M3 into stories. Product scope remains
+brokered invalidation tests when implementing the Phase 3 stories. Product scope remains
 one development user; two synthetic users are enforcement fixtures, not implemented
 accounts at M3. The approved installer/accounts amendment now makes M7 B41–B44
-mandatory for M8. No separate P3 story files exist yet.
+mandatory for M8. The [Phase 3 stories](phase-3/README.md) now include these
+foundations and required guest enforcement cases; all remain Not started.
 
 The owner's installer planning clarification seeds [M6 installer prerequisites](installer-preparation.md)
 in B22–B24/B40, with B33/B34 packaging/recovery handoff. Include a non-writing
@@ -211,8 +214,9 @@ installation, first-installed-boot owner setup, repair and preserving reinstall.
 The exact M8 ISO must pass B44's independent installed-disk lifecycle with accounts,
 files and ownership preserved. Live-only previews have separately scoped reviews
 and cannot satisfy M8. The four new broad B41–B44 tasks are not P-level stories;
-decompose P3–P21 only at the owner's request before each milestone. No installer
-code, disk write, physical-PC operation or publication is authorized by these edits.
+P3 is now decomposed; decompose P4–P21 only at the owner's request before each
+milestone. No installer code, disk write, physical-PC operation or publication is
+authorized by these edits.
 
 The subsequent approved [desktop/platform expansion](desktop-feature-matrix.md)
 preserves M8 and adds M9–M21 with broad B45–B60 (60 total tasks). M7 now focuses on
@@ -224,7 +228,7 @@ M18/M19/M20/M21 homes; their actual prerequisites can pass before M15. Keep the
 original kernel and avoid universal Windows-app, browser, driver or foreign-reload
 claims. Backup covers documents/portable settings with explicit authenticated-owner
 mapping and no default credential/policy migration. M3–M6 seed interfaces only;
-do not import later features into their exits. No later P stories exist yet.
+do not import later features into their exits. P3 is planned; no P4–P21 stories exist yet.
 
 - Original kernel, not a rebranded existing OS or web-only shell.
 - Modern first-party code, with architecture-specific instructions acknowledged.

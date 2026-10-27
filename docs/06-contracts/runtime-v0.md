@@ -254,7 +254,7 @@ universal revocation, exactly-once delivery or live state-transfer claim.
 
 ## Scheduling, locks, CPU state and clocks
 
-P3-05 starts one CPU, one equal-priority FIFO round-robin queue, 5 ms nominal
+P3-05's [experimental mechanism](../05-delivery/phase-3/scheduler-runbook.md) uses one CPU, one equal-priority FIFO round-robin queue, 5 ms nominal
 quantum, maximum 32 live threads. New/woken threads join the tail; no priority
 inheritance or ambient service boost. With N runnable threads and no declared
 critical section, each receives execution within N+1 dispatch opportunities.
@@ -348,3 +348,10 @@ services and distribution terms remain frozen gaps, not M3 port commitments.
 ## P3-04 experimental operations
 
 The [syscall boundary runbook](../05-delivery/phase-3/syscall-boundary-runbook.md) specifies IDs 0–5, per-operation buffer/value/error semantics, the private reclaiming page-run allocator, return-state validation, partial-copy behavior and exact assembly/unsafe lifetime review. R9 is revision zero and R8 reserved features zero. The 32-byte query carries diagnostic trusted IDs only; payload claims cannot select a process or authority. Staged UD2 and explicitly executable process_exit launch paths remain separate. Scheduling/FP state, public memory rights, general supervision and independent ABI freeze are later gates.
+
+The P3-05 execution subset admits one owning thread per process (16 process
+slots) with a 32-entry queue policy. Public/shared-process threads, priority
+changes and blocking kernel continuations remain unsupported. Syscalls complete
+before switching; IRQs in the kernel mark pending only. Scheduler allocation
+calls admit at most 64 KiB. The P3-04 profile separately retains its TS guard.
+See ADR-0021 and the scheduler runbook for eager-state, feature and observer policy.

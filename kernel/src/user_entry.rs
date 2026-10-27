@@ -17,6 +17,9 @@ mod ids {
     include!(env!("CONTINUUM_RUNTIME_IDS"));
 }
 use ids::*;
+#[cfg(feature = "scheduler-test")]
+#[path = "scheduling.rs"]
+pub(crate) mod scheduling;
 static CONTINUATION: Local<u64> = Local(UnsafeCell::new(0));
 static KERNEL_ROOT: Local<u64> = Local(UnsafeCell::new(0));
 static KERNEL_SP: Local<u64> = Local(UnsafeCell::new(0));
@@ -101,7 +104,8 @@ fn install() -> Result<()> {
 }
 // Exact assembly layout, all integer GPRs plus an IRETQ frame. No wire casts.
 #[repr(C)]
-struct Frame {
+#[derive(Clone, Copy)]
+pub(crate) struct Frame {
     r15: u64,
     r14: u64,
     r13: u64,
@@ -126,6 +130,10 @@ struct Frame {
 const _: () =
     assert!(core::mem::size_of::<Frame>() == 160 && core::mem::offset_of!(Frame, ip) == 120);
 fn finish(reason: &'static str, result: u64, vector: u64, ip: u64, address: u64) -> ! {
+    #[cfg(feature = "scheduler-test")]
+    if scheduling::active() {
+        scheduling::finish(reason, result, vector);
+    }
     let c = current();
     record(
         "m1.user_end",
@@ -207,6 +215,11 @@ fn copy(address: u64, bytes: &mut [u8], output: bool) -> core::result::Result<()
                 .write(Some((address, address + bytes.len() as u64)));
         }
         let kernel = bytes.as_mut_ptr() as u64;
+        #[cfg(feature = "scheduler-test")]
+        {
+            assert!(r.inventory().active_pins > 0);
+            scheduling::copy_irq(true);
+        }
         let failed = unsafe {
             if output {
                 user_copy(address, kernel, bytes.len() as u64)
@@ -300,6 +313,8 @@ fn free(base: u64) -> core::result::Result<u64, u64> {
     Ok(0)
 }
 extern "C" fn dispatch(ptr: *mut Frame) {
+    #[cfg(feature = "scheduler-test")]
+    scheduling::begin_syscall();
     let f = unsafe { &mut *ptr };
     let c = current();
     let flags: u64;
@@ -342,6 +357,8 @@ extern "C" fn dispatch(ptr: *mut Frame) {
         finish("return-state", 0x200, 0, f.ip, 0);
     }
     let operation = f.rax;
+    #[cfg(feature = "scheduler-test")]
+    scheduling::check_fp_policy();
     f.rax = 0;
     let value = if f.r9 != 0 {
         Err(INCOMPATIBLEPROTOCOL)
@@ -398,9 +415,24 @@ extern "C" fn dispatch(ptr: *mut Frame) {
                     })
                 }
             }
-            MEMORY_ALLOCATE => allocate(f.rdi, f.rsi),
+            MEMORY_ALLOCATE => {
+                #[cfg(feature = "scheduler-test")]
+                if scheduling::active() && f.rdi > 65536 {
+                    f.rax = QUOTAEXCEEDED;
+                    f.rdx = 0;
+                    scheduling::syscall_return(f, false);
+                    return;
+                }
+                allocate(f.rdi, f.rsi)
+            }
             MEMORY_FREE => free(f.rdi),
             THREAD_YIELD => {
+                #[cfg(feature = "scheduler-test")]
+                if scheduling::active() {
+                    f.rdx = 0;
+                    scheduling::syscall_return(f, true);
+                    return;
+                }
                 // No structural borrow/pin is held. Exercise a real nested
                 // timer IRQ on this owned kernel stack, then mask again.
                 let before = crate::timer::uptime().unwrap().0;
@@ -417,7 +449,13 @@ extern "C" fn dispatch(ptr: *mut Frame) {
                 );
                 Ok(0) // same active process until P3-05
             }
-            PROCESS_EXIT => finish("exit", f.rdi, 0, f.ip, 0),
+            PROCESS_EXIT => {
+                #[cfg(feature = "scheduler-test")]
+                if scheduling::active() {
+                    scheduling::copy_irq(false);
+                }
+                finish("exit", f.rdi, 0, f.ip, 0)
+            }
             _ => Err(UNSUPPORTED),
         }
     };
@@ -427,6 +465,14 @@ extern "C" fn dispatch(ptr: *mut Frame) {
             f.rax = e;
             f.rdx = if e == BUFFERTOOSMALL { 32 } else { 0 };
         }
+    }
+    #[cfg(feature = "scheduler-test")]
+    if scheduling::active() {
+        if !valid_return(f) {
+            finish("return-state", 0x200, 0, f.ip, 0);
+        }
+        scheduling::syscall_return(f, false);
+        return;
     }
     record(
         "m1.user_call",

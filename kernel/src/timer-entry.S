@@ -19,11 +19,18 @@
     push r14
     push r15
     cld
-    mov rbx, rsp
+    mov rax, cr0
+    push rax
+    or rax, 8
+    mov cr0, rax
+    lea rbx, [rsp + 8]
     and rsp, -16
     mov edi, \vector
     mov rsi, [rbx + 128] // saved hardware CS after 15 integer registers
+    mov rdx, rbx
     call {interrupt}
+    mov rax, [rbx - 8]
+    mov cr0, rax
     mov rsp, rbx
     pop r15
     pop r14

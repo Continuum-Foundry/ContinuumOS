@@ -3,6 +3,7 @@
 pub mod memory;
 pub mod owned_memory;
 pub mod platform;
+pub mod scheduler;
 pub mod user_boundary;
 pub mod user_image;
 

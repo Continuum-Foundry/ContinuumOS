@@ -1,6 +1,6 @@
 # P3-05 — Preempt tasks and preserve integer/FP/SIMD context
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done. Owner: Unassigned.
 Depends on: P3-04 Done. Suggested labels: `phase-3`, `scheduler`, `cpu-context`.
 Backlog: Remaining M3 B06 scheduling/context. Requirements: R03/R10/R18;
 preparatory R09/R14. Test families: T02/T03, timer/context subset of T04, runtime T09.
@@ -34,15 +34,15 @@ or faulting task cannot monopolize the CPU or expose another task's registers.
 
 ## Acceptance criteria
 
-- [ ] Two non-yielding ring-3 workloads and a healthy control task progress under
+- [x] Two non-yielding ring-3 workloads and a healthy control task progress under
   timer preemption within fixed fairness bounds; voluntary yield is not the proof.
-- [ ] Integer/flags/stack/address-space and supported FP/SIMD/control-state sentinels
+- [x] Integer/flags/stack/address-space and supported FP/SIMD/control-state sentinels
   survive repeated switches; fresh tasks observe initialized state, not prior data.
-- [ ] Priority, idle, termination and nested IRQ/preemption rules are bounded and
+- [x] Priority, idle, termination and nested IRQ/preemption rules are bounded and
   cannot be elevated or disabled by ordinary user code.
-- [ ] Actual instruction/feature audit, unsupported-CPU rejection and FP fault tests
+- [x] Actual instruction/feature audit, unsupported-CPU rejection and FP fault tests
   pass before any renderer/text math is admitted to user tasks.
-- [ ] User fault or kill during compute/syscall/copy leaves another task running;
+- [x] User fault or kill during compute/syscall/copy leaves another task running;
   M1 acknowledgement, uptime and fatal-stack regressions remain intact.
 
 ## Tests and evidence
@@ -62,3 +62,7 @@ Sources: [kernel design](../../02-architecture/kernel-and-execution.md),
 [timekeeping runbook](../phase-1/interrupts-timekeeping-runbook.md),
 [runtime hooks](../../../experiments/ui-link/hooks.json).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+Implementation commands and boundary policy: [scheduler runbook](scheduler-runbook.md).
+
+Local Codex self-review passes for the declared experimental subset; see the [2026-10-27 acceptance](../../../evidence/phase-3/P3-05/2026-10-27/README.md). Unmasked SSE controls terminate at a kernel boundary; native #XM trapping and nonzero x87 debug metadata are not accepted. No public thread creation, shared-process threading, SMP or guest UI is added.

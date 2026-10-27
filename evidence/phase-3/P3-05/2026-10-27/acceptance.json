@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "story": "P3-05",
+  "status": "passed",
+  "commands": [
+    {
+      "program": "pwsh",
+      "name": "prerequisites",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ],
+      "elapsed_ms": 228038,
+      "exit_code": 0
+    },
+    {
+      "program": "pwsh",
+      "name": "m1",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-P1-07.ps1"
+      ],
+      "elapsed_ms": 2322789,
+      "exit_code": 0
+    },
+    {
+      "program": "pwsh",
+      "name": "m1-review",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Review-P1-07.ps1",
+        "-Run",
+        "${WORKSPACE}\\build/m1\\suite-1793140229523531800-35004"
+      ],
+      "elapsed_ms": 7109,
+      "exit_code": 0
+    },
+    {
+      "program": "cargo",
+      "name": "owned-memory",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ],
+      "elapsed_ms": 70483,
+      "exit_code": 0
+    },
+    {
+      "program": "cargo",
+      "name": "static-loader",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "static-loader"
+      ],
+      "elapsed_ms": 76688,
+      "exit_code": 0
+    },
+    {
+      "program": "cargo",
+      "name": "user-boundary",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "elapsed_ms": 173520,
+      "exit_code": 0
+    },
+    {
+      "program": "cargo",
+      "name": "scheduler",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "scheduler"
+      ],
+      "elapsed_ms": 135919,
+      "exit_code": 0
+    }
+  ],
+  "runs": {
+    "scheduler": "${WORKSPACE}\\build/m1\\scheduler-1793142880744692500-50192",
+    "boundary": "${WORKSPACE}\\build/m1\\user-boundary-1793142707514611300-51444",
+    "m1": "${WORKSPACE}\\build/m1\\suite-1793140229523531800-35004",
+    "prerequisites": "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1793140000874",
+    "loader": "${WORKSPACE}\\build/m1\\static-loader-1793142631265010000-48612",
+    "memory": "${WORKSPACE}\\build/m1\\owned-memory-1793142559467341000-3760"
+  },
+  "source_commit": "bbfe4d3e84d7bd098a56a0c7e7f25919ae272047",
+  "user_execution": true,
+  "host_test_threads": 1
+}

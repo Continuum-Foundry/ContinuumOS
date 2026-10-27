@@ -1,0 +1,779 @@
+{
+  "iterations": [
+    {
+      "iteration": 1,
+      "reason": "Fixture raw-pointer references needed explicit unsafe references.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev.log",
+      "command_log_sha256": "81482dcfeeb26b2d2ded94c7b54a5157d380a8f2c9455dd6e1b4de970b547534",
+      "selected_command_tail": [
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793062887997972700-16840",
+        "xtask: user_a-build: exit Some(1); see ${WORKSPACE}\\build/m1\\scheduler-1793062887997972700-16840; artifacts retained at ${WORKSPACE}\\build/m1\\scheduler-1793062887997972700-16840",
+        "error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler` (exit code: 1)"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793062887997972700-16840",
+      "result": {
+        "action": "scheduler",
+        "error": "user_a-build: exit Some(1); see ${WORKSPACE}\\build/m1\\scheduler-1793062887997972700-16840",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793062887997972700-16840\\user_a-build.stderr.log",
+          "sha256": "5fc5972fedb6df63fc111b29be42f2dba64682e0df947e2353d4c74a1a0c2fff",
+          "bytes": 4180,
+          "excerpts": [
+            "error: implicit autoref creates a reference to the dereference of a raw pointer",
+            "   --> /continuum\\experiments/user-images/scheduler.rs:134:15",
+            "    |",
+            "134 |         check((*b)[0..2]==[0x7f,3] && (*b)[2..24].iter().all(|v|*v==0));",
+            "    |               ^^-^^^^^^^",
+            "    |                 |",
+            "    |                 this raw pointer has type `*const [u8; 512]`",
+            "    |",
+            "    = note: creating a reference requires the pointer target to be valid and imposes aliasing requirements",
+            "note: autoref is being applied to this expression, resulting in: `&[u8; 512]`",
+            "   --> /continuum\\experiments/user-images/scheduler.rs:134:15",
+            "    |"
+          ],
+          "selection": "selected diagnostic lines; full local file retained"
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "reason": "New scheduler boot modes omitted trusted module mappings.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev-2.log",
+      "command_log_sha256": "27b770a53b198393d4edc88f5de5349879f63600cab000380afe5a33c8acce76",
+      "selected_command_tail": [
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793070172589326400-40380",
+        "xtask: VM failed: \"Unexpected fatal diagnostic\"; artifacts retained at ${WORKSPACE}\\build/m1\\scheduler-1793070172589326400-40380",
+        "error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler` (exit code: 1)"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793070172589326400-40380",
+      "result": {
+        "action": "scheduler",
+        "error": "VM failed: \"Unexpected fatal diagnostic\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "build_id": "85eb640beb7a85dbedc2417a40c66479e90e479b8c24110e0bbe01a506e90021",
+      "kernel_sha256": "272483dd2ca36a9e2f80aa68eb1673cace81d1a397c1a8c22f60d429a4b3c253",
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070172589326400-40380\\scheduler-on-run\\serial.log",
+          "sha256": "969f98605ce8af599e801010813a08d1f034df963a653e2dba3131a4785c7e45",
+          "bytes": 67057,
+          "excerpts": [
+            "m1.clock_sample version=5 build=85eb640beb7a85dbedc2417a40c66479e90e479b8c24110e0bbe01a506e90021 session=dea99d4af5bb549ca8da02340f1535bdeddcf07fffd00e522b8e2c85b478150a session_origin=host seq=197 stage=timer outcome=ok emergency=false index=97 ticks=98 uptime_ns=979999020 continuation=true registers=true",
+            "m1.clock_sample version=5 build=85eb640beb7a85dbedc2417a40c66479e90e479b8c24110e0bbe01a506e90021 session=dea99d4af5bb549ca8da02340f1535bdeddcf07fffd00e522b8e2c85b478150a session_origin=host seq=198 stage=timer outcome=ok emergency=false index=98 ticks=99 uptime_ns=989999010 continuation=true registers=true",
+            "m1.clock_sample version=5 build=85eb640beb7a85dbedc2417a40c66479e90e479b8c24110e0bbe01a506e90021 session=dea99d4af5bb549ca8da02340f1535bdeddcf07fffd00e522b8e2c85b478150a session_origin=host seq=199 stage=timer outcome=ok emergency=false index=99 ticks=100 uptime_ns=999999000 continuation=true registers=true",
+            "m1.timer_progress version=5 build=85eb640beb7a85dbedc2417a40c66479e90e479b8c24110e0bbe01a506e90021 session=dea99d4af5bb549ca8da02340f1535bdeddcf07fffd00e522b8e2c85b478150a session_origin=host seq=200 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=999999000 reads=100 changes=100 halts=100 registers=true spurious=0",
+            "m1.scheduler_policy version=5 build=85eb640beb7a85dbedc2417a40c66479e90e479b8c24110e0bbe01a506e90021 session=dea99d4af5bb549ca8da02340f1535bdeddcf07fffd00e522b8e2c85b478150a session_origin=host seq=201 stage=scheduler outcome=ok emergency=false slots=32 owners=16 threads_per_owner=1 priority=equal quantum_ns=5000000 fairness_quanta=64 fp=x87-sse-sse2 xsave=false avx=false unsupported_denied=true trace=true",
+            "m1.exception version=5 build=85eb640beb7a85dbedc2417a40c66479e90e479b8c24110e0bbe01a506e90021 session=dea99d4af5bb549ca8da02340f1535bdeddcf07fffd00e522b8e2c85b478150a session_origin=host seq=202 stage=exceptions outcome=fatal emergency=false vector=14 rip=0xffffffff8001d23c error=0x0 address=0xffffc20000000000 rsp=0xffffffff808ea150 cs=0x8 flags=0x10093 frame=0xffffffff808ea118"
+          ],
+          "selection": "selected diagnostic lines; full local file retained"
+        },
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070172589326400-40380\\user_a-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "excerpts": [],
+          "selection": "selected diagnostic lines; full local file retained"
+        }
+      ]
+    },
+    {
+      "iteration": 3,
+      "reason": "Independent timer parser still expected the legacy 10-ms period.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev-3.log",
+      "command_log_sha256": "cd4a74bbd67c80c741c70e3252b38ad87c33c1ce8e838f6e1a04c25dc572527f",
+      "selected_command_tail": [
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793070333916407100-41548",
+        "xtask: VM failed: \"Incorrect timer conversion\"; artifacts retained at ${WORKSPACE}\\build/m1\\scheduler-1793070333916407100-41548",
+        "error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler` (exit code: 1)"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793070333916407100-41548",
+      "result": {
+        "action": "scheduler",
+        "error": "VM failed: \"Incorrect timer conversion\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "build_id": "82228feb1ce7942877f905b3cc6f4660e32d6276516eefb8c9e11c677fcaf413",
+      "kernel_sha256": "0ba9017aff634aead285e92802f4c7655164da6ac9e6c0d0d460e29be86a75fc",
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070333916407100-41548\\scheduler-on-run\\serial.log",
+          "sha256": "72d81d3a5ca024cb65211ce90036d5f6db9410b2edb5931062d4777129118cb3",
+          "bytes": 35168,
+          "excerpts": [
+            "m1.frame_test version=5 build=82228feb1ce7942877f905b3cc6f4660e32d6276516eefb8c9e11c677fcaf413 session=5b05fbf3926fff5a8becd1a26e64c58452c0687834c40ab7c212f27daa13fbb3 session_origin=host seq=94 stage=memory outcome=ok emergency=false index=7 physical=0x8000 zeroed=true unique=true reserved=false",
+            "m1.memory_ready version=5 build=82228feb1ce7942877f905b3cc6f4660e32d6276516eefb8c9e11c677fcaf413 session=5b05fbf3926fff5a8becd1a26e64c58452c0687834c40ab7c212f27daa13fbb3 session_origin=host seq=95 stage=memory outcome=ok emergency=false cr3=0x78c6f000 wp=true nx=true supervisor=true image_audited=true direct_audited=true guards=6 aliases=0 batch=8 reuse_zero=true invalid_free=rejected double_free=rejected conflict=rejected invalidation=passed exhaustion=not-requested allocated=0 test_quota=0",
+            "m1.runtime_memory version=5 build=82228feb1ce7942877f905b3cc6f4660e32d6276516eefb8c9e11c677fcaf413 session=5b05fbf3926fff5a8becd1a26e64c58452c0687834c40ab7c212f27daa13fbb3 session_origin=host seq=96 stage=runtime-memory outcome=ok emergency=false metadata_bytes=155648 table_storage_bytes=8519680 kernel_stack_storage=1179648 kernel_guard_bytes=131072 dynamic_ceiling=16777216 user_ceiling=67108864 spaces=16 allocation_slots=256 mappings_per_space=128 tables_per_bank=64 banks=2 initialized=true",
+            "m1.acpi_ready version=5 build=82228feb1ce7942877f905b3cc6f4660e32d6276516eefb8c9e11c677fcaf413 session=5b05fbf3926fff5a8becd1a26e64c58452c0687834c40ab7c212f27daa13fbb3 session_origin=host seq=97 stage=timer outcome=ok emergency=false rsdp=0x7f77e014 xsdt=0x7f77d0e8 tables=6 apic=0xfee00000 ioapic=0xfec00000 hpet=0xfed00000 checksums=true ranges=true",
+            "m1.timer_calibrated version=5 build=82228feb1ce7942877f905b3cc6f4660e32d6276516eefb8c9e11c677fcaf413 session=5b05fbf3926fff5a8becd1a26e64c58452c0687834c40ab7c212f27daa13fbb3 session_origin=host seq=98 stage=timer outcome=ok emergency=false apic_elapsed=1256437 hpet_ticks=2000070 period_fs=10000000 divide=16 initial=314098 resolution_ns=4999995 cache=uc",
+            "m1.timer_ready version=5 build=82228feb1ce7942877f905b3cc6f4660e32d6276516eefb8c9e11c677fcaf413 session=5b05fbf3926fff5a8becd1a26e64c58452c0687834c40ab7c212f27daa13fbb3 session_origin=host seq=99 stage=timer outcome=ok emergency=false vector=64 spurious=255 ticks=0 uptime_ns=0 resolution_ns=4999995 epoch=kernel pic=masked lvt=timer-only"
+          ],
+          "selection": "selected diagnostic lines; full local file retained"
+        },
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070333916407100-41548\\user_a-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "excerpts": [],
+          "selection": "selected diagnostic lines; full local file retained"
+        }
+      ]
+    },
+    {
+      "iteration": 4,
+      "reason": "LLVM names the deliberate x87 instruction fdivrp; audited alias added.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev-4.log",
+      "command_log_sha256": "640fa11aa6489b3e2086300ea9eb1b9e7c757d2df322da47088c5d8781f8f7d7",
+      "selected_command_tail": [
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793070456260458000-37796",
+        "xtask: Unexpected FP/SIMD instruction:   400794:      \tfdivrp\t%st, %st(1); artifacts retained at ${WORKSPACE}\\build/m1\\scheduler-1793070456260458000-37796",
+        "error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler` (exit code: 1)"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793070456260458000-37796",
+      "result": {
+        "action": "scheduler",
+        "error": "Unexpected FP/SIMD instruction:   400794:      \tfdivrp\t%st, %st(1)",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070456260458000-37796\\user_a-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "excerpts": [],
+          "selection": "selected diagnostic lines; full local file retained"
+        }
+      ]
+    },
+    {
+      "iteration": 5,
+      "reason": "Hardware RF was rejected by the strict syscall-frame predicate.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev-5.log",
+      "command_log_sha256": "fe1d015cf0ac20279363357e0be7b44514c2e3ce6d03573c7727ba339f074244",
+      "selected_command_tail": [
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793070512182015100-32876",
+        "xtask: VM failed: \"Unexpected guest rejection\"; artifacts retained at ${WORKSPACE}\\build/m1\\scheduler-1793070512182015100-32876",
+        "error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler` (exit code: 1)"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793070512182015100-32876",
+      "result": {
+        "action": "scheduler",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "build_id": "65e29852f9dd8dce3f44d6d64e93d57150a34999e48af14eef8eb823ea70f549",
+      "kernel_sha256": "0182224a35dba671cf95601d439e72b2c4e588a856b21521fd2e09a4522e0aa3",
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070512182015100-32876\\scheduler-on-run\\serial.log",
+          "sha256": "ae92ec4c79898ded4853d4112d210fa874b7c57bd8e5877c42396c8c98a1fe7a",
+          "bytes": 69327,
+          "excerpts": [
+            "m1.task_start version=5 build=65e29852f9dd8dce3f44d6d64e93d57150a34999e48af14eef8eb823ea70f549 session=a984c736644cb136163cb4d7bf1b604f88d09d5c117bc318f309b5f24aa25edc session_origin=host seq=204 stage=scheduler outcome=ok emergency=false thread=2 generation=1 process=2 principal=303 mode=1 root=0x783ba000 stack=0xffffffff80937000 fresh=true",
+            "m1.task_switch version=5 build=65e29852f9dd8dce3f44d6d64e93d57150a34999e48af14eef8eb823ea70f549 session=a984c736644cb136163cb4d7bf1b604f88d09d5c117bc318f309b5f24aa25edc session_origin=host seq=205 stage=scheduler outcome=ok emergency=false wave=0 thread=0 generation=1 dispatches=1 preemptions=1 progress=0 elapsed_ns=2381200 done=false",
+            "m1.task_switch version=5 build=65e29852f9dd8dce3f44d6d64e93d57150a34999e48af14eef8eb823ea70f549 session=a984c736644cb136163cb4d7bf1b604f88d09d5c117bc318f309b5f24aa25edc session_origin=host seq=206 stage=scheduler outcome=ok emergency=false wave=0 thread=1 generation=1 dispatches=1 preemptions=1 progress=0 elapsed_ns=1343600 done=false",
+            "m1.task_switch version=5 build=65e29852f9dd8dce3f44d6d64e93d57150a34999e48af14eef8eb823ea70f549 session=a984c736644cb136163cb4d7bf1b604f88d09d5c117bc318f309b5f24aa25edc session_origin=host seq=207 stage=scheduler outcome=ok emergency=false wave=0 thread=2 generation=1 dispatches=1 preemptions=0 progress=0 elapsed_ns=3473800 done=false",
+            "m1.task_switch version=5 build=65e29852f9dd8dce3f44d6d64e93d57150a34999e48af14eef8eb823ea70f549 session=a984c736644cb136163cb4d7bf1b604f88d09d5c117bc318f309b5f24aa25edc session_origin=host seq=208 stage=scheduler outcome=ok emergency=false wave=0 thread=0 generation=1 dispatches=2 preemptions=1 progress=0 elapsed_ns=69700 done=true",
+            "m1.boot_rejected version=5 build=65e29852f9dd8dce3f44d6d64e93d57150a34999e48af14eef8eb823ea70f549 session=a984c736644cb136163cb4d7bf1b604f88d09d5c117bc318f309b5f24aa25edc session_origin=host seq=209 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+          ],
+          "selection": "selected diagnostic lines; full local file retained"
+        },
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070512182015100-32876\\user_a-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "excerpts": [],
+          "selection": "selected diagnostic lines; full local file retained"
+        }
+      ]
+    },
+    {
+      "iteration": 6,
+      "reason": "Precise saved-frame diagnostics added for RF investigation.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev-6.log",
+      "command_log_sha256": "6d877a0ffb82a69b6a07c55696a2123eeb0c4f3b3a918d1d6c75b0884a9e913b",
+      "selected_command_tail": [
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793070718278654500-31884",
+        "xtask: VM failed: \"Unexpected guest rejection\"; artifacts retained at ${WORKSPACE}\\build/m1\\scheduler-1793070718278654500-31884",
+        "error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler` (exit code: 1)"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793070718278654500-31884",
+      "result": {
+        "action": "scheduler",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "build_id": "ac75f1de21fb53dd0e21bff9576d15fd5ca9fa809734e02fd53f8126572efc8e",
+      "kernel_sha256": "68cb1e9d9576e6cb17715bb703cb6de8a3636a09f3ef3a307c528440d0c5f45f",
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070718278654500-31884\\scheduler-on-run\\serial.log",
+          "sha256": "e3eb93a03cadbc7ac5ac55bad4e576ccf3bf08271be5e483bb0df4c4a681da5c",
+          "bytes": 69420,
+          "excerpts": [
+            "m1.task_start version=5 build=ac75f1de21fb53dd0e21bff9576d15fd5ca9fa809734e02fd53f8126572efc8e session=ada852cdb5b9ef0424621f61cac0d6b43e64b4bb823888372790144c432c736a session_origin=host seq=204 stage=scheduler outcome=ok emergency=false thread=2 generation=1 process=2 principal=303 mode=1 root=0x783ba000 stack=0xffffffff80937000 fresh=true",
+            "m1.task_switch version=5 build=ac75f1de21fb53dd0e21bff9576d15fd5ca9fa809734e02fd53f8126572efc8e session=ada852cdb5b9ef0424621f61cac0d6b43e64b4bb823888372790144c432c736a session_origin=host seq=205 stage=scheduler outcome=ok emergency=false wave=0 thread=0 generation=1 dispatches=1 preemptions=1 progress=0 elapsed_ns=1629500 done=false result=18446744073709551615",
+            "m1.task_switch version=5 build=ac75f1de21fb53dd0e21bff9576d15fd5ca9fa809734e02fd53f8126572efc8e session=ada852cdb5b9ef0424621f61cac0d6b43e64b4bb823888372790144c432c736a session_origin=host seq=206 stage=scheduler outcome=ok emergency=false wave=0 thread=1 generation=1 dispatches=1 preemptions=1 progress=0 elapsed_ns=1218100 done=false result=18446744073709551615",
+            "m1.task_switch version=5 build=ac75f1de21fb53dd0e21bff9576d15fd5ca9fa809734e02fd53f8126572efc8e session=ada852cdb5b9ef0424621f61cac0d6b43e64b4bb823888372790144c432c736a session_origin=host seq=207 stage=scheduler outcome=ok emergency=false wave=0 thread=2 generation=1 dispatches=1 preemptions=1 progress=0 elapsed_ns=56700 done=false result=18446744073709551615",
+            "m1.task_switch version=5 build=ac75f1de21fb53dd0e21bff9576d15fd5ca9fa809734e02fd53f8126572efc8e session=ada852cdb5b9ef0424621f61cac0d6b43e64b4bb823888372790144c432c736a session_origin=host seq=208 stage=scheduler outcome=ok emergency=false wave=0 thread=0 generation=1 dispatches=2 preemptions=1 progress=0 elapsed_ns=66800 done=true result=512",
+            "m1.boot_rejected version=5 build=ac75f1de21fb53dd0e21bff9576d15fd5ca9fa809734e02fd53f8126572efc8e session=ada852cdb5b9ef0424621f61cac0d6b43e64b4bb823888372790144c432c736a session_origin=host seq=209 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+          ],
+          "selection": "selected diagnostic lines; full local file retained"
+        },
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070718278654500-31884\\user_a-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "excerpts": [],
+          "selection": "selected diagnostic lines; full local file retained"
+        }
+      ]
+    },
+    {
+      "iteration": 7,
+      "reason": "RF observed in a hardware entry-boundary interrupt; normalize only hardware RF, leave syscall validation strict.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev-7.log",
+      "command_log_sha256": "ca342f1d60c21eec50b7b88a91c82f20062a99c61e55c137bd36d292899c82e3",
+      "selected_command_tail": [
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793070872022052700-7304",
+        "xtask: VM failed: \"Unexpected guest rejection\"; artifacts retained at ${WORKSPACE}\\build/m1\\scheduler-1793070872022052700-7304",
+        "error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler` (exit code: 1)"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793070872022052700-7304",
+      "result": {
+        "action": "scheduler",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "build_id": "57151c389fae9469f44d79fe04f9def4a9d599f6d82166d18e3957670277722f",
+      "kernel_sha256": "8caa4cca0f66c846a8ef30cbf71db670f803ea9dfb248c602fe7137be2bd7b32",
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070872022052700-7304\\scheduler-on-run\\serial.log",
+          "sha256": "a1fccb10d1fb1611fece1d9096f223b61fc5090d165c637dd1f912c2f8440c8d",
+          "bytes": 69746,
+          "excerpts": [
+            "m1.task_switch version=5 build=57151c389fae9469f44d79fe04f9def4a9d599f6d82166d18e3957670277722f session=eb4b41807e5b41fd5816674601860b96cc502c350095319931859b31967f80e3 session_origin=host seq=205 stage=scheduler outcome=ok emergency=false wave=0 thread=0 generation=1 dispatches=1 preemptions=1 progress=0 elapsed_ns=6263300 done=false result=18446744073709551615",
+            "m1.task_switch version=5 build=57151c389fae9469f44d79fe04f9def4a9d599f6d82166d18e3957670277722f session=eb4b41807e5b41fd5816674601860b96cc502c350095319931859b31967f80e3 session_origin=host seq=206 stage=scheduler outcome=ok emergency=false wave=0 thread=1 generation=1 dispatches=1 preemptions=1 progress=0 elapsed_ns=2512500 done=false result=18446744073709551615",
+            "m1.task_switch version=5 build=57151c389fae9469f44d79fe04f9def4a9d599f6d82166d18e3957670277722f session=eb4b41807e5b41fd5816674601860b96cc502c350095319931859b31967f80e3 session_origin=host seq=207 stage=scheduler outcome=ok emergency=false wave=0 thread=2 generation=1 dispatches=1 preemptions=1 progress=0 elapsed_ns=265600 done=false result=18446744073709551615",
+            "m1.user_bad_return version=5 build=57151c389fae9469f44d79fe04f9def4a9d599f6d82166d18e3957670277722f session=eb4b41807e5b41fd5816674601860b96cc502c350095319931859b31967f80e3 session_origin=host seq=208 stage=user-boundary outcome=ok emergency=false case=0 ip=0x400000 sp=0x7ffefff8 cs=0x33 ss=0x3b flags=0x10202 operation=0",
+            "m1.task_switch version=5 build=57151c389fae9469f44d79fe04f9def4a9d599f6d82166d18e3957670277722f session=eb4b41807e5b41fd5816674601860b96cc502c350095319931859b31967f80e3 session_origin=host seq=209 stage=scheduler outcome=ok emergency=false wave=0 thread=0 generation=1 dispatches=2 preemptions=1 progress=0 elapsed_ns=3802900 done=true result=512",
+            "m1.boot_rejected version=5 build=57151c389fae9469f44d79fe04f9def4a9d599f6d82166d18e3957670277722f session=eb4b41807e5b41fd5816674601860b96cc502c350095319931859b31967f80e3 session_origin=host seq=210 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+          ],
+          "selection": "selected diagnostic lines; full local file retained"
+        },
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070872022052700-7304\\user_a-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "excerpts": [],
+          "selection": "selected diagnostic lines; full local file retained"
+        }
+      ]
+    },
+    {
+      "iteration": 8,
+      "reason": "Inherited CR0.NE=0 retained legacy IRQ13 behavior; explicitly enable native x87 #MF.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev-8.log",
+      "command_log_sha256": "d72d98acd3c3cbe2b412a4a7fd96767353a93a445e21925af87baf5d255dab53",
+      "selected_command_tail": [
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793070997635987600-28304",
+        "xtask: VM failed: \"Unexpected guest rejection\"; artifacts retained at ${WORKSPACE}\\build/m1\\scheduler-1793070997635987600-28304",
+        "error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler` (exit code: 1)"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793070997635987600-28304",
+      "result": {
+        "action": "scheduler",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "build_id": "b72d439122586032beb117050f48286da62b71058991d4bfc30a228f86a31fa0",
+      "kernel_sha256": "eb5152687b21075bb8c736832d0c6fb9202bdb17794f4a501de46f4e9b5ab407",
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070997635987600-28304\\scheduler-on-run\\serial.log",
+          "sha256": "cf5f7bb2e23e79fc9374193cde4542259e1b613b4cca9e744c6a74ab8fcfcc69",
+          "bytes": 89698,
+          "excerpts": [
+            "m1.task_start version=5 build=b72d439122586032beb117050f48286da62b71058991d4bfc30a228f86a31fa0 session=960b6b9f26a658722b4444e066b614b1a66c310fc30a6bbd2d84659d7f0cb212 session_origin=host seq=260 stage=scheduler outcome=ok emergency=false thread=1 generation=2 process=1 principal=202 mode=0 root=0x78336000 stack=0xffffffff80925000 fresh=true",
+            "m1.task_start version=5 build=b72d439122586032beb117050f48286da62b71058991d4bfc30a228f86a31fa0 session=960b6b9f26a658722b4444e066b614b1a66c310fc30a6bbd2d84659d7f0cb212 session_origin=host seq=261 stage=scheduler outcome=ok emergency=false thread=2 generation=2 process=2 principal=303 mode=2 root=0x783ba000 stack=0xffffffff80937000 fresh=true",
+            "m1.task_switch version=5 build=b72d439122586032beb117050f48286da62b71058991d4bfc30a228f86a31fa0 session=960b6b9f26a658722b4444e066b614b1a66c310fc30a6bbd2d84659d7f0cb212 session_origin=host seq=262 stage=scheduler outcome=ok emergency=false wave=1 thread=0 generation=2 dispatches=1 preemptions=1 progress=0 elapsed_ns=36200 done=false result=18446744073709551615",
+            "m1.task_switch version=5 build=b72d439122586032beb117050f48286da62b71058991d4bfc30a228f86a31fa0 session=960b6b9f26a658722b4444e066b614b1a66c310fc30a6bbd2d84659d7f0cb212 session_origin=host seq=263 stage=scheduler outcome=ok emergency=false wave=1 thread=1 generation=2 dispatches=1 preemptions=1 progress=1011 elapsed_ns=2826000 done=false result=18446744073709551615",
+            "m1.task_switch version=5 build=b72d439122586032beb117050f48286da62b71058991d4bfc30a228f86a31fa0 session=960b6b9f26a658722b4444e066b614b1a66c310fc30a6bbd2d84659d7f0cb212 session_origin=host seq=264 stage=scheduler outcome=ok emergency=false wave=1 thread=2 generation=2 dispatches=1 preemptions=0 progress=0 elapsed_ns=4492100 done=true result=99",
+            "m1.boot_rejected version=5 build=b72d439122586032beb117050f48286da62b71058991d4bfc30a228f86a31fa0 session=960b6b9f26a658722b4444e066b614b1a66c310fc30a6bbd2d84659d7f0cb212 session_origin=host seq=265 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+          ],
+          "selection": "selected diagnostic lines; full local file retained"
+        },
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793070997635987600-28304\\user_a-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "excerpts": [],
+          "selection": "selected diagnostic lines; full local file retained"
+        }
+      ]
+    },
+    {
+      "iteration": 9,
+      "reason": "Native SSE unmasked DIVSS did not trap under pinned TCG. Retain failure and declare unmasked SSE controls unsupported with next-boundary termination; do not claim hardware #XM.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev-9.log",
+      "command_log_sha256": "5e8fb055f79906a0fe5ed1e447c53b808790ec3da96bcd553faf65f03fe87bf2",
+      "selected_command_tail": [
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793071149372835800-34156",
+        "xtask: VM failed: \"Unexpected guest rejection\"; artifacts retained at ${WORKSPACE}\\build/m1\\scheduler-1793071149372835800-34156",
+        "error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler` (exit code: 1)"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793071149372835800-34156",
+      "result": {
+        "action": "scheduler",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "build_id": "2c5b2d1707532982adfda20fb701633df4e8c921206ee53b0c6be6a6c75d356f",
+      "kernel_sha256": "b33ef0ebe83292055e9a1da2d2c8242e02205be200e2ba3839346c3b26b722fa",
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793071149372835800-34156\\scheduler-on-run\\serial.log",
+          "sha256": "4d31f31f97ac1929f7198775b35efc60172308de970b6aed4a779cca5acfa3f7",
+          "bytes": 102565,
+          "excerpts": [
+            "m1.scheduler_cpu version=5 build=2c5b2d1707532982adfda20fb701633df4e8c921206ee53b0c6be6a6c75d356f session=bf271c357eb097287b421b88c746bf6d517ddb007ee8baa42846e72629b75154 session_origin=host seq=201 stage=scheduler outcome=ok emergency=false cpuid_edx=0x78bfbfd cpuid_ecx=0x80002001 cr0=0x8001003b cr4=0x620 missing_feature_denials=4 required_feature_denials=1 fixed_bytes=9926752 extra_bytes=71776",
+            "m1.task_start version=5 build=2c5b2d1707532982adfda20fb701633df4e8c921206ee53b0c6be6a6c75d356f session=bf271c357eb097287b421b88c746bf6d517ddb007ee8baa42846e72629b75154 session_origin=host seq=303 stage=scheduler outcome=ok emergency=false thread=1 generation=3 process=1 principal=202 mode=0 root=0x78335000 stack=0xffffffff80925000 fresh=true",
+            "m1.task_start version=5 build=2c5b2d1707532982adfda20fb701633df4e8c921206ee53b0c6be6a6c75d356f session=bf271c357eb097287b421b88c746bf6d517ddb007ee8baa42846e72629b75154 session_origin=host seq=304 stage=scheduler outcome=ok emergency=false thread=2 generation=3 process=2 principal=303 mode=3 root=0x783b9000 stack=0xffffffff80937000 fresh=true",
+            "m1.task_switch version=5 build=2c5b2d1707532982adfda20fb701633df4e8c921206ee53b0c6be6a6c75d356f session=bf271c357eb097287b421b88c746bf6d517ddb007ee8baa42846e72629b75154 session_origin=host seq=305 stage=scheduler outcome=ok emergency=false wave=2 thread=0 dispatches=1 preemptions=1 progress=0 elapsed_ns=46800 done=false result=0",
+            "m1.task_switch version=5 build=2c5b2d1707532982adfda20fb701633df4e8c921206ee53b0c6be6a6c75d356f session=bf271c357eb097287b421b88c746bf6d517ddb007ee8baa42846e72629b75154 session_origin=host seq=306 stage=scheduler outcome=ok emergency=false wave=2 thread=1 dispatches=1 preemptions=1 progress=528 elapsed_ns=2076000 done=false result=0",
+            "m1.task_switch version=5 build=2c5b2d1707532982adfda20fb701633df4e8c921206ee53b0c6be6a6c75d356f session=bf271c357eb097287b421b88c746bf6d517ddb007ee8baa42846e72629b75154 session_origin=host seq=307 stage=scheduler outcome=ok emergency=false wave=2 thread=2 dispatches=1 preemptions=0 progress=0 elapsed_ns=3187600 done=true result=99",
+            "m1.boot_rejected version=5 build=2c5b2d1707532982adfda20fb701633df4e8c921206ee53b0c6be6a6c75d356f session=bf271c357eb097287b421b88c746bf6d517ddb007ee8baa42846e72629b75154 session_origin=host seq=308 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+          ],
+          "selection": "selected diagnostic lines; full local file retained"
+        },
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793071149372835800-34156\\user_a-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "excerpts": [],
+          "selection": "selected diagnostic lines; full local file retained"
+        },
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793071149372835800-34156\\service-llvm-objdump.stdout.log",
+          "sha256": "ff3de637b58d88a086effc9bc6c1bcad81f6ee9789be756deb3980853a188494",
+          "excerpts": [
+            "  40077e:      \tmovl\t$0x1f00, 0x8(%rsp)      # imm = 0x1F00",
+            "  400786:      \tleaq\t0x8(%rsp), %rax",
+            "  40078b:      \tldmxcsr\t(%rax)",
+            "  40078e:      \tpxor\t%xmm0, %xmm0",
+            "  400792:      \tdivss\t%xmm0, %xmm0",
+            "  400796:      \tmovl\t$0x63, %edi",
+            "  40079b:      \tcallq\t0x4007e0 <_RNvNtCsfrQyukhG1Wi_9scheduler7runtime4exit>",
+            "  4007a0:      \tmovw\t$0x37e, 0x8(%rsp)       # imm = 0x37E"
+          ],
+          "selection": "exact unmasked DIVSS probe excerpt; full local disassembly retained"
+        }
+      ]
+    },
+    {
+      "iteration": 10,
+      "reason": "Scheduler on/off passed; host parser had not admitted the new real CPU-rejection event.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev-10.log",
+      "command_log_sha256": "41449467891bc33a4f769b8257f11d202bc54d3b100640d50d63e2e0ee4113be",
+      "selected_command_tail": [
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793071371212317100-27416",
+        "xtask: VM failed: \"Unexpected guest event m1.scheduler_cpu_rejected\"; artifacts retained at ${WORKSPACE}\\build/m1\\scheduler-1793071371212317100-27416",
+        "error: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler` (exit code: 1)"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793071371212317100-27416",
+      "result": {
+        "action": "scheduler",
+        "error": "VM failed: \"Unexpected guest event m1.scheduler_cpu_rejected\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "build_id": "19edfc266aee3dbc08f36f09a9ae4d6aa273e381adb0bf449102ecdcdb230cd7",
+      "kernel_sha256": "807249f09e7947b090aa6ab58f8028c452db7799ce0a98610f92e3bf65a093d5",
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793071371212317100-27416\\scheduler-on-run\\serial.log",
+          "sha256": "e37aef090718facaf0d281eaf02df19bd77708b5eab4f55f102da229739b5818",
+          "bytes": 221162,
+          "excerpts": [
+            "m1.scheduler_cpu version=5 build=19edfc266aee3dbc08f36f09a9ae4d6aa273e381adb0bf449102ecdcdb230cd7 session=c28d4304a6b6ea112a3ea420801271088d6fa0a2cd0046e9c0b40798c9184188 session_origin=host seq=201 stage=scheduler outcome=ok emergency=false cpuid_edx=0x78bfbfd cpuid_ecx=0x80002001 cr0=0x8001003b cr4=0x620 missing_feature_denials=4 required_feature_denials=1 fixed_bytes=9926752 extra_bytes=71776",
+            "m1.task_switch version=5 build=19edfc266aee3dbc08f36f09a9ae4d6aa273e381adb0bf449102ecdcdb230cd7 session=c28d4304a6b6ea112a3ea420801271088d6fa0a2cd0046e9c0b40798c9184188 session_origin=host seq=656 stage=scheduler outcome=ok emergency=false wave=9 thread=1 dispatches=16 preemptions=16 progress=20757 elapsed_ns=4070000 done=true result=768",
+            "m1.task_end version=5 build=19edfc266aee3dbc08f36f09a9ae4d6aa273e381adb0bf449102ecdcdb230cd7 session=c28d4304a6b6ea112a3ea420801271088d6fa0a2cd0046e9c0b40798c9184188 session_origin=host seq=657 stage=scheduler outcome=ok emergency=false wave=9 thread=1 generation=10 mode=0 result=768 vector=0 dispatches=16 preemptions=16 progress=20757",
+            "m1.task_settlement version=5 build=19edfc266aee3dbc08f36f09a9ae4d6aa273e381adb0bf449102ecdcdb230cd7 session=c28d4304a6b6ea112a3ea420801271088d6fa0a2cd0046e9c0b40798c9184188 session_origin=host seq=658 stage=scheduler outcome=ok emergency=false wave=9 settled=true frames=0 spaces=0 pins=0",
+            "m1.scheduler_ready version=5 build=19edfc266aee3dbc08f36f09a9ae4d6aa273e381adb0bf449102ecdcdb230cd7 session=c28d4304a6b6ea112a3ea420801271088d6fa0a2cd0046e9c0b40798c9184188 session_origin=host seq=659 stage=scheduler outcome=ok emergency=false waves=10 tasks=30 switches=382 settled=true idle=true max_masked_upper_ns=19894400 max_body_ns=13638500 max_wait_ns=37735700 nested_irqs=29 pin_irqs=25 observer_samples=100 observer_total_ns=908500 trace=true",
+            "m1.boot_complete version=5 build=19edfc266aee3dbc08f36f09a9ae4d6aa273e381adb0bf449102ecdcdb230cd7 session=c28d4304a6b6ea112a3ea420801271088d6fa0a2cd0046e9c0b40798c9184188 session_origin=host seq=660 stage=boot outcome=ok emergency=false reclaimed_bytes=0",
+            "m1.ready version=5 build=19edfc266aee3dbc08f36f09a9ae4d6aa273e381adb0bf449102ecdcdb230cd7 session=c28d4304a6b6ea112a3ea420801271088d6fa0a2cd0046e9c0b40798c9184188 session_origin=host seq=661 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+          ],
+          "selection": "selected diagnostic lines; full local file retained"
+        },
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793071371212317100-27416\\user_a-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "excerpts": [],
+          "selection": "selected diagnostic lines; full local file retained"
+        }
+      ]
+    },
+    {
+      "iteration": 11,
+      "reason": "Focused three-boot matrix passed before final exception-guard and timing-summary changes.",
+      "command_log": "${WORKSPACE}\\work\\p3-05-scheduler-dev-11.log",
+      "command_log_sha256": "fd4f906788068c860dd2769a0b294044a7537010507305d233a9806f3af0e5f7",
+      "selected_command_tail": [
+        "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 14.99s",
+        "     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case scheduler`",
+        "M1 artifacts: ${WORKSPACE}\\build/m1\\scheduler-1793138745966279100-14248",
+        "scheduler: passed; ${WORKSPACE}\\build/m1\\scheduler-1793138745966279100-14248"
+      ],
+      "artifacts": "${WORKSPACE}\\build\\m1\\scheduler-1793138745966279100-14248",
+      "result": {
+        "action": "scheduler",
+        "schema_version": 2,
+        "stages": {
+          "compile": "passed",
+          "package": "passed",
+          "runs": [
+            {
+              "artifact_directory": "${WORKSPACE}\\build/m1\\scheduler-1793138745966279100-14248\\scheduler-on-run",
+              "build_id": "9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5",
+              "checked_summary": {
+                "acpi": "locator-only",
+                "boot_info": "1",
+                "build": "9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5",
+                "emergency": "false",
+                "framebuffers": "1",
+                "hhdm": "0xffff800000000000",
+                "mode": "framebuffer",
+                "modules": "3",
+                "outcome": "ok",
+                "regions": "39",
+                "seq": "1",
+                "session": "7a11569e592c99237d8a413862f73c3fbc0301ce42e96ed41fefd97f4428e55b",
+                "session_origin": "host",
+                "stage": "metadata",
+                "version": "5"
+              },
+              "cleanup_reaped": true,
+              "deadline_ms": 30000,
+              "elapsed_host_ms": 13019,
+              "emulator_test_exit": 33,
+              "error": null,
+              "final_process_exit": 33,
+              "fixture": "scheduler-on",
+              "guest_shutdown_claimed": false,
+              "host_session_id": "7a11569e592c99237d8a413862f73c3fbc0301ce42e96ed41fefd97f4428e55b",
+              "host_stopped_after_checkpoint": false,
+              "iso_sha256": "041bf8ebe18902ddffe8842a17bb024625772612aebe0c73d5703358e0b8780e",
+              "iso_unchanged_after_run": true,
+              "kernel_entry_observed": true,
+              "package": {
+                "bios_tested": false,
+                "boot_tested": false,
+                "build_flavor": "scheduler-test",
+                "build_id": "9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5",
+                "configuration_sha256": "ce64d305609db5e1bc667bd2cc65b9acb8f96411333569a56241c1aa501b9d8c",
+                "diagnostic_sites": {
+                  "diagnostic_double_site": 18446744071562077419,
+                  "diagnostic_guard_site": 18446744071562077394,
+                  "diagnostic_invalid_opcode": 18446744071562076667,
+                  "diagnostic_nx_page": 18446744071562235904,
+                  "diagnostic_page_fault_site": 18446744071562076679,
+                  "diagnostic_panic_report": 18446744071562076684,
+                  "diagnostic_write_site": 18446744071562077399
+                },
+                "fault": "scheduler-on",
+                "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+                "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+                "fixture": "scheduler-on",
+                "host_session_id": "7a11569e592c99237d8a413862f73c3fbc0301ce42e96ed41fefd97f4428e55b",
+                "input_lock_sha256": "5d8ecae5ae201abc0b8d848134b5357378152de08fac8f64603b01d9be9fb22e",
+                "iso_sha256": "041bf8ebe18902ddffe8842a17bb024625772612aebe0c73d5703358e0b8780e",
+                "kernel_sha256": "fab43730abaa57a7d662d4c30e4ed699fd33e073fefb001502bca9e90f52930f",
+                "module_fixture": false,
+                "payload": {
+                  "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+                  "boot/kernel.elf": "fab43730abaa57a7d662d4c30e4ed699fd33e073fefb001502bca9e90f52930f",
+                  "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+                  "boot/limine/limine.conf": "ce64d305609db5e1bc667bd2cc65b9acb8f96411333569a56241c1aa501b9d8c",
+                  "boot/service.elf": "1577f94d4b7f184ae2c0000724e823613fe2f3bd1c68c789b7a06a3fa774089a",
+                  "boot/user_a.elf": "51803a87a0abc4c13e72228988190ceb991b27a2c0a840d3c1f8412be29dc2a0",
+                  "boot/user_b.elf": "aecf5e7cf9a85d35790013a7d4c9878c1039233526e999385083926ce3916189",
+                  "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+                  "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+                  "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+                  "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+                },
+                "payload_extraction_verified": true,
+                "schema_version": 2,
+                "session_origin": "host; correlation only, not a security credential or reset detector",
+                "uefi_optical_catalog": true
+              },
+              "pid": 47380,
+              "schema_version": 1,
+              "status": "passed",
+              "timed_out": false,
+              "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+            },
+            {
+              "artifact_directory": "${WORKSPACE}\\build/m1\\scheduler-1793138745966279100-14248\\scheduler-off-run",
+              "build_id": "9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5",
+              "checked_summary": {
+                "acpi": "locator-only",
+                "boot_info": "1",
+                "build": "9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5",
+                "emergency": "false",
+                "framebuffers": "1",
+                "hhdm": "0xffff800000000000",
+                "mode": "framebuffer",
+                "modules": "3",
+                "outcome": "ok",
+                "regions": "39",
+                "seq": "1",
+                "session": "a6b1cfb431318c74e3d5caa4571d43ab82ebddbeae4c986988f2e7feef9343bc",
+                "session_origin": "host",
+                "stage": "metadata",
+                "version": "5"
+              },
+              "cleanup_reaped": true,
+              "deadline_ms": 30000,
+              "elapsed_host_ms": 20351,
+              "emulator_test_exit": 33,
+              "error": null,
+              "final_process_exit": 33,
+              "fixture": "scheduler-off",
+              "guest_shutdown_claimed": false,
+              "host_session_id": "a6b1cfb431318c74e3d5caa4571d43ab82ebddbeae4c986988f2e7feef9343bc",
+              "host_stopped_after_checkpoint": false,
+              "iso_sha256": "1583118fad42030a8dcc7e640bdf6fba06eea4f5537acb0296a928c4529a696a",
+              "iso_unchanged_after_run": true,
+              "kernel_entry_observed": true,
+              "package": {
+                "bios_tested": false,
+                "boot_tested": false,
+                "build_flavor": "scheduler-test",
+                "build_id": "9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5",
+                "configuration_sha256": "22733c8f57ea0f22fe8e4c5dc807f14ef3dd890360fb3431fbf939df1cd76d33",
+                "diagnostic_sites": {
+                  "diagnostic_double_site": 18446744071562077419,
+                  "diagnostic_guard_site": 18446744071562077394,
+                  "diagnostic_invalid_opcode": 18446744071562076667,
+                  "diagnostic_nx_page": 18446744071562235904,
+                  "diagnostic_page_fault_site": 18446744071562076679,
+                  "diagnostic_panic_report": 18446744071562076684,
+                  "diagnostic_write_site": 18446744071562077399
+                },
+                "fault": "scheduler-off",
+                "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+                "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+                "fixture": "scheduler-off",
+                "host_session_id": "a6b1cfb431318c74e3d5caa4571d43ab82ebddbeae4c986988f2e7feef9343bc",
+                "input_lock_sha256": "5d8ecae5ae201abc0b8d848134b5357378152de08fac8f64603b01d9be9fb22e",
+                "iso_sha256": "1583118fad42030a8dcc7e640bdf6fba06eea4f5537acb0296a928c4529a696a",
+                "kernel_sha256": "fab43730abaa57a7d662d4c30e4ed699fd33e073fefb001502bca9e90f52930f",
+                "module_fixture": false,
+                "payload": {
+                  "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+                  "boot/kernel.elf": "fab43730abaa57a7d662d4c30e4ed699fd33e073fefb001502bca9e90f52930f",
+                  "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+                  "boot/limine/limine.conf": "22733c8f57ea0f22fe8e4c5dc807f14ef3dd890360fb3431fbf939df1cd76d33",
+                  "boot/service.elf": "1577f94d4b7f184ae2c0000724e823613fe2f3bd1c68c789b7a06a3fa774089a",
+                  "boot/user_a.elf": "51803a87a0abc4c13e72228988190ceb991b27a2c0a840d3c1f8412be29dc2a0",
+                  "boot/user_b.elf": "aecf5e7cf9a85d35790013a7d4c9878c1039233526e999385083926ce3916189",
+                  "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+                  "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+                  "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+                  "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+                },
+                "payload_extraction_verified": true,
+                "schema_version": 2,
+                "session_origin": "host; correlation only, not a security credential or reset detector",
+                "uefi_optical_catalog": true
+              },
+              "pid": 43524,
+              "schema_version": 1,
+              "status": "passed",
+              "timed_out": false,
+              "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+            },
+            {
+              "artifact_directory": "${WORKSPACE}\\build/m1\\scheduler-1793138745966279100-14248\\scheduler-cpu-run",
+              "build_id": "9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5",
+              "checked_summary": {
+                "acpi": "locator-only",
+                "boot_info": "1",
+                "build": "9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5",
+                "emergency": "false",
+                "framebuffers": "1",
+                "hhdm": "0xffff800000000000",
+                "mode": "framebuffer",
+                "modules": "3",
+                "outcome": "ok",
+                "regions": "39",
+                "seq": "1",
+                "session": "5aea5e2fae874227c40f209aa8aede5a1ab7ca86cebb86bbadaae10eba404f0d",
+                "session_origin": "host",
+                "stage": "metadata",
+                "version": "5"
+              },
+              "cleanup_reaped": true,
+              "deadline_ms": 30000,
+              "elapsed_host_ms": 11557,
+              "emulator_test_exit": 33,
+              "error": null,
+              "final_process_exit": 33,
+              "fixture": "scheduler-cpu",
+              "guest_shutdown_claimed": false,
+              "host_session_id": "5aea5e2fae874227c40f209aa8aede5a1ab7ca86cebb86bbadaae10eba404f0d",
+              "host_stopped_after_checkpoint": false,
+              "iso_sha256": "def98fa3188b886ae58f634bd2e3fccd3dff519da55182b520f8b05228d489c9",
+              "iso_unchanged_after_run": true,
+              "kernel_entry_observed": true,
+              "package": {
+                "bios_tested": false,
+                "boot_tested": false,
+                "build_flavor": "scheduler-test",
+                "build_id": "9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5",
+                "configuration_sha256": "0721c0a275a7ffc1824150d32bebcde5b1a45df896af37d9128668293f0288b2",
+                "diagnostic_sites": {
+                  "diagnostic_double_site": 18446744071562077419,
+                  "diagnostic_guard_site": 18446744071562077394,
+                  "diagnostic_invalid_opcode": 18446744071562076667,
+                  "diagnostic_nx_page": 18446744071562235904,
+                  "diagnostic_page_fault_site": 18446744071562076679,
+                  "diagnostic_panic_report": 18446744071562076684,
+                  "diagnostic_write_site": 18446744071562077399
+                },
+                "fault": "scheduler-cpu",
+                "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+                "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+                "fixture": "scheduler-cpu",
+                "host_session_id": "5aea5e2fae874227c40f209aa8aede5a1ab7ca86cebb86bbadaae10eba404f0d",
+                "input_lock_sha256": "5d8ecae5ae201abc0b8d848134b5357378152de08fac8f64603b01d9be9fb22e",
+                "iso_sha256": "def98fa3188b886ae58f634bd2e3fccd3dff519da55182b520f8b05228d489c9",
+                "kernel_sha256": "fab43730abaa57a7d662d4c30e4ed699fd33e073fefb001502bca9e90f52930f",
+                "module_fixture": false,
+                "payload": {
+                  "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+                  "boot/kernel.elf": "fab43730abaa57a7d662d4c30e4ed699fd33e073fefb001502bca9e90f52930f",
+                  "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+                  "boot/limine/limine.conf": "0721c0a275a7ffc1824150d32bebcde5b1a45df896af37d9128668293f0288b2",
+                  "boot/service.elf": "1577f94d4b7f184ae2c0000724e823613fe2f3bd1c68c789b7a06a3fa774089a",
+                  "boot/user_a.elf": "51803a87a0abc4c13e72228988190ceb991b27a2c0a840d3c1f8412be29dc2a0",
+                  "boot/user_b.elf": "aecf5e7cf9a85d35790013a7d4c9878c1039233526e999385083926ce3916189",
+                  "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+                  "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+                  "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+                  "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+                },
+                "payload_extraction_verified": true,
+                "schema_version": 2,
+                "session_origin": "host; correlation only, not a security credential or reset detector",
+                "uefi_optical_catalog": true
+              },
+              "pid": 46236,
+              "schema_version": 1,
+              "status": "passed",
+              "timed_out": false,
+              "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+            }
+          ],
+          "scheduler": "passed"
+        },
+        "status": "passed"
+      },
+      "build_id": "9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5",
+      "kernel_sha256": "fab43730abaa57a7d662d4c30e4ed699fd33e073fefb001502bca9e90f52930f",
+      "selected_diagnostics": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793138745966279100-14248\\scheduler-on-run\\serial.log",
+          "sha256": "b39df54ec4396cd69f6ab130a50580b9eb147a0f1717e899b22f9919b0a89cb0",
+          "bytes": 226114,
+          "excerpts": [
+            "m1.scheduler_cpu version=5 build=9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5 session=7a11569e592c99237d8a413862f73c3fbc0301ce42e96ed41fefd97f4428e55b session_origin=host seq=201 stage=scheduler outcome=ok emergency=false cpuid_edx=0x78bfbfd cpuid_ecx=0x80002001 cr0=0x8001003b cr4=0x620 missing_feature_denials=4 required_feature_denials=1 fixed_bytes=9926752 extra_bytes=71776",
+            "m1.task_switch version=5 build=9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5 session=7a11569e592c99237d8a413862f73c3fbc0301ce42e96ed41fefd97f4428e55b session_origin=host seq=670 stage=scheduler outcome=ok emergency=false wave=9 thread=1 dispatches=16 preemptions=16 progress=5247 elapsed_ns=119700 done=true result=768",
+            "m1.task_end version=5 build=9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5 session=7a11569e592c99237d8a413862f73c3fbc0301ce42e96ed41fefd97f4428e55b session_origin=host seq=671 stage=scheduler outcome=ok emergency=false wave=9 thread=1 generation=10 mode=0 result=768 vector=0 dispatches=16 preemptions=16 progress=5247",
+            "m1.task_settlement version=5 build=9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5 session=7a11569e592c99237d8a413862f73c3fbc0301ce42e96ed41fefd97f4428e55b session_origin=host seq=672 stage=scheduler outcome=ok emergency=false wave=9 settled=true frames=0 spaces=0 allocations=0 committed=0 resident=0 mappings=0 tables=0 stacks=0 pins=0",
+            "m1.scheduler_ready version=5 build=9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5 session=7a11569e592c99237d8a413862f73c3fbc0301ce42e96ed41fefd97f4428e55b session_origin=host seq=673 stage=scheduler outcome=ok emergency=false waves=10 tasks=30 switches=396 settled=true idle=true max_masked_upper_ns=14699600 max_body_ns=3595500 max_wait_ns=21269100 nested_irqs=29 pin_irqs=25 observer_samples=100 observer_total_ns=290500 trace=true",
+            "m1.boot_complete version=5 build=9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5 session=7a11569e592c99237d8a413862f73c3fbc0301ce42e96ed41fefd97f4428e55b session_origin=host seq=674 stage=boot outcome=ok emergency=false reclaimed_bytes=0",
+            "m1.ready version=5 build=9a938c7eabf7d8b16131d9f0ea3caaebd35409e4667ff61c4ecb5f232d7f51f5 session=7a11569e592c99237d8a413862f73c3fbc0301ce42e96ed41fefd97f4428e55b session_origin=host seq=675 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+          ],
+          "selection": "selected diagnostic lines; full local file retained"
+        },
+        {
+          "path": "${WORKSPACE}\\build\\m1\\scheduler-1793138745966279100-14248\\user_a-build.stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0,
+          "excerpts": [],
+          "selection": "selected diagnostic lines; full local file retained"
+        }
+      ]
+    }
+  ],
+  "superseded_acceptance": {
+    "reason": "Source review found that the trusted compute stop could overwrite a reported fault on dispatch 16. Stop only the owned QEMU VM (PID 17844) and let its harness record/reap the interruption. Add fault/exit-precedence unit coverage and restart final acceptance with corrected source; no deadline extension.",
+    "acceptance_path": "${WORKSPACE}\\build\\m3\\P3-05\\acceptance-1793138870525\\acceptance.json",
+    "acceptance_sha256": "8e416de0da89083f84a6c68ad0cbca04659270be8a446a53b117dc31528220a6",
+    "acceptance": {
+      "schema_version": 1,
+      "story": "P3-05",
+      "status": "failed",
+      "commands": [
+        {
+          "exit_code": 0,
+          "program": "pwsh",
+          "arguments": [
+            "-NoProfile",
+            "-File",
+            "tools/Recheck-P2Prerequisites.ps1"
+          ],
+          "elapsed_ms": 280652,
+          "name": "prerequisites"
+        },
+        {
+          "exit_code": 1,
+          "program": "pwsh",
+          "arguments": [
+            "-NoProfile",
+            "-File",
+            "tools/Test-P1-07.ps1"
+          ],
+          "elapsed_ms": 774487,
+          "name": "m1"
+        }
+      ],
+      "runs": {
+        "prerequisites": "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1793138883474"
+      },
+      "source_commit": "bbfe4d3e84d7bd098a56a0c7e7f25919ae272047",
+      "user_execution": true,
+      "host_test_threads": 1,
+      "error": "m1 failed; see ${WORKSPACE}\\build\\m3\\P3-05\\acceptance-1793138870525"
+    }
+  },
+  "host_context": "An initial sandbox-only compiler signing attempt could not access the existing certificate; the authorized host-context run passed. No new certificate or policy deployment ran.",
+  "interruption": "Automatic approval review exhausted workspace credits before executing the attempted next test. The owner resumed; no safety bypass or deadline extension was used."
+}

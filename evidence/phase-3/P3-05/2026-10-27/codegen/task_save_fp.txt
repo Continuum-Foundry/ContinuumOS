@@ -1,0 +1,7 @@
+<task_save_fp>:
+ffffffff80002504:      	clts
+ffffffff80002506:      	fxsave64	(%rdi)
+ffffffff8000250a:      	movq	%cr0, %rax
+ffffffff8000250d:      	orq	$0x8, %rax
+ffffffff80002511:      	movq	%rax, %cr0
+ffffffff80002514:      	retq

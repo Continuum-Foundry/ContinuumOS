@@ -10,7 +10,7 @@ use std::{
     path::{Path, PathBuf},
     process::Command,
 };
-pub(super) fn build(dir: &Path, execution: bool) -> Result<PathBuf> {
+pub(super) fn build(dir: &Path, execution: bool, scheduler: bool) -> Result<PathBuf> {
     let contract: serde_json::Value =
         serde_json::from_slice(&read(&root().join("contracts/runtime-v0.json"))?)
             .map_err(|e| e.to_string())?;
@@ -41,7 +41,9 @@ pub(super) fn build(dir: &Path, execution: bool) -> Result<PathBuf> {
     ));
     let runtime_ids = dir.join("runtime-ids.rs");
     fs::write(&runtime_ids, ids).map_err(|e| e.to_string())?;
-    let source = if execution {
+    let source = if scheduler {
+        "experiments/user-images/scheduler.rs"
+    } else if execution {
         "experiments/user-images/executable.rs"
     } else {
         "experiments/user-images/fixture.rs"
@@ -116,7 +118,7 @@ pub(super) fn build(dir: &Path, execution: bool) -> Result<PathBuf> {
                 &format!("{name}-{toolname}"),
                 30,
             )?;
-            if toolname == "llvm-objdump" && execution {
+            if toolname == "llvm-objdump" && execution && !scheduler {
                 let permitted = text
                     .lines()
                     .filter(|line| line.contains("%xmm"))
@@ -129,6 +131,39 @@ pub(super) fn build(dir: &Path, execution: bool) -> Result<PathBuf> {
                     .filter(|line| !line.contains("%xmm"))
                     .collect::<Vec<_>>()
                     .join("\n");
+                super::build::audit_disassembly(&integer)?;
+            }
+            if toolname == "llvm-objdump" && scheduler {
+                // Every permitted non-integer instruction is explicit fixture
+                // assembly. Reject unexpected compiler/library vector dispatch.
+                let mut integer = String::new();
+                for line in text.lines() {
+                    let mnemonic = line
+                        .split_once(':')
+                        .map(|(_, v)| v.split_whitespace().next().unwrap_or(""))
+                        .unwrap_or("");
+                    if [
+                        "fxsave64",
+                        "fxrstor64",
+                        "fninit",
+                        "fldcw",
+                        "fldz",
+                        "fdivp",
+                        "fdivrp",
+                        "fwait",
+                        "wait",
+                        "ldmxcsr",
+                        "pxor",
+                        "divss",
+                        "vxorps",
+                    ]
+                    .contains(&mnemonic)
+                    {
+                        continue;
+                    }
+                    integer.push_str(line);
+                    integer.push('\n');
+                }
                 super::build::audit_disassembly(&integer)?;
             }
             if toolname == "llvm-nm" && !text.trim().is_empty() {
@@ -148,7 +183,7 @@ pub(super) fn build(dir: &Path, execution: bool) -> Result<PathBuf> {
     fs::write(&path, descriptors).map_err(|e| e.to_string())?;
     write_json(
         &dir.join("user-images.json"),
-        &json!({"schema_version":1,"target":"x86_64-unknown-none","code_model":"small","relocation":"static","red_zone":false,"panic":"abort","opt_level":1,"entry":"fixture_entry","compiler_sha256":digest(&Path::new(&sysroot).join("bin/rustc.exe"))?,"audit_tools_sha256":audits,"source_sha256":digest(&root().join(source))?,"runtime_source_sha256":digest(&root().join("experiments/user-images/runtime.rs"))?,"runtime_ids_sha256":digest(&runtime_ids)?,"linker_sha256":digest(&root().join("experiments/user-images/link.ld"))?,"images":images,"trusted_descriptors_sha256":digest(&path)?,"user_execution":execution}),
+        &json!({"schema_version":1,"target":"x86_64-unknown-none","code_model":"small","relocation":"static","red_zone":false,"panic":"abort","opt_level":1,"entry":"fixture_entry","compiler_sha256":digest(&Path::new(&sysroot).join("bin/rustc.exe"))?,"audit_tools_sha256":audits,"source_sha256":digest(&root().join(source))?,"runtime_source_sha256":digest(&root().join("experiments/user-images/runtime.rs"))?,"runtime_ids_sha256":digest(&runtime_ids)?,"linker_sha256":digest(&root().join("experiments/user-images/link.ld"))?,"images":images,"trusted_descriptors_sha256":digest(&path)?,"user_execution":execution || scheduler,"scheduler":scheduler,"required_cpu_features":if scheduler {7}else{0}}),
     )?;
     Ok(path)
 }

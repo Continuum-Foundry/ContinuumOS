@@ -472,6 +472,11 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                 }
                 let initial = elapsed as u128 * 10_000_000 / ns;
                 let resolution = ns * initial / elapsed as u128;
+                let (initial, resolution) = if expected.fixture.starts_with("scheduler-") {
+                    (initial / 2, resolution * (initial / 2) / initial)
+                } else {
+                    (initial, resolution)
+                };
                 if initial == 0
                     || initial > u32::MAX as u128
                     || number("initial")? as u128 != initial
@@ -687,6 +692,23 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     return Err("Unexpected loader record".into());
                 }
             }
+            "m1.scheduler_cpu_rejected"
+            | "m1.scheduler_cpu"
+            | "m1.scheduler_policy"
+            | "m1.task_start"
+            | "m1.task_switch"
+            | "m1.task_end"
+            | "m1.task_settlement"
+            | "m1.scheduler_ready" => {
+                if !p.memory
+                    || p.boot_complete
+                    || stage != "scheduler"
+                    || outcome != "ok"
+                    || !expected.fixture.starts_with("scheduler-")
+                {
+                    return Err("Unexpected scheduler record".into());
+                }
+            }
             "m1.user_oom_injection"
             | "m1.user_runtime"
             | "m1.user_inventory"
@@ -703,7 +725,8 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || p.boot_complete
                     || stage != "user-boundary"
                     || outcome != "ok"
-                    || !expected.fixture.starts_with("user-boundary-")
+                    || !(expected.fixture.starts_with("user-boundary-")
+                        || expected.fixture.starts_with("scheduler-"))
                 {
                     return Err("Unexpected user-boundary record".into());
                 }
@@ -762,6 +785,28 @@ pub(super) fn assertions(
             || rows[0]["fields"]["user_execution"] != "true"
         {
             return Err("Missing user boundary completion".into());
+        }
+    }
+    if expected.fixture == "scheduler-cpu" {
+        let rows = p
+            .records
+            .iter()
+            .filter(|r| r["event"] == "m1.scheduler_cpu_rejected")
+            .collect::<Vec<_>>();
+        if rows.len() != 1 || rows[0]["fields"]["user_entries"] != "0" {
+            return Err("Missing CPU rejection".into());
+        }
+    } else if expected.fixture.starts_with("scheduler-") {
+        let rows = p
+            .records
+            .iter()
+            .filter(|r| r["event"] == "m1.scheduler_ready")
+            .collect::<Vec<_>>();
+        if rows.len() != 1
+            || rows[0]["fields"]["settled"] != "true"
+            || rows[0]["fields"]["tasks"] != "30"
+        {
+            return Err("Missing scheduler completion".into());
         }
     }
     if expected.fixture == "owned-memory" {

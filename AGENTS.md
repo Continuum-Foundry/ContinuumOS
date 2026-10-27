@@ -16,8 +16,10 @@ local self-review; see `evidence/phase-3/P3-02/2026-10-25/README.md`. P3-03's st
 static-image loader and trusted launch bindings pass local self-review; see
 `evidence/phase-3/P3-03/2026-10-25/README.md`. P3-04 user entry, checked syscalls
 and process-local fault containment pass local self-review; see
-`evidence/phase-3/P3-04/2026-10-26/README.md`. Next is P3-05;
-no preemptive scheduler or user FP/SIMD context support exists yet.
+`evidence/phase-3/P3-04/2026-10-26/README.md`. P3-05 preemption and eager
+x87/SSE context pass local self-review; see `evidence/phase-3/P3-05/2026-10-27/README.md`.
+Unmasked SSE exceptions, native x87 debug metadata and shared-process threads
+remain unsupported/unverified as documented. Next is P3-06; public rights remain open.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other

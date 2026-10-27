@@ -1,0 +1,544 @@
+{
+  "schema_version": 1,
+  "story": "P3-05",
+  "status": "passed",
+  "review": "local Codex self-review; independent parsers, not external approval",
+  "reviewer_sha256": "d824c64df9219e99aaa02c4eb316e16c5a925bf6a2ca2867b09ce2b512fea157",
+  "build_id": "e48b284f45f3229a912df1cf254ba498759f514b926bef97a5fd8e10a101536f",
+  "kernel_sha256": "2191369dc8e79fbe973bfdb1de6b1b0a3c3b1ec88c9b646998959ae0757ce3d2",
+  "audits": [
+    {
+      "tasks": 30,
+      "waves": 10,
+      "switches": 379,
+      "non_yielding_hogs": 20,
+      "max_masked_upper_ns": 28674100,
+      "max_body_ns": 13298400,
+      "max_wait_ns": 50601700,
+      "nested_irqs": 30,
+      "pin_irqs": 25,
+      "observer_total_ns": 483300
+    },
+    {
+      "tasks": 30,
+      "waves": 10,
+      "switches": 379,
+      "non_yielding_hogs": 20,
+      "max_masked_upper_ns": 31685500,
+      "max_body_ns": 16125300,
+      "max_wait_ns": 40703800,
+      "nested_irqs": 29,
+      "pin_irqs": 25,
+      "observer_total_ns": 451300
+    }
+  ],
+  "reviewer_mutations": [
+    "missing m1.scheduler_policy",
+    "missing m1.scheduler_ready",
+    "missing m1.task_start",
+    "missing m1.task_end",
+    "missing m1.task_settlement",
+    "missing m1.user_fault",
+    "missing m1.task_switch",
+    "m1.task_start/principal",
+    "m1.task_end/result",
+    "m1.task_end/preemptions",
+    "m1.task_end/progress",
+    "m1.task_settlement/frames",
+    "m1.scheduler_ready/max_wait_ns",
+    "m1.scheduler_ready/pin_irqs",
+    "m1.scheduler_policy/priority",
+    "missing m1.scheduler_policy",
+    "missing m1.scheduler_ready",
+    "missing m1.task_start",
+    "missing m1.task_end",
+    "missing m1.task_settlement",
+    "missing m1.user_fault",
+    "m1.task_start/principal",
+    "m1.task_end/result",
+    "m1.task_end/preemptions",
+    "m1.task_end/progress",
+    "m1.task_settlement/frames",
+    "m1.scheduler_ready/max_wait_ns",
+    "m1.scheduler_ready/pin_irqs",
+    "m1.scheduler_policy/priority",
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    }
+  ],
+  "instructions": {
+    "user_a": {
+      "divss": 1,
+      "fdivrp": 1,
+      "fldcw": 1,
+      "fldz": 2,
+      "fninit": 1,
+      "fxrstor64": 1,
+      "fxsave64": 5,
+      "ldmxcsr": 1,
+      "pxor": 1,
+      "vxorps": 1
+    },
+    "user_b": {
+      "divss": 1,
+      "fdivrp": 1,
+      "fldcw": 1,
+      "fldz": 2,
+      "fninit": 1,
+      "fxrstor64": 1,
+      "fxsave64": 5,
+      "ldmxcsr": 1,
+      "pxor": 1,
+      "vxorps": 1
+    },
+    "service": {
+      "divss": 1,
+      "fdivrp": 1,
+      "fldcw": 1,
+      "fldz": 2,
+      "fninit": 1,
+      "fxrstor64": 1,
+      "fxsave64": 5,
+      "ldmxcsr": 1,
+      "pxor": 1,
+      "vxorps": 1
+    }
+  },
+  "preemption": true,
+  "native_sse_trap_verified": false,
+  "sse_unmask_policy": "terminate at next kernel boundary",
+  "public_memory_rights": false,
+  "desktop_targets_accepted": false,
+  "unsafe_review": {
+    "scope": "local Codex source/assembly review and independently parsed execution/artifact evidence",
+    "entry": "160-byte integer/IRET continuation; per-owner CR3, guarded syscall stack and TSS RSP0; trusted selectors and reset bases; no SYSRET or suspended Rust stack",
+    "irq": "all GPRs and original CR0 retained; TS set before Rust; LAPIC acknowledged before fixed-buffer capture; no allocation, queue operations, logging or memory borrows in IRQ",
+    "fp": "aligned private 512-byte architectural state; fresh zero payload/default controls; only two kernel FX helpers; no kernel FP arithmetic, OSXSAVE, FSGSBASE or PKRU state",
+    "copy": "live-pin timer delivery only marks pending; no switch until copy unpins and syscall completes; precise copy recovery remains bounded",
+    "teardown": "active CR3 captures page-table-bank publication; return to retained supervisor stack/root before any owned memory or stack is reclaimed",
+    "limits": "one owner thread per process, equal priority, no blocking kernel continuations/SMP/TLS; unmasked SSE unsupported with bounded policy kill; hardware #XM and nonzero x87 debug metadata not execution-validated on TCG"
+  },
+  "iso_sha256": [
+    "80d39db3e07f794c54b0354f0bced233e4b9301037123faf934b7d9fc416cb17",
+    "ed7f0b09d681f0a139ba77ac866bf81fa741b0899b684d716ea6f54b668202c8",
+    "949a81af5043bf9a9ca5fd73fe3cf905976d36a9417c8d4b189343f04b66be7c"
+  ],
+  "serial_sha256": [
+    "98e7c962ec7c226bc8ae6b4da4b7086504c69cf7b5c9c6712e99481625ace13d",
+    "60e15bde1beba24879194eea45e1738bb39972ea256937200cfeefb0cbbf8e87",
+    "d5879a01e4baa051bd9ead3c7c843325857c08390a5017ffe439414ca271d0b7"
+  ],
+  "criterion_review": {
+    "non_yielding_progress": "pass: two ring-3 hogs per wave, 16 dispatches each, plus control progress; raw FIFO rotation and fixed 64-quantum bounds",
+    "context_and_reuse": "pass for declared context: integer/arithmetic/DF/stack/private-VA sentinels and distinct x87/XMM/MXCSR patterns; fresh/reused slots initialize payloads and controls",
+    "bounded_policy": "pass: equal-priority policy with no public elevation API, fixed queue/owner admission, trusted compute/copy-return kill, empty-queue halt, kernel IRQ deferral",
+    "features_and_faults": "pass for supported subset: actual instruction audit, real CPU rejection without SSE2, native x87 #MF; unmasked SSE controls explicitly unsupported and terminated at a boundary, not credited as #XM",
+    "containment_and_regressions": "pass requires final-source M1 plus owned-memory, loader and P3-04 raw audits; offending control tasks leave other owners progressing with exact settlements"
+  },
+  "scope": "complete final-source story acceptance",
+  "memory_audit": {
+    "fixed_kernel_storage_bytes": 9854976,
+    "active_table_pages": {
+      "0": 6,
+      "1": 4
+    },
+    "private_user_pages": {
+      "0": 20,
+      "1": 16
+    },
+    "cycles": 1000,
+    "resident_after": 0
+  },
+  "loader_audit": {
+    "images": [
+      {
+        "image": 0,
+        "sha256": "4307b5ea8a83967d4ca71cfee99cf85f231fa00cb93b12c71fd266b2334f342c",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 1,
+        "sha256": "315356d58045b4bf95f0ead8f714a0636660e9635f482bdd98f0a87a1d27b590",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 2,
+        "sha256": "136964ed96bd400903b517745e74c9f6f663038d064fae61f59da24b69be9211",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      }
+    ],
+    "private_pages": 72,
+    "allocation_failures": 24,
+    "malformed_cases": 19,
+    "trusted_bindings": 4,
+    "settled_frames": 0
+  },
+  "source_commit": "bbfe4d3e84d7bd098a56a0c7e7f25919ae272047",
+  "prerequisite_checks": 10,
+  "m1_rows": 33,
+  "m1_launches": 42,
+  "kernel_host_tests": 34,
+  "acceptance_sha256": "18164a77a57c97f1597d889598bab2b7b2c83da9f99e1729235e2e92e746024f"
+}

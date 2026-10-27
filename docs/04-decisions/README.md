@@ -47,3 +47,5 @@ the historical reason for a choice. A failed gate may lead to a revised proposal
 New records include context, decision, alternatives, consequences, verification,
 reconsideration triggers and links to sources/specifications. No ADR can override
 the user's original-kernel/no-hidden-reboot requirements silently.
+
+- [ADR-0021: Preempt owner threads and eagerly preserve baseline FP state](0021-preemptive-owner-threads-and-eager-fp.md) - Proposed; P3-05 experiment.

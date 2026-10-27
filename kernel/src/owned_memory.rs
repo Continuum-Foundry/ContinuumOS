@@ -19,6 +19,13 @@ pub trait Store {
     fn release(&mut self, base: PhysAddr, pages: usize);
     fn read(&self, base: PhysAddr, offset: u64) -> u8;
     fn write(&mut self, base: PhysAddr, offset: u64, byte: u8);
+    /// Same exclusive staging contract as write, with bounds checked by Runtime.
+    /// Adapters may batch supervisor alias transitions by physical page.
+    fn write_bytes(&mut self, base: PhysAddr, offset: u64, bytes: &[u8]) {
+        for (n, &byte) in bytes.iter().enumerate() {
+            self.write(base, offset + n as u64, byte);
+        }
+    }
     fn publish(&mut self, old: PhysAddr, new: PhysAddr);
     fn retire(&mut self, root: PhysAddr);
     fn prepare_kernel_stack(&mut self, slot: usize) -> Result<Range>;
@@ -364,9 +371,7 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
         {
             return Err(error("allocation", "range"));
         }
-        for (n, &b) in bytes.iter().enumerate() {
-            store.write(a.base, offset + n as u64, b);
-        }
+        store.write_bytes(a.base, offset, bytes);
         Ok(())
     }
     /// Trusted internal sharing only. P3-06 adds public rights and backing refs.
@@ -563,6 +568,14 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
                     return Err(error("copy", "permission"));
                 }
                 at = (m.address + m.bytes).min(end);
+            }
+            for at in (address & !(PAGE - 1)..end).step_by(PAGE as usize) {
+                if !self
+                    .tables(space)?
+                    .user_access(VirtAddr(at), write, false)?
+                {
+                    return Err(error("copy", "hardware_permission"));
+                }
             }
         }
         let slot = self

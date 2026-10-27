@@ -8,6 +8,8 @@ mod paging;
 mod runtime_loader;
 mod runtime_memory;
 mod timer;
+#[cfg(feature = "user-boundary-test")]
+mod user_entry;
 use continuum_kernel::{BootInfoV1, Error, Text, identity};
 use core::{
     arch::asm,
@@ -237,6 +239,11 @@ pub extern "C" fn kernel_entry() -> ! {
         && !(cfg!(feature = "timer-test") && timer::mode(fixture).is_some())
         && !(cfg!(feature = "runtime-memory-test") && fixture == "owned-memory")
         && !(cfg!(feature = "static-loader-test") && fixture == "static-loader")
+        && !(cfg!(feature = "user-boundary-test")
+            && matches!(
+                fixture,
+                "user-boundary-a" | "user-boundary-b" | "user-boundary-c" | "user-boundary-d"
+            ))
     {
         reject(continuum_kernel::error("fixture", "disabled"));
     }
@@ -340,6 +347,17 @@ pub extern "C" fn kernel_entry() -> ! {
             .or_else(|| paging::mode(fixture))
             .or_else(|| timer::mode(fixture))
             .or_else(|| {
+                if cfg!(feature = "user-boundary-test")
+                    && matches!(
+                        fixture,
+                        "user-boundary-a"
+                            | "user-boundary-b"
+                            | "user-boundary-c"
+                            | "user-boundary-d"
+                    )
+                {
+                    return Some(32 + u64::from(fixture.as_bytes()[14] - b'a'));
+                }
                 if cfg!(feature = "static-loader-test") && fixture == "static-loader" {
                     return Some(31);
                 }

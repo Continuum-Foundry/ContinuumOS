@@ -13,9 +13,9 @@ const TABLE_CAPACITY: usize = 2304;
 static FRAMES: Local<Frames> = Local(core::cell::UnsafeCell::new(Frames::EMPTY));
 static TABLES: Local<Tables<TABLE_CAPACITY>> = Local(core::cell::UnsafeCell::new(Tables::EMPTY));
 const SCRATCH: u64 = 0xffff_c000_0000_0000;
-#[cfg(feature = "static-loader-test")]
+#[cfg(any(feature = "static-loader-test", feature = "user-boundary-test"))]
 const MODULE_BASE: u64 = 0xffff_c200_0000_0000;
-#[cfg(feature = "static-loader-test")]
+#[cfg(any(feature = "static-loader-test", feature = "user-boundary-test"))]
 pub fn module(index: usize) -> Result<&'static [u8]> {
     let info = unsafe { &*crate::BOOT_INFO.0.get() };
     let m = info
@@ -187,23 +187,33 @@ pub(crate) fn runtime_read(p: PhysAddr, offset: u64) -> u8 {
     unsafe { ((info.hhdm.0 + p.0 + offset) as *const u8).read_volatile() }
 }
 pub(crate) fn runtime_write(p: PhysAddr, offset: u64, byte: u8) {
+    runtime_write_bytes(p, offset, &[byte]);
+}
+pub(crate) fn runtime_write_bytes(p: PhysAddr, offset: u64, bytes: &[u8]) {
     // Only called by Runtime for an exclusive, unmapped staging run. No user
     // executable/writable alias exists. IF is clear; no intermediate state escapes.
     let info = unsafe { &*crate::BOOT_INFO.0.get() };
-    let v = info.hhdm.0 + p.0 + offset;
-    let page = v & !(PAGE - 1);
     let tables = unsafe { &mut *TABLES.0.get() };
-    tables
-        .protect(VirtAddr(page), Permission::ReadWrite)
-        .unwrap_or_else(|e| crate::reject(e));
-    invalidate(page);
-    unsafe {
-        (v as *mut u8).write_volatile(byte);
+    let mut done = 0;
+    while done < bytes.len() {
+        let v = info.hhdm.0 + p.0 + offset + done as u64;
+        let page = v & !(PAGE - 1);
+        let count = (PAGE - (v - page)).min((bytes.len() - done) as u64) as usize;
+        tables
+            .protect(VirtAddr(page), Permission::ReadWrite)
+            .unwrap_or_else(|e| crate::reject(e));
+        invalidate(page);
+        for (n, &byte) in bytes[done..done + count].iter().enumerate() {
+            unsafe {
+                ((v + n as u64) as *mut u8).write_volatile(byte);
+            }
+        }
+        tables
+            .protect(VirtAddr(page), Permission::ReadOnly)
+            .unwrap_or_else(|e| crate::reject(e));
+        invalidate(page);
+        done += count;
     }
-    tables
-        .protect(VirtAddr(page), Permission::ReadOnly)
-        .unwrap_or_else(|e| crate::reject(e));
-    invalidate(page);
 }
 pub fn establish(mode: u64) -> Result<()> {
     // Single CPU, IF clear; references are never published to handlers. All
@@ -269,8 +279,8 @@ pub fn establish(mode: u64) -> Result<()> {
             Permission::ReadWrite,
         )
     })?;
-    #[cfg(feature = "static-loader-test")]
-    if mode == 31 {
+    #[cfg(any(feature = "static-loader-test", feature = "user-boundary-test"))]
+    if mode == 31 || (32..=35).contains(&mode) {
         need(info.module_count == 3)?;
         for (i, m) in info.modules[..info.module_count].iter().enumerate() {
             need(m.range.len > 0 && m.range.len <= continuum_kernel::user_image::MAX_IMAGE as u64)?;

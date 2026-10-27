@@ -1,6 +1,6 @@
 # P3-04 — Enter user mode and enforce the syscall/fault boundary
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done. Owner: Unassigned.
 Depends on: P3-03 Done. Suggested labels: `phase-3`, `syscalls`, `fault-containment`.
 Backlog: B11 entry/syscalls, B13 failure groundwork.
 Requirements: R03/R10/R14/R18; preparatory R17. Test families: T01/T02/T03/T11.
@@ -32,15 +32,15 @@ normal execution works and a bad pointer, panic or user fault leaves the kernel 
 
 ## Acceptance criteria
 
-- [ ] Real ring-3 fixtures use discovery/allocation/log/exit and return through the
+- [x] Real ring-3 fixtures use discovery/allocation/log/exit and return through the
   documented syscall boundary; privilege, register and interrupt-state checks pass.
-- [ ] Invalid, RO, kernel, other-process and boundary-crossing pointers fail safely;
+- [x] Invalid, RO, kernel, other-process and boundary-crossing pointers fail safely;
   no user numeric address or fabricated identity becomes trusted access.
-- [ ] User page/guard/illegal-instruction/privileged-instruction faults, panic and OOM
+- [x] User page/guard/illegal-instruction/privileged-instruction faults, panic and OOM
   have bounded process-local outcomes, with subsequent healthy guest execution.
-- [ ] Kernel/IST stacks and M1 kernel-fatal paths remain valid; bad user return state
+- [x] Kernel/IST stacks and M1 kernel-fatal paths remain valid; bad user return state
   cannot turn a process-local fault into a successful kernel entry or fatal cascade.
-- [ ] Runtime allocation/free and process exit restore the declared inventories;
+- [x] Runtime allocation/free and process exit restore the declared inventories;
   assembly and unsafe-copy invariants receive an explicit recorded review.
 
 ## Tests and evidence
@@ -60,3 +60,5 @@ memory authority with rights-bearing objects. Sources:
 [exception runbook](../phase-1/exception-diagnostics-runbook.md),
 [objects contract](../../06-contracts/ipc-and-objects.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+Implementation commands and review obligations: [syscall boundary runbook](syscall-boundary-runbook.md). The [2026-10-26 local acceptance review](../../../evidence/phase-3/P3-04/2026-10-26/README.md) passes every criterion. This is local Codex self-review, not external approval.

@@ -1,12 +1,13 @@
 # Experimental M3 runtime contract
 
-Status: implementation draft, revision 0, P3-01 through P3-03. The internal memory
-backend and staged loader exist; no executing user ABI is frozen.
+Status: implementation draft, revision 0, P3-01 through P3-04. The internal memory
+backend and staged loader exist; the bounded P3-04 execution experiment passes local self-review.
+No executing user ABI is frozen.
 [runtime-v0.json](../../contracts/runtime-v0.json)
 is the single source for generated SDK field offsets and operation/error names.
 `python tools/m3_runtime.py generate <local-output.rs>` generates compiler-local
-names, not syscall numbers or serializable enum layouts. P3-04 adds experimental
-dispatch IDs to that same source; P3-12 freezes only independently exercised IDs.
+names, not syscall numbers or serializable enum layouts. The P3-04 xtask user-image builder generates experimental
+dispatch/error constants and the process_exit trampoline from that same source; P3-12 freezes only independently exercised IDs.
 The [profile](../../config/m3-profiles.json) fixes experiment limits. Revisions to
 either input require new hashes and review before measurements.
 
@@ -39,9 +40,10 @@ fast path is planned at this gate. A forged return trampoline or invalid stack
 fault terminates the process, without a kernel unwind.
 
 P3-03 implements only staged memory and trusted bindings; see the
-[loader runbook](../05-delivery/phase-3/static-loader-runbook.md). The current
-return page contains UD2 until P3-04 assigns process_exit and supplies IRETQ.
-No fixture is runnable yet. Startup R/NX page is `0x7ffd0000`, return RX page is
+[loader runbook](../05-delivery/phase-3/static-loader-runbook.md). Its staged
+return page remains UD2, preserving the P3-03 inspection contract.
+That staging test remains non-runnable. P3-04 explicitly substitutes the generated
+process_exit trampoline for executing launches; see the [boundary runbook](../05-delivery/phase-3/syscall-boundary-runbook.md). Startup R/NX page is `0x7ffd0000`, return RX page is
 `0x7ffd1000`, and initial RSP is `0x7fff0000 - 8`. Features, bootstrap handle and
 clock are zero; no live channel or grant is encoded. Trusted descriptors are exact
 ELF SHA-256/size pairs compiled into the kernel, never accepted from module data.
@@ -77,7 +79,7 @@ P3-04 owns the first `SYSCALL` entry: RAX operation, arguments in RDI, RSI, RDX,
 R10, R8, R9. Return RAX is zero for success or a positive typed experimental error
 ID; RDX is a value/required capacity only where the operation declares one, zero
 on other errors. Unknown operation/features return `Unsupported`. Error names are
-in JSON; no numeric value is assigned yet. No negative pointer/error overloading.
+in JSON; P3-04 experimental positive error IDs follow that explicit table. No negative pointer/error overloading.
 RCX/R11, RAX/RDX and memory are clobbered; remaining GPRs preserved. User stubs
 declare those clobbers explicitly. No SIMD result registers or native Rust values
 cross this boundary. P3-05 preserves FP state independently of the syscall ABI.
@@ -97,8 +99,8 @@ copy request metadata once into bounded kernel storage before dispatch. Single
 CPU, no shared page-table mutation during a copy: disable task preemption for the
 bounded copy and hold the address-space mapping guard; IRQs cannot unmap. P3-04
 adds a copy-fault recovery site so an invalid user page becomes `InvalidArgument`,
-not kernel fatal. No request stores a user pointer across a wait. P3-06 adds mapping
-pins/ownership to prevent unmap races for retained memory objects; copy all small
+not kernel fatal. No request stores a user pointer across a wait. P3-02/P3-04 supply copy pins with effective hardware permissions and IRQ exclusion.
+P3-06 adds rights-bearing ownership for retained memory objects; copy all small
 control bytes, never serialize a native struct by casting it.
 
 `abi_query` is the first experimental operation, callable without a bootstrap
@@ -342,3 +344,7 @@ Custom event time/pacing needs P3-08 then M4. Frozen Slint comparison has the sa
 allocation/FP foundations plus one owning execution thread, no IRQ/concurrent
 entry, install-once context and callback retirement; its clocks/window/proxy/native
 services and distribution terms remain frozen gaps, not M3 port commitments.
+
+## P3-04 experimental operations
+
+The [syscall boundary runbook](../05-delivery/phase-3/syscall-boundary-runbook.md) specifies IDs 0–5, per-operation buffer/value/error semantics, the private reclaiming page-run allocator, return-state validation, partial-copy behavior and exact assembly/unsafe lifetime review. R9 is revision zero and R8 reserved features zero. The 32-byte query carries diagnostic trusted IDs only; payload claims cannot select a process or authority. Staged UD2 and explicitly executable process_exit launch paths remain separate. Scheduling/FP state, public memory rights, general supervision and independent ABI freeze are later gates.

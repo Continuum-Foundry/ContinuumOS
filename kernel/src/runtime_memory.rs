@@ -1,6 +1,6 @@
 //! Single-CPU guest adapter. Called during boot with IF clear, before scheduling.
 //! IRQ/NMI handlers never mutate these tables or frames. No Rust reference to
-//! mapped user bytes escapes. P3-04 must disable preemption around pins/copies.
+//! mapped user bytes escapes. P3-04 masks IRQs with no scheduler around pins/copies.
 use crate::{Local, record};
 use continuum_kernel::{
     PhysAddr, Range, Result, error,
@@ -10,6 +10,22 @@ use continuum_kernel::{
 use core::{arch::asm, cell::UnsafeCell};
 pub(crate) type Memory = Runtime<16, 256, 128, 64>;
 static MEMORY: Local<Memory> = Local(UnsafeCell::new(Memory::EMPTY));
+// No borrow may survive entry to CPL3. IRQ/NMI never acquire this state. The
+// P3-04 caller masks IRQs and has no preemption; pins reject mapping mutations.
+#[cfg(feature = "user-boundary-test")]
+pub(crate) fn with<R>(f: impl FnOnce(&mut Memory, &mut GuestStore) -> R) -> R {
+    let flags: u64;
+    unsafe {
+        asm!("pushfq", "pop {}", out(reg) flags);
+    }
+    assert!(flags & 0x200 == 0);
+    f(
+        unsafe { &mut *MEMORY.0.get() },
+        &mut GuestStore {
+            kernel: PhysAddr(crate::user_entry::kernel_root()),
+        },
+    )
+}
 #[repr(C, align(4096))]
 struct Stacks([[u8; 73728]; 16]);
 static STACKS: Local<Stacks> = Local(UnsafeCell::new(Stacks([[0; 73728]; 16])));
@@ -46,6 +62,9 @@ impl Store for GuestStore {
     }
     fn write(&mut self, base: PhysAddr, offset: u64, byte: u8) {
         crate::paging::runtime_write(base, offset, byte);
+    }
+    fn write_bytes(&mut self, base: PhysAddr, offset: u64, bytes: &[u8]) {
+        crate::paging::runtime_write_bytes(base, offset, bytes);
     }
     fn publish(&mut self, old: PhysAddr, new: PhysAddr) {
         if cr3() == old.0 {

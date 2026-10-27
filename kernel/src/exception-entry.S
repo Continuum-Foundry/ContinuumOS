@@ -249,13 +249,48 @@ exception_unexpected:
 
 .type exception_common,@function
 exception_common:
+    // Preserve the interrupted integers for precise copy recovery. All other
+    // kernel exceptions remain fatal; user termination switches continuations.
     cli
     cld
-    mov rdi, rsp
+    push rax
+    push rcx
+    push rdx
+    push rbx
+    push rbp
+    push rsi
+    push rdi
+    push r8
+    push r9
+    push r10
+    push r11
+    push r12
+    push r13
+    push r14
+    push r15
+    lea rdi, [rsp + 120]
     mov rsi, cr2
+    mov rbx, rsp
     and rsp, -16
     call {dispatch}
-    ud2
+    mov rsp, rbx
+    pop r15
+    pop r14
+    pop r13
+    pop r12
+    pop r11
+    pop r10
+    pop r9
+    pop r8
+    pop rdi
+    pop rsi
+    pop rbp
+    pop rbx
+    pop rdx
+    pop rcx
+    pop rax
+    add rsp, 16
+    iretq
 .size exception_common, .-exception_common
 
 .global diagnostic_invalid_opcode

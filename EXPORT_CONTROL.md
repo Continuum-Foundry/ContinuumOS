@@ -552,6 +552,30 @@ push, release, remote build, new recipient or standing remote-environment approv
 is authorized. Geographic containment remains unverified; this administrative
 exception is not legal clearance and does not waive applicable law.
 
+### One-time owner authorization — P3-04, 2026-10-26
+
+After local P3-04 acceptance, the owner instructed: "I give you exemption to make
+PR". This authorizes one push of the completed P3-04 user entry, checked syscall
+and fault-containment implementation, reclaiming user runtime, page-batched
+staging, acceptance/review tools, accompanying contracts/ADR/status/handoff updates,
+sanitized compact acceptance evidence, commit metadata and this authorization
+record to the existing GitHub `origin/codex/p3-04-user-boundary`, followed by
+creation of its pull request against `main`, including the prepared PR text and
+metadata. The compact evidence includes selected serial records, launch contexts,
+user build commands and small entry/copy disassembly excerpts. Private keys,
+certificates, generated executables/ELFs, ISOs, full logs/disassembly, source copies
+and full local run trees are excluded. The pre-existing Windows-policy edits in
+`docs/05-delivery/windows-development-signing.md`, `tools/windows/New-DevPolicy.ps1`
+and `tools/windows/Set-DevMachinePolicy.ps1` are excluded.
+
+The push authorization is exhausted by the first successful push containing this
+record; the PR authorization is exhausted by creation of that one pull request.
+The pre-push hold may be bypassed for that single invocation only and must remain
+installed afterward; the pre-commit hygiene check still runs. No merge, force
+push, release, remote build, new recipient or standing remote-environment approval
+is authorized. Geographic containment remains unverified; this administrative
+exception is not legal clearance and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

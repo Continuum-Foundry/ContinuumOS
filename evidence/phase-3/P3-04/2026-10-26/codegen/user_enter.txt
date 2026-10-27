@@ -1,0 +1,38 @@
+<user_enter>:
+ffffffff800021af:      	cli
+ffffffff800021b0:      	pushq	%rbp
+ffffffff800021b1:      	pushq	%rbx
+ffffffff800021b2:      	pushq	%r12
+ffffffff800021b4:      	pushq	%r13
+ffffffff800021b6:      	pushq	%r14
+ffffffff800021b8:      	pushq	%r15
+ffffffff800021ba:      	movq	%rsp, 0x8eae47(%rip) # 0xffffffff808ed008 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry12CONTINUATION>
+ffffffff800021c1:      	movq	%cr3, %rax
+ffffffff800021c4:      	movq	%rax, 0x8eae35(%rip) # 0xffffffff808ed000 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry11KERNEL_ROOT>
+ffffffff800021cb:      	movq	%rdi, %cr3
+ffffffff800021ce:      	xorl	%eax, %eax
+ffffffff800021d0:      	movw	%ax, %ds
+ffffffff800021d3:      	movw	%ax, %es
+ffffffff800021d6:      	movw	%ax, %fs
+ffffffff800021d9:      	movw	%ax, %gs
+ffffffff800021dc:      	pushq	$0x3b
+ffffffff800021de:      	pushq	%rdx
+ffffffff800021df:      	pushq	$0x202          # imm = 0x202
+ffffffff800021e4:      	pushq	$0x33
+ffffffff800021e6:      	pushq	%rsi
+ffffffff800021e7:      	movl	$0x7ffd0000, %edi # imm = 0x7FFD0000
+ffffffff800021ec:      	xorl	%eax, %eax
+ffffffff800021ee:      	xorl	%ebx, %ebx
+ffffffff800021f0:      	xorl	%ecx, %ecx
+ffffffff800021f2:      	xorl	%edx, %edx
+ffffffff800021f4:      	xorl	%ebp, %ebp
+ffffffff800021f6:      	xorl	%esi, %esi
+ffffffff800021f8:      	xorl	%r8d, %r8d
+ffffffff800021fb:      	xorl	%r9d, %r9d
+ffffffff800021fe:      	xorl	%r10d, %r10d
+ffffffff80002201:      	xorl	%r11d, %r11d
+ffffffff80002204:      	xorl	%r12d, %r12d
+ffffffff80002207:      	xorl	%r13d, %r13d
+ffffffff8000220a:      	xorl	%r14d, %r14d
+ffffffff8000220d:      	xorl	%r15d, %r15d
+ffffffff80002210:      	iretq

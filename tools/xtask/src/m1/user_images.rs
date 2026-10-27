@@ -10,7 +10,42 @@ use std::{
     path::{Path, PathBuf},
     process::Command,
 };
-pub(super) fn build(dir: &Path) -> Result<PathBuf> {
+pub(super) fn build(dir: &Path, execution: bool) -> Result<PathBuf> {
+    let contract: serde_json::Value =
+        serde_json::from_slice(&read(&root().join("contracts/runtime-v0.json"))?)
+            .map_err(|e| e.to_string())?;
+    let mut ids = String::new();
+    for group in ["dispatch_ids", "error_ids"] {
+        for (name, value) in contract["syscall"][group]
+            .as_object()
+            .ok_or("Missing runtime IDs")?
+        {
+            ids.push_str(&format!(
+                "pub const {}: u64 = {};\n",
+                name.to_uppercase(),
+                value.as_u64().ok_or("Bad runtime ID")?
+            ));
+        }
+    }
+    // xor edi,edi; xor r8d,r8d; xor r9d,r9d; mov eax,exit; syscall; ud2.
+    let mut trampoline = vec![0x31u8, 0xff, 0x45, 0x31, 0xc0, 0x45, 0x31, 0xc9, 0xb8];
+    trampoline.extend_from_slice(
+        &(contract["syscall"]["dispatch_ids"]["process_exit"]
+            .as_u64()
+            .ok_or("Missing exit ID")? as u32)
+            .to_le_bytes(),
+    );
+    trampoline.extend_from_slice(&[0x0f, 0x05, 0x0f, 0x0b]);
+    ids.push_str(&format!(
+        "pub const EXIT_TRAMPOLINE: &[u8] = &{trampoline:?};\n"
+    ));
+    let runtime_ids = dir.join("runtime-ids.rs");
+    fs::write(&runtime_ids, ids).map_err(|e| e.to_string())?;
+    let source = if execution {
+        "experiments/user-images/executable.rs"
+    } else {
+        "experiments/user-images/fixture.rs"
+    };
     let mut descriptors = String::from("pub const IMAGES: [([u8;32],usize);3] = [\n");
     let mut images = Vec::new();
     let sysroot = output(Command::new(tool("rustc")?).args(["--print", "sysroot"]))?;
@@ -23,7 +58,8 @@ pub(super) fn build(dir: &Path) -> Result<PathBuf> {
         let image = dir.join(format!("{name}.elf"));
         let mut c = Command::new(tool("rustc")?);
         c.current_dir(root())
-            .arg(root().join("experiments/user-images/fixture.rs"))
+            .arg(root().join(source))
+            .env("CONTINUUM_RUNTIME_IDS", &runtime_ids)
             .args([
                 "--edition=2024",
                 "--target=x86_64-unknown-none",
@@ -80,6 +116,21 @@ pub(super) fn build(dir: &Path) -> Result<PathBuf> {
                 &format!("{name}-{toolname}"),
                 30,
             )?;
+            if toolname == "llvm-objdump" && execution {
+                let permitted = text
+                    .lines()
+                    .filter(|line| line.contains("%xmm"))
+                    .collect::<Vec<_>>();
+                if permitted.len() != 1 || !permitted[0].contains("pxor\t%xmm0, %xmm0") {
+                    return Err("Expected exactly the forbidden FP trap fixture".into());
+                }
+                let integer = text
+                    .lines()
+                    .filter(|line| !line.contains("%xmm"))
+                    .collect::<Vec<_>>()
+                    .join("\n");
+                super::build::audit_disassembly(&integer)?;
+            }
             if toolname == "llvm-nm" && !text.trim().is_empty() {
                 return Err("User image has undefined symbols".into());
             }
@@ -97,7 +148,7 @@ pub(super) fn build(dir: &Path) -> Result<PathBuf> {
     fs::write(&path, descriptors).map_err(|e| e.to_string())?;
     write_json(
         &dir.join("user-images.json"),
-        &json!({"schema_version":1,"target":"x86_64-unknown-none","code_model":"small","relocation":"static","red_zone":false,"panic":"abort","opt_level":1,"entry":"fixture_entry","compiler_sha256":digest(&Path::new(&sysroot).join("bin/rustc.exe"))?,"audit_tools_sha256":audits,"source_sha256":digest(&root().join("experiments/user-images/fixture.rs"))?,"linker_sha256":digest(&root().join("experiments/user-images/link.ld"))?,"images":images,"trusted_descriptors_sha256":digest(&path)?,"user_execution":false}),
+        &json!({"schema_version":1,"target":"x86_64-unknown-none","code_model":"small","relocation":"static","red_zone":false,"panic":"abort","opt_level":1,"entry":"fixture_entry","compiler_sha256":digest(&Path::new(&sysroot).join("bin/rustc.exe"))?,"audit_tools_sha256":audits,"source_sha256":digest(&root().join(source))?,"runtime_source_sha256":digest(&root().join("experiments/user-images/runtime.rs"))?,"runtime_ids_sha256":digest(&runtime_ids)?,"linker_sha256":digest(&root().join("experiments/user-images/link.ld"))?,"images":images,"trusted_descriptors_sha256":digest(&path)?,"user_execution":execution}),
     )?;
     Ok(path)
 }

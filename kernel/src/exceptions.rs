@@ -1,4 +1,5 @@
-//! Fatal x86-64 entry only. CPU/ABI/unsafe review: exception-diagnostics-runbook.md.
+//! Kernel-fatal diagnostics; the explicit P3-04 feature adds user containment.
+//! CPU/ABI/unsafe review: exception and syscall-boundary runbooks.
 use crate::{Local, record};
 use core::{
     arch::{asm, global_asm},
@@ -43,7 +44,7 @@ static TSS: Local<Tss> = Local(core::cell::UnsafeCell::new(Tss {
     reserved3: 0,
     iomap: size_of::<Tss>() as u16,
 }));
-static GDT: Local<[u64; 5]> = Local(core::cell::UnsafeCell::new([0; 5]));
+static GDT: Local<[u64; 8]> = Local(core::cell::UnsafeCell::new([0; 8]));
 #[repr(C)]
 #[derive(Clone, Copy)]
 struct Gate {
@@ -84,7 +85,8 @@ const _: () =
 // No Rust prologue on a hardware frame. Non-error vectors add a synthetic zero;
 // all stubs add the vector. Hardware always pushes RIP, CS, RFLAGS, RSP, SS in
 // 64-bit mode. RDI captures the normalized frame before RSP is aligned for CALL.
-// Fatal-only: every GPR may be clobbered; no interrupted code resumes, no IRET.
+// All fifteen GPRs are saved. Kernel fatal paths never return; only the precise
+// P3-04 copy-recovery path may update RIP and resume through IRETQ.
 global_asm!(include_str!("exception-entry.S"),
     runtime = sym RUNTIME_STACK, run = sym run, dispatch = sym dispatch);
 unsafe extern "C" {
@@ -130,13 +132,16 @@ unsafe fn install() {
         ]);
         let base = tss as u64;
         let limit = (size_of::<Tss>() - 1) as u64;
-        // Null, ring-0 64-bit RX code, RW data, available 64-bit TSS (two slots).
+        // Null, ring-0 long code/data, TSS (two slots), null, user long code/data.
         GDT.0.get().write([
             0,
             0x00af9a000000ffff,
             0x00cf92000000ffff,
             limit | ((base & 0xffffff) << 16) | (0x89 << 40) | (((base >> 24) & 0xff) << 56),
             base >> 32,
+            0,
+            0x00affa000000ffff, // 0x33 user long code
+            0x00cff2000000ffff, // 0x3b user data
         ]);
         for i in 0..256 {
             let entry = if i < 32 {
@@ -158,7 +163,7 @@ unsafe fn install() {
         (*IDT.0.get())[64] = Gate::new(crate::timer::timer_vector as *const () as u64, 0);
         (*IDT.0.get())[255] = Gate::new(crate::timer::spurious_vector as *const () as u64, 0);
         exception_load_gdt(&TablePointer {
-            limit: (size_of::<[u64; 5]>() - 1) as u16,
+            limit: (size_of::<[u64; 8]>() - 1) as u16,
             base: GDT.0.get() as u64,
         });
         asm!("ltr ax", in("ax") 24u16, options(nostack, preserves_flags));
@@ -209,6 +214,10 @@ extern "C" fn run(mode: u64) -> ! {
         );
         crate::failure_exit()
     });
+    #[cfg(feature = "user-boundary-test")]
+    if (32..=35).contains(&mode) {
+        crate::user_entry::run(mode - 32).unwrap_or_else(|e| crate::reject(e));
+    }
     record(
         "m1.boot_complete",
         "boot",
@@ -234,17 +243,21 @@ extern "C" fn run(mode: u64) -> ! {
 }
 
 #[repr(C)]
-struct Frame {
-    vector: u64,
-    error: u64,
-    rip: u64,
-    cs: u64,
-    flags: u64,
-    rsp: u64,
-    ss: u64,
+pub(crate) struct Frame {
+    pub vector: u64,
+    pub error: u64,
+    pub rip: u64,
+    pub cs: u64,
+    pub flags: u64,
+    pub rsp: u64,
+    pub ss: u64,
 }
 const _: () = assert!(size_of::<Frame>() == 56);
-extern "C" fn dispatch(frame: *const Frame, cr2: u64) -> ! {
+extern "C" fn dispatch(frame: *mut Frame, cr2: u64) {
+    #[cfg(feature = "user-boundary-test")]
+    if crate::user_entry::exception(unsafe { &mut *frame }, cr2) {
+        return;
+    }
     // CPU/stub-created frame on a retained stack; alignment is at least 8 bytes.
     // Copy scalars before reporting; there are no mutable frame references.
     let f = unsafe { frame.read() };
@@ -263,6 +276,13 @@ extern "C" fn dispatch(frame: *const Frame, cr2: u64) -> ! {
             frame as u64
         ),
     )
+}
+
+#[cfg(feature = "user-boundary-test")]
+pub(crate) fn user_stack(top: u64) {
+    unsafe {
+        addr_of_mut!((*TSS.0.get()).rsp).write_unaligned([top, 0, 0]);
+    }
 }
 
 pub fn panic(info: &core::panic::PanicInfo<'_>) -> ! {

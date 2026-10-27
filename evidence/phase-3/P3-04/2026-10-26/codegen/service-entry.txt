@@ -1,0 +1,125 @@
+<fixture_entry>:
+  400000:      	orq	%rbx, %rax
+  400003:      	orq	%rcx, %rax
+  400006:      	orq	%rdx, %rax
+  400009:      	orq	%rbp, %rax
+  40000c:      	orq	%rsi, %rax
+  40000f:      	orq	%r8, %rax
+  400012:      	orq	%r9, %rax
+  400015:      	orq	%r10, %rax
+  400018:      	orq	%r11, %rax
+  40001b:      	orq	%r12, %rax
+  40001e:      	orq	%r13, %rax
+  400021:      	orq	%r14, %rax
+  400024:      	orq	%r15, %rax
+  400027:      	testq	%rax, %rax
+  40002a:      	jne	0x40006c <fixture_entry+0x6c>
+  40002c:      	cmpq	$0x7ffd0000, %rdi       # imm = 0x7FFD0000
+  400033:      	jne	0x40006c <fixture_entry+0x6c>
+  400035:      	movq	%rsp, %rax
+  400038:      	andl	$0xf, %eax
+  40003b:      	cmpl	$0x8, %eax
+  40003e:      	jne	0x40006c <fixture_entry+0x6c>
+  400040:      	movl	%cs, %eax
+  400042:      	cmpw	$0x33, %ax
+  400046:      	jne	0x40006c <fixture_entry+0x6c>
+  400048:      	movl	%ss, %eax
+  40004a:      	cmpw	$0x3b, %ax
+  40004e:      	jne	0x40006c <fixture_entry+0x6c>
+  400050:      	pushfq
+  400051:      	popq	%rax
+  400052:      	andl	$0x3700, %eax           # imm = 0x3700
+  400057:      	cmpl	$0x200, %eax            # imm = 0x200
+  40005c:      	jne	0x40006c <fixture_entry+0x6c>
+  40005e:      	subq	$0x8, %rsp
+  400062:      	callq	0x400170 <_RNvCscQCwXDDg9Rg_10executable4main>
+  400067:      	addq	$0x8, %rsp
+  40006b:      	retq
+  40006c:      	movl	$0x63, %edi
+  400071:      	movl	$0x5, %eax
+  400076:      	xorl	%r8d, %r8d
+  400079:      	xorl	%r9d, %r9d
+  40007c:      	syscall
+  40007e:      	ud2
+<register_check>:
+  400080:      	pushq	%rbx
+  400081:      	pushq	%rbp
+  400082:      	pushq	%r12
+  400084:      	pushq	%r13
+  400086:      	pushq	%r14
+  400088:      	pushq	%r15
+  40008a:      	movl	$0x4, %eax
+  40008f:      	movl	$0x7, %edi
+  400094:      	movl	$0x6, %esi
+  400099:      	movl	$0xa, %r10d
+  40009f:      	xorl	%r8d, %r8d
+  4000a2:      	xorl	%r9d, %r9d
+  4000a5:      	movl	$0x4, %ebx
+  4000aa:      	movl	$0x5, %ebp
+  4000af:      	movl	$0xc, %r12d
+  4000b5:      	movl	$0xd, %r13d
+  4000bb:      	movl	$0xe, %r14d
+  4000c1:      	movl	$0xf, %r15d
+  4000c7:      	movl	$0x30d40, %ecx          # imm = 0x30D40
+  4000cc:      	pause
+  4000ce:      	loop	0x4000cc <register_check+0x4c>
+  4000d0:      	std
+  4000d1:      	syscall
+  4000d3:      	testq	%rax, %rax
+  4000d6:      	jne	0x40012f <register_check+0xaf>
+  4000d8:      	cmpq	$0x4, %rbx
+  4000dc:      	jne	0x40012f <register_check+0xaf>
+  4000de:      	cmpq	$0x5, %rbp
+  4000e2:      	jne	0x40012f <register_check+0xaf>
+  4000e4:      	cmpq	$0x7, %rdi
+  4000e8:      	jne	0x40012f <register_check+0xaf>
+  4000ea:      	cmpq	$0x6, %rsi
+  4000ee:      	jne	0x40012f <register_check+0xaf>
+  4000f0:      	cmpq	$0xa, %r10
+  4000f4:      	jne	0x40012f <register_check+0xaf>
+  4000f6:      	testq	%r8, %r8
+  4000f9:      	jne	0x40012f <register_check+0xaf>
+  4000fb:      	testq	%r9, %r9
+  4000fe:      	jne	0x40012f <register_check+0xaf>
+  400100:      	cmpq	$0xc, %r12
+  400104:      	jne	0x40012f <register_check+0xaf>
+  400106:      	cmpq	$0xd, %r13
+  40010a:      	jne	0x40012f <register_check+0xaf>
+  40010c:      	cmpq	$0xe, %r14
+  400110:      	jne	0x40012f <register_check+0xaf>
+  400112:      	cmpq	$0xf, %r15
+  400116:      	jne	0x40012f <register_check+0xaf>
+  400118:      	pushfq
+  400119:      	popq	%rax
+  40011a:      	testl	$0x400, %eax            # imm = 0x400
+  40011f:      	je	0x40012f <register_check+0xaf>
+  400121:      	testl	$0x200, %eax            # imm = 0x200
+  400126:      	je	0x40012f <register_check+0xaf>
+  400128:      	movl	$0x1, %eax
+  40012d:      	jmp	0x400131 <register_check+0xb1>
+  40012f:      	xorl	%eax, %eax
+  400131:      	cld
+  400132:      	popq	%r15
+  400134:      	popq	%r14
+  400136:      	popq	%r13
+  400138:      	popq	%r12
+  40013a:      	popq	%rbp
+  40013b:      	popq	%rbx
+  40013c:      	retq
+<user_fp_forbidden>:
+  40013d:      	pxor	%xmm0, %xmm0
+  400141:      	retq
+  400142:      	int3
+  400143:      	int3
+  400144:      	int3
+  400145:      	int3
+  400146:      	int3
+  400147:      	int3
+  400148:      	int3
+  400149:      	int3
+  40014a:      	int3
+  40014b:      	int3
+  40014c:      	int3
+  40014d:      	int3
+  40014e:      	int3
+  40014f:      	int3

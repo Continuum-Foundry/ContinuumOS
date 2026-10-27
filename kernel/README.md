@@ -98,3 +98,5 @@ P1-06 adds all-GPR returning wrappers and a register/DF/idle sentinel in
 and the hardware adapter in [timer.rs](src/timer.rs). No FP/SIMD context support
 or scheduling is introduced. The timer handler only increments a bounded atomic
 counter and acknowledges the LAPIC; spurious delivery returns without EOI.
+
+P3-04 adds the explicitly gated `user-boundary-test` experiment: owned per-process kernel/TSS stacks, integer-only IRETQ/SYSCALL entry, generated experimental operation IDs, checked pinned copies, private reclaiming allocation and contained user exit/faults. The trusted continuation reaps only after restoring the surviving kernel stack/root. See the [boundary runbook](../docs/05-delivery/phase-3/syscall-boundary-runbook.md) and story review for exact evidence. The ordinary M1 ISO remains independently buildable. Scheduling, user FP/SIMD state, public memory rights and guest UI remain later gates.

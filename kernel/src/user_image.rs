@@ -308,6 +308,21 @@ impl<const N: usize> Launcher<N> {
         image: TrustedImage<'_>,
         binding: Binding,
     ) -> Result<ProcessId> {
+        self.bootstrap_return(r, store, image, binding, &RETURN_CODE)
+    }
+    /// Trusted P3-04 entry preparation; never expose return bytes to userspace.
+    /// Keeping the P3-03 path staged preserves its exact UD2 evidence contract.
+    pub fn bootstrap_return<const S: usize, const A: usize, const M: usize, const T: usize>(
+        &mut self,
+        r: &mut Runtime<S, A, M, T>,
+        store: &mut impl Store,
+        image: TrustedImage<'_>,
+        binding: Binding,
+        return_code: &[u8],
+    ) -> Result<ProcessId> {
+        if return_code.is_empty() || return_code.len() > PAGE as usize {
+            return Err(bad("return_code"));
+        }
         if image.bytes.len() > MAX_IMAGE {
             return Err(bad("image_limit"));
         }
@@ -351,7 +366,7 @@ impl<const N: usize> Launcher<N> {
             }
             for (address, bytes, access) in [
                 (STARTUP, STARTUP_BYTES.as_slice(), Access::Read),
-                (RETURN, RETURN_CODE.as_slice(), Access::Execute),
+                (RETURN, return_code, Access::Execute),
             ] {
                 let a = r.allocate(store, space, PAGE, PAGE)?.unwrap();
                 r.write_staging(store, space, a, 0, bytes)?;

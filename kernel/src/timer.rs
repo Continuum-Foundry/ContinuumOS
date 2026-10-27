@@ -11,6 +11,12 @@ static TICKS: AtomicU64 = AtomicU64::new(0);
 static OVERFLOW: AtomicBool = AtomicBool::new(false);
 static RESOLUTION: AtomicU64 = AtomicU64::new(0);
 static SPURIOUS: AtomicU64 = AtomicU64::new(0);
+#[cfg(feature = "user-boundary-test")]
+static USER_INTERRUPTS: AtomicU64 = AtomicU64::new(0);
+#[cfg(feature = "user-boundary-test")]
+pub(crate) fn user_interrupts() -> u64 {
+    USER_INTERRUPTS.load(Ordering::Relaxed)
+}
 global_asm!(include_str!("timer-entry.S"), interrupt = sym interrupt);
 unsafe extern "C" {
     pub fn timer_vector();
@@ -56,7 +62,7 @@ fn msr(id: u32) -> u64 {
     }
     (hi as u64) << 32 | lo as u64
 }
-extern "C" fn interrupt(vector: u64) {
+extern "C" fn interrupt(vector: u64, _cs: u64) {
     if vector == 255 {
         SPURIOUS.store(
             SPURIOUS.load(Ordering::Relaxed).saturating_add(1),
@@ -66,6 +72,13 @@ extern "C" fn interrupt(vector: u64) {
     }
     // Only this non-nested handler writes the counter. Readers use one atomic
     // load; no retry loop, lock or allocation occurs in interrupt context.
+    #[cfg(feature = "user-boundary-test")]
+    if _cs == continuum_kernel::user_boundary::USER_CS {
+        USER_INTERRUPTS.store(
+            USER_INTERRUPTS.load(Ordering::Relaxed).saturating_add(1),
+            Ordering::Relaxed,
+        );
+    }
     if let Some(next) = TICKS.load(Ordering::Relaxed).checked_add(1) {
         TICKS.store(next, Ordering::Relaxed);
     } else {

@@ -12,7 +12,7 @@ Its 2026-10-21 installer amendment makes M7 account/installation readiness a
 required dependency of M8. Existing M0–M2 acceptance and P2 story boundaries remain
 unchanged. The approved desktop/platform expansion adds M9–M21 without extending
 M8's release exit; see the [feature matrix](desktop-feature-matrix.md).
-M3 has [fourteen Phase 3 stories](phase-3/README.md); P3-01 [passes its local prerequisite/contract gate](../../evidence/phase-3/P3-01/2026-10-25/README.md). P3-02 [passes its internal owned-memory gate](../../evidence/phase-3/P3-02/2026-10-25/README.md). P3-03 [passes staged static-loader acceptance](../../evidence/phase-3/P3-03/2026-10-25/README.md). P3-04–P3-14 remain Not started; no ring-3 execution or M3 exit is accepted.
+M3 has [fourteen Phase 3 stories](phase-3/README.md); P3-01 [passes its local prerequisite/contract gate](../../evidence/phase-3/P3-01/2026-10-25/README.md). P3-02 [passes its internal owned-memory gate](../../evidence/phase-3/P3-02/2026-10-25/README.md). P3-03 [passes staged static-loader acceptance](../../evidence/phase-3/P3-03/2026-10-25/README.md). P3-04 [passes the bounded user-entry/syscall/fault gate](../../evidence/phase-3/P3-04/2026-10-26/README.md). P3-05–P3-14 remain Not started; preemption, FP/SIMD context, public rights and M3 exit remain open.
 Detailed P4–P21 stories are decomposed at the owner's request before
 each milestone; the broad backlog does not substitute for that decomposition.
 

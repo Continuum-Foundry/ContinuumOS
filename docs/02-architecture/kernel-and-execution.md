@@ -123,3 +123,7 @@ hook only narrows trusted identity/ceilings; authenticated public child launch i
 still P3-09/10. See [ADR-0019](../04-decisions/0019-static-images-and-trusted-launch.md).
 No user instruction is executed: the synthetic return traps until P3-04 supplies
 process_exit and IRETQ. Ring-3 faults, syscalls, rights and scheduling remain open.
+
+## P3-04 executing boundary
+
+The [syscall/fault experiment](../05-delivery/phase-3/syscall-boundary-runbook.md) passes local self-review for real integer-only CPL3 execution: owned kernel/TSS stacks, generated experimental syscall IDs, complete-span pinned copies with effective hardware permissions and precise recovery, reclaiming user allocation and process-local exit/fault/panic/OOM. A surviving kernel continuation reaps after restoring its stack/root; M1 fatal/IST regressions remain required and pass. Four bounded guests contain sixteen offenders and run immediate healthy replacements, with 36 process runs and exact inventories. [ADR-0020](../04-decisions/0020-user-entry-and-fault-boundary.md) remains Proposed. This single-CPU boundary supplies no preemption, user FP/SIMD context, public memory rights, general supervision, ABI freeze or guest UI. P3-05 must initialize/save/restore FP state before clearing the current TS guard and add real preemption/lifetime coverage.

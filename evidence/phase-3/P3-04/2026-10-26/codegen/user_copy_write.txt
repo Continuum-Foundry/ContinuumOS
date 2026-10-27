@@ -1,0 +1,8 @@
+<user_copy_write>:
+ffffffff8000228b:      	movb	%al, (%rdi)
+ffffffff8000228d:      	incq	%rsi
+ffffffff80002290:      	incq	%rdi
+ffffffff80002293:      	decq	%rdx
+ffffffff80002296:      	jne	0xffffffff80002289 <user_copy_read>
+ffffffff80002298:      	xorl	%eax, %eax
+ffffffff8000229a:      	retq

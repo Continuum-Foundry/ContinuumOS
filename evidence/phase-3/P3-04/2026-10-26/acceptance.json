@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "story": "P3-04",
+  "status": "passed",
+  "commands": [
+    {
+      "exit_code": 0,
+      "name": "prerequisites",
+      "elapsed_ms": 148706,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "m1",
+      "elapsed_ms": 3099215,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-P1-07.ps1"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "m1-review",
+      "elapsed_ms": 12117,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Review-P1-07.ps1",
+        "-Run",
+        "${WORKSPACE}\\build/m1\\suite-1793056160811229500-28188"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "owned-memory",
+      "elapsed_ms": 76988,
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "static-loader",
+      "elapsed_ms": 68988,
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "static-loader"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "user-boundary",
+      "elapsed_ms": 201286,
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ]
+    }
+  ],
+  "runs": {
+    "boundary": "${WORKSPACE}\\build/m1\\user-boundary-1793059418368826400-28196",
+    "memory": "${WORKSPACE}\\build/m1\\owned-memory-1793059273612331100-2416",
+    "loader": "${WORKSPACE}\\build/m1\\static-loader-1793059349666932100-35676",
+    "prerequisites": "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1793056011120",
+    "m1": "${WORKSPACE}\\build/m1\\suite-1793056160811229500-28188"
+  },
+  "source_commit": "a15b813ae5b3f874bf84f62fc728a9962b67994c",
+  "user_execution": true,
+  "host_test_threads": 1
+}

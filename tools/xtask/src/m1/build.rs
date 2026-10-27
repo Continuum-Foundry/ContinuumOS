@@ -37,6 +37,7 @@ pub(super) enum Flavor {
     Timer,
     RuntimeMemory,
     StaticLoader,
+    UserBoundary,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -50,6 +51,7 @@ impl Flavor {
             Self::Timer => "timer-test",
             Self::RuntimeMemory => "runtime-memory-test",
             Self::StaticLoader => "static-loader-test",
+            Self::UserBoundary => "user-boundary-test",
         }
     }
     fn features(self) -> &'static str {
@@ -63,6 +65,7 @@ impl Flavor {
             Self::Timer => "timer-test",
             Self::RuntimeMemory => "runtime-memory-test",
             Self::StaticLoader => "static-loader-test",
+            Self::UserBoundary => "user-boundary-test",
         }
     }
 }
@@ -222,7 +225,7 @@ fn audit_image_bounds(text: &str, inspection: &Value) -> Result<Value> {
         json!({"start":format!("{start:#x}"),"end":format!("{end:#x}"),"load_memory_end":format!("{maximum:#x}"),"all_load_memory_including_bss":true}),
     )
 }
-fn audit_disassembly(text: &str) -> Result<()> {
+pub(super) fn audit_disassembly(text: &str) -> Result<()> {
     for line in text.lines() {
         let lower = line.to_ascii_lowercase();
         // LLVM AT&T register spellings plus x87/implicit vector instructions.
@@ -258,6 +261,7 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         collect(&root().join(p), &mut sources)?;
     }
     for p in [
+        "contracts/runtime-v0.json",
         "Cargo.toml",
         "Cargo.lock",
         "rust-toolchain.toml",
@@ -281,8 +285,11 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
 }
 pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     check_pin()?;
-    let user_descriptors = if flavor == Flavor::StaticLoader {
-        Some(super::user_images::build(dir)?)
+    let user_descriptors = if matches!(flavor, Flavor::StaticLoader | Flavor::UserBoundary) {
+        Some(super::user_images::build(
+            dir,
+            flavor == Flavor::UserBoundary,
+        )?)
     } else {
         None
     };
@@ -322,6 +329,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     }
     if let Some(path) = user_descriptors {
         c.env("CONTINUUM_TRUSTED_IMAGES", path);
+        c.env("CONTINUUM_RUNTIME_IDS", dir.join("runtime-ids.rs"));
     }
     c.args([
         "--",
@@ -457,12 +465,12 @@ fn audit_interrupt_entry(text: &str) -> Result<Value> {
                     .ok_or_else(|| "Malformed entry disassembly".to_string())
             })
             .collect::<Result<Vec<_>>>()?;
-        if instructions.len() != 37 {
+        if instructions.len() != 38 {
             return Err("Unexpected interrupt entry instruction count".into());
         }
         for (i, register) in registers.iter().enumerate() {
             if instructions[i] != format!("pushq %{register}")
-                || instructions[35 - i] != format!("popq %{register}")
+                || instructions[36 - i] != format!("popq %{register}")
             {
                 return Err("Interrupt entry does not preserve all GPRs".into());
             }
@@ -470,9 +478,10 @@ fn audit_interrupt_entry(text: &str) -> Result<Value> {
         if instructions[15] != "cld"
             || instructions[16] != "movq %rsp, %rbx"
             || instructions[17] != "andq $-0x10, %rsp"
-            || !instructions[19].starts_with("callq ")
-            || instructions[20] != "movq %rbx, %rsp"
-            || instructions[36] != "iretq"
+            || instructions[19] != "movq 0x80(%rbx), %rsi"
+            || !instructions[20].starts_with("callq ")
+            || instructions[21] != "movq %rbx, %rsp"
+            || instructions[37] != "iretq"
             || instructions[18]
                 != format!(
                     "movl ${}, %edi",

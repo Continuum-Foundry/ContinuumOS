@@ -687,6 +687,27 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     return Err("Unexpected loader record".into());
                 }
             }
+            "m1.user_oom_injection"
+            | "m1.user_runtime"
+            | "m1.user_inventory"
+            | "m1.user_fault"
+            | "m1.user_bad_return"
+            | "m1.user_call"
+            | "m1.user_irq"
+            | "m1.user_start"
+            | "m1.user_end"
+            | "m1.user_log"
+            | "m1.user_settlement"
+            | "m1.user_ready" => {
+                if !p.memory
+                    || p.boot_complete
+                    || stage != "user-boundary"
+                    || outcome != "ok"
+                    || !expected.fixture.starts_with("user-boundary-")
+                {
+                    return Err("Unexpected user-boundary record".into());
+                }
+            }
             "m1.ready" => {
                 if !p.boot_complete
                     || stage != "ready"
@@ -726,6 +747,21 @@ pub(super) fn assertions(
             || rows[0]["fields"]["user_execution"] != "false"
         {
             return Err("Missing loader completion".into());
+        }
+    }
+    if expected.fixture.starts_with("user-boundary-") {
+        let rows = p
+            .records
+            .iter()
+            .filter(|r| r["event"] == "m1.user_ready")
+            .collect::<Vec<_>>();
+        if rows.len() != 1
+            || rows[0]["fields"]["runs"] != "9"
+            || rows[0]["fields"]["settled"] != "true"
+            || rows[0]["fields"]["copy_recovery"] != "true"
+            || rows[0]["fields"]["user_execution"] != "true"
+        {
+            return Err("Missing user boundary completion".into());
         }
     }
     if expected.fixture == "owned-memory" {

@@ -4,17 +4,256 @@
   "target": "x86_64-unknown-none",
   "user_code_model": "small",
   "relocation_model": "static",
-  "entry": {"address": 4194304, "stack_alignment": 16, "entry_rsp_modulo": 8, "context_register": "rdi", "context_bytes": 64, "magic_hex": "434e544d33525430", "return_policy": "synthetic return trampoline calls process_exit"},
-  "user_range": {"minimum": 65536, "exclusive_end": 2147483648, "page_bytes": 4096},
-  "syscall": {"instruction": "syscall", "number": "rax", "arguments": ["rdi", "rsi", "rdx", "r10", "r8", "r9"], "status": "rax", "value": "rdx", "clobbers": ["rcx", "r11", "rax", "rdx", "memory"], "return_instruction": "iretq", "numbers_frozen": false},
-  "startup_fields": [["magic", 8], ["revision", 4], ["length", 4], ["features", 8], ["bootstrap_handle", 8], ["page_bytes", 4], ["reserved", 4], ["clock_resolution_ns", 8], ["reserved_tail", 16]],
-  "message_fields": [["protocol", 4], ["major", 2], ["minor", 2], ["operation", 4], ["required_features", 4], ["payload_bytes", 4], ["handle_count", 2], ["reserved", 2], ["request_id", 8], ["route_epoch", 8], ["policy_epoch", 8]],
-  "handle": {"bytes": 8, "slot_bits": 32, "generation_bits": 32, "zero_invalid": true, "wrap": "retire slot until containing process dies"},
-  "errors": ["BadHandle", "WrongType", "AccessDenied", "InvalidArgument", "BufferTooSmall", "WouldBlock", "TimedOut", "Cancelled", "PeerClosed", "OutOfMemory", "QuotaExceeded", "Unsupported", "StaleEpoch", "IncompatibleProtocol", "InternalFailure"],
-  "operations": ["abi_query", "object_info", "handle_close", "handle_duplicate", "process_create", "process_start", "process_exit", "process_terminate", "process_join", "thread_create", "thread_start", "thread_exit", "thread_join", "thread_yield", "memory_create", "memory_map", "memory_unmap", "memory_protect", "channel_create", "channel_send", "channel_receive", "wait_many", "event_create", "event_signal", "wait_token_create", "wait_cancel", "timer_create", "timer_arm", "timer_read", "timer_cancel", "clock_read", "diagnostic_log"],
-  "unsupported_families": ["device", "irq", "dma", "accounts", "installer", "filesystem", "network", "presentation"],
+  "entry": {
+    "address": 4194304,
+    "stack_alignment": 16,
+    "entry_rsp_modulo": 8,
+    "context_register": "rdi",
+    "context_bytes": 64,
+    "magic_hex": "434e544d33525430",
+    "return_policy": "synthetic return trampoline calls process_exit"
+  },
+  "user_range": {
+    "minimum": 65536,
+    "exclusive_end": 2147483648,
+    "page_bytes": 4096
+  },
+  "syscall": {
+    "instruction": "syscall",
+    "number": "rax",
+    "arguments": [
+      "rdi",
+      "rsi",
+      "rdx",
+      "r10",
+      "r8",
+      "r9"
+    ],
+    "status": "rax",
+    "value": "rdx",
+    "clobbers": [
+      "rcx",
+      "r11",
+      "rax",
+      "rdx",
+      "memory"
+    ],
+    "return_instruction": "iretq",
+    "numbers_frozen": false,
+    "version_register": "r9",
+    "reserved_zero_registers": [
+      "r8"
+    ],
+    "dispatch_ids": {
+      "abi_query": 0,
+      "diagnostic_log": 1,
+      "memory_allocate": 2,
+      "memory_free": 3,
+      "thread_yield": 4,
+      "process_exit": 5
+    },
+    "error_ids": {
+      "BadHandle": 1,
+      "WrongType": 2,
+      "AccessDenied": 3,
+      "InvalidArgument": 4,
+      "BufferTooSmall": 5,
+      "WouldBlock": 6,
+      "TimedOut": 7,
+      "Cancelled": 8,
+      "PeerClosed": 9,
+      "OutOfMemory": 10,
+      "QuotaExceeded": 11,
+      "Unsupported": 12,
+      "StaleEpoch": 13,
+      "IncompatibleProtocol": 14,
+      "InternalFailure": 15
+    }
+  },
+  "startup_fields": [
+    [
+      "magic",
+      8
+    ],
+    [
+      "revision",
+      4
+    ],
+    [
+      "length",
+      4
+    ],
+    [
+      "features",
+      8
+    ],
+    [
+      "bootstrap_handle",
+      8
+    ],
+    [
+      "page_bytes",
+      4
+    ],
+    [
+      "reserved",
+      4
+    ],
+    [
+      "clock_resolution_ns",
+      8
+    ],
+    [
+      "reserved_tail",
+      16
+    ]
+  ],
+  "message_fields": [
+    [
+      "protocol",
+      4
+    ],
+    [
+      "major",
+      2
+    ],
+    [
+      "minor",
+      2
+    ],
+    [
+      "operation",
+      4
+    ],
+    [
+      "required_features",
+      4
+    ],
+    [
+      "payload_bytes",
+      4
+    ],
+    [
+      "handle_count",
+      2
+    ],
+    [
+      "reserved",
+      2
+    ],
+    [
+      "request_id",
+      8
+    ],
+    [
+      "route_epoch",
+      8
+    ],
+    [
+      "policy_epoch",
+      8
+    ]
+  ],
+  "handle": {
+    "bytes": 8,
+    "slot_bits": 32,
+    "generation_bits": 32,
+    "zero_invalid": true,
+    "wrap": "retire slot until containing process dies"
+  },
+  "errors": [
+    "BadHandle",
+    "WrongType",
+    "AccessDenied",
+    "InvalidArgument",
+    "BufferTooSmall",
+    "WouldBlock",
+    "TimedOut",
+    "Cancelled",
+    "PeerClosed",
+    "OutOfMemory",
+    "QuotaExceeded",
+    "Unsupported",
+    "StaleEpoch",
+    "IncompatibleProtocol",
+    "InternalFailure"
+  ],
+  "operations": [
+    "abi_query",
+    "object_info",
+    "handle_close",
+    "handle_duplicate",
+    "process_create",
+    "process_start",
+    "process_exit",
+    "process_terminate",
+    "process_join",
+    "thread_create",
+    "thread_start",
+    "thread_exit",
+    "thread_join",
+    "thread_yield",
+    "memory_create",
+    "memory_map",
+    "memory_unmap",
+    "memory_protect",
+    "channel_create",
+    "channel_send",
+    "channel_receive",
+    "wait_many",
+    "event_create",
+    "event_signal",
+    "wait_token_create",
+    "wait_cancel",
+    "timer_create",
+    "timer_arm",
+    "timer_read",
+    "timer_cancel",
+    "clock_read",
+    "diagnostic_log",
+    "memory_allocate",
+    "memory_free"
+  ],
+  "unsupported_families": [
+    "device",
+    "irq",
+    "dma",
+    "accounts",
+    "installer",
+    "filesystem",
+    "network",
+    "presentation"
+  ],
   "byte_order": "little",
   "unknown_required_features": "reject",
   "identity": "kernel-bound caller principal/session/process generation; payload claims never grant authority",
-  "staged_loader": {"story": "P3-03", "startup_address": 2147287040, "return_address": 2147291136, "entry_rsp": 2147418104, "return_code_hex": "0f0b", "return_code_status": "UD2 placeholder; P3-04 must install process_exit before entry", "image_digest": "sha256", "image_bytes_max": 1048576, "program_headers_max": 16, "section_headers_max": 128, "load_segments_max": 8, "bootstrap_handle": 0, "features": 0, "clock_resolution_ns": 0, "runnable": false, "child_launch": "P3-09/P3-10; trusted live-parent identity and narrowed ceilings only"}
+  "staged_loader": {
+    "story": "P3-03",
+    "startup_address": 2147287040,
+    "return_address": 2147291136,
+    "entry_rsp": 2147418104,
+    "return_code_hex": "0f0b",
+    "return_code_status": "UD2 placeholder; P3-04 must install process_exit before entry",
+    "image_digest": "sha256",
+    "image_bytes_max": 1048576,
+    "program_headers_max": 16,
+    "section_headers_max": 128,
+    "load_segments_max": 8,
+    "bootstrap_handle": 0,
+    "features": 0,
+    "clock_resolution_ns": 0,
+    "runnable": false,
+    "child_launch": "P3-09/P3-10; trusted live-parent identity and narrowed ceilings only"
+  },
+  "executing_boundary": {
+    "story": "P3-04",
+    "status": "experimental-unfrozen",
+    "return_code": "generated process_exit trampoline; staged_loader remains UD2",
+    "copy_max": 256,
+    "discovery_bytes": 32,
+    "heap_bytes_max": 33554432,
+    "heap_slots": 32,
+    "preemption": false,
+    "fp_simd": "CR0.TS traps; P3-05 gate pending"
+  }
 }

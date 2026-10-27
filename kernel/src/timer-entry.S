@@ -22,6 +22,7 @@
     mov rbx, rsp
     and rsp, -16
     mov edi, \vector
+    mov rsi, [rbx + 128] // saved hardware CS after 15 integer registers
     call {interrupt}
     mov rsp, rbx
     pop r15

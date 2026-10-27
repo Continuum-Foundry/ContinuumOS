@@ -36,6 +36,7 @@ Check its story review; no whole-OS or user-mode isolation gate is implied.
 | [0017](0017-bootstrap-timekeeping.md) | ACPI-discovered xAPIC/HPET bootstrap uptime | Real timer delivery, monotonic reads, masks, idle and failure diagnostics |
 | [0018](0018-bounded-owned-memory.md) | Fixed transactional table banks and reclaiming owned page runs | Failure rollback, alias/pin audits, guest root switching and exact reclamation |
 | [0019](0019-static-images-and-trusted-launch.md) | Coherent static boot images and staged trusted launch records | Independent ELF/page/startup audit, authority/reuse denial and complete M1 regression |
+| [0020](0020-user-entry-and-fault-boundary.md) | Single-process SYSCALL/IRETQ and contained user failure | Real CPL3, checked copies, same-boot fault recovery and complete M1 regression |
 
 ## Lifecycle
 

@@ -14,8 +14,10 @@ P3-01's prerequisite/contract gate passes local self-review; see
 `evidence/phase-3/P3-01/2026-10-25/README.md`. P3-02's owned-memory backend passes
 local self-review; see `evidence/phase-3/P3-02/2026-10-25/README.md`. P3-03's staged
 static-image loader and trusted launch bindings pass local self-review; see
-`evidence/phase-3/P3-03/2026-10-25/README.md`. Next is P3-04;
-no ring-3 execution or scheduler exists yet.
+`evidence/phase-3/P3-03/2026-10-25/README.md`. P3-04 user entry, checked syscalls
+and process-local fault containment pass local self-review; see
+`evidence/phase-3/P3-04/2026-10-26/README.md`. Next is P3-05;
+no preemptive scheduler or user FP/SIMD context support exists yet.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other

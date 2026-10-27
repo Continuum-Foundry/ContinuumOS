@@ -437,6 +437,26 @@ impl<const N: usize> Tables<N> {
         }
         Ok(self.read(t, indices[3]))
     }
+    /// Effective four-level user permission, including every ancestor. Never
+    /// authorize a numeric pointer using only the leaf or software map list.
+    pub fn user_access(&self, v: VirtAddr, write: bool, execute: bool) -> Result<bool> {
+        virtual_range(v.0, 1, "copy")?;
+        let indices = Self::indices(VirtAddr(v.0 & !(PAGE - 1)))?;
+        let mut t = 0;
+        for (level, &i) in indices.iter().enumerate() {
+            let raw = self.read(t, i);
+            if raw & 5 != 5 || (write && raw & 2 == 0) || (execute && raw & (1 << 63) != 0) {
+                return Ok(false);
+            }
+            if level != 3 {
+                // child() enforces the builder's RW/executable parent policy;
+                // the reader already checked effective access above and may
+                // legitimately walk an RO or NX ancestor for a read.
+                t = self.child((raw | WRITE) & !NX)?;
+            }
+        }
+        Ok(true)
+    }
     /// Caller must invalidate this virtual page before reusing its old backing.
     pub fn unmap(&mut self, v: VirtAddr) -> Result<PhysAddr> {
         let old = self.inspect(v)?;
@@ -457,6 +477,28 @@ impl<const N: usize> Tables<N> {
 mod tests {
     extern crate std;
     use super::*;
+    #[test]
+    fn copy_permissions_include_every_hardware_ancestor() {
+        let mut t = Tables::<8>::EMPTY;
+        t.initialize(PhysAddr(0x1000)).unwrap();
+        let v = VirtAddr(0x400000);
+        t.map_user(v, PhysAddr(0x2000), Permission::ReadWrite)
+            .unwrap();
+        assert!(t.user_access(v, true, false).unwrap());
+        assert!(t.user_access(VirtAddr(v.0 + 37), true, false).unwrap());
+        assert!(!t.user_access(v, false, true).unwrap());
+        let old = t.read(0, 0);
+        t.write(0, 0, old & !4);
+        assert!(!t.user_access(v, false, false).unwrap());
+        t.write(0, 0, old & !2);
+        assert!(!t.user_access(v, true, false).unwrap());
+        assert!(t.user_access(v, false, false).unwrap());
+        t.write(0, 0, old);
+        t.protect(v, Permission::ReadOnly).unwrap();
+        assert!(t.user_access(v, false, false).unwrap());
+        assert!(!t.user_access(v, true, false).unwrap());
+        assert!(!t.user_access(VirtAddr(v.0 + PAGE), false, false).unwrap());
+    }
     fn r(base: u64, len: u64, kind: u64) -> Region {
         Region {
             range: Range { base, len },

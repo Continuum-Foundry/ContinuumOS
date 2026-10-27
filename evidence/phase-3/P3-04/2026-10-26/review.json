@@ -1,0 +1,490 @@
+{
+  "schema_version": 1,
+  "story": "P3-04",
+  "status": "passed",
+  "review": "local Codex self-review; independent parsers, not external approval",
+  "reviewer_sha256": "a57843d53519c8581d3512263de0246d3f570b1e1965da5ac199c12152a1f682",
+  "acceptance_sha256": "b6dfdd552d846c7ed582b25a059b0caba9b5f533ff6eee59064f8be5f23962ae",
+  "source_commit": "a15b813ae5b3f874bf84f62fc728a9962b67994c",
+  "build_id": "01c85c5d11dc57da032de15b2354db6de3bab301a54fa511c0de3f4c6dc289b5",
+  "kernel_sha256": "5b016f6db07d989a96707cc188327d61c71065e89a0d74e07d0df018c8c88243",
+  "iso_sha256": [
+    "bffd0403c231900bfeec7acdf08d6bcf221f3e1989fa1cbcf5c084d9b8b7e9c7",
+    "390273b8bf85b96f79ce3cffea50f60569d2465fe73d05660e0f57f15f6f04e6",
+    "47d45b77b21a3af73ba8ec548b653783872cfcccf0c84e7b39d11ccf930f7047",
+    "64f24a098fd0050de5dd1639b11a43d7a37b16aa756ef41d7758755b784012be"
+  ],
+  "serial_sha256": [
+    "e5ef5c6495bd7dd87bbbb2591b4143ec3b5be82f4798969c263876da5fc1f62b",
+    "96ad61a3197ad70846ad17d462d5a0e421b8111b7610755302525ff7bc33b484",
+    "381dadc5abe67bca9eae4d28dd96d211017498e196a1aee496d3f8adbfce8d01",
+    "49ecd9bd74f4fe68b644d8ab2e85b45549e27f8efa6de44923679f7e6a54e640"
+  ],
+  "audit": [
+    {
+      "group": 0,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 68,
+      "nested_irqs": 5,
+      "user_irqs": 64,
+      "settled_frames": 0
+    },
+    {
+      "group": 1,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 71,
+      "nested_irqs": 5,
+      "user_irqs": 51,
+      "settled_frames": 0
+    },
+    {
+      "group": 2,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 68,
+      "nested_irqs": 5,
+      "user_irqs": 87,
+      "settled_frames": 0
+    },
+    {
+      "group": 3,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 71,
+      "nested_irqs": 5,
+      "user_irqs": 92,
+      "settled_frames": 0
+    }
+  ],
+  "memory_audit": {
+    "fixed_kernel_storage_bytes": 9854976,
+    "active_table_pages": {
+      "0": 6,
+      "1": 4
+    },
+    "private_user_pages": {
+      "0": 20,
+      "1": 16
+    },
+    "cycles": 1000,
+    "resident_after": 0
+  },
+  "loader_audit": {
+    "images": [
+      {
+        "image": 0,
+        "sha256": "4307b5ea8a83967d4ca71cfee99cf85f231fa00cb93b12c71fd266b2334f342c",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 1,
+        "sha256": "315356d58045b4bf95f0ead8f714a0636660e9635f482bdd98f0a87a1d27b590",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 2,
+        "sha256": "136964ed96bd400903b517745e74c9f6f663038d064fae61f59da24b69be9211",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      }
+    ],
+    "private_pages": 72,
+    "allocation_failures": 24,
+    "malformed_cases": 19,
+    "trusted_bindings": 4,
+    "settled_frames": 0
+  },
+  "reviewer_mutations": [
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    }
+  ],
+  "prerequisite_checks": 10,
+  "m1_rows": 33,
+  "m1_launches": 42,
+  "kernel_host_tests": 30,
+  "user_execution": true,
+  "preemption": false,
+  "public_memory_rights": false,
+  "desktop_targets_accepted": false,
+  "unsafe_review": {
+    "scope": "local Codex source/assembly review with independently parsed guest and codegen evidence",
+    "entry": "Reviewed 160-byte syscall frame, SysV alignment, trusted stack/current, FMASK, fresh segment bases and validated IRETQ; no SYSRET",
+    "copy": "Reviewed complete-span software/effective hardware permission checks, balanced generation pins, IRQ exclusion and exactly two range-qualified recovery sites",
+    "teardown": "Reviewed surviving kernel root/stack restoration before TSS reset and process/frame reap",
+    "staging": "Reviewed exclusive unmapped allocation bounds and page-batched RW/NX to RO/NX alias restoration with invalidation",
+    "fatal_regressions": "Complete M1 kernel fatal, guard, IST and returning-interrupt gate required",
+    "limits": "One CPU and no preemption; user FP/SIMD blocked by TS; no public memory rights, guest UI or general supervisor acceptance"
+  }
+}

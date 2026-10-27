@@ -104,7 +104,7 @@ pub(super) fn package(
         .as_bytes(),
     );
     let mut configuration = config(missing, &session, fixture, module);
-    if fixture == "static-loader" {
+    if fixture == "static-loader" || fixture.starts_with("user-boundary-") {
         for name in ["user_a", "user_b", "service"] {
             let filename = format!("boot/{name}.elf");
             fs::copy(build_dir.join(format!("{name}.elf")), stage.join(&filename))

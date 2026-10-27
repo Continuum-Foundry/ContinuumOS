@@ -1,0 +1,758 @@
+{
+  "scope": "Original experiments remain local; selected records are explicitly identified. Bounds were never extended.",
+  "experiments": [
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1792973425802280100-51248",
+      "driver_sha256": "fe092693b56c8ee12756221755a54fb8d45b82546b0ff015ececf25a71640494",
+      "result": {
+        "action": "user-boundary",
+        "error": "llvm-objdump: host command timeout; logs retained",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_failure_traces": []
+    },
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1792973607406622400-60752",
+      "driver_sha256": "d8ca3028126ccfcc65c250b37c12ab4ce217bd91a717dc70ad5a187b949f616e",
+      "result": {
+        "action": "user-boundary",
+        "error": "VM failed: \"Guest deadline exceeded\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_failure_traces": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\user-boundary-1792973607406622400-60752\\user-boundary-run\\serial.log",
+          "sha256": "0e8ca5e3f6ee9c022e6ef50beeef5ab77c3008543829044bc5414e4232711c1f",
+          "launch_result": {
+            "build_id": "1f7b9e2652cf5edd996bbf2df291338130f3bbaa66c63b88c7a6af8b8f03c27f",
+            "cleanup_reaped": true,
+            "deadline_ms": 30000,
+            "elapsed_host_ms": 31016,
+            "emulator_test_exit": null,
+            "error": "Guest deadline exceeded",
+            "final_process_exit": 1,
+            "fixture": "user-boundary",
+            "guest_shutdown_claimed": false,
+            "host_session_id": "a9bf4f21cb239fb484ffcc78614f55074b21b6353e996001d5cb53d79f100742",
+            "host_stopped_after_checkpoint": false,
+            "iso_sha256": "07a1586b22411c7ddb90a60c4ab138cfeee852955df24e8715b80b2d3db125f1",
+            "iso_unchanged_after_run": true,
+            "kernel_entry_observed": false,
+            "pid": 61552,
+            "schema_version": 1,
+            "status": "failed",
+            "timed_out": true,
+            "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+          },
+          "selection": "last three complete m1 records; full serial retained locally without truncation",
+          "records": []
+        }
+      ]
+    },
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1792973727604131200-57052",
+      "driver_sha256": "48132831b6c5ac6cf2a55b1d586a2154b28287ec0b27b02b64d2aec31a6211d2",
+      "result": {
+        "action": "user-boundary",
+        "error": "Unexpected interrupt entry instruction count",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_failure_traces": []
+    },
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1792973839758055600-60532",
+      "driver_sha256": "180833835b107b9a81594fcb21847c5a41563b8e7da1798efc9a54ddf66a2bbc",
+      "result": {
+        "action": "user-boundary",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_failure_traces": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\user-boundary-1792973839758055600-60532\\user-boundary-run\\serial.log",
+          "sha256": "b2bee91cccca5ced734c0cc7dde4912e9ef226346bd1505a76611263feb1f6d9",
+          "launch_result": {
+            "build_id": "3f3573857432853ba820179f233f814969948d719c0c369899afb377f810972f",
+            "cleanup_reaped": true,
+            "deadline_ms": 30000,
+            "elapsed_host_ms": 10128,
+            "emulator_test_exit": null,
+            "error": "Unexpected guest rejection",
+            "final_process_exit": 1,
+            "fixture": "user-boundary",
+            "guest_shutdown_claimed": false,
+            "host_session_id": "4a7e03e4ab48963070d7aeb5a10aeca5aadb2816066d7e62f0a45bebbafda483",
+            "host_stopped_after_checkpoint": false,
+            "iso_sha256": "231b2b497b00384b2e50c714cee199f1001a0f0b90bec3ded05c56a48ee4d76a",
+            "iso_unchanged_after_run": true,
+            "kernel_entry_observed": true,
+            "pid": 52344,
+            "schema_version": 1,
+            "status": "failed",
+            "timed_out": false,
+            "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+          },
+          "selection": "last three complete m1 records; full serial retained locally without truncation",
+          "records": [
+            "m1.user_start version=5 build=3f3573857432853ba820179f233f814969948d719c0c369899afb377f810972f session=4a7e03e4ab48963070d7aeb5a10aeca5aadb2816066d7e62f0a45bebbafda483 session_origin=host seq=189 stage=user-boundary outcome=ok emergency=false index=0 case=0 slot=0 generation=1 principal=101 authority_session=1001 kernel_stack=0xffffffff808ee000 root=0x782f1000 ticks=101 cpl=3",
+            "m1.user_end version=5 build=3f3573857432853ba820179f233f814969948d719c0c369899afb377f810972f session=4a7e03e4ab48963070d7aeb5a10aeca5aadb2816066d7e62f0a45bebbafda483 session_origin=host seq=190 stage=user-boundary outcome=ok emergency=false case=0 slot=0 generation=1 principal=101 authority_session=1001 reason=return-state result=512 vector=0 ip=0x400201 address=0x0",
+            "m1.boot_rejected version=5 build=3f3573857432853ba820179f233f814969948d719c0c369899afb377f810972f session=4a7e03e4ab48963070d7aeb5a10aeca5aadb2816066d7e62f0a45bebbafda483 session_origin=host seq=191 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+          ]
+        }
+      ]
+    },
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1792974051266068800-58808",
+      "driver_sha256": "58c44062623fcb4c8a10ff21ca41beaf421da1e3e6285d01632baef457df5223",
+      "result": {
+        "action": "user-boundary",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_failure_traces": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\user-boundary-1792974051266068800-58808\\user-boundary-run\\serial.log",
+          "sha256": "d132a6d37e8a453029c6d38ebc01b91d35abcffde0f12386691c9c1941f500e0",
+          "launch_result": {
+            "build_id": "e5c05a3fb76ef771e0f1882b241865ba73817e0ae6bdae542d769ec82b4988ab",
+            "cleanup_reaped": true,
+            "deadline_ms": 30000,
+            "elapsed_host_ms": 5924,
+            "emulator_test_exit": null,
+            "error": "Unexpected guest rejection",
+            "final_process_exit": 1,
+            "fixture": "user-boundary",
+            "guest_shutdown_claimed": false,
+            "host_session_id": "c3b9101e420368cbe8824c3bb5661b56ba85f95e7766f1aafea9c2ac4adabc19",
+            "host_stopped_after_checkpoint": false,
+            "iso_sha256": "927eec9fce7a64315325a6bb8da5340429aa70935e4c04d5abb6ab7e3719f4cf",
+            "iso_unchanged_after_run": true,
+            "kernel_entry_observed": true,
+            "pid": 56596,
+            "schema_version": 1,
+            "status": "failed",
+            "timed_out": false,
+            "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+          },
+          "selection": "last three complete m1 records; full serial retained locally without truncation",
+          "records": [
+            "m1.user_bad_return version=5 build=e5c05a3fb76ef771e0f1882b241865ba73817e0ae6bdae542d769ec82b4988ab session=c3b9101e420368cbe8824c3bb5661b56ba85f95e7766f1aafea9c2ac4adabc19 session_origin=host seq=190 stage=user-boundary outcome=ok emergency=false case=0 ip=0x400237 sp=0x7ffeffb0 cs=0x33 ss=0x3b flags=0x246 operation=0",
+            "m1.user_end version=5 build=e5c05a3fb76ef771e0f1882b241865ba73817e0ae6bdae542d769ec82b4988ab session=c3b9101e420368cbe8824c3bb5661b56ba85f95e7766f1aafea9c2ac4adabc19 session_origin=host seq=191 stage=user-boundary outcome=ok emergency=false case=0 slot=0 generation=1 principal=101 authority_session=1001 reason=return-state result=512 vector=0 ip=0x400237 address=0x0",
+            "m1.boot_rejected version=5 build=e5c05a3fb76ef771e0f1882b241865ba73817e0ae6bdae542d769ec82b4988ab session=c3b9101e420368cbe8824c3bb5661b56ba85f95e7766f1aafea9c2ac4adabc19 session_origin=host seq=192 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+          ]
+        }
+      ]
+    },
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1792974141719778200-62212",
+      "driver_sha256": "807a0197864170afe80e7c51e14ea458480da14d2df5ad9aae4d698ec2595b85",
+      "result": {
+        "action": "user-boundary",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_failure_traces": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\user-boundary-1792974141719778200-62212\\user-boundary-run\\serial.log",
+          "sha256": "46ac6390c96fe43726a4358b60efddc46b542865e03664640c779942d7e49c70",
+          "launch_result": {
+            "build_id": "8ad99d4e846f6fd01e72a02bc9a74177c5a3f241fe313c8256c3503ab47fb5e9",
+            "cleanup_reaped": true,
+            "deadline_ms": 30000,
+            "elapsed_host_ms": 26231,
+            "emulator_test_exit": null,
+            "error": "Unexpected guest rejection",
+            "final_process_exit": 1,
+            "fixture": "user-boundary",
+            "guest_shutdown_claimed": false,
+            "host_session_id": "c5d1ce22461fe246a2b8b44730bae1a79c072625b906d70bce7eba03f030ef5a",
+            "host_stopped_after_checkpoint": false,
+            "iso_sha256": "3f56e86738b7267a9bf1a2ff4028f893282a3f9676629a16f5e4ada630df0322",
+            "iso_unchanged_after_run": true,
+            "kernel_entry_observed": true,
+            "pid": 48208,
+            "schema_version": 1,
+            "status": "failed",
+            "timed_out": false,
+            "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+          },
+          "selection": "last three complete m1 records; full serial retained locally without truncation",
+          "records": [
+            "m1.user_fault version=5 build=8ad99d4e846f6fd01e72a02bc9a74177c5a3f241fe313c8256c3503ab47fb5e9 session=c5d1ce22461fe246a2b8b44730bae1a79c072625b906d70bce7eba03f030ef5a session_origin=host seq=392 stage=user-boundary outcome=ok emergency=false case=11 vector=6 error=0x0 cs=0x33 ss=0x3b flags=0x10202 sp=0x7ffeffe8 ip=0x40013d address=0x7ffd0000",
+            "m1.user_end version=5 build=8ad99d4e846f6fd01e72a02bc9a74177c5a3f241fe313c8256c3503ab47fb5e9 session=c5d1ce22461fe246a2b8b44730bae1a79c072625b906d70bce7eba03f030ef5a session_origin=host seq=393 stage=user-boundary outcome=ok emergency=false case=11 slot=0 generation=22 principal=202 authority_session=2002 reason=fault result=262 vector=6 ip=0x40013d address=0x0",
+            "m1.boot_rejected version=5 build=8ad99d4e846f6fd01e72a02bc9a74177c5a3f241fe313c8256c3503ab47fb5e9 session=c5d1ce22461fe246a2b8b44730bae1a79c072625b906d70bce7eba03f030ef5a session_origin=host seq=394 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+          ]
+        }
+      ]
+    },
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1792974242363861100-53108",
+      "driver_sha256": "3ce60357678755527b3e781e8bd41aa2508316282807de890592e3e6b114731f",
+      "result": {
+        "action": "user-boundary",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_failure_traces": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\user-boundary-1792974242363861100-53108\\user-boundary-run\\serial.log",
+          "sha256": "96696e3fe648972c4b495423d6338906262e199e9ba4490fe5f3ae87842227b0",
+          "launch_result": {
+            "build_id": "7745cfc0c52f7932385093aaf7731be5ff1c1feea0761a8d4c679ad64898462b",
+            "cleanup_reaped": true,
+            "deadline_ms": 30000,
+            "elapsed_host_ms": 27530,
+            "emulator_test_exit": null,
+            "error": "Unexpected guest rejection",
+            "final_process_exit": 35,
+            "fixture": "user-boundary",
+            "guest_shutdown_claimed": false,
+            "host_session_id": "9e0a72f4121c7c2b881706e894b3b0eccc74954e79772714cb1fb853d4ee8c7c",
+            "host_stopped_after_checkpoint": false,
+            "iso_sha256": "22624318955e2764f1b8344d4d4758ee42a957e27a0b052d4c9cf3e8a67eeefd",
+            "iso_unchanged_after_run": true,
+            "kernel_entry_observed": true,
+            "pid": 52344,
+            "schema_version": 1,
+            "status": "failed",
+            "timed_out": false,
+            "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+          },
+          "selection": "last three complete m1 records; full serial retained locally without truncation",
+          "records": [
+            "m1.user_call version=5 build=7745cfc0c52f7932385093aaf7731be5ff1c1feea0761a8d4c679ad64898462b session=9e0a72f4121c7c2b881706e894b3b0eccc74954e79772714cb1fb853d4ee8c7c session_origin=host seq=498 stage=user-boundary outcome=ok emergency=false case=16 slot=0 generation=32 operation=2 status=0 value=1308622848 a=0x100000 b=16 flags=0x246 entry_flags=0x93",
+            "m1.user_end version=5 build=7745cfc0c52f7932385093aaf7731be5ff1c1feea0761a8d4c679ad64898462b session=9e0a72f4121c7c2b881706e894b3b0eccc74954e79772714cb1fb853d4ee8c7c session_origin=host seq=499 stage=user-boundary outcome=ok emergency=false case=16 slot=0 generation=32 principal=202 authority_session=2002 reason=exit result=99 vector=0 ip=0x400da5 address=0x0",
+            "m1.boot_rejected version=5 build=7745cfc0c52f7932385093aaf7731be5ff1c1feea0761a8d4c679ad64898462b session=9e0a72f4121c7c2b881706e894b3b0eccc74954e79772714cb1fb853d4ee8c7c session_origin=host seq=500 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+          ]
+        }
+      ]
+    },
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1792974409076691500-62236",
+      "driver_sha256": "f81421f132b8ca496f2d6bc3e7c4485c66ecdce94cb4d76013d4f461359ebc66",
+      "result": {
+        "action": "user-boundary",
+        "error": "VM failed: \"Guest deadline exceeded\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_failure_traces": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\user-boundary-1792974409076691500-62236\\user-boundary-run\\serial.log",
+          "sha256": "5ead3dff374f425f99e7954f7fb29fd91444c16f3e3b8a6d140eaa2019c1b35d",
+          "launch_result": {
+            "build_id": "8deb618a9f5904d8375f283a82ec8aa466ba125d10583f74228f4222d9ad0e8b",
+            "cleanup_reaped": true,
+            "deadline_ms": 30000,
+            "elapsed_host_ms": 30075,
+            "emulator_test_exit": null,
+            "error": "Guest deadline exceeded",
+            "final_process_exit": 1,
+            "fixture": "user-boundary",
+            "guest_shutdown_claimed": false,
+            "host_session_id": "621db8d04b2f9dd784649804af62d26587d4f7b48e540b822c3e2271c3cb3dfa",
+            "host_stopped_after_checkpoint": false,
+            "iso_sha256": "3b4ade0d12be39a4df3c1a832daf18368279d11cdfe8d76750847187bb2e2dd7",
+            "iso_unchanged_after_run": true,
+            "kernel_entry_observed": true,
+            "pid": 56756,
+            "schema_version": 1,
+            "status": "failed",
+            "timed_out": true,
+            "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+          },
+          "selection": "last three complete m1 records; full serial retained locally without truncation",
+          "records": [
+            "m1.user_end version=5 build=8deb618a9f5904d8375f283a82ec8aa466ba125d10583f74228f4222d9ad0e8b session=621db8d04b2f9dd784649804af62d26587d4f7b48e540b822c3e2271c3cb3dfa session_origin=host seq=307 stage=user-boundary outcome=ok emergency=false case=0 slot=0 generation=9 principal=101 authority_session=1001 reason=exit result=0 vector=0 ip=0x7ffd100f address=0x0",
+            "m1.user_inventory version=5 build=8deb618a9f5904d8375f283a82ec8aa466ba125d10583f74228f4222d9ad0e8b session=621db8d04b2f9dd784649804af62d26587d4f7b48e540b822c3e2271c3cb3dfa session_origin=host seq=308 stage=user-boundary outcome=ok emergency=false index=8 spaces=0 allocations=0 committed=0 resident=0 mappings=0 tables=0 stacks=0 pins=0",
+            "m1.user_settlement version=5 build=8deb618a9f5904d8375f283a82ec8aa466ba125d10583f74228f4222d9ad0e8b session=621db8d04b2f9dd784649804af62d26587d4f7b48e540b822c3e2271c3cb3dfa session_origin=host seq=309 stage=user-boundary outcome=ok emergency=false index=8 case=0 result=0 settled=true pins=0 ticks_before=182 ticks_after=198 frames=0"
+          ]
+        }
+      ]
+    },
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1792974644346817000-61548",
+      "driver_sha256": "9477c9e79fdc1bffa88828eaf5f21fcd60ce18e80847bc7308251cba2669211e",
+      "result": {
+        "action": "user-boundary",
+        "error": "VM failed: \"Guest deadline exceeded\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_failure_traces": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\user-boundary-1792974644346817000-61548\\user-boundary-a-run\\serial.log",
+          "sha256": "e06328dcf871253bfbd1cebeeaa89289a137ffa517bfa33ecf5c0b53d7dc64ea",
+          "launch_result": {
+            "build_id": "939aa42499a8c354c2aa69b4974570ffd4df4479c422ed3f21fed8767730465e",
+            "cleanup_reaped": true,
+            "deadline_ms": 30000,
+            "elapsed_host_ms": 30096,
+            "emulator_test_exit": null,
+            "error": "Guest deadline exceeded",
+            "final_process_exit": 1,
+            "fixture": "user-boundary-a",
+            "guest_shutdown_claimed": false,
+            "host_session_id": "e74bc633c6936a9bb90285f6d0cb52756bb48aa2b501e889af938e4c61352244",
+            "host_stopped_after_checkpoint": false,
+            "iso_sha256": "c8e01d8302f121079ec53bace5d066af480ba7e75dbcafbd0f4d581b4f391ca4",
+            "iso_unchanged_after_run": true,
+            "kernel_entry_observed": true,
+            "pid": 61660,
+            "schema_version": 1,
+            "status": "failed",
+            "timed_out": true,
+            "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+          },
+          "selection": "last three complete m1 records; full serial retained locally without truncation",
+          "records": [
+            "m1.user_end version=5 build=939aa42499a8c354c2aa69b4974570ffd4df4479c422ed3f21fed8767730465e session=e74bc633c6936a9bb90285f6d0cb52756bb48aa2b501e889af938e4c61352244 session_origin=host seq=290 stage=user-boundary outcome=ok emergency=false case=0 slot=0 generation=7 principal=101 authority_session=1001 reason=exit result=0 vector=0 ip=0x7ffd100f address=0x0",
+            "m1.user_inventory version=5 build=939aa42499a8c354c2aa69b4974570ffd4df4479c422ed3f21fed8767730465e session=e74bc633c6936a9bb90285f6d0cb52756bb48aa2b501e889af938e4c61352244 session_origin=host seq=291 stage=user-boundary outcome=ok emergency=false index=6 spaces=0 allocations=0 committed=0 resident=0 mappings=0 tables=0 stacks=0 pins=0",
+            "m1.user_settlement version=5 build=939aa42499a8c354c2aa69b4974570ffd4df4479c422ed3f21fed8767730465e session=e74bc633c6936a9bb90285f6d0cb52756bb48aa2b501e889af938e4c61352244 session_origin=host seq=292 stage=user-boundary outcome=ok emergency=false index=6 case=0 result=0 settled=true pins=0 ticks_before=166 ticks_after=181 frames=0"
+          ]
+        }
+      ]
+    },
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1793055014388639700-20012",
+      "driver_sha256": "8e660f2c501f7de496140a1941ef7ad1f2c3acf6c88dfd87a001ba9e43100685",
+      "result": {
+        "action": "user-boundary",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "selected_failure_traces": [
+        {
+          "path": "${WORKSPACE}\\build\\m1\\user-boundary-1793055014388639700-20012\\user-boundary-d-run\\serial.log",
+          "sha256": "0f7fa3899791a286c9203350469fbe262147ab8a62fac98cda27e5d4d0a1905d",
+          "launch_result": {
+            "build_id": "9cf9d824bc4645fc6ef62e7fb9c9225351de532da404880f9850f3cd99c4d5f6",
+            "cleanup_reaped": true,
+            "deadline_ms": 30000,
+            "elapsed_host_ms": 11059,
+            "emulator_test_exit": null,
+            "error": "Unexpected guest rejection",
+            "final_process_exit": 1,
+            "fixture": "user-boundary-d",
+            "guest_shutdown_claimed": false,
+            "host_session_id": "527b365b007081e20f95a02971533c2d48ab8f0a5e685f1985c3cf33e489ec16",
+            "host_stopped_after_checkpoint": false,
+            "iso_sha256": "b5eb930c4e3f572d73cf3d68c027bd932d721b77008a9e29932d7019a3c9c1e9",
+            "iso_unchanged_after_run": true,
+            "kernel_entry_observed": true,
+            "pid": 23152,
+            "schema_version": 1,
+            "status": "failed",
+            "timed_out": false,
+            "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+          },
+          "selection": "last three complete m1 records; full serial retained locally without truncation",
+          "records": [
+            "m1.user_inventory version=5 build=9cf9d824bc4645fc6ef62e7fb9c9225351de532da404880f9850f3cd99c4d5f6 session=527b365b007081e20f95a02971533c2d48ab8f0a5e685f1985c3cf33e489ec16 session_origin=host seq=291 stage=user-boundary outcome=ok emergency=false index=6 spaces=0 allocations=0 committed=0 resident=0 mappings=0 tables=0 stacks=0 pins=0",
+            "m1.user_settlement version=5 build=9cf9d824bc4645fc6ef62e7fb9c9225351de532da404880f9850f3cd99c4d5f6 session=527b365b007081e20f95a02971533c2d48ab8f0a5e685f1985c3cf33e489ec16 session_origin=host seq=292 stage=user-boundary outcome=ok emergency=false index=6 case=0 result=0 settled=true pins=0 ticks_before=160 ticks_after=175 frames=0",
+            "m1.boot_rejected version=5 build=9cf9d824bc4645fc6ef62e7fb9c9225351de532da404880f9850f3cd99c4d5f6 session=527b365b007081e20f95a02971533c2d48ab8f0a5e685f1985c3cf33e489ec16 session_origin=host seq=293 stage=metadata outcome=rejected emergency=false field=frames reason=busy"
+          ]
+        }
+      ]
+    },
+    {
+      "experiment": "${WORKSPACE}\\build\\m1\\user-boundary-1793055366192505400-28772",
+      "driver_sha256": "ca749485afc54461197d7c1f65875a618a32e413eb14c1797cb9287446d5e3d9",
+      "result": {
+        "action": "user-boundary",
+        "schema_version": 2,
+        "stages": {
+          "compile": "passed",
+          "package": "passed",
+          "runs": [
+            {
+              "artifact_directory": "${WORKSPACE}\\build/m1\\user-boundary-1793055366192505400-28772\\user-boundary-a-run",
+              "build_id": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+              "checked_summary": {
+                "acpi": "locator-only",
+                "boot_info": "1",
+                "build": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+                "emergency": "false",
+                "framebuffers": "1",
+                "hhdm": "0xffff800000000000",
+                "mode": "framebuffer",
+                "modules": "3",
+                "outcome": "ok",
+                "regions": "33",
+                "seq": "1",
+                "session": "2222c6fe4d1edfcc44985f1e9f7cdcb3003c16cee35ec8ae059ec7e6489b0cab",
+                "session_origin": "host",
+                "stage": "metadata",
+                "version": "5"
+              },
+              "cleanup_reaped": true,
+              "deadline_ms": 30000,
+              "elapsed_host_ms": 9644,
+              "emulator_test_exit": 33,
+              "error": null,
+              "final_process_exit": 33,
+              "fixture": "user-boundary-a",
+              "guest_shutdown_claimed": false,
+              "host_session_id": "2222c6fe4d1edfcc44985f1e9f7cdcb3003c16cee35ec8ae059ec7e6489b0cab",
+              "host_stopped_after_checkpoint": false,
+              "iso_sha256": "2e1d160f130a625ffb14dd552fb46d9c94d7d01b992b3ec6a7d0b04f06d9944c",
+              "iso_unchanged_after_run": true,
+              "kernel_entry_observed": true,
+              "package": {
+                "bios_tested": false,
+                "boot_tested": false,
+                "build_flavor": "user-boundary-test",
+                "build_id": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+                "configuration_sha256": "e0f49bca870a9b4fbfe5a8a77a6f50fa2189c40735dbd19c10293b632ff30c5f",
+                "diagnostic_sites": {
+                  "diagnostic_double_site": 18446744071562077249,
+                  "diagnostic_guard_site": 18446744071562077224,
+                  "diagnostic_invalid_opcode": 18446744071562076555,
+                  "diagnostic_nx_page": 18446744071562219520,
+                  "diagnostic_page_fault_site": 18446744071562076567,
+                  "diagnostic_panic_report": 18446744071562076572,
+                  "diagnostic_write_site": 18446744071562077229
+                },
+                "fault": "user-boundary-a",
+                "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+                "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+                "fixture": "user-boundary-a",
+                "host_session_id": "2222c6fe4d1edfcc44985f1e9f7cdcb3003c16cee35ec8ae059ec7e6489b0cab",
+                "input_lock_sha256": "5d8ecae5ae201abc0b8d848134b5357378152de08fac8f64603b01d9be9fb22e",
+                "iso_sha256": "2e1d160f130a625ffb14dd552fb46d9c94d7d01b992b3ec6a7d0b04f06d9944c",
+                "kernel_sha256": "681859cc6e5714defd75dabdbec4e9327f437194bf872b32875265422ebadd6a",
+                "module_fixture": false,
+                "payload": {
+                  "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+                  "boot/kernel.elf": "681859cc6e5714defd75dabdbec4e9327f437194bf872b32875265422ebadd6a",
+                  "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+                  "boot/limine/limine.conf": "e0f49bca870a9b4fbfe5a8a77a6f50fa2189c40735dbd19c10293b632ff30c5f",
+                  "boot/service.elf": "39a15a97b56e6f0c045b8fd4ac325047d1066cfda293c61e5fc7c5ddb1f6acd7",
+                  "boot/user_a.elf": "c49ed9fae5c06a8678e9682e967aff473f3ac264426388c688a5fb036935ee8f",
+                  "boot/user_b.elf": "cc1c677a62d580f8b46ae7c84dd47993404ed45c51c5450ceb73f1d6e18fa314",
+                  "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+                  "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+                  "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+                  "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+                },
+                "payload_extraction_verified": true,
+                "schema_version": 2,
+                "session_origin": "host; correlation only, not a security credential or reset detector",
+                "uefi_optical_catalog": true
+              },
+              "pid": 23020,
+              "schema_version": 1,
+              "status": "passed",
+              "timed_out": false,
+              "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+            },
+            {
+              "artifact_directory": "${WORKSPACE}\\build/m1\\user-boundary-1793055366192505400-28772\\user-boundary-b-run",
+              "build_id": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+              "checked_summary": {
+                "acpi": "locator-only",
+                "boot_info": "1",
+                "build": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+                "emergency": "false",
+                "framebuffers": "1",
+                "hhdm": "0xffff800000000000",
+                "mode": "framebuffer",
+                "modules": "3",
+                "outcome": "ok",
+                "regions": "33",
+                "seq": "1",
+                "session": "0f1fa9cbb0534d3db89655214df1249676b905e372e5a1efdcc3cdb9eff1f9c4",
+                "session_origin": "host",
+                "stage": "metadata",
+                "version": "5"
+              },
+              "cleanup_reaped": true,
+              "deadline_ms": 30000,
+              "elapsed_host_ms": 9185,
+              "emulator_test_exit": 33,
+              "error": null,
+              "final_process_exit": 33,
+              "fixture": "user-boundary-b",
+              "guest_shutdown_claimed": false,
+              "host_session_id": "0f1fa9cbb0534d3db89655214df1249676b905e372e5a1efdcc3cdb9eff1f9c4",
+              "host_stopped_after_checkpoint": false,
+              "iso_sha256": "2ad28fb9ad533616965f18f6d7e5e3aa689429438a3a69ad911a5c8320c4b3dc",
+              "iso_unchanged_after_run": true,
+              "kernel_entry_observed": true,
+              "package": {
+                "bios_tested": false,
+                "boot_tested": false,
+                "build_flavor": "user-boundary-test",
+                "build_id": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+                "configuration_sha256": "58f03a56d6b0cc9e8566da772e47a120c24f12d77372449a2d4380c6d5f2b530",
+                "diagnostic_sites": {
+                  "diagnostic_double_site": 18446744071562077249,
+                  "diagnostic_guard_site": 18446744071562077224,
+                  "diagnostic_invalid_opcode": 18446744071562076555,
+                  "diagnostic_nx_page": 18446744071562219520,
+                  "diagnostic_page_fault_site": 18446744071562076567,
+                  "diagnostic_panic_report": 18446744071562076572,
+                  "diagnostic_write_site": 18446744071562077229
+                },
+                "fault": "user-boundary-b",
+                "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+                "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+                "fixture": "user-boundary-b",
+                "host_session_id": "0f1fa9cbb0534d3db89655214df1249676b905e372e5a1efdcc3cdb9eff1f9c4",
+                "input_lock_sha256": "5d8ecae5ae201abc0b8d848134b5357378152de08fac8f64603b01d9be9fb22e",
+                "iso_sha256": "2ad28fb9ad533616965f18f6d7e5e3aa689429438a3a69ad911a5c8320c4b3dc",
+                "kernel_sha256": "681859cc6e5714defd75dabdbec4e9327f437194bf872b32875265422ebadd6a",
+                "module_fixture": false,
+                "payload": {
+                  "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+                  "boot/kernel.elf": "681859cc6e5714defd75dabdbec4e9327f437194bf872b32875265422ebadd6a",
+                  "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+                  "boot/limine/limine.conf": "58f03a56d6b0cc9e8566da772e47a120c24f12d77372449a2d4380c6d5f2b530",
+                  "boot/service.elf": "39a15a97b56e6f0c045b8fd4ac325047d1066cfda293c61e5fc7c5ddb1f6acd7",
+                  "boot/user_a.elf": "c49ed9fae5c06a8678e9682e967aff473f3ac264426388c688a5fb036935ee8f",
+                  "boot/user_b.elf": "cc1c677a62d580f8b46ae7c84dd47993404ed45c51c5450ceb73f1d6e18fa314",
+                  "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+                  "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+                  "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+                  "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+                },
+                "payload_extraction_verified": true,
+                "schema_version": 2,
+                "session_origin": "host; correlation only, not a security credential or reset detector",
+                "uefi_optical_catalog": true
+              },
+              "pid": 5536,
+              "schema_version": 1,
+              "status": "passed",
+              "timed_out": false,
+              "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+            },
+            {
+              "artifact_directory": "${WORKSPACE}\\build/m1\\user-boundary-1793055366192505400-28772\\user-boundary-c-run",
+              "build_id": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+              "checked_summary": {
+                "acpi": "locator-only",
+                "boot_info": "1",
+                "build": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+                "emergency": "false",
+                "framebuffers": "1",
+                "hhdm": "0xffff800000000000",
+                "mode": "framebuffer",
+                "modules": "3",
+                "outcome": "ok",
+                "regions": "33",
+                "seq": "1",
+                "session": "1b87965ed4284920e99e650c71d10c0001bdda6a8038b1c527fbfe4ce8371bd8",
+                "session_origin": "host",
+                "stage": "metadata",
+                "version": "5"
+              },
+              "cleanup_reaped": true,
+              "deadline_ms": 30000,
+              "elapsed_host_ms": 9429,
+              "emulator_test_exit": 33,
+              "error": null,
+              "final_process_exit": 33,
+              "fixture": "user-boundary-c",
+              "guest_shutdown_claimed": false,
+              "host_session_id": "1b87965ed4284920e99e650c71d10c0001bdda6a8038b1c527fbfe4ce8371bd8",
+              "host_stopped_after_checkpoint": false,
+              "iso_sha256": "9bcf64fcc5175f98843bccb2d16f2db2673dc40b609ff7082384447e396a666c",
+              "iso_unchanged_after_run": true,
+              "kernel_entry_observed": true,
+              "package": {
+                "bios_tested": false,
+                "boot_tested": false,
+                "build_flavor": "user-boundary-test",
+                "build_id": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+                "configuration_sha256": "57049d91142dee858194e96a0e05fc1082767d5890acba9d9ccd1b66b5192a26",
+                "diagnostic_sites": {
+                  "diagnostic_double_site": 18446744071562077249,
+                  "diagnostic_guard_site": 18446744071562077224,
+                  "diagnostic_invalid_opcode": 18446744071562076555,
+                  "diagnostic_nx_page": 18446744071562219520,
+                  "diagnostic_page_fault_site": 18446744071562076567,
+                  "diagnostic_panic_report": 18446744071562076572,
+                  "diagnostic_write_site": 18446744071562077229
+                },
+                "fault": "user-boundary-c",
+                "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+                "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+                "fixture": "user-boundary-c",
+                "host_session_id": "1b87965ed4284920e99e650c71d10c0001bdda6a8038b1c527fbfe4ce8371bd8",
+                "input_lock_sha256": "5d8ecae5ae201abc0b8d848134b5357378152de08fac8f64603b01d9be9fb22e",
+                "iso_sha256": "9bcf64fcc5175f98843bccb2d16f2db2673dc40b609ff7082384447e396a666c",
+                "kernel_sha256": "681859cc6e5714defd75dabdbec4e9327f437194bf872b32875265422ebadd6a",
+                "module_fixture": false,
+                "payload": {
+                  "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+                  "boot/kernel.elf": "681859cc6e5714defd75dabdbec4e9327f437194bf872b32875265422ebadd6a",
+                  "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+                  "boot/limine/limine.conf": "57049d91142dee858194e96a0e05fc1082767d5890acba9d9ccd1b66b5192a26",
+                  "boot/service.elf": "39a15a97b56e6f0c045b8fd4ac325047d1066cfda293c61e5fc7c5ddb1f6acd7",
+                  "boot/user_a.elf": "c49ed9fae5c06a8678e9682e967aff473f3ac264426388c688a5fb036935ee8f",
+                  "boot/user_b.elf": "cc1c677a62d580f8b46ae7c84dd47993404ed45c51c5450ceb73f1d6e18fa314",
+                  "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+                  "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+                  "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+                  "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+                },
+                "payload_extraction_verified": true,
+                "schema_version": 2,
+                "session_origin": "host; correlation only, not a security credential or reset detector",
+                "uefi_optical_catalog": true
+              },
+              "pid": 24204,
+              "schema_version": 1,
+              "status": "passed",
+              "timed_out": false,
+              "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+            },
+            {
+              "artifact_directory": "${WORKSPACE}\\build/m1\\user-boundary-1793055366192505400-28772\\user-boundary-d-run",
+              "build_id": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+              "checked_summary": {
+                "acpi": "locator-only",
+                "boot_info": "1",
+                "build": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+                "emergency": "false",
+                "framebuffers": "1",
+                "hhdm": "0xffff800000000000",
+                "mode": "framebuffer",
+                "modules": "3",
+                "outcome": "ok",
+                "regions": "33",
+                "seq": "1",
+                "session": "5f1d29b9a2137fb4daaf1a65d524f12fd0da656110fbc34377ea0b053230f347",
+                "session_origin": "host",
+                "stage": "metadata",
+                "version": "5"
+              },
+              "cleanup_reaped": true,
+              "deadline_ms": 30000,
+              "elapsed_host_ms": 12900,
+              "emulator_test_exit": 33,
+              "error": null,
+              "final_process_exit": 33,
+              "fixture": "user-boundary-d",
+              "guest_shutdown_claimed": false,
+              "host_session_id": "5f1d29b9a2137fb4daaf1a65d524f12fd0da656110fbc34377ea0b053230f347",
+              "host_stopped_after_checkpoint": false,
+              "iso_sha256": "e4a45eb607c3a0184eb495dd9cf046a6f1743bfaa3599e36149813d9bdcdb51e",
+              "iso_unchanged_after_run": true,
+              "kernel_entry_observed": true,
+              "package": {
+                "bios_tested": false,
+                "boot_tested": false,
+                "build_flavor": "user-boundary-test",
+                "build_id": "befe07fc9fb36ba8b554dafcc38595b2e33ff4b1e2c92e8381679e1399c9b4d6",
+                "configuration_sha256": "0fb7d696aa0f070b92b496ae054187256bb01f20f2a3843025b5d0f5ed4957f8",
+                "diagnostic_sites": {
+                  "diagnostic_double_site": 18446744071562077249,
+                  "diagnostic_guard_site": 18446744071562077224,
+                  "diagnostic_invalid_opcode": 18446744071562076555,
+                  "diagnostic_nx_page": 18446744071562219520,
+                  "diagnostic_page_fault_site": 18446744071562076567,
+                  "diagnostic_panic_report": 18446744071562076572,
+                  "diagnostic_write_site": 18446744071562077229
+                },
+                "fault": "user-boundary-d",
+                "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+                "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+                "fixture": "user-boundary-d",
+                "host_session_id": "5f1d29b9a2137fb4daaf1a65d524f12fd0da656110fbc34377ea0b053230f347",
+                "input_lock_sha256": "5d8ecae5ae201abc0b8d848134b5357378152de08fac8f64603b01d9be9fb22e",
+                "iso_sha256": "e4a45eb607c3a0184eb495dd9cf046a6f1743bfaa3599e36149813d9bdcdb51e",
+                "kernel_sha256": "681859cc6e5714defd75dabdbec4e9327f437194bf872b32875265422ebadd6a",
+                "module_fixture": false,
+                "payload": {
+                  "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+                  "boot/kernel.elf": "681859cc6e5714defd75dabdbec4e9327f437194bf872b32875265422ebadd6a",
+                  "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+                  "boot/limine/limine.conf": "0fb7d696aa0f070b92b496ae054187256bb01f20f2a3843025b5d0f5ed4957f8",
+                  "boot/service.elf": "39a15a97b56e6f0c045b8fd4ac325047d1066cfda293c61e5fc7c5ddb1f6acd7",
+                  "boot/user_a.elf": "c49ed9fae5c06a8678e9682e967aff473f3ac264426388c688a5fb036935ee8f",
+                  "boot/user_b.elf": "cc1c677a62d580f8b46ae7c84dd47993404ed45c51c5450ceb73f1d6e18fa314",
+                  "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+                  "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+                  "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+                  "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+                },
+                "payload_extraction_verified": true,
+                "schema_version": 2,
+                "session_origin": "host; correlation only, not a security credential or reset detector",
+                "uefi_optical_catalog": true
+              },
+              "pid": 24952,
+              "schema_version": 1,
+              "status": "passed",
+              "timed_out": false,
+              "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+            }
+          ],
+          "user_boundary": "passed",
+          "user_execution": true
+        },
+        "status": "passed"
+      },
+      "selected_failure_traces": []
+    }
+  ],
+  "failed_acceptance_gates": [
+    {
+      "path": "${WORKSPACE}\\build\\m3\\P3-04\\acceptance-1793055583022\\acceptance.json",
+      "sha256": "43244622ce965b013fe6068c6b66d45bba6e192804d36d67836ee53ea0642223",
+      "report": {
+        "schema_version": 1,
+        "story": "P3-04",
+        "status": "failed",
+        "commands": [
+          {
+            "elapsed_ms": 251803,
+            "program": "pwsh",
+            "arguments": [
+              "-NoProfile",
+              "-File",
+              "tools/Recheck-P2Prerequisites.ps1"
+            ],
+            "exit_code": 0,
+            "name": "prerequisites"
+          },
+          {
+            "elapsed_ms": 55213,
+            "program": "pwsh",
+            "arguments": [
+              "-NoProfile",
+              "-File",
+              "tools/Test-P1-07.ps1"
+            ],
+            "exit_code": 1,
+            "name": "m1"
+          }
+        ],
+        "runs": {
+          "prerequisites": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m2\\P2-01\\prerequisites-1793055597969"
+        },
+        "source_commit": "a15b813ae5b3f874bf84f62fc728a9962b67994c",
+        "user_execution": true,
+        "error": "m1 failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-04\\acceptance-1793055583022"
+      }
+    }
+  ],
+  "interpretation": [
+    "Sandbox prerequisite could not see the existing owner certificate; owner-context recheck passed without creating a signer.",
+    "Host disassembly/loader deadlines, saved-return byte/page alignment and strict interrupt-audit count findings are retained.",
+    "The forbidden FP instruction first raised UD; final feature-checked OSFXSR/EM/TS setup proves NM containment.",
+    "Unbounded/four-group development deadlines exposed per-byte alias staging cost; final page batching retains exclusive W^X and loader regressions.",
+    "Natural heap requests fit RAM. Trusted allocator exhaustion injection respects the empty-inventory quota guard: exact staging budget before allocation, restoration after reap.",
+    "A host child exceeded its unchanged 3-second startup deadline under parallel host tests. Final runner uses process-local RUST_TEST_THREADS=1 without dropping tests or extending deadlines."
+  ]
+}

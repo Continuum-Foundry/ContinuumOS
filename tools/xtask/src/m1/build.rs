@@ -38,6 +38,7 @@ pub(super) enum Flavor {
     RuntimeMemory,
     StaticLoader,
     UserBoundary,
+    Scheduler,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -52,6 +53,7 @@ impl Flavor {
             Self::RuntimeMemory => "runtime-memory-test",
             Self::StaticLoader => "static-loader-test",
             Self::UserBoundary => "user-boundary-test",
+            Self::Scheduler => "scheduler-test",
         }
     }
     fn features(self) -> &'static str {
@@ -66,6 +68,7 @@ impl Flavor {
             Self::RuntimeMemory => "runtime-memory-test",
             Self::StaticLoader => "static-loader-test",
             Self::UserBoundary => "user-boundary-test",
+            Self::Scheduler => "scheduler-test",
         }
     }
 }
@@ -268,6 +271,7 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         ".cargo/config.toml",
         "config/m1-inputs.lock.json",
         "config/m2-profiles.json",
+        "config/m3-profiles.json",
         "fixtures/m2/runner-input.txt",
         "tools/Enter-Dev.ps1",
         "tools/Test-M0.ps1",
@@ -285,10 +289,14 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
 }
 pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     check_pin()?;
-    let user_descriptors = if matches!(flavor, Flavor::StaticLoader | Flavor::UserBoundary) {
+    let user_descriptors = if matches!(
+        flavor,
+        Flavor::StaticLoader | Flavor::UserBoundary | Flavor::Scheduler
+    ) {
         Some(super::user_images::build(
             dir,
             flavor == Flavor::UserBoundary,
+            flavor == Flavor::Scheduler,
         )?)
     } else {
         None
@@ -422,7 +430,33 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             return Err("LLVM found undefined symbols".into());
         }
         if name == "llvm-objdump" {
-            audit_disassembly(&text)?;
+            if flavor == Flavor::Scheduler {
+                let mut symbol = "";
+                let mut filtered = String::new();
+                let mut saves = 0;
+                let mut restores = 0;
+                for line in text.lines() {
+                    if line.ends_with(">:") {
+                        symbol = line.split('<').nth(1).unwrap_or("").trim_end_matches(">:");
+                    }
+                    if symbol == "task_save_fp" && line.contains("fxsave64") {
+                        saves += 1;
+                        continue;
+                    }
+                    if symbol == "task_resume" && line.contains("fxrstor64") {
+                        restores += 1;
+                        continue;
+                    }
+                    filtered.push_str(line);
+                    filtered.push('\n');
+                }
+                if saves != 1 || restores != 1 {
+                    return Err("Missing narrow eager FP helpers".into());
+                }
+                audit_disassembly(&filtered)?;
+            } else {
+                audit_disassembly(&text)?;
+            }
             inspection["returning_interrupt_entry"] = audit_interrupt_entry(&text)?;
         }
     }
@@ -465,24 +499,31 @@ fn audit_interrupt_entry(text: &str) -> Result<Value> {
                     .ok_or_else(|| "Malformed entry disassembly".to_string())
             })
             .collect::<Result<Vec<_>>>()?;
-        if instructions.len() != 38 {
+        if instructions.len() != 45 {
             return Err("Unexpected interrupt entry instruction count".into());
         }
         for (i, register) in registers.iter().enumerate() {
             if instructions[i] != format!("pushq %{register}")
-                || instructions[36 - i] != format!("popq %{register}")
+                || instructions[43 - i] != format!("popq %{register}")
             {
                 return Err("Interrupt entry does not preserve all GPRs".into());
             }
         }
         if instructions[15] != "cld"
-            || instructions[16] != "movq %rsp, %rbx"
-            || instructions[17] != "andq $-0x10, %rsp"
-            || instructions[19] != "movq 0x80(%rbx), %rsi"
-            || !instructions[20].starts_with("callq ")
-            || instructions[21] != "movq %rbx, %rsp"
-            || instructions[37] != "iretq"
-            || instructions[18]
+            || instructions[16] != "movq %cr0, %rax"
+            || instructions[17] != "pushq %rax"
+            || instructions[18] != "orq $0x8, %rax"
+            || instructions[19] != "movq %rax, %cr0"
+            || instructions[20] != "leaq 0x8(%rsp), %rbx"
+            || instructions[21] != "andq $-0x10, %rsp"
+            || instructions[23] != "movq 0x80(%rbx), %rsi"
+            || instructions[24] != "movq %rbx, %rdx"
+            || !instructions[25].starts_with("callq ")
+            || instructions[26] != "movq -0x8(%rbx), %rax"
+            || instructions[27] != "movq %rax, %cr0"
+            || instructions[28] != "movq %rbx, %rsp"
+            || instructions[44] != "iretq"
+            || instructions[22]
                 != format!(
                     "movl ${}, %edi",
                     if name == "timer_vector" {

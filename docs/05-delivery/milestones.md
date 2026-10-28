@@ -12,7 +12,7 @@ Its 2026-10-21 installer amendment makes M7 account/installation readiness a
 required dependency of M8. Existing M0–M2 acceptance and P2 story boundaries remain
 unchanged. The approved desktop/platform expansion adds M9–M21 without extending
 M8's release exit; see the [feature matrix](desktop-feature-matrix.md).
-M3 has [fourteen Phase 3 stories](phase-3/README.md); P3-01 [passes its local prerequisite/contract gate](../../evidence/phase-3/P3-01/2026-10-25/README.md). P3-02 [passes its internal owned-memory gate](../../evidence/phase-3/P3-02/2026-10-25/README.md). P3-03 [passes staged static-loader acceptance](../../evidence/phase-3/P3-03/2026-10-25/README.md). P3-04 [passes the bounded user-entry/syscall/fault gate](../../evidence/phase-3/P3-04/2026-10-26/README.md). P3-05–P3-14 remain Not started; preemption, FP/SIMD context, public rights and M3 exit remain open.
+M3 has [fourteen Phase 3 stories](phase-3/README.md); P3-01 [passes its local prerequisite/contract gate](../../evidence/phase-3/P3-01/2026-10-25/README.md). P3-02 [passes its internal owned-memory gate](../../evidence/phase-3/P3-02/2026-10-25/README.md). P3-03 [passes staged static-loader acceptance](../../evidence/phase-3/P3-03/2026-10-25/README.md). P3-04 [passes the bounded user-entry/syscall/fault gate](../../evidence/phase-3/P3-04/2026-10-26/README.md). P3-06–P3-14 remain Not started; public rights and M3 exit remain open.
 Detailed P4–P21 stories are decomposed at the owner's request before
 each milestone; the broad backlog does not substitute for that decomposition.
 
@@ -440,3 +440,5 @@ If the host cannot build/run the selected path, complete portable work and repor
 the exact missing capability. If resource budgets fail, profile before dropping
 correctness. If a user requires zero upstream boot code or full kernel live reload,
 revise scope/ADRs explicitly before promising an implementation timeline.
+
+P3-05 [passes local scheduler/context acceptance](../../evidence/phase-3/P3-05/2026-10-27/README.md): equal-priority preemption, eager private x87/SSE state, 60 task runs and real missing-SSE2 CPU rejection with exact settlements and current M1 regressions. One owner thread per process and masked SSE exceptions are the admitted subset; native #XM and nonzero x87 debug metadata remain unverified. Public rights, blocking IPC, general supervision, SDK freeze and guest UI remain open; P3-06 is next.

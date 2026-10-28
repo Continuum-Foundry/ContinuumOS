@@ -91,7 +91,7 @@ timer delivery performs one acknowledgement and no logging or allocation.
 Checked uptime counts delivered ticks at the calibrated resolution, and can lag
 elapsed time while interrupts are masked/coalesced. It is not wall time or a
 scheduler deadline clock. Read the story review before treating its gate as passed.
-Scheduling, FP/SIMD context, SMP and user isolation remain later work.
+That P1-06 baseline did not include scheduling, FP/SIMD context, SMP or user isolation; the later P3 experiments below add their declared subsets.
 
 ## P3-02 owned-memory backend
 
@@ -126,4 +126,6 @@ process_exit and IRETQ. Ring-3 faults, syscalls, rights and scheduling remain op
 
 ## P3-04 executing boundary
 
-The [syscall/fault experiment](../05-delivery/phase-3/syscall-boundary-runbook.md) passes local self-review for real integer-only CPL3 execution: owned kernel/TSS stacks, generated experimental syscall IDs, complete-span pinned copies with effective hardware permissions and precise recovery, reclaiming user allocation and process-local exit/fault/panic/OOM. A surviving kernel continuation reaps after restoring its stack/root; M1 fatal/IST regressions remain required and pass. Four bounded guests contain sixteen offenders and run immediate healthy replacements, with 36 process runs and exact inventories. [ADR-0020](../04-decisions/0020-user-entry-and-fault-boundary.md) remains Proposed. This single-CPU boundary supplies no preemption, user FP/SIMD context, public memory rights, general supervision, ABI freeze or guest UI. P3-05 must initialize/save/restore FP state before clearing the current TS guard and add real preemption/lifetime coverage.
+The [syscall/fault experiment](../05-delivery/phase-3/syscall-boundary-runbook.md) passes local self-review for real integer-only CPL3 execution: owned kernel/TSS stacks, generated experimental syscall IDs, complete-span pinned copies with effective hardware permissions and precise recovery, reclaiming user allocation and process-local exit/fault/panic/OOM. A surviving kernel continuation reaps after restoring its stack/root; M1 fatal/IST regressions remain required and pass. Four bounded guests contain sixteen offenders and run immediate healthy replacements, with 36 process runs and exact inventories. [ADR-0020](../04-decisions/0020-user-entry-and-fault-boundary.md) remains Proposed. The P3-04 profile remains integer-only and nonpreemptive. P3-05 adds the declared scheduler/FP subset below; public memory rights, general supervision, ABI freeze and guest UI remain open.
+
+P3-05 [passes local scheduler/context acceptance](../../evidence/phase-3/P3-05/2026-10-27/README.md): equal-priority preemption, eager private x87/SSE state, 60 task runs and real missing-SSE2 CPU rejection with exact settlements and current M1 regressions. One owner thread per process and masked SSE exceptions are the admitted subset; native #XM and nonzero x87 debug metadata remain unverified. Public rights, blocking IPC, general supervision, SDK freeze and guest UI remain open; P3-06 is next.

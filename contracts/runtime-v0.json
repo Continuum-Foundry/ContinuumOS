@@ -255,5 +255,31 @@
     "heap_slots": 32,
     "preemption": false,
     "fp_simd": "CR0.TS traps; P3-05 gate pending"
+  },
+  "scheduler_boundary": {
+    "story": "P3-05",
+    "status": "experimental-unfrozen",
+    "nominal_quantum_ns": 5000000,
+    "fairness_quanta": 64,
+    "runnable_slots": 32,
+    "owner_processes": 16,
+    "threads_per_owner": 1,
+    "priority": "equal FIFO round-robin; no public priority control",
+    "kernel_preemption": "defer to completed syscall return; no suspended kernel continuation",
+    "fp_state": "eager FXSAVE64/FXRSTOR64, 512-byte private 16-aligned image",
+    "cpu_required_mask": 7,
+    "cpu_required_mask_bits": {
+      "0": "x87 FPU",
+      "1": "FXSR/SSE",
+      "2": "SSE2"
+    },
+    "xsave": false,
+    "avx": false,
+    "tls": false,
+    "kernel_fp_arithmetic": false,
+    "allocation_call_bytes_max": 65536,
+    "public_thread_creation": false,
+    "sse_exception_policy": "all six MXCSR exception masks required; unmasking terminates at next kernel boundary; native #XM unverified on TCG",
+    "interrupt_rf": "clear hardware-frame RF; debug resume unsupported"
   }
 }

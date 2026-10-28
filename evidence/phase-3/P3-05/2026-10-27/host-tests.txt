@@ -1,0 +1,39 @@
+
+running 34 tests
+test memory::tests::copy_permissions_include_every_hardware_ancestor ... ok
+test memory::tests::malformed_capacity_and_all_reserved ... ok
+test memory::tests::mapping_conflicts_capacity_and_permissions ... ok
+test memory::tests::reservations_edges_holes_and_exhaustion ... ok
+test memory::tests::run_failures_each_zero_stage_and_poisoned_physical_reuse ... ok
+test owned_memory::tests::alignment_realloc_zero_and_transactional_oom ... ok
+test owned_memory::tests::every_parent_table_stage_and_mapping_quota_rolls_back ... ok
+test owned_memory::tests::fixed_storage_repeated_settlement_and_pin_capacity ... ok
+test owned_memory::tests::generation_wrap_retires_slots_and_precharge_is_global ... ok
+test owned_memory::tests::private_walk_wx_shared_backing_and_copy_interleavings ... ok
+test owned_memory::tests::ranges_metadata_quotas_and_poisoned_owner_tokens ... ok
+test owned_memory::tests::table_failure_keeps_old_root_mapping_and_inventory ... ok
+test platform::tests::acpi_boundaries_and_checksums ... ok
+test platform::tests::clock_wrap_overflow_and_calibration ... ok
+test platform::tests::rsdp_revision_signature_and_both_checksums ... ok
+test platform::tests::topology_and_hpet_fail_closed ... ok
+test scheduler::tests::cpu_gate_and_pristine_state ... ok
+test scheduler::tests::fault_and_exit_take_precedence_at_compute_budget_boundary ... ok
+test scheduler::tests::full_queue_round_robin_reuse_and_priority_denial ... ok
+test scheduler::tests::rejects_each_unmasked_sse_control_without_narrowing_rounding_or_sticky_flags ... ok
+test tests::exact_host_session_configuration ... ok
+test tests::framebuffer_arithmetic_pitch_formats_and_backing ... ok
+test tests::memory_map_alignment_order_and_protocol_overlap_rules ... ok
+test tests::owned_text_checks_termination_encoding_and_boundaries ... ok
+test tests::ranges_and_address_translations ... ok
+test tests::required_revision_and_capacities_fail_closed ... ok
+test tests::reservations_cover_live_kernel_loader_module_and_acpi_storage ... ok
+test user_boundary::tests::rejects_privilege_noncanonical_and_reserved_flags ... ok
+test user_image::tests::digest_and_parse_fail_without_context_or_frames ... ok
+test user_image::tests::generation_wrap_retires_process_slot ... ok
+test user_image::tests::loaded_bytes_permissions_startup_and_authority_reuse ... ok
+test user_image::tests::parser_mutation_matrix ... ok
+test user_image::tests::sha_known_vectors ... ok
+test user_image::tests::transactional_allocation_and_table_failures ... ok
+
+test result: ok. 34 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.81s
+

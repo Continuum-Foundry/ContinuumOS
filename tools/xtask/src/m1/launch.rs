@@ -70,6 +70,20 @@ pub(super) fn launch(
     let fixture = image["fixture"]
         .as_str()
         .ok_or("Missing packaged fixture")?;
+    let mut vm = pins.lock["vm"].clone();
+    if fixture == "scheduler-cpu" {
+        let cpu = args
+            .iter()
+            .position(|a| a == "-cpu")
+            .ok_or("Missing CPU argument")?
+            + 1;
+        if args[cpu] != "qemu64-v1,+apic" {
+            return Err("Unexpected CPU baseline".into());
+        }
+        args[cpu].push_str(",-sse2");
+        vm["cpu"] = json!(args[cpu]);
+        vm["negative_test"] = json!("P3-05 required SSE2 absent; no user entry allowed");
+    }
     let symbol = match fixture {
         "exception-invalid-opcode" | "exception-emergency" | "timer-exception" => {
             Some("diagnostic_invalid_opcode")
@@ -91,7 +105,7 @@ pub(super) fn launch(
         .transpose()?;
     write_json(
         &dir.join("launch-manifest.json"),
-        &json!({"schema_version":2,"build_id":id,"iso_sha256":image["iso_sha256"],"configuration_sha256":image["configuration_sha256"],"fixture":fixture,"host_session_id":session,"session_origin":"host; correlation only, not a security credential or reset detector","firmware_code_sha256":digest(pins.file("firmware_code")?)?,"vars_template_sha256":before,"vars_copy_before_sha256":before,"vm":pins.lock["vm"],"test_device":test,"arguments":args.iter().map(|a|sanitize(a)).collect::<Vec<_>>()}),
+        &json!({"schema_version":2,"build_id":id,"iso_sha256":image["iso_sha256"],"configuration_sha256":image["configuration_sha256"],"fixture":fixture,"host_session_id":session,"session_origin":"host; correlation only, not a security credential or reset detector","firmware_code_sha256":digest(pins.file("firmware_code")?)?,"vars_template_sha256":before,"vars_copy_before_sha256":before,"vm":vm,"test_device":test,"arguments":args.iter().map(|a|sanitize(a)).collect::<Vec<_>>()}),
     )?;
     let mut c = Command::new(pins.file("qemu")?);
     c.args(&args);

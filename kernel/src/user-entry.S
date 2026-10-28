@@ -66,6 +66,11 @@ user_syscall:
     // SYSCALL masks IF/DF/TF/AC/NT. It does NOT change RSP.
     mov [rip + {user_sp}], rsp
     mov rsp, [rip + {kernel_sp}]
+    push rax
+    mov rax, cr0
+    or rax, 8
+    mov cr0, rax
+    pop rax
     push 0x3b
     push qword ptr [rip + {user_sp}]
     push r11

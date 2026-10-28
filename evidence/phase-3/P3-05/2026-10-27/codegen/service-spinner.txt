@@ -1,0 +1,83 @@
+<spinner>:
+  400010:      	movl	$0x1, %eax
+  400015:      	movl	$0x2, %ecx
+  40001a:      	movl	$0x3, %edx
+  40001f:      	movl	$0x4, %ebx
+  400024:      	movl	$0x5, %ebp
+  400029:      	movl	$0x6, %esi
+  40002e:      	movl	$0x7, %edi
+  400033:      	movl	$0x8, %r8d
+  400039:      	movl	$0x9, %r9d
+  40003f:      	movl	$0xa, %r10d
+  400045:      	movl	$0xb, %r11d
+  40004b:      	movl	$0xc, %r12d
+  400051:      	movl	$0xd, %r13d
+  400057:      	movl	$0xe, %r14d
+  40005d:      	movl	$0xf, %r15d
+  400063:      	pushq	$0xed7                  # imm = 0xED7
+  400068:      	popfq
+  400069:      	pushfq
+  40006a:      	popq	0x1f90(%rip)            # 0x402000 <_RNvCsfrQyukhG1Wi_9scheduler11SAVED_FLAGS>
+  400070:      	cmpq	$0xed7, 0x1f85(%rip)    # imm = 0xED7
+                                                # 0x402000 <_RNvCsfrQyukhG1Wi_9scheduler11SAVED_FLAGS>
+  40007b:      	jne	0x40015b <spinner+0x14b>
+  400081:      	cmpq	$0x1, %rax
+  400085:      	jne	0x40015b <spinner+0x14b>
+  40008b:      	cmpq	$0x2, %rcx
+  40008f:      	jne	0x40015b <spinner+0x14b>
+  400095:      	cmpq	$0x3, %rdx
+  400099:      	jne	0x40015b <spinner+0x14b>
+  40009f:      	cmpq	$0x4, %rbx
+  4000a3:      	jne	0x40015b <spinner+0x14b>
+  4000a9:      	cmpq	$0x5, %rbp
+  4000ad:      	jne	0x40015b <spinner+0x14b>
+  4000b3:      	cmpq	$0x6, %rsi
+  4000b7:      	jne	0x40015b <spinner+0x14b>
+  4000bd:      	cmpq	$0x7, %rdi
+  4000c1:      	jne	0x40015b <spinner+0x14b>
+  4000c7:      	cmpq	$0x8, %r8
+  4000cb:      	jne	0x40015b <spinner+0x14b>
+  4000d1:      	cmpq	$0x9, %r9
+  4000d5:      	jne	0x40015b <spinner+0x14b>
+  4000db:      	cmpq	$0xa, %r10
+  4000df:      	jne	0x40015b <spinner+0x14b>
+  4000e1:      	cmpq	$0xb, %r11
+  4000e5:      	jne	0x40015b <spinner+0x14b>
+  4000e7:      	cmpq	$0xc, %r12
+  4000eb:      	jne	0x40015b <spinner+0x14b>
+  4000ed:      	cmpq	$0xd, %r13
+  4000f1:      	jne	0x40015b <spinner+0x14b>
+  4000f3:      	cmpq	$0xe, %r14
+  4000f7:      	jne	0x40015b <spinner+0x14b>
+  4000f9:      	cmpq	$0xf, %r15
+  4000fd:      	jne	0x40015b <spinner+0x14b>
+  4000ff:      	fxsave64	0x2109(%rip)            # 0x402210 <_RNvCsfrQyukhG1Wi_9scheduler8OBSERVED>
+  400107:      	xorl	%eax, %eax
+  400109:      	leaq	0x1f00(%rip), %rcx      # 0x402010 <_RNvCsfrQyukhG1Wi_9scheduler8EXPECTED>
+  400110:      	movb	(%rcx,%rax), %cl
+  400113:      	leaq	0x1(%rax), %rax
+  400117:      	pushq	%rdx
+  400118:      	leaq	0x20f1(%rip), %rdx      # 0x402210 <_RNvCsfrQyukhG1Wi_9scheduler8OBSERVED>
+  40011f:      	cmpb	-0x1(%rdx,%rax), %cl
+  400123:      	popq	%rdx
+  400124:      	jne	0x400154 <spinner+0x144>
+  400126:      	cmpl	$0x1c, %eax
+  400129:      	jne	0x400130 <spinner+0x120>
+  40012b:      	movl	$0x20, %eax
+  400130:      	cmpl	$0x1a0, %eax            # imm = 0x1A0
+  400135:      	jb	0x400109 <spinner+0xf9>
+  400137:      	incq	0x70000008
+  40013f:      	movl	$0x1, %eax
+  400144:      	movl	$0x2, %ecx
+  400149:      	pushq	$0xed7                  # imm = 0xED7
+  40014e:      	popfq
+  40014f:      	jmp	0x400069 <spinner+0x59>
+  400154:      	movl	$0x5e, %edi
+  400159:      	jmp	0x400160 <spinner+0x150>
+  40015b:      	movl	$0x63, %edi
+  400160:      	cld
+  400161:      	movl	$0x5, %eax
+  400166:      	xorl	%r8d, %r8d
+  400169:      	xorl	%r9d, %r9d
+  40016c:      	syscall
+  40016e:      	ud2

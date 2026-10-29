@@ -59,6 +59,8 @@ impl Access {
 #[derive(Clone, Copy)]
 struct Allocation {
     generation: u64,
+    live: bool,
+    held: bool,
     owner: Option<SpaceId>,
     base: PhysAddr,
     requested: u64,
@@ -70,6 +72,8 @@ struct Allocation {
 impl Allocation {
     const EMPTY: Self = Self {
         generation: 0,
+        live: false,
+        held: false,
         owner: None,
         base: PhysAddr(0),
         requested: 0,
@@ -190,7 +194,7 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
             .allocations
             .get(id.slot)
             .ok_or(error("allocation", "stale"))?;
-        if a.owner.is_none() || a.generation != id.generation {
+        if !a.live || a.generation != id.generation {
             return Err(error("allocation", "stale"));
         }
         Ok(*a)
@@ -297,13 +301,15 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
         let slot = self
             .allocations
             .iter()
-            .position(|a| a.owner.is_none() && a.generation != u64::MAX)
+            .position(|a| !a.live && a.generation != u64::MAX)
             .ok_or(error("allocation", "quota"))?;
         // All accounting/metadata checked before requesting physical storage.
         let base = store.allocate((rounded / PAGE) as usize, alignment.max(PAGE))?;
         let generation = self.allocations[slot].generation + 1;
         self.allocations[slot] = Allocation {
             generation,
+            live: true,
+            held: false,
             owner: Some(owner),
             base,
             requested: bytes,
@@ -319,14 +325,44 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
     pub fn free(&mut self, store: &mut impl Store, owner: SpaceId, id: AllocationId) -> Result<()> {
         let i = self.mutable(owner)?;
         let a = self.owned(owner, id)?;
-        if a.maps != 0 {
+        if a.maps != 0 || a.held {
             return Err(error("allocation", "busy"));
         }
         store.release(a.base, a.pages);
         self.spaces[i].committed -= a.pages as u64 * PAGE;
         self.spaces[i].requested -= a.requested;
         self.allocations[id.slot].owner = None;
+        self.allocations[id.slot].live = false;
         Ok(())
+    }
+    /// One trusted object-registry hold, independent of creator lifetime. The
+    /// registry releases it only after its last handle AND mapping disappear.
+    pub fn hold_object(&mut self, owner: SpaceId, id: AllocationId) -> Result<()> {
+        let a = self.owned(owner, id)?;
+        if a.held || a.maps != 0 {
+            return Err(error("allocation", "busy"));
+        }
+        self.allocations[id.slot].held = true;
+        Ok(())
+    }
+    pub fn release_object(&mut self, store: &mut impl Store, id: AllocationId) -> Result<()> {
+        let a = self.allocation(id)?;
+        if !a.held || a.maps != 0 {
+            return Err(error("allocation", "busy"));
+        }
+        if let Some(owner) = a.owner {
+            let i = self.mutable(owner)?;
+            self.spaces[i].committed -= a.pages as u64 * PAGE;
+            self.spaces[i].requested -= a.requested;
+        }
+        store.release(a.base, a.pages);
+        self.allocations[id.slot].owner = None;
+        self.allocations[id.slot].live = false;
+        self.allocations[id.slot].held = false;
+        Ok(())
+    }
+    pub fn ensure_unpinned(&self, space: SpaceId) -> Result<()> {
+        self.mutable(space).map(|_| ())
     }
     pub fn realloc(
         &mut self,
@@ -338,7 +374,7 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
     ) -> Result<Option<AllocationId>> {
         self.mutable(owner)?;
         let a = self.owned(owner, id)?;
-        if a.maps != 0 {
+        if a.maps != 0 || a.held {
             return Err(error("allocation", "busy"));
         }
         // Even realloc-to-zero validates alignment. Old run survives any failure.
@@ -616,7 +652,7 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
                 .flatten()
                 .filter(|m| m.allocation.slot == n)
                 .count();
-            if a.maps != local {
+            if !a.held && a.maps != local {
                 return Err(error("space", "shared_busy"));
             }
         }
@@ -638,6 +674,13 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
         }
         for n in 0..A {
             if self.allocations[n].owner == Some(space) {
+                if self.allocations[n].held {
+                    let a = self.allocations[n];
+                    self.spaces[i].committed -= a.pages as u64 * PAGE;
+                    self.spaces[i].requested -= a.requested;
+                    self.allocations[n].owner = None;
+                    continue;
+                }
                 let id = AllocationId {
                     slot: n,
                     generation: self.allocations[n].generation,
@@ -685,9 +728,13 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
                 v.mapped_bytes += m.bytes;
             }
         }
-        for a in self.allocations.iter().filter(|a| a.owner.is_some()) {
+        for a in self.allocations.iter().filter(|a| a.live) {
             v.allocations += 1;
             v.resident += a.pages as u64 * PAGE;
+            if a.owner.is_none() {
+                v.committed += a.pages as u64 * PAGE;
+                v.requested += a.requested;
+            }
         }
         v
     }

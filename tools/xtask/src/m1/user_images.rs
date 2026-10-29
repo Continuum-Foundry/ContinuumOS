@@ -10,7 +10,12 @@ use std::{
     path::{Path, PathBuf},
     process::Command,
 };
-pub(super) fn build(dir: &Path, execution: bool, scheduler: bool) -> Result<PathBuf> {
+pub(super) fn build(
+    dir: &Path,
+    execution: bool,
+    scheduler: bool,
+    capabilities: bool,
+) -> Result<PathBuf> {
     let contract: serde_json::Value =
         serde_json::from_slice(&read(&root().join("contracts/runtime-v0.json"))?)
             .map_err(|e| e.to_string())?;
@@ -41,7 +46,9 @@ pub(super) fn build(dir: &Path, execution: bool, scheduler: bool) -> Result<Path
     ));
     let runtime_ids = dir.join("runtime-ids.rs");
     fs::write(&runtime_ids, ids).map_err(|e| e.to_string())?;
-    let source = if scheduler {
+    let source = if capabilities {
+        "experiments/user-images/capabilities.rs"
+    } else if scheduler {
         "experiments/user-images/scheduler.rs"
     } else if execution {
         "experiments/user-images/executable.rs"

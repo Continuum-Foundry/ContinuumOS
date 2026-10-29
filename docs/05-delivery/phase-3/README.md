@@ -32,7 +32,7 @@ Reinspect actual source, tools and evidence availability before implementation.
 | P3-03 | [Load static user images and bind trusted launch context](03-static-elf-loader-and-launch-context.md) | P3-02 | B11 loader/launch | Done |
 | P3-04 | [Enter user mode and enforce the syscall/fault boundary](04-user-entry-syscalls-and-fault-containment.md) | P3-03 | B11 entry/syscalls, B13 failure groundwork | Done |
 | P3-05 | [Preempt tasks and preserve integer/FP/SIMD context](05-preemptive-scheduling-and-cpu-context.md) | P3-04 | Remaining M3 B06 scheduling/context | Done |
-| P3-06 | [Enforce handle rights and memory-object lifetimes](06-handles-rights-and-memory-objects.md) | P3-05 | B12 object/handle/mapping subset | Not started |
+| P3-06 | [Enforce handle rights and memory-object lifetimes](06-handles-rights-and-memory-objects.md) | P3-05 | B12 object/handle/mapping subset | Done |
 | P3-07 | [Implement bounded channels and atomic authority transfer](07-channels-and-atomic-handle-transfer.md) | P3-06 | B12 messages/transfer/provenance | Not started |
 | P3-08 | [Complete waits, timers, cancellation and backpressure](08-waits-timers-and-cancellation.md) | P3-07 | B12 waiting/deadlock subset, B06 deadlines | Not started |
 | P3-09 | [Supervise process trees and enforce resource ceilings](09-supervision-quotas-and-process-lifecycle.md) | P3-08 | B13 supervision/quotas | Not started |
@@ -61,7 +61,7 @@ guest settlements and the complete current M1 gate. Use the
 [passes local staged-loader acceptance](../../../evidence/phase-3/P3-03/2026-10-25/README.md):
 three Rust boot modules, 72 audited private pages, exact startup/BSS/stack bytes,
 transactional failures and trusted identity/reuse denial, with the complete M1 gate.
-Use the [loader runbook](static-loader-runbook.md). P3-04 [passes local user-boundary acceptance](../../../evidence/phase-3/P3-04/2026-10-26/README.md): four bounded guests, 36 process runs, checked copied buffers, integer register/flag/IRQ checks and process-local faults/panic/OOM with healthy replacements and exact inventories. Use the [boundary runbook](syscall-boundary-runbook.md). P3-05 now passes the declared scheduler/context subset below; public rights and the M3 exit remain open.
+Use the [loader runbook](static-loader-runbook.md). P3-04 [passes local user-boundary acceptance](../../../evidence/phase-3/P3-04/2026-10-26/README.md): four bounded guests, 36 process runs, checked copied buffers, integer register/flag/IRQ checks and process-local faults/panic/OOM with healthy replacements and exact inventories. Use the [boundary runbook](syscall-boundary-runbook.md). P3-05 now passes the declared scheduler/context subset below; P3-06 adds its bounded public handle/memory subset below; the M3 exit remains open.
 
 ## Fixed scope and defaults
 
@@ -171,4 +171,6 @@ Read [M3](../milestones.md#m3--isolated-processes-and-stable-interfaces),
 [ADR-0010](../../04-decisions/0010-capability-security.md) and
 [reconciled direction](../../00-overview/reconciled-plan.md).
 
-P3-05 [passes local scheduler/context acceptance](../../../evidence/phase-3/P3-05/2026-10-27/README.md): equal-priority preemption, eager private x87/SSE state, 60 task runs and real missing-SSE2 CPU rejection with exact settlements and current M1 regressions. One owner thread per process and masked SSE exceptions are the admitted subset; native #XM and nonzero x87 debug metadata remain unverified. Public rights, blocking IPC, general supervision, SDK freeze and guest UI remain open; P3-06 is next.
+P3-05 [passes local scheduler/context acceptance](../../../evidence/phase-3/P3-05/2026-10-27/README.md): equal-priority preemption, eager private x87/SSE state, 60 task runs and real missing-SSE2 CPU rejection with exact settlements and current M1 regressions. One owner thread per process and masked SSE exceptions are the admitted subset; native #XM and nonzero x87 debug metadata remain unverified. At the P3-05 gate public rights remained open. Blocking IPC, general supervision, SDK freeze and guest UI remain open; P3-06 adds the bounded handle/memory subset below; P3-07 is next.
+
+P3-06 [passes local handle/memory-object acceptance](../../../evidence/phase-3/P3-06/2026-10-29/README.md): process-local typed rights, attenuating duplicates, retained immutable sharing after creator death, five hardware isolation faults, live-pin mutation denials and exact reference/frame settlements across 18 tasks. All 39 kernel host tests, ten prerequisites, complete M1 (33 rows/42 launches), memory/loader/user-boundary and scheduler regressions pass. This adds the R10/R14/R18 and T02/T03/T06/T11 object/mapping subset; public transfer, blocking IPC, general supervision, SDK freeze and guest UI remain open. Use the [runbook](handles-memory-runbook.md); P3-07 is next.

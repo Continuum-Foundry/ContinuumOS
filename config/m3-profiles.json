@@ -1,9 +1,80 @@
 {
   "schema_version": 1,
   "profile": "m3-baseline",
-  "vm": {"machine": "pc-q35-11.1", "cpu": "qemu64-v1,+apic", "accelerator": "tcg", "vcpus": 1, "ram_mib": 2048, "hpet": true, "deadline_ms": 30000},
-  "cpu_policy": {"kernel_fp": false, "user_fp_gate": "P3-05", "user_baseline": "x87,SSE,SSE2", "avx": false, "xsave": false, "smp": false},
-  "limits": {"processes": 16, "threads_per_process": 4, "threads_global": 32, "objects_global": 1024, "mappings_per_process": 128, "user_committed_bytes": 67108864, "user_heap_bytes": 33554432, "kernel_dynamic_bytes": 16777216, "stack_bytes": 65536, "stack_guard_pages": 1, "handles_per_process": 256, "channels_global": 32, "message_bytes": 4096, "message_handles": 8, "queue_messages": 64, "queue_bytes": 262144, "wait_items": 32, "timers_per_process": 32, "diagnostic_bytes": 256},
-  "measurement": {"seed": 20261025, "quantum_ns": 5000000, "fairness_quanta": 64, "stress_cycles": 1000, "ipc_round_trips": 10000, "warmup_round_trips": 1000, "repetitions": 5, "settle_quanta": 64, "retained_object_tolerance": 0, "retained_frame_tolerance": 0, "host_clock": "perf_counter_ns", "guest_clock_gate": "P3-08", "quantiles": "nearest-rank", "instrumentation": "paired on/off; retain raw samples; no subtraction"},
-  "runner": {"fixture_timeout_ms": 1000, "timeout_case_ms": 100, "poll_ms": 5, "output_bytes": 65536, "image_bytes": 134217728, "record_version": 1, "baseline_serial_version": 5}
+  "vm": {
+    "machine": "pc-q35-11.1",
+    "cpu": "qemu64-v1,+apic",
+    "accelerator": "tcg",
+    "vcpus": 1,
+    "ram_mib": 2048,
+    "hpet": true,
+    "deadline_ms": 30000
+  },
+  "cpu_policy": {
+    "kernel_fp": false,
+    "user_fp_gate": "P3-05",
+    "user_baseline": "x87,SSE,SSE2",
+    "avx": false,
+    "xsave": false,
+    "smp": false
+  },
+  "limits": {
+    "processes": 16,
+    "threads_per_process": 4,
+    "threads_global": 32,
+    "objects_global": 1024,
+    "mappings_per_process": 128,
+    "user_committed_bytes": 67108864,
+    "user_heap_bytes": 33554432,
+    "kernel_dynamic_bytes": 16777216,
+    "stack_bytes": 65536,
+    "stack_guard_pages": 1,
+    "handles_per_process": 256,
+    "channels_global": 32,
+    "message_bytes": 4096,
+    "message_handles": 8,
+    "queue_messages": 64,
+    "queue_bytes": 262144,
+    "wait_items": 32,
+    "timers_per_process": 32,
+    "diagnostic_bytes": 256
+  },
+  "measurement": {
+    "seed": 20261025,
+    "quantum_ns": 5000000,
+    "fairness_quanta": 64,
+    "stress_cycles": 1000,
+    "ipc_round_trips": 10000,
+    "warmup_round_trips": 1000,
+    "repetitions": 5,
+    "settle_quanta": 64,
+    "retained_object_tolerance": 0,
+    "retained_frame_tolerance": 0,
+    "host_clock": "perf_counter_ns",
+    "guest_clock_gate": "P3-08",
+    "quantiles": "nearest-rank",
+    "instrumentation": "paired on/off; retain raw samples; no subtraction"
+  },
+  "runner": {
+    "fixture_timeout_ms": 1000,
+    "timeout_case_ms": 100,
+    "poll_ms": 5,
+    "output_bytes": 65536,
+    "image_bytes": 134217728,
+    "record_version": 1,
+    "baseline_serial_version": 5
+  },
+  "objects_execution_subset": {
+    "story": "P3-06",
+    "owners": 16,
+    "threads_per_owner": 1,
+    "objects_global": 128,
+    "handles_per_process": 32,
+    "public_mappings_per_process": 32,
+    "internal_mappings_per_process": 128,
+    "memory_call_bytes": 65536,
+    "created_bytes_per_process": 33554432,
+    "public_mapped_bytes_per_process": 33554432,
+    "ceiling_note": "bounded admitted subset within planned M3 limits; later increases require new evidence"
+  }
 }

@@ -50,7 +50,14 @@
       "memory_allocate": 2,
       "memory_free": 3,
       "thread_yield": 4,
-      "process_exit": 5
+      "process_exit": 5,
+      "object_info": 6,
+      "handle_close": 7,
+      "handle_duplicate": 8,
+      "memory_create": 9,
+      "memory_map": 10,
+      "memory_unmap": 11,
+      "memory_protect": 12
     },
     "error_ids": {
       "BadHandle": 1,
@@ -159,7 +166,7 @@
     "slot_bits": 32,
     "generation_bits": 32,
     "zero_invalid": true,
-    "wrap": "retire slot until containing process dies"
+    "wrap": "boot-wide monotonic generation nonce; after u32::MAX installation, no further grants until reboot; object slots retire on u64 exhaustion"
   },
   "errors": [
     "BadHandle",
@@ -281,5 +288,91 @@
     "public_thread_creation": false,
     "sse_exception_policy": "all six MXCSR exception masks required; unmasking terminates at next kernel boundary; native #XM unverified on TCG",
     "interrupt_rf": "clear hardware-frame RF; debug resume unsupported"
+  },
+  "objects_boundary": {
+    "story": "P3-06",
+    "status": "experimental-unfrozen",
+    "handle_slots": 32,
+    "mapping_slots": 32,
+    "object_slots": 128,
+    "owner_slots": 16,
+    "memory_call_max": 65536,
+    "memory_bytes_per_owner": 33554432,
+    "rights": {
+      "QUERY": 1,
+      "DUPLICATE": 2,
+      "CLOSE": 4,
+      "CREATE": 8,
+      "MAP": 16,
+      "READ": 32,
+      "WRITE": 64,
+      "EXECUTE": 128,
+      "CONTROL": 256
+    },
+    "legacy_memory_operations": "Unsupported in rights-bearing execution profile; P3-04/05 regression-only feature fixtures remain isolated",
+    "revocation": "close removes only that handle; duplicates and mappings survive; backing freed after last handle and mapping",
+    "map_request_fields": [
+      [
+        "base",
+        8
+      ],
+      [
+        "offset",
+        8
+      ],
+      [
+        "bytes",
+        8
+      ],
+      [
+        "access",
+        8
+      ]
+    ],
+    "access": {
+      "Read": 0,
+      "Write": 1,
+      "Execute": 2
+    },
+    "object_info": "RDX=(kind<<32)|granted_rights; no object/owner/pointer identity",
+    "arguments": {
+      "object_info": [
+        "handle"
+      ],
+      "handle_close": [
+        "handle"
+      ],
+      "handle_duplicate": [
+        "handle",
+        "rights"
+      ],
+      "memory_create": [
+        "self_process",
+        "bytes",
+        "backing_rights"
+      ],
+      "memory_map": [
+        "self_process",
+        "memory",
+        "request_address",
+        "request_bytes_32"
+      ],
+      "memory_unmap": [
+        "self_process",
+        "base"
+      ],
+      "memory_protect": [
+        "self_process",
+        "base",
+        "access"
+      ],
+      "thread_yield": [
+        "self_thread"
+      ],
+      "process_exit": [
+        "reason",
+        "self_process"
+      ]
+    }
   }
 }

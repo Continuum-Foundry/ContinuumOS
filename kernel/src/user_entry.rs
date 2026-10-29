@@ -17,6 +17,9 @@ mod ids {
     include!(env!("CONTINUUM_RUNTIME_IDS"));
 }
 use ids::*;
+#[cfg(feature = "capability-test")]
+#[path = "capability_guest.rs"]
+pub(crate) mod capabilities;
 #[cfg(feature = "scheduler-test")]
 #[path = "scheduling.rs"]
 pub(crate) mod scheduling;
@@ -365,98 +368,106 @@ extern "C" fn dispatch(ptr: *mut Frame) {
     } else if f.r8 != 0 {
         Err(UNSUPPORTED)
     } else {
-        match operation {
-            ABI_QUERY => {
-                let mut bytes = [0u8; 32];
-                for (i, v) in [0, PAGE, c.context.principal, c.context.session]
-                    .into_iter()
-                    .enumerate()
-                {
-                    bytes[i * 8..i * 8 + 8].copy_from_slice(&v.to_le_bytes());
+        #[cfg(feature = "capability-test")]
+        let cap = capabilities::dispatch(operation, f);
+        #[cfg(not(feature = "capability-test"))]
+        let cap: Option<core::result::Result<u64, u64>> = None;
+        if let Some(result) = cap {
+            result
+        } else {
+            match operation {
+                ABI_QUERY => {
+                    let mut bytes = [0u8; 32];
+                    for (i, v) in [0, PAGE, c.context.principal, c.context.session]
+                        .into_iter()
+                        .enumerate()
+                    {
+                        bytes[i * 8..i * 8 + 8].copy_from_slice(&v.to_le_bytes());
+                    }
+                    if f.rsi < 32 {
+                        Err(BUFFERTOOSMALL)
+                    } else {
+                        copy(f.rdi, &mut bytes, true).map(|_| 32)
+                    }
                 }
-                if f.rsi < 32 {
-                    Err(BUFFERTOOSMALL)
-                } else {
-                    copy(f.rdi, &mut bytes, true).map(|_| 32)
+                DIAGNOSTIC_LOG => {
+                    if f.rsi > 256 {
+                        Err(INVALIDARGUMENT)
+                    } else {
+                        let mut bytes = [0u8; 256];
+                        let n = f.rsi as usize;
+                        copy(f.rdi, &mut bytes[..n], false).and_then(|_| {
+                            if bytes[..n]
+                                .iter()
+                                .any(|b| !b.is_ascii_alphanumeric() && *b != b'-')
+                            {
+                                return Err(INVALIDARGUMENT);
+                            }
+                            for offset in (0..n.max(1)).step_by(96) {
+                                let end = (offset + 96).min(n);
+                                record(
+                                    "m1.user_log",
+                                    "user-boundary",
+                                    "ok",
+                                    format_args!(
+                                        "case={} principal={} offset={offset} total={n} token={}",
+                                        c.case,
+                                        c.context.principal,
+                                        if n == 0 {
+                                            "empty"
+                                        } else {
+                                            core::str::from_utf8(&bytes[offset..end]).unwrap()
+                                        }
+                                    ),
+                                );
+                            }
+                            Ok(n as u64)
+                        })
+                    }
                 }
+                MEMORY_ALLOCATE => {
+                    #[cfg(feature = "scheduler-test")]
+                    if scheduling::active() && f.rdi > 65536 {
+                        f.rax = QUOTAEXCEEDED;
+                        f.rdx = 0;
+                        scheduling::syscall_return(f, false);
+                        return;
+                    }
+                    allocate(f.rdi, f.rsi)
+                }
+                MEMORY_FREE => free(f.rdi),
+                THREAD_YIELD => {
+                    #[cfg(feature = "scheduler-test")]
+                    if scheduling::active() {
+                        f.rdx = 0;
+                        scheduling::syscall_return(f, true);
+                        return;
+                    }
+                    // No structural borrow/pin is held. Exercise a real nested
+                    // timer IRQ on this owned kernel stack, then mask again.
+                    let before = crate::timer::uptime().unwrap().0;
+                    unsafe {
+                        asm!("sti", "hlt", "cli");
+                    }
+                    let after = crate::timer::uptime().unwrap().0;
+                    assert!(after > before);
+                    record(
+                        "m1.user_irq",
+                        "user-boundary",
+                        "ok",
+                        format_args!("case={} before={before} after={after} nested=true", c.case),
+                    );
+                    Ok(0) // same active process until P3-05
+                }
+                PROCESS_EXIT => {
+                    #[cfg(feature = "scheduler-test")]
+                    if scheduling::active() {
+                        scheduling::copy_irq(false);
+                    }
+                    finish("exit", f.rdi, 0, f.ip, 0)
+                }
+                _ => Err(UNSUPPORTED),
             }
-            DIAGNOSTIC_LOG => {
-                if f.rsi > 256 {
-                    Err(INVALIDARGUMENT)
-                } else {
-                    let mut bytes = [0u8; 256];
-                    let n = f.rsi as usize;
-                    copy(f.rdi, &mut bytes[..n], false).and_then(|_| {
-                        if bytes[..n]
-                            .iter()
-                            .any(|b| !b.is_ascii_alphanumeric() && *b != b'-')
-                        {
-                            return Err(INVALIDARGUMENT);
-                        }
-                        for offset in (0..n.max(1)).step_by(96) {
-                            let end = (offset + 96).min(n);
-                            record(
-                                "m1.user_log",
-                                "user-boundary",
-                                "ok",
-                                format_args!(
-                                    "case={} principal={} offset={offset} total={n} token={}",
-                                    c.case,
-                                    c.context.principal,
-                                    if n == 0 {
-                                        "empty"
-                                    } else {
-                                        core::str::from_utf8(&bytes[offset..end]).unwrap()
-                                    }
-                                ),
-                            );
-                        }
-                        Ok(n as u64)
-                    })
-                }
-            }
-            MEMORY_ALLOCATE => {
-                #[cfg(feature = "scheduler-test")]
-                if scheduling::active() && f.rdi > 65536 {
-                    f.rax = QUOTAEXCEEDED;
-                    f.rdx = 0;
-                    scheduling::syscall_return(f, false);
-                    return;
-                }
-                allocate(f.rdi, f.rsi)
-            }
-            MEMORY_FREE => free(f.rdi),
-            THREAD_YIELD => {
-                #[cfg(feature = "scheduler-test")]
-                if scheduling::active() {
-                    f.rdx = 0;
-                    scheduling::syscall_return(f, true);
-                    return;
-                }
-                // No structural borrow/pin is held. Exercise a real nested
-                // timer IRQ on this owned kernel stack, then mask again.
-                let before = crate::timer::uptime().unwrap().0;
-                unsafe {
-                    asm!("sti", "hlt", "cli");
-                }
-                let after = crate::timer::uptime().unwrap().0;
-                assert!(after > before);
-                record(
-                    "m1.user_irq",
-                    "user-boundary",
-                    "ok",
-                    format_args!("case={} before={before} after={after} nested=true", c.case),
-                );
-                Ok(0) // same active process until P3-05
-            }
-            PROCESS_EXIT => {
-                #[cfg(feature = "scheduler-test")]
-                if scheduling::active() {
-                    scheduling::copy_irq(false);
-                }
-                finish("exit", f.rdi, 0, f.ip, 0)
-            }
-            _ => Err(UNSUPPORTED),
         }
     };
     match value {

@@ -56,6 +56,7 @@ pub(super) fn boot_run(
         let want_modules = if fixture == "static-loader"
             || fixture.starts_with("user-boundary-")
             || fixture.starts_with("scheduler-")
+            || fixture == "capabilities"
         {
             "3"
         } else if module {
@@ -100,6 +101,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "static-loader" => Flavor::StaticLoader,
         "user-boundary" => Flavor::UserBoundary,
         "scheduler" => Flavor::Scheduler,
+        "capabilities" => Flavor::Capabilities,
         "iso-smoke" | "boot-metadata" => Flavor::Smoke,
         "iso-negative" => Flavor::NoEntry,
         "boot-reject" => Flavor::Inject,
@@ -123,6 +125,22 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
     if action == "iso" {
         let image = package(dir, dir, &manifest, false, "normal", false)?;
         return Ok(json!({"compile":"passed","package":"passed","boot":"not_run","image":image}));
+    }
+    if flavor == Flavor::Capabilities {
+        let run = boot_run(
+            dir,
+            action,
+            dir,
+            &manifest,
+            "capabilities",
+            false,
+            true,
+            false,
+        )?;
+        accepted(&run)?;
+        return Ok(
+            json!({"compile":"passed","package":"passed","capabilities":"passed","run":run}),
+        );
     }
     if flavor == Flavor::Scheduler {
         let mut runs = Vec::new();

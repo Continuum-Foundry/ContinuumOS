@@ -13,13 +13,16 @@ use std::{
 pub(super) const LIMIT: u64 = 2 * 1024 * 1024;
 
 pub(super) fn read_log(path: &Path) -> Result<Vec<u8>> {
+    read_log_limit(path, LIMIT)
+}
+fn read_log_limit(path: &Path, limit: u64) -> Result<Vec<u8>> {
     let mut bytes = Vec::new();
     fs::File::open(path)
         .map_err(|e| e.to_string())?
-        .take(LIMIT + 1)
+        .take(limit + 1)
         .read_to_end(&mut bytes)
         .map_err(|e| e.to_string())?;
-    if bytes.len() as u64 > LIMIT {
+    if bytes.len() as u64 > limit {
         return Err(format!("log limit exceeded: {}", path.display()));
     }
     Ok(bytes)
@@ -64,11 +67,33 @@ pub(super) fn oversize(paths: &[&Path]) -> bool {
         .any(|p| fs::metadata(p).is_ok_and(|m| m.len() > LIMIT))
 }
 pub(super) fn capture(c: &mut Command, dir: &Path, name: &str, seconds: u64) -> Result<String> {
+    capture_limit(c, dir, name, seconds, LIMIT)
+}
+// Static LLVM audits can exceed the guest/ordinary-command log cap. This is
+// an explicit bounded opt-in, never used for QEMU serial or guest lifecycle.
+pub(super) fn capture_audit(
+    c: &mut Command,
+    dir: &Path,
+    name: &str,
+    seconds: u64,
+) -> Result<String> {
+    capture_limit(c, dir, name, seconds, 8 * 1024 * 1024)
+}
+fn capture_limit(
+    c: &mut Command,
+    dir: &Path,
+    name: &str,
+    seconds: u64,
+    limit: u64,
+) -> Result<String> {
     let (out, err) = logs(c, dir, name)?;
     let mut child = OwnedChild(c.spawn().map_err(|e| e.to_string())?);
     let start = Instant::now();
     let status = loop {
-        if oversize(&[&out, &err]) {
+        if [&out, &err]
+            .iter()
+            .any(|p| fs::metadata(p).is_ok_and(|m| m.len() > limit))
+        {
             return Err(format!("{name}: output limit; logs retained"));
         }
         if let Some(status) = child.0.try_wait().map_err(|e| e.to_string())? {
@@ -86,5 +111,5 @@ pub(super) fn capture(c: &mut Command, dir: &Path, name: &str, seconds: u64) -> 
             dir.display()
         ));
     }
-    String::from_utf8(read_log(&out)?).map_err(|e| e.to_string())
+    String::from_utf8(read_log_limit(&out, limit)?).map_err(|e| e.to_string())
 }

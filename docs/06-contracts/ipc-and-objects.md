@@ -79,3 +79,10 @@ Independent encoder/decoder implementations round-trip every message type and re
 overflow, truncation, unsupported mandatory fields and invalid rights. Test transfer
 with full queue/peer death, duplicate close, mapping races, cancelled waits and stale
 epochs under replacement. Publish real ABI numbers only after these pass.
+
+P3-06's [bounded implementation](../05-delivery/phase-3/handles-memory-runbook.md)
+adds process-local rights checks and retained memory lifetimes. Its draft scalar
+object query and 32-byte little-endian map request are recorded in runtime-v0;
+no Rust layout is serialized. Closing the last handle preserves mapped backing
+until the last mapping is gone, including after creator death. This implements
+no universal revocation, public transfer or device/IRQ/DMA grant.

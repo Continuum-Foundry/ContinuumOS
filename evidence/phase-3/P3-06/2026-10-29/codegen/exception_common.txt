@@ -1,0 +1,47 @@
+<exception_common>:
+ffffffff800021de:      	cli
+ffffffff800021df:      	cld
+ffffffff800021e0:      	pushq	%rax
+ffffffff800021e1:      	pushq	%rcx
+ffffffff800021e2:      	pushq	%rdx
+ffffffff800021e3:      	pushq	%rbx
+ffffffff800021e4:      	pushq	%rbp
+ffffffff800021e5:      	pushq	%rsi
+ffffffff800021e6:      	pushq	%rdi
+ffffffff800021e7:      	pushq	%r8
+ffffffff800021e9:      	pushq	%r9
+ffffffff800021eb:      	pushq	%r10
+ffffffff800021ed:      	pushq	%r11
+ffffffff800021ef:      	pushq	%r12
+ffffffff800021f1:      	pushq	%r13
+ffffffff800021f3:      	pushq	%r14
+ffffffff800021f5:      	pushq	%r15
+ffffffff800021f7:      	leaq	0x78(%rsp), %rdi
+ffffffff800021fc:      	movq	%cr2, %rsi
+ffffffff800021ff:      	movq	%cr0, %rax
+ffffffff80002202:      	pushq	%rax
+ffffffff80002203:      	orq	$0x8, %rax
+ffffffff80002207:      	movq	%rax, %cr0
+ffffffff8000220a:      	leaq	0x8(%rsp), %rbx
+ffffffff8000220f:      	andq	$-0x10, %rsp
+ffffffff80002213:      	callq	0xffffffff80017aa0 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10exceptions8dispatch>
+ffffffff80002218:      	movq	-0x8(%rbx), %rax
+ffffffff8000221c:      	movq	%rax, %cr0
+ffffffff8000221f:      	movq	%rbx, %rsp
+ffffffff80002222:      	popq	%r15
+ffffffff80002224:      	popq	%r14
+ffffffff80002226:      	popq	%r13
+ffffffff80002228:      	popq	%r12
+ffffffff8000222a:      	popq	%r11
+ffffffff8000222c:      	popq	%r10
+ffffffff8000222e:      	popq	%r9
+ffffffff80002230:      	popq	%r8
+ffffffff80002232:      	popq	%rdi
+ffffffff80002233:      	popq	%rsi
+ffffffff80002234:      	popq	%rbp
+ffffffff80002235:      	popq	%rbx
+ffffffff80002236:      	popq	%rdx
+ffffffff80002237:      	popq	%rcx
+ffffffff80002238:      	popq	%rax
+ffffffff80002239:      	addq	$0x10, %rsp
+ffffffff8000223d:      	iretq

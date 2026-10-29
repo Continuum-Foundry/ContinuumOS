@@ -1,6 +1,6 @@
 # P3-06 — Enforce handle rights and memory-object lifetimes
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done. Owner: Unassigned.
 Depends on: P3-05 Done. Suggested labels: `phase-3`, `capabilities`, `memory-objects`.
 Backlog: B12 object/handle/mapping subset. Requirements: R10/R14/R18.
 Test families: T02/T03/T06/T11.
@@ -32,15 +32,15 @@ duplicating a handle or mapping a shared object cannot increase my authority.
 
 ## Acceptance criteria
 
-- [ ] Forged, stale, cross-process and wrong-type handles fail with exact errors;
+- [x] Forged, stale, cross-process and wrong-type handles fail with exact errors;
   generation exhaustion cannot silently resurrect old authority.
-- [ ] Duplicate/query/close enforce rights and cannot amplify grants or reveal kernel
+- [x] Duplicate/query/close enforce rights and cannot amplify grants or reveal kernel
   pointers; duplicate close and process death have defined resource outcomes.
-- [ ] Real guest tasks cannot read/write kernel or another task's private memory;
+- [x] Real guest tasks cannot read/write kernel or another task's private memory;
   explicit shared read succeeds while write/protect/execute escalation is denied.
-- [ ] Mapping/close/copy/termination interleavings preserve valid backing lifetime
+- [x] Mapping/close/copy/termination interleavings preserve valid backing lifetime
   and zero-on-reuse without deadlock, use-after-free or leaked references.
-- [ ] Direct-handle and shared-mapping revocation limits are explicit and tested;
+- [x] Direct-handle and shared-mapping revocation limits are explicit and tested;
   quotas and failures restore the declared object/handle/frame inventories.
 
 ## Tests and evidence
@@ -60,3 +60,5 @@ P3-10 adds scoped policy; it cannot replace mandatory kernel rights checks. Sour
 [objects contract](../../06-contracts/ipc-and-objects.md),
 [ADR-0010](../../04-decisions/0010-capability-security.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+Local Codex self-review passes the bounded experimental subset. See the [reviewed evidence](../../../evidence/phase-3/P3-06/2026-10-29/README.md) and [runbook](handles-memory-runbook.md). This is not external approval, universal revocation, public IPC or the M3 exit.

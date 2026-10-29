@@ -633,6 +633,23 @@ release, remote build, new recipient or standing remote approval is authorized.
 Geographic containment remains unverified; this administrative exception is not
 legal clearance and does not waive applicable law.
 
+### One-time owner authorization - agent safeguards, 2026-10-29
+
+After reviewing the local AGENTS.md and CLAUDE.md guidance updates, the owner
+instructed: "I give you permission to push to main again". In continuation of the
+explicitly approved GitHub destination and one-time pre-push bypass, this
+reauthorizes one direct push to `https://github.com/Continuum-Foundry/ContinuumOS.git`
+(`origin/main`) of those two instruction files, commit metadata and this record.
+The three unrelated Windows signing-policy edits and all local artifacts are
+excluded. No kernel implementation or retained evidence changes are included.
+
+The authorization is exhausted by the first successful push containing this
+record. The pre-push guard may be bypassed for that invocation only and must
+remain installed; the pre-commit hygiene check remains in force. No force push,
+release, remote build, new recipient or standing remote approval is authorized.
+Geographic containment remains unverified; this administrative exception is not
+legal clearance and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

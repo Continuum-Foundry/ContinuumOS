@@ -5,6 +5,11 @@ of project instructions for all coding agents. Read them first. This file adds
 only operational notes for Claude Code: commands, layout and pitfalls. Do not
 record architecture or decisions here; put those in the specs and ADRs.
 
+Apply the shared [development safeguards](AGENTS.md#development-safeguards) for
+branch freshness, fixture hooks, separate feature-subset builds, host/guest
+failure diagnosis and scoped push authorization. Keep those rules in AGENTS.md
+rather than maintaining a second copy here.
+
 ## Current state (verify before relying on it)
 
 - Original `no_std` Rust kernel (`kernel/`) cold-boots from a standalone UEFI ISO
@@ -28,9 +33,10 @@ record architecture or decisions here; put those in the specs and ADRs.
 
 - **Never push, open PRs, upload, or send project material to remote services.**
   [EXPORT_CONTROL.md](EXPORT_CONTROL.md) puts a U.S.-only handling hold on all of
-  them. `.githooks/pre-push` blocks pushes. Never use `--no-verify` or another
-  transport. Past owner exemptions were one-time and are exhausted. A new
-  exemption must come explicitly from the owner and be recorded in EXPORT_CONTROL.md.
+  them. `.githooks/pre-push` blocks pushes. Bypass it only for an invocation
+  explicitly covered by an owner exemption, with the exact upload scope recorded
+  in EXPORT_CONTROL.md; follow the shared safeguards above. Past one-time
+  exemptions are exhausted and do not authorize new uploads.
 - Cargo is `offline = true`. Do not fetch crates, install global packages, enable
   WSL, or change Windows settings. Tools are pinned under ignored `work/`.
 - Do not change pinned versions (Rust `1.99.1`, Limine 12.9.3, `limine` crate

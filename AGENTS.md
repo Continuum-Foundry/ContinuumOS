@@ -26,6 +26,34 @@ Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other
 coding agents should use the same documents. `CLAUDE.md` points to this entry point.
 
+## Development safeguards
+
+- When instructed to work on `main`, inspect the working tree, switch safely and
+  run `git pull --ff-only` before assuming it is current. Preserve unrelated edits;
+  do not discard changes or force a divergent branch to match the remote.
+- Keep test policy in the registered hooks in `kernel/src/user_fixture.rs`.
+  Syscall operation arms share dispatch and return validation; switch capture and
+  finish use the fixture-installed observer, never a hardcoded fixture address.
+  Public operations must not select return IP, selectors or privileged flags.
+- For shared boundary/scheduler changes, validate ordinary, `user-boundary-test`,
+  `scheduler-test` and `capability-test` builds separately. An all-features build
+  does not prove narrower subsets compile. Prefer early per-flavor compile checks
+  where tooling supports them, then run the required guest regressions. The
+  current xtask case commands combine building, packaging and guest execution;
+  do not claim a compile-only matrix command exists.
+- Run acceptance serially in the approved signer/xorriso execution context.
+  Advise the owner to keep the host awake during long runs; do not change power or
+  security settings. A host preflight timeout and a guest deadline failure are
+  distinct failures. Preserve both logs, keep deadlines unchanged and never count
+  an interrupted run as acceptance. Do not infer a root cause from a timeout alone;
+  per-subprobe timestamps are a diagnostic improvement, not a proven fix.
+- For an owner-exempted push, make the exact payload, remote destination, target
+  branch and any one-time guard bypass explicit in the approved scope and record
+  it in `EXPORT_CONTROL.md`. Use existing explicit authorization without asking
+  again; clarify only missing scope required to proceed. An exemption is not a
+  standing waiver. Keep unrelated edits and local artifacts out of the upload,
+  preserve the pre-commit check and leave the push guard installed afterward.
+
 Before retaining new evidence, follow `docs/05-delivery/evidence-retention.md`.
 Keep full generated logs/source copies local; stage a compact reviewed bundle and
 run `node audit/check-repository-hygiene.cjs`. Historical logs/source copies are

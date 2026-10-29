@@ -1,6 +1,6 @@
 # Experimental M3 runtime contract
 
-Status: implementation draft, revision 0, P3-01 through P3-04. The internal memory
+Status: implementation draft, revision 0, P3-01 through P3-06. The internal memory
 backend and staged loader exist; the bounded P3-04 execution experiment passes local self-review.
 No executing user ABI is frozen.
 [runtime-v0.json](../../contracts/runtime-v0.json)
@@ -119,13 +119,13 @@ record field definitions join JSON when their owning story implements them.
 | Operation family | Argument/result plan and lifetime |
 | --- | --- |
 | `abi_query` | `(out_ptr, capacity)`; success returns bytes written, too-small returns required bytes |
-| `object_info` | `(handle, out_ptr, capacity)`; type, granted rights and public generation, no pointers |
+| `object_info` | P3-06: `(handle)` returns `(kind << 32) | rights`; no object identity or pointers |
 | `handle_close`, `handle_duplicate` | `(handle)` / `(handle, rights_subset)`; duplicate returns new handle, close is not universal revocation |
 | `process_create`, `process_start` | `(launch_record_ptr, bytes)` / `(process_handle)`; immutable trusted image/grants, suspended until start; no caller-selected principal |
 | `process_exit`, `process_terminate`, `process_join` | `(reason)` / `(process_handle, reason)` / `(process_handle)`; exit never returns, nonblocking join returns retained exit reason or `WouldBlock` |
 | `thread_create`, `thread_start`, `thread_exit`, `thread_join`, `thread_yield` | `(record_ptr, bytes)` / `(thread)` / `(reason)` / `(thread)` / `()`; nonblocking join, bounded same-process guarded stack/entry/context, no authority amplification or caller-selected scheduling privilege |
-| `memory_create` | `(bytes, alignment)` returns memory handle, zeroed and quota charged |
-| `memory_map`, `memory_unmap`, `memory_protect` | `(record_ptr, bytes)` identifies memory handle/offset/extent/user address/rights; checked page alignment, aliases, pins and transactional rollback |
+| `memory_create` | P3-06: `(self_process, bytes, backing_rights)` returns zero-filled granted memory |
+| `memory_map`, `memory_unmap`, `memory_protect` | P3-06 exact scalar/request shapes are in `objects_boundary.arguments`; retained mapping ceilings, checked ranges/aliases/pins and transactional rollback |
 | `channel_create` | `(out_ptr, capacity)` writes two handles atomically; fixed profile queue limits |
 | `channel_send`, `channel_receive` | `(channel, record_ptr, bytes)`; nonblocking, records describe spans and transfer/result arrays, all-or-nothing consumption |
 | `wait_many` | `(items_ptr, item_count, deadline_ns, cancel_handle)`; copy bounded handle+interest records before sleeping, return RDX `(index << 32) \| ready_bits`, no output pointer retained and no message consumed |
@@ -159,8 +159,8 @@ fixed 64-page banks per space, charged in full with metadata and guarded kernel
 stack storage. Data backing uses reclaiming contiguous page runs; fragmentation
 can return OOM. A mutation rebuilds the inactive bank before atomic CR3 publication.
 Executable backing has only RO/NX supervisor data aliases; staging writes require
-zero mapping references. Shared references currently return Busy on owner death;
-P3-06 must add independent memory-object ownership and public rights. Copy pins
+zero mapping references. Legacy internal shared references return Busy on owner death; P3-06 object-held
+allocations instead detach and remain globally charged until the last reference. Copy pins
 block all mutations of the pinned space; P3-04 adds preemption/copy-fault handling.
 No public ABI IDs, user allocator or ring-3 execution follow from this subset.
 
@@ -207,7 +207,9 @@ allocator must not depend on allocating in their OOM/reporting path.
 ## Handles, messages and authority
 
 Handles are opaque process-local 64-bit values, low 32 bits slot, high 32 generation;
-zero is invalid. Retire a slot before generation wrap. Apply the same no-reuse
+zero is invalid. P3-06 consumes a boot-wide monotonic nonzero u32 nonce on every
+installation; after u32::MAX, new installations fail until reboot. Object slots
+retire on u64 generation exhaustion. Apply the same no-reuse
 rule to process/session/object identities and policy/route counters; exhaustion
 fails closed rather than wrapping authority. `close` drops exactly one reference;
 duplicate requires the duplicate right and a subset of source rights. Wrong type,
@@ -355,3 +357,19 @@ changes and blocking kernel continuations remain unsupported. Syscalls complete
 before switching; IRQs in the kernel mark pending only. Scheduler allocation
 calls admit at most 64 KiB. The P3-04 profile separately retains its TS guard.
 See ADR-0021 and the scheduler runbook for eager-state, feature and observer policy.
+
+## P3-06 experimental object/memory operations
+
+The [handles/memory runbook](../05-delivery/phase-3/handles-memory-runbook.md)
+and [ADR-0022](../04-decisions/0022-retained-memory-objects-and-handle-ceilings.md)
+define operation IDs 6–12, type-specific rights, immutable backing/mapping ceilings,
+independent handle/map refs, creator-death detach and exact exhaustion policy.
+The contract JSON includes explicit 32-byte map fields and access/rights IDs.
+The new profile requires a self-thread CONTROL handle for yield and a self-process
+CONTROL handle as process_exit's second argument. Earlier P3-04/05 execution
+fixtures retain their gated regression ABI only. In the rights-bearing profile,
+provisional memory_allocate/free return Unsupported. Admission installs initial
+self handles and explicitly grants immutable snapshots; no user-chosen identity
+can install authority. New capacities are the locked objects_execution_subset,
+within the larger planned M3 limits. Public device/IRQ/DMA and general supervisor
+operations remain unsupported. ABI freeze and public transfer remain later gates.

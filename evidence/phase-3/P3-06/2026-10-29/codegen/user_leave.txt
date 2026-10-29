@@ -1,0 +1,13 @@
+<user_leave>:
+ffffffff800022c6:      	cli
+ffffffff800022c7:      	cld
+ffffffff800022c8:      	movq	0x913d31(%rip), %rax # 0xffffffff80916000 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry11KERNEL_ROOT>
+ffffffff800022cf:      	movq	%rax, %cr3
+ffffffff800022d2:      	movq	0x913d2f(%rip), %rsp # 0xffffffff80916008 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry12CONTINUATION>
+ffffffff800022d9:      	popq	%r15
+ffffffff800022db:      	popq	%r14
+ffffffff800022dd:      	popq	%r13
+ffffffff800022df:      	popq	%r12
+ffffffff800022e1:      	popq	%rbx
+ffffffff800022e2:      	popq	%rbp
+ffffffff800022e3:      	retq

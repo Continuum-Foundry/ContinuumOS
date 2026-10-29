@@ -1,6 +1,6 @@
 //! Kernel build identity, compilation and independent binary audits.
 use super::{
-    process::capture,
+    process::{capture, capture_audit},
     support::{digest, read},
 };
 use crate::{Result, check_pin, elf, hash, output, root, rust_version, tool, write_json};
@@ -39,6 +39,7 @@ pub(super) enum Flavor {
     StaticLoader,
     UserBoundary,
     Scheduler,
+    Capabilities,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -54,6 +55,7 @@ impl Flavor {
             Self::StaticLoader => "static-loader-test",
             Self::UserBoundary => "user-boundary-test",
             Self::Scheduler => "scheduler-test",
+            Self::Capabilities => "capability-test",
         }
     }
     fn features(self) -> &'static str {
@@ -69,6 +71,7 @@ impl Flavor {
             Self::StaticLoader => "static-loader-test",
             Self::UserBoundary => "user-boundary-test",
             Self::Scheduler => "scheduler-test",
+            Self::Capabilities => "capability-test",
         }
     }
 }
@@ -291,12 +294,13 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     check_pin()?;
     let user_descriptors = if matches!(
         flavor,
-        Flavor::StaticLoader | Flavor::UserBoundary | Flavor::Scheduler
+        Flavor::StaticLoader | Flavor::UserBoundary | Flavor::Scheduler | Flavor::Capabilities
     ) {
         Some(super::user_images::build(
             dir,
             flavor == Flavor::UserBoundary,
-            flavor == Flavor::Scheduler,
+            matches!(flavor, Flavor::Scheduler | Flavor::Capabilities),
+            flavor == Flavor::Capabilities,
         )?)
     } else {
         None
@@ -390,7 +394,11 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         ("llvm-objdump", vec!["--disassemble", "--no-show-raw-insn"]),
     ] {
         let mut cmd = Command::new(llvm.join(format!("{name}.exe")));
-        let text = capture(cmd.args(args).arg(dir.join("kernel.elf")), dir, name, 30)?;
+        let text = if name == "llvm-objdump" {
+            capture_audit(cmd.args(args).arg(dir.join("kernel.elf")), dir, name, 30)?
+        } else {
+            capture(cmd.args(args).arg(dir.join("kernel.elf")), dir, name, 30)?
+        };
         if name == "llvm-readobj" {
             inspection["kernel_image_bounds"] = audit_image_bounds(&text, &inspection)?;
             let mut sites = serde_json::Map::new();
@@ -430,7 +438,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             return Err("LLVM found undefined symbols".into());
         }
         if name == "llvm-objdump" {
-            if flavor == Flavor::Scheduler {
+            if matches!(flavor, Flavor::Scheduler | Flavor::Capabilities) {
                 let mut symbol = "";
                 let mut filtered = String::new();
                 let mut saves = 0;

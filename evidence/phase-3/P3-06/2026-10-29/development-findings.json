@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "scope": "Selected development findings, not complete logs; all full generated artifacts remain local.",
+  "findings": [
+    {
+      "label": "static-audit-output",
+      "local_directory": "${WORKSPACE}/build/m1/capabilities-1793146709843775200-56304",
+      "finding": "Full LLVM disassembly exceeded the former 2 MiB host command cap; added an explicit bounded 8 MiB static-audit reader. Guest limits unchanged.",
+      "original_result": {
+        "action": "capabilities",
+        "error": "llvm-objdump: output limit; logs retained",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "result_sha256": "3851260702b790ce015dabe4a2e789860e215fd2c02315c8f5fc2d92b3b0bf7a"
+    },
+    {
+      "label": "module-mapping",
+      "local_directory": "${WORKSPACE}/build/m1/capabilities-1793146812466677500-56008",
+      "finding": "New mode 39 omitted from the trusted boot-module mapping gate; actual CPL0 page fault preceded any user entry. Added mode 39.",
+      "original_result": {
+        "action": "capabilities",
+        "error": "VM failed: \"Unexpected fatal diagnostic\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "result_sha256": "d6f31bbc43c9c83156b157a4564fd84be933484deea971e0f33f4097828c94f3",
+      "full_serial_sha256": "5368df128b5c10e56d129d482f797bb7f25bf1bc9023b0841b780201be89a15d",
+      "selected_raw_serial": [
+        "m1.kernel_entry version=5 build=b321bc3b83191e20db2bcf62400a45526cceacd95a52ef8ae95bec526d000966 session=981c7aaaa4ea47bdafaed305ecf79e056d9b69ef55dadf856fee69b3d99f07a8 session_origin=host seq=0 stage=entry outcome=ok emergency=false fixture=capabilities",
+        "m1.exceptions_ready version=5 build=b321bc3b83191e20db2bcf62400a45526cceacd95a52ef8ae95bec526d000966 session=981c7aaaa4ea47bdafaed305ecf79e056d9b69ef55dadf856fee69b3d99f07a8 session_origin=host seq=85 stage=exceptions outcome=ok emergency=false idt_entries=256 runtime_base=0xffffffff808f1000 double_base=0xffffffff808df000 nmi_base=0xffffffff80905000 stack_bytes=65536 double_ist=1 nmi_ist=2 guards=false if=false",
+        "m1.exception version=5 build=b321bc3b83191e20db2bcf62400a45526cceacd95a52ef8ae95bec526d000966 session=981c7aaaa4ea47bdafaed305ecf79e056d9b69ef55dadf856fee69b3d99f07a8 session_origin=host seq=201 stage=exceptions outcome=fatal emergency=false vector=14 rip=0xffffffff80022ecc error=0x0 address=0xffffc20000000000 rsp=0xffffffff808ff050 cs=0x8 flags=0x10083 frame=0xffffffff808ff018"
+      ]
+    },
+    {
+      "label": "duplicate-serial-field",
+      "local_directory": "${WORKSPACE}/build/m1/capabilities-1793146914816776100-40928",
+      "finding": "Authority session used the reserved host-session field name; host parser correctly rejected it. Renamed and reduced per-call metadata.",
+      "original_result": {
+        "action": "capabilities",
+        "error": "VM failed: \"Empty/duplicate guest field\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "result_sha256": "297e6e67ece4e18280c8d48c3721cbaf9eaa3cb5991b798d64ce4c1cd04326f5",
+      "full_serial_sha256": "5617095d5e3097595d50ac539b0c779ce8818e034b3a31934598bc7bff3017f8",
+      "selected_raw_serial": [
+        "m1.cap_call version=5 build=1209079cdbd3172c781248e4f83c270b06b4ea43c281b3a1d52b203e4d4433de session=34a7ac43603d14d063f3e7c66ed312a0c254ea4159861fa3838f0709479d836e session_origin=host seq=208 stage=capabilities outcome=ok emergency=false case=100 process=1 generation=1 principal=202 session=2002 operation=6 status=0 value=4294967583 a=17179869185 b=0",
+        "m1.cap_call version=5 build=1209079cdbd3172c781248e4f83c270b06b4ea43c281b3a1d52b203e4d4433de session=34a7ac43603d14d063f3e7c66ed312a0c254ea4159861fa3838f0709479d836e session_origin=host seq=209 stage=capabilities outcome=ok emergency=false case=100 process=2 generation=1 principal=101 session=1001 operation=6 status=0 value=4294967583 a=30064771073 b=0"
+      ]
+    },
+    {
+      "label": "private-owner-order",
+      "local_directory": "${WORKSPACE}/build/m1/capabilities-1793146998331082800-53468",
+      "finding": "Focused kernel workload passed its initial checks, but retained raw trace showed the write offender could run after the private owner died. Strengthened fixture to keep owner runnable for 32 yields and require fault-before-owner-reap in the independent reviewer.",
+      "original_result": {
+        "action": "capabilities",
+        "schema_version": 2,
+        "stages": {
+          "capabilities": "passed",
+          "compile": "passed",
+          "package": "passed",
+          "run": {
+            "artifact_directory": "${WORKSPACE}\\build/m1\\capabilities-1793146998331082800-53468\\capabilities-run",
+            "build_id": "c268efd2de7c49d96a5e492c3e79f5337e7989e53f1c473c4edd54e353f8d6a4",
+            "checked_summary": {
+              "acpi": "locator-only",
+              "boot_info": "1",
+              "build": "c268efd2de7c49d96a5e492c3e79f5337e7989e53f1c473c4edd54e353f8d6a4",
+              "emergency": "false",
+              "framebuffers": "1",
+              "hhdm": "0xffff800000000000",
+              "mode": "framebuffer",
+              "modules": "3",
+              "outcome": "ok",
+              "regions": "39",
+              "seq": "1",
+              "session": "478bac98502dab8277356362cabb858596cb710e0be51275647d7b2efe574dd3",
+              "session_origin": "host",
+              "stage": "metadata",
+              "version": "5"
+            },
+            "cleanup_reaped": true,
+            "deadline_ms": 30000,
+            "elapsed_host_ms": 7997,
+            "emulator_test_exit": 33,
+            "error": null,
+            "final_process_exit": 33,
+            "fixture": "capabilities",
+            "guest_shutdown_claimed": false,
+            "host_session_id": "478bac98502dab8277356362cabb858596cb710e0be51275647d7b2efe574dd3",
+            "host_stopped_after_checkpoint": false,
+            "iso_sha256": "97eea214b126015b2bd83038cf96747227c164fb21f919f2524f7b958954506a",
+            "iso_unchanged_after_run": true,
+            "kernel_entry_observed": true,
+            "package": {
+              "bios_tested": false,
+              "boot_tested": false,
+              "build_flavor": "capability-test",
+              "build_id": "c268efd2de7c49d96a5e492c3e79f5337e7989e53f1c473c4edd54e353f8d6a4",
+              "configuration_sha256": "517278ee8d970a5dfa4c69a0a65b8d57e323b23d2972563afaae9ce6db335eab",
+              "diagnostic_sites": {
+                "diagnostic_double_site": 18446744071562077487,
+                "diagnostic_guard_site": 18446744071562077462,
+                "diagnostic_invalid_opcode": 18446744071562076735,
+                "diagnostic_nx_page": 18446744071562256384,
+                "diagnostic_page_fault_site": 18446744071562076747,
+                "diagnostic_panic_report": 18446744071562076752,
+                "diagnostic_write_site": 18446744071562077467
+              },
+              "fault": "capabilities",
+              "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+              "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+              "fixture": "capabilities",
+              "host_session_id": "478bac98502dab8277356362cabb858596cb710e0be51275647d7b2efe574dd3",
+              "input_lock_sha256": "5d8ecae5ae201abc0b8d848134b5357378152de08fac8f64603b01d9be9fb22e",
+              "iso_sha256": "97eea214b126015b2bd83038cf96747227c164fb21f919f2524f7b958954506a",
+              "kernel_sha256": "15848a236163102ccb4066113ba8553357bfd18b3a50a054f5029f3994260dc6",
+              "module_fixture": false,
+              "payload": {
+                "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+                "boot/kernel.elf": "15848a236163102ccb4066113ba8553357bfd18b3a50a054f5029f3994260dc6",
+                "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+                "boot/limine/limine.conf": "517278ee8d970a5dfa4c69a0a65b8d57e323b23d2972563afaae9ce6db335eab",
+                "boot/service.elf": "93636768ec6d9783fc10a9cf7aef698f5e71d3d7230824be13cb59db33e1ac61",
+                "boot/user_a.elf": "93636768ec6d9783fc10a9cf7aef698f5e71d3d7230824be13cb59db33e1ac61",
+                "boot/user_b.elf": "93636768ec6d9783fc10a9cf7aef698f5e71d3d7230824be13cb59db33e1ac61",
+                "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+                "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+                "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+                "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+              },
+              "payload_extraction_verified": true,
+              "schema_version": 2,
+              "session_origin": "host; correlation only, not a security credential or reset detector",
+              "uefi_optical_catalog": true
+            },
+            "pid": 44036,
+            "schema_version": 1,
+            "status": "passed",
+            "timed_out": false,
+            "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+          }
+        },
+        "status": "passed"
+      },
+      "result_sha256": "baa6ec5d13567af5659f000b574ab5dfba3dee4993f9659bf315cd992a15e551",
+      "full_serial_sha256": "32f55646c6553ec0995ff073ee07a4e68aa45d00a2dc3022d99d1035aa9fa1fb",
+      "selected_raw_serial": [
+        "m1.cap_reap version=5 build=c268efd2de7c49d96a5e492c3e79f5337e7989e53f1c473c4edd54e353f8d6a4 session=478bac98502dab8277356362cabb858596cb710e0be51275647d7b2efe574dd3 session_origin=host seq=704 stage=capabilities outcome=ok emergency=false wave=5 task=0 process=0 generation=6 principal=101 authority_session=1001 result=0 expected=0 preemptions=1 dispatches=6",
+        "m1.user_fault version=5 build=c268efd2de7c49d96a5e492c3e79f5337e7989e53f1c473c4edd54e353f8d6a4 session=478bac98502dab8277356362cabb858596cb710e0be51275647d7b2efe574dd3 session_origin=host seq=710 stage=user-boundary outcome=ok emergency=false case=105 vector=14 error=0x6 cs=0x33 ss=0x3b flags=0x10246 sp=0x7ffefe80 ip=0x4006bb address=0x60000000"
+      ]
+    },
+    {
+      "label": "aggregate-doc-audit",
+      "local_directory": "${WORKSPACE}/build/m3/P3-06/acceptance-1793147317863",
+      "finding": "The aggregate stopped at the documentation check expecting 21 ADRs after adding ADR-0022. Updated expected count to 22; did not waive the gate.",
+      "original_result": {
+        "schema_version": 1,
+        "story": "P3-06",
+        "status": "failed",
+        "commands": [
+          {
+            "arguments": [
+              "-NoProfile",
+              "-File",
+              "tools/Recheck-P2Prerequisites.ps1"
+            ],
+            "exit_code": 0,
+            "program": "pwsh",
+            "elapsed_ms": 235550,
+            "name": "prerequisites"
+          },
+          {
+            "arguments": [
+              "-NoProfile",
+              "-File",
+              "tools/Test-P1-07.ps1"
+            ],
+            "exit_code": 1,
+            "program": "pwsh",
+            "elapsed_ms": 135805,
+            "name": "m1"
+          }
+        ],
+        "runs": {
+          "prerequisites": "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1793147328225"
+        },
+        "source_commit": "0275ae6ba88dbb4c3f33e94057400df4c08af70e",
+        "user_execution": true,
+        "host_test_threads": 1,
+        "error": "m1 failed; see ${WORKSPACE}\\build\\m3\\P3-06\\acceptance-1793147317863"
+      }
+    },
+    {
+      "label": "reviewer-negative-test",
+      "finding": "The reviewer mutation test initially accepted removal of all inventory records because the loop saw none. Added mandatory global and per-wave inventory counts. The final focused review rejects all 18 required mutations."
+    },
+    {
+      "label": "explicit-request-encoding",
+      "local_directory": "${WORKSPACE}/build/m3/P3-06/acceptance-1793229453306",
+      "finding": "Source review found the guest map request used a native u64 array. Stopped only the verified harness and host-check descendants before any guest was active; encoded every map field explicitly as little-endian bytes and restarted final-source acceptance. This interrupted aggregate is not accepted."
+    },
+    {
+      "label": "historical-boundary-reviewer",
+      "finding": "The aggregate called P3-04 codegen review, which expects 20 pushes/15 pops before P3-05 added a balanced scratch push/pop and CR0.TS guard. The new P3-06 reviewer independently checks the current 21/16 wrapper, CR0 guard, entry/root/copy layout and legacy user instruction obligations. Historical reviewers and evidence are unchanged."
+    }
+  ]
+}

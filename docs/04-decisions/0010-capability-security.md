@@ -51,3 +51,5 @@ and address VM/IOMMU/runtime limitations. Revisit policy at the multi-user gate.
 
 Evidence: [S19](../01-research/sources.md#s19), [S21](../01-research/sources.md#s21),
 [security spec](../02-architecture/security-and-trust.md).
+
+P3-06 now passes the [bounded handle/memory gate](../../evidence/phase-3/P3-06/2026-10-29/README.md): mandatory typed rights, attenuation and independently retained immutable memory. [ADR-0022](0022-retained-memory-objects-and-handle-ceilings.md) records backing and exhaustion choices. Public transfer, brokered revocation and full M3 review remain open; this ADR remains Proposed.

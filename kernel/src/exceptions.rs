@@ -222,6 +222,10 @@ extern "C" fn run(mode: u64) -> ! {
     if (36..=38).contains(&mode) {
         crate::user_entry::scheduling::run(mode == 36).unwrap_or_else(|e| crate::reject(e));
     }
+    #[cfg(feature = "capability-test")]
+    if mode == 39 {
+        crate::user_entry::scheduling::run_objects().unwrap_or_else(|e| crate::reject(e));
+    }
     record(
         "m1.boot_complete",
         "boot",

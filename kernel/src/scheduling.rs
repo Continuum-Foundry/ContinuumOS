@@ -159,6 +159,12 @@ fn spawn(queue: &mut Queue, mode: u64, module: usize, required: u64) -> Result<T
     let slot = unsafe { (&*TASKS.0.get()).iter().position(Option::is_none) }
         .ok_or(error("scheduler", "quota"))?;
     let binding = [Binding::UserA, Binding::UserB, Binding::Service][module];
+    #[cfg(feature = "capability-test")]
+    let binding = if capabilities::enabled() && module == 2 {
+        Binding::UserA
+    } else {
+        binding
+    };
     let id = runtime_memory::with(|r, b| unsafe {
         (&mut *LAUNCHER.0.get()).bootstrap_return(
             r,
@@ -176,10 +182,22 @@ fn spawn(queue: &mut Queue, mode: u64, module: usize, required: u64) -> Result<T
         let p = (&*LAUNCHER.0.get()).get(id)?;
         (p.space, p.context, p.entry, p.stack)
     };
+    #[cfg(feature = "capability-test")]
+    let grants = if capabilities::enabled() {
+        Some(capabilities::admit(space, module)?)
+    } else {
+        None
+    };
     let (root, stack) = runtime_memory::with(|r, b| {
         let a = r.allocate(b, space, PAGE, PAGE)?.unwrap();
         r.write_staging(b, space, a, 0, &mode.to_le_bytes())?;
         r.write_staging(b, space, a, 16, &(module as u64 + 1).to_le_bytes())?;
+        #[cfg(feature = "capability-test")]
+        if let Some(grants) = grants {
+            for (i, v) in grants.into_iter().enumerate() {
+                r.write_staging(b, space, a, 24 + i as u64 * 8, &v.to_le_bytes())?;
+            }
+        }
         r.map(b, space, a, 0x70000000, 0, PAGE, Access::Write)?;
         Ok::<_, continuum_kernel::Error>((r.root(space)?.0, r.kernel_stack(space)?.end()))
     })?;
@@ -496,6 +514,178 @@ pub(crate) fn run(trace: bool) -> Result<()> {
         "ok",
         format_args!(
             "waves=10 tasks=30 switches={switches} settled=true idle=true max_masked_upper_ns={masked_upper} max_body_ns={masked} max_wait_ns={wait} nested_irqs={nested} pin_irqs={} observer_samples=100 observer_total_ns={observer_ns} trace={trace}",
+            unsafe { *PIN_IRQS.0.get() }
+        ),
+    );
+    unsafe {
+        asm!("sti");
+    }
+    Ok(())
+}
+
+#[cfg(feature = "capability-test")]
+pub(crate) fn run_objects() -> Result<()> {
+    unsafe {
+        asm!("cli");
+        let root: u64;
+        asm!("mov {}, cr3",out(reg) root);
+        *KERNEL_ROOT.0.get() = root;
+    }
+    need(cpu_supported(core::arch::x86_64::__cpuid(1).edx, 0, 7))?;
+    install()?;
+    unsafe {
+        let cr0: u64;
+        let cr4: u64;
+        asm!("mov {}, cr0","mov {}, cr4",out(reg) cr0,out(reg) cr4);
+        asm!("mov cr0, {}",in(reg) cr0 | (1<<5));
+        asm!("mov cr4, {}",in(reg) cr4 & !((1<<18)|(1<<16)|(1<<22)|(1<<23)));
+    }
+    capabilities::enable();
+    let empty = runtime_memory::with(|r, _| r.inventory());
+    let objects = capabilities::inventory();
+    let frames = crate::paging::runtime_frames();
+    let fixed = empty.metadata_bytes
+        + empty.table_storage_bytes
+        + 16 * 73728
+        + core::mem::size_of::<[Option<Task>; N]>()
+        + core::mem::size_of::<continuum_kernel::objects::Registry>()
+        + core::mem::size_of::<Launcher<16>>()
+        + core::mem::size_of::<Queue>()
+        + 8192;
+    need(fixed <= 16 * 1024 * 1024)?;
+    let mut count = 0;
+    for wave in 0..6 {
+        let mut queue = Queue::EMPTY;
+        for module in 0..3 {
+            spawn(&mut queue, 100 + wave, module, 7)?;
+        }
+        let i = capabilities::inventory();
+        record(
+            "m1.cap_inventory",
+            "capabilities",
+            "ok",
+            format_args!(
+                "wave={wave} phase=admitted owners={} objects={} handles={} mappings={} backing={} mapped={} fixed_bytes={fixed}",
+                i.owners, i.objects, i.handles, i.mappings, i.backing_bytes, i.mapped_bytes
+            ),
+        );
+        while let Some(id) = queue.pop() {
+            count += 1;
+            need(count < 512)?;
+            let (root, frame, fp, stack, c) = unsafe {
+                let t = (&mut *TASKS.0.get())[id.slot].as_mut().unwrap();
+                need(t.current.id.generation == id.generation)?;
+                t.dispatches += 1;
+                (
+                    t.root,
+                    &t.frame as *const Frame,
+                    &t.fp as *const FxState,
+                    t.stack,
+                    t.current,
+                )
+            };
+            unsafe {
+                *CURRENT.0.get() = Some(c);
+                *INDEX.0.get() = id.slot;
+                *KERNEL_SP.0.get() = stack;
+                *HEAP.0.get() = [None; 32];
+                *PENDING.0.get() = false;
+                *BEGIN.0.get() = 0;
+                for msr in [0xc0000100, 0xc0000101, 0xc0000102] {
+                    wrmsr(msr, 0);
+                }
+            }
+            crate::exceptions::user_stack(stack);
+            need(valid_return(unsafe { &*frame }))?;
+            unsafe {
+                *ENABLED.0.get() = true;
+                task_resume(root, frame, fp);
+                *ENABLED.0.get() = false;
+            }
+            let (result, preemptions, dispatches) = unsafe {
+                let t = (&*TASKS.0.get())[id.slot].as_ref().unwrap();
+                (t.result, t.preemptions, t.dispatches)
+            };
+            if let Some(value) = result {
+                let expected = if id.slot == 1 && wave > 0 { 0x10e } else { 0 };
+                record(
+                    "m1.cap_reap",
+                    "capabilities",
+                    "ok",
+                    format_args!(
+                        "wave={wave} task={} process={} generation={} principal={} authority_session={} result={value} expected={expected} preemptions={preemptions} dispatches={dispatches}",
+                        id.slot, c.id.slot, c.id.generation, c.context.principal, c.context.session
+                    ),
+                );
+                need(value == expected)?;
+                unsafe {
+                    *CURRENT.0.get() = None;
+                }
+                crate::exceptions::user_stack(crate::exceptions::stacks()[0] + 69632);
+                capabilities::remove(c.space)?;
+                runtime_memory::with(|r, b| unsafe {
+                    (&mut *LAUNCHER.0.get()).destroy(r, b, c.id)
+                })?;
+                unsafe {
+                    (&mut *TASKS.0.get())[id.slot] = None;
+                }
+                let i = capabilities::inventory();
+                let m = runtime_memory::with(|r, _| r.inventory());
+                record(
+                    "m1.cap_inventory",
+                    "capabilities",
+                    "ok",
+                    format_args!(
+                        "wave={wave} phase=reap task={} owners={} objects={} handles={} mappings={} backing={} mapped={} frames={} committed={} resident={} pins={}",
+                        id.slot,
+                        i.owners,
+                        i.objects,
+                        i.handles,
+                        i.mappings,
+                        i.backing_bytes,
+                        i.mapped_bytes,
+                        crate::paging::runtime_frames(),
+                        m.committed,
+                        m.resident,
+                        m.active_pins
+                    ),
+                );
+            } else {
+                queue.push(id, 0)?;
+            }
+        }
+        let m = runtime_memory::with(|r, _| r.inventory());
+        let i = capabilities::inventory();
+        need(m == empty && i == objects && crate::paging::runtime_frames() == frames)?;
+        record(
+            "m1.cap_inventory",
+            "capabilities",
+            "ok",
+            format_args!(
+                "wave={wave} phase=settled owners={} objects={} handles={} mappings={} backing={} mapped={} frames={frames} spaces={} allocations={} committed={} resident={} tables={} stacks={} pins={}",
+                i.owners,
+                i.objects,
+                i.handles,
+                i.mappings,
+                i.backing_bytes,
+                i.mapped_bytes,
+                m.spaces,
+                m.allocations,
+                m.committed,
+                m.resident,
+                m.page_tables,
+                m.kernel_stack_bytes,
+                m.active_pins
+            ),
+        );
+    }
+    record(
+        "m1.cap_ready",
+        "capabilities",
+        "ok",
+        format_args!(
+            "waves=6 tasks=18 settled=true switches={count} nested_irqs={} pin_irqs={} fixed_bytes={fixed} user_execution=true",
+            unsafe { *NESTED.0.get() },
             unsafe { *PIN_IRQS.0.get() }
         ),
     );

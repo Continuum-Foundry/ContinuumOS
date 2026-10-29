@@ -1,0 +1,46 @@
+<timer_vector>:
+ffffffff80002361:      	pushq	%rax
+ffffffff80002362:      	pushq	%rcx
+ffffffff80002363:      	pushq	%rdx
+ffffffff80002364:      	pushq	%rbx
+ffffffff80002365:      	pushq	%rbp
+ffffffff80002366:      	pushq	%rsi
+ffffffff80002367:      	pushq	%rdi
+ffffffff80002368:      	pushq	%r8
+ffffffff8000236a:      	pushq	%r9
+ffffffff8000236c:      	pushq	%r10
+ffffffff8000236e:      	pushq	%r11
+ffffffff80002370:      	pushq	%r12
+ffffffff80002372:      	pushq	%r13
+ffffffff80002374:      	pushq	%r14
+ffffffff80002376:      	pushq	%r15
+ffffffff80002378:      	cld
+ffffffff80002379:      	movq	%cr0, %rax
+ffffffff8000237c:      	pushq	%rax
+ffffffff8000237d:      	orq	$0x8, %rax
+ffffffff80002381:      	movq	%rax, %cr0
+ffffffff80002384:      	leaq	0x8(%rsp), %rbx
+ffffffff80002389:      	andq	$-0x10, %rsp
+ffffffff8000238d:      	movl	$0x40, %edi
+ffffffff80002392:      	movq	0x80(%rbx), %rsi
+ffffffff80002399:      	movq	%rbx, %rdx
+ffffffff8000239c:      	callq	0xffffffff8001b120 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel5timer9interrupt>
+ffffffff800023a1:      	movq	-0x8(%rbx), %rax
+ffffffff800023a5:      	movq	%rax, %cr0
+ffffffff800023a8:      	movq	%rbx, %rsp
+ffffffff800023ab:      	popq	%r15
+ffffffff800023ad:      	popq	%r14
+ffffffff800023af:      	popq	%r13
+ffffffff800023b1:      	popq	%r12
+ffffffff800023b3:      	popq	%r11
+ffffffff800023b5:      	popq	%r10
+ffffffff800023b7:      	popq	%r9
+ffffffff800023b9:      	popq	%r8
+ffffffff800023bb:      	popq	%rdi
+ffffffff800023bc:      	popq	%rsi
+ffffffff800023bd:      	popq	%rbp
+ffffffff800023be:      	popq	%rbx
+ffffffff800023bf:      	popq	%rdx
+ffffffff800023c0:      	popq	%rcx
+ffffffff800023c1:      	popq	%rax
+ffffffff800023c2:      	iretq

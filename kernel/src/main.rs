@@ -239,6 +239,7 @@ pub extern "C" fn kernel_entry() -> ! {
         && !(cfg!(feature = "timer-test") && timer::mode(fixture).is_some())
         && !(cfg!(feature = "runtime-memory-test") && fixture == "owned-memory")
         && !(cfg!(feature = "static-loader-test") && fixture == "static-loader")
+        && !(cfg!(feature = "capability-test") && fixture == "capabilities")
         && !(cfg!(feature = "scheduler-test")
             && matches!(fixture, "scheduler-on" | "scheduler-off" | "scheduler-cpu"))
         && !(cfg!(feature = "user-boundary-test")
@@ -349,6 +350,9 @@ pub extern "C" fn kernel_entry() -> ! {
             .or_else(|| paging::mode(fixture))
             .or_else(|| timer::mode(fixture))
             .or_else(|| {
+                if cfg!(feature = "capability-test") && fixture == "capabilities" {
+                    return Some(39);
+                }
                 if cfg!(feature = "scheduler-test")
                     && matches!(fixture, "scheduler-on" | "scheduler-off" | "scheduler-cpu")
                 {

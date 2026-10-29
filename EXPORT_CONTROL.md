@@ -617,6 +617,22 @@ remote build, new recipient or standing approval is authorized. Geographic
 containment remains unverified; this administrative exception is not legal
 clearance and does not waive applicable law.
 
+### One-time owner authorization - syscall fixture seam, 2026-10-29
+
+After local syscall-seam verification, the owner instructed: "i give you exemption
+to push to main". This authorizes one direct push to the existing GitHub
+`origin/main` of the shared syscall dispatch/fixture-hook refactor, progress
+observer, accompanying runbook/README updates, commit metadata and this record.
+The three pre-existing Windows signing-policy edits are excluded. Generated
+binaries, ISOs, full logs, local review reports and run trees remain local.
+
+The authorization is exhausted by the first successful push containing this
+record. The pre-push guard may be bypassed for that invocation only and must
+remain installed; the pre-commit hygiene check remains in force. No force push,
+release, remote build, new recipient or standing remote approval is authorized.
+Geographic containment remains unverified; this administrative exception is not
+legal clearance and does not waive applicable law.
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

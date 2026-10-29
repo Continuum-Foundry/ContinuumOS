@@ -133,3 +133,27 @@ approval or a security guarantee. Sources: [Intel manuals](https://www.intel.com
 Case 16 is a trusted supervisor fault injection: while the physical allocator is empty, constrain it to both exact staged image plans, the two fixture/control pages and 256 additional pages. One 1 MiB allocation succeeds; the next returns the real allocator Exhausted-to-OutOfMemory path. Restore the unlimited test quota after reap has returned the physical inventory to empty, before the healthy replacement. This does not exhaust all 2 GiB of guest RAM and is not a natural whole-VM OOM claim.
 
 Image staging uses a checked `Store::write_bytes` operation. The guest adapter admits only an exclusive unmapped allocation, makes one physical page’s supervisor alias RW/NX, copies that page’s bounded portion, restores RO/NX and invalidates before moving to the next page. It never writes a published/executable allocation. Default host stores retain scalar semantics. This removes per-byte alias transitions without changing admission, pins, lifetime or rollback; the staged-loader independent page/hash/alias audit remains required. Static GOT entries are placed before final NOLOAD BSS in the user linker script.
+
+## Shared syscall path and fixture policy
+
+`user_entry::dispatch` checks the entry invariant, invokes one explicit entry
+seam, validates return state, decodes and handles the operation, then validates
+again before the return hook/assembly. `user_fixture.rs` holds the registered
+flavor hooks for frame injection, FP checks, operation overrides and return
+scheduling. Registration occurs before user execution on the single CPU.
+The hook table is copied by value; no structural borrow or pin crosses a switch.
+The return hook may capture an already validated frame or clear TS; it cannot
+change mappings or the return frame. SYSCALL itself does not switch RSP.
+
+Cases 12 and 13 are kernel-side negative tests in `inject_bad_return`, selected
+by the trusted supervisor case. The supervisor separately stages the guest case
+word at 0x70000000; the executable reads it and calls yield. No public operation
+selects IP, CS, SS or flags. Both injections retain `m1.user_bad_return` and result
+0x200. The 160-byte frame and IP offset assertion are unchanged.
+
+The boundary fixture keeps its integer-only TS/#NM behavior and nested-IRQ yield.
+The scheduler flavor registers quota/yield/exit policy, eager FP checks and
+masked-body accounting. The capability flavor checks rights before that policy.
+Scheduler returns, including quota denials and yields, pass the same final
+return validator. Event names, stages, results, fixtures and feature dependencies
+are unchanged; no xtask contract update is required.

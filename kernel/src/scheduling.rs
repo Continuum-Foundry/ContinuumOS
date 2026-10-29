@@ -20,6 +20,16 @@ struct Task {
     result: Option<u64>,
     vector: u64,
 }
+static PROGRESS_OBSERVER: Local<Option<fn() -> u64>> = Local(UnsafeCell::new(None));
+pub(super) fn observe_progress(observer: fn() -> u64) {
+    assert!(!active());
+    unsafe {
+        PROGRESS_OBSERVER.0.get().write(Some(observer));
+    }
+}
+fn progress_sample() -> u64 {
+    unsafe { PROGRESS_OBSERVER.0.get().read() }.map_or(0, |observe| observe())
+}
 static TASKS: Local<[Option<Task>; N]> = Local(UnsafeCell::new([None; N]));
 static ENABLED: Local<bool> = Local(UnsafeCell::new(false));
 static INDEX: Local<usize> = Local(UnsafeCell::new(0));
@@ -50,10 +60,10 @@ fn measure_masked() {
         }
     }
 }
-pub(crate) fn begin_syscall() {
+pub(crate) fn begin_syscall(entered: u64) {
     if active() {
         unsafe {
-            BEGIN.0.get().write(now());
+            BEGIN.0.get().write(entered);
         }
     }
 }
@@ -107,7 +117,7 @@ fn capture(f: &Frame, timer: bool) -> ! {
         }
         t.heap = HEAP.0.get().read();
         t.preemptions += u64::from(timer);
-        t.progress = (0x70000008 as *const u64).read_volatile();
+        t.progress = progress_sample();
     }
     measure_masked();
     unsafe { user_leave() }
@@ -143,7 +153,7 @@ pub(crate) fn finish(_reason: &'static str, result: u64, vector: u64) -> ! {
         task_save_fp(&mut t.fp);
         t.result = Some(result);
         t.vector = vector;
-        t.progress = (0x70000008 as *const u64).read_volatile();
+        t.progress = progress_sample();
     }
     measure_masked();
     unsafe { user_leave() }
@@ -263,6 +273,7 @@ fn spawn(queue: &mut Queue, mode: u64, module: usize, required: u64) -> Result<T
     Ok(thread)
 }
 pub(crate) fn run(trace: bool) -> Result<()> {
+    fixture::install_scheduler();
     unsafe {
         asm!("cli");
         let root: u64;
@@ -525,6 +536,7 @@ pub(crate) fn run(trace: bool) -> Result<()> {
 
 #[cfg(feature = "capability-test")]
 pub(crate) fn run_objects() -> Result<()> {
+    fixture::install_capabilities();
     unsafe {
         asm!("cli");
         let root: u64;

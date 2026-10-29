@@ -122,3 +122,20 @@ instructions include those fields, but this review only credits their default
 zero values under TCG. Arithmetic data, tags, status, rounding, MXCSR and all
 sixteen XMM registers have active distinct sentinels. No debugger/TLS/extended
 state feature is accepted.
+
+## Fixture observer and syscall hooks
+
+Scheduler and capability fixtures register syscall policy through
+`user_fixture.rs`; dispatch has no flavor cfg branches inside operation arms.
+Capability authorization runs before scheduler yield/exit handling. Install
+sets CR0.TS while enabling FX support; scheduler resume restores the owner's
+private eager FP state and clears TS. The separate boundary regression retains
+TS and its process-local #NM test.
+
+The fixture installs a progress observer for its mapped control-page word at
+0x70000008. `capture` and `finish` call that observer at the original sampling
+points while the owner's root is active, before returning to the supervisor.
+The switch mechanism contains no fixture address. Samples still feed
+`task_switch.progress`, `task_end.progress` and the non-yielding hog's positive
+progress assertion; inventory settlement does not depend on them. Capability
+fixtures install the same observer, preserving their prior sample behavior.

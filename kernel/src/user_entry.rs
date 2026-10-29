@@ -20,6 +20,8 @@ use ids::*;
 #[cfg(feature = "capability-test")]
 #[path = "capability_guest.rs"]
 pub(crate) mod capabilities;
+#[path = "user_fixture.rs"]
+mod fixture;
 #[cfg(feature = "scheduler-test")]
 #[path = "scheduling.rs"]
 pub(crate) mod scheduling;
@@ -92,7 +94,8 @@ fn install() -> Result<()> {
         for msr in [0xc0000100, 0xc0000101, 0xc0000102] {
             wrmsr(msr, 0);
         }
-        // Until P3-05, any accidental user FP/SIMD traps as process-local #NM.
+        // Enable FX state support but keep TS set in kernel Rust and the
+        // integer-only fixture; eager scheduler resume clears TS for its owner.
         let features = core::arch::x86_64::__cpuid(1).edx;
         need(features & (7 << 24) == 7 << 24)?;
         let cr0: u64;
@@ -316,8 +319,8 @@ fn free(base: u64) -> core::result::Result<u64, u64> {
     Ok(0)
 }
 extern "C" fn dispatch(ptr: *mut Frame) {
-    #[cfg(feature = "scheduler-test")]
-    scheduling::begin_syscall();
+    let hooks = fixture::hooks();
+    let entered = (hooks.entry_time)();
     let f = unsafe { &mut *ptr };
     let c = current();
     let flags: u64;
@@ -339,14 +342,7 @@ extern "C" fn dispatch(ptr: *mut Frame) {
     unsafe {
         *CALLS.0.get() += 1;
     }
-    // Explicit test-only kernel frame mutations. They use the production
-    // validation below; no public syscall may choose a return IP/privilege.
-    if c.case == 12 {
-        f.ip = 0x800000000000;
-    }
-    if c.case == 13 {
-        f.flags |= 0x3000;
-    }
+    (hooks.entry)(f, entered);
     if !valid_return(f) {
         record(
             "m1.user_bad_return",
@@ -360,18 +356,14 @@ extern "C" fn dispatch(ptr: *mut Frame) {
         finish("return-state", 0x200, 0, f.ip, 0);
     }
     let operation = f.rax;
-    #[cfg(feature = "scheduler-test")]
-    scheduling::check_fp_policy();
+    (hooks.before_operation)();
     f.rax = 0;
     let value = if f.r9 != 0 {
         Err(INCOMPATIBLEPROTOCOL)
     } else if f.r8 != 0 {
         Err(UNSUPPORTED)
     } else {
-        #[cfg(feature = "capability-test")]
-        let cap = capabilities::dispatch(operation, f);
-        #[cfg(not(feature = "capability-test"))]
-        let cap: Option<core::result::Result<u64, u64>> = None;
+        let cap = (hooks.operation)(operation, f);
         if let Some(result) = cap {
             result
         } else {
@@ -425,24 +417,9 @@ extern "C" fn dispatch(ptr: *mut Frame) {
                         })
                     }
                 }
-                MEMORY_ALLOCATE => {
-                    #[cfg(feature = "scheduler-test")]
-                    if scheduling::active() && f.rdi > 65536 {
-                        f.rax = QUOTAEXCEEDED;
-                        f.rdx = 0;
-                        scheduling::syscall_return(f, false);
-                        return;
-                    }
-                    allocate(f.rdi, f.rsi)
-                }
+                MEMORY_ALLOCATE => allocate(f.rdi, f.rsi),
                 MEMORY_FREE => free(f.rdi),
                 THREAD_YIELD => {
-                    #[cfg(feature = "scheduler-test")]
-                    if scheduling::active() {
-                        f.rdx = 0;
-                        scheduling::syscall_return(f, true);
-                        return;
-                    }
                     // No structural borrow/pin is held. Exercise a real nested
                     // timer IRQ on this owned kernel stack, then mask again.
                     let before = crate::timer::uptime().unwrap().0;
@@ -457,15 +434,9 @@ extern "C" fn dispatch(ptr: *mut Frame) {
                         "ok",
                         format_args!("case={} before={before} after={after} nested=true", c.case),
                     );
-                    Ok(0) // same active process until P3-05
+                    Ok(0) // The boundary fixture resumes this owner after its nested IRQ.
                 }
-                PROCESS_EXIT => {
-                    #[cfg(feature = "scheduler-test")]
-                    if scheduling::active() {
-                        scheduling::copy_irq(false);
-                    }
-                    finish("exit", f.rdi, 0, f.ip, 0)
-                }
+                PROCESS_EXIT => finish("exit", f.rdi, 0, f.ip, 0),
                 _ => Err(UNSUPPORTED),
             }
         }
@@ -477,30 +448,26 @@ extern "C" fn dispatch(ptr: *mut Frame) {
             f.rdx = if e == BUFFERTOOSMALL { 32 } else { 0 };
         }
     }
-    #[cfg(feature = "scheduler-test")]
-    if scheduling::active() {
-        if !valid_return(f) {
-            finish("return-state", 0x200, 0, f.ip, 0);
-        }
-        scheduling::syscall_return(f, false);
-        return;
+    if !(hooks.scheduled)() {
+        record(
+            "m1.user_call",
+            "user-boundary",
+            "ok",
+            format_args!(
+                "case={} slot={} generation={} operation={operation} status={} value={} a={:#x} b={} flags={:#x} entry_flags={flags:#x}",
+                c.case, c.id.slot, c.id.generation, f.rax, f.rdx, f.rdi, f.rsi, f.flags
+            ),
+        );
     }
-    record(
-        "m1.user_call",
-        "user-boundary",
-        "ok",
-        format_args!(
-            "case={} slot={} generation={} operation={operation} status={} value={} a={:#x} b={} flags={:#x} entry_flags={flags:#x}",
-            c.case, c.id.slot, c.id.generation, f.rax, f.rdx, f.rdi, f.rsi, f.flags
-        ),
-    );
     // Map/free can change CR3. Validate again immediately before the assembly
     // IRETQ; no locks, user calls, preemption or mutations intervene afterwards.
     if !valid_return(f) {
         finish("return-state", 0x200, 0, f.ip, 0);
     }
+    (hooks.return_to_user)(f, operation);
 }
 pub fn run(group: u64) -> Result<()> {
+    fixture::install_boundary();
     unsafe {
         asm!("cli");
         let root: u64;
@@ -514,6 +481,7 @@ pub fn run(group: u64) -> Result<()> {
         + core::mem::size_of::<Option<Current>>()
         + core::mem::size_of::<[Option<Heap>; 32]>()
         + core::mem::size_of::<Option<(u64, u64)>>()
+        + core::mem::size_of::<fixture::Hooks>()
         + 8 * 8; // seven entry counters/slots plus the timer user-IRQ counter
     need(
         empty.metadata_bytes + empty.table_storage_bytes + 16 * 73728 + extra <= 16 * 1024 * 1024,

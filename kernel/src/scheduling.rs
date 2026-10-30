@@ -3,6 +3,9 @@
 use super::*;
 use continuum_kernel::scheduler::{FxState, Queue, ThreadId, cpu_supported};
 const N: usize = 32;
+#[cfg(feature = "supervisor-test")]
+#[path = "supervisor_guest.rs"]
+pub(crate) mod supervision;
 #[derive(Clone, Copy)]
 struct Task {
     current: Current,

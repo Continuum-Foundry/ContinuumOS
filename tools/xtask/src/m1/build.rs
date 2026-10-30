@@ -42,6 +42,7 @@ pub(super) enum Flavor {
     Capabilities,
     Channels,
     Waits,
+    Supervisor,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -60,6 +61,7 @@ impl Flavor {
             Self::Capabilities => "capability-test",
             Self::Channels => "channel-test",
             Self::Waits => "wait-test",
+            Self::Supervisor => "supervisor-test",
         }
     }
     fn features(self) -> &'static str {
@@ -78,6 +80,7 @@ impl Flavor {
             Self::Capabilities => "capability-test",
             Self::Channels => "channel-test",
             Self::Waits => "wait-test",
+            Self::Supervisor => "supervisor-test",
         }
     }
 }
@@ -306,17 +309,23 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             | Flavor::Capabilities
             | Flavor::Channels
             | Flavor::Waits
+            | Flavor::Supervisor
     ) {
         Some(super::user_images::build(
             dir,
             flavor == Flavor::UserBoundary,
             matches!(
                 flavor,
-                Flavor::Scheduler | Flavor::Capabilities | Flavor::Channels | Flavor::Waits
+                Flavor::Scheduler
+                    | Flavor::Capabilities
+                    | Flavor::Channels
+                    | Flavor::Waits
+                    | Flavor::Supervisor
             ),
             flavor == Flavor::Capabilities,
             flavor == Flavor::Channels,
             flavor == Flavor::Waits,
+            flavor == Flavor::Supervisor,
         )?)
     } else {
         None
@@ -456,7 +465,11 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         if name == "llvm-objdump" {
             if matches!(
                 flavor,
-                Flavor::Scheduler | Flavor::Capabilities | Flavor::Channels | Flavor::Waits
+                Flavor::Scheduler
+                    | Flavor::Capabilities
+                    | Flavor::Channels
+                    | Flavor::Waits
+                    | Flavor::Supervisor
             ) {
                 let mut symbol = "";
                 let mut filtered = String::new();

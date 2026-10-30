@@ -840,6 +840,100 @@ binaries and full generated logs/source copies are excluded. Exact payload paths
 - `tools/xtask/src/m1/user_images.rs`
 - `tools/xtask/src/main.rs`
 
+## One-time owner authorization — P3-09 PR, 2026-10-30
+
+After local P3-09 acceptance and review, the owner instructed: "I give you
+exemption to make PR". This authorizes one non-force push of the exact reviewed
+P3-09 payload listed below, plus this EXPORT_CONTROL.md authorization record, to
+https://github.com/Continuum-Foundry/ContinuumOS.git (existing origin), target
+refs/heads/codex/p3-09-supervision-quotas, followed by one pull request against
+main in that same repository. Commit metadata and the prepared P3-09 PR title,
+description and validation summary are included. The payload is based on
+65e161b016d4a98f15d21d3f4b261e43486e1c0e.
+
+The one-time invocation is git push --no-verify --set-upstream origin
+HEAD:refs/heads/codex/p3-09-supervision-quotas. Only that push bypasses the local
+pre-push hold. The normal pre-commit hygiene check stays enabled and
+.githooks/pre-push remains installed unchanged afterward. Push authorization is
+exhausted by its first successful push; PR authorization is exhausted by creation
+of that one PR. No force push, merge, release, remote build, additional recipient,
+extra upload or standing remote-environment approval is authorized. Geographic
+containment remains unverified; this administrative exception is not legal
+clearance and does not waive applicable law.
+
+The owner's three unrelated signing-policy edits remain excluded:
+docs/05-delivery/windows-development-signing.md, tools/windows/New-DevPolicy.ps1
+and tools/windows/Set-DevMachinePolicy.ps1. Private keys, certificates, generated
+binaries/ISOs, full logs, source copies and ignored build/work trees are excluded.
+The exact reviewed payload is these 63 paths and staged Git blob IDs, plus this
+authorization file (64 changed files total). It includes the 18-file compact
+P3-09 acceptance bundle; the source and frozen evidence are unchanged by this
+administrative authorization.
+
+- `AGENTS.md` — Git blob `0c2ebc9bfdb25364c16e710f8ba20c15d76eb901`
+- `audit/check-docs.cjs` — Git blob `bae7af65f3799c8247ea30314f76a8d374c47c73`
+- `config/m3-profiles.json` — Git blob `6cc16af004768a2f112edf90e748f03e36a3fed8`
+- `contracts/runtime-v0.json` — Git blob `9cba04b48ed263ea9c1c9eecd83e41fc48da4930`
+- `docs/00-overview/requirements.md` — Git blob `26c653ef56a8f3b56737b145edbb49432cff1cb3`
+- `docs/02-architecture/kernel-and-execution.md` — Git blob `8aa6ddd565641770213f98e7b18ff3fe0406fb14`
+- `docs/04-decisions/0025-prepaid-subtrees-and-quiescent-process-reaping.md` — Git blob `fafeddc85af8ffc48dc398b55dffdea3056023c1`
+- `docs/04-decisions/README.md` — Git blob `7c5fcf4ff7425c9fadf0bd0a06d5d0f778168b35`
+- `docs/05-delivery/agent-handoff.md` — Git blob `9af4cd0e9a71f98f27b92e9405313e806e0869eb`
+- `docs/05-delivery/phase-3/09-supervision-quotas-and-process-lifecycle.md` — Git blob `6109b5d0ab873748c3c9a049d72ba9d339dd0135`
+- `docs/05-delivery/phase-3/README.md` — Git blob `d1a251017991c68a381d5e3609745ed85c7be9cc`
+- `docs/05-delivery/phase-3/supervision-runbook.md` — Git blob `515da5fff33db2c9818a59654ee0bf68b8deee55`
+- `docs/05-delivery/validation.md` — Git blob `c7a27cfd3e1d83cb8295302ab514c6a1fd702448`
+- `docs/06-contracts/ipc-and-objects.md` — Git blob `bd99cd77f213357ab629cef56c9404f2f1e29a05`
+- `docs/06-contracts/runtime-v0.md` — Git blob `4f311036b1c35f16bfcb05aef53b82e3c8c45629`
+- `docs/README.md` — Git blob `15abe5f1a5fcdf8412dcdd316d3eb975ab63a836`
+- `evidence/phase-3/P3-09/2026-10-30/README.md` — Git blob `bc976e1510a0492bf05639e357de488d59707101`
+- `evidence/phase-3/P3-09/2026-10-30/SHA256SUMS.json` — Git blob `d0216b3a2ce25e8e4956b9c2c0ea2773d8e6d3fc`
+- `evidence/phase-3/P3-09/2026-10-30/acceptance.json` — Git blob `baa63656973fe78e7155dc18ce1551890081f4bc`
+- `evidence/phase-3/P3-09/2026-10-30/build-inputs.json` — Git blob `4e5fd4f11020ab1946be83d4ada992223c7e7e01`
+- `evidence/phase-3/P3-09/2026-10-30/build-manifest.json` — Git blob `31f9b38b27d0038c99552e977bbb13daabad9122`
+- `evidence/phase-3/P3-09/2026-10-30/codegen/task_resume.txt` — Git blob `0d4c67afd37b5fcc3d39b93029fe32c27a0f8092`
+- `evidence/phase-3/P3-09/2026-10-30/codegen/user_syscall.txt` — Git blob `a8ba45a678cbfe1143254d1cbfb47c7cdddb557e`
+- `evidence/phase-3/P3-09/2026-10-30/development-findings.json` — Git blob `f63324f6bae8e61a810b823788d6b02f82a23065`
+- `evidence/phase-3/P3-09/2026-10-30/final-documentation-inputs.json` — Git blob `13dbe4f17bc69217f625b96ae259da85109b2733`
+- `evidence/phase-3/P3-09/2026-10-30/host-tests.txt` — Git blob `d8b996cadab4518296cddc936952043dbb37ccc7`
+- `evidence/phase-3/P3-09/2026-10-30/launch-context.json` — Git blob `d896d16ab9ae593d7d50a752e5b8e87a300fe30a`
+- `evidence/phase-3/P3-09/2026-10-30/m1-review.json` — Git blob `55816b8c2df7bfc58214abe5f634a4cf43ca81a2`
+- `evidence/phase-3/P3-09/2026-10-30/prerequisites.json` — Git blob `a98b83252cefa10a566236d0f48501b5e6b7d6dc`
+- `evidence/phase-3/P3-09/2026-10-30/review.json` — Git blob `ac4fc3167a96633aa9c691506c0bc8dc7798ee06`
+- `evidence/phase-3/P3-09/2026-10-30/source-provenance.json` — Git blob `046d67ba74971f2a1243afa1d03dddba83a3aa35`
+- `evidence/phase-3/P3-09/2026-10-30/supervisor-serial-0.txt` — Git blob `adfe5725d7ac06431d1e50bbabf2daca13f3a44b`
+- `evidence/phase-3/P3-09/2026-10-30/supervisor-serial-1.txt` — Git blob `27fb444da7244170ea197fb467f275e831038821`
+- `evidence/phase-3/P3-09/2026-10-30/user-images.json` — Git blob `75ef4c2aaf904ccc7ec6ae8e256eb82d82e4f7ad`
+- `experiments/user-images/supervisor.rs` — Git blob `8ec7617bcafdbeceabefd5239c28e679b7f3ba4e`
+- `kernel/Cargo.toml` — Git blob `1307c8b218e978fe07473f4e9e052d179454a3bb`
+- `kernel/src/exceptions.rs` — Git blob `8168c05007ff2aa37b6c4baee66c3899d00cb67f`
+- `kernel/src/lib.rs` — Git blob `95766ad85e56dd152ed7f921ea15066efd226a3f`
+- `kernel/src/main.rs` — Git blob `e678081477a78990622bbc556eba52be0b8c12b3`
+- `kernel/src/objects.rs` — Git blob `1524fd94679ae050f75e16bd3921ae890dabc9de`
+- `kernel/src/objects/channels.rs` — Git blob `2f5160d2f1c13705de346f8043f55a562083e34f`
+- `kernel/src/objects/tests.rs` — Git blob `3681d43105e54c48b12924d32a170f873bcf7f51`
+- `kernel/src/objects/tests/supervision.rs` — Git blob `2990caa8a61d54c9ebe2eeb557c3a0a1aa0a16ea`
+- `kernel/src/objects/waiting.rs` — Git blob `e8031771b1fd93c397c929fada9eee39f99f72fa`
+- `kernel/src/owned_memory.rs` — Git blob `7788277988fc6c77ee9eb5485da29c8085d5d704`
+- `kernel/src/owned_memory/tests.rs` — Git blob `8a4bde456808f17257c3157d4eb164b7c9928d15`
+- `kernel/src/paging.rs` — Git blob `e23cb1ce82acd4f1c38fd8c05c4afe890aa98b49`
+- `kernel/src/scheduling.rs` — Git blob `6b2ae2f1bff210be813207b9990d316b297cf5c6`
+- `kernel/src/supervisor.rs` — Git blob `093386d8835884efb6db204e74d3793881215863`
+- `kernel/src/supervisor/tests.rs` — Git blob `d2e46838aca89e6a06e43c7788feda451c721e7c`
+- `kernel/src/supervisor_guest.rs` — Git blob `e0efbc0c150c486322ed701e7b9928891b3f25b3`
+- `kernel/src/timer.rs` — Git blob `41d50e6042d56e32ce0f2e6a5843db445b31e588`
+- `kernel/src/user_fixture.rs` — Git blob `d3c023b74c60b171c088b2ac8716629564078a83`
+- `kernel/src/user_image.rs` — Git blob `3d79e49cb9719ae0dca7c62fb1fab2cfe162b0b0`
+- `tools/Check-P3-09Flavors.ps1` — Git blob `9cba2b97106f4e0d8fac02c6498b50d023618ec9`
+- `tools/Review-P3-09.py` — Git blob `fb4aa90030681d76d3bed036f58742356bda81ed`
+- `tools/Test-P3-09.ps1` — Git blob `5673ab5eeb8c8945187dc28a206704d3be071a8e`
+- `tools/xtask/src/m1/build.rs` — Git blob `231e8eb8d798fb0cf4f47bd0021bbe5239e5716b`
+- `tools/xtask/src/m1/cases.rs` — Git blob `4ad0843687c8580b8496574460ca54126deef659`
+- `tools/xtask/src/m1/package.rs` — Git blob `5d2c62c9e99ff0659ea24613f3312921b383adc6`
+- `tools/xtask/src/m1/records.rs` — Git blob `8cb66b51b89036042270f67447687b7f405d3183`
+- `tools/xtask/src/m1/user_images.rs` — Git blob `7a773f402fd909c05583c2ac2a58411f55508f26`
+- `tools/xtask/src/main.rs` — Git blob `3986018daeae5e94c8257c3799dc11e176b3f508`
+
 ## Material and handling covered
 
 The restriction covers original source, technical designs, unpublished documents,

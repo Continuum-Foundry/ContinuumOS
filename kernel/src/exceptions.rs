@@ -235,6 +235,10 @@ extern "C" fn run(mode: u64) -> ! {
         crate::user_entry::waiting::enable();
         crate::user_entry::scheduling::run_objects(true).unwrap_or_else(|e| crate::reject(e));
     }
+    #[cfg(feature = "supervisor-test")]
+    if mode == 42 {
+        crate::user_entry::scheduling::supervision::run().unwrap_or_else(|e| crate::reject(e));
+    }
     record(
         "m1.boot_complete",
         "boot",

@@ -279,7 +279,7 @@ pub fn establish(mode: u64) -> Result<()> {
         let (initial, resolution) = p::calibration(elapsed, reference_ticks, fs)?;
         // P3-05's locked nominal quantum is 5 ms. Choose it before the one-time
         // delivered-tick epoch; M1's 10-ms calibration/regressions stay unchanged.
-        let (initial, resolution) = if (36..=41).contains(&mode) {
+        let (initial, resolution) = if (36..=42).contains(&mode) {
             let half = initial / 2;
             need(half != 0, "scheduler_calibration")?;
             (half, resolution * u64::from(half) / u64::from(initial))

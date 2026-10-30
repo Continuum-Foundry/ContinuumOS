@@ -141,6 +141,20 @@ pub(super) fn install_capabilities() {
     };
     scheduled::install(hooks);
 }
+#[cfg(feature = "supervisor-test")]
+pub(super) fn install_supervisor() {
+    scheduled::install(Hooks {
+        copy_observer: |_| {},
+        entry: |_, entered| scheduling::begin_syscall(entered),
+        operation: |op, f| {
+            scheduling::supervision::dispatch(op, f)
+                .or_else(|| waiting::dispatch(op, f))
+                .or_else(|| capabilities::dispatch(op, f))
+                .or_else(|| scheduled::operation(op, f))
+        },
+        ..scheduled::HOOKS
+    });
+}
 #[cfg(feature = "wait-test")]
 fn wait_supervision_probe(queue: &mut continuum_kernel::scheduler::Queue, wave: u64) -> Result<()> {
     if wave == 4 {

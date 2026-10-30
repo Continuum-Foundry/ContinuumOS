@@ -125,6 +125,15 @@ struct Table {
     handles: [Option<Handle>; HANDLES],
     mappings: [Option<Mapping>; MAPPINGS],
     created: u64,
+    budget: Option<Budget>,
+}
+#[derive(Clone, Copy)]
+struct Budget {
+    objects: u64,
+    pairs: u64,
+    timers: u64,
+    messages: u64,
+    bytes: u64,
 }
 impl Table {
     const EMPTY: Self = Self {
@@ -132,6 +141,7 @@ impl Table {
         handles: [None; HANDLES],
         mappings: [None; MAPPINGS],
         created: 0,
+        budget: None,
     };
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -165,6 +175,7 @@ impl Registry {
             .ok_or(Error::BadHandle)
     }
     fn room(&self, table: usize) -> Result<usize> {
+        self.handle_room(table, 1)?;
         if self.next_nonce == 0 {
             return Err(Error::QuotaExceeded);
         }
@@ -173,6 +184,43 @@ impl Registry {
             .iter()
             .position(Option::is_none)
             .ok_or(Error::QuotaExceeded)
+    }
+    fn handle_room(&self, t: usize, count: usize) -> Result<()> {
+        let limit = if self.tables[t].budget.is_some() {
+            crate::supervisor::HANDLES
+        } else {
+            HANDLES
+        };
+        if self.tables[t].handles.iter().flatten().count() + count > limit {
+            return Err(Error::QuotaExceeded);
+        }
+        Ok(())
+    }
+    fn creation_room(&self, t: usize, count: u64) -> Result<()> {
+        if self.tables[t].budget.is_some_and(|b| count > b.objects) {
+            return Err(Error::QuotaExceeded);
+        }
+        Ok(())
+    }
+    fn created_objects(&mut self, t: usize, count: u64) {
+        if let Some(b) = &mut self.tables[t].budget {
+            b.objects -= count;
+        }
+    }
+    /// Trusted pre-entry bound. Lifetime credits deliberately do not refund.
+    pub fn constrain(&mut self, space: SpaceId) -> Result<()> {
+        let t = self.table(space)?;
+        if self.tables[t].budget.is_some() || self.tables[t].handles.iter().flatten().count() != 2 {
+            return Err(Error::InvalidArgument);
+        }
+        self.tables[t].budget = Some(Budget {
+            objects: crate::supervisor::OBJECT_CREATES,
+            pairs: 1,
+            timers: crate::supervisor::TIMERS,
+            messages: crate::supervisor::MESSAGES,
+            bytes: crate::supervisor::MESSAGE_BYTES,
+        });
+        Ok(())
     }
     fn object_room(&self) -> Result<usize> {
         self.objects
@@ -433,6 +481,7 @@ impl Registry {
         }
         let slot = self.room(t)?;
         let object_slot = self.object_room()?;
+        self.creation_room(t, 1)?;
         if bytes > BYTE_LIMIT - self.tables[t].created {
             return Err(Error::QuotaExceeded);
         }
@@ -455,6 +504,7 @@ impl Registry {
             },
         );
         self.tables[t].created += bytes;
+        self.created_objects(t, 1);
         Ok(self.install(t, slot, id, BASIC | MAP | ceiling))
     }
     pub fn seed<const S: usize, const A: usize, const M: usize, const T: usize>(

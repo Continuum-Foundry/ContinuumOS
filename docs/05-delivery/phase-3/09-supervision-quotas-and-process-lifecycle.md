@@ -1,6 +1,6 @@
 # P3-09 — Supervise process trees and enforce resource ceilings
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done (local Codex self-review). Owner: Unassigned.
 Depends on: P3-08 Done. Suggested labels: `phase-3`, `supervisor`, `quotas`.
 Backlog: B13 supervision/quotas, B11 child launch completion.
 Requirements: R10/R14/R18; preparatory R06/R09/R17. Test families: T01/T03/T06/T11/T09.
@@ -35,15 +35,15 @@ complete reaping so a crashing or resource-hungry service cannot consume the gue
 
 ## Acceptance criteria
 
-- [ ] Real user-mode supervision launches, observes, joins and reaps normal, failed,
+- [x] Real user-mode supervision launches, observes, joins and reaps normal, failed,
   killed and hung tasks with exact lifecycle/exit outcomes and healthy-task progress.
-- [ ] Per-process/subtree quotas and priority ceilings are enforced before resource
+- [x] Per-process/subtree quotas and priority ceilings are enforced before resource
   commit; child fan-out cannot bypass them or consume reserved control capacity.
-- [ ] Unauthorized identity selection, handle inheritance and ceiling escalation are
+- [x] Unauthorized identity selection, handle inheritance and ceiling escalation are
   rejected; stale/reused process IDs cannot target a new instance.
-- [ ] Every declared death/orphan/transfer/wait teardown path releases its owned
+- [x] Every declared death/orphan/transfer/wait teardown path releases its owned
   resources without dangling execution, double completion or unbounded zombies.
-- [ ] Restart storms are bounded; supervisor death yields a declared fail-closed
+- [x] Restart storms are bounded; supervisor death yields a declared fail-closed
   recovery or controlled failure with correlated diagnostics, never false readiness.
 
 ## Tests and evidence
@@ -63,3 +63,5 @@ Sources: [kernel design](../../02-architecture/kernel-and-execution.md),
 [identity model](../../02-architecture/identity-and-authorization.md),
 [objects contract](../../06-contracts/ipc-and-objects.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+Implementation: see the [supervision runbook](supervision-runbook.md) and [ADR-0025](../../04-decisions/0025-prepaid-subtrees-and-quiescent-process-reaping.md). All five criteria pass for the declared prepaid experimental subset; see the [local acceptance review](../../../evidence/phase-3/P3-09/2026-10-30/README.md).

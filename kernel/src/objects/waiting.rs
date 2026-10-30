@@ -38,7 +38,9 @@ impl Registry {
         let t = self.target(space, process, CREATE)?;
         let slot = self.room(t)?;
         let object = self.object_room()?;
+        self.creation_room(t, 1)?;
         let id = self.new_object(object, Body::Event(signalled));
+        self.created_objects(t, 1);
         Ok(self.install(t, slot, id, EVENT_RIGHTS))
     }
     pub fn event_set(&mut self, space: SpaceId, handle: u64, signalled: bool) -> Result<()> {
@@ -50,7 +52,15 @@ impl Registry {
         let t = self.target(space, process, CREATE)?;
         let slot = self.room(t)?;
         let object = self.object_room()?;
+        self.creation_room(t, 1)?;
+        if self.tables[t].budget.is_some_and(|b| b.timers == 0) {
+            return Err(Error::QuotaExceeded);
+        }
         let id = self.new_object(object, Body::Timer(Timer::EMPTY));
+        self.created_objects(t, 1);
+        if let Some(b) = &mut self.tables[t].budget {
+            b.timers -= 1;
+        }
         Ok(self.install(t, slot, id, TIMER_RIGHTS))
     }
     pub fn timer_arm(

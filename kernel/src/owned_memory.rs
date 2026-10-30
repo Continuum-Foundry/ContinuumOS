@@ -98,6 +98,7 @@ struct Space<const M: usize, const T: usize> {
     requested: u64,
     bank: usize,
     pins: usize,
+    admission: Option<(u64, usize, usize)>, // lifetime bytes/allocations, live mappings
     kernel_stack: Option<Range>,
     maps: [Option<Mapping>; M],
     tables: [Tables<T>; 2],
@@ -110,6 +111,7 @@ impl<const M: usize, const T: usize> Space<M, T> {
         requested: 0,
         bank: 0,
         pins: 0,
+        admission: None,
         kernel_stack: None,
         maps: [None; M],
         tables: [const { Tables::EMPTY }; 2],
@@ -277,6 +279,34 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
             .kernel_stack
             .ok_or(error("stack", "absent"))
     }
+    /// Trusted, pre-publication profile. Charges include existing image/stack.
+    pub fn constrain(
+        &mut self,
+        space: SpaceId,
+        bytes: u64,
+        allocations: usize,
+        mappings: usize,
+    ) -> Result<()> {
+        let i = self.mutable(space)?;
+        let used = self
+            .allocations
+            .iter()
+            .filter(|a| a.live && a.owner == Some(space))
+            .count();
+        if self.spaces[i].admission.is_some()
+            || bytes < self.spaces[i].committed
+            || allocations < used
+            || mappings < self.spaces[i].maps.iter().flatten().count()
+        {
+            return Err(error("admission", "quota"));
+        }
+        self.spaces[i].admission = Some((
+            bytes - self.spaces[i].committed,
+            allocations - used,
+            mappings,
+        ));
+        Ok(())
+    }
     pub fn allocate(
         &mut self,
         store: &mut impl Store,
@@ -296,6 +326,12 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
             .ok_or(error("allocation", "overflow"))?
             & !(PAGE - 1);
         if rounded > PROCESS_LIMIT - self.spaces[i].committed {
+            return Err(error("allocation", "quota"));
+        }
+        if self.spaces[i]
+            .admission
+            .is_some_and(|(b, a, _)| rounded > b || a == 0)
+        {
             return Err(error("allocation", "quota"));
         }
         let slot = self
@@ -320,6 +356,10 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
         };
         self.spaces[i].committed += rounded;
         self.spaces[i].requested += bytes;
+        if let Some((b, a, _)) = &mut self.spaces[i].admission {
+            *b -= rounded;
+            *a -= 1;
+        }
         Ok(Some(AllocationId { slot, generation }))
     }
     pub fn free(&mut self, store: &mut impl Store, owner: SpaceId, id: AllocationId) -> Result<()> {
@@ -423,6 +463,12 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
         access: Access,
     ) -> Result<()> {
         let i = self.mutable(space)?;
+        if self.spaces[i]
+            .admission
+            .is_some_and(|(_, _, m)| self.spaces[i].maps.iter().flatten().count() >= m)
+        {
+            return Err(error("mapping", "quota"));
+        }
         let a = self.allocation(allocation)?;
         let range = user_range(address, bytes)?;
         if offset % PAGE != 0
@@ -689,6 +735,7 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
             }
         }
         self.spaces[i].live = false;
+        self.spaces[i].admission = None;
         if self.spaces[i].kernel_stack.take().is_some() {
             store.release_kernel_stack(i);
         }

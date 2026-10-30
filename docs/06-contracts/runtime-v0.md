@@ -1,6 +1,6 @@
 # Experimental M3 runtime contract
 
-Status: implementation draft, revision 0, P3-01 through P3-08. The internal memory
+Status: implementation draft, revision 0, P3-01 through P3-09. The internal memory
 backend and staged loader exist; the bounded P3-04 execution experiment passes local self-review.
 No executing user ABI is frozen.
 [runtime-v0.json](../../contracts/runtime-v0.json)
@@ -403,3 +403,31 @@ No native Rust layout crosses this boundary. The declared 32-byte wait request,
 32-byte items, 24-byte timer arm and 24-byte channel attempt records are explicit
 little-endian u64 fields. This is not a frozen independent SDK or a public async
 executor; interoperability closure remains P3-12.
+
+## P3-09 supervision profile
+
+The locally accepted bounded supervision implementation adds experimental dispatch IDs 27–33:
+process create/start/terminate/join/state, a trusted-supervisor retry permit and
+bounded child enumeration. Its copied 96-byte create request and scalar entry
+arguments are specified in the [supervision runbook](../05-delivery/phase-3/supervision-runbook.md).
+The entry receives its own monotonic instance token in RSI and parent token in
+RDX; these are identifiers authenticated against the kernel's current task, not
+secret capability handles. The established RDI startup pointer and shared
+return-state validation remain in use. P3-12 still owns independent startup/SDK
+interoperability and feature advertisement.
+
+Prepared instances cannot execute until started. Join consumes a reaped record
+only after all owned execution, wait, mapping and allocator teardown and after
+descendants have been joined. Parent/supervisor checks apply before control;
+ownership-denied queries need not disclose whether a foreign/stale target exists.
+There is no ambient child authority to select a principal/session, service role,
+privileged inherited handle or greater resource/priority ceiling.
+
+The admitted subset uses eight lifetime prepaid units, one thread/process and
+equal priority; each unit reserves the complete resource envelope listed in
+[ADR-0025](../04-decisions/0025-prepaid-subtrees-and-quiescent-process-reaping.md).
+Physical reclamation does not refund an epoch's credits. This is deliberately
+conservative and does not freeze reusable M3 quotas or promise a persistent
+service manager. Supervisor failure closes admission and terminates descendants;
+only explicit trusted bootstrap after complete settlement can restore a fresh
+session. Restart permits do not preserve application state or grant policy rights.

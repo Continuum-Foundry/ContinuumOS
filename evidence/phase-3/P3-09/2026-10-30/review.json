@@ -1,0 +1,796 @@
+{
+  "audit": {
+    "epochs": 4,
+    "admissions": 29,
+    "reaped": 29,
+    "joins": 21,
+    "dispatches": 193,
+    "parked_owner_kills": 4,
+    "retries": 2,
+    "quarantine": 1,
+    "exact_settlements": 4,
+    "fixed_bytes": 10583088
+  },
+  "mutations": [
+    "remove m1.supervisor_admit",
+    "remove m1.supervisor",
+    "remove m1.supervisor_dispatch",
+    "remove m1.supervisor_end",
+    "remove m1.supervisor_settled",
+    "remove m1.supervisor_ready",
+    "remove m1.supervisor_call",
+    "remove m1.supervisor_request",
+    "remove m1.user_log",
+    "m1.supervisor_admit.token",
+    "m1.supervisor_admit.authority_session",
+    "m1.supervisor_dispatch.generation",
+    "m1.wait_park.generation",
+    "m1.supervisor_end.code",
+    "m1.supervisor_end.parked",
+    "m1.supervisor_settled.frames",
+    "m1.supervisor_ready.fixed_bytes",
+    "missing m1.wait_park",
+    "missing m1.wait_complete",
+    "missing m1.wait_wake",
+    "missing m1.wait_settled",
+    "missing m1.wait_clock",
+    "missing m1.wait_kill",
+    "missing m1.wait_resume",
+    "missing m1.wait_boundary",
+    "missing m1.wait_delay",
+    "missing m1.ipc_admit",
+    "missing m1.cap_ready",
+    "missing m1.cap_reap",
+    "missing m1.user_log",
+    "m1.wait_wake.generation",
+    "m1.wait_wake.status",
+    "m1.wait_wake.since_ns",
+    "m1.wait_settled.records",
+    "m1.wait_clock.source",
+    "m1.wait_clock.ticks_after",
+    "m1.cap_ready.fixed_bytes",
+    "m1.cap_reap.result",
+    "missing m1.cap_ready",
+    "missing m1.cap_admit",
+    "missing m1.cap_reap",
+    "missing m1.cap_inventory",
+    "missing m1.cap_call",
+    "missing m1.cap_pin",
+    "missing m1.cap_map",
+    "missing m1.user_fault",
+    "missing m1.user_log",
+    "m1.cap_call.status",
+    "m1.cap_reap.principal",
+    "m1.cap_reap.result",
+    "m1.cap_inventory.objects",
+    "m1.cap_inventory.backing",
+    "m1.cap_map.e3",
+    "m1.cap_pin.close",
+    "m1.user_fault.error",
+    "m1.cap_ready.fixed_bytes",
+    "successful operation 10.x",
+    "successful operation 10.c",
+    "successful operation 10.d",
+    "successful operation 10.n",
+    "successful operation 8.b",
+    "missing m1.cap_ready",
+    "missing m1.ipc_admit",
+    "missing m1.cap_reap",
+    "missing m1.cap_inventory",
+    "missing m1.ipc_sender",
+    "missing m1.ipc_call",
+    "missing m1.user_log",
+    "m1.ipc_sender.principal",
+    "m1.ipc_sender.sender_generation",
+    "m1.cap_reap.result",
+    "m1.cap_inventory.objects",
+    "m1.cap_ready.fixed_bytes",
+    "m1.ipc_call.held",
+    "missing m1.scheduler_policy",
+    "missing m1.scheduler_ready",
+    "missing m1.task_start",
+    "missing m1.task_end",
+    "missing m1.task_settlement",
+    "missing m1.user_fault",
+    "missing m1.task_switch",
+    "m1.task_start/principal",
+    "m1.task_end/result",
+    "m1.task_end/preemptions",
+    "m1.task_end/progress",
+    "m1.task_settlement/frames",
+    "m1.scheduler_ready/max_wait_ns",
+    "m1.scheduler_ready/pin_irqs",
+    "m1.scheduler_policy/priority",
+    "missing m1.scheduler_policy",
+    "missing m1.scheduler_ready",
+    "missing m1.task_start",
+    "missing m1.task_end",
+    "missing m1.task_settlement",
+    "missing m1.user_fault",
+    "m1.task_start/principal",
+    "m1.task_end/result",
+    "m1.task_end/preemptions",
+    "m1.task_end/progress",
+    "m1.task_settlement/frames",
+    "m1.scheduler_ready/max_wait_ns",
+    "m1.scheduler_ready/pin_irqs",
+    "m1.scheduler_policy/priority",
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    }
+  ],
+  "build_id": "53a8154a0ec04afe389e7f2541daba3fb6e5c2785ac198ad7b46f028983c64a8",
+  "kernel_sha256": "930b9a52dc3bea343dd0a8c1a3625d7faec8259127a5812c32b95d1c348ad345",
+  "iso_sha256": "c8089092ee26163bf337459855bb74ea24eb7046534424d7f1e6700c8d57795f",
+  "serial_sha256": "d30557d17680fd4c334368ea83f40126a7331880861d1ff3c82e9c001ea5393b",
+  "waits_regression": {
+    "tasks": 18,
+    "parks": 64,
+    "wakes": 63,
+    "kills": 1,
+    "calls": 584,
+    "fixed_bytes": 10582040,
+    "clock": {
+      "version": "5",
+      "build": "502d725dcd52a6a42ceaa34dd7b9a79270e42a22ef4923992775749666161e8b",
+      "session": "decc547a25b6c7e6f6327b1f0ea7cc5a2b6467f4ec4ac2874482d095e3a073a9",
+      "session_origin": "host",
+      "seq": "189",
+      "stage": "waits",
+      "outcome": "ok",
+      "emergency": "false",
+      "source": "hpet",
+      "resolution_ns": "10",
+      "before_ns": "1619514100",
+      "after_ns": "1649714600",
+      "ticks_before": "100",
+      "ticks_after": "100",
+      "observer_samples": "100",
+      "observer_total_ns": "233700",
+      "irq_off": "true"
+    },
+    "wake_dispatch_max_ns": 42556100,
+    "errors": [
+      [
+        17,
+        0
+      ],
+      [
+        18,
+        0
+      ],
+      [
+        19,
+        0
+      ],
+      [
+        20,
+        0
+      ],
+      [
+        20,
+        3
+      ],
+      [
+        20,
+        4
+      ],
+      [
+        21,
+        0
+      ],
+      [
+        22,
+        0
+      ],
+      [
+        23,
+        0
+      ],
+      [
+        24,
+        0
+      ],
+      [
+        24,
+        1
+      ],
+      [
+        24,
+        2
+      ],
+      [
+        24,
+        4
+      ],
+      [
+        24,
+        7
+      ],
+      [
+        24,
+        8
+      ],
+      [
+        24,
+        9
+      ],
+      [
+        25,
+        0
+      ],
+      [
+        25,
+        6
+      ],
+      [
+        25,
+        8
+      ],
+      [
+        26,
+        0
+      ],
+      [
+        26,
+        6
+      ]
+    ]
+  },
+  "capabilities_regression": {
+    "tasks": 18,
+    "waves": 6,
+    "hardware_faults": 5,
+    "unique_handle_installations": 91,
+    "syscalls": 402,
+    "pin_interleavings": 6,
+    "denials": {
+      "(2, 12)": 18,
+      "(3, 12)": 18,
+      "(5, 2)": 18,
+      "(4, 2)": 18,
+      "(6, 1)": 21,
+      "(10, 1)": 6,
+      "(8, 3)": 7,
+      "(10, 3)": 13,
+      "(9, 1)": 6,
+      "(7, 1)": 6,
+      "(12, 3)": 14,
+      "(11, 4)": 1,
+      "(9, 2)": 1,
+      "(9, 3)": 1,
+      "(6, 3)": 1,
+      "(7, 3)": 1,
+      "(9, 4)": 5,
+      "(10, 4)": 11,
+      "(10, 2)": 1,
+      "(8, 11)": 1,
+      "(9, 11)": 1,
+      "(10, 11)": 1
+    },
+    "fixed_bytes": 10560280,
+    "switches": 250
+  },
+  "channels_regression": {
+    "tasks": 6,
+    "waves": 2,
+    "syscalls": 247,
+    "receives": 40,
+    "preserved_failure_inventories": 139,
+    "fixed_bytes": 10560280,
+    "switches": 398,
+    "errors": [
+      [
+        13,
+        0
+      ],
+      [
+        14,
+        0
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        15,
+        0
+      ],
+      [
+        15,
+        4
+      ],
+      [
+        15,
+        5
+      ],
+      [
+        15,
+        6
+      ],
+      [
+        15,
+        11
+      ],
+      [
+        16,
+        0
+      ],
+      [
+        16,
+        6
+      ],
+      [
+        16,
+        9
+      ]
+    ]
+  },
+  "scheduler_regression": [
+    {
+      "tasks": 30,
+      "waves": 10,
+      "switches": 379,
+      "non_yielding_hogs": 20,
+      "max_masked_upper_ns": 16276300,
+      "max_body_ns": 15117900,
+      "max_wait_ns": 44263700,
+      "nested_irqs": 29,
+      "pin_irqs": 25,
+      "observer_total_ns": 398900
+    },
+    {
+      "tasks": 30,
+      "waves": 10,
+      "switches": 379,
+      "non_yielding_hogs": 20,
+      "max_masked_upper_ns": 16859700,
+      "max_body_ns": 16337600,
+      "max_wait_ns": 41255700,
+      "nested_irqs": 29,
+      "pin_irqs": 25,
+      "observer_total_ns": 212600
+    }
+  ],
+  "memory_regression": {
+    "fixed_kernel_storage_bytes": 9859072,
+    "active_table_pages": {
+      "0": 6,
+      "1": 4
+    },
+    "private_user_pages": {
+      "0": 20,
+      "1": 16
+    },
+    "cycles": 1000,
+    "resident_after": 0
+  },
+  "loader_regression": {
+    "images": [
+      {
+        "image": 0,
+        "sha256": "4307b5ea8a83967d4ca71cfee99cf85f231fa00cb93b12c71fd266b2334f342c",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 1,
+        "sha256": "315356d58045b4bf95f0ead8f714a0636660e9635f482bdd98f0a87a1d27b590",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 2,
+        "sha256": "136964ed96bd400903b517745e74c9f6f663038d064fae61f59da24b69be9211",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      }
+    ],
+    "private_pages": 72,
+    "allocation_failures": 24,
+    "malformed_cases": 19,
+    "trusted_bindings": 4,
+    "settled_frames": 0
+  },
+  "schema_version": 1,
+  "story": "P3-09",
+  "status": "passed",
+  "scope": "complete final-source story acceptance",
+  "review": "local Codex self-review, not external approval",
+  "reviewer_sha256": "2e916cfb23e5b581328b336ebaa73d05e4a1327104ebcb85d58d5b5844229ed5",
+  "source_commit": "65e161b016d4a98f15d21d3f4b261e43486e1c0e",
+  "acceptance_sha256": "752eecc4cde0249bb8a51540b769c781a6c50a647c16665a1981a1be854d8e88",
+  "kernel_host_tests": 73,
+  "prerequisite_checks": 10,
+  "m1_rows": 33,
+  "m1_launches": 42,
+  "criterion_review": {
+    "lifecycle": "pass: actual CPL3 create/start/observe/terminate/join; precise normal/fault/panic/OOM/kill outcomes and healthy progress beside preempted CPU hogs",
+    "quotas": "pass: prepaid ancestor/descendant reservations; live handle/map and lifetime object/timer/pair/message/byte/backing budgets; retained transfers cannot refund credits; reserved control envelope",
+    "authority": "pass: current caller principal/session, service/grant/memory/thread/priority/inheritance denials; direct parent/root control; monotonic tokens and stale-target denial after join",
+    "teardown": "pass: prepared, running, parked, faulted, dead-parent and supervisor-death paths; no saved continuation or dispatch after destruction; four exact object/frame/table/stack/pin/wait/tree settlements",
+    "restart": "pass: two retry permits, host boundary backoff checks, guest quarantine, epoch launch ceiling and admission closure on supervisor death; explicit trusted restore uses fresh session"
+  },
+  "unsafe_review": {
+    "entry": "unchanged shared return validation and eager FP; only trusted scalar startup IDs are new; no user-selected return IP, selectors, privileged flags or executable bytes",
+    "admission": "one CPU IF-clear; derive and narrow authenticated context; loader/object preparation unwinds before publication; no user buffer/pin or Rust continuation retained",
+    "reaping": "quiescent kernel root/stack; drop waits first, remove registry/maps/queued authority, destroy allocator/address-space/stack, clear task, publish Reaped; monotonic tokens and parent lineage outlive execution",
+    "quotas": "lifetime budgets are deliberately conservative; no refunds before epoch settlement, including retained references; no production elastic service manager or hard CPU guarantee",
+    "limits": "one thread/process, priority zero, eight units/epoch, immutable ISO images, no nonempty inheritance, no arbitrary install, SMP, persistent recovery, policy/session liveness, frozen SDK or guest UI"
+  }
+}

@@ -55,3 +55,5 @@ the user's original-kernel/no-hidden-reboot requirements silently.
 [ADR-0023: atomic queued authority and cycle collection](0023-atomic-queued-authority-and-cycle-collection.md) remains Proposed; P3-07 owns its experiment.
 
 [ADR-0024: elapsed deadlines and bounded wait completion](0024-elapsed-clock-and-bounded-wait-completion.md) remains Proposed; P3-08 owns its experiment.
+
+[ADR-0025: prepaid subtrees and quiescent process reaping](0025-prepaid-subtrees-and-quiescent-process-reaping.md) remains Proposed; P3-09 owns its experiment.

@@ -57,6 +57,7 @@ pub(super) fn boot_run(
             || fixture.starts_with("user-boundary-")
             || fixture.starts_with("scheduler-")
             || fixture == "capabilities"
+            || fixture == "channels"
         {
             "3"
         } else if module {
@@ -102,6 +103,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "user-boundary" => Flavor::UserBoundary,
         "scheduler" => Flavor::Scheduler,
         "capabilities" => Flavor::Capabilities,
+        "channels" => Flavor::Channels,
         "iso-smoke" | "boot-metadata" => Flavor::Smoke,
         "iso-negative" => Flavor::NoEntry,
         "boot-reject" => Flavor::Inject,
@@ -126,13 +128,17 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         let image = package(dir, dir, &manifest, false, "normal", false)?;
         return Ok(json!({"compile":"passed","package":"passed","boot":"not_run","image":image}));
     }
-    if flavor == Flavor::Capabilities {
+    if matches!(flavor, Flavor::Capabilities | Flavor::Channels) {
         let run = boot_run(
             dir,
             action,
             dir,
             &manifest,
-            "capabilities",
+            if flavor == Flavor::Channels {
+                "channels"
+            } else {
+                "capabilities"
+            },
             false,
             true,
             false,

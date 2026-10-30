@@ -20,7 +20,8 @@ and process-local fault containment pass local self-review; see
 x87/SSE context pass local self-review; see `evidence/phase-3/P3-05/2026-10-27/README.md`.
 Unmasked SSE exceptions, native x87 debug metadata and shared-process threads
 remain unsupported/unverified as documented. P3-06 handle rights and retained memory-object lifetimes pass local self-review;
-see `evidence/phase-3/P3-06/2026-10-29/README.md`. Next is P3-07; blocking IPC remains open.
+see `evidence/phase-3/P3-06/2026-10-29/README.md`. P3-07's bounded channels and atomic authority transfer pass local self-review; see
+`evidence/phase-3/P3-07/2026-10-29/README.md`. Next is P3-08; blocking IPC remains open.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other

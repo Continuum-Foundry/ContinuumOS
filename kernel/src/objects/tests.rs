@@ -1,4 +1,5 @@
 extern crate std;
+mod channels;
 use super::*;
 use crate::{
     PhysAddr, Range, Result as MemoryResult, error,

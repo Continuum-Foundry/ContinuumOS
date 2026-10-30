@@ -108,6 +108,7 @@ pub(super) fn package(
         || fixture.starts_with("user-boundary-")
         || fixture.starts_with("scheduler-")
         || fixture == "capabilities"
+        || fixture == "channels"
     {
         for name in ["user_a", "user_b", "service"] {
             let filename = format!("boot/{name}.elf");

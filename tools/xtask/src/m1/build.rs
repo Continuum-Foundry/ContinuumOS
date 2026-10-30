@@ -40,6 +40,7 @@ pub(super) enum Flavor {
     UserBoundary,
     Scheduler,
     Capabilities,
+    Channels,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -56,6 +57,7 @@ impl Flavor {
             Self::UserBoundary => "user-boundary-test",
             Self::Scheduler => "scheduler-test",
             Self::Capabilities => "capability-test",
+            Self::Channels => "channel-test",
         }
     }
     fn features(self) -> &'static str {
@@ -72,6 +74,7 @@ impl Flavor {
             Self::UserBoundary => "user-boundary-test",
             Self::Scheduler => "scheduler-test",
             Self::Capabilities => "capability-test",
+            Self::Channels => "channel-test",
         }
     }
 }
@@ -294,13 +297,21 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     check_pin()?;
     let user_descriptors = if matches!(
         flavor,
-        Flavor::StaticLoader | Flavor::UserBoundary | Flavor::Scheduler | Flavor::Capabilities
+        Flavor::StaticLoader
+            | Flavor::UserBoundary
+            | Flavor::Scheduler
+            | Flavor::Capabilities
+            | Flavor::Channels
     ) {
         Some(super::user_images::build(
             dir,
             flavor == Flavor::UserBoundary,
-            matches!(flavor, Flavor::Scheduler | Flavor::Capabilities),
+            matches!(
+                flavor,
+                Flavor::Scheduler | Flavor::Capabilities | Flavor::Channels
+            ),
             flavor == Flavor::Capabilities,
+            flavor == Flavor::Channels,
         )?)
     } else {
         None
@@ -438,7 +449,10 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             return Err("LLVM found undefined symbols".into());
         }
         if name == "llvm-objdump" {
-            if matches!(flavor, Flavor::Scheduler | Flavor::Capabilities) {
+            if matches!(
+                flavor,
+                Flavor::Scheduler | Flavor::Capabilities | Flavor::Channels
+            ) {
                 let mut symbol = "";
                 let mut filtered = String::new();
                 let mut saves = 0;

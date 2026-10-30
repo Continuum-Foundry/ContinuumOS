@@ -76,5 +76,18 @@
     "created_bytes_per_process": 33554432,
     "public_mapped_bytes_per_process": 33554432,
     "ceiling_note": "bounded admitted subset within planned M3 limits; later increases require new evidence"
+  },
+  "channels_execution_subset": {
+    "story": "P3-07",
+    "pairs_global": 8,
+    "queue_messages": 8,
+    "queue_bytes": 16384,
+    "queue_handles": 16,
+    "inline_bytes": 4096,
+    "message_handles": 8,
+    "waves": 2,
+    "tasks": 6,
+    "dispatch_limit": 2048,
+    "ceiling_note": "precharged bounded subset; planned M3 capacities remain unaccepted"
   }
 }

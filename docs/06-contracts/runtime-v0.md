@@ -373,3 +373,16 @@ self handles and explicitly grants immutable snapshots; no user-chosen identity
 can install authority. New capacities are the locked objects_execution_subset,
 within the larger planned M3 limits. Public device/IRQ/DMA and general supervisor
 operations remain unsupported. ABI freeze and public transfer remain later gates.
+
+
+## P3-07 implementation status
+
+The [channel runbook](../05-delivery/phase-3/channels-runbook.md) defines the
+experimental nonblocking profile; its [local acceptance review](../../evidence/phase-3/P3-07/2026-10-29/README.md) passes the declared subset. Enqueue reserves
+queue-owned references. Actual destination handle-table and nonce admission
+occurs on receive; a full destination table leaves the entire accepted message
+queued. An accepted move is already committed and cannot be reclaimed by its
+sender. Failed receive copies may modify output bytes but install no authority
+and consume no message. Outputs are usable only on success. Bounded tracing
+collects unreachable endpoint/queue cycles. Historical sender metadata never
+proves current session or policy validity. The original P3-06 profile is retained.

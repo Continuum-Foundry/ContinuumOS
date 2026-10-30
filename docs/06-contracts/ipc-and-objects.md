@@ -34,8 +34,11 @@ bearing handle or service-side scope check. No identity encoding is frozen here.
 
 ## Initial kernel message limits
 
-Proposed: 4 KiB inline payload, up to 8 attached handles, 64 queued messages/channel
-and a byte quota; all subject to M3 measurement. Bulk objects are referenced through
+Planned M3 ceiling: 4 KiB inline payload, up to 8 attached handles, 64 queued
+messages/channel and a byte quota; all subject to M3 measurement. P3-07's admitted
+experimental subset is specified in the [channel runbook](../05-delivery/phase-3/channels-runbook.md):
+eight pairs, eight messages/16384 bytes/sixteen attached references per direction.
+The [local acceptance review](../../evidence/phase-3/P3-07/2026-10-29/README.md) passes this subset. Bulk objects are referenced through
 shared memory with bounds/access rights. Validate the entire message before accepting
 any attached authority. On failure sender retains handles unless the ABI explicitly
 defines a different complete outcome.

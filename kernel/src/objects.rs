@@ -15,6 +15,9 @@ pub const READ: u64 = 32;
 pub const WRITE: u64 = 64;
 pub const EXECUTE: u64 = 128;
 pub const CONTROL: u64 = 256;
+pub const TRANSFER: u64 = 512;
+pub const SEND: u64 = 1024;
+pub const RECEIVE: u64 = 2048;
 pub const BASIC: u64 = QUERY | DUPLICATE | CLOSE;
 pub const MEMORY_RIGHTS: u64 = BASIC | MAP | READ | WRITE | EXECUTE;
 pub const HANDLES: usize = 32;
@@ -32,6 +35,8 @@ pub enum Error {
     QuotaExceeded,
     OutOfMemory,
     WouldBlock,
+    PeerClosed,
+    BufferTooSmall,
 }
 pub type Result<T> = core::result::Result<T, Error>;
 fn memory_error(e: MemoryError) -> Error {
@@ -48,6 +53,7 @@ pub enum Kind {
     Process = 1,
     Thread = 2,
     Memory = 3,
+    Channel = 4,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 struct Id {
@@ -58,6 +64,10 @@ struct Id {
 enum Body {
     Process(SpaceId),
     Thread(SpaceId),
+    Channel {
+        pair: usize,
+        side: usize,
+    },
     Memory {
         allocation: AllocationId,
         bytes: u64,
@@ -71,6 +81,7 @@ impl Body {
             Self::Process(_) => Kind::Process,
             Self::Thread(_) => Kind::Thread,
             Self::Memory { .. } => Kind::Memory,
+            Self::Channel { .. } => Kind::Channel,
         }
     }
 }
@@ -130,12 +141,16 @@ pub struct Registry {
     tables: [Table; OWNERS],
     objects: [Object; OBJECTS],
     next_nonce: u32,
+    channels: [channels::Pair; channels::PAIRS],
+    senders: [Option<channels::Sender>; OWNERS],
 }
 impl Registry {
     pub const EMPTY: Self = Self {
         tables: [Table::EMPTY; OWNERS],
         objects: [Object::EMPTY; OBJECTS],
         next_nonce: 1,
+        channels: [channels::Pair::EMPTY; channels::PAIRS],
+        senders: [None; OWNERS],
     };
     fn table(&self, space: SpaceId) -> Result<usize> {
         self.tables
@@ -317,6 +332,30 @@ impl Registry {
 }
 
 impl Registry {
+    /// P3-07 profile creation: transfer is a delegable right, never recovered
+    /// from payload IDs. Historical profiles retain their P3-06 grant set.
+    pub fn create_transferable<const S: usize, const A: usize, const M: usize, const T: usize>(
+        &mut self,
+        r: &mut Runtime<S, A, M, T>,
+        store: &mut impl Store,
+        space: SpaceId,
+        process: u64,
+        bytes: u64,
+        ceiling: u64,
+    ) -> Result<u64> {
+        let h = self.create(r, store, space, process, bytes, ceiling)?;
+        let (t, slot, _, _) = self.resolve(space, h, None, 0)?;
+        self.tables[t].handles[slot].as_mut().unwrap().rights |= TRANSFER;
+        Ok(h)
+    }
+    pub fn sweep<const S: usize, const A: usize, const M: usize, const T: usize>(
+        &mut self,
+        r: &mut Runtime<S, A, M, T>,
+        store: &mut impl Store,
+    ) -> Result<()> {
+        self.quiescent(r)?;
+        self.collect(r, store)
+    }
     fn quiescent<const S: usize, const A: usize, const M: usize, const T: usize>(
         &self,
         r: &Runtime<S, A, M, T>,
@@ -331,6 +370,7 @@ impl Registry {
         r: &mut Runtime<S, A, M, T>,
         store: &mut impl Store,
     ) -> Result<()> {
+        self.collect_channels();
         for slot in 0..OBJECTS {
             let o = self.objects[slot];
             if o.handles != 0 || o.maps != 0 {
@@ -559,9 +599,11 @@ impl Registry {
             self.objects[h.object.slot].handles -= 1;
         }
         self.tables[t] = Table::EMPTY;
+        self.senders[t] = None;
         self.collect(r, store)?;
         Ok(())
     }
 }
+pub mod channels;
 #[cfg(test)]
 mod tests;

@@ -51,3 +51,5 @@ the user's original-kernel/no-hidden-reboot requirements silently.
 - [ADR-0021: Preempt owner threads and eagerly preserve baseline FP state](0021-preemptive-owner-threads-and-eager-fp.md) - Proposed; P3-05 experiment.
 
 [ADR-0022: retained memory objects and handle ceilings](0022-retained-memory-objects-and-handle-ceilings.md) remains Proposed; P3-06 owns its experiment.
+
+[ADR-0023: atomic queued authority and cycle collection](0023-atomic-queued-authority-and-cycle-collection.md) remains Proposed; P3-07 owns its experiment.

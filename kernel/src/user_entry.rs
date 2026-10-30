@@ -445,7 +445,11 @@ extern "C" fn dispatch(ptr: *mut Frame) {
         Ok(v) => f.rdx = v,
         Err(e) => {
             f.rax = e;
-            f.rdx = if e == BUFFERTOOSMALL { 32 } else { 0 };
+            f.rdx = if operation == ABI_QUERY && e == BUFFERTOOSMALL {
+                32
+            } else {
+                0
+            };
         }
     }
     if !(hooks.scheduled)() {

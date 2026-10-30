@@ -194,7 +194,7 @@ fn spawn(queue: &mut Queue, mode: u64, module: usize, required: u64) -> Result<T
     };
     #[cfg(feature = "capability-test")]
     let grants = if capabilities::enabled() {
-        Some(capabilities::admit(space, module)?)
+        Some(capabilities::admit(space, module, id, context)?)
     } else {
         None
     };
@@ -535,7 +535,10 @@ pub(crate) fn run(trace: bool) -> Result<()> {
 }
 
 #[cfg(feature = "capability-test")]
-pub(crate) fn run_objects() -> Result<()> {
+pub(crate) fn run_objects(channels: bool) -> Result<()> {
+    if channels {
+        capabilities::enable_channels();
+    }
     fixture::install_capabilities();
     unsafe {
         asm!("cli");
@@ -566,10 +569,16 @@ pub(crate) fn run_objects() -> Result<()> {
         + 8192;
     need(fixed <= 16 * 1024 * 1024)?;
     let mut count = 0;
-    for wave in 0..6 {
+    let waves = if channels { 2 } else { 6 };
+    for wave in 0..waves {
         let mut queue = Queue::EMPTY;
         for module in 0..3 {
-            spawn(&mut queue, 100 + wave, module, 7)?;
+            spawn(
+                &mut queue,
+                if channels { 200 + wave } else { 100 + wave },
+                module,
+                7,
+            )?;
         }
         let i = capabilities::inventory();
         record(
@@ -583,7 +592,7 @@ pub(crate) fn run_objects() -> Result<()> {
         );
         while let Some(id) = queue.pop() {
             count += 1;
-            need(count < 512)?;
+            need(count < if channels { 2048 } else { 512 })?;
             let (root, frame, fp, stack, c) = unsafe {
                 let t = (&mut *TASKS.0.get())[id.slot].as_mut().unwrap();
                 need(t.current.id.generation == id.generation)?;
@@ -619,7 +628,11 @@ pub(crate) fn run_objects() -> Result<()> {
                 (t.result, t.preemptions, t.dispatches)
             };
             if let Some(value) = result {
-                let expected = if id.slot == 1 && wave > 0 { 0x10e } else { 0 };
+                let expected = if !channels && id.slot == 1 && wave > 0 {
+                    0x10e
+                } else {
+                    0
+                };
                 record(
                     "m1.cap_reap",
                     "capabilities",
@@ -696,7 +709,8 @@ pub(crate) fn run_objects() -> Result<()> {
         "capabilities",
         "ok",
         format_args!(
-            "waves=6 tasks=18 settled=true switches={count} nested_irqs={} pin_irqs={} fixed_bytes={fixed} user_execution=true",
+            "waves={waves} tasks={} settled=true switches={count} nested_irqs={} pin_irqs={} fixed_bytes={fixed} user_execution=true",
+            waves * 3,
             unsafe { *NESTED.0.get() },
             unsafe { *PIN_IRQS.0.get() }
         ),

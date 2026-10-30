@@ -1,0 +1,718 @@
+{
+  "actual_artifacts_verified": true,
+  "launches": [
+    {
+      "session": "877cb4472b62cfa7e7ac2b7f18f5f26cb53c9651d1ddb474f12dcef389211783",
+      "outcome": "expected-rejection",
+      "fixture": "acpi-corrupt",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "f383e86c15e5b20939dad9b53849dec578b7d4a000bee7e55b357ec7d24a912a",
+      "iso_sha256": "52f59aa2727255fe4da354c66f53a667d6b3823aba91e33e29ff81ec915693cc",
+      "records": 80,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\acpi-corrupt\\acpi-corrupt-run",
+      "timed_out": false
+    },
+    {
+      "session": "ad52647525ed7618b760dfa476e3db52375776ef3c9475f5593dd63cf2d31fdc",
+      "outcome": "ready",
+      "fixture": "normal",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "1a17631c294f516805b9a0fd0b97483810aa581f5b204e3164a4ff2d2047e32b",
+      "iso_sha256": "19dfa5d7901a77be8614fd907422aaf85874e64dd2db3e39512054902ff57372",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-metadata\\cold-boot-a-run",
+      "timed_out": false
+    },
+    {
+      "session": "35d89490d6c6b4051edc3ae17b326e3cafe3e187f8c52084b44d3e8efa03497a",
+      "outcome": "ready",
+      "fixture": "normal",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "1a17631c294f516805b9a0fd0b97483810aa581f5b204e3164a4ff2d2047e32b",
+      "iso_sha256": "3e2cca0e556b2929f4e1bff522be8685540151c9cc0341a70ffe4837cfd92fa6",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-metadata\\cold-boot-b-run",
+      "timed_out": false
+    },
+    {
+      "session": "2b1b3d7d3c96752e33a03f85291764502ba16da6af23d9198a424fef3067096f",
+      "outcome": "ready",
+      "fixture": "normal",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "1a17631c294f516805b9a0fd0b97483810aa581f5b204e3164a4ff2d2047e32b",
+      "iso_sha256": "e5c91e84e5a4b406fa32ad4be75e882cbeffe44cb87e591b545e4f498d76b918",
+      "records": 191,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-metadata\\module-run",
+      "timed_out": false
+    },
+    {
+      "session": "f8ee5671cc3856d8338121c70ad9f1eea862001a90e7a4692933ac33ba720d6a",
+      "outcome": "ready",
+      "fixture": "serial-only",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "0159e00180655662311484fd1190b8bc58dafa2da9205fe0a6ba36621b68fa73",
+      "iso_sha256": "4b7833e08131d2410d6e1aeddcca3c2e5bf4894c07badbf4dbb3f0124bcdcc64",
+      "records": 183,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-metadata\\serial-only-run",
+      "timed_out": false
+    },
+    {
+      "session": "7019db6e25fa4aa00868e5cff26b5bed5fe9bd936eb8e24c7fd0cc2eb57bf6c0",
+      "outcome": "expected-rejection",
+      "fixture": "excessive-count",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "0159e00180655662311484fd1190b8bc58dafa2da9205fe0a6ba36621b68fa73",
+      "iso_sha256": "5b8b0cc3bcc61b1660d5cbe0e1897be007c639104276dda2cbdea757f5a90be8",
+      "records": 2,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-reject\\excessive-count-run",
+      "timed_out": false
+    },
+    {
+      "session": "f3395da3a1df0f1a2b27a9a9b64f66b6ef31e0c6ddcb28fa15bce9cd64c45d13",
+      "outcome": "expected-rejection",
+      "fixture": "framebuffer-format",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "0159e00180655662311484fd1190b8bc58dafa2da9205fe0a6ba36621b68fa73",
+      "iso_sha256": "dc2834de10199073585af4048db9643012d00abdb87ce5aab3488dffedd06bf4",
+      "records": 2,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-reject\\framebuffer-format-run",
+      "timed_out": false
+    },
+    {
+      "session": "752c1dc822a6e99b250ebd6abd9ef835fa8e197f2e53553afcca1fb67def3df7",
+      "outcome": "expected-rejection",
+      "fixture": "framebuffer-pitch",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "0159e00180655662311484fd1190b8bc58dafa2da9205fe0a6ba36621b68fa73",
+      "iso_sha256": "0628ff99909830bda25be76b9c03d361d78f59140791eef3b6635fa336526796",
+      "records": 2,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-reject\\framebuffer-pitch-run",
+      "timed_out": false
+    },
+    {
+      "session": "713962c43b5874b552b442c4d6898b18b3c82c7bdf8e5e6910bdfd4c46c8f8c7",
+      "outcome": "expected-rejection",
+      "fixture": "framebuffer-range",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "0159e00180655662311484fd1190b8bc58dafa2da9205fe0a6ba36621b68fa73",
+      "iso_sha256": "0338f7f1cb632e37476c48a04fba9210623a71affcf410b45dff7dbd2ffb4dc9",
+      "records": 2,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-reject\\framebuffer-range-run",
+      "timed_out": false
+    },
+    {
+      "session": "2e742df298fd1b1a026430c2f6ed63412d04dce6a128a969e11649d3b56adc65",
+      "outcome": "expected-rejection",
+      "fixture": "missing-required",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "0159e00180655662311484fd1190b8bc58dafa2da9205fe0a6ba36621b68fa73",
+      "iso_sha256": "0998d98f1657238c7359fd192b18a529db82247099caf0a7632a70c384b87800",
+      "records": 2,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-reject\\missing-required-run",
+      "timed_out": false
+    },
+    {
+      "session": "5ae4ad01b04128fc63ce475545b9cd7967015914987ec57bff8bb1b3093ac000",
+      "outcome": "expected-rejection",
+      "fixture": "range-overflow",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "0159e00180655662311484fd1190b8bc58dafa2da9205fe0a6ba36621b68fa73",
+      "iso_sha256": "b405badb0bbc3f164b7e9fb8e4a7d3e8c0a41fe80139a45a375211ea0c44eb25",
+      "records": 2,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-reject\\range-overflow-run",
+      "timed_out": false
+    },
+    {
+      "session": "5bf84faba9abe10df17dcedce7199b86540bc04d87be151f40a0a6223f115456",
+      "outcome": "expected-rejection",
+      "fixture": "unsupported-revision",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "0159e00180655662311484fd1190b8bc58dafa2da9205fe0a6ba36621b68fa73",
+      "iso_sha256": "0c94462bb56eafc7569e4a2be40773bc0cde55258867444334b504fe7b5469e4",
+      "records": 2,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-reject\\unsupported-revision-run",
+      "timed_out": false
+    },
+    {
+      "session": "f347f1cce4cb80714716bfba6950e71c742b2cb9bb97b5f703da3bc7745ae99c",
+      "outcome": "expected-rejection",
+      "fixture": "unterminated-string",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "0159e00180655662311484fd1190b8bc58dafa2da9205fe0a6ba36621b68fa73",
+      "iso_sha256": "e616ec13781c774d72ce49a7780559e4cee4a8ca44041e12773a6876c66eb7fb",
+      "records": 2,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\boot-reject\\unterminated-string-run",
+      "timed_out": false
+    },
+    {
+      "session": "bf2a472385ba7b2211ffd4950b868adb9c30bb26b7ee479909db167e06acf292",
+      "outcome": "ready",
+      "fixture": "clock-read",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "f383e86c15e5b20939dad9b53849dec578b7d4a000bee7e55b357ec7d24a912a",
+      "iso_sha256": "762712f4511005e60eb0e79fc70ad5447a9a2a672872e21b27d9adc15e9af117",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\clock-read\\clock-read-run",
+      "timed_out": false
+    },
+    {
+      "session": "d13e8b050fb943a7fb0988f5f412e7bed9b0c68c53f197f78f267624a0bb8526",
+      "outcome": "ready",
+      "fixture": "clock-read",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "f383e86c15e5b20939dad9b53849dec578b7d4a000bee7e55b357ec7d24a912a",
+      "iso_sha256": "2ee80d967f5b1ecf598e983b201162063bd81058714c682259ef2066a81ad2b2",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\clock-read\\fresh-epoch-run",
+      "timed_out": false
+    },
+    {
+      "session": "25cb5c92946e8a25b0fd8d5bb97790ba5f8d22fe7f25ecefdc95941be90a7ead",
+      "outcome": "expected-fatal",
+      "fixture": "emergency-stack",
+      "positive_ready": false,
+      "exit": 37,
+      "status": "passed",
+      "build": "69fa6facb601b3c1156c5535e9301e6f6a7ca7906eaeaab975ec239df6882493",
+      "iso_sha256": "cb5077e4bfb3daa8f4894c8e336c8c13eab9b24d3ff62aadbefea3c15db08425",
+      "records": 80,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\emergency-stack\\emergency-stack-run",
+      "timed_out": false
+    },
+    {
+      "session": "c9d6e97f09435791f7cbf71ff564511a9ed73982d9e307a046b13bee17ed80c0",
+      "outcome": "expected-fatal",
+      "fixture": "exception-emergency",
+      "positive_ready": false,
+      "exit": 37,
+      "status": "passed",
+      "build": "16507a30eea4395210b054a876570eff3aeb1c27fd02e0822539995d98185cea",
+      "iso_sha256": "a20fa30e0c455d59ae239b2a3805f9c1f2784b0142da05b63155db10fd52a4c3",
+      "records": 80,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\exception-emergency\\exception-emergency-run",
+      "timed_out": false
+    },
+    {
+      "session": "0f8ee081b6174ef1e1586437ef145a57437935e71fd5ea654bbf3a12b1a5c73a",
+      "outcome": "expected-fatal",
+      "fixture": "exception-invalid-opcode",
+      "positive_ready": false,
+      "exit": 37,
+      "status": "passed",
+      "build": "16507a30eea4395210b054a876570eff3aeb1c27fd02e0822539995d98185cea",
+      "iso_sha256": "11e14eae9046db778059393b537d1aababd4b610ca672fb58473fa489b80d586",
+      "records": 80,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\exception-invalid-opcode\\exception-invalid-opcode-run",
+      "timed_out": false
+    },
+    {
+      "session": "36e1fcd0f5770e12d44f62189add205758b16996839792114195cae9690bc451",
+      "outcome": "expected-fatal",
+      "fixture": "exception-page-fault",
+      "positive_ready": false,
+      "exit": 37,
+      "status": "passed",
+      "build": "16507a30eea4395210b054a876570eff3aeb1c27fd02e0822539995d98185cea",
+      "iso_sha256": "158d9a63f45617fff357cece098189579028c279b30a6078379201c9548e69d4",
+      "records": 80,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\exception-page-fault\\exception-page-fault-run",
+      "timed_out": false
+    },
+    {
+      "session": "1e5e3d5f40f653723247b54325788dec937a559d6e25c93a57ace0ef527cd529",
+      "outcome": "expected-fatal",
+      "fixture": "execute-disable-fault",
+      "positive_ready": false,
+      "exit": 37,
+      "status": "passed",
+      "build": "69fa6facb601b3c1156c5535e9301e6f6a7ca7906eaeaab975ec239df6882493",
+      "iso_sha256": "63fa56e5fb68d3b4689b18e62220efe77125fdf4530d8f0444a962c56e9f4141",
+      "records": 80,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\execute-disable-fault\\execute-disable-fault-run",
+      "timed_out": false
+    },
+    {
+      "session": "0446504f3b2b1c2dcf757d559fb7dcbc444def94a7fcd40e68e9132a2a016a9b",
+      "outcome": "ready",
+      "fixture": "acceptance-exit",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "8255e81305da361ac6ef2dfe2c879689be1fd5966783943112a44bf587fbe43c",
+      "iso_sha256": "7adf574dd9d32c95ea63f8e6f8d268b5adf2a9211787ef226e77b69b70366eb9",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\final-1-run",
+      "timed_out": false
+    },
+    {
+      "session": "acb167e2c508320e30d57cd2da815ecca83c2f7f58d6d02219790f1f42a12a21",
+      "outcome": "ready",
+      "fixture": "acceptance-exit",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "8255e81305da361ac6ef2dfe2c879689be1fd5966783943112a44bf587fbe43c",
+      "iso_sha256": "fe080373870d4f3321db253d1d677132a3f553c00a009b7889c6f80fd413caa0",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\final-2-run",
+      "timed_out": false
+    },
+    {
+      "session": "ff757a05d52731840c717624335f947274a7971784c0170197cf3ff614bc68d4",
+      "outcome": "ready",
+      "fixture": "acceptance-exit",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "8255e81305da361ac6ef2dfe2c879689be1fd5966783943112a44bf587fbe43c",
+      "iso_sha256": "b4d3448ea110731838014a15c5d4c8e56a79ca2e668f4339c7bb04208d3c5a62",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\final-3-run",
+      "timed_out": false
+    },
+    {
+      "session": "8f15f48b4bb9144fb27b04970e7f65032beeec4cb237893c161cd027a99a527e",
+      "outcome": "ready",
+      "fixture": "acceptance-exit",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "8255e81305da361ac6ef2dfe2c879689be1fd5966783943112a44bf587fbe43c",
+      "iso_sha256": "f7299490cdd7e9cb4378760eebed5608be22b34ba0bf0de6826211592a842e1c",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\final-4-run",
+      "timed_out": false
+    },
+    {
+      "session": "40fc7f108059620275fda23452eb7aa7ffffe57143f574e5dfbdfdf43faab454",
+      "outcome": "ready",
+      "fixture": "acceptance-exit",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "8255e81305da361ac6ef2dfe2c879689be1fd5966783943112a44bf587fbe43c",
+      "iso_sha256": "a6b7be1fad43bd92aa27c6c6ac5b0f69b1c8b8d9c26fb06acb125f38188f6fa7",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\final-5-run",
+      "timed_out": false
+    },
+    {
+      "session": "a59a2ef2c225a47f915e16dd410a2cabde9a70a8a2173cd010cf03a46aa62036",
+      "outcome": "expected-fatal",
+      "fixture": "guard-fault",
+      "positive_ready": false,
+      "exit": 37,
+      "status": "passed",
+      "build": "69fa6facb601b3c1156c5535e9301e6f6a7ca7906eaeaab975ec239df6882493",
+      "iso_sha256": "49e4d7b5e14156d9ef221a94f21f5df1d248cbc5393076734fdfa3be19ffdf76",
+      "records": 80,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\guard-fault\\guard-fault-run",
+      "timed_out": false
+    },
+    {
+      "session": "7a018ed23e079c71b5af516264f1770d0fb67f8a402535fdf42a1a3d81c13911",
+      "outcome": "ready",
+      "fixture": "idle-wakeup",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "f383e86c15e5b20939dad9b53849dec578b7d4a000bee7e55b357ec7d24a912a",
+      "iso_sha256": "c00362c928005292458e13103c61600c457114065621985bff31a89a4506d668",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\idle-wakeup\\idle-wakeup-run",
+      "timed_out": false
+    },
+    {
+      "session": "98cc573a9e992ad79c1c9e1a4df5c25a43753dd51a8c4e905697f953cfb68753",
+      "outcome": "broken-before-entry",
+      "fixture": "normal",
+      "positive_ready": false,
+      "exit": null,
+      "status": "failed",
+      "build": "1a17631c294f516805b9a0fd0b97483810aa581f5b204e3164a4ff2d2047e32b",
+      "iso_sha256": "e1dac3c365c6ba9d4b673906d70d6214a1bb3aacf13ecff0d6cc830e3fdff7f2",
+      "records": 0,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\iso-negative\\bad-config-run",
+      "timed_out": true
+    },
+    {
+      "session": "e1a3043db429fdf5cf84c106e25b4a989696423c5d23ab0893f70cb107368455",
+      "outcome": "broken-before-entry",
+      "fixture": "normal",
+      "positive_ready": false,
+      "exit": null,
+      "status": "failed",
+      "build": "d570bc425cb826a3c7520f4b16469d057890ad51bcf986459df177516aaf2c6a",
+      "iso_sha256": "34b2c5623c85f57954ec5f3c11ede53addb1646bb6abc5ba4389d78bb1786a37",
+      "records": 0,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\iso-negative\\no-entry-run",
+      "timed_out": true
+    },
+    {
+      "session": "91a7b6e99dae9e0d5b8ace0559dc462762af656a85d53608251617078f39f4d0",
+      "outcome": "ready",
+      "fixture": "normal",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "1a17631c294f516805b9a0fd0b97483810aa581f5b204e3164a4ff2d2047e32b",
+      "iso_sha256": "6e399120583b2e37d2f680dffc3b4f76597adbbfd26c3b67edd1b6622f3cf8e0",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\iso-smoke\\cold-boot-a-run",
+      "timed_out": false
+    },
+    {
+      "session": "f2729063e0365a292d8786d4c1661fa55fa2866acb588ba8092201d41d5c0ce2",
+      "outcome": "ready",
+      "fixture": "normal",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "1a17631c294f516805b9a0fd0b97483810aa581f5b204e3164a4ff2d2047e32b",
+      "iso_sha256": "f95346b4f9f26bfbc8f1963bb0560348145bc3db9f968deba9fae91f1e9cbcb3",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\iso-smoke\\cold-boot-b-run",
+      "timed_out": false
+    },
+    {
+      "session": "0a3bd88fd5a41f6a8d7e6f11fe5bf12789651114dd189c108755cff62e9d68be",
+      "outcome": "ready",
+      "fixture": "memory-exhaustion",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "69fa6facb601b3c1156c5535e9301e6f6a7ca7906eaeaab975ec239df6882493",
+      "iso_sha256": "f9e49584bdb11f21415329b864250bd1199f60c1738f03fb5b4cc95ca28243e7",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\memory-exhaustion\\memory-exhaustion-run",
+      "timed_out": false
+    },
+    {
+      "session": "bd2079aa194182224cc0c76a64d927e52ded0b4084f205fa2264e92d03c3e303",
+      "outcome": "ready",
+      "fixture": "memory-ownership",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "69fa6facb601b3c1156c5535e9301e6f6a7ca7906eaeaab975ec239df6882493",
+      "iso_sha256": "45db5acca9a7600035ec687221cc71fcbc1287dcc1f6387943c327d546a0977a",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\memory-ownership\\memory-ownership-run",
+      "timed_out": false
+    },
+    {
+      "session": "a2d5a76800f86013c0c4aa8d7348362510324a56356c6aac8dc7afbd77d2031a",
+      "outcome": "expected-fatal",
+      "fixture": "panic",
+      "positive_ready": false,
+      "exit": 37,
+      "status": "passed",
+      "build": "16507a30eea4395210b054a876570eff3aeb1c27fd02e0822539995d98185cea",
+      "iso_sha256": "41c9730e66c45bd784194a6b1412312c83a01fc49c3187ba229a7bcb0c4082a5",
+      "records": 80,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\panic\\panic-run",
+      "timed_out": false
+    },
+    {
+      "session": "c6f49d07c431bb8682ec727697bfb1515f2f05ec16bd1ccc37eb33842b4d45c0",
+      "outcome": "ready",
+      "fixture": "normal",
+      "positive_ready": true,
+      "exit": null,
+      "status": "passed",
+      "build": "8255e81305da361ac6ef2dfe2c879689be1fd5966783943112a44bf587fbe43c",
+      "iso_sha256": "f9dad015684c5b572e0e1c8fa8a8365bda64ed53d042fad95419146df60b00d1",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\run\\cold-boot-a-run",
+      "timed_out": false
+    },
+    {
+      "session": "991343efcbcfbedb8976fd023f8208c76f912dd9f3ce7e88e63bd6999bf80b8f",
+      "outcome": "ready",
+      "fixture": "acceptance-exit",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "8255e81305da361ac6ef2dfe2c879689be1fd5966783943112a44bf587fbe43c",
+      "iso_sha256": "385e5ad1397cdb779d4ed03d8e888f473c5dcf238a80b8176c247a6b17ff5ead",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\second-clean-run",
+      "timed_out": false
+    },
+    {
+      "session": "ae06e89863a6b6a225623d3ebcb5f0233e005ed1f3fdf1db8acfeaa3b9b6f2e9",
+      "outcome": "expected-rejection",
+      "fixture": "timer-calibration",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "f383e86c15e5b20939dad9b53849dec578b7d4a000bee7e55b357ec7d24a912a",
+      "iso_sha256": "6fa760abcd054dfdde26deded12c9efed2ae5b945e443dbafb89884d4bb03859",
+      "records": 81,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\timer-calibration\\timer-calibration-run",
+      "timed_out": false
+    },
+    {
+      "session": "d14fff31bc27d169e9b2465991399d761f28a8de29365b4112a723d84a06fb88",
+      "outcome": "expected-fatal",
+      "fixture": "timer-exception",
+      "positive_ready": false,
+      "exit": 37,
+      "status": "passed",
+      "build": "f383e86c15e5b20939dad9b53849dec578b7d4a000bee7e55b357ec7d24a912a",
+      "iso_sha256": "388b01743b982dba6215b1cf6a66ad81eb6c03b4cff21275d1a76250fd4c053b",
+      "records": 184,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\timer-exception\\timer-exception-run",
+      "timed_out": false
+    },
+    {
+      "session": "deff321ed4003ba1434a4ec70d92c539eb94c4a6bf04832f552f4195d17724ed",
+      "outcome": "ready",
+      "fixture": "timer-masked",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "f383e86c15e5b20939dad9b53849dec578b7d4a000bee7e55b357ec7d24a912a",
+      "iso_sha256": "297cf9785d505f0b56abb478963435d6a8182d85bccbbaf08c0e19f81b13767b",
+      "records": 186,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\timer-masked\\timer-masked-run",
+      "timed_out": false
+    },
+    {
+      "session": "b59e5ef21489e4c2f7b7947bbfaf532531d6995bf64457cb43bf702abb15ecbb",
+      "outcome": "ready",
+      "fixture": "timer-progress",
+      "positive_ready": true,
+      "exit": 33,
+      "status": "passed",
+      "build": "f383e86c15e5b20939dad9b53849dec578b7d4a000bee7e55b357ec7d24a912a",
+      "iso_sha256": "040a8b116346acc80d17c02731a3a3f2f66ce69b61d82150ce99d564cb8b2dd4",
+      "records": 185,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\timer-progress\\timer-progress-run",
+      "timed_out": false
+    },
+    {
+      "session": "01a613ea5a59f84a445f4e0f4b9a8abfcfec31a36b7cee7b280c679df5353ea8",
+      "outcome": "expected-rejection",
+      "fixture": "timer-unsupported",
+      "positive_ready": false,
+      "exit": 35,
+      "status": "passed",
+      "build": "f383e86c15e5b20939dad9b53849dec578b7d4a000bee7e55b357ec7d24a912a",
+      "iso_sha256": "e72b6216742b7ca8ac20edb011623bcea7a8b8a2b5f4782f8fd8836bfd8779bd",
+      "records": 80,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\timer-unsupported\\timer-unsupported-run",
+      "timed_out": false
+    },
+    {
+      "session": "d47164ffdb9617a57bc741d5e173d7d42f6b75b9360f36eb562e734ee191b468",
+      "outcome": "expected-fatal",
+      "fixture": "write-protect-fault",
+      "positive_ready": false,
+      "exit": 37,
+      "status": "passed",
+      "build": "69fa6facb601b3c1156c5535e9301e6f6a7ca7906eaeaab975ec239df6882493",
+      "iso_sha256": "ec651fd00a00088a743f7ff01a9a6cfbb172a4ada04e7d78edc6de176d17e8fb",
+      "records": 80,
+      "directory": "${WORKSPACE}\\build/m1\\suite-1793313850590232600-73228\\write-protect-fault\\write-protect-fault-run",
+      "timed_out": false
+    }
+  ],
+  "source_hashes_verified": true,
+  "rows": [
+    {
+      "case": "format",
+      "status": "passed"
+    },
+    {
+      "case": "m0",
+      "status": "passed"
+    },
+    {
+      "case": "dependencies",
+      "status": "passed"
+    },
+    {
+      "case": "kernel-host",
+      "status": "passed"
+    },
+    {
+      "case": "doctor",
+      "status": "passed"
+    },
+    {
+      "case": "prerequisites",
+      "status": "passed"
+    },
+    {
+      "case": "docs",
+      "status": "passed"
+    },
+    {
+      "case": "contracts",
+      "status": "passed"
+    },
+    {
+      "case": "governance",
+      "status": "passed"
+    },
+    {
+      "case": "final-normal-boots",
+      "count": 5,
+      "second_clean_boot": true,
+      "status": "passed"
+    },
+    {
+      "case": "run",
+      "status": "passed"
+    },
+    {
+      "case": "iso-smoke",
+      "status": "passed"
+    },
+    {
+      "case": "iso-negative",
+      "status": "passed"
+    },
+    {
+      "case": "boot-metadata",
+      "status": "passed"
+    },
+    {
+      "case": "boot-reject",
+      "status": "passed"
+    },
+    {
+      "case": "exception-invalid-opcode",
+      "status": "passed"
+    },
+    {
+      "case": "exception-page-fault",
+      "status": "passed"
+    },
+    {
+      "case": "panic",
+      "status": "passed"
+    },
+    {
+      "case": "exception-emergency",
+      "status": "passed"
+    },
+    {
+      "case": "memory-ownership",
+      "status": "passed"
+    },
+    {
+      "case": "memory-exhaustion",
+      "status": "passed"
+    },
+    {
+      "case": "guard-fault",
+      "status": "passed"
+    },
+    {
+      "case": "write-protect-fault",
+      "status": "passed"
+    },
+    {
+      "case": "execute-disable-fault",
+      "status": "passed"
+    },
+    {
+      "case": "emergency-stack",
+      "status": "passed"
+    },
+    {
+      "case": "timer-progress",
+      "status": "passed"
+    },
+    {
+      "case": "timer-masked",
+      "status": "passed"
+    },
+    {
+      "case": "clock-read",
+      "status": "passed"
+    },
+    {
+      "case": "idle-wakeup",
+      "status": "passed"
+    },
+    {
+      "case": "timer-exception",
+      "status": "passed"
+    },
+    {
+      "case": "acpi-corrupt",
+      "status": "passed"
+    },
+    {
+      "case": "timer-unsupported",
+      "status": "passed"
+    },
+    {
+      "case": "timer-calibration",
+      "status": "passed"
+    }
+  ],
+  "review_tool_sha256": "17be37ee4364452846f3a225b658933ad9300a477d39758a79fd18e3981d5bab",
+  "schema_version": 1,
+  "status": "passed",
+  "run": "${WORKSPACE}\\build\\m1\\suite-1793313850590232600-73228",
+  "clean_comparison": {
+    "build_ids_identical": true,
+    "gpt_guid": "61464790-57e2-4a64-a66d-7c6fd0e6770a; fixed experimental-image disk GUID and derived partition GUIDs",
+    "iso_a_sha256": "7adf574dd9d32c95ea63f8e6f8d268b5adf2a9211787ef226e77b69b70366eb9",
+    "iso_b_sha256": "385e5ad1397cdb779d4ed03d8e888f473c5dcf238a80b8176c247a6b17ff5ead",
+    "iso_bytes_identical": false,
+    "kernel_bytes_identical": true,
+    "normalized_iso_sha256": "e9b9099a952b777fb48f22870f825b404167390a61b7bfe19de08fb76a328927",
+    "only_iso_difference": "64 ASCII host-session bytes at each listed offset",
+    "order_and_path_effects": "whole normalized ISO byte comparison includes directory order, catalog and padding; second clean target path includes spaces",
+    "release_reproducibility_claimed": false,
+    "session_byte_offsets": [
+      14567573
+    ],
+    "timestamps": "volume and all file dates fixed to 2026102000000000"
+  },
+  "build_flavors": [
+    "boot-inject",
+    "exception-test",
+    "fault-before-entry",
+    "iso-smoke",
+    "memory-test",
+    "normal",
+    "timer-test"
+  ],
+  "review": "local Codex self-review; not independent approval"
+}

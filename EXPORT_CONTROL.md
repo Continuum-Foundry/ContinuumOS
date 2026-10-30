@@ -650,6 +650,92 @@ release, remote build, new recipient or standing remote approval is authorized.
 Geographic containment remains unverified; this administrative exception is not
 legal clearance and does not waive applicable law.
 
+### One-time owner authorization - P3-07 PR, 2026-10-29
+
+The owner explicitly instructed: "I give you permission and exemption to make PR".
+This authorizes one non-force push of the completed P3-07 change and this record
+from the local checkout to `origin`, exactly
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, target branch
+`refs/heads/codex/p3-07-bounded-channels`, and creation of its pull request into
+`main` in that same repository. The PR title/body may summarize this payload and
+its local validation. It does not authorize merging, release, remote builds,
+additional recipients, or later pushes.
+
+Exact upload payload: the 56 staged P3-07 files enumerated below, plus
+`EXPORT_CONTROL.md` containing this authorization. The payload includes the
+19-file compact accepted evidence bundle; full local build/work artifacts,
+binaries, ISOs and source copies are excluded. The owner's three unrelated
+signing-policy edits remain unstaged and excluded:
+`docs/05-delivery/windows-development-signing.md`,
+`tools/windows/New-DevPolicy.ps1`, `tools/windows/Set-DevMachinePolicy.ps1`.
+
+For this single push only, use command-local
+`-c core.hooksPath=work/p3-07-authorized-push-hooks`, an empty local directory,
+to bypass the administrative pre-push hold. Do not change the installed hook or
+persistent hooks configuration. Commit normally with the existing pre-commit
+hygiene check active. The authorization is exhausted by the first successful
+push of this payload; it is not a standing waiver. Geographic containment
+remains unverified; this administrative exception is not legal clearance.
+
+Authorized P3-07 paths:
+
+- `AGENTS.md`
+- `audit/check-docs.cjs`
+- `config/m3-profiles.json`
+- `contracts/runtime-v0.json`
+- `docs/00-overview/requirements.md`
+- `docs/04-decisions/0023-atomic-queued-authority-and-cycle-collection.md`
+- `docs/04-decisions/README.md`
+- `docs/05-delivery/agent-handoff.md`
+- `docs/05-delivery/phase-3/07-channels-and-atomic-handle-transfer.md`
+- `docs/05-delivery/phase-3/README.md`
+- `docs/05-delivery/phase-3/channels-runbook.md`
+- `docs/06-contracts/ipc-and-objects.md`
+- `docs/06-contracts/runtime-v0.md`
+- `docs/README.md`
+- `evidence/phase-3/P3-07/2026-10-29/README.md`
+- `evidence/phase-3/P3-07/2026-10-29/SHA256SUMS.json`
+- `evidence/phase-3/P3-07/2026-10-29/acceptance.json`
+- `evidence/phase-3/P3-07/2026-10-29/build-inputs.json`
+- `evidence/phase-3/P3-07/2026-10-29/build-manifest.json`
+- `evidence/phase-3/P3-07/2026-10-29/channels-serial-0.txt`
+- `evidence/phase-3/P3-07/2026-10-29/channels-serial-1.txt`
+- `evidence/phase-3/P3-07/2026-10-29/codegen/task_resume.txt`
+- `evidence/phase-3/P3-07/2026-10-29/codegen/user_copy.txt`
+- `evidence/phase-3/P3-07/2026-10-29/codegen/user_syscall.txt`
+- `evidence/phase-3/P3-07/2026-10-29/development-findings.json`
+- `evidence/phase-3/P3-07/2026-10-29/final-documentation-inputs.json`
+- `evidence/phase-3/P3-07/2026-10-29/host-tests.txt`
+- `evidence/phase-3/P3-07/2026-10-29/launch-context.json`
+- `evidence/phase-3/P3-07/2026-10-29/m1-review.json`
+- `evidence/phase-3/P3-07/2026-10-29/prerequisites.json`
+- `evidence/phase-3/P3-07/2026-10-29/review.json`
+- `evidence/phase-3/P3-07/2026-10-29/source-provenance.json`
+- `evidence/phase-3/P3-07/2026-10-29/user-images.json`
+- `experiments/user-images/channels.rs`
+- `kernel/Cargo.toml`
+- `kernel/src/capability_guest.rs`
+- `kernel/src/exceptions.rs`
+- `kernel/src/ipc_wire.rs`
+- `kernel/src/lib.rs`
+- `kernel/src/main.rs`
+- `kernel/src/objects.rs`
+- `kernel/src/objects/channels.rs`
+- `kernel/src/objects/tests.rs`
+- `kernel/src/objects/tests/channels.rs`
+- `kernel/src/paging.rs`
+- `kernel/src/scheduling.rs`
+- `kernel/src/timer.rs`
+- `kernel/src/user_entry.rs`
+- `tools/Review-P3-07.py`
+- `tools/Test-P3-07.ps1`
+- `tools/xtask/src/m1/build.rs`
+- `tools/xtask/src/m1/cases.rs`
+- `tools/xtask/src/m1/package.rs`
+- `tools/xtask/src/m1/records.rs`
+- `tools/xtask/src/m1/user_images.rs`
+- `tools/xtask/src/main.rs`
+
 No new push, upload, publication, external sharing, remote build, cloud dependency
 analysis, or transmission of project material is approved. No hosting, processing,
 support, backup, AI, or remote-access service is approved for project material

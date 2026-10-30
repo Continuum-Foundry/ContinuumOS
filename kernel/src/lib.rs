@@ -8,6 +8,7 @@ pub mod platform;
 pub mod scheduler;
 pub mod user_boundary;
 pub mod user_image;
+pub mod wait;
 
 pub const MAX_REGIONS: usize = 512;
 pub const MAX_MODULES: usize = 16;

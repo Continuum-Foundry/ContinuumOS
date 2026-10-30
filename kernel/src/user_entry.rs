@@ -25,6 +25,9 @@ mod fixture;
 #[cfg(feature = "scheduler-test")]
 #[path = "scheduling.rs"]
 pub(crate) mod scheduling;
+#[cfg(feature = "wait-test")]
+#[path = "waiting_guest.rs"]
+pub(crate) mod waiting;
 static CONTINUATION: Local<u64> = Local(UnsafeCell::new(0));
 static KERNEL_ROOT: Local<u64> = Local(UnsafeCell::new(0));
 static KERNEL_SP: Local<u64> = Local(UnsafeCell::new(0));
@@ -224,7 +227,7 @@ fn copy(address: u64, bytes: &mut [u8], output: bool) -> core::result::Result<()
         #[cfg(feature = "scheduler-test")]
         {
             assert!(r.inventory().active_pins > 0);
-            scheduling::copy_irq(true);
+            (fixture::hooks().copy_observer)(true);
         }
         let failed = unsafe {
             if output {

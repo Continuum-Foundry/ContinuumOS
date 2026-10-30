@@ -61,7 +61,17 @@
       "channel_create": 13,
       "channel_send": 14,
       "channel_receive": 15,
-      "channel_size": 16
+      "channel_size": 16,
+      "clock_now": 17,
+      "clock_resolution": 18,
+      "event_create": 19,
+      "event_set": 20,
+      "timer_create": 21,
+      "timer_arm": 22,
+      "timer_cancel": 23,
+      "wait_many": 24,
+      "channel_send_until": 25,
+      "channel_receive_until": 26
     },
     "error_ids": {
       "BadHandle": 1,
@@ -491,5 +501,22 @@
     "acceptance": "enqueue commits all bytes and queue-owned attenuated references; destination table admission at receive; no acknowledgement syscall",
     "receive_failure": "no dequeue or handle install; copied outputs unspecified on error",
     "session_validity": "historical attribution; broker must check current session/policy at use"
+  },
+  "waits": {
+    "status": "experimental P3-08; not frozen",
+    "clock": "64-bit HPET elapsed nanoseconds; independent of delivered-tick uptime; overflow fails closed",
+    "infinite_deadline": "18446744073709551615",
+    "maximum_items": 8,
+    "maximum_records": 32,
+    "wait_request_fields": [["items_address", 8], ["item_count", 8], ["absolute_deadline_ns", 8], ["cancel_event_handle_or_zero", 8]],
+    "item_fields": [["handle", 8], ["interest", 8], ["required_bytes", 8], ["required_attachments", 8]],
+    "interests": {"signalled": 0, "exited": 1, "readable": 2, "writable": 3},
+    "timer_arm_fields": [["absolute_deadline_ns", 8], ["period_ns_zero_for_one_shot", 8], ["reserved_zero", 8]],
+    "channel_attempt_fields": [["original_channel_descriptor_address", 8], ["absolute_deadline_ns", 8], ["cancel_event_handle_or_zero", 8]],
+    "completion_order": ["owner termination", "closed watched handle", "cancellation", "elapsed deadline", "first ready item"],
+    "readiness": "level, non-consuming; FIFO runnable admission in registration scan; no queue reservation",
+    "channel_blocking": "SDK composition: deadline/cancel-checked atomic attempt, then wait_many on exact directional capacity and repeat; each retry uses the same absolute deadline",
+    "ownership": "only successful enqueue/receive commits bytes and authority; timeout/cancel/wake never commits transfer",
+    "timer": "level until cancel/rearm; periodic overruns coalesce from original phase; next-deadline exhaustion disarms; unrepresentable count errors transactionally"
   }
 }

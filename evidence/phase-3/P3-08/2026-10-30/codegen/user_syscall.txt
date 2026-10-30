@@ -1,0 +1,47 @@
+<user_syscall>:
+ffffffff80002334:      	movq	%rsp, 0x9b21fd(%rip) # 0xffffffff809b4538 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry7USER_SP>
+ffffffff8000233b:      	movq	0x9b21fe(%rip), %rsp # 0xffffffff809b4540 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry9KERNEL_SP>
+ffffffff80002342:      	pushq	%rax
+ffffffff80002343:      	movq	%cr0, %rax
+ffffffff80002346:      	orq	$0x8, %rax
+ffffffff8000234a:      	movq	%rax, %cr0
+ffffffff8000234d:      	popq	%rax
+ffffffff8000234e:      	pushq	$0x3b
+ffffffff80002350:      	pushq	0x9b21e2(%rip)  # 0xffffffff809b4538 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry7USER_SP>
+ffffffff80002356:      	pushq	%r11
+ffffffff80002358:      	pushq	$0x33
+ffffffff8000235a:      	pushq	%rcx
+ffffffff8000235b:      	pushq	%rax
+ffffffff8000235c:      	pushq	%rcx
+ffffffff8000235d:      	pushq	%rdx
+ffffffff8000235e:      	pushq	%rbx
+ffffffff8000235f:      	pushq	%rbp
+ffffffff80002360:      	pushq	%rsi
+ffffffff80002361:      	pushq	%rdi
+ffffffff80002362:      	pushq	%r8
+ffffffff80002364:      	pushq	%r9
+ffffffff80002366:      	pushq	%r10
+ffffffff80002368:      	pushq	%r11
+ffffffff8000236a:      	pushq	%r12
+ffffffff8000236c:      	pushq	%r13
+ffffffff8000236e:      	pushq	%r14
+ffffffff80002370:      	pushq	%r15
+ffffffff80002372:      	cld
+ffffffff80002373:      	movq	%rsp, %rdi
+ffffffff80002376:      	callq	0xffffffff80019390 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry8dispatch>
+ffffffff8000237b:      	popq	%r15
+ffffffff8000237d:      	popq	%r14
+ffffffff8000237f:      	popq	%r13
+ffffffff80002381:      	popq	%r12
+ffffffff80002383:      	popq	%r11
+ffffffff80002385:      	popq	%r10
+ffffffff80002387:      	popq	%r9
+ffffffff80002389:      	popq	%r8
+ffffffff8000238b:      	popq	%rdi
+ffffffff8000238c:      	popq	%rsi
+ffffffff8000238d:      	popq	%rbp
+ffffffff8000238e:      	popq	%rbx
+ffffffff8000238f:      	popq	%rdx
+ffffffff80002390:      	popq	%rcx
+ffffffff80002391:      	popq	%rax
+ffffffff80002392:      	iretq

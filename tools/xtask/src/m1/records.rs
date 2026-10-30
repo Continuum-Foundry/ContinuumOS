@@ -473,7 +473,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                 let initial = elapsed as u128 * 10_000_000 / ns;
                 let resolution = ns * initial / elapsed as u128;
                 let (initial, resolution) = if expected.fixture.starts_with("scheduler-")
-                    || matches!(expected.fixture, "capabilities" | "channels")
+                    || matches!(expected.fixture, "capabilities" | "channels" | "waits")
                 {
                     (initial / 2, resolution * (initial / 2) / initial)
                 } else {
@@ -699,9 +699,21 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || p.boot_complete
                     || stage != "channels"
                     || outcome != "ok"
-                    || expected.fixture != "channels"
+                    || !matches!(expected.fixture, "channels" | "waits")
                 {
                     return Err("Unexpected channel record".into());
+                }
+            }
+            "m1.wait_call" | "m1.wait_park" | "m1.wait_wake" | "m1.wait_settled"
+            | "m1.wait_clock" | "m1.wait_resume" | "m1.wait_boundary" | "m1.wait_kill"
+            | "m1.wait_delay" | "m1.wait_complete" => {
+                if !p.memory
+                    || p.boot_complete
+                    || stage != "waits"
+                    || outcome != "ok"
+                    || expected.fixture != "waits"
+                {
+                    return Err("Unexpected wait record".into());
                 }
             }
             "m1.cap_map" | "m1.cap_call" | "m1.cap_inventory" | "m1.cap_ready" | "m1.cap_admit"
@@ -710,7 +722,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || p.boot_complete
                     || stage != "capabilities"
                     || outcome != "ok"
-                    || !matches!(expected.fixture, "capabilities" | "channels")
+                    || !matches!(expected.fixture, "capabilities" | "channels" | "waits")
                 {
                     return Err("Unexpected capability record".into());
                 }
@@ -728,7 +740,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || stage != "scheduler"
                     || outcome != "ok"
                     || !(expected.fixture.starts_with("scheduler-")
-                        || matches!(expected.fixture, "capabilities" | "channels"))
+                        || matches!(expected.fixture, "capabilities" | "channels" | "waits"))
                 {
                     return Err("Unexpected scheduler record".into());
                 }
@@ -751,7 +763,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || outcome != "ok"
                     || !(expected.fixture.starts_with("user-boundary-")
                         || expected.fixture.starts_with("scheduler-")
-                        || matches!(expected.fixture, "capabilities" | "channels"))
+                        || matches!(expected.fixture, "capabilities" | "channels" | "waits"))
                 {
                     return Err("Unexpected user-boundary record".into());
                 }
@@ -812,7 +824,7 @@ pub(super) fn assertions(
             return Err("Missing user boundary completion".into());
         }
     }
-    if matches!(expected.fixture, "capabilities" | "channels") {
+    if matches!(expected.fixture, "capabilities" | "channels" | "waits") {
         let rows = p
             .records
             .iter()

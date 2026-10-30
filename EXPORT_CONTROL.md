@@ -752,6 +752,94 @@ does not recall those copies or prove past containment. An administrator must
 review existing copies and service access through an approved channel; do not
 delete evidence, revoke accounts, or migrate data without a documented plan.
 
+## One-time owner authorization — P3-08 PR, 2026-10-30
+
+After local P3-08 acceptance and review, the owner instructed: "i give you
+exemption to make pr". This authorizes one push of the exact reviewed P3-08
+payload listed below, plus this EXPORT_CONTROL.md authorization record, to
+https://github.com/Continuum-Foundry/ContinuumOS.git (existing origin), target
+refs/heads/codex/p3-08-waits-timers-cancellation, followed by one pull request
+against main with the prepared P3-08 title, description and validation metadata.
+The payload is based on fbfb89100fa19a488df8ded620a9ffaaa9483af9.
+
+The one-time invocation is git push --no-verify --set-upstream origin
+HEAD:refs/heads/codex/p3-08-waits-timers-cancellation. Only that push bypasses the
+local pre-push hold. The normal pre-commit hygiene check remains enabled and
+.githooks/pre-push stays installed unchanged afterward. Push authorization is
+exhausted by its first successful push; PR authorization is exhausted by creation
+of that one PR. No force push, merge, release, remote build, extra upload or
+standing remote-environment approval is authorized. Geographic containment remains
+unverified; this administrative exception is not legal clearance and does not
+waive applicable law.
+
+The owner's unrelated Windows signing-policy edits, ignored build/work artifacts,
+binaries and full generated logs/source copies are excluded. Exact payload paths:
+- `AGENTS.md`
+- `audit/check-docs.cjs`
+- `contracts/runtime-v0.json`
+- `docs/00-overview/requirements.md`
+- `docs/02-architecture/kernel-and-execution.md`
+- `docs/04-decisions/0024-elapsed-clock-and-bounded-wait-completion.md`
+- `docs/04-decisions/README.md`
+- `docs/05-delivery/agent-handoff.md`
+- `docs/05-delivery/phase-3/08-waits-timers-and-cancellation.md`
+- `docs/05-delivery/phase-3/README.md`
+- `docs/05-delivery/phase-3/waits-runbook.md`
+- `docs/05-delivery/validation.md`
+- `docs/06-contracts/ipc-and-objects.md`
+- `docs/06-contracts/runtime-v0.md`
+- `docs/README.md`
+- `evidence/phase-3/P3-08/2026-10-30/acceptance.json`
+- `evidence/phase-3/P3-08/2026-10-30/build-inputs.json`
+- `evidence/phase-3/P3-08/2026-10-30/build-manifest.json`
+- `evidence/phase-3/P3-08/2026-10-30/codegen/task_resume.txt`
+- `evidence/phase-3/P3-08/2026-10-30/codegen/user_syscall.txt`
+- `evidence/phase-3/P3-08/2026-10-30/development-findings.json`
+- `evidence/phase-3/P3-08/2026-10-30/final-documentation-inputs.json`
+- `evidence/phase-3/P3-08/2026-10-30/host-tests.txt`
+- `evidence/phase-3/P3-08/2026-10-30/launch-context.json`
+- `evidence/phase-3/P3-08/2026-10-30/m1-review.json`
+- `evidence/phase-3/P3-08/2026-10-30/prerequisites.json`
+- `evidence/phase-3/P3-08/2026-10-30/README.md`
+- `evidence/phase-3/P3-08/2026-10-30/review.json`
+- `evidence/phase-3/P3-08/2026-10-30/SHA256SUMS.json`
+- `evidence/phase-3/P3-08/2026-10-30/source-provenance.json`
+- `evidence/phase-3/P3-08/2026-10-30/user-images.json`
+- `evidence/phase-3/P3-08/2026-10-30/waits-serial-0.txt`
+- `evidence/phase-3/P3-08/2026-10-30/waits-serial-1.txt`
+- `evidence/phase-3/P3-08/2026-10-30/waits-serial-2.txt`
+- `experiments/user-images/wait_api.rs`
+- `experiments/user-images/waits.rs`
+- `EXPORT_CONTROL.md`
+- `kernel/Cargo.toml`
+- `kernel/src/capability_guest.rs`
+- `kernel/src/exceptions.rs`
+- `kernel/src/lib.rs`
+- `kernel/src/main.rs`
+- `kernel/src/objects.rs`
+- `kernel/src/objects/channels.rs`
+- `kernel/src/objects/tests.rs`
+- `kernel/src/objects/tests/channels.rs`
+- `kernel/src/objects/tests/waiting.rs`
+- `kernel/src/objects/waiting.rs`
+- `kernel/src/paging.rs`
+- `kernel/src/runtime_memory.rs`
+- `kernel/src/scheduling.rs`
+- `kernel/src/timer.rs`
+- `kernel/src/user_entry.rs`
+- `kernel/src/user_fixture.rs`
+- `kernel/src/wait.rs`
+- `kernel/src/wait/tests.rs`
+- `kernel/src/waiting_guest.rs`
+- `tools/Review-P3-08.py`
+- `tools/Test-P3-08.ps1`
+- `tools/xtask/src/m1/build.rs`
+- `tools/xtask/src/m1/cases.rs`
+- `tools/xtask/src/m1/package.rs`
+- `tools/xtask/src/m1/records.rs`
+- `tools/xtask/src/m1/user_images.rs`
+- `tools/xtask/src/main.rs`
+
 ## Material and handling covered
 
 The restriction covers original source, technical designs, unpublished documents,

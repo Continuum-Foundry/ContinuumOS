@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "story": "P3-08",
+  "acceptance_credit": false,
+  "storage": "Complete generated logs, source patches and artifacts remain local under ignored build/work. These findings are not acceptance passes.",
+  "findings": [
+    {"run": "prerequisites-1793331577726", "outcome": "failed host child-process fixture at unchanged 3000-ms deadline before guest execution", "resolution": "serial host-test rerun passed; timeout alone does not establish a root cause"},
+    {"run": "waits-1793333728015966300-5992", "outcome": "kernel page fault before user entry", "resolution": "included wait mode 41 in runtime page-table initialization"},
+    {"run": "waits-1793334011315739600-37084", "outcome": "six tasks passed but independent review rejected zero idle halts", "resolution": "common bounded blocking interval makes actual empty-runnable halt observable"},
+    {"run": "acceptance-1793336997947", "outcome": "M1 formatting check failed", "resolution": "applied Rust formatting before subsequent gates"},
+    {"run": "acceptance-1793337497178", "outcome": "documentation audit expected 23 ADRs after adding ADR-0024", "resolution": "updated strict expected ADR count to 24; audit retained"},
+    {"run": "acceptance-1793338207196", "outcome": "deliberately interrupted after source review found possible signal/reset lost wake before scheduler admission", "resolution": "latch immutable completion at syscall return before a second mutating call; added signal/reset and cancellation-pulse guest regressions; preserved incomplete logs"},
+    {"run": "acceptance-1793339275034", "outcome": "incomplete tool session no longer existed on continuation; no matching acceptance guest/build process remained", "resolution": "preserved partial M1 logs and restarted fresh serial prerequisites/full gate; cause of interruption not established"}
+  ],
+  "unchanged_limits": "No host or guest deadline was relaxed. Interrupted runs do not count as acceptance. No Windows power/security setting was changed."
+}

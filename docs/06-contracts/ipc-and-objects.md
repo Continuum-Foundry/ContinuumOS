@@ -89,3 +89,7 @@ object query and 32-byte little-endian map request are recorded in runtime-v0;
 no Rust layout is serialized. Closing the last handle preserves mapped backing
 until the last mapping is gone, including after creator death. This implements
 no universal revocation, public transfer or device/IRQ/DMA grant.
+
+## P3-08 wait/deadline subset
+
+P3-08 passes local self-review for bounded waits, elapsed HPET deadlines, events/timers, cancellation and blocking channel helpers. The 18-task/six-wave guest proves registration-boundary notifications, immutable completion, pressured transfer ownership, bounded request cycles, parked-owner termination and exact settlements. All 64 kernel host tests, ten fresh prerequisites, complete M1 (33 rows/42 launches) and separate memory/loader/boundary/scheduler/capability/channel regressions pass. General supervision, policy/session liveness, independent SDK freeze and guest UI remain open; P3-09 is next. See the [acceptance evidence](../../evidence/phase-3/P3-08/2026-10-30/README.md). This adds R10/R14/R18 and T03/T06, the timer subset of T04 and runtime T09 groundwork; it accepts no desktop latency or whole-guest idle-memory target.

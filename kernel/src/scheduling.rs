@@ -48,6 +48,57 @@ unsafe extern "C" {
 pub(crate) fn active() -> bool {
     unsafe { ENABLED.0.get().read() }
 }
+#[cfg(feature = "wait-test")]
+pub(super) fn current_thread() -> ThreadId {
+    unsafe {
+        let slot = *INDEX.0.get();
+        ThreadId {
+            slot,
+            generation: (&*TASKS.0.get())[slot]
+                .as_ref()
+                .unwrap()
+                .current
+                .id
+                .generation,
+        }
+    }
+}
+#[cfg(feature = "wait-test")]
+pub(super) fn observed_progress(id: ThreadId) -> Option<u64> {
+    unsafe {
+        (&*TASKS.0.get())
+            .get(id.slot)
+            .and_then(Option::as_ref)
+            .filter(|t| t.current.id.generation == id.generation)
+            .map(|t| t.progress)
+    }
+}
+#[cfg(feature = "wait-test")]
+pub(super) fn complete_wait(id: ThreadId, status: u64, value: u64) -> Result<()> {
+    let t = unsafe { (&mut *TASKS.0.get())[id.slot].as_mut() }.ok_or(error("wait", "thread"))?;
+    need(t.current.id.generation == id.generation && t.result.is_none())?;
+    t.frame.rax = status;
+    t.frame.rdx = value;
+    Ok(())
+}
+#[cfg(feature = "wait-test")]
+pub(super) fn kill_waiting(id: ThreadId, queue: &mut Queue) -> Result<()> {
+    need(waiting::blocked(id))?;
+    waiting::terminate(id);
+    let t = unsafe { (&mut *TASKS.0.get())[id.slot].as_mut() }.ok_or(error("wait", "thread"))?;
+    need(t.current.id.generation == id.generation && t.result.is_none())?;
+    t.result = Some(0x300);
+    record(
+        "m1.wait_kill",
+        "waits",
+        "ok",
+        format_args!(
+            "thread={} process={} generation={} principal={} result=768",
+            id.slot, t.current.id.slot, id.generation, t.current.context.principal
+        ),
+    );
+    queue.push(id, 0)
+}
 fn now() -> u64 {
     crate::timer::sample_ns()
 }
@@ -97,6 +148,9 @@ pub(crate) fn tick(cs: u64, raw: *mut u8) {
     }
 }
 fn capture(f: &Frame, timer: bool) -> ! {
+    assert!(runtime_memory::quiescent());
+    #[cfg(feature = "capability-test")]
+    assert!(capabilities::quiescent());
     // IF clear; no memory/registry borrow, pin or lock held here. FXSAVE writes
     // only a trusted aligned supervisor buffer, never user-supplied bytes.
     unsafe {
@@ -556,6 +610,10 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
         asm!("mov cr4, {}",in(reg) cr4 & !((1<<18)|(1<<16)|(1<<22)|(1<<23)));
     }
     capabilities::enable();
+    #[cfg(feature = "wait-test")]
+    if waiting::enabled() {
+        waiting::clock_probe()?;
+    }
     let empty = runtime_memory::with(|r, _| r.inventory());
     let objects = capabilities::inventory();
     let frames = crate::paging::runtime_frames();
@@ -567,9 +625,12 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
         + core::mem::size_of::<Launcher<16>>()
         + core::mem::size_of::<Queue>()
         + 8192;
+    #[cfg(feature = "wait-test")]
+    let fixed = fixed + waiting::fixed_bytes();
     need(fixed <= 16 * 1024 * 1024)?;
     let mut count = 0;
     let waves = if channels { 2 } else { 6 };
+    let waves = fixture::hooks().object_waves.unwrap_or(waves);
     for wave in 0..waves {
         let mut queue = Queue::EMPTY;
         for module in 0..3 {
@@ -590,7 +651,18 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
                 i.owners, i.objects, i.handles, i.mappings, i.backing_bytes, i.mapped_bytes
             ),
         );
-        while let Some(id) = queue.pop() {
+        loop {
+            (fixture::hooks().supervise)(&mut queue, wave)?;
+            #[cfg(feature = "wait-test")]
+            waiting::poll(&mut queue)?;
+            let Some(id) = queue.pop() else {
+                #[cfg(feature = "wait-test")]
+                if waiting::enabled() && waiting::pending() {
+                    waiting::idle()?;
+                    continue;
+                }
+                break;
+            };
             count += 1;
             need(count < if channels { 2048 } else { 512 })?;
             let (root, frame, fp, stack, c) = unsafe {
@@ -618,21 +690,36 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
             }
             crate::exceptions::user_stack(stack);
             need(valid_return(unsafe { &*frame }))?;
+            #[cfg(feature = "wait-test")]
+            if waiting::enabled() {
+                waiting::resume(id)?;
+            }
             unsafe {
-                *ENABLED.0.get() = true;
-                task_resume(root, frame, fp);
-                *ENABLED.0.get() = false;
+                if (&*TASKS.0.get())[id.slot]
+                    .as_ref()
+                    .unwrap()
+                    .result
+                    .is_none()
+                {
+                    *ENABLED.0.get() = true;
+                    task_resume(root, frame, fp);
+                    *ENABLED.0.get() = false;
+                }
             }
             let (result, preemptions, dispatches) = unsafe {
                 let t = (&*TASKS.0.get())[id.slot].as_ref().unwrap();
                 (t.result, t.preemptions, t.dispatches)
             };
             if let Some(value) = result {
+                #[cfg(feature = "wait-test")]
+                waiting::terminate(id);
                 let expected = if !channels && id.slot == 1 && wave > 0 {
                     0x10e
                 } else {
                     0
                 };
+                let expected =
+                    (fixture::hooks().expected_result)(wave, id.slot).unwrap_or(expected);
                 record(
                     "m1.cap_reap",
                     "capabilities",
@@ -676,12 +763,20 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
                     ),
                 );
             } else {
+                #[cfg(feature = "wait-test")]
+                if waiting::blocked(id) {
+                    continue;
+                }
                 queue.push(id, 0)?;
             }
         }
         let m = runtime_memory::with(|r, _| r.inventory());
         let i = capabilities::inventory();
         need(m == empty && i == objects && crate::paging::runtime_frames() == frames)?;
+        #[cfg(feature = "wait-test")]
+        if waiting::enabled() {
+            waiting::settled()?;
+        }
         record(
             "m1.cap_inventory",
             "capabilities",

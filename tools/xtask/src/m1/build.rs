@@ -41,6 +41,7 @@ pub(super) enum Flavor {
     Scheduler,
     Capabilities,
     Channels,
+    Waits,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -58,6 +59,7 @@ impl Flavor {
             Self::Scheduler => "scheduler-test",
             Self::Capabilities => "capability-test",
             Self::Channels => "channel-test",
+            Self::Waits => "wait-test",
         }
     }
     fn features(self) -> &'static str {
@@ -75,6 +77,7 @@ impl Flavor {
             Self::Scheduler => "scheduler-test",
             Self::Capabilities => "capability-test",
             Self::Channels => "channel-test",
+            Self::Waits => "wait-test",
         }
     }
 }
@@ -302,16 +305,18 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             | Flavor::Scheduler
             | Flavor::Capabilities
             | Flavor::Channels
+            | Flavor::Waits
     ) {
         Some(super::user_images::build(
             dir,
             flavor == Flavor::UserBoundary,
             matches!(
                 flavor,
-                Flavor::Scheduler | Flavor::Capabilities | Flavor::Channels
+                Flavor::Scheduler | Flavor::Capabilities | Flavor::Channels | Flavor::Waits
             ),
             flavor == Flavor::Capabilities,
             flavor == Flavor::Channels,
+            flavor == Flavor::Waits,
         )?)
     } else {
         None
@@ -451,7 +456,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         if name == "llvm-objdump" {
             if matches!(
                 flavor,
-                Flavor::Scheduler | Flavor::Capabilities | Flavor::Channels
+                Flavor::Scheduler | Flavor::Capabilities | Flavor::Channels | Flavor::Waits
             ) {
                 let mut symbol = "";
                 let mut filtered = String::new();

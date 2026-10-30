@@ -1,6 +1,6 @@
 # P3-08 — Complete waits, timers, cancellation and backpressure
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done under local Codex self-review. Owner: Codex.
 Depends on: P3-07 Done. Suggested labels: `phase-3`, `waits`, `timers`.
 Backlog: B12 waiting/deadlock subset, B06 deadlines. Requirements: R10/R14/R18;
 preparatory R09/R17. Test families: T03/T06; timer subset of T04 and runtime T09.
@@ -11,6 +11,8 @@ As a client, I need race-safe waits and bounded deadlines so pressure, cancellat
 or peer failure cannot silently lose a message, strand a waiter or stall the kernel.
 
 ## Implementation scope
+
+Implementation design and remaining gates: [waits runbook](waits-runbook.md).
 
 1. Add events, bounded wait sets, timer objects and waitable channel/process state.
    Define atomic readiness observation/registration, level/edge behavior, multiple
@@ -33,15 +35,15 @@ or peer failure cannot silently lose a message, strand a waiter or stall the ker
 
 ## Acceptance criteria
 
-- [ ] Signal/enqueue/close at every registration boundary cannot lose a wakeup;
+- [x] Signal/enqueue/close at every registration boundary cannot lose a wakeup;
   wait-set bounds, fairness policy and object destruction outcomes are deterministic.
-- [ ] Deadlines use elapsed monotonic semantics with tested resolution/overrun behavior;
+- [x] Deadlines use elapsed monotonic semantics with tested resolution/overrun behavior;
   delayed timer delivery does not silently extend a supposedly elapsed timeout.
-- [ ] Timeout/cancel/peer-close races return exact outcomes with the specified queued
+- [x] Timeout/cancel/peer-close races return exact outcomes with the specified queued
   bytes/handles and no double completion or abandoned waiter references.
-- [ ] Queue pressure and deliberate request cycles remain bounded; cancellation,
+- [x] Queue pressure and deliberate request cycles remain bounded; cancellation,
   timeout and process termination allow healthy guest tasks to continue.
-- [ ] Idle tasks block/halt rather than poll indefinitely; wake/cleanup evidence and
+- [x] Idle tasks block/halt rather than poll indefinitely; wake/cleanup evidence and
   existing timer/uptime regressions pass without a desktop latency claim.
 
 ## Tests and evidence
@@ -62,3 +64,5 @@ Sources: [objects contract](../../06-contracts/ipc-and-objects.md),
 [kernel design](../../02-architecture/kernel-and-execution.md),
 [timekeeping runbook](../phase-1/interrupts-timekeeping-runbook.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+Local acceptance: [reviewed compact evidence](../../../evidence/phase-3/P3-08/2026-10-30/README.md). This is not external approval or the M3 exit.

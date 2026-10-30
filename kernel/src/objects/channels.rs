@@ -97,6 +97,42 @@ pub struct Usage {
 }
 
 impl Registry {
+    pub(super) fn channel_readiness(
+        &self,
+        space: SpaceId,
+        endpoint: u64,
+        send: Option<(usize, usize)>,
+    ) -> Result<crate::wait::Readiness> {
+        use crate::wait::Readiness;
+        let (_, pair, side) =
+            self.endpoint(space, endpoint, if send.is_some() { SEND } else { RECEIVE })?;
+        if let Some((bytes, attachments)) = send {
+            if !self.live(self.channels[pair].endpoints[1 - side]) {
+                return Ok(Readiness::Closed);
+            }
+            let q = &self.channels[pair].queues[1 - side];
+            Ok(
+                if q.count < MESSAGES
+                    && bytes <= QUEUE_BYTES - q.bytes
+                    && attachments <= QUEUE_HANDLES - q.handles
+                {
+                    Readiness::Ready
+                } else {
+                    Readiness::Pending
+                },
+            )
+        } else {
+            let q = &self.channels[pair].queues[side];
+            // Accepted messages remain drainable after peer closure.
+            Ok(if q.count != 0 {
+                Readiness::Ready
+            } else if !self.live(self.channels[pair].endpoints[1 - side]) {
+                Readiness::Closed
+            } else {
+                Readiness::Pending
+            })
+        }
+    }
     /// Trusted admission only. Binding cannot subsequently be replaced by caller
     /// claims or endpoint delegation. P3-10 owns current session invalidation.
     pub fn admit_sender(&mut self, space: SpaceId, sender: Sender) -> Result<(u64, u64)> {
@@ -212,6 +248,19 @@ impl Registry {
         bytes: &[u8],
         attachments: &[Attachment],
     ) -> Result<()> {
+        self.channel_send_checked(space, endpoint, bytes, attachments, || Ok(()))
+    }
+    /// A final, non-mutating admission check after complete validation and quota
+    /// reservation, immediately before the atomic enqueue decision. Failure
+    /// retains all sender authority and queued state. No fallible work follows.
+    pub fn channel_send_checked(
+        &mut self,
+        space: SpaceId,
+        endpoint: u64,
+        bytes: &[u8],
+        attachments: &[Attachment],
+        before_commit: impl FnOnce() -> Result<()>,
+    ) -> Result<()> {
         if bytes.len() > INLINE || attachments.len() > ATTACHMENTS {
             return Err(Error::InvalidArgument);
         }
@@ -249,6 +298,7 @@ impl Registry {
         {
             return Err(Error::WouldBlock);
         }
+        before_commit()?;
         // No fallible operations below: queue now owns one ref per attachment.
         let m = &mut q.messages[(q.head + q.count) % MESSAGES];
         m.bytes[..bytes.len()].copy_from_slice(bytes);

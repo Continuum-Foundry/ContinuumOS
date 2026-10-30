@@ -109,6 +109,7 @@ pub(super) fn package(
         || fixture.starts_with("scheduler-")
         || fixture == "capabilities"
         || fixture == "channels"
+        || fixture == "waits"
     {
         for name in ["user_a", "user_b", "service"] {
             let filename = format!("boot/{name}.elf");

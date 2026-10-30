@@ -10,6 +10,12 @@ use continuum_kernel::{
 use core::{arch::asm, cell::UnsafeCell};
 pub(crate) type Memory = Runtime<16, 256, 128, 64>;
 static MEMORY: Local<Memory> = Local(UnsafeCell::new(Memory::EMPTY));
+#[cfg(feature = "user-boundary-test")]
+static BORROWED: Local<bool> = Local(UnsafeCell::new(false));
+#[cfg(feature = "user-boundary-test")]
+pub(crate) fn quiescent() -> bool {
+    !unsafe { *BORROWED.0.get() }
+}
 // No borrow may survive entry to CPL3. IRQ/NMI never acquire this state. The
 // P3-04 caller masks IRQs and has no preemption; pins reject mapping mutations.
 #[cfg(feature = "user-boundary-test")]
@@ -19,12 +25,22 @@ pub(crate) fn with<R>(f: impl FnOnce(&mut Memory, &mut GuestStore) -> R) -> R {
         asm!("pushfq", "pop {}", out(reg) flags);
     }
     assert!(flags & 0x200 == 0);
-    f(
+    // Runtime access is the inner memory domain. Registry output callbacks may
+    // acquire it for a bounded copy, but it cannot recursively acquire itself.
+    assert!(!unsafe { *BORROWED.0.get() });
+    unsafe {
+        *BORROWED.0.get() = true;
+    }
+    let result = f(
         unsafe { &mut *MEMORY.0.get() },
         &mut GuestStore {
             kernel: PhysAddr(crate::user_entry::kernel_root()),
         },
-    )
+    );
+    unsafe {
+        *BORROWED.0.get() = false;
+    }
+    result
 }
 #[repr(C, align(4096))]
 struct Stacks([[u8; 73728]; 16]);

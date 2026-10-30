@@ -58,6 +58,7 @@ pub(super) fn boot_run(
             || fixture.starts_with("scheduler-")
             || fixture == "capabilities"
             || fixture == "channels"
+            || fixture == "waits"
         {
             "3"
         } else if module {
@@ -104,6 +105,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "scheduler" => Flavor::Scheduler,
         "capabilities" => Flavor::Capabilities,
         "channels" => Flavor::Channels,
+        "waits" => Flavor::Waits,
         "iso-smoke" | "boot-metadata" => Flavor::Smoke,
         "iso-negative" => Flavor::NoEntry,
         "boot-reject" => Flavor::Inject,
@@ -128,13 +130,18 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         let image = package(dir, dir, &manifest, false, "normal", false)?;
         return Ok(json!({"compile":"passed","package":"passed","boot":"not_run","image":image}));
     }
-    if matches!(flavor, Flavor::Capabilities | Flavor::Channels) {
+    if matches!(
+        flavor,
+        Flavor::Capabilities | Flavor::Channels | Flavor::Waits
+    ) {
         let run = boot_run(
             dir,
             action,
             dir,
             &manifest,
-            if flavor == Flavor::Channels {
+            if flavor == Flavor::Waits {
+                "waits"
+            } else if flavor == Flavor::Channels {
                 "channels"
             } else {
                 "capabilities"

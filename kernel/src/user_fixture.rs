@@ -9,6 +9,11 @@ pub(super) struct Hooks {
     pub operation: fn(u64, &Frame) -> Option<Value>,
     pub scheduled: fn() -> bool,
     pub return_to_user: fn(&Frame, u64),
+    pub copy_observer: fn(bool),
+    pub wait_boundary: fn(u64, u64),
+    pub supervise: fn(&mut continuum_kernel::scheduler::Queue, u64) -> Result<()>,
+    pub expected_result: fn(u64, usize) -> Option<u64>,
+    pub object_waves: Option<u64>,
 }
 const BOUNDARY: Hooks = Hooks {
     entry_time: || 0,
@@ -17,6 +22,11 @@ const BOUNDARY: Hooks = Hooks {
     operation: |_, _| None,
     scheduled: || false,
     return_to_user: |_, _| {},
+    copy_observer: |_| {},
+    wait_boundary: |_, _| {},
+    supervise: |_, _| Ok(()),
+    expected_result: |_, _| None,
+    object_waves: None,
 };
 static HOOKS: Local<Hooks> = Local(UnsafeCell::new(BOUNDARY));
 pub(super) fn hooks() -> Hooks {
@@ -54,11 +64,21 @@ mod scheduled {
             inject_bad_return(f);
         },
         before_operation: scheduling::check_fp_policy,
+        copy_observer: scheduling::copy_irq,
+        wait_boundary: |_, _| {},
+        supervise: |_, _| Ok(()),
+        expected_result: |_, _| None,
+        object_waves: None,
         operation,
         scheduled: scheduling::active,
         return_to_user: |f, operation| {
             if scheduling::active() {
-                scheduling::syscall_return(f, operation == THREAD_YIELD && f.rax == 0);
+                #[cfg(feature = "wait-test")]
+                waiting::notify().expect("wait notification boundary");
+                let voluntary = operation == THREAD_YIELD && f.rax == 0;
+                #[cfg(feature = "wait-test")]
+                let voluntary = voluntary || waiting::pending_current();
+                scheduling::syscall_return(f, voluntary);
             }
         },
     };
@@ -90,8 +110,117 @@ pub(super) fn install_scheduler() {
 #[cfg(feature = "capability-test")]
 pub(super) fn install_capabilities() {
     // Rights checking precedes scheduler policy, including yield/exit control.
-    scheduled::install(Hooks {
-        operation: |op, f| capabilities::dispatch(op, f).or_else(|| scheduled::operation(op, f)),
+    let hooks = Hooks {
+        operation: |op, f| {
+            #[cfg(feature = "wait-test")]
+            if let Some(value) = waiting::dispatch(op, f) {
+                return Some(value);
+            }
+            capabilities::dispatch(op, f).or_else(|| scheduled::operation(op, f))
+        },
         ..scheduled::HOOKS
-    });
+    };
+    #[cfg(feature = "wait-test")]
+    let hooks = if waiting::enabled() {
+        Hooks {
+            copy_observer: |_| {},
+            wait_boundary: wait_boundary_probe,
+            supervise: wait_supervision_probe,
+            expected_result: |wave, slot| {
+                if wave == 4 && slot == 1 {
+                    Some(0x300)
+                } else {
+                    None
+                }
+            },
+            object_waves: Some(6),
+            ..hooks
+        }
+    } else {
+        hooks
+    };
+    scheduled::install(hooks);
+}
+#[cfg(feature = "wait-test")]
+fn wait_supervision_probe(queue: &mut continuum_kernel::scheduler::Queue, wave: u64) -> Result<()> {
+    if wave == 4 {
+        if let Some(id) = waiting::blocked_thread(1) {
+            if scheduling::observed_progress(id) == Some(900) {
+                scheduling::kill_waiting(id, queue)?;
+            }
+        }
+    }
+    Ok(())
+}
+#[cfg(feature = "wait-test")]
+fn wait_boundary_probe(phase: u64, watched: u64) {
+    const CONTROL: u64 = 0x70000008;
+    let selector = unsafe { (CONTROL as *const u64).read_volatile() };
+    if selector % 10 != phase || !(700..=752).contains(&selector) {
+        return;
+    }
+    unsafe {
+        (CONTROL as *mut u64).write_volatile(0);
+    }
+    let space = current().space;
+    match selector / 10 {
+        70 => capabilities::registry(|c| c.event_set(space, watched, true)).unwrap(),
+        71 => {
+            let sender = unsafe { ((CONTROL + 8 * 6) as *const u64).read_volatile() };
+            capabilities::registry(|c| c.channel_send(space, sender, b"boundary", &[])).unwrap();
+        }
+        72 => {
+            runtime_memory::with(|r, b| capabilities::registry(|c| c.close(r, b, space, watched)))
+                .unwrap()
+        }
+        73 => {
+            let cancel = unsafe { ((CONTROL + 8 * 6) as *const u64).read_volatile() };
+            capabilities::registry(|c| {
+                c.event_set(space, watched, true)?;
+                c.event_set(space, cancel, true)
+            })
+            .unwrap();
+        }
+        74 => {
+            let before = crate::timer::elapsed().unwrap();
+            let ticks = crate::timer::uptime().unwrap().0;
+            let mut completed = false;
+            for _ in 0..20_000_000 {
+                if crate::timer::elapsed().unwrap() - before >= 30_000_000 {
+                    completed = true;
+                    break;
+                }
+                core::hint::spin_loop();
+            }
+            assert!(completed && crate::timer::uptime().unwrap().0 == ticks);
+            let after = crate::timer::elapsed().unwrap();
+            record(
+                "m1.wait_delay",
+                "waits",
+                "ok",
+                format_args!(
+                    "process={} generation={} before_ns={before} after_ns={after} ticks_before={ticks} ticks_after={ticks} irq_off=true",
+                    current().id.slot,
+                    current().id.generation
+                ),
+            );
+        }
+        75 => {
+            capabilities::registry(|c| c.event_set(space, watched, true)).unwrap();
+            waiting::notify().unwrap();
+            capabilities::registry(|c| c.event_set(space, watched, false)).unwrap();
+        }
+        _ => unreachable!(),
+    }
+    record(
+        "m1.wait_boundary",
+        "waits",
+        "ok",
+        format_args!(
+            "process={} generation={} phase={phase} action={}",
+            current().id.slot,
+            current().id.generation,
+            selector / 10
+        ),
+    );
 }

@@ -1,0 +1,767 @@
+{
+  "audit": {
+    "tasks": 18,
+    "parks": 64,
+    "wakes": 63,
+    "kills": 1,
+    "calls": 586,
+    "fixed_bytes": 10581272,
+    "clock": {
+      "version": "5",
+      "build": "38da373e53e65a90feef9ad05cb39654c2e8d25fb663e96217d85bdc4ce3a982",
+      "session": "2c87a072ce24cdd18875bbde8ca85b22b201c907ae12cbad7466b97be83fd797",
+      "session_origin": "host",
+      "seq": "189",
+      "stage": "waits",
+      "outcome": "ok",
+      "emergency": "false",
+      "source": "hpet",
+      "resolution_ns": "10",
+      "before_ns": "531027500",
+      "after_ns": "561156200",
+      "ticks_before": "100",
+      "ticks_after": "100",
+      "observer_samples": "100",
+      "observer_total_ns": "333700",
+      "irq_off": "true"
+    },
+    "wake_dispatch_max_ns": 19155400,
+    "errors": [
+      [
+        17,
+        0
+      ],
+      [
+        18,
+        0
+      ],
+      [
+        19,
+        0
+      ],
+      [
+        20,
+        0
+      ],
+      [
+        20,
+        3
+      ],
+      [
+        20,
+        4
+      ],
+      [
+        21,
+        0
+      ],
+      [
+        22,
+        0
+      ],
+      [
+        23,
+        0
+      ],
+      [
+        24,
+        0
+      ],
+      [
+        24,
+        1
+      ],
+      [
+        24,
+        2
+      ],
+      [
+        24,
+        4
+      ],
+      [
+        24,
+        7
+      ],
+      [
+        24,
+        8
+      ],
+      [
+        24,
+        9
+      ],
+      [
+        25,
+        0
+      ],
+      [
+        25,
+        6
+      ],
+      [
+        25,
+        8
+      ],
+      [
+        26,
+        0
+      ],
+      [
+        26,
+        6
+      ]
+    ]
+  },
+  "mutations": [
+    "missing m1.wait_park",
+    "missing m1.wait_complete",
+    "missing m1.wait_wake",
+    "missing m1.wait_settled",
+    "missing m1.wait_clock",
+    "missing m1.wait_kill",
+    "missing m1.wait_resume",
+    "missing m1.wait_boundary",
+    "missing m1.wait_delay",
+    "missing m1.ipc_admit",
+    "missing m1.cap_ready",
+    "missing m1.cap_reap",
+    "missing m1.user_log",
+    "m1.wait_wake.generation",
+    "m1.wait_wake.status",
+    "m1.wait_wake.since_ns",
+    "m1.wait_settled.records",
+    "m1.wait_clock.source",
+    "m1.wait_clock.ticks_after",
+    "m1.cap_ready.fixed_bytes",
+    "m1.cap_reap.result",
+    "missing m1.cap_ready",
+    "missing m1.cap_admit",
+    "missing m1.cap_reap",
+    "missing m1.cap_inventory",
+    "missing m1.cap_call",
+    "missing m1.cap_pin",
+    "missing m1.cap_map",
+    "missing m1.user_fault",
+    "missing m1.user_log",
+    "m1.cap_call.status",
+    "m1.cap_reap.principal",
+    "m1.cap_reap.result",
+    "m1.cap_inventory.objects",
+    "m1.cap_inventory.backing",
+    "m1.cap_map.e3",
+    "m1.cap_pin.close",
+    "m1.user_fault.error",
+    "m1.cap_ready.fixed_bytes",
+    "successful operation 10.x",
+    "successful operation 10.c",
+    "successful operation 10.d",
+    "successful operation 10.n",
+    "successful operation 8.b",
+    "missing m1.cap_ready",
+    "missing m1.ipc_admit",
+    "missing m1.cap_reap",
+    "missing m1.cap_inventory",
+    "missing m1.ipc_sender",
+    "missing m1.ipc_call",
+    "missing m1.user_log",
+    "m1.ipc_sender.principal",
+    "m1.ipc_sender.sender_generation",
+    "m1.cap_reap.result",
+    "m1.cap_inventory.objects",
+    "m1.cap_ready.fixed_bytes",
+    "m1.ipc_call.held",
+    "missing m1.scheduler_policy",
+    "missing m1.scheduler_ready",
+    "missing m1.task_start",
+    "missing m1.task_end",
+    "missing m1.task_settlement",
+    "missing m1.user_fault",
+    "missing m1.task_switch",
+    "m1.task_start/principal",
+    "m1.task_end/result",
+    "m1.task_end/preemptions",
+    "m1.task_end/progress",
+    "m1.task_settlement/frames",
+    "m1.scheduler_ready/max_wait_ns",
+    "m1.scheduler_ready/pin_irqs",
+    "m1.scheduler_policy/priority",
+    "missing m1.scheduler_policy",
+    "missing m1.scheduler_ready",
+    "missing m1.task_start",
+    "missing m1.task_end",
+    "missing m1.task_settlement",
+    "missing m1.user_fault",
+    "m1.task_start/principal",
+    "m1.task_end/result",
+    "m1.task_end/preemptions",
+    "m1.task_end/progress",
+    "m1.task_settlement/frames",
+    "m1.scheduler_ready/max_wait_ns",
+    "m1.scheduler_ready/pin_irqs",
+    "m1.scheduler_policy/priority",
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    }
+  ],
+  "build_id": "38da373e53e65a90feef9ad05cb39654c2e8d25fb663e96217d85bdc4ce3a982",
+  "kernel_sha256": "e439625ea5108cb239fae614e8b4a2740667e990ca2f29dea9e189ce7a6bdeee",
+  "iso_sha256": "63d78cf9ff5003e7b3c404ef894cf9f6ac4342c265f12f658c71436b15dcf282",
+  "serial_sha256": "1044658ae1027b088705f2a57a674d79816406306b0629a787e7cc9f8cbee9f0",
+  "capabilities_regression": {
+    "tasks": 18,
+    "waves": 6,
+    "hardware_faults": 5,
+    "unique_handle_installations": 91,
+    "syscalls": 402,
+    "pin_interleavings": 6,
+    "denials": {
+      "(2, 12)": 18,
+      "(3, 12)": 18,
+      "(5, 2)": 18,
+      "(4, 2)": 18,
+      "(6, 1)": 21,
+      "(10, 1)": 6,
+      "(9, 1)": 6,
+      "(8, 3)": 7,
+      "(10, 3)": 13,
+      "(7, 1)": 6,
+      "(12, 3)": 14,
+      "(11, 4)": 1,
+      "(9, 2)": 1,
+      "(9, 3)": 1,
+      "(6, 3)": 1,
+      "(7, 3)": 1,
+      "(9, 4)": 5,
+      "(10, 4)": 11,
+      "(10, 2)": 1,
+      "(8, 11)": 1,
+      "(9, 11)": 1,
+      "(10, 11)": 1
+    },
+    "fixed_bytes": 10559512,
+    "switches": 373
+  },
+  "channels_regression": {
+    "tasks": 6,
+    "waves": 2,
+    "syscalls": 281,
+    "receives": 40,
+    "preserved_failure_inventories": 135,
+    "fixed_bytes": 10559512,
+    "switches": 558,
+    "errors": [
+      [
+        13,
+        0
+      ],
+      [
+        14,
+        0
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        15,
+        0
+      ],
+      [
+        15,
+        4
+      ],
+      [
+        15,
+        5
+      ],
+      [
+        15,
+        6
+      ],
+      [
+        15,
+        11
+      ],
+      [
+        16,
+        0
+      ],
+      [
+        16,
+        6
+      ],
+      [
+        16,
+        9
+      ]
+    ]
+  },
+  "scheduler_regression": [
+    {
+      "tasks": 30,
+      "waves": 10,
+      "switches": 387,
+      "non_yielding_hogs": 20,
+      "max_masked_upper_ns": 11394300,
+      "max_body_ns": 4572300,
+      "max_wait_ns": 17654600,
+      "nested_irqs": 29,
+      "pin_irqs": 25,
+      "observer_total_ns": 179600
+    },
+    {
+      "tasks": 30,
+      "waves": 10,
+      "switches": 379,
+      "non_yielding_hogs": 20,
+      "max_masked_upper_ns": 7519600,
+      "max_body_ns": 6026700,
+      "max_wait_ns": 18012800,
+      "nested_irqs": 29,
+      "pin_irqs": 25,
+      "observer_total_ns": 199700
+    }
+  ],
+  "memory_regression": {
+    "fixed_kernel_storage_bytes": 9859072,
+    "active_table_pages": {
+      "0": 6,
+      "1": 4
+    },
+    "private_user_pages": {
+      "0": 20,
+      "1": 16
+    },
+    "cycles": 1000,
+    "resident_after": 0
+  },
+  "loader_regression": {
+    "images": [
+      {
+        "image": 0,
+        "sha256": "4307b5ea8a83967d4ca71cfee99cf85f231fa00cb93b12c71fd266b2334f342c",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 1,
+        "sha256": "315356d58045b4bf95f0ead8f714a0636660e9635f482bdd98f0a87a1d27b590",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 2,
+        "sha256": "136964ed96bd400903b517745e74c9f6f663038d064fae61f59da24b69be9211",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      }
+    ],
+    "private_pages": 72,
+    "allocation_failures": 24,
+    "malformed_cases": 19,
+    "trusted_bindings": 4,
+    "settled_frames": 0
+  },
+  "schema_version": 1,
+  "story": "P3-08",
+  "status": "passed",
+  "scope": "complete final-source story acceptance",
+  "review": "local Codex self-review, not external approval",
+  "reviewer_sha256": "251f4bbd4c4d76a71ea4698c4806a0fc540ee1b9fb47615a79516c38bbe34771",
+  "source_commit": "fbfb89100fa19a488df8ded620a9ffaaa9483af9",
+  "acceptance_sha256": "56bc1befd1398119375ce6f3aab207c4dbf02be9cfb79eb5869862ebbdc08143",
+  "kernel_host_tests": 64,
+  "prerequisite_checks": 10,
+  "m1_rows": 33,
+  "m1_launches": 42,
+  "criterion_review": {
+    "registration": "pass: raw three-boundary signal/enqueue/close and cancel/delivery injections; checked bounds/types/duplicates; host maximum-record and stale-generation matrix; FIFO admission",
+    "elapsed_deadlines": "pass: checked HPET epoch, hardware resolution and observer cost; actual 30-ms IRQ-off comparisons and expired wait; host wrap/fraction/overflow/coalescing",
+    "authority_races": "pass: full-queue timed/cancelled move retains exact source handle before later accepted move; copy-before-commit with final admission check; immutable confirmed completion",
+    "progress_teardown": "pass: real two/three-party request cycles, independent control progress, parked owner killed without resume, peer-close wake and following healthy wave; exact six settlements",
+    "idle_regressions": "pass: actual empty-runnable halt/wake, raw dispatch-preparation latency with observer cost; complete M1/timer and separate memory/loader/boundary/scheduler/capability/channel regression flavors"
+  },
+  "unsafe_review": {
+    "parking": "only copied handles and exact generations survive; no user spans, pins, registry/runtime borrows or kernel stack continuation; shared validated return before capture",
+    "exclusion": "one CPU IF-clear; recursive registry/runtime domains assert; capture/idle require released domains; forced nested-copy IRQs preserved in old registered fixtures",
+    "completion": "one immutable wait completion; termination drops wait before registry/address-space destruction; dead owner cannot return to CPL3; wake modifies status/value only",
+    "clock": "validated UC HPET only, checked delta/u128 conversion and fail-closed overflow; delivered uptime epoch unchanged",
+    "limits": "one owner thread per process; no SMP, wall-clock, async executor, hard-real-time/display/input latency, automatic universal deadlock detection, general public supervision or independent SDK freeze"
+  }
+}

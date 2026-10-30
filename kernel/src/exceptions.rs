@@ -230,6 +230,11 @@ extern "C" fn run(mode: u64) -> ! {
     if mode == 40 {
         crate::user_entry::scheduling::run_objects(true).unwrap_or_else(|e| crate::reject(e));
     }
+    #[cfg(feature = "wait-test")]
+    if mode == 41 {
+        crate::user_entry::waiting::enable();
+        crate::user_entry::scheduling::run_objects(true).unwrap_or_else(|e| crate::reject(e));
+    }
     record(
         "m1.boot_complete",
         "boot",

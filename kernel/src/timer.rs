@@ -11,6 +11,27 @@ static TICKS: AtomicU64 = AtomicU64::new(0);
 static OVERFLOW: AtomicBool = AtomicBool::new(false);
 static RESOLUTION: AtomicU64 = AtomicU64::new(0);
 static SPURIOUS: AtomicU64 = AtomicU64::new(0);
+#[cfg(feature = "wait-test")]
+static ELAPSED: Local<Option<continuum_kernel::wait::Clock>> =
+    Local(core::cell::UnsafeCell::new(None));
+#[cfg(feature = "wait-test")]
+pub(crate) fn elapsed() -> Result<u64> {
+    let flags: u64;
+    unsafe {
+        asm!("pushfq", "pop {}", out(reg) flags);
+    }
+    assert!(flags & 0x200 == 0);
+    let (base, _) = unsafe { OBSERVER.0.get().read() };
+    unsafe { (&mut *ELAPSED.0.get()).as_mut() }
+        .ok_or(error("clock", "uninitialized"))?
+        .observe(reference(base))
+}
+#[cfg(feature = "wait-test")]
+pub(crate) fn elapsed_resolution() -> u64 {
+    unsafe { (&*ELAPSED.0.get()).as_ref() }
+        .expect("clock initialized")
+        .resolution_ns()
+}
 #[cfg(feature = "scheduler-test")]
 static OBSERVER: Local<(u64, u64)> = Local(core::cell::UnsafeCell::new((0, 0)));
 /// Diagnostic HPET elapsed observation; not the P3-08 public deadline clock.
@@ -242,6 +263,11 @@ pub fn establish(mode: u64) -> Result<()> {
         }
         write64(h, 0xf0, 0);
         write64(h, 0x10, 1); // main counter only, legacy replacement disabled
+        #[cfg(feature = "wait-test")]
+        ELAPSED
+            .0
+            .get()
+            .write(Some(continuum_kernel::wait::Clock::new(0, fs)?));
         let target = 20_000_000_000_000u64.div_ceil(fs); // 20 ms in femtoseconds
         let before = reference(h);
         write32(a, 0x380, u32::MAX);
@@ -253,7 +279,7 @@ pub fn establish(mode: u64) -> Result<()> {
         let (initial, resolution) = p::calibration(elapsed, reference_ticks, fs)?;
         // P3-05's locked nominal quantum is 5 ms. Choose it before the one-time
         // delivered-tick epoch; M1's 10-ms calibration/regressions stay unchanged.
-        let (initial, resolution) = if (36..=40).contains(&mode) {
+        let (initial, resolution) = if (36..=41).contains(&mode) {
             let half = initial / 2;
             need(half != 0, "scheduler_calibration")?;
             (half, resolution * u64::from(half) / u64::from(initial))

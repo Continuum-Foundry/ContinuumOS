@@ -1,6 +1,6 @@
 # Experimental M3 runtime contract
 
-Status: implementation draft, revision 0, P3-01 through P3-06. The internal memory
+Status: implementation draft, revision 0, P3-01 through P3-08. The internal memory
 backend and staged loader exist; the bounded P3-04 execution experiment passes local self-review.
 No executing user ABI is frozen.
 [runtime-v0.json](../../contracts/runtime-v0.json)
@@ -289,24 +289,28 @@ admitted before that audit. P3-05 tests register patterns, rounding/masks, force
 preemption and cross-process leakage. FP exceptions terminate the user process;
 kernel FP use remains an audited failure. No UI code runs in IRQ context.
 
-P3-08's proposed elapsed source is the existing explicitly mapped 64-bit HPET main
-counter with validated femtosecond period. Delivered LAPIC ticks stay diagnostic
-uptime only. Reject a profile with missing HPET, invalid period or unsupported
-32-bit counter; no silent tick/TSC fallback. Convert with checked u128 intermediate,
-round deadline ticks upward, and clamp samples monotonically. Counter wrap/backward
-or nanosecond u64 exhaustion fails the clock and rejects new timed waits; cancel
-existing timed waits with a distinct clock-failure diagnostic (`InternalFailure`).
-No wall time or host/guest subtraction. P3-08 must test long IRQ-masked intervals,
-conversion boundaries, rollover injection and timer delivery lateness before
-claiming elapsed deadlines. The clock choice remains experimentally unaccepted.
+P3-08's experimental elapsed source is the explicitly mapped 64-bit HPET main
+counter with validated femtosecond period. Delivered LAPIC ticks retain their
+diagnostic uptime meaning. Missing HPET, invalid period or a 32-bit counter rejects
+the profile; there is no silent tick/TSC fallback. Checked cumulative u128 conversion
+preserves fractional ticks and reports ceiling nanosecond resolution. Backward or
+half-wrap-ambiguous samples and u64 exhaustion fail closed; arithmetic errors do
+not update the clock state. The current adapter stops the admitted profile on a
+clock failure; it does not promise per-wait recovery from failed hardware time.
+Long IRQ-off comparisons, delayed delivery and host conversion/wrap/overflow tests
+are required. See the current acceptance status in the P3-08 appendix below.
 
-Use absolute unsigned ns deadlines in this boot epoch, `u64::MAX` for infinite,
-zero for poll. Readiness observed at registration wins; once blocked, first committed
-ready/cancel/timeout transition wins. Timeout consumes no message. Cancellation
-acknowledges a wait result, not rollback of a service effect. Periodic timer wakeups
-coalesce; return an overrun count from elapsed counter intervals, advance from the
-original schedule and reject overflow. Record lateness; never count delivered IRQs
-as every elapsed period. P3-08 owns this proof and its serial diagnostic extension.
+Absolute unsigned nanosecond deadlines use this boot epoch; `u64::MAX` means
+infinite. Zero is an elapsed deadline and times out even when an item is ready.
+At each serialized observation, closed handles precede cancellation, elapsed
+deadline and ready item in input order. A recorded completion is immutable; a
+later event reset, queue drain or cancellation cannot replace it. Termination
+removes the wait without resuming its owner. Timeout consumes no message.
+Cancellation confirms a wait outcome, not rollback of an accepted service effect.
+Level periodic timers coalesce from their original phase. Internal observation
+counts overruns with checked arithmetic; public wait returns the ready item index,
+not that count. Next-deadline overflow disarms after final readiness. The runbook
+and explicit JSON records define this experimental subset; P3-12 owns SDK closure.
 
 ## Experiment and handoff gates
 
@@ -362,7 +366,7 @@ See ADR-0021 and the scheduler runbook for eager-state, feature and observer pol
 
 The [handles/memory runbook](../05-delivery/phase-3/handles-memory-runbook.md)
 and [ADR-0022](../04-decisions/0022-retained-memory-objects-and-handle-ceilings.md)
-define operation IDs 6–12, type-specific rights, immutable backing/mapping ceilings,
+define operation IDs 6â€“12, type-specific rights, immutable backing/mapping ceilings,
 independent handle/map refs, creator-death detach and exact exhaustion policy.
 The contract JSON includes explicit 32-byte map fields and access/rights IDs.
 The new profile requires a self-thread CONTROL handle for yield and a self-process
@@ -386,3 +390,16 @@ sender. Failed receive copies may modify output bytes but install no authority
 and consume no message. Outputs are usable only on success. Bounded tracing
 collects unreachable endpoint/queue cycles. Historical sender metadata never
 proves current session or policy validity. The original P3-06 profile is retained.
+
+
+## P3-08 elapsed clock and waits
+
+The experimental wait-test runtime now implements dispatch IDs 17 through 26,
+manual events and timers, bounded level wait sets, elapsed deadlines and
+cancellation. See the waits section of runtime-v0.json and the
+[wait runbook](../05-delivery/phase-3/waits-runbook.md) for exact field encodings,
+rights, completion precedence, caller helpers and remaining acceptance status.
+No native Rust layout crosses this boundary. The declared 32-byte wait request,
+32-byte items, 24-byte timer arm and 24-byte channel attempt records are explicit
+little-endian u64 fields. This is not a frozen independent SDK or a public async
+executor; interoperability closure remains P3-12.

@@ -6,6 +6,41 @@ static ENABLED: Local<bool> = Local(UnsafeCell::new(false));
 static SHARED: Local<Option<(SpaceId, u64)>> = Local(UnsafeCell::new(None));
 static CHANNELS: Local<bool> = Local(UnsafeCell::new(false));
 static ENDPOINTS: Local<[u64; 2]> = Local(UnsafeCell::new([0; 2]));
+static ENTERED: Local<bool> = Local(UnsafeCell::new(false));
+struct RegistryEntry;
+impl RegistryEntry {
+    fn acquire() -> Self {
+        let flags: u64;
+        unsafe {
+            asm!("pushfq","pop {}",out(reg)flags);
+        }
+        assert!(flags & 0x200 == 0 && !unsafe { *ENTERED.0.get() });
+        unsafe {
+            *ENTERED.0.get() = true;
+        }
+        Self
+    }
+}
+impl Drop for RegistryEntry {
+    fn drop(&mut self) {
+        unsafe {
+            *ENTERED.0.get() = false;
+        }
+    }
+}
+pub(super) fn quiescent() -> bool {
+    !unsafe { *ENTERED.0.get() }
+}
+#[cfg(feature = "wait-test")]
+pub(super) fn registry<R>(f: impl FnOnce(&mut Registry) -> R) -> R {
+    let _entry = RegistryEntry::acquire();
+    let flags: u64;
+    unsafe {
+        asm!("pushfq", "pop {}", out(reg) flags);
+    }
+    assert!(flags & 0x200 == 0);
+    f(unsafe { &mut *REGISTRY.0.get() })
+}
 pub(super) fn channels() -> bool {
     unsafe { *CHANNELS.0.get() }
 }
@@ -25,7 +60,7 @@ pub(super) fn enable() {
 pub(super) fn inventory() -> o::Inventory {
     unsafe { (&*REGISTRY.0.get()).inventory() }
 }
-fn status(e: o::Error) -> u64 {
+pub(super) fn status(e: o::Error) -> u64 {
     match e {
         o::Error::BadHandle => BADHANDLE,
         o::Error::WrongType => WRONGTYPE,
@@ -200,12 +235,20 @@ fn channel_dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>
                         },
                     };
                 }
+                #[cfg(feature = "wait-test")]
+                super::waiting::check_attempt_deadline()?;
                 unsafe {
-                    (&mut *REGISTRY.0.get()).channel_send(
+                    (&mut *REGISTRY.0.get()).channel_send_checked(
                         space,
                         f.rdi,
                         &bytes[..w[1] as usize],
                         &attachments[..w[3] as usize],
+                        || {
+                            #[cfg(feature = "wait-test")]
+                            super::waiting::check_attempt_deadline()
+                                .map_err(|_| o::Error::WouldBlock)?;
+                            Ok(())
+                        },
                     )
                 }
                 .map_err(status)?;
@@ -225,19 +268,65 @@ fn channel_dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>
                         }
                     }
                 }
+                let mut delivered = None;
                 let c = unsafe { &mut *REGISTRY.0.get() };
-                c.channel_receive(space,f.rdi,w[1] as usize,w[3] as usize,|bytes,handles,sender| {
-                    let mut data = [0;INLINE]; data[..bytes.len()].copy_from_slice(bytes);
-                    let mut hs = [0;ATTACHMENTS*8];
-                    for (i,h) in handles.iter().enumerate() { hs[i*8..i*8+8].copy_from_slice(&h.to_le_bytes()); }
-                    let mut meta = [0;64];
-                    for (i,v) in [bytes.len() as u64,handles.len() as u64,sender.process,sender.generation,sender.principal,sender.session,u64::from(sender.service),0].into_iter().enumerate() { meta[i*8..i*8+8].copy_from_slice(&v.to_le_bytes()); }
-                    copy(w[0],&mut data[..bytes.len()],true).map_err(|_|o::Error::InvalidArgument)?;
-                    copy(w[2],&mut hs[..handles.len()*8],true).map_err(|_|o::Error::InvalidArgument)?;
-                    copy(w[4],&mut meta,true).map_err(|_|o::Error::InvalidArgument)?;
-                    record("m1.ipc_sender","channels","ok",format_args!("receiver={} generation={} sender={} sender_generation={} principal={} authority_session={} bytes={} handles={}",current().id.slot,current().id.generation,sender.process,sender.generation,sender.principal,sender.session,bytes.len(),handles.len()));
-                    Ok(())
-                }).map_err(status)?;
+                c.channel_receive(
+                    space,
+                    f.rdi,
+                    w[1] as usize,
+                    w[3] as usize,
+                    |bytes, handles, sender| {
+                        let mut data = [0; INLINE];
+                        data[..bytes.len()].copy_from_slice(bytes);
+                        let mut hs = [0; ATTACHMENTS * 8];
+                        for (i, h) in handles.iter().enumerate() {
+                            hs[i * 8..i * 8 + 8].copy_from_slice(&h.to_le_bytes());
+                        }
+                        let mut meta = [0; 64];
+                        for (i, v) in [
+                            bytes.len() as u64,
+                            handles.len() as u64,
+                            sender.process,
+                            sender.generation,
+                            sender.principal,
+                            sender.session,
+                            u64::from(sender.service),
+                            0,
+                        ]
+                        .into_iter()
+                        .enumerate()
+                        {
+                            meta[i * 8..i * 8 + 8].copy_from_slice(&v.to_le_bytes());
+                        }
+                        copy(w[0], &mut data[..bytes.len()], true)
+                            .map_err(|_| o::Error::InvalidArgument)?;
+                        copy(w[2], &mut hs[..handles.len() * 8], true)
+                            .map_err(|_| o::Error::InvalidArgument)?;
+                        copy(w[4], &mut meta, true).map_err(|_| o::Error::InvalidArgument)?;
+                        delivered = Some((sender, bytes.len(), handles.len()));
+                        #[cfg(feature = "wait-test")]
+                        super::waiting::check_attempt_deadline()
+                            .map_err(|_| o::Error::WouldBlock)?;
+                        Ok(())
+                    },
+                )
+                .map_err(status)?;
+                if let Some((sender, bytes, handles)) = delivered {
+                    record(
+                        "m1.ipc_sender",
+                        "channels",
+                        "ok",
+                        format_args!(
+                            "receiver={} generation={} sender={} sender_generation={} principal={} authority_session={} bytes={bytes} handles={handles}",
+                            current().id.slot,
+                            current().id.generation,
+                            sender.process,
+                            sender.generation,
+                            sender.principal,
+                            sender.session
+                        ),
+                    );
+                }
             }
         }
         runtime_memory::with(|r, b| unsafe { (&mut *REGISTRY.0.get()).sweep(r, b) })
@@ -303,6 +392,7 @@ pub(super) fn dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u
     if [ABI_QUERY, DIAGNOSTIC_LOG].contains(&op) {
         return None;
     }
+    let _entry = RegistryEntry::acquire();
     let space = current().space;
     if channels() {
         if let Some(value) = channel_dispatch(op, f) {

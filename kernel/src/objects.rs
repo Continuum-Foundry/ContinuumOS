@@ -54,6 +54,8 @@ pub enum Kind {
     Thread = 2,
     Memory = 3,
     Channel = 4,
+    Event = 5,
+    Timer = 6,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 struct Id {
@@ -64,6 +66,8 @@ struct Id {
 enum Body {
     Process(SpaceId),
     Thread(SpaceId),
+    Event(bool),
+    Timer(crate::wait::Timer),
     Channel {
         pair: usize,
         side: usize,
@@ -82,6 +86,8 @@ impl Body {
             Self::Thread(_) => Kind::Thread,
             Self::Memory { .. } => Kind::Memory,
             Self::Channel { .. } => Kind::Channel,
+            Self::Event(_) => Kind::Event,
+            Self::Timer(_) => Kind::Timer,
         }
     }
 }
@@ -607,3 +613,4 @@ impl Registry {
 pub mod channels;
 #[cfg(test)]
 mod tests;
+pub mod waiting;

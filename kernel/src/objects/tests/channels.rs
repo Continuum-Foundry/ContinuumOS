@@ -1,6 +1,6 @@
 use super::*;
 use crate::objects::channels::*;
-fn sender(process: u64) -> Sender {
+pub(super) fn sender(process: u64) -> Sender {
     Sender {
         process,
         generation: 1,
@@ -9,7 +9,7 @@ fn sender(process: u64) -> Sender {
         service: false,
     }
 }
-fn pair(c: &mut Registry, s: SpaceId, p: u64) -> [u64; 2] {
+pub(super) fn pair(c: &mut Registry, s: SpaceId, p: u64) -> [u64; 2] {
     let mut h = [0; 2];
     c.channel_pair(s, p, |v| {
         h = v;
@@ -18,7 +18,7 @@ fn pair(c: &mut Registry, s: SpaceId, p: u64) -> [u64; 2] {
     .unwrap();
     h
 }
-fn receive(c: &mut Registry, s: SpaceId, h: u64) -> (Vec<u8>, Vec<u64>, Sender) {
+pub(super) fn receive(c: &mut Registry, s: SpaceId, h: u64) -> (Vec<u8>, Vec<u64>, Sender) {
     let mut out = (vec![], vec![], sender(0));
     c.channel_receive(s, h, INLINE, ATTACHMENTS, |b, h, s| {
         out = (b.to_vec(), h.to_vec(), s);
@@ -26,6 +26,38 @@ fn receive(c: &mut Registry, s: SpaceId, h: u64) -> (Vec<u8>, Vec<u64>, Sender) 
     })
     .unwrap();
     out
+}
+#[test]
+fn final_admission_failure_preserves_bytes_authority_and_nonce() {
+    let (mut r, mut b, mut c) = setup();
+    let s = r.create().unwrap();
+    let (p, _) = c.admit_sender(s, sender(0)).unwrap();
+    let [tx, rx] = pair(&mut c, s, p);
+    let gift = c
+        .create_transferable(&mut r, &mut b, s, p, PAGE, READ)
+        .unwrap();
+    let before = c.inventory();
+    let usage = c.channel_usage();
+    let nonce = c.next_nonce;
+    let attachments = [Attachment {
+        handle: gift,
+        rights: BASIC | READ,
+        mode: Mode::Move,
+    }];
+    assert_eq!(
+        c.channel_send_checked(s, tx, b"atomic", &attachments, || Err(Error::WouldBlock)),
+        Err(Error::WouldBlock)
+    );
+    assert_eq!(c.inventory(), before);
+    assert_eq!(c.channel_usage(), usage);
+    assert_eq!(c.next_nonce, nonce);
+    assert!(c.info(s, gift).is_ok());
+    c.channel_send_checked(s, tx, b"atomic", &attachments, || Ok(()))
+        .unwrap();
+    assert_eq!(c.info(s, gift), Err(Error::BadHandle));
+    let (bytes, handles, _) = receive(&mut c, s, rx);
+    assert_eq!(bytes, b"atomic");
+    assert_eq!(handles.len(), 1);
 }
 fn attach(handle: u64, rights: u64, mode: Mode) -> Attachment {
     Attachment {

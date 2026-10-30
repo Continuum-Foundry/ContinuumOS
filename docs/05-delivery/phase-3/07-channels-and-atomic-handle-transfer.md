@@ -1,6 +1,6 @@
 # P3-07 — Implement bounded channels and atomic authority transfer
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done (local self-review). Owner: Codex (local implementation).
 Depends on: P3-06 Done. Suggested labels: `phase-3`, `ipc`, `handle-transfer`.
 Backlog: B12 messages/transfer/provenance. Requirements: R10/R14/R18;
 preparatory R19. Test families: T02/T03/T06/T11.
@@ -34,15 +34,15 @@ handle transfer so malformed data or a failed send cannot leak or forge authorit
 
 ## Acceptance criteria
 
-- [ ] Bounded guest client/service messages round-trip using explicit codecs and
+- [x] Bounded guest client/service messages round-trip using explicit codecs and
   typed errors; no native struct casting or unbounded decoder allocation is used.
-- [ ] Transfer success, failure and peer-death paths have a single defined acceptance
+- [x] Transfer success, failure and peer-death paths have a single defined acceptance
   outcome with no duplicated/lost authority or partial handle installation.
-- [ ] Payload owner/role/principal/session values never replace trusted metadata;
+- [x] Payload owner/role/principal/session values never replace trusted metadata;
   delegated-channel tests attribute each real sender correctly.
-- [ ] Malformed/oversized messages, unsupported mandatory fields, invalid attachments,
+- [x] Malformed/oversized messages, unsupported mandatory fields, invalid attachments,
   byte/count/table exhaustion and bad receive buffers preserve the specified state.
-- [ ] Queued and in-flight teardown restores references/quota; a blocked or malicious
+- [x] Queued and in-flight teardown restores references/quota; a blocked or malicious
   peer cannot cause unbounded kernel memory growth or a kernel panic.
 
 ## Tests and evidence
@@ -63,3 +63,6 @@ conditions; P3-10 enforces current scope/session policy at service use time. Sou
 [identity model](../../02-architecture/identity-and-authorization.md),
 [capability design](../../02-architecture/capabilities-and-ipc.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+Implementation and acceptance procedure: [channel runbook](channels-runbook.md).
+The [2026-10-29 local acceptance review](../../../evidence/phase-3/P3-07/2026-10-29/README.md) passes the declared subset, including the complete regression gate. This is not external approval or the M3 exit.

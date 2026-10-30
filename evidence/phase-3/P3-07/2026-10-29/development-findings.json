@@ -1,0 +1,62 @@
+{
+  "story": "P3-07",
+  "failures": [
+    {
+      "run": "${WORKSPACE}/build/m1/channels-1793312475956429900-71928",
+      "finding": "Diagnostic field collision: authority session reused reserved host session field; strict parser rejected duplicate.",
+      "acceptance": false,
+      "result": {
+        "build_id": "9c2faa381bef5fdf7a510dc6bf6a8457c493425fe19506dd93c8c2d505a48855",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 13741,
+        "emulator_test_exit": null,
+        "error": "Empty/duplicate guest field",
+        "final_process_exit": 1,
+        "fixture": "channels",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "77f95af12c49b74ae98ef9c2592fc9aa73f9fb5e57f2478b4d0e1c3932456474",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "ce63d1260303eb41c749170e1b4de01892440c7f98b835f5a1d7524412883225",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 77820,
+        "schema_version": 1,
+        "status": "failed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "serial_sha256": "2306de7e0a52ad82bd7867ad36138dd847467a642240605f4dfa5077a0d55d5e"
+    },
+    {
+      "run": "${WORKSPACE}/build/m1/channels-1793312664160273100-80812",
+      "finding": "Guest sizing assertion exposed shared BufferTooSmall return scalar of 32 outside abi_query; fixed shared return policy to zero for channel errors.",
+      "acceptance": false,
+      "result": {
+        "build_id": "2781d747a01b795b5785d986316a226467d93fa94c2a3f9dafdbd6a8ba46426f",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 11935,
+        "emulator_test_exit": null,
+        "error": "Unexpected guest rejection",
+        "final_process_exit": 1,
+        "fixture": "channels",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "d0e4eccc4c34a013d13974515cb699cad73e247dc91801e4207d718df4624177",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "f570d4bc91ceed0e151c09fd1cda44ff47e4b89ce5e2d84225314105c32ecd8b",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 79764,
+        "schema_version": 1,
+        "status": "failed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "serial_sha256": "18056f566d1af2aac3108642e61cafed25294bff6222c27785a52cdbef8f8cf4"
+    }
+  ],
+  "focused_bringup": "${WORKSPACE}/build/m1/channels-1793312979237862900-64032",
+  "note": "Focused guest/source snapshot predates final receiver-death fixture and added host case; final-source aggregate remains required.",
+  "retention_note": "A compact-export attempt referenced a missing user_copy excerpt key. The exporter was corrected and rerun with explicit copy, boundary and scheduler codegen audits. This was an export-tool error; guest artifacts and acceptance results were unchanged. The partial export remains local under work."
+}

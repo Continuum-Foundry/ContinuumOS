@@ -57,7 +57,11 @@
       "memory_create": 9,
       "memory_map": 10,
       "memory_unmap": 11,
-      "memory_protect": 12
+      "memory_protect": 12,
+      "channel_create": 13,
+      "channel_send": 14,
+      "channel_receive": 15,
+      "channel_size": 16
     },
     "error_ids": {
       "BadHandle": 1,
@@ -374,5 +378,118 @@
         "self_process"
       ]
     }
+  },
+  "channels_boundary": {
+    "story": "P3-07",
+    "status": "experimental-unfrozen",
+    "kind": 4,
+    "rights": {
+      "TRANSFER": 512,
+      "SEND": 1024,
+      "RECEIVE": 2048
+    },
+    "modes": {
+      "Move": 0,
+      "Duplicate": 1
+    },
+    "attachment_fields": [
+      [
+        "source",
+        8
+      ],
+      [
+        "rights",
+        8
+      ],
+      [
+        "mode",
+        4
+      ],
+      [
+        "reserved",
+        4
+      ]
+    ],
+    "send_fields": [
+      [
+        "bytes_ptr",
+        8
+      ],
+      [
+        "bytes",
+        8
+      ],
+      [
+        "attachments_ptr",
+        8
+      ],
+      [
+        "attachments",
+        8
+      ]
+    ],
+    "receive_fields": [
+      [
+        "bytes_ptr",
+        8
+      ],
+      [
+        "byte_capacity",
+        8
+      ],
+      [
+        "handles_ptr",
+        8
+      ],
+      [
+        "handle_capacity",
+        8
+      ],
+      [
+        "metadata_ptr",
+        8
+      ],
+      [
+        "metadata_capacity",
+        8
+      ]
+    ],
+    "metadata_fields": [
+      [
+        "bytes",
+        8
+      ],
+      [
+        "handles",
+        8
+      ],
+      [
+        "process",
+        8
+      ],
+      [
+        "process_generation",
+        8
+      ],
+      [
+        "principal",
+        8
+      ],
+      [
+        "authority_session",
+        8
+      ],
+      [
+        "service",
+        8
+      ],
+      [
+        "reserved",
+        8
+      ]
+    ],
+    "acceptance": "enqueue commits all bytes and queue-owned attenuated references; destination table admission at receive; no acknowledgement syscall",
+    "receive_failure": "no dequeue or handle install; copied outputs unspecified on error",
+    "session_validity": "historical attribution; broker must check current session/policy at use"
   }
 }

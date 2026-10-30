@@ -1,0 +1,608 @@
+{
+  "schema_version": 1,
+  "story": "P3-07",
+  "status": "passed",
+  "review": "local Codex self-review, not external approval",
+  "scope": "complete final-source story acceptance",
+  "reviewer_sha256": "1307a4fa8a5ec5abdf77d306af54ef2c651567361b94ddf0514a91f4cc700f2f",
+  "audit": {
+    "tasks": 6,
+    "waves": 2,
+    "syscalls": 298,
+    "receives": 40,
+    "preserved_failure_inventories": 146,
+    "fixed_bytes": 10559512,
+    "switches": 601,
+    "errors": [
+      [
+        13,
+        0
+      ],
+      [
+        14,
+        0
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        15,
+        0
+      ],
+      [
+        15,
+        4
+      ],
+      [
+        15,
+        5
+      ],
+      [
+        15,
+        6
+      ],
+      [
+        15,
+        11
+      ],
+      [
+        16,
+        0
+      ],
+      [
+        16,
+        6
+      ],
+      [
+        16,
+        9
+      ]
+    ]
+  },
+  "mutations": [
+    "missing m1.cap_ready",
+    "missing m1.ipc_admit",
+    "missing m1.cap_reap",
+    "missing m1.cap_inventory",
+    "missing m1.ipc_sender",
+    "missing m1.ipc_call",
+    "missing m1.user_log",
+    "m1.ipc_sender.principal",
+    "m1.ipc_sender.sender_generation",
+    "m1.cap_reap.result",
+    "m1.cap_inventory.objects",
+    "m1.cap_ready.fixed_bytes",
+    "m1.ipc_call.held",
+    "missing m1.cap_ready",
+    "missing m1.cap_admit",
+    "missing m1.cap_reap",
+    "missing m1.cap_inventory",
+    "missing m1.cap_call",
+    "missing m1.cap_pin",
+    "missing m1.cap_map",
+    "missing m1.user_fault",
+    "missing m1.user_log",
+    "m1.cap_call.status",
+    "m1.cap_reap.principal",
+    "m1.cap_reap.result",
+    "m1.cap_inventory.objects",
+    "m1.cap_inventory.backing",
+    "m1.cap_map.e3",
+    "m1.cap_pin.close",
+    "m1.user_fault.error",
+    "m1.cap_ready.fixed_bytes",
+    "successful operation 10.x",
+    "successful operation 10.c",
+    "successful operation 10.d",
+    "successful operation 10.n",
+    "successful operation 8.b",
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    "missing m1.scheduler_policy",
+    "missing m1.scheduler_ready",
+    "missing m1.task_start",
+    "missing m1.task_end",
+    "missing m1.task_settlement",
+    "missing m1.user_fault",
+    "missing m1.task_switch",
+    "m1.task_start/principal",
+    "m1.task_end/result",
+    "m1.task_end/preemptions",
+    "m1.task_end/progress",
+    "m1.task_settlement/frames",
+    "m1.scheduler_ready/max_wait_ns",
+    "m1.scheduler_ready/pin_irqs",
+    "m1.scheduler_policy/priority",
+    "missing m1.scheduler_policy",
+    "missing m1.scheduler_ready",
+    "missing m1.task_start",
+    "missing m1.task_end",
+    "missing m1.task_settlement",
+    "missing m1.user_fault",
+    "m1.task_start/principal",
+    "m1.task_end/result",
+    "m1.task_end/preemptions",
+    "m1.task_end/progress",
+    "m1.task_settlement/frames",
+    "m1.scheduler_ready/max_wait_ns",
+    "m1.scheduler_ready/pin_irqs",
+    "m1.scheduler_policy/priority"
+  ],
+  "build_id": "57d862121cebedbacc4d6cec3e90bcece5e161727569b99def0ab843090fb66d",
+  "kernel_sha256": "1a637684bbe9a88b1690e139b5986117a3816a3bb21f7e12dfd218fda02f3d0e",
+  "iso_sha256": "343ff19560e834a64e4b7a6557fb12d7908591800cc65f3f34358ecab85232f1",
+  "serial_sha256": "559d26433f3b6beba7033861ad6c3063247734af1ce544ddc1b387d02c169937",
+  "capability_regression": {
+    "tasks": 18,
+    "waves": 6,
+    "hardware_faults": 5,
+    "unique_handle_installations": 91,
+    "syscalls": 402,
+    "pin_interleavings": 6,
+    "denials": {
+      "(2, 12)": 18,
+      "(3, 12)": 18,
+      "(5, 2)": 18,
+      "(4, 2)": 18,
+      "(6, 1)": 21,
+      "(10, 1)": 6,
+      "(8, 3)": 7,
+      "(10, 3)": 13,
+      "(9, 1)": 6,
+      "(7, 1)": 6,
+      "(12, 3)": 14,
+      "(11, 4)": 1,
+      "(9, 2)": 1,
+      "(9, 3)": 1,
+      "(6, 3)": 1,
+      "(7, 3)": 1,
+      "(9, 4)": 5,
+      "(10, 4)": 11,
+      "(10, 2)": 1,
+      "(8, 11)": 1,
+      "(9, 11)": 1,
+      "(10, 11)": 1
+    },
+    "fixed_bytes": 10559512,
+    "switches": 259
+  },
+  "memory_regression": {
+    "fixed_kernel_storage_bytes": 9859072,
+    "active_table_pages": {
+      "0": 6,
+      "1": 4
+    },
+    "private_user_pages": {
+      "0": 20,
+      "1": 16
+    },
+    "cycles": 1000,
+    "resident_after": 0
+  },
+  "loader_regression": {
+    "images": [
+      {
+        "image": 0,
+        "sha256": "4307b5ea8a83967d4ca71cfee99cf85f231fa00cb93b12c71fd266b2334f342c",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 1,
+        "sha256": "315356d58045b4bf95f0ead8f714a0636660e9635f482bdd98f0a87a1d27b590",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      },
+      {
+        "image": 2,
+        "sha256": "136964ed96bd400903b517745e74c9f6f663038d064fae61f59da24b69be9211",
+        "bytes": 13216,
+        "entry": 4194304,
+        "loads": [
+          {
+            "address": 4194304,
+            "offset": 4096,
+            "file_bytes": 27,
+            "memory_bytes": 27,
+            "flags": 5
+          },
+          {
+            "address": 4198400,
+            "offset": 8192,
+            "file_bytes": 17,
+            "memory_bytes": 17,
+            "flags": 4
+          },
+          {
+            "address": 4202496,
+            "offset": 12288,
+            "file_bytes": 8,
+            "memory_bytes": 12289,
+            "flags": 6
+          }
+        ],
+        "commitment": 98304,
+        "pages": 24,
+        "table_pages": 6
+      }
+    ],
+    "private_pages": 72,
+    "allocation_failures": 24,
+    "malformed_cases": 19,
+    "trusted_bindings": 4,
+    "settled_frames": 0
+  },
+  "source_commit": "39a0daafa0d287180959ec7830180a77988e9b88",
+  "acceptance_sha256": "6fed4bed953ea913ebc90b7b2a51b23119733ab995abd2312b62293ba452e8b2",
+  "kernel_host_tests": 47,
+  "prerequisite_checks": 10,
+  "m1_rows": 33,
+  "m1_launches": 42,
+  "boundary_process_runs": 36,
+  "scheduler_tasks": 60,
+  "criterion_review": {
+    "bounded_codecs": "pass: independent literal byte fixture, malformed envelope matrix, real ring-3 encoder/service decoder and typed mandatory-feature rejection",
+    "atomic_authority": "pass: attenuated memory/endpoint moves and duplicates; source invalidation only after enqueue; copy/sizing/table failure inventories preserved; host nonce boundaries",
+    "trusted_provenance": "pass: independent replay of process-generation/principal/session launch bindings and delegated sender/receiver tuples; payload claims 999/777 grant no identity",
+    "bounded_admission": "pass: actual guest count/byte/table/buffer failures plus host attachment quota, pair/table/nonce admission and duplicate-source/rights rejection",
+    "teardown": "pass: actual queued receiver process death and receipt after sender death; host queued memory and cross-pair cycles; exact object/backing/frame/table/stack/pin settlements"
+  },
+  "unsafe_review": {
+    "copies": "bounded input records copied once; output spans checked for overflow/overlap; existing effective-page checks, recovery and balanced pins; partial output bytes unspecified on error",
+    "commit": "one CPU, IF-clear registry; output callback finishes before all receiver installations/dequeue; no fallible resource reservation after commit; no acknowledgement syscall",
+    "ownership": "queues retain their own attenuated references; bounded root tracing removes unreachable cycles; supervisor root/stack precedes process removal and backend destruction",
+    "identity": "only trusted launcher supplies historical process-generation/principal/session binding; payload and endpoint origin cannot choose sender identity",
+    "limits": "one owner thread; no SMP, waits/deadlines, policy/session liveness enforcement, generic exactly-once, universal revoke, independent frozen SDK or guest UI"
+  }
+}

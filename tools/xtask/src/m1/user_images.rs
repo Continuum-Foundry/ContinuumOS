@@ -15,6 +15,7 @@ pub(super) fn build(
     execution: bool,
     scheduler: bool,
     capabilities: bool,
+    channels: bool,
 ) -> Result<PathBuf> {
     let contract: serde_json::Value =
         serde_json::from_slice(&read(&root().join("contracts/runtime-v0.json"))?)
@@ -46,7 +47,9 @@ pub(super) fn build(
     ));
     let runtime_ids = dir.join("runtime-ids.rs");
     fs::write(&runtime_ids, ids).map_err(|e| e.to_string())?;
-    let source = if capabilities {
+    let source = if channels {
+        "experiments/user-images/channels.rs"
+    } else if capabilities {
         "experiments/user-images/capabilities.rs"
     } else if scheduler {
         "experiments/user-images/scheduler.rs"

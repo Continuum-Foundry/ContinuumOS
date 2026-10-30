@@ -1,5 +1,6 @@
 #![no_std]
 //! Internal, owned boot handoff. This is neither a wire format nor an allocator.
+pub mod ipc_wire;
 pub mod memory;
 pub mod objects;
 pub mod owned_memory;

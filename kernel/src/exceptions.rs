@@ -224,7 +224,11 @@ extern "C" fn run(mode: u64) -> ! {
     }
     #[cfg(feature = "capability-test")]
     if mode == 39 {
-        crate::user_entry::scheduling::run_objects().unwrap_or_else(|e| crate::reject(e));
+        crate::user_entry::scheduling::run_objects(false).unwrap_or_else(|e| crate::reject(e));
+    }
+    #[cfg(feature = "channel-test")]
+    if mode == 40 {
+        crate::user_entry::scheduling::run_objects(true).unwrap_or_else(|e| crate::reject(e));
     }
     record(
         "m1.boot_complete",

@@ -240,6 +240,7 @@ pub extern "C" fn kernel_entry() -> ! {
         && !(cfg!(feature = "runtime-memory-test") && fixture == "owned-memory")
         && !(cfg!(feature = "static-loader-test") && fixture == "static-loader")
         && !(cfg!(feature = "capability-test") && fixture == "capabilities")
+        && !(cfg!(feature = "channel-test") && fixture == "channels")
         && !(cfg!(feature = "scheduler-test")
             && matches!(fixture, "scheduler-on" | "scheduler-off" | "scheduler-cpu"))
         && !(cfg!(feature = "user-boundary-test")
@@ -350,6 +351,9 @@ pub extern "C" fn kernel_entry() -> ! {
             .or_else(|| paging::mode(fixture))
             .or_else(|| timer::mode(fixture))
             .or_else(|| {
+                if cfg!(feature = "channel-test") && fixture == "channels" {
+                    return Some(40);
+                }
                 if cfg!(feature = "capability-test") && fixture == "capabilities" {
                     return Some(39);
                 }

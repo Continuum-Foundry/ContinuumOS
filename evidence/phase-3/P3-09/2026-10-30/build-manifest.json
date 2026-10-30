@@ -1,0 +1,78 @@
+{
+  "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "53a8154a0ec04afe389e7f2541daba3fb6e5c2785ac198ad7b46f028983c64a8",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "supervisor-test",
+  "inspection": {
+    "diagnostic_sites": {
+      "diagnostic_double_site": 18446744071562077599,
+      "diagnostic_guard_site": 18446744071562077574,
+      "diagnostic_invalid_opcode": 18446744071562076847,
+      "diagnostic_nx_page": 18446744071562342400,
+      "diagnostic_page_fault_site": 18446744071562076859,
+      "diagnostic_panic_report": 18446744071562076864,
+      "diagnostic_write_site": 18446744071562077579
+    },
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "kernel_image_bounds": {
+      "all_load_memory_including_bss": true,
+      "end": "0xffffffff813ee000",
+      "load_memory_end": "0xffffffff813ee000",
+      "start": "0xffffffff80000000"
+    },
+    "machine": "x86_64",
+    "relocations": 0,
+    "returning_interrupt_entry": {
+      "df_cleared_before_rust": true,
+      "gprs": 15,
+      "return": "iretq",
+      "sysv_alignment": 16,
+      "vectors": [
+        64,
+        255
+      ]
+    },
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 239525,
+        "flags": 5,
+        "memory_size": 239525,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff8003b000",
+        "alignment": 4096,
+        "file_size": 26075,
+        "flags": 4,
+        "memory_size": 26075,
+        "offset": 245760
+      },
+      {
+        "address": "0xffffffff80042000",
+        "alignment": 4096,
+        "file_size": 9694560,
+        "flags": 6,
+        "memory_size": 20627456,
+        "offset": 274432
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "930b9a52dc3bea343dd0a8c1a3625d7faec8259127a5812c32b95d1c348ad345",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "65e161b016d4a98f15d21d3f4b261e43486e1c0e",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M audit/check-docs.cjs\n M config/m3-profiles.json\n M contracts/runtime-v0.json\n M docs/04-decisions/README.md\n M docs/05-delivery/phase-3/09-supervision-quotas-and-process-lifecycle.md\n M docs/05-delivery/phase-3/README.md\n M docs/05-delivery/windows-development-signing.md\n M docs/06-contracts/ipc-and-objects.md\n M docs/06-contracts/runtime-v0.md\n M kernel/Cargo.toml\n M kernel/src/exceptions.rs\n M kernel/src/lib.rs\n M kernel/src/main.rs\n M kernel/src/objects.rs\n M kernel/src/objects/channels.rs\n M kernel/src/objects/tests.rs\n M kernel/src/objects/waiting.rs\n M kernel/src/owned_memory.rs\n M kernel/src/owned_memory/tests.rs\n M kernel/src/paging.rs\n M kernel/src/scheduling.rs\n M kernel/src/timer.rs\n M kernel/src/user_fixture.rs\n M kernel/src/user_image.rs\n M tools/windows/New-DevPolicy.ps1\n M tools/windows/Set-DevMachinePolicy.ps1\n M tools/xtask/src/m1/build.rs\n M tools/xtask/src/m1/cases.rs\n M tools/xtask/src/m1/package.rs\n M tools/xtask/src/m1/records.rs\n M tools/xtask/src/m1/user_images.rs\n M tools/xtask/src/main.rs\n?? docs/04-decisions/0025-prepaid-subtrees-and-quiescent-process-reaping.md\n?? docs/05-delivery/phase-3/supervision-runbook.md\n?? experiments/user-images/supervisor.rs\n?? kernel/src/objects/tests/supervision.rs\n?? kernel/src/supervisor.rs\n?? kernel/src/supervisor/\n?? kernel/src/supervisor_guest.rs\n?? tools/Check-P3-09Flavors.ps1\n?? tools/Review-P3-09.py\n?? tools/Test-P3-09.ps1"
+}

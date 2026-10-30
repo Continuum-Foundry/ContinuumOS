@@ -1,0 +1,97 @@
+{
+  "story": "P3-09",
+  "note": "Failed attempts remain local, deadlines unchanged; none count as acceptance.",
+  "attempts": [
+    {
+      "name": "development-1",
+      "kind": "compile",
+      "reason": "dispatch visibility error",
+      "acceptance": false,
+      "local_artifacts": "build/m1/supervisor-1793394123591403000-36964",
+      "local_trace": "kernel-build.stderr.log",
+      "selected_trace": [
+        "   Compiling bitflags v2.13.2",
+        "   Compiling limine v0.5.0",
+        "   Compiling continuum-kernel v0.1.0 (C:\\Users\\archi\\Documents\\ContinuumOS\\kernel)",
+        "error[E0603]: function `dispatch` is private",
+        "   --> kernel\\src\\user_fixture.rs:150:38",
+        "    |",
+        "150 |             scheduling::supervision::dispatch(op, f)",
+        "    |                                      ^^^^^^^^ private function",
+        "    |",
+        "note: the function `dispatch` is defined here",
+        "   --> kernel\\src\\supervisor_guest.rs:160:1",
+        "    |",
+        "160 | pub(super) fn dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>> {",
+        "    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "",
+        "For more information about this error, try `rustc --explain E0603`.",
+        "error: could not compile `continuum-kernel` (bin \"continuum-kernel\") due to 1 previous error"
+      ]
+    },
+    {
+      "name": "development-2",
+      "kind": "harness rejection",
+      "reason": "new supervisor profile used 10-ms timer while parser required scheduler 5-ms timer",
+      "acceptance": false,
+      "local_artifacts": "build/m1/supervisor-1793394295617477300-31704",
+      "local_trace": "supervisor-run/serial.log",
+      "selected_trace": [
+        "m1.runtime_memory version=5 build=c6b860467464f44851cd1cba52de6aa8a3effff6ac85c3abf53bd3e7adb5ebf6 session=8fdcbf072ab8468151813659bc06e256acab0bf30ce88c66d2346ba48266bc08 session_origin=host seq=84 stage=runtime-memory outcome=ok emergency=false metadata_bytes=159744 table_storage_bytes=8519680 kernel_stack_storage=1179648 kernel_guard_bytes=131072 dynamic_ceiling=16777216 user_ceiling=67108864 spaces=16 allocation_slots=256 mappings_per_space=128 tables_per_bank=64 banks=2 initialized=true",
+        "m1.acpi_ready version=5 build=c6b860467464f44851cd1cba52de6aa8a3effff6ac85c3abf53bd3e7adb5ebf6 session=8fdcbf072ab8468151813659bc06e256acab0bf30ce88c66d2346ba48266bc08 session_origin=host seq=85 stage=timer outcome=ok emergency=false rsdp=0x7f77e014 xsdt=0x7f77d0e8 tables=6 apic=0xfee00000 ioapic=0xfec00000 hpet=0xfed00000 checksums=true ranges=true",
+        "m1.timer_calibrated version=5 build=c6b860467464f44851cd1cba52de6aa8a3effff6ac85c3abf53bd3e7adb5ebf6 session=8fdcbf072ab8468151813659bc06e256acab0bf30ce88c66d2346ba48266bc08 session_origin=host seq=86 stage=timer outcome=ok emergency=false apic_elapsed=1259243 hpet_ticks=2000150 period_fs=10000000 divide=16 initial=629574 resolution_ns=9999995 cache=uc",
+        "m1.timer_ready version=5 build=c6b860467464f44851cd1cba52de6aa8a3effff6ac85c3abf53bd3e7adb5ebf6 session=8fdcbf072ab8468151813659bc06e256acab0bf30ce88c66d2346ba48266bc08 session_origin=host seq=87 stage=timer outcome=ok emergency=false vector=64 spurious=255 ticks=0 uptime_ns=0 resolution_ns=9999995 epoch=kernel pic=masked lvt=timer-only",
+        "m1.clock_sample version=5 build=c6b860467464f44851cd1cba52de6aa8a3effff6ac85c3abf53bd3e7adb5ebf6 session=8fdcbf072ab8468151813659bc06e256acab0bf30ce88c66d2346ba48266bc08 session_origin=host seq=88 stage=timer outcome=ok emergency=false index=0 ticks=1 uptime_ns=9999995 continuation=true registers=true"
+      ]
+    },
+    {
+      "name": "development-3",
+      "kind": "guest fatal",
+      "reason": "new supervisor mode omitted reserved ISO module mappings; CPL0 page fault at module virtual base",
+      "acceptance": false,
+      "local_artifacts": "build/m1/supervisor-1793394445876550500-29380",
+      "local_trace": "supervisor-run/serial.log",
+      "selected_trace": [
+        "m1.clock_sample version=5 build=aa66facdc8ba752e65fe2be74d566f53bff8c6f316d3c6a8c86c7816fdea53bd session=cf9bd9ae5f2a3f92261fe241895ae68db7af7586c5e38fbe261303606a6b3dd3 session_origin=host seq=185 stage=timer outcome=ok emergency=false index=97 ticks=98 uptime_ns=489998628 continuation=true registers=true",
+        "m1.clock_sample version=5 build=aa66facdc8ba752e65fe2be74d566f53bff8c6f316d3c6a8c86c7816fdea53bd session=cf9bd9ae5f2a3f92261fe241895ae68db7af7586c5e38fbe261303606a6b3dd3 session_origin=host seq=186 stage=timer outcome=ok emergency=false index=98 ticks=99 uptime_ns=494998614 continuation=true registers=true",
+        "m1.clock_sample version=5 build=aa66facdc8ba752e65fe2be74d566f53bff8c6f316d3c6a8c86c7816fdea53bd session=cf9bd9ae5f2a3f92261fe241895ae68db7af7586c5e38fbe261303606a6b3dd3 session_origin=host seq=187 stage=timer outcome=ok emergency=false index=99 ticks=100 uptime_ns=499998600 continuation=true registers=true",
+        "m1.timer_progress version=5 build=aa66facdc8ba752e65fe2be74d566f53bff8c6f316d3c6a8c86c7816fdea53bd session=cf9bd9ae5f2a3f92261fe241895ae68db7af7586c5e38fbe261303606a6b3dd3 session_origin=host seq=188 stage=timer outcome=ok emergency=false ticks=100 uptime_ns=499998600 reads=100 changes=100 halts=100 registers=true spurious=0",
+        "m1.exception version=5 build=aa66facdc8ba752e65fe2be74d566f53bff8c6f316d3c6a8c86c7816fdea53bd session=cf9bd9ae5f2a3f92261fe241895ae68db7af7586c5e38fbe261303606a6b3dd3 session_origin=host seq=189 stage=exceptions outcome=fatal emergency=false vector=14 rip=0xffffffff80034e4c error=0x0 address=0xffffc20000000000 rsp=0xffffffff809a3160 cs=0x8 flags=0x10097 frame=0xffffffff809a3128"
+      ]
+    },
+    {
+      "name": "development-4",
+      "kind": "compile",
+      "reason": "fixture parent parameter shadowed parent function",
+      "acceptance": false,
+      "local_artifacts": "build/m1/supervisor-1793394552859825700-37600",
+      "local_trace": "user_a-build.stderr.log",
+      "selected_trace": [
+        "error[E0618]: expected function, found `u64`",
+        "   --> /continuum\\experiments/user-images/supervisor.rs:171:20",
+        "    |",
+        "103 | fn parent(mode:u64){",
+        "    | ------------------- this function of the same name is available here, but it's shadowed by the local binding",
+        "...",
+        "152 | extern \"C\" fn main(token:u64,parent:u64){",
+        "    |                              ------ `parent` has type `u64`",
+        "...",
+        "171 |         1200|1201=>parent(mode),",
+        "    |                    ^^^^^^------",
+        "    |                    |",
+        "    |                    call expression requires function",
+        "",
+        "error: aborting due to 1 previous error",
+        "",
+        "For more information about this error, try `rustc --explain E0618`."
+      ]
+    },
+    {
+      "name": "early-flavors-1",
+      "kind": "metadata compile",
+      "reason": "explicit build ID environment value was missing; corrected for metadata-only checks",
+      "acceptance": false,
+      "local_trace": "build/m3/P3-09/early-flavors/ordinary.log"
+    }
+  ]
+}

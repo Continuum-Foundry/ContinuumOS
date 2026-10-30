@@ -1,0 +1,44 @@
+<task_resume>:
+ffffffff800025b5:      	cli
+ffffffff800025b6:      	cld
+ffffffff800025b7:      	pushq	%rbp
+ffffffff800025b8:      	pushq	%rbx
+ffffffff800025b9:      	pushq	%r12
+ffffffff800025bb:      	pushq	%r13
+ffffffff800025bd:      	pushq	%r14
+ffffffff800025bf:      	pushq	%r15
+ffffffff800025c1:      	movq	%rsp, 0x9b7a40(%rip) # 0xffffffff809ba008 <_RNvNtCs12KTbAA5V5R_16continuum_kernel10user_entry12CONTINUATION>
+ffffffff800025c8:      	movq	%cr3, %rax
+ffffffff800025cb:      	movq	%rax, 0x9b7a2e(%rip) # 0xffffffff809ba000 <_RNvNtCs12KTbAA5V5R_16continuum_kernel10user_entry11KERNEL_ROOT>
+ffffffff800025d2:      	movq	%rdi, %cr3
+ffffffff800025d5:      	movq	0x9b7f64(%rip), %rsp # 0xffffffff809ba540 <_RNvNtCs12KTbAA5V5R_16continuum_kernel10user_entry9KERNEL_SP>
+ffffffff800025dc:      	subq	$0xa0, %rsp
+ffffffff800025e3:      	movq	%rdx, %r8
+ffffffff800025e6:      	movq	%rsp, %rdi
+ffffffff800025e9:      	movl	$0x14, %ecx
+ffffffff800025ee:      	rep		movsq	(%rsi), %es:(%rdi)
+ffffffff800025f1:      	xorl	%eax, %eax
+ffffffff800025f3:      	movw	%ax, %ds
+ffffffff800025f6:      	movw	%ax, %es
+ffffffff800025f9:      	movw	%ax, %fs
+ffffffff800025fc:      	movw	%ax, %gs
+ffffffff800025ff:      	clts
+ffffffff80002601:      	fxrstor64	(%r8)
+ffffffff80002605:      	popq	%r15
+ffffffff80002607:      	popq	%r14
+ffffffff80002609:      	popq	%r13
+ffffffff8000260b:      	popq	%r12
+ffffffff8000260d:      	popq	%r11
+ffffffff8000260f:      	popq	%r10
+ffffffff80002611:      	popq	%r9
+ffffffff80002613:      	popq	%r8
+ffffffff80002615:      	popq	%rdi
+ffffffff80002616:      	popq	%rsi
+ffffffff80002617:      	popq	%rbp
+ffffffff80002618:      	popq	%rbx
+ffffffff80002619:      	popq	%rdx
+ffffffff8000261a:      	popq	%rcx
+ffffffff8000261b:      	popq	%rax
+ffffffff8000261c:      	iretq
+ffffffff8000261e:      	int3
+ffffffff8000261f:      	int3

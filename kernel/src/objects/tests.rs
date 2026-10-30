@@ -1,5 +1,6 @@
 extern crate std;
 mod channels;
+mod supervision;
 mod waiting;
 use super::*;
 use crate::{

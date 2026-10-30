@@ -182,6 +182,11 @@ impl Registry {
         copy: impl FnOnce([u64; 2]) -> Result<()>,
     ) -> Result<()> {
         let t = self.target(space, process, CREATE)?;
+        self.handle_room(t, 2)?;
+        self.creation_room(t, 2)?;
+        if self.tables[t].budget.is_some_and(|b| b.pairs == 0) {
+            return Err(Error::QuotaExceeded);
+        }
         self.nonce_room(2)?;
         let mut slots = self.tables[t]
             .handles
@@ -213,6 +218,10 @@ impl Registry {
             (((self.next_nonce as u64) + 1) << 32) | (hs[1] as u64 + 1),
         ];
         copy(values)?;
+        self.created_objects(t, 2);
+        if let Some(b) = &mut self.tables[t].budget {
+            b.pairs -= 1;
+        }
         let ids = [
             self.new_object(os[0], Body::Channel { pair, side: 0 }),
             self.new_object(os[1], Body::Channel { pair, side: 1 }),
@@ -266,6 +275,12 @@ impl Registry {
         }
         let (t, pair, side) = self.endpoint(space, endpoint, SEND)?;
         let sender = self.senders[t].ok_or(Error::AccessDenied)?;
+        if self.tables[t]
+            .budget
+            .is_some_and(|b| b.messages == 0 || bytes.len() as u64 > b.bytes)
+        {
+            return Err(Error::QuotaExceeded);
+        }
         if !self.live(self.channels[pair].endpoints[1 - side]) {
             return Err(Error::PeerClosed);
         }
@@ -299,6 +314,10 @@ impl Registry {
             return Err(Error::WouldBlock);
         }
         before_commit()?;
+        if let Some(b) = &mut self.tables[t].budget {
+            b.messages -= 1;
+            b.bytes -= bytes.len() as u64;
+        }
         // No fallible operations below: queue now owns one ref per attachment.
         let m = &mut q.messages[(q.head + q.count) % MESSAGES];
         m.bytes[..bytes.len()].copy_from_slice(bytes);
@@ -350,6 +369,7 @@ impl Registry {
             return Err(Error::BufferTooSmall);
         }
         self.nonce_room(count)?;
+        self.handle_room(t, count)?;
         let mut slots = [0; ATTACHMENTS];
         let mut values = [0; ATTACHMENTS];
         let mut free = self.tables[t]

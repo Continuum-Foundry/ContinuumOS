@@ -320,6 +320,19 @@ impl<const N: usize> Launcher<N> {
         binding: Binding,
         return_code: &[u8],
     ) -> Result<ProcessId> {
+        self.launch_context(r, store, image, binding.context(), return_code, false)
+    }
+    /// Trusted supervision adapter only. Caller authenticates and precharges the
+    /// parent envelope before calling; context is never an unchecked user record.
+    pub fn launch_context<const S: usize, const A: usize, const M: usize, const T: usize>(
+        &mut self,
+        r: &mut Runtime<S, A, M, T>,
+        store: &mut impl Store,
+        image: TrustedImage<'_>,
+        context: Context,
+        return_code: &[u8],
+        bounded: bool,
+    ) -> Result<ProcessId> {
         if return_code.is_empty() || return_code.len() > PAGE as usize {
             return Err(bad("return_code"));
         }
@@ -330,7 +343,6 @@ impl<const N: usize> Launcher<N> {
             return Err(error("image", "digest"));
         }
         let plan = parse(image.bytes)?;
-        let context = binding.context();
         if plan.commitment > context.commitment_ceiling {
             return Err(error("launch", "ceiling"));
         }
@@ -371,6 +383,14 @@ impl<const N: usize> Launcher<N> {
                 let a = r.allocate(store, space, PAGE, PAGE)?.unwrap();
                 r.write_staging(store, space, a, 0, bytes)?;
                 r.map(store, space, a, address, 0, PAGE, access)?;
+            }
+            if bounded {
+                r.constrain(
+                    space,
+                    crate::supervisor::MEMORY,
+                    24,
+                    crate::supervisor::MAPPINGS,
+                )?;
             }
             Ok(())
         })();

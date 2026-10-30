@@ -6,6 +6,7 @@ pub mod objects;
 pub mod owned_memory;
 pub mod platform;
 pub mod scheduler;
+pub mod supervisor;
 pub mod user_boundary;
 pub mod user_image;
 pub mod wait;

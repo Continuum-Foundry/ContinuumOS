@@ -71,7 +71,14 @@
       "timer_cancel": 23,
       "wait_many": 24,
       "channel_send_until": 25,
-      "channel_receive_until": 26
+      "channel_receive_until": 26,
+      "process_create": 27,
+      "process_start": 28,
+      "process_terminate": 29,
+      "process_join": 30,
+      "process_state": 31,
+      "supervisor_restart": 32,
+      "process_first_child": 33
     },
     "error_ids": {
       "BadHandle": 1,

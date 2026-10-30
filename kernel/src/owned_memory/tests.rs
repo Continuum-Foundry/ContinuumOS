@@ -61,6 +61,38 @@ fn alloc(r: &mut R, b: &mut Ram, s: SpaceId, n: u64) -> AllocationId {
     r.allocate(b, s, n, 1).unwrap().unwrap()
 }
 #[test]
+fn prepaid_profile_limits_backing_allocations_and_maps_before_publication() {
+    let mut r = runtime();
+    let mut b = Ram::new();
+    let s = r.create().unwrap();
+    r.constrain(s, 2 * PAGE, 2, 1).unwrap();
+    b.fail = true;
+    assert!(r.allocate(&mut b, s, PAGE, 1).is_err());
+    b.fail = false;
+    let a = alloc(&mut r, &mut b, s, PAGE);
+    r.map(&mut b, s, a, 0x400000, 0, PAGE, Access::Read)
+        .unwrap();
+    let before = r.inventory();
+    let publications = b.publications;
+    assert_eq!(
+        r.map(&mut b, s, a, 0x500000, 0, PAGE, Access::Read)
+            .unwrap_err()
+            .reason,
+        "quota"
+    );
+    assert_eq!(r.inventory(), before);
+    assert_eq!(b.publications, publications);
+    r.unmap(&mut b, s, 0x400000).unwrap();
+    r.free(&mut b, s, a).unwrap();
+    let a = alloc(&mut r, &mut b, s, PAGE);
+    r.free(&mut b, s, a).unwrap();
+    assert_eq!(r.allocate(&mut b, s, PAGE, 1).unwrap_err().reason, "quota");
+    r.destroy(&mut b, s).unwrap();
+    let fresh = r.create().unwrap();
+    r.constrain(fresh, PAGE, 1, 1).unwrap();
+    alloc(&mut r, &mut b, fresh, PAGE);
+}
+#[test]
 fn alignment_realloc_zero_and_transactional_oom() {
     let mut r = runtime();
     let mut b = Ram::new();

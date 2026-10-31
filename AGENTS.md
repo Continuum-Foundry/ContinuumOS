@@ -23,7 +23,9 @@ remain unsupported/unverified as documented. P3-06 handle rights and retained me
 see `evidence/phase-3/P3-06/2026-10-29/README.md`. P3-07's bounded channels and atomic authority transfer pass local self-review; see
 `evidence/phase-3/P3-07/2026-10-29/README.md`. P3-08's bounded waits, timers, cancellation and blocking IPC helpers pass local self-review; see
 `evidence/phase-3/P3-08/2026-10-30/README.md`. P3-09's bounded user-mode supervision and prepaid subtree ceilings pass local self-review; see
-`evidence/phase-3/P3-09/2026-10-30/README.md`. Next is P3-10; policy/session enforcement remains open.
+`evidence/phase-3/P3-09/2026-10-30/README.md`. P3-10's ephemeral scoped policy and use-time session checks pass local self-review; see
+`evidence/phase-3/P3-10/2026-10-30/README.md`. Next is P3-11; routes/fences,
+independent SDK freeze and guest UI/reload remain open.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other

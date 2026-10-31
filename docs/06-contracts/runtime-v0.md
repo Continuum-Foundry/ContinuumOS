@@ -431,3 +431,22 @@ conservative and does not freeze reusable M3 quotas or promise a persistent
 service manager. Supervisor failure closes admission and terminates descendants;
 only explicit trusted bootstrap after complete settlement can restore a fresh
 session. Restart permits do not preserve application state or grant policy rights.
+
+
+## P3-10 current binding query (experimental)
+
+Dispatch 34 `context_live(pointer,40)` accepts five explicit little-endian u64
+words: process slot, generation, principal, authority-session ID and service flag
+0/1. It returns 1 for an exact currently admitted registry binding, otherwise 0.
+Wrong length/flag is InvalidArgument; failed copy has the existing copy outcome.
+It does not authorize a payload, issue a grant, authenticate an account or extend
+a session. The caller must derive identity from trusted receive metadata and use
+its own current scoped policy checks. Availability requires the channel profile;
+no permanent ABI ID is frozen before P3-12. The
+[policy runbook](../05-delivery/phase-3/policy-runbook.md) documents the user broker.
+
+The supervisor profile now reports Blocked=4 through its registered wait-state
+observer for process_state, after self/direct-parent/bootstrap-supervisor checks.
+The P3-10 regression fixture awaits this state before killing parked workers or
+faulting their parent, rather than assuming a fixed yield count is sufficient.
+No return IP, selector or privileged flags are selected by this observation.

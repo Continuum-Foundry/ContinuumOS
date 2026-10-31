@@ -111,6 +111,7 @@ pub(super) fn package(
         || fixture == "channels"
         || fixture == "waits"
         || fixture == "supervisor"
+        || fixture == "policy"
     {
         for name in ["user_a", "user_b", "service"] {
             let filename = format!("boot/{name}.elf");

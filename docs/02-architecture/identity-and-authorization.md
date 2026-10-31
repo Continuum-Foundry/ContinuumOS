@@ -1,7 +1,7 @@
 # Identity, ownership and authorization
 
 Status: proposed engineering plan, updated at the owner's request on 2026-10-21.
-No user isolation, account authentication or RBAC implementation is claimed.
+P3-10 accepts the bounded synthetic enforcement subset below; account authentication and durable RBAC remain unimplemented.
 Supports R10/R14 and R19's authorization boundary. See [M3 and later gates](../05-delivery/milestones.md),
 [capability design](capabilities-and-ipc.md) and [ADR-0010](../04-decisions/0010-capability-security.md).
 
@@ -80,7 +80,7 @@ Keep positive and negative outcomes, identity lifetimes, scope, policy epoch and
 the actual exercised boundary in acceptance evidence. The
 [fourteen planned Phase 3 stories](../05-delivery/phase-3/README.md) carry these
 rows into implementation gates and the [final acceptance matrix](../05-delivery/phase-3/14-phase-3-acceptance.md#required-acceptance-matrix).
-P3-01 accepts prerequisites/contracts only; P3-02–P3-14 remain Not started. No guest authority enforcement, account UI or credential handling is implemented.
+P3-01 through P3-10 accept their declared local experimental subsets; P3-11 through P3-14 remain open. The synthetic policy gate does not implement account UI or credential handling.
 
 ## Later accounts gate
 
@@ -115,3 +115,7 @@ Encrypted homes require a separate key provisioning, storage and recovery design
 Neither login nor role policy alone establishes at-rest encryption. This document
 selects no credential protocol, crypto library, administrator role hierarchy or
 permanent syscall/wire layout.
+
+## P3-10 ephemeral scoped policy subset
+
+P3-10 passes local self-review for its ephemeral scoped policy subset: 120 real IPC decisions, 67 expected denials, two broker faults/restarts, identical 160-byte replay across fresh process/session bindings and two exact resource settlements. All 82 kernel host tests, ten fresh prerequisites, complete M1 (33 rows/42 launches) and separate memory/loader/boundary/scheduler/capability/channel/wait/supervisor regressions pass. The CPL3 broker/provider enforces exact scoped role assignments, child-grant attenuation, caller/service forwarding ceilings, finite sessions, use-time expiry/epoch/revision/context checks and synthetic privileged-scope separation. Queued grant and session expiry cross their actual elapsed fence; 136 focused evidence mutations reject. Trusted restoration is explicit and ordinary direct mappings survive broker death until owner teardown. No real accounts, credentials, durable RBAC, universal direct revocation, independently frozen SDK, guest UI/reload or desktop efficiency target is accepted; P3-11 is next. See the [acceptance evidence](../../evidence/phase-3/P3-10/2026-10-30/README.md).

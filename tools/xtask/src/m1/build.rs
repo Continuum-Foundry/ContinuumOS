@@ -43,6 +43,7 @@ pub(super) enum Flavor {
     Channels,
     Waits,
     Supervisor,
+    Policy,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -62,6 +63,7 @@ impl Flavor {
             Self::Channels => "channel-test",
             Self::Waits => "wait-test",
             Self::Supervisor => "supervisor-test",
+            Self::Policy => "policy-test",
         }
     }
     fn features(self) -> &'static str {
@@ -81,6 +83,7 @@ impl Flavor {
             Self::Channels => "channel-test",
             Self::Waits => "wait-test",
             Self::Supervisor => "supervisor-test",
+            Self::Policy => "policy-test",
         }
     }
 }
@@ -277,6 +280,7 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
     }
     for p in [
         "contracts/runtime-v0.json",
+        "contracts/policy-v0.json",
         "Cargo.toml",
         "Cargo.lock",
         "rust-toolchain.toml",
@@ -310,6 +314,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             | Flavor::Channels
             | Flavor::Waits
             | Flavor::Supervisor
+            | Flavor::Policy
     ) {
         Some(super::user_images::build(
             dir,
@@ -321,11 +326,13 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     | Flavor::Channels
                     | Flavor::Waits
                     | Flavor::Supervisor
+                    | Flavor::Policy
             ),
             flavor == Flavor::Capabilities,
             flavor == Flavor::Channels,
             flavor == Flavor::Waits,
             flavor == Flavor::Supervisor,
+            flavor == Flavor::Policy,
         )?)
     } else {
         None
@@ -470,6 +477,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     | Flavor::Channels
                     | Flavor::Waits
                     | Flavor::Supervisor
+                    | Flavor::Policy
             ) {
                 let mut symbol = "";
                 let mut filtered = String::new();

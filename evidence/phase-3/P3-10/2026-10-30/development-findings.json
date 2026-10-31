@@ -1,0 +1,179 @@
+{
+  "story": "P3-10",
+  "scope": "development findings; full logs/source copies remain local",
+  "runs": [
+    {
+      "directory": "build/m1/policy-1793401741070287100-43684",
+      "harness_status": "failed",
+      "accepted_as_final": false,
+      "finding": "Kernel fault during early fixture setup. Reduced the oversized task snapshot, kept the policy runner out of boot inlining, and added the new mode to paging/timer setup. These simultaneous corrections were not independently isolated as a single root cause.",
+      "result_sha256": "6f082ef67fcdf6abb9ae3ef5033234bfa37e9ccac3911dc0e97c9b6024b30345",
+      "full_serial_sha256": "b6a1e4497c69f25b2e53d4c539f929e9f5f4462dacf5bdd9b2f53b51d2a92dac",
+      "serial_bytes": 27636,
+      "selected_terminal_records_only": [
+        "m1.reservation version=5 build=c51fcc0015d471b7aae911d25a048d15da5972f1501e7e23c351df5eee1aca1c session=5877af2ee5202b6535575feec6e4c717f649c52f5dea833cd1a4aa8a3df627f8 session_origin=host seq=68 stage=summary outcome=ok emergency=false base=0x80000000 bytes=0x3e8000 reason=Firmware retained=true",
+        "m1.reservation version=5 build=c51fcc0015d471b7aae911d25a048d15da5972f1501e7e23c351df5eee1aca1c session=5877af2ee5202b6535575feec6e4c717f649c52f5dea833cd1a4aa8a3df627f8 session_origin=host seq=69 stage=summary outcome=ok emergency=false base=0xe0000000 bytes=0x10000000 reason=Firmware retained=true",
+        "m1.reservation version=5 build=c51fcc0015d471b7aae911d25a048d15da5972f1501e7e23c351df5eee1aca1c session=5877af2ee5202b6535575feec6e4c717f649c52f5dea833cd1a4aa8a3df627f8 session_origin=host seq=70 stage=summary outcome=ok emergency=false base=0xffc00000 bytes=0x400000 reason=Firmware retained=true",
+        "m1.reservation version=5 build=c51fcc0015d471b7aae911d25a048d15da5972f1501e7e23c351df5eee1aca1c session=5877af2ee5202b6535575feec6e4c717f649c52f5dea833cd1a4aa8a3df627f8 session_origin=host seq=71 stage=summary outcome=ok emergency=false base=0xfd00000000 bytes=0x300000000 reason=Firmware retained=true",
+        "m1.reservation version=5 build=c51fcc0015d471b7aae911d25a048d15da5972f1501e7e23c351df5eee1aca1c session=5877af2ee5202b6535575feec6e4c717f649c52f5dea833cd1a4aa8a3df627f8 session_origin=host seq=72 stage=summary outcome=ok emergency=false base=0x7f77e014 bytes=0x24 reason=Acpi retained=true",
+        "m1.exceptions_ready version=5 build=c51fcc0015d471b7aae911d25a048d15da5972f1501e7e23c351df5eee1aca1c session=5877af2ee5202b6535575feec6e4c717f649c52f5dea833cd1a4aa8a3df627f8 session_origin=host seq=73 stage=exceptions outcome=ok emergency=false idt_entries=256 runtime_base=0xffffffff80998000 double_base=0xffffffff80986000 nmi_base=0xffffffff809ac000 stack_bytes=65536 double_ist=1 nmi_ist=2 guards=false if=false",
+        "m1.memory_switch version=5 build=c51fcc0015d471b7aae911d25a048d15da5972f1501e7e23c351df5eee1aca1c session=5877af2ee5202b6535575feec6e4c717f649c52f5dea833cd1a4aa8a3df627f8 session_origin=host seq=74 stage=memory outcome=ok emergency=false before=0x7bb8c000 after=0x78a7a000 table_pages=1002 table_capacity=2304 physical_limit=0x100000000 eligible_frames=503028 mapped_direct_frames=503028 kernel_pages=5067 reclaimed_bytes=0",
+        "m1.exception version=5 build=c51fcc0015d471b7aae911d25a048d15da5972f1501e7e23c351df5eee1aca1c session=5877af2ee5202b6535575feec6e4c717f649c52f5dea833cd1a4aa8a3df627f8 session_origin=host seq=75 stage=exceptions outcome=fatal emergency=false vector=14 rip=0xffffffff8000d789 error=0x2 address=0xffffffff809975c8 rsp=0xffffffff80995e80 cs=0x8 flags=0x10086 frame=0xffffffff80995e48"
+      ]
+    },
+    {
+      "directory": "build/m1/policy-1793401838407456700-42216",
+      "harness_status": "failed",
+      "accepted_as_final": false,
+      "finding": "Actual user read fault at the trusted roster page. Fixed publication of each current page-table root after adding the roster mapping.",
+      "result_sha256": "32a56edfc350f38403aa48feea129f4bba97384bec2ec1b219f2cee6c045e9b2",
+      "full_serial_sha256": "4a6ed92a94e48c4ea2c6438be3313311abc26db41c0e02c5684c9b2945663c27",
+      "serial_bytes": 65922,
+      "selected_terminal_records_only": [
+        "m1.policy_admit version=5 build=852a003fdffbf9e4b8b24eac68b85adb0a0adba3721b915aab13edccb627cbc9 session=cb2c2ee4423f5c0d77621bea3953f5f48c67513b7ff64f8c1b123e1a4561ac8a session_origin=host seq=190 stage=policy outcome=ok emergency=false wave=0 actor=1 process=1 generation=1 principal=404 authority_session=4004 service=true private_root=2013908992 roster_readonly=true",
+        "m1.policy_admit version=5 build=852a003fdffbf9e4b8b24eac68b85adb0a0adba3721b915aab13edccb627cbc9 session=cb2c2ee4423f5c0d77621bea3953f5f48c67513b7ff64f8c1b123e1a4561ac8a session_origin=host seq=191 stage=policy outcome=ok emergency=false wave=0 actor=2 process=2 generation=1 principal=101 authority_session=1001 service=false private_root=2014449664 roster_readonly=true",
+        "m1.policy_admit version=5 build=852a003fdffbf9e4b8b24eac68b85adb0a0adba3721b915aab13edccb627cbc9 session=cb2c2ee4423f5c0d77621bea3953f5f48c67513b7ff64f8c1b123e1a4561ac8a session_origin=host seq=192 stage=policy outcome=ok emergency=false wave=0 actor=3 process=3 generation=1 principal=202 authority_session=2002 service=false private_root=2014990336 roster_readonly=true",
+        "m1.policy_admit version=5 build=852a003fdffbf9e4b8b24eac68b85adb0a0adba3721b915aab13edccb627cbc9 session=cb2c2ee4423f5c0d77621bea3953f5f48c67513b7ff64f8c1b123e1a4561ac8a session_origin=host seq=193 stage=policy outcome=ok emergency=false wave=0 actor=4 process=4 generation=1 principal=101 authority_session=1001 service=false private_root=2015531008 roster_readonly=true",
+        "m1.policy_admit version=5 build=852a003fdffbf9e4b8b24eac68b85adb0a0adba3721b915aab13edccb627cbc9 session=cb2c2ee4423f5c0d77621bea3953f5f48c67513b7ff64f8c1b123e1a4561ac8a session_origin=host seq=194 stage=policy outcome=ok emergency=false wave=0 actor=5 process=5 generation=1 principal=505 authority_session=5005 service=true private_root=2016071680 roster_readonly=true",
+        "m1.user_fault version=5 build=852a003fdffbf9e4b8b24eac68b85adb0a0adba3721b915aab13edccb627cbc9 session=cb2c2ee4423f5c0d77621bea3953f5f48c67513b7ff64f8c1b123e1a4561ac8a session_origin=host seq=195 stage=user-boundary outcome=ok emergency=false case=602 vector=14 error=0x4 cs=0x33 ss=0x3b flags=0x10206 sp=0x7ffede50 ip=0x40025f address=0x71000008",
+        "m1.policy_end version=5 build=852a003fdffbf9e4b8b24eac68b85adb0a0adba3721b915aab13edccb627cbc9 session=cb2c2ee4423f5c0d77621bea3953f5f48c67513b7ff64f8c1b123e1a4561ac8a session_origin=host seq=196 stage=policy outcome=ok emergency=false wave=0 actor=2 process=2 generation=1 code=270 vector=14 dispatches=1",
+        "m1.boot_rejected version=5 build=852a003fdffbf9e4b8b24eac68b85adb0a0adba3721b915aab13edccb627cbc9 session=cb2c2ee4423f5c0d77621bea3953f5f48c67513b7ff64f8c1b123e1a4561ac8a session_origin=host seq=197 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+      ]
+    },
+    {
+      "directory": "build/m1/policy-1793401941208302600-45192",
+      "harness_status": "failed",
+      "accepted_as_final": false,
+      "finding": "Queued-expiry fixture treated empty channel_size WouldBlock as an unexpected error; corrected the probe.",
+      "result_sha256": "32a56edfc350f38403aa48feea129f4bba97384bec2ec1b219f2cee6c045e9b2",
+      "full_serial_sha256": "5957ef1b9c303cba461ccfe67c23a901707f70b43d9b24e6a5d25e59dd8983d1",
+      "serial_bytes": 582926,
+      "selected_terminal_records_only": [
+        "m1.ipc_call version=5 build=41aeecac411149b3961a95b2e4ea132efe1debb2ef745832f121b1f4973b916c session=1127434c96da86c50b9f23fb5ef49d97bb6651bcd3b380da7ae74503cfcbf4b6 session_origin=host seq=1689 stage=channels outcome=ok emergency=false process=2 generation=1 operation=14 status=0 value=0 pairs=6 messages=1 bytes=160 held=0 objects=28 handles=28",
+        "m1.ipc_call version=5 build=41aeecac411149b3961a95b2e4ea132efe1debb2ef745832f121b1f4973b916c session=1127434c96da86c50b9f23fb5ef49d97bb6651bcd3b380da7ae74503cfcbf4b6 session_origin=host seq=1690 stage=channels outcome=ok emergency=false process=2 generation=1 operation=15 status=6 value=0 pairs=6 messages=1 bytes=160 held=0 objects=28 handles=28",
+        "m1.ipc_call version=5 build=41aeecac411149b3961a95b2e4ea132efe1debb2ef745832f121b1f4973b916c session=1127434c96da86c50b9f23fb5ef49d97bb6651bcd3b380da7ae74503cfcbf4b6 session_origin=host seq=1691 stage=channels outcome=ok emergency=false process=3 generation=1 operation=15 status=6 value=0 pairs=6 messages=1 bytes=160 held=0 objects=28 handles=28",
+        "m1.ipc_call version=5 build=41aeecac411149b3961a95b2e4ea132efe1debb2ef745832f121b1f4973b916c session=1127434c96da86c50b9f23fb5ef49d97bb6651bcd3b380da7ae74503cfcbf4b6 session_origin=host seq=1692 stage=channels outcome=ok emergency=false process=5 generation=1 operation=15 status=6 value=0 pairs=6 messages=1 bytes=160 held=0 objects=28 handles=28",
+        "m1.user_log version=5 build=41aeecac411149b3961a95b2e4ea132efe1debb2ef745832f121b1f4973b916c session=1127434c96da86c50b9f23fb5ef49d97bb6651bcd3b380da7ae74503cfcbf4b6 session_origin=host seq=1693 stage=user-boundary outcome=ok emergency=false case=600 principal=303 offset=0 total=13 token=policy-failed",
+        "m1.cap_call version=5 build=41aeecac411149b3961a95b2e4ea132efe1debb2ef745832f121b1f4973b916c session=1127434c96da86c50b9f23fb5ef49d97bb6651bcd3b380da7ae74503cfcbf4b6 session_origin=host seq=1694 stage=capabilities outcome=ok emergency=false case=600 process=0 generation=1 operation=5 status=0 value=0 a=99 b=4294967297 c=0",
+        "m1.policy_end version=5 build=41aeecac411149b3961a95b2e4ea132efe1debb2ef745832f121b1f4973b916c session=1127434c96da86c50b9f23fb5ef49d97bb6651bcd3b380da7ae74503cfcbf4b6 session_origin=host seq=1695 stage=policy outcome=ok emergency=false wave=0 actor=0 process=0 generation=1 code=99 vector=0 dispatches=201",
+        "m1.boot_rejected version=5 build=41aeecac411149b3961a95b2e4ea132efe1debb2ef745832f121b1f4973b916c session=1127434c96da86c50b9f23fb5ef49d97bb6651bcd3b380da7ae74503cfcbf4b6 session_origin=host seq=1696 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+      ]
+    },
+    {
+      "directory": "build/m1/policy-1793402067325299500-46952",
+      "harness_status": "failed",
+      "accepted_as_final": false,
+      "finding": "A privileged-denial probe ran after its session was invalidated, so Expired took precedence. Moved the active-session privilege probes before invalidation; denial criteria remain unchanged.",
+      "result_sha256": "32a56edfc350f38403aa48feea129f4bba97384bec2ec1b219f2cee6c045e9b2",
+      "full_serial_sha256": "ec513eaadf5b1840e2a8ce3eea8eb756a49cde0966ec62744b1fe4f6b687c1f6",
+      "serial_bytes": 732064,
+      "selected_terminal_records_only": [
+        "m1.user_log version=5 build=9b88fdbe4c140b440fd30af456bf362b9d2c780f7a57eb968f52c820b7d55d6f session=1792e053a4afff233b32e6b18e5c3c2986d47bd75c452634473472290c3185c6 session_origin=host seq=2121 stage=user-boundary outcome=ok emergency=false case=601 principal=404 offset=0 total=13 token=policy-failed",
+        "m1.ipc_call version=5 build=9b88fdbe4c140b440fd30af456bf362b9d2c780f7a57eb968f52c820b7d55d6f session=1792e053a4afff233b32e6b18e5c3c2986d47bd75c452634473472290c3185c6 session_origin=host seq=2122 stage=channels outcome=ok emergency=false process=2 generation=1 operation=15 status=6 value=0 pairs=6 messages=0 bytes=0 held=0 objects=28 handles=28",
+        "m1.ipc_call version=5 build=9b88fdbe4c140b440fd30af456bf362b9d2c780f7a57eb968f52c820b7d55d6f session=1792e053a4afff233b32e6b18e5c3c2986d47bd75c452634473472290c3185c6 session_origin=host seq=2123 stage=channels outcome=ok emergency=false process=3 generation=1 operation=15 status=6 value=0 pairs=6 messages=0 bytes=0 held=0 objects=28 handles=28",
+        "m1.ipc_call version=5 build=9b88fdbe4c140b440fd30af456bf362b9d2c780f7a57eb968f52c820b7d55d6f session=1792e053a4afff233b32e6b18e5c3c2986d47bd75c452634473472290c3185c6 session_origin=host seq=2124 stage=channels outcome=ok emergency=false process=4 generation=1 operation=15 status=6 value=0 pairs=6 messages=0 bytes=0 held=0 objects=28 handles=28",
+        "m1.ipc_call version=5 build=9b88fdbe4c140b440fd30af456bf362b9d2c780f7a57eb968f52c820b7d55d6f session=1792e053a4afff233b32e6b18e5c3c2986d47bd75c452634473472290c3185c6 session_origin=host seq=2125 stage=channels outcome=ok emergency=false process=0 generation=1 operation=15 status=6 value=0 pairs=6 messages=0 bytes=0 held=0 objects=28 handles=28",
+        "m1.cap_call version=5 build=9b88fdbe4c140b440fd30af456bf362b9d2c780f7a57eb968f52c820b7d55d6f session=1792e053a4afff233b32e6b18e5c3c2986d47bd75c452634473472290c3185c6 session_origin=host seq=2126 stage=capabilities outcome=ok emergency=false case=601 process=1 generation=1 operation=5 status=0 value=0 a=99 b=12884901889 c=0",
+        "m1.policy_end version=5 build=9b88fdbe4c140b440fd30af456bf362b9d2c780f7a57eb968f52c820b7d55d6f session=1792e053a4afff233b32e6b18e5c3c2986d47bd75c452634473472290c3185c6 session_origin=host seq=2127 stage=policy outcome=ok emergency=false wave=0 actor=1 process=1 generation=1 code=99 vector=0 dispatches=367",
+        "m1.boot_rejected version=5 build=9b88fdbe4c140b440fd30af456bf362b9d2c780f7a57eb968f52c820b7d55d6f session=1792e053a4afff233b32e6b18e5c3c2986d47bd75c452634473472290c3185c6 session_origin=host seq=2128 stage=metadata outcome=rejected emergency=false field=user_boundary reason=self_check"
+      ]
+    },
+    {
+      "directory": "build/m1/policy-1793402235238426400-35048",
+      "harness_status": "passed",
+      "accepted_as_final": false,
+      "finding": "Harness passed, but subsequent independent trace review found the 100-ms lease could expire before enqueue. Superseded; not final acceptance.",
+      "result_sha256": "44cf786603757960927f0e63ba2b039622805a1d4dec79688202b5021f46015e",
+      "full_serial_sha256": "825ff62489c4ee3eced413a346dc6a608ef31fb760ad96f5cc1df7692d967764",
+      "serial_bytes": 1830346
+    },
+    {
+      "directory": "build/m1/policy-1793402899353457200-40696",
+      "harness_status": "failed",
+      "accepted_as_final": false,
+      "finding": "A longer 500-ms authority lease exposed excessive empty-channel polling diagnostics and hit the unchanged host log limit. Not a guest deadline failure. Replaced polling with existing waits/timers.",
+      "result_sha256": "969cf8420fa56ba7500f089e9505979a87227c6d3f2c7fec13df4a4b7521cfeb",
+      "full_serial_sha256": "63a10338c8aa693ed5b87d62de80c02a8072f4fc7d7735c67b0c9675dc2a1734",
+      "serial_bytes": 2128610,
+      "selected_terminal_records_only": [
+        "m1.user_log version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=42eb145ac388afddae0882f89a5cb47f37948d0a1329a8b74bbd5b36b67a3138 session_origin=host seq=6161 stage=user-boundary outcome=ok emergency=false case=604 principal=101 offset=0 total=19 token=direct-1-4-survived",
+        "m1.cap_call version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=42eb145ac388afddae0882f89a5cb47f37948d0a1329a8b74bbd5b36b67a3138 session_origin=host seq=6162 stage=capabilities outcome=ok emergency=false case=604 process=4 generation=2 operation=5 status=0 value=0 a=0 b=188978561025 c=0",
+        "m1.policy_end version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=42eb145ac388afddae0882f89a5cb47f37948d0a1329a8b74bbd5b36b67a3138 session_origin=host seq=6163 stage=policy outcome=ok emergency=false wave=1 actor=4 process=4 generation=2 code=0 vector=0 dispatches=596",
+        "m1.wait_settled version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=42eb145ac388afddae0882f89a5cb47f37948d0a1329a8b74bbd5b36b67a3138 session_origin=host seq=6164 stage=waits outcome=ok emergency=false records=0 watches=0 halts=0 wakes=0",
+        "m1.policy_settled version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=42eb145ac388afddae0882f89a5cb47f37948d0a1329a8b74bbd5b36b67a3138 session_origin=host seq=6165 stage=policy outcome=ok emergency=false wave=1 objects=0 handles=0 mappings=0 spaces=0 allocations=0 committed=0 resident=0 tables=0 stacks=0 pins=0 frames=0",
+        "m1.policy_ready version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=42eb145ac388afddae0882f89a5cb47f37948d0a1329a8b74bbd5b36b67a3138 session_origin=host seq=6166 stage=policy outcome=ok emergency=false waves=2 tasks=12 settled=true user_broker=true fixed_bytes=10581256",
+        "m1.boot_complete version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=42eb145ac388afddae0882f89a5cb47f37948d0a1329a8b74bbd5b36b67a3138 session_origin=host seq=6167 stage=boot outcome=ok emergency=false reclaimed_bytes=0",
+        "m1.ready version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=42eb145ac388afddae0882f89a5cb47f37948d0a1329a8b74bbd5b36b67a3138 session_origin=host seq=6168 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+      ]
+    },
+    {
+      "directory": "build/m1/policy-1793403070045471500-33644",
+      "harness_status": "failed",
+      "accepted_as_final": false,
+      "finding": "Repeated the prior source after a local edit-script assertion prevented the intended patch. Hit the unchanged log limit again; not accepted. Corrected the edit and reran.",
+      "result_sha256": "924dcae8dcbe30bc71f8b7c5ac394150ca6f8244dd2c9a37b3e7b9566785bfe0",
+      "full_serial_sha256": "54bf406e6cc9bbb354a356f2c34cb4a0a9533e68afb3588241e9157874a1b0d2",
+      "serial_bytes": 2102932,
+      "selected_terminal_records_only": [
+        "m1.policy_end version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=6e070de311591032b2b7dde3ae1abc06ab3b51a9a0204d77bd112e5a2ba8c498 session_origin=host seq=6087 stage=policy outcome=ok emergency=false wave=1 actor=1 process=1 generation=2 code=0 vector=0 dispatches=577",
+        "m1.cap_call version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=6e070de311591032b2b7dde3ae1abc06ab3b51a9a0204d77bd112e5a2ba8c498 session_origin=host seq=6088 stage=capabilities outcome=ok emergency=false case=602 process=2 generation=2 operation=5 status=0 value=0 a=0 b=171798691841 c=0",
+        "m1.policy_end version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=6e070de311591032b2b7dde3ae1abc06ab3b51a9a0204d77bd112e5a2ba8c498 session_origin=host seq=6089 stage=policy outcome=ok emergency=false wave=1 actor=2 process=2 generation=2 code=0 vector=0 dispatches=577",
+        "m1.wait_settled version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=6e070de311591032b2b7dde3ae1abc06ab3b51a9a0204d77bd112e5a2ba8c498 session_origin=host seq=6090 stage=waits outcome=ok emergency=false records=0 watches=0 halts=0 wakes=0",
+        "m1.policy_settled version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=6e070de311591032b2b7dde3ae1abc06ab3b51a9a0204d77bd112e5a2ba8c498 session_origin=host seq=6091 stage=policy outcome=ok emergency=false wave=1 objects=0 handles=0 mappings=0 spaces=0 allocations=0 committed=0 resident=0 tables=0 stacks=0 pins=0 frames=0",
+        "m1.policy_ready version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=6e070de311591032b2b7dde3ae1abc06ab3b51a9a0204d77bd112e5a2ba8c498 session_origin=host seq=6092 stage=policy outcome=ok emergency=false waves=2 tasks=12 settled=true user_broker=true fixed_bytes=10581256",
+        "m1.boot_complete version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=6e070de311591032b2b7dde3ae1abc06ab3b51a9a0204d77bd112e5a2ba8c498 session_origin=host seq=6093 stage=boot outcome=ok emergency=false reclaimed_bytes=0",
+        "m1.ready version=5 build=5da0b3cf5df5495d72fd75f44a5a98908e335427e5a43043675c88618e3adc07 session=6e070de311591032b2b7dde3ae1abc06ab3b51a9a0204d77bd112e5a2ba8c498 session_origin=host seq=6094 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+      ]
+    },
+    {
+      "directory": "build/m1/policy-1793403159975169000-35196",
+      "harness_status": "passed",
+      "accepted_as_final": false,
+      "finding": "Focused corrected probe passed: 120 decisions, 67 denials, exact payload replay, before/expiry/after queue timestamps, 136 evidence mutations rejected. Developmental focused result; final-source aggregate is separate.",
+      "result_sha256": "7f1274916775f46a15bd23ee8be9f2227f42031e9b4bb1d93f596fdf59fd0a61",
+      "full_serial_sha256": "7331596fd70ee57f2a14e0c95f2525f1c5b1b9e1bdbeb1f6b8a6643578d065a5",
+      "serial_bytes": 1561914
+    }
+  ],
+  "host_context_failure": {
+    "accepted": false,
+    "command": "cargo test --locked --offline -p continuum-kernel --lib",
+    "finding": "Restricted-context compiler signing could not read the enrolled CurrentUser certificate. The same tests passed in the approved signer context; no certificate or policy was changed."
+  },
+  "aggregate_attempts": [
+    {
+      "directory": "build/m3/P3-10/acceptance-1793402379318",
+      "status": "failed",
+      "finding": "Fresh prerequisites passed; M1 stopped at formatting before guest acceptance. Fixed module declaration order."
+    },
+    {
+      "directory": "build/m3/P3-10/acceptance-1793402638385",
+      "status": "interrupted",
+      "accepted": false,
+      "finding": "Superseded after the queued-expiry evidence gap. Verified acceptance process subtree stopped with no QEMU child active. Interruption record retained."
+    },
+    {
+      "directory": "build/m3/P3-10/acceptance-1793403330121",
+      "status": "harness-passed-independent-review-rejected",
+      "accepted": false,
+      "acceptance_sha256": "fcbad392cc451ab9e994881a41f0d098617d619a92e3c95b6133cdb49d69398e",
+      "finding": "Independent P3-09 regression audit observed only three of four required parked-owner teardowns. The direct worker kill occurred before that worker parked. Replaced yield-count assumptions with explicit registered Blocked-state observation for direct-child, dead-parent and supervisor-fault scenarios; no criterion or deadline weakened. Full final-source acceptance rerun required."
+    }
+  ],
+  "supervisor_coverage_gap": {
+    "directory": "build/m1/supervisor-1793406277182907300-48332",
+    "full_serial_sha256": "9a6bbfb50556f73e1b594f19c120c648fc905693c7751c4f61374e2c42d2d10c",
+    "expected_parked_teardowns": 4,
+    "observed_parked_teardowns": 3,
+    "selected_terminal_records_only": [
+      "m1.supervisor_end version=5 build=15cb0b04e4f1c098aac2d14e52bce0fe317d1f64a00858e3f1df9a11eb22716b session=0a39497f78a808a7f3898f5761bcd01aadd6968c9dbf30a00c26d088d8998160 session_origin=host seq=1297 stage=supervisor outcome=ok emergency=false token=21 process=1 generation=16 thread=1 mode=1201 code=262 vector=6 preemptions=9 dispatches=11 parked=false",
+      "m1.supervisor_end version=5 build=15cb0b04e4f1c098aac2d14e52bce0fe317d1f64a00858e3f1df9a11eb22716b session=0a39497f78a808a7f3898f5761bcd01aadd6968c9dbf30a00c26d088d8998160 session_origin=host seq=1299 stage=supervisor outcome=ok emergency=false token=22 process=2 generation=3 thread=2 mode=1006 code=768 vector=0 preemptions=0 dispatches=1 parked=true",
+      "m1.supervisor_end version=5 build=15cb0b04e4f1c098aac2d14e52bce0fe317d1f64a00858e3f1df9a11eb22716b session=0a39497f78a808a7f3898f5761bcd01aadd6968c9dbf30a00c26d088d8998160 session_origin=host seq=1329 stage=supervisor outcome=ok emergency=false token=23 process=1 generation=17 thread=1 mode=1006 code=768 vector=0 preemptions=2 dispatches=2 parked=false",
+      "m1.supervisor_end version=5 build=15cb0b04e4f1c098aac2d14e52bce0fe317d1f64a00858e3f1df9a11eb22716b session=0a39497f78a808a7f3898f5761bcd01aadd6968c9dbf30a00c26d088d8998160 session_origin=host seq=1501 stage=supervisor outcome=ok emergency=false token=26 process=1 generation=19 thread=1 mode=1006 code=768 vector=0 preemptions=3 dispatches=4 parked=true",
+      "m1.supervisor_end version=5 build=15cb0b04e4f1c098aac2d14e52bce0fe317d1f64a00858e3f1df9a11eb22716b session=0a39497f78a808a7f3898f5761bcd01aadd6968c9dbf30a00c26d088d8998160 session_origin=host seq=1503 stage=supervisor outcome=ok emergency=false token=27 process=2 generation=4 thread=2 mode=1007 code=768 vector=0 preemptions=5 dispatches=6 parked=true"
+    ],
+    "correction": "Registered Blocked-state observer, authorized self/parent/root state query, and explicit user barriers before direct kill, parent fault and supervisor fault. Original four-case review criterion remains unchanged.",
+    "focused_corrected_directory": "build/m1/supervisor-1793408409385100600-48816",
+    "focused_corrected_review": "passed; four parked teardowns each preceded by state=4 observation"
+  }
+}

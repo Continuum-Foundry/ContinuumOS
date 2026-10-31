@@ -78,7 +78,8 @@
       "process_join": 30,
       "process_state": 31,
       "supervisor_restart": 32,
-      "process_first_child": 33
+      "process_first_child": 33,
+      "context_live": 34
     },
     "error_ids": {
       "BadHandle": 1,
@@ -525,5 +526,7 @@
     "channel_blocking": "SDK composition: deadline/cancel-checked atomic attempt, then wait_many on exact directional capacity and repeat; each retry uses the same absolute deadline",
     "ownership": "only successful enqueue/receive commits bytes and authority; timeout/cancel/wake never commits transfer",
     "timer": "level until cancel/rearm; periodic overruns coalesce from original phase; next-deadline exhaustion disarms; unrepresentable count errors transactionally"
-  }
+  },
+  "process_state_values": {"prepared": 0, "running": 1, "stopping": 2, "reaped": 3, "blocked_supervisor_observer": 4},
+  "process_state_scope": "self, direct parent or bootstrap supervisor; blocked value is supplied by the registered supervisor-profile observer"
 }

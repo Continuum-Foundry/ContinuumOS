@@ -39,3 +39,8 @@ minimum supported ABI minor, not the producer's runtime version.
 During implementation, add independent encoders/decoders and negative semantic
 fixtures before assigning permanent syscall/message numbers. Keep schemas,
 examples, prose contracts and generated bindings synchronized.
+
+P3-10 adds the [experimental scoped policy protocol](../../contracts/policy-v0.json)
+and its [use-time/restart runbook](../05-delivery/phase-3/policy-runbook.md).
+The synthetic controller fields confer no policy authority; independent SDK
+freeze remains P3-12.

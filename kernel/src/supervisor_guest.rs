@@ -36,6 +36,14 @@ fn trace(action: &str, token: u64, parent: u64, code: u64, vector: u64) {
     );
 }
 fn prepare(module: usize, mode: u64, context: Context) -> Result<usize> {
+    prepare_task(module, mode, context, true)
+}
+pub(super) fn prepare_task(
+    module: usize,
+    mode: u64,
+    context: Context,
+    bounded: bool,
+) -> Result<usize> {
     let slot = unsafe { (&*TASKS.0.get()).iter().position(Option::is_none) }
         .ok_or(error("supervisor", "quota"))?;
     let id = runtime_memory::with(|r, b| unsafe {
@@ -70,7 +78,9 @@ fn prepare(module: usize, mode: u64, context: Context) -> Result<usize> {
                 },
             )?;
             admitted = true;
-            c.constrain(space)?;
+            if bounded {
+                c.constrain(space)?;
+            }
             Ok::<_, continuum_kernel::objects::Error>(grants)
         })
         .map_err(|_| error("supervisor", "objects"))?;
@@ -173,6 +183,24 @@ fn publish(slot: usize, token: u64) -> Result<()> {
     );
     Ok(())
 }
+/// Registered profile observer: no return IP, selector or privileged flag changes.
+pub(crate) fn observe_state(target: u64, state: u64) -> u64 {
+    if state != 1 {
+        return state;
+    }
+    let slot = unsafe { (&*TOKENS.0.get()).iter().position(|t| *t == target) };
+    if let Some(slot) = slot {
+        if let Some(task) = unsafe { (&*TASKS.0.get())[slot] } {
+            if waiting::blocked(ThreadId {
+                slot,
+                generation: task.current.id.generation,
+            }) {
+                return 4;
+            }
+        }
+    }
+    state
+}
 pub(crate) fn dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>> {
     let caller = token();
     unsafe {
@@ -254,18 +282,18 @@ pub(crate) fn dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u
                 Ok(e.code)
             }
             31 => {
-                // State query uses the same ownership check as join without mutation.
-                if f.rdi != caller && caller != tree(|t| t.root()) {
+                let parent = tree(|t| t.parent(f.rdi)).map_err(status)?;
+                if f.rdi != caller && caller != tree(|t| t.root()) && parent != caller {
                     return Err(ACCESSDENIED);
                 }
-                tree(|t| t.state(f.rdi))
-                    .map(|s| match s {
-                        State::Prepared => 0,
-                        State::Running => 1,
-                        State::Stopping => 2,
-                        State::Reaped => 3,
-                    })
-                    .map_err(status)
+                let state = tree(|t| t.state(f.rdi)).map_err(status)?;
+                let value = match state {
+                    State::Prepared => 0,
+                    State::Running => 1,
+                    State::Stopping => 2,
+                    State::Reaped => 3,
+                };
+                Ok((fixture::hooks().process_state)(f.rdi, value))
             }
             32 => {
                 tree(|t| t.restart(caller, now())).map_err(status)?;

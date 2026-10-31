@@ -14,6 +14,7 @@ pub(super) struct Hooks {
     pub supervise: fn(&mut continuum_kernel::scheduler::Queue, u64) -> Result<()>,
     pub expected_result: fn(u64, usize) -> Option<u64>,
     pub object_waves: Option<u64>,
+    pub process_state: fn(u64, u64) -> u64,
 }
 const BOUNDARY: Hooks = Hooks {
     entry_time: || 0,
@@ -27,6 +28,7 @@ const BOUNDARY: Hooks = Hooks {
     supervise: |_, _| Ok(()),
     expected_result: |_, _| None,
     object_waves: None,
+    process_state: |_, state| state,
 };
 static HOOKS: Local<Hooks> = Local(UnsafeCell::new(BOUNDARY));
 pub(super) fn hooks() -> Hooks {
@@ -69,6 +71,7 @@ mod scheduled {
         supervise: |_, _| Ok(()),
         expected_result: |_, _| None,
         object_waves: None,
+        process_state: |_, state| state,
         operation,
         scheduled: scheduling::active,
         return_to_user: |f, operation| {
@@ -144,6 +147,7 @@ pub(super) fn install_capabilities() {
 #[cfg(feature = "supervisor-test")]
 pub(super) fn install_supervisor() {
     scheduled::install(Hooks {
+        process_state: scheduling::supervision::observe_state,
         copy_observer: |_| {},
         entry: |_, entered| scheduling::begin_syscall(entered),
         operation: |op, f| {
@@ -237,4 +241,18 @@ fn wait_boundary_probe(phase: u64, watched: u64) {
             selector / 10
         ),
     );
+}
+
+#[cfg(feature = "policy-test")]
+pub(super) fn install_policy() {
+    scheduled::install(Hooks {
+        copy_observer: |_| {},
+        entry: |_, entered| scheduling::begin_syscall(entered),
+        operation: |op, f| {
+            waiting::dispatch(op, f)
+                .or_else(|| capabilities::dispatch(op, f))
+                .or_else(|| scheduled::operation(op, f))
+        },
+        ..scheduled::HOOKS
+    });
 }

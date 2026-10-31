@@ -174,11 +174,36 @@ fn access(value: u64) -> core::result::Result<Access, u64> {
     }
 }
 fn channel_dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>> {
-    if !(13..=16).contains(&op) {
+    if !(13..=16).contains(&op) && op != CONTEXT_LIVE {
         return None;
     }
     use o::channels::{ATTACHMENTS, Attachment, INLINE, Mode};
     let space = current().space;
+    if op == CONTEXT_LIVE {
+        return Some((|| {
+            if f.rsi != 40 {
+                return Err(INVALIDARGUMENT);
+            }
+            let mut bytes = [0u8; 40];
+            copy(f.rdi, &mut bytes, false)?;
+            let w: [u64; 5] = core::array::from_fn(|i| {
+                u64::from_le_bytes(bytes[i * 8..i * 8 + 8].try_into().unwrap())
+            });
+            if w[4] > 1 {
+                return Err(INVALIDARGUMENT);
+            }
+            let sender = o::channels::Sender {
+                process: w[0],
+                generation: w[1],
+                principal: w[2],
+                session: w[3],
+                service: w[4] != 0,
+            };
+            Ok(u64::from(unsafe {
+                (&*REGISTRY.0.get()).sender_live(sender)
+            }))
+        })());
+    }
     let v = (|| {
         if op == 13 {
             if f.rdx != 16 {

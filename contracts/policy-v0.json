@@ -1,0 +1,17 @@
+{
+  "revision": 0,
+  "status": "experimental-unfrozen",
+  "scope": "P3-10 synthetic CPL3 broker/provider; no real privileged services",
+  "encoding": "exactly 160 bytes; twenty little-endian u64 words; no native layout",
+  "fields": ["request_id", "command", "fixture_actor", "grant", "scope_kind", "resource", "owner", "requested_role_rights", "lease_until_or_session", "operation", "expected_revision", "policy_epoch", "context_deadline", "subject_or_delegate_actor", "untrusted_principal_or_stale_generation_probe", "untrusted_session", "untrusted_role", "forwarding_ticket", "trusted_fixture_queue_until", "protocol_revision"],
+  "commands": {"restore": 1, "assign_role": 2, "execute": 3, "preview": 4, "remove_policy": 5, "invalidate_session": 6, "delegate_child": 7, "issue_forwarding_ticket": 8, "forwarded_execute": 9, "stale_binding_probe": 10, "endpoint_transfer_probe": 12, "delegated_endpoint_execute": 13, "broker_fault_probe": 14, "lease_session": 15},
+  "rights": {"reader": 1, "writer": 2, "controller": 4, "delegate": 8},
+  "scope_kinds": {"file": 1, "disk_installation": 2, "account_administration": 3, "process_control": 4, "diagnostic": 5, "service_control": 6},
+  "outcomes": {"ok": 0, "denied": 3, "invalid": 4, "expired": 7, "quota": 11, "stale_epoch": 13, "incompatible_protocol": 14, "revision_conflict": 16},
+  "response": "160 bytes: request_id, status, value, current_epoch, current_revision; remaining words zero",
+  "trust": "actor and probe routing belong only to the trusted fixture controller; policy caller is always kernel IPC metadata, never actor/principal/session/owner/role payload claims",
+  "limits": {"assignments": 32, "tickets": 16, "session_leases": 16, "session_invalidations": 16, "max_session_ns": 60000000000, "authorization_cache_decisions": 0},
+  "forwarding": "exact single-use ticket plus both current caller and forwarding-service grants; full process-generation/session and epoch binding",
+  "invalidation": "epoch change clears every assignment/ticket including descendants; session invalidation cannot be undone within incarnation",
+  "restart": "fresh trusted bootstrap process/session/epoch; empty policy until exact administrator restores and issues fresh assignments; checkpoints confer no authority"
+}

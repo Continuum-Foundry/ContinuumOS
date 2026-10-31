@@ -280,7 +280,7 @@ pub fn establish(mode: u64) -> Result<()> {
         )
     })?;
     #[cfg(any(feature = "static-loader-test", feature = "user-boundary-test"))]
-    if mode == 31 || (32..=42).contains(&mode) {
+    if mode == 31 || (32..=43).contains(&mode) {
         need(info.module_count == 3)?;
         for (i, m) in info.modules[..info.module_count].iter().enumerate() {
             need(m.range.len > 0 && m.range.len <= continuum_kernel::user_image::MAX_IMAGE as u64)?;

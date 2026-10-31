@@ -475,7 +475,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                 let (initial, resolution) = if expected.fixture.starts_with("scheduler-")
                     || matches!(
                         expected.fixture,
-                        "capabilities" | "channels" | "waits" | "supervisor"
+                        "capabilities" | "channels" | "waits" | "supervisor" | "policy"
                     ) {
                     (initial / 2, resolution * (initial / 2) / initial)
                 } else {
@@ -696,6 +696,16 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     return Err("Unexpected loader record".into());
                 }
             }
+            "m1.policy_admit" | "m1.policy_end" | "m1.policy_settled" | "m1.policy_ready" => {
+                if !p.memory
+                    || p.boot_complete
+                    || stage != "policy"
+                    || outcome != "ok"
+                    || expected.fixture != "policy"
+                {
+                    return Err("Unexpected policy record".into());
+                }
+            }
             "m1.supervisor"
             | "m1.supervisor_admit"
             | "m1.supervisor_end"
@@ -718,7 +728,10 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || p.boot_complete
                     || stage != "channels"
                     || outcome != "ok"
-                    || !matches!(expected.fixture, "channels" | "waits" | "supervisor")
+                    || !matches!(
+                        expected.fixture,
+                        "channels" | "waits" | "supervisor" | "policy"
+                    )
                 {
                     return Err("Unexpected channel record".into());
                 }
@@ -730,7 +743,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || p.boot_complete
                     || stage != "waits"
                     || outcome != "ok"
-                    || !matches!(expected.fixture, "waits" | "supervisor")
+                    || !matches!(expected.fixture, "waits" | "supervisor" | "policy")
                 {
                     return Err("Unexpected wait record".into());
                 }
@@ -743,7 +756,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || outcome != "ok"
                     || !matches!(
                         expected.fixture,
-                        "capabilities" | "channels" | "waits" | "supervisor"
+                        "capabilities" | "channels" | "waits" | "supervisor" | "policy"
                     )
                 {
                     return Err("Unexpected capability record".into());
@@ -764,7 +777,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || !(expected.fixture.starts_with("scheduler-")
                         || matches!(
                             expected.fixture,
-                            "capabilities" | "channels" | "waits" | "supervisor"
+                            "capabilities" | "channels" | "waits" | "supervisor" | "policy"
                         ))
                 {
                     return Err("Unexpected scheduler record".into());
@@ -790,7 +803,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                         || expected.fixture.starts_with("scheduler-")
                         || matches!(
                             expected.fixture,
-                            "capabilities" | "channels" | "waits" | "supervisor"
+                            "capabilities" | "channels" | "waits" | "supervisor" | "policy"
                         ))
                 {
                     return Err("Unexpected user-boundary record".into());
@@ -868,6 +881,16 @@ pub(super) fn assertions(
                 }
         {
             return Err("Missing capability completion".into());
+        }
+    }
+    if expected.fixture == "policy" {
+        let rows = p
+            .records
+            .iter()
+            .filter(|r| r["event"] == "m1.policy_ready")
+            .collect::<Vec<_>>();
+        if rows.len() != 1 || rows[0]["fields"]["settled"] != "true" {
+            return Err("Missing policy completion".into());
         }
     }
     if expected.fixture == "supervisor" {

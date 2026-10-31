@@ -60,6 +60,7 @@ pub(super) fn boot_run(
             || fixture == "channels"
             || fixture == "waits"
             || fixture == "supervisor"
+            || fixture == "policy"
         {
             "3"
         } else if module {
@@ -108,6 +109,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "channels" => Flavor::Channels,
         "waits" => Flavor::Waits,
         "supervisor" => Flavor::Supervisor,
+        "policy" => Flavor::Policy,
         "iso-smoke" | "boot-metadata" => Flavor::Smoke,
         "iso-negative" => Flavor::NoEntry,
         "boot-reject" => Flavor::Inject,
@@ -134,14 +136,20 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
     }
     if matches!(
         flavor,
-        Flavor::Capabilities | Flavor::Channels | Flavor::Waits | Flavor::Supervisor
+        Flavor::Capabilities
+            | Flavor::Channels
+            | Flavor::Waits
+            | Flavor::Supervisor
+            | Flavor::Policy
     ) {
         let run = boot_run(
             dir,
             action,
             dir,
             &manifest,
-            if flavor == Flavor::Supervisor {
+            if flavor == Flavor::Policy {
+                "policy"
+            } else if flavor == Flavor::Supervisor {
                 "supervisor"
             } else if flavor == Flavor::Waits {
                 "waits"

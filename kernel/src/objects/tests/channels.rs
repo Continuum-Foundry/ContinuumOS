@@ -430,3 +430,31 @@ fn receiver_death_drops_queued_memory_and_cross_pair_cycles() {
     assert!(b.pages.is_empty());
     assert_eq!(c.inventory().objects, 0);
 }
+
+#[test]
+fn liveness_does_not_reauthenticate_historical_queued_sender_or_reused_slot() {
+    let (mut r, mut b, mut c) = setup();
+    let a = r.create().unwrap();
+    let z = r.create().unwrap();
+    let original = sender(0);
+    let (p, _) = c.admit_sender(a, original).unwrap();
+    c.admit_sender(z, sender(1)).unwrap();
+    let [tx, rx] = pair(&mut c, a, p);
+    let remote = c.grant_endpoint(a, rx, z, ENDPOINT_RIGHTS).unwrap();
+    c.close(&mut r, &mut b, a, rx).unwrap();
+    c.channel_send(a, tx, b"old", &[]).unwrap();
+    assert!(c.sender_live(original));
+    c.remove(&mut r, &mut b, a).unwrap();
+    assert!(!c.sender_live(original));
+    let next = r.create().unwrap();
+    let replacement = Sender {
+        generation: 2,
+        ..original
+    };
+    c.admit_sender(next, replacement).unwrap();
+    assert!(c.sender_live(replacement));
+    assert!(!c.sender_live(original));
+    let (_, _, historical) = receive(&mut c, z, remote);
+    assert_eq!(historical, original);
+    assert!(!c.sender_live(historical));
+}

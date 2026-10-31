@@ -239,6 +239,10 @@ extern "C" fn run(mode: u64) -> ! {
     if mode == 42 {
         crate::user_entry::scheduling::supervision::run().unwrap_or_else(|e| crate::reject(e));
     }
+    #[cfg(feature = "route-test")]
+    if mode == 44 {
+        crate::user_entry::scheduling::routes::run().unwrap_or_else(|e| crate::reject(e));
+    }
     #[cfg(feature = "policy-test")]
     if mode == 43 {
         crate::user_entry::scheduling::policy::run().unwrap_or_else(|e| crate::reject(e));

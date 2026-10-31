@@ -475,7 +475,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                 let (initial, resolution) = if expected.fixture.starts_with("scheduler-")
                     || matches!(
                         expected.fixture,
-                        "capabilities" | "channels" | "waits" | "supervisor" | "policy"
+                        "capabilities" | "channels" | "waits" | "supervisor" | "policy" | "routes"
                     ) {
                     (initial / 2, resolution * (initial / 2) / initial)
                 } else {
@@ -696,6 +696,16 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     return Err("Unexpected loader record".into());
                 }
             }
+            "m1.route_admit" | "m1.route_end" | "m1.route_settled" | "m1.route_ready" => {
+                if !p.memory
+                    || p.boot_complete
+                    || stage != "routes"
+                    || outcome != "ok"
+                    || expected.fixture != "routes"
+                {
+                    return Err("Unexpected route record".into());
+                }
+            }
             "m1.policy_admit" | "m1.policy_end" | "m1.policy_settled" | "m1.policy_ready" => {
                 if !p.memory
                     || p.boot_complete
@@ -730,7 +740,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || outcome != "ok"
                     || !matches!(
                         expected.fixture,
-                        "channels" | "waits" | "supervisor" | "policy"
+                        "channels" | "waits" | "supervisor" | "policy" | "routes"
                     )
                 {
                     return Err("Unexpected channel record".into());
@@ -743,7 +753,10 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || p.boot_complete
                     || stage != "waits"
                     || outcome != "ok"
-                    || !matches!(expected.fixture, "waits" | "supervisor" | "policy")
+                    || !matches!(
+                        expected.fixture,
+                        "waits" | "supervisor" | "policy" | "routes"
+                    )
                 {
                     return Err("Unexpected wait record".into());
                 }
@@ -756,7 +769,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || outcome != "ok"
                     || !matches!(
                         expected.fixture,
-                        "capabilities" | "channels" | "waits" | "supervisor" | "policy"
+                        "capabilities" | "channels" | "waits" | "supervisor" | "policy" | "routes"
                     )
                 {
                     return Err("Unexpected capability record".into());
@@ -777,7 +790,12 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     || !(expected.fixture.starts_with("scheduler-")
                         || matches!(
                             expected.fixture,
-                            "capabilities" | "channels" | "waits" | "supervisor" | "policy"
+                            "capabilities"
+                                | "channels"
+                                | "waits"
+                                | "supervisor"
+                                | "policy"
+                                | "routes"
                         ))
                 {
                     return Err("Unexpected scheduler record".into());
@@ -803,7 +821,12 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                         || expected.fixture.starts_with("scheduler-")
                         || matches!(
                             expected.fixture,
-                            "capabilities" | "channels" | "waits" | "supervisor" | "policy"
+                            "capabilities"
+                                | "channels"
+                                | "waits"
+                                | "supervisor"
+                                | "policy"
+                                | "routes"
                         ))
                 {
                     return Err("Unexpected user-boundary record".into());
@@ -881,6 +904,16 @@ pub(super) fn assertions(
                 }
         {
             return Err("Missing capability completion".into());
+        }
+    }
+    if expected.fixture == "routes" {
+        if p.records
+            .iter()
+            .filter(|r| r["event"] == "m1.route_ready")
+            .count()
+            != 1
+        {
+            return Err("Missing routes completion".into());
         }
     }
     if expected.fixture == "policy" {

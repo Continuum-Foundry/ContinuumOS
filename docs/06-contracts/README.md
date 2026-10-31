@@ -44,3 +44,6 @@ P3-10 adds the [experimental scoped policy protocol](../../contracts/policy-v0.j
 and its [use-time/restart runbook](../05-delivery/phase-3/policy-runbook.md).
 The synthetic controller fields confer no policy authority; independent SDK
 freeze remains P3-12.
+
+P3-11 adds the unfrozen [synthetic route profile](../../contracts/routes-v0.json)
+and [writer-fence runbook](../05-delivery/phase-3/routes-runbook.md); the bounded subset passes local self-review. It adds no syscall or durable activation protocol.

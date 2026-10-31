@@ -1,0 +1,457 @@
+{
+  "story": "P3-11",
+  "schema_version": 1,
+  "findings": [
+    {
+      "name": "initial-prerequisites",
+      "path": "build/m2/P2-01/prerequisites-1793468771192/prerequisites.json",
+      "sha256": "0590a0b283b5b86ee2dffbd37cec0bd307d0457fa53233163da227e6ca88ed0c",
+      "finding": "blocked prerequisite: 9/10 commands passed; Phase 0 host lifecycle child-start fixture exceeded unchanged 3000 ms bound and was reaped. Timeout alone does not prove cause. Final acceptance uses registered serial host-test policy.",
+      "acceptance": false,
+      "result": {
+        "status": "blocked",
+        "offline": true,
+        "commands": [
+          {
+            "program": "pwsh",
+            "exit_code": 0,
+            "elapsed_ms": 34349,
+            "arguments": [
+              "-NoProfile",
+              "-File",
+              "tools/windows/Test-DevSigning.ps1"
+            ],
+            "name": "signing"
+          },
+          {
+            "program": "pwsh",
+            "exit_code": 0,
+            "elapsed_ms": 32036,
+            "arguments": [
+              "-NoProfile",
+              "-File",
+              "tools/windows/Test-DevCompiler.ps1"
+            ],
+            "name": "compiler"
+          },
+          {
+            "program": "cargo",
+            "exit_code": 0,
+            "elapsed_ms": 18233,
+            "arguments": [
+              "metadata",
+              "--locked",
+              "--offline",
+              "--format-version",
+              "1",
+              "--filter-platform",
+              "x86_64-pc-windows-msvc"
+            ],
+            "name": "host-metadata"
+          },
+          {
+            "program": "cargo",
+            "exit_code": 0,
+            "elapsed_ms": 76255,
+            "arguments": [
+              "xtask",
+              "doctor"
+            ],
+            "name": "doctor"
+          },
+          {
+            "program": "cargo",
+            "exit_code": 0,
+            "elapsed_ms": 17479,
+            "arguments": [
+              "xtask",
+              "doctor",
+              "--json"
+            ],
+            "name": "doctor-json"
+          },
+          {
+            "program": "cargo",
+            "exit_code": 0,
+            "elapsed_ms": 7634,
+            "arguments": [
+              "xtask",
+              "build",
+              "--profile",
+              "feasibility"
+            ],
+            "name": "build"
+          },
+          {
+            "program": "cargo",
+            "exit_code": 0,
+            "elapsed_ms": 16736,
+            "arguments": [
+              "xtask",
+              "test",
+              "--suite",
+              "m0"
+            ],
+            "name": "m0"
+          },
+          {
+            "program": "pwsh",
+            "exit_code": 1,
+            "elapsed_ms": 127887,
+            "arguments": [
+              "-NoProfile",
+              "-File",
+              "tools/Test-M0.ps1"
+            ],
+            "name": "acceptance"
+          },
+          {
+            "program": "pwsh",
+            "exit_code": 0,
+            "elapsed_ms": 91897,
+            "arguments": [
+              "-NoProfile",
+              "-File",
+              "tools/Probe-Dependencies.ps1"
+            ],
+            "name": "dependencies"
+          },
+          {
+            "program": "cargo",
+            "exit_code": 0,
+            "elapsed_ms": 26436,
+            "arguments": [
+              "xtask",
+              "doctor",
+              "--profile",
+              "m1",
+              "--json"
+            ],
+            "name": "m1-doctor"
+          }
+        ]
+      }
+    },
+    {
+      "name": "restricted-host-tests",
+      "path": "work/p3-11-host-tests.log",
+      "sha256": "d9da3b684f44bd84f8d4148c35e8b628d2cedad637f23c969468c400cd4f317d",
+      "finding": "blocked host signing: restricted context could not resolve the existing user certificate; not a code-test result. Existing approved execution context required; no certificate/policy change.",
+      "acceptance": false
+    },
+    {
+      "name": "probe-1",
+      "path": "build/m1/routes-1793469155105419100-23560/result.json",
+      "sha256": "bce208a978318df77083c07e42950ae1e2da715ae124ecf7050b29b4c2485811",
+      "finding": "compile failure: route fixture hook name mismatched its installed name; corrected.",
+      "acceptance": false,
+      "result": {
+        "action": "routes",
+        "error": "kernel-build: exit Some(101); see ${WORKSPACE}\\build/m1\\routes-1793469155105419100-23560",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "retained_context": [
+        {
+          "path": "build/m1/routes-1793469155105419100-23560/kernel-build.stderr.log",
+          "sha256": "d8f0ac91fde41fd56db5288d25647466bfb51dc8ac818238057241c6cc1641f1"
+        }
+      ]
+    },
+    {
+      "name": "probe-2",
+      "path": "build/m1/routes-1793469377675513900-12892/result.json",
+      "sha256": "1af51c36613c45a4e86347d0ceec2ada5d50cf390fd07d5da41afcc30299f2b8",
+      "finding": "guest rejected: shared service session was leased repeatedly with later expiries; corrected to one finite deadline.",
+      "acceptance": false,
+      "result": {
+        "action": "routes",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "retained_context": [
+        {
+          "path": "build/m1/routes-1793469377675513900-12892/routes-run/run-result.json",
+          "sha256": "7d3ad4dd7e9a57e6c60d4f0d2091781a994426f137bb7bdb3693ca4306b2b2bf"
+        },
+        {
+          "path": "build/m1/routes-1793469377675513900-12892/kernel-build.stderr.log",
+          "sha256": "e3e6868b39a02703d2f01feacd8129cdcd9f632a20b7fe094bb0921f905dd88c"
+        }
+      ]
+    },
+    {
+      "name": "probe-3",
+      "path": "build/m1/routes-1793469687590620300-21836/result.json",
+      "sha256": "1af51c36613c45a4e86347d0ceec2ada5d50cf390fd07d5da41afcc30299f2b8",
+      "finding": "guest rejected: fixture expected full result cache after old entries had legitimately elapsed. Removed timing-dependent pressure assumption; deterministic host capacity test and guest queue pressure retained.",
+      "acceptance": false,
+      "result": {
+        "action": "routes",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "retained_context": [
+        {
+          "path": "build/m1/routes-1793469687590620300-21836/routes-run/run-result.json",
+          "sha256": "435ee373646e9a489560588eb1d5f259d3c2f17f4a279cb53759fef610b14f99"
+        },
+        {
+          "path": "build/m1/routes-1793469687590620300-21836/kernel-build.stderr.log",
+          "sha256": "8fdb3dded9b1a17dbb8440f55469db589d826392a75b750a8c44c1bf9f901e21"
+        }
+      ]
+    },
+    {
+      "name": "probe-4",
+      "path": "build/m1/routes-1793469945795020600-24740/result.json",
+      "sha256": "1af51c36613c45a4e86347d0ceec2ada5d50cf390fd07d5da41afcc30299f2b8",
+      "finding": "guest rejected: policy reauthorization attempted to extend the initial finite session; now reuses its original deadline.",
+      "acceptance": false,
+      "result": {
+        "action": "routes",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "retained_context": [
+        {
+          "path": "build/m1/routes-1793469945795020600-24740/routes-run/run-result.json",
+          "sha256": "8fe40091a344f41af81c218be9196d58c7e87ef208cdd99471f1fd5f04b0c5e0"
+        },
+        {
+          "path": "build/m1/routes-1793469945795020600-24740/kernel-build.stderr.log",
+          "sha256": "f5f9ca16d8e15bb4d8efa3005523dd5caf4f1d80cac914c4f16ae132af0558b6"
+        }
+      ]
+    },
+    {
+      "name": "probe-5",
+      "path": "build/m1/routes-1793470115105383300-23264/result.json",
+      "sha256": "1af51c36613c45a4e86347d0ceec2ada5d50cf390fd07d5da41afcc30299f2b8",
+      "finding": "guest rejected in wave 6: fixture attempted proxy forwarding after actual proxy death. Surviving authority now explicitly rejects with PeerClosed until trusted bootstrap. Also corrected active-chain authority-death propagation before final validation.",
+      "acceptance": false,
+      "result": {
+        "action": "routes",
+        "error": "VM failed: \"Unexpected guest rejection\"",
+        "schema_version": 2,
+        "status": "failed"
+      },
+      "retained_context": [
+        {
+          "path": "build/m1/routes-1793470115105383300-23264/routes-run/run-result.json",
+          "sha256": "2968b2cbb0de8ea7f83c341f3bb71ad1589851b075448a7e3b8a31698a16a989"
+        },
+        {
+          "path": "build/m1/routes-1793470115105383300-23264/kernel-build.stderr.log",
+          "sha256": "12f1d0a1de179f0674e4f29e41a019bdb165f6da0846bfe53eacf00ceccca877"
+        }
+      ]
+    },
+    {
+      "name": "probe-6",
+      "path": "build/m1/routes-1793470313913607300-3764/routes-run/run-result.json",
+      "sha256": "a2eda7cdf82df646fae87a8051c2cddfb07b7a772b25ce117321a76c7d7b7245",
+      "result": {
+        "status": "passed",
+        "build_id": "d69b4d1ba3d9c8bc7e2836f96f0c18e6ce9a98ab377680c79e5cb9df220eaddf",
+        "elapsed_host_ms": 28964,
+        "deadline_ms": 30000,
+        "cleanup_reaped": true
+      },
+      "audit": {
+        "incarnations": 9,
+        "process_runs": 54,
+        "fixed_bytes": 10581256,
+        "decisions": 113,
+        "mutation_attempts": 25,
+        "successful_commits": 19,
+        "faults": 8,
+        "exact_settlements": 9
+      },
+      "mutation_rejections": 110,
+      "review_path": "work/p3-11-probe-6-review.json",
+      "review_sha256": "a511e5e64ee4192c849174ea87779629fb3909dd961ef9ffb19b6630c8813a7d",
+      "finding": "Development guest passes all nine incarnations. Superseded for final acceptance by explicit unavailable-route cases before grant/publication and a declared trace profile omitting routine clock-call records. Temporary independent reviewer omits only those not-yet-added cases; retained locally. Not complete story acceptance.",
+      "acceptance": false
+    },
+    {
+      "name": "interrupted-final-source-run",
+      "path": "work/p3-11-interruption.json",
+      "sha256": "8fe13f9971c518479b916789ea29e1cc6c217cb0b70d17e826008cadabad57b0",
+      "result": {
+        "status": "explicitly-interrupted",
+        "counts_as_acceptance": false,
+        "process_ids": [
+          12956,
+          31456,
+          31444,
+          30752,
+          26868,
+          31536,
+          33632,
+          34252
+        ],
+        "reason": "Correct reply-correlation test to inject malformed bytes through actual IPC before independent final-source acceptance",
+        "all_owned_processes_reaped": true,
+        "prior_acceptance": "build/m3/P3-11/acceptance-1793470524228/acceptance.json"
+      },
+      "completed_rows": [
+        {
+          "case": "format",
+          "status": "passed"
+        },
+        {
+          "case": "m0",
+          "status": "passed"
+        },
+        {
+          "case": "dependencies",
+          "status": "passed"
+        },
+        {
+          "case": "kernel-host",
+          "status": "passed"
+        },
+        {
+          "case": "doctor",
+          "status": "passed"
+        },
+        {
+          "case": "prerequisites",
+          "status": "passed"
+        },
+        {
+          "case": "docs",
+          "status": "passed"
+        },
+        {
+          "case": "contracts",
+          "status": "passed"
+        },
+        {
+          "case": "governance",
+          "status": "passed"
+        },
+        {
+          "case": "final-normal-boots",
+          "count": 5,
+          "second_clean_boot": true,
+          "status": "passed"
+        },
+        {
+          "case": "run",
+          "status": "passed"
+        },
+        {
+          "case": "iso-smoke",
+          "status": "passed"
+        },
+        {
+          "case": "iso-negative",
+          "status": "passed"
+        },
+        {
+          "case": "boot-metadata",
+          "status": "passed"
+        },
+        {
+          "case": "boot-reject",
+          "status": "passed"
+        },
+        {
+          "case": "exception-invalid-opcode",
+          "status": "passed"
+        },
+        {
+          "case": "exception-page-fault",
+          "status": "passed"
+        },
+        {
+          "case": "panic",
+          "status": "passed"
+        },
+        {
+          "case": "exception-emergency",
+          "status": "passed"
+        },
+        {
+          "case": "memory-ownership",
+          "status": "passed"
+        },
+        {
+          "case": "memory-exhaustion",
+          "status": "passed"
+        },
+        {
+          "case": "guard-fault",
+          "status": "passed"
+        },
+        {
+          "case": "write-protect-fault",
+          "status": "passed"
+        },
+        {
+          "case": "execute-disable-fault",
+          "status": "passed"
+        },
+        {
+          "case": "emergency-stack",
+          "status": "passed"
+        },
+        {
+          "case": "timer-progress",
+          "status": "passed"
+        },
+        {
+          "case": "timer-masked",
+          "status": "passed"
+        },
+        {
+          "case": "clock-read",
+          "status": "passed"
+        },
+        {
+          "case": "idle-wakeup",
+          "status": "passed"
+        },
+        {
+          "case": "timer-exception",
+          "status": "passed"
+        }
+      ],
+      "finding": "Explicitly stopped to fix coverage gap: old fixture changed a decoded Reply locally after receiving valid bytes. Final fixture corrupts the actual proxy IPC reply and decodes received bytes before validating. The interrupted run cannot count as acceptance.",
+      "acceptance": false
+    },
+    {
+      "name": "probe-7-real-wire",
+      "path": "build/m1/routes-1793472638117436800-36476/routes-run/run-result.json",
+      "sha256": "25e7052e6c55c3eed47f20790b76db2203004fffdc90c47f781126f08b89203c",
+      "result": {
+        "status": "passed",
+        "build_id": "3c4eaa3be3be108ba76d08c46949ceb12cde83a0d3b38c3f39f6fee654069f83",
+        "elapsed_host_ms": 26056,
+        "deadline_ms": 30000,
+        "cleanup_reaped": true
+      },
+      "audit": {
+        "incarnations": 9,
+        "process_runs": 54,
+        "fixed_bytes": 10581256,
+        "decisions": 131,
+        "mutation_attempts": 25,
+        "successful_commits": 19,
+        "faults": 8,
+        "exact_settlements": 9
+      },
+      "mutation_rejections": 117,
+      "review_path": "work/p3-11-probe-7-review.json",
+      "review_sha256": "7fb2bfae67df0d204bac83a9a4903cf0eadef4a4450afcedc7b764f849f030fb",
+      "finding": "Corrected proxy corrupts returned request ID in actual IPC bytes; authority decodes received bytes and rejects correlation while retaining commit. Independent focused review passes 131 decisions/117 mutations. P3-11 files then normalized to repository LF rules before complete final-source rerun. Focused result does not replace aggregate acceptance.",
+      "acceptance": false
+    }
+  ],
+  "limits": "No host/guest deadline or log-size limit raised; full development logs remain local; failed probes do not count as acceptance."
+}

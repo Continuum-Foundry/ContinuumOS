@@ -450,3 +450,12 @@ observer for process_state, after self/direct-parent/bootstrap-supervisor checks
 The P3-10 regression fixture awaits this state before killing parked workers or
 faulting their parent, rather than assuming a fixed yield count is sufficient.
 No return IP, selector or privileged flags are selected by this observation.
+
+## P3-11 route interaction
+
+The [route profile](../../contracts/routes-v0.json) adds no syscall. Its
+[accepted synthetic subset](../05-delivery/phase-3/routes-runbook.md) uses existing
+channels, trusted receive metadata, liveness queries and elapsed timers. Logical
+service ID, route epoch and instance lease remain distinct from raw endpoints.
+Admission/forward/commit/reply and historical-result semantics remain unfrozen
+until P3-12 independently exercises them. No durable activation is accepted.

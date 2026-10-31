@@ -1,0 +1,56 @@
+<task_resume>:
+ffffffff80002679:      	cli
+ffffffff8000267a:      	cld
+ffffffff8000267b:      	pushq	%rbp
+ffffffff8000267c:      	pushq	%rbx
+ffffffff8000267d:      	pushq	%r12
+ffffffff8000267f:      	pushq	%r13
+ffffffff80002681:      	pushq	%r14
+ffffffff80002683:      	pushq	%r15
+ffffffff80002685:      	movq	%rsp, 0x9ba97c(%rip) # 0xffffffff809bd008 <_RNvNtCshFvbWLU3Yh0_16continuum_kernel10user_entry12CONTINUATION>
+ffffffff8000268c:      	movq	%cr3, %rax
+ffffffff8000268f:      	movq	%rax, 0x9ba96a(%rip) # 0xffffffff809bd000 <_RNvNtCshFvbWLU3Yh0_16continuum_kernel10user_entry11KERNEL_ROOT>
+ffffffff80002696:      	movq	%rdi, %cr3
+ffffffff80002699:      	movq	0x9baea0(%rip), %rsp # 0xffffffff809bd540 <_RNvNtCshFvbWLU3Yh0_16continuum_kernel10user_entry9KERNEL_SP>
+ffffffff800026a0:      	subq	$0xa0, %rsp
+ffffffff800026a7:      	movq	%rdx, %r8
+ffffffff800026aa:      	movq	%rsp, %rdi
+ffffffff800026ad:      	movl	$0x14, %ecx
+ffffffff800026b2:      	rep		movsq	(%rsi), %es:(%rdi)
+ffffffff800026b5:      	xorl	%eax, %eax
+ffffffff800026b7:      	movw	%ax, %ds
+ffffffff800026ba:      	movw	%ax, %es
+ffffffff800026bd:      	movw	%ax, %fs
+ffffffff800026c0:      	movw	%ax, %gs
+ffffffff800026c3:      	clts
+ffffffff800026c5:      	fxrstor64	(%r8)
+ffffffff800026c9:      	popq	%r15
+ffffffff800026cb:      	popq	%r14
+ffffffff800026cd:      	popq	%r13
+ffffffff800026cf:      	popq	%r12
+ffffffff800026d1:      	popq	%r11
+ffffffff800026d3:      	popq	%r10
+ffffffff800026d5:      	popq	%r9
+ffffffff800026d7:      	popq	%r8
+ffffffff800026d9:      	popq	%rdi
+ffffffff800026da:      	popq	%rsi
+ffffffff800026db:      	popq	%rbp
+ffffffff800026dc:      	popq	%rbx
+ffffffff800026dd:      	popq	%rdx
+ffffffff800026de:      	popq	%rcx
+ffffffff800026df:      	popq	%rax
+ffffffff800026e0:      	iretq
+ffffffff800026e2:      	int3
+ffffffff800026e3:      	int3
+ffffffff800026e4:      	int3
+ffffffff800026e5:      	int3
+ffffffff800026e6:      	int3
+ffffffff800026e7:      	int3
+ffffffff800026e8:      	int3
+ffffffff800026e9:      	int3
+ffffffff800026ea:      	int3
+ffffffff800026eb:      	int3
+ffffffff800026ec:      	int3
+ffffffff800026ed:      	int3
+ffffffff800026ee:      	int3
+ffffffff800026ef:      	int3

@@ -1,6 +1,6 @@
 # P3-11 — Fence service writers behind proxy routes and epochs
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done. Owner: Unassigned.
 Depends on: P3-10 Done. Suggested labels: `phase-3`, `service-routes`, `epochs`.
 Backlog: B13 routes/invalidation/restart. Requirements: R10/R14/R18;
 preparatory R05/R06/R17/R19. Test families: T06/T11; synthetic route subset of T08.
@@ -35,16 +35,16 @@ fence so a retired endpoint cannot continue mutating state after a route changes
 
 ## Acceptance criteria
 
-- [ ] Only authorized supervision/broker context can change a route; compatible
+- [x] Only authorized supervision/broker context can change a route; compatible
   clients reach the active endpoint and receive precise incompatibility/unavailable
   errors with bounded queues and no endpoint-creator identity confusion.
-- [ ] During an actual guest route switch, at most one authorized synthetic writer
+- [x] During an actual guest route switch, at most one authorized synthetic writer
   can mutate; retained old endpoints and delayed writes fail the resource fence.
-- [ ] Stale replies, duplicate/reordered requests, wrong epochs and correlation
+- [x] Stale replies, duplicate/reordered requests, wrong epochs and correlation
   mismatches have defined outcomes consistent with the bounded result record.
-- [ ] Replacement fixtures obtain fresh grants; expired/revoked caller or serialized
+- [x] Replacement fixtures obtain fresh grants; expired/revoked caller or serialized
   old authority cannot become valid through a new route/process generation.
-- [ ] Death at each defined transition preserves the single-writer invariant or a
+- [x] Death at each defined transition preserves the single-writer invariant or a
   declared no-writer state; broker restart fails closed with explicit request results.
 
 ## Tests and evidence
@@ -67,3 +67,9 @@ policy and error semantics for independently built SDK consumers. Sources:
 [update transactions](../../03-live-update/protocol-and-transactions.md),
 [identity model](../../02-architecture/identity-and-authorization.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+## Local review and handoff
+
+P3-11 passes local self-review for bounded ephemeral service routes and writer fencing: 131 real decisions, 25 authoritative mutation attempts, 19 commits, 54 process runs across nine incarnations, eight injected faults and nine exact settlements. The guest separates fence, writer grant and publication while both services are alive; delayed old-epoch and retained old-endpoint writes deny. Bounded queue/result retention, duplicate/reorder/cancellation/reply outcomes, current policy/session checks and trusted fresh bootstrap pass. All 93 kernel host tests, ten fresh prerequisites, complete M1 (33 rows/42 launches) and nine separate prior runtime regressions pass. The focused reviewer rejects 117 evidence mutations. Independent private RW mappings retain their ordinary lifetime until owner teardown. This accepts no durable activation, state migration, safe old-code retirement, independent SDK freeze, guest UI/reload or desktop efficiency target; P3-12 is next.
+
+See the [acceptance review](../../../evidence/phase-3/P3-11/2026-10-31/README.md) and [runbook](routes-runbook.md). This is local Codex self-review, not external approval. ADR-0027 remains Proposed.

@@ -5,6 +5,7 @@ pub mod memory;
 pub mod objects;
 pub mod owned_memory;
 pub mod platform;
+pub mod policy;
 pub mod scheduler;
 pub mod supervisor;
 pub mod user_boundary;

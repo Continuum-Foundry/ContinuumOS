@@ -97,3 +97,11 @@ P3-08 passes local self-review for bounded waits, elapsed HPET deadlines, events
 ## P3-09 lifecycle and quota interaction
 
 The [supervision profile](../05-delivery/phase-3/supervision-runbook.md) uses process-local typed handles for existing objects and separate monotonic tokens for authenticated parent/supervisor control. Child bootstrap installs only its own process/thread handles; nonempty inherited-handle lists reject. Prepaid subtree credits remain spent after close, transfer, exit and join, so retained objects cannot erase an ancestor charge. Reaping removes waits before registry mappings, queued references and owned backing. Retained transfers keep their existing reference lifetime; an instance token never retargets a recycled process slot. Policy/session liveness remains P3-10.
+
+
+P3-10's experimental [policy profile](../05-delivery/phase-3/policy-runbook.md)
+adds a user broker/provider with exact process-bound scoped assignments, finite
+session leases, current binding queries, mandatory use-time epoch/revision/deadline
+checks and exact single-use forwarding tickets. The broker owns policy; kernel
+sender attribution alone remains historical. Policy/session removal and broker
+restart do not universally revoke existing direct handles or mappings.

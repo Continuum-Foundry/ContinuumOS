@@ -103,3 +103,11 @@ Invoke an edit/settings operation through button, shortcut and automation and co
 results/authority. Test fabricated context/handles, permission escalation, stale preview,
 revision conflict, duplicate requests, unsupported action versions, cancellation after
 commit, provider replacement and a malicious model proposal if inference is enabled.
+
+
+P3-10 implements the bounded synthetic provider subset through the
+[ephemeral policy profile](../05-delivery/phase-3/policy-runbook.md): preview is
+rechecked at synchronous commit, and forwarding requires both current caller and
+service authority. Queued expiry denies without mutation; completed synthetic
+commits remain completed after invalidation. This does not accept durable action
+effects, real file/account/disk services or live replacement.

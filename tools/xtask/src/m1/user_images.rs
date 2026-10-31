@@ -18,6 +18,7 @@ pub(super) fn build(
     channels: bool,
     waits: bool,
     supervisor: bool,
+    policy: bool,
 ) -> Result<PathBuf> {
     let contract: serde_json::Value =
         serde_json::from_slice(&read(&root().join("contracts/runtime-v0.json"))?)
@@ -49,7 +50,9 @@ pub(super) fn build(
     ));
     let runtime_ids = dir.join("runtime-ids.rs");
     fs::write(&runtime_ids, ids).map_err(|e| e.to_string())?;
-    let source = if supervisor {
+    let source = if policy {
+        "experiments/user-images/policy.rs"
+    } else if supervisor {
         "experiments/user-images/supervisor.rs"
     } else if waits {
         "experiments/user-images/waits.rs"

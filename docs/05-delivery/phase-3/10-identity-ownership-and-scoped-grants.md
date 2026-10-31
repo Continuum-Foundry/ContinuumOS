@@ -1,6 +1,6 @@
 # P3-10 — Enforce scoped identity, ownership and policy grants
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done. Owner: Unassigned.
 Depends on: P3-09 Done. Suggested labels: `phase-3`, `identity`, `authorization`.
 Backlog: B11–B13 authority completion, B15/B37 seeds.
 Requirements: R10/R14/R18; preparatory R19. Test families: T03/T06/T11/T14 design/enforcement subset.
@@ -39,17 +39,17 @@ so sharing works explicitly and neither ownership nor a role name grants ambient
 
 ## Acceptance criteria
 
-- [ ] Real independently addressed guest fixtures distinguish A, B, A's second app
+- [x] Real independently addressed guest fixtures distinguish A, B, A's second app
   and the service; forged IDs/roles/session claims and stale process references fail.
-- [ ] Cross-owner access is denied without a grant; explicit shared read succeeds
+- [x] Cross-owner access is denied without a grant; explicit shared read succeeds
   while write fails; A's ungranted second app is denied despite the same owner.
-- [ ] Scoped role changes, child delegation and service-on-behalf requests enforce
+- [x] Scoped role changes, child delegation and service-on-behalf requests enforce
   both caller and broker/service ceilings, with no confused-deputy escalation.
-- [ ] Expiry, revoked role, stale policy epoch and preview-to-execution policy change
+- [x] Expiry, revoked role, stale policy epoch and preview-to-execution policy change
   deny brokered operations at the declared check; in-flight outcomes are explicit.
-- [ ] Ordinary apps/development claims cannot acquire installer/account authority;
+- [x] Ordinary apps/development claims cannot acquire installer/account authority;
   narrow positive fixtures cannot exercise unrelated privileged synthetic operations.
-- [ ] Broker restart fails closed, surviving direct authority is enumerated, and
+- [x] Broker restart fails closed, surviving direct authority is enumerated, and
   replacement/checkpoint authority restoration is rejected without fresh grants.
 
 ## Tests and evidence
@@ -71,3 +71,9 @@ and UI/automation parity using fresh grants. Sources:
 [action contract](../../06-contracts/actions-and-context.md),
 [ADR-0010](../../04-decisions/0010-capability-security.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+## Local acceptance — 2026-10-30
+
+P3-10 passes local self-review for its ephemeral scoped policy subset: 120 real IPC decisions, 67 expected denials, two broker faults/restarts, identical 160-byte replay across fresh process/session bindings and two exact resource settlements. All 82 kernel host tests, ten fresh prerequisites, complete M1 (33 rows/42 launches) and separate memory/loader/boundary/scheduler/capability/channel/wait/supervisor regressions pass. The CPL3 broker/provider enforces exact scoped role assignments, child-grant attenuation, caller/service forwarding ceilings, finite sessions, use-time expiry/epoch/revision/context checks and synthetic privileged-scope separation. Queued grant and session expiry cross their actual elapsed fence; 136 focused evidence mutations reject. Trusted restoration is explicit and ordinary direct mappings survive broker death until owner teardown. No real accounts, credentials, durable RBAC, universal direct revocation, independently frozen SDK, guest UI/reload or desktop efficiency target is accepted; P3-11 is next.
+
+See the [criterion/unsafe review](../../../evidence/phase-3/P3-10/2026-10-30/review.json), [policy runbook](policy-runbook.md) and [ADR-0026](../../04-decisions/0026-ephemeral-scoped-policy-and-exact-forwarding-tickets.md). This is local Codex self-review, not external approval or M3 completion.

@@ -97,6 +97,10 @@ pub struct Usage {
 }
 
 impl Registry {
+    /// Liveness only, no policy/session credential and no authority grant.
+    pub fn sender_live(&self, sender: Sender) -> bool {
+        self.senders.iter().any(|s| *s == Some(sender))
+    }
     pub(super) fn channel_readiness(
         &self,
         space: SpaceId,

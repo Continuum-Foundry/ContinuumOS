@@ -161,6 +161,20 @@ pub struct Registry {
     senders: [Option<channels::Sender>; OWNERS],
 }
 impl Registry {
+    /// Trusted bootstrap lookup; never exported by a syscall.
+    pub fn self_process_handle(&self, space: SpaceId) -> Result<u64> {
+        let t = self.table(space)?;
+        for (slot, h) in self.tables[t].handles.iter().enumerate() {
+            if let Some(h) = h {
+                if matches!(self.objects[h.object.slot].body,Some(Body::Process(s)) if s==space)
+                    && h.rights & CREATE != 0
+                {
+                    return Ok((u64::from(h.nonce) << 32) | (slot as u64 + 1));
+                }
+            }
+        }
+        Err(Error::BadHandle)
+    }
     pub const EMPTY: Self = Self {
         tables: [Table::EMPTY; OWNERS],
         objects: [Object::EMPTY; OBJECTS],

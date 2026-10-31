@@ -28,7 +28,9 @@ stack address, privileged flags or executable bytes appear in this request.
 direct-parent or bootstrap-supervisor control. Join returns the original exit
 code after teardown, or WouldBlock until reaped and descendants joined. Raw fault
 vectors accompany the correlated kernel lifecycle record. `process_state(token)`
-queries Prepared=0, Running=1, Stopping=2, Reaped=3 for self or supervisor targets.
+queries Prepared=0, Running=1, Stopping=2, Reaped=3, and the registered
+supervisor-profile observer reports Blocked=4 for a parked owner. Queries require
+self, direct-parent or bootstrap-supervisor authority.
 `process_first_child(parent)` returns the lowest outstanding child token or zero
 for self or the trusted supervisor; it includes reaped children awaiting join.
 `supervisor_restart()` obtains a bounded retry permit, with WouldBlock for backoff
@@ -87,3 +89,9 @@ independent ABI, guest UI, reload and whole-guest efficiency remain later work.
 P3-09 passes local self-review for bounded user-mode supervision: 29 dynamic admissions/reaps across four bootstrap epochs, exact lifecycle outcomes, prepaid ancestor quotas, authority/priority/inheritance denial, parked/orphan/supervisor teardown, two retry permits and quarantine. All 73 kernel host tests, ten fresh prerequisites, complete M1 (33 rows/42 launches) and separate memory/loader/boundary/scheduler/capability/channel/wait regressions pass. Four epochs settle all object/frame/table/stack/pin/wait/tree inventories exactly. One thread/process, equal priority and eight lifetime units per epoch are the admitted subset; physical reclamation does not refund credits. Persistent supervision, current policy/session enforcement, independent SDK freeze and guest UI/reload remain open; P3-10 is next.
 
 The final probe records 193 dispatches, 21 successful joins, four parked-owner kills, two retry permits and one quarantine denial. Conservative fixed-runtime precharge is 10583088 bytes, below the 16 MiB ceiling; this is not whole-guest idle memory. The combined raw/artifact consumer rejects 174 evidence mutations. See the [compact evidence](../../../evidence/phase-3/P3-09/2026-10-30/README.md); complete generated regression artifacts remain local.
+
+P3-10 regression hardening replaces yield-count assumptions with explicit Blocked
+state barriers before parked-child, dead-parent and supervisor-failure teardown.
+The observer is registered in user_fixture.rs; dispatch retains shared authority
+and return validation, and logs the actual returned state. The historical P3-09
+acceptance snapshot remains unchanged.

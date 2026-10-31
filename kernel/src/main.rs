@@ -243,6 +243,7 @@ pub extern "C" fn kernel_entry() -> ! {
         && !(cfg!(feature = "channel-test") && fixture == "channels")
         && !(cfg!(feature = "wait-test") && fixture == "waits")
         && !(cfg!(feature = "supervisor-test") && fixture == "supervisor")
+        && !(cfg!(feature = "policy-test") && fixture == "policy")
         && !(cfg!(feature = "scheduler-test")
             && matches!(fixture, "scheduler-on" | "scheduler-off" | "scheduler-cpu"))
         && !(cfg!(feature = "user-boundary-test")
@@ -353,6 +354,9 @@ pub extern "C" fn kernel_entry() -> ! {
             .or_else(|| paging::mode(fixture))
             .or_else(|| timer::mode(fixture))
             .or_else(|| {
+                if cfg!(feature = "policy-test") && fixture == "policy" {
+                    return Some(43);
+                }
                 if cfg!(feature = "supervisor-test") && fixture == "supervisor" {
                     return Some(42);
                 }

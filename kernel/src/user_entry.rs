@@ -22,6 +22,9 @@ use ids::*;
 pub(crate) mod capabilities;
 #[path = "user_fixture.rs"]
 mod fixture;
+pub(crate) fn record_event(event: &str) -> bool {
+    (fixture::hooks().record_event)(event)
+}
 #[cfg(feature = "scheduler-test")]
 #[path = "scheduling.rs"]
 pub(crate) mod scheduling;

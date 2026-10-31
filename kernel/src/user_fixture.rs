@@ -3,6 +3,7 @@ use super::*;
 type Value = core::result::Result<u64, u64>;
 #[derive(Clone, Copy)]
 pub(super) struct Hooks {
+    pub record_event: fn(&str) -> bool,
     pub entry_time: fn() -> u64,
     pub entry: fn(&mut Frame, u64),
     pub before_operation: fn(),
@@ -17,6 +18,7 @@ pub(super) struct Hooks {
     pub process_state: fn(u64, u64) -> u64,
 }
 const BOUNDARY: Hooks = Hooks {
+    record_event: |_| true,
     entry_time: || 0,
     entry: |f, _| inject_bad_return(f),
     before_operation: || {},
@@ -60,6 +62,7 @@ mod scheduled {
         unsafe { (PROGRESS as *const u64).read_volatile() }
     }
     pub(super) const HOOKS: Hooks = Hooks {
+        record_event: |_| true,
         entry_time: crate::timer::sample_ns,
         entry: |f, entered| {
             scheduling::begin_syscall(entered);
@@ -254,5 +257,37 @@ pub(super) fn install_policy() {
                 .or_else(|| scheduled::operation(op, f))
         },
         ..scheduled::HOOKS
+    });
+}
+
+#[cfg(feature = "route-test")]
+static ROUTE_OPERATION: Local<u64> = Local(UnsafeCell::new(0));
+#[cfg(feature = "route-test")]
+pub(super) fn install_routes() {
+    install_policy();
+    scheduled::install(Hooks {
+        entry: |f, entered| {
+            unsafe {
+                *ROUTE_OPERATION.0.get() = f.rax;
+            }
+            scheduling::begin_syscall(entered);
+        },
+        // Bound this story's declared diagnostic profile without changing any
+        // dispatch, wakeup, timeout or resource behavior. Other flavors retain
+        // their full historical trace. Sender, clock/deadline calls, lifecycle,
+        // faults, authority decisions and settlements remain recorded.
+        record_event: |event| {
+            !(event == "m1.wait_call" && unsafe { *ROUTE_OPERATION.0.get() } == CLOCK_NOW)
+                && !matches!(
+                    event,
+                    "m1.wait_complete"
+                        | "m1.wait_wake"
+                        | "m1.wait_resume"
+                        | "m1.wait_park"
+                        | "m1.ipc_call"
+                        | "m1.cap_call"
+                )
+        },
+        ..hooks()
     });
 }

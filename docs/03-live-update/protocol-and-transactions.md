@@ -83,3 +83,13 @@ Fault inject before/after every journal flush, route publication, writer-fence
 change and acknowledgement. Show one writer, coherent routes, preserved accepted
 state, predictable recovery and unchanged boot identity for live paths. The recovery
 spec enumerates post-activation behavior.
+
+## P3-11 experimental fence evidence
+
+The [bounded guest route experiment](../05-delivery/phase-3/routes-runbook.md)
+accepts an ephemeral broker-owned synthetic counter: fence old writer, grant one
+exact new instance, then publish its route. Current policy and exact forwarded
+request bindings are checked at the mutation owner. Lost authority makes request
+outcome explicitly unknown; a surviving authority retains committed results after
+reply loss. This does not implement the durable transaction state machine above,
+checkpoint migration, safe old-code retirement or rollback of external effects.

@@ -1,0 +1,171 @@
+[
+  {
+    "flavor": "ordinary",
+    "exit_code": 0,
+    "arguments": [
+      "check",
+      "--locked",
+      "--offline",
+      "-p",
+      "continuum-kernel",
+      "--bin",
+      "continuum-kernel",
+      "--target",
+      "x86_64-unknown-none",
+      "--profile",
+      "kernel-dev"
+    ]
+  },
+  {
+    "flavor": "user-boundary-test",
+    "exit_code": 0,
+    "arguments": [
+      "check",
+      "--locked",
+      "--offline",
+      "-p",
+      "continuum-kernel",
+      "--bin",
+      "continuum-kernel",
+      "--target",
+      "x86_64-unknown-none",
+      "--profile",
+      "kernel-dev",
+      "--features",
+      "user-boundary-test"
+    ]
+  },
+  {
+    "flavor": "scheduler-test",
+    "exit_code": 0,
+    "arguments": [
+      "check",
+      "--locked",
+      "--offline",
+      "-p",
+      "continuum-kernel",
+      "--bin",
+      "continuum-kernel",
+      "--target",
+      "x86_64-unknown-none",
+      "--profile",
+      "kernel-dev",
+      "--features",
+      "scheduler-test"
+    ]
+  },
+  {
+    "flavor": "capability-test",
+    "exit_code": 0,
+    "arguments": [
+      "check",
+      "--locked",
+      "--offline",
+      "-p",
+      "continuum-kernel",
+      "--bin",
+      "continuum-kernel",
+      "--target",
+      "x86_64-unknown-none",
+      "--profile",
+      "kernel-dev",
+      "--features",
+      "capability-test"
+    ]
+  },
+  {
+    "flavor": "channel-test",
+    "exit_code": 0,
+    "arguments": [
+      "check",
+      "--locked",
+      "--offline",
+      "-p",
+      "continuum-kernel",
+      "--bin",
+      "continuum-kernel",
+      "--target",
+      "x86_64-unknown-none",
+      "--profile",
+      "kernel-dev",
+      "--features",
+      "channel-test"
+    ]
+  },
+  {
+    "flavor": "wait-test",
+    "exit_code": 0,
+    "arguments": [
+      "check",
+      "--locked",
+      "--offline",
+      "-p",
+      "continuum-kernel",
+      "--bin",
+      "continuum-kernel",
+      "--target",
+      "x86_64-unknown-none",
+      "--profile",
+      "kernel-dev",
+      "--features",
+      "wait-test"
+    ]
+  },
+  {
+    "flavor": "supervisor-test",
+    "exit_code": 0,
+    "arguments": [
+      "check",
+      "--locked",
+      "--offline",
+      "-p",
+      "continuum-kernel",
+      "--bin",
+      "continuum-kernel",
+      "--target",
+      "x86_64-unknown-none",
+      "--profile",
+      "kernel-dev",
+      "--features",
+      "supervisor-test"
+    ]
+  },
+  {
+    "flavor": "policy-test",
+    "exit_code": 0,
+    "arguments": [
+      "check",
+      "--locked",
+      "--offline",
+      "-p",
+      "continuum-kernel",
+      "--bin",
+      "continuum-kernel",
+      "--target",
+      "x86_64-unknown-none",
+      "--profile",
+      "kernel-dev",
+      "--features",
+      "policy-test"
+    ]
+  },
+  {
+    "flavor": "route-test",
+    "exit_code": 0,
+    "arguments": [
+      "check",
+      "--locked",
+      "--offline",
+      "-p",
+      "continuum-kernel",
+      "--bin",
+      "continuum-kernel",
+      "--target",
+      "x86_64-unknown-none",
+      "--profile",
+      "kernel-dev",
+      "--features",
+      "route-test"
+    ]
+  }
+]

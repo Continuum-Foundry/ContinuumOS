@@ -1,0 +1,16 @@
+{
+  "revision": 0,
+  "status": "experimental-unfrozen",
+  "story": "P3-11",
+  "service_id": 1,
+  "protocol": 5395525,
+  "major": 1,
+  "required_features": 0,
+  "wire": {"byte_order": "little", "word_bytes": 8, "message_bytes": 160, "request_words": {"case":0,"command":1,"target":2,"request_id":3,"service":4,"protocol":5,"major":6,"features":7,"route_epoch":8,"policy_epoch":9,"caller_grant":10,"instance_grant":11,"deadline_ns":12,"delta":13,"claimed_process":14,"claimed_generation":15,"claimed_principal":16,"claimed_session":17,"claimed_service":18,"fixture_mode":19},"reply_replaces":{"status":1,"revision":2,"value":19}},
+  "bounds": {"admitted_requests":4,"results":8,"caller_high_water_marks":4,"result_retention_ns":1000000000},
+  "mutation": "broker-owned ephemeral counter; current exact writer and route epoch, forwarded request, current caller and service policy/session checks on every commit",
+  "ordering": "fence clears writer and increments epoch; fresh grant; route publication; requests fail unavailable between steps",
+  "retry": "exact duplicate returns retained immutable result; pending duplicate WouldBlock; changed duplicate denied; lower/equal id after result expiry StaleEpoch; restart loses results and authority",
+  "death": "explicit rejection when authority survives; unknown outcome after authority loss; trusted bootstrap starts fresh resource and policy incarnation; no automatic replay",
+  "limitations": ["synthetic in-memory state", "no durable exactly-once effects", "no state migration", "no universal direct-handle or mapping revocation", "SDK not frozen"]
+}

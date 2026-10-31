@@ -59,3 +59,5 @@ the user's original-kernel/no-hidden-reboot requirements silently.
 [ADR-0025: prepaid subtrees and quiescent process reaping](0025-prepaid-subtrees-and-quiescent-process-reaping.md) remains Proposed; P3-09 owns its experiment.
 
 [ADR-0026: ephemeral scoped policy and exact forwarding tickets](0026-ephemeral-scoped-policy-and-exact-forwarding-tickets.md) remains Proposed; P3-10 owns its experiment.
+
+[ADR-0027: ephemeral service routes and mandatory writer fences](0027-ephemeral-service-routes-and-mandatory-writer-fences.md) remains Proposed; P3-11 owns its synthetic guest gate.

@@ -61,6 +61,7 @@ pub(super) fn boot_run(
             || fixture == "waits"
             || fixture == "supervisor"
             || fixture == "policy"
+            || fixture == "routes"
         {
             "3"
         } else if module {
@@ -110,6 +111,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "waits" => Flavor::Waits,
         "supervisor" => Flavor::Supervisor,
         "policy" => Flavor::Policy,
+        "routes" => Flavor::Routes,
         "iso-smoke" | "boot-metadata" => Flavor::Smoke,
         "iso-negative" => Flavor::NoEntry,
         "boot-reject" => Flavor::Inject,
@@ -141,13 +143,16 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
             | Flavor::Waits
             | Flavor::Supervisor
             | Flavor::Policy
+            | Flavor::Routes
     ) {
         let run = boot_run(
             dir,
             action,
             dir,
             &manifest,
-            if flavor == Flavor::Policy {
+            if flavor == Flavor::Routes {
+                "routes"
+            } else if flavor == Flavor::Policy {
                 "policy"
             } else if flavor == Flavor::Supervisor {
                 "supervisor"

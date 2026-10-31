@@ -1113,3 +1113,91 @@ The hold, infrastructure verification, and legal review are open blockers in
 [repository controls](docs/05-delivery/repository-controls.md) and
 [release gates](RELEASE.md). No compliance or geographic-containment guarantee
 is made by these files.
+
+## One-time owner authorization — P3-11 PR, 2026-10-31
+
+The owner instructed: "I give you exemption to make PR" after completed local
+P3-11 acceptance. This authorizes one non-force push of the exact 63 reviewed
+paths and staged Git blobs below, plus this authorization record (64 files total),
+to https://github.com/Continuum-Foundry/ContinuumOS.git, target
+refs/heads/codex/p3-11-writer-fences, and creation of one PR against main in that
+same repository. Base: c780d4d2c8597ec7f24b9db74e4a0d53c1d39bea. Commit metadata
+and the P3-11 PR title, description and local validation summary are included.
+
+Only this invocation may bypass the pre-push hold:
+`git push --no-verify --set-upstream origin HEAD:refs/heads/codex/p3-11-writer-fences`.
+The normal pre-commit hygiene check stays enabled; the pre-push guard stays
+installed unchanged. Push authority is exhausted by the first successful push;
+PR authority is exhausted by creation of that PR. No merge, force push, release,
+remote build, additional recipient, upload or standing waiver is authorized.
+Geographic containment remains unverified; this administrative exception is not
+legal clearance. Existing handling and applicable-law restrictions remain.
+
+Excluded: the three owner edits in docs/05-delivery/windows-development-signing.md,
+tools/windows/New-DevPolicy.ps1 and tools/windows/Set-DevMachinePolicy.ps1; keys,
+certificates, binaries/ISOs, full build/regression logs, source copies and ignored
+work/build trees. The included compact evidence remains unchanged.
+
+- `AGENTS.md` — Git blob `737eb4680c2258130b8bfed48eba93d2c9c37683`
+- `audit/check-docs.cjs` — Git blob `ae7b0cf1d42fad0e961b64276899e16791484d97`
+- `contracts/routes-v0.json` — Git blob `ab0fe883f799cc9444aa3305906cd6c5faed0247`
+- `docs/00-overview/requirements.md` — Git blob `011afacf7954cec4245125cbb44f2382f7f834a3`
+- `docs/02-architecture/identity-and-authorization.md` — Git blob `aec4ab090cc180f217446cfdc6edef1940120a92`
+- `docs/02-architecture/kernel-and-execution.md` — Git blob `c6556321498d1505ae87f383c3bc8469995691b0`
+- `docs/03-live-update/protocol-and-transactions.md` — Git blob `18bcb3a72d853e0a56049ae0204124af5e89373c`
+- `docs/04-decisions/0027-ephemeral-service-routes-and-mandatory-writer-fences.md` — Git blob `db8571a076687be9837ded09c7d30450adb8addd`
+- `docs/04-decisions/README.md` — Git blob `091852e81e98b7f76233017532e88851e931b183`
+- `docs/05-delivery/agent-handoff.md` — Git blob `56672e8fb2fae59c536c6e6320735774048df4a6`
+- `docs/05-delivery/phase-3/11-proxy-routes-epochs-and-writer-fencing.md` — Git blob `d2bd10a0378b908e550f594d9ce843148c5a2eef`
+- `docs/05-delivery/phase-3/README.md` — Git blob `ff4cb03c1f39805bad6d4f2db2e4c8a65a03e9e7`
+- `docs/05-delivery/phase-3/routes-runbook.md` — Git blob `a121c3f03b25a54cbbf144ca6b4a7bb04dbc504c`
+- `docs/05-delivery/validation.md` — Git blob `e543c7b3535a6643434fd6bb1b518f931e400fc5`
+- `docs/06-contracts/README.md` — Git blob `403129f62f838a325d193885b8963649506668bc`
+- `docs/06-contracts/ipc-and-objects.md` — Git blob `c49afc66d352fb855c6a5f0d341381ac5578a72c`
+- `docs/06-contracts/runtime-v0.md` — Git blob `923e2b86850056e7921795fcb7a6cc9b12e93d36`
+- `docs/README.md` — Git blob `9cd2df41ad277db635780d5efa1ae1837763ea18`
+- `evidence/phase-3/P3-11/2026-10-31/README.md` — Git blob `6d8406a81748634dcd0cde6b77e7abd0aa382d25`
+- `evidence/phase-3/P3-11/2026-10-31/SHA256SUMS.json` — Git blob `8804b3028e442b815e67e3a39f6d9c99a9057342`
+- `evidence/phase-3/P3-11/2026-10-31/acceptance.json` — Git blob `26c94a70be8f50a5156e4bd137e779968600c5d8`
+- `evidence/phase-3/P3-11/2026-10-31/build-inputs.json` — Git blob `e47f31528ae5719245bc919beaa372038026effa`
+- `evidence/phase-3/P3-11/2026-10-31/build-manifest.json` — Git blob `84cfb196e2e64eedeb9a592dc908848544c6913c`
+- `evidence/phase-3/P3-11/2026-10-31/codegen/task_resume.txt` — Git blob `561a82f632571a160a32d10249f636cb255f20c6`
+- `evidence/phase-3/P3-11/2026-10-31/codegen/user_syscall.txt` — Git blob `672000c79fc7c46a2892ee6707ed2ddc8c552459`
+- `evidence/phase-3/P3-11/2026-10-31/development-findings.json` — Git blob `209eaf8aeeb456aac71c21330560dfb348304b47`
+- `evidence/phase-3/P3-11/2026-10-31/development-flavors.json` — Git blob `120a45ab351baec553a3671dc31fa31ed2f2ffec`
+- `evidence/phase-3/P3-11/2026-10-31/final-documentation-inputs.json` — Git blob `f3b6f90a6b1b152993ab4a49c627a9928ec7b08c`
+- `evidence/phase-3/P3-11/2026-10-31/host-tests.txt` — Git blob `d4484b5c631277150bdb2d20e08fde612d0442a4`
+- `evidence/phase-3/P3-11/2026-10-31/launch-context.json` — Git blob `8d02f1a1aac2d2a4139919d5196c8afade6f279f`
+- `evidence/phase-3/P3-11/2026-10-31/m1-review.json` — Git blob `956ffdf98311b4ee560550645bf3e0e9c557db14`
+- `evidence/phase-3/P3-11/2026-10-31/owner-edits-preserved.json` — Git blob `42df4ba227c12faef57243f1d1ad7f37cf863d25`
+- `evidence/phase-3/P3-11/2026-10-31/prerequisites.json` — Git blob `42f17439c727b94c9c375dee5b4eff782f3729d7`
+- `evidence/phase-3/P3-11/2026-10-31/review.json` — Git blob `a01453770fa4e1212cb73ed6fbfdb1b9a87622c2`
+- `evidence/phase-3/P3-11/2026-10-31/routes-serial-0.txt` — Git blob `22ad113a35904fa57ed2e1f4c82a8c5d97151504`
+- `evidence/phase-3/P3-11/2026-10-31/routes-serial-1.txt` — Git blob `286533c5de2daf66faeb57e8e2dd980021d320fc`
+- `evidence/phase-3/P3-11/2026-10-31/routes-serial-2.txt` — Git blob `f46fdc464ecd9b46d306b10ce13138bb02f9b927`
+- `evidence/phase-3/P3-11/2026-10-31/routes-serial-3.txt` — Git blob `6d3e5068e2b747e5dd3d9a16b81d74c3dd45f7e1`
+- `evidence/phase-3/P3-11/2026-10-31/routes-serial-4.txt` — Git blob `b90f16080bf1bdf4b6e0e6c4cab4a8683b0bfe62`
+- `evidence/phase-3/P3-11/2026-10-31/source-provenance.json` — Git blob `2f70c778689ef8e20b4f88339defac8f81c28fa9`
+- `evidence/phase-3/P3-11/2026-10-31/user-images.json` — Git blob `8fd64469cc1c214ef8f7d3316b54bd252c8155d8`
+- `experiments/user-images/routes.rs` — Git blob `60453102bd2a17ebd877a288e41ae18575747ac0`
+- `kernel/Cargo.toml` — Git blob `5c9d04b1a3ec05c2b88a10d1bf638f07dc817ad8`
+- `kernel/src/exceptions.rs` — Git blob `77d4481912a0e091d024c1dbc65a5a7be1698fa4`
+- `kernel/src/lib.rs` — Git blob `33391a8602f8d7e063e440a7fb6edab1173158da`
+- `kernel/src/main.rs` — Git blob `79567ebc1cfe6e45b4b0e1700595ad5bdf3632d4`
+- `kernel/src/paging.rs` — Git blob `bbc44943179d3e91c7d69d83ce81ff0101e6397d`
+- `kernel/src/routes.rs` — Git blob `ae9981ecde027c3e97feac70626d08e3b8e22cbc`
+- `kernel/src/routes/tests.rs` — Git blob `4743fe3a28519b7525e0bc026efff3a17e0176e8`
+- `kernel/src/routes_guest.rs` — Git blob `1853ab788328b8541d36d07c2651b854c1304ec3`
+- `kernel/src/scheduling.rs` — Git blob `25b01fcac06f9e74b7048c57f67c1efde3ac38bd`
+- `kernel/src/timer.rs` — Git blob `6a49fcf160c73fdc1cfaf5e9bea7d2c4fd2750e6`
+- `kernel/src/user_entry.rs` — Git blob `85f76f0ae538f7a66993ebc87858ffd215fdc8be`
+- `kernel/src/user_fixture.rs` — Git blob `9c7811a24975ccf97754231bc0775da02468dac2`
+- `tools/Check-P3-11Flavors.ps1` — Git blob `a6d5ce97709279eab6c8ba9a04d8fb02be3a99a2`
+- `tools/Review-P3-11.py` — Git blob `99ca72092b2f9cd8cec44162a3bbec0bb0091e57`
+- `tools/Test-P3-11.ps1` — Git blob `26e2b3c4fac80973d01cbfebecbf03c9dd48a32c`
+- `tools/xtask/src/m1/build.rs` — Git blob `a8ecbc585f01b71dfba0882ae59c6459ead2b9d9`
+- `tools/xtask/src/m1/cases.rs` — Git blob `3f24e74930775c87a1bdddfdc948cee47f56bf53`
+- `tools/xtask/src/m1/package.rs` — Git blob `d46cf00ab7bf9bf2b6f4e45d9f7364e3d2c832b9`
+- `tools/xtask/src/m1/records.rs` — Git blob `9559a9b67b2be16d9205b2af3a2008ed03eb7cfa`
+- `tools/xtask/src/m1/user_images.rs` — Git blob `58806460b8e61242ae3a2589942af759435f2df0`
+- `tools/xtask/src/main.rs` — Git blob `c70bf981a0823aac449a3be226cbb6408ee12265`

@@ -130,6 +130,10 @@ fn failure_exit() -> ! {
     halt()
 }
 fn record(event: &str, stage: &str, outcome: &str, detail: fmt::Arguments<'_>) {
+    #[cfg(feature = "user-boundary-test")]
+    if outcome == "ok" && !user_entry::record_event(event) {
+        return;
+    }
     if LOG_BUSY.swap(true, Ordering::SeqCst) {
         fatal(event, stage, detail);
     }
@@ -244,6 +248,7 @@ pub extern "C" fn kernel_entry() -> ! {
         && !(cfg!(feature = "wait-test") && fixture == "waits")
         && !(cfg!(feature = "supervisor-test") && fixture == "supervisor")
         && !(cfg!(feature = "policy-test") && fixture == "policy")
+        && !(cfg!(feature = "route-test") && fixture == "routes")
         && !(cfg!(feature = "scheduler-test")
             && matches!(fixture, "scheduler-on" | "scheduler-off" | "scheduler-cpu"))
         && !(cfg!(feature = "user-boundary-test")
@@ -354,6 +359,9 @@ pub extern "C" fn kernel_entry() -> ! {
             .or_else(|| paging::mode(fixture))
             .or_else(|| timer::mode(fixture))
             .or_else(|| {
+                if cfg!(feature = "route-test") && fixture == "routes" {
+                    return Some(44);
+                }
                 if cfg!(feature = "policy-test") && fixture == "policy" {
                     return Some(43);
                 }

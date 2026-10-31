@@ -105,3 +105,12 @@ session leases, current binding queries, mandatory use-time epoch/revision/deadl
 checks and exact single-use forwarding tickets. The broker owns policy; kernel
 sender attribution alone remains historical. Policy/session removal and broker
 restart do not universally revoke existing direct handles or mappings.
+
+## P3-11 synthetic route profile
+
+The [draft route profile](../../contracts/routes-v0.json) and
+[runbook](../05-delivery/phase-3/routes-runbook.md) separate writer fencing,
+instance grant and route publication. The broker-owned counter checks exact
+forwarded caller/instance/epoch and current policy at every commit. Pending work,
+result retention, high-water marks and lost-reply outcomes are bounded explicitly.
+This bounded profile passes local self-review and does not freeze an independent SDK.

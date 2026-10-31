@@ -44,6 +44,7 @@ pub(super) enum Flavor {
     Waits,
     Supervisor,
     Policy,
+    Routes,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -64,6 +65,7 @@ impl Flavor {
             Self::Waits => "wait-test",
             Self::Supervisor => "supervisor-test",
             Self::Policy => "policy-test",
+            Self::Routes => "route-test",
         }
     }
     fn features(self) -> &'static str {
@@ -84,6 +86,7 @@ impl Flavor {
             Self::Waits => "wait-test",
             Self::Supervisor => "supervisor-test",
             Self::Policy => "policy-test",
+            Self::Routes => "route-test",
         }
     }
 }
@@ -281,6 +284,7 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
     for p in [
         "contracts/runtime-v0.json",
         "contracts/policy-v0.json",
+        "contracts/routes-v0.json",
         "Cargo.toml",
         "Cargo.lock",
         "rust-toolchain.toml",
@@ -315,6 +319,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             | Flavor::Waits
             | Flavor::Supervisor
             | Flavor::Policy
+            | Flavor::Routes
     ) {
         Some(super::user_images::build(
             dir,
@@ -327,12 +332,14 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     | Flavor::Waits
                     | Flavor::Supervisor
                     | Flavor::Policy
+                    | Flavor::Routes
             ),
             flavor == Flavor::Capabilities,
             flavor == Flavor::Channels,
             flavor == Flavor::Waits,
             flavor == Flavor::Supervisor,
             flavor == Flavor::Policy,
+            flavor == Flavor::Routes,
         )?)
     } else {
         None
@@ -478,6 +485,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     | Flavor::Waits
                     | Flavor::Supervisor
                     | Flavor::Policy
+                    | Flavor::Routes
             ) {
                 let mut symbol = "";
                 let mut filtered = String::new();

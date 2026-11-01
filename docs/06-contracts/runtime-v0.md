@@ -2,7 +2,8 @@
 
 Status: implementation draft, revision 0, P3-01 through P3-09. The internal memory
 backend and staged loader exist; the bounded P3-04 execution experiment passes local self-review.
-No executing user ABI is frozen.
+P3-12 freezes only the independently exercised [sdk-v1 subset](sdk-v1.md).
+The complete historical runtime-v0 source remains experimental.
 [runtime-v0.json](../../contracts/runtime-v0.json)
 is the single source for generated SDK field offsets and operation/error names.
 `python tools/m3_runtime.py generate <local-output.rs>` generates compiler-local
@@ -457,5 +458,15 @@ The [route profile](../../contracts/routes-v0.json) adds no syscall. Its
 [accepted synthetic subset](../05-delivery/phase-3/routes-runbook.md) uses existing
 channels, trusted receive metadata, liveness queries and elapsed timers. Logical
 service ID, route epoch and instance lease remain distinct from raw endpoints.
-Admission/forward/commit/reply and historical-result semantics remain unfrozen
-until P3-12 independently exercises them. No durable activation is accepted.
+P3-12 independently exercises admission/forward/commit/reply and historical-result
+semantics in this synthetic profile; only its selected sdk-v1 contract is frozen.
+Broader service protocols and durable activation remain outside that subset.
+
+## P3-12 independently reviewed consumer subset
+
+The standalone [SDK subset](sdk-v1.md) selects explicit operation IDs from this
+experimental source. Register revision 0 remains separate from service protocol
+major 1/minor 1. The SDK guest uses clean public packages, not kernel module
+imports. The [matching final-source review](../../evidence/phase-3/P3-12/2026-11-01/README.md)
+freezes only the exact sdk-v1 contract hash. Historical integer/staged probes
+and unselected families are not retroactively frozen.

@@ -1,0 +1,345 @@
+{
+  "offline": true,
+  "images": [
+    {
+      "bytes": 151760,
+      "sdk_version": "0.1.0",
+      "metadata_sha256": "043b9b40a18722b9d26e3cf1483a0cfe9d65fc094fb6b93d6e4962727c941cf2",
+      "root": "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\client",
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "--release",
+        "--target",
+        "x86_64-unknown-none",
+        "--manifest-path",
+        "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\client\\experiments\\sdk-client\\Cargo.toml"
+      ],
+      "file": "user_a.elf",
+      "wire_minor": 0,
+      "variant": "client",
+      "sha256": "47cbe4dfd5a296c976fd2ffb63039281eae5870e01ee7a606cf43f45a2b6c736",
+      "inputs": [
+        {
+          "sha256": "fa6f1a5f1d106a5da8f7e32a0965eb5de56f22b99e323936c8e39c63caa14321",
+          "path": "Cargo.toml"
+        },
+        {
+          "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20",
+          "path": "LICENSE"
+        },
+        {
+          "sha256": "3c2e2a2762ccaea3283333dcb7b2f771f1a1fa5de03673917ac5f2d561ec5ffe",
+          "path": "crates/editor-model/Cargo.toml"
+        },
+        {
+          "sha256": "457aaab085d11f4ecc9fefd3c8594ad2aa239843eec302a1730a5a58fc4e324b",
+          "path": "crates/editor-model/src/lib.rs"
+        },
+        {
+          "sha256": "097035262cd12ec1ee83cc5322b280fbb69a2ef9f7a4d358d766683a32b05045",
+          "path": "crates/editor-model/src/snapshot.rs"
+        },
+        {
+          "sha256": "1c630f81aa46eefe1602599539ddbc34777bfb7db8f673da9b331344f10ad0a2",
+          "path": "crates/editor-model/src/tests.rs"
+        },
+        {
+          "sha256": "a0f83061d5bd29044faac86b196f9fe6b8621fbf0066b90dd46c7f2b00fbe8ee",
+          "path": "experiments/sdk-client/Cargo.lock"
+        },
+        {
+          "sha256": "ccf2f54be0744e884f8728394ec0ff68232acf134ed19cb0b99ce0b7da358c14",
+          "path": "experiments/sdk-client/Cargo.toml"
+        },
+        {
+          "sha256": "8d8fcad8a48fae05f262b4b79aec764ff6d19354556bc3739d1c76bb71bbc62e",
+          "path": "experiments/sdk-client/src/handshake.rs"
+        },
+        {
+          "sha256": "27367f41984751bb0d09a92858806b42fa751abc4b76516b6cd549ae65137a8d",
+          "path": "experiments/sdk-client/src/main.rs"
+        },
+        {
+          "sha256": "dacfd3e3bf066e7d12e96597cc7b8a88971cb4192a332edd6524901566d21929",
+          "path": "experiments/sdk-client/src/probe.rs"
+        },
+        {
+          "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c",
+          "path": "experiments/sdk-client/src/runtime.rs"
+        },
+        {
+          "sha256": "858cb95fa236caf2358b8fcbc9222fd2a8880ce93a0bcba12551af30aebf5a23",
+          "path": "experiments/sdk-client/src/smoke.rs"
+        },
+        {
+          "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd",
+          "path": "sdk/continuum-rt/Cargo.lock"
+        },
+        {
+          "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc",
+          "path": "sdk/continuum-rt/Cargo.toml"
+        },
+        {
+          "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+          "path": "sdk/continuum-rt/contract.json"
+        },
+        {
+          "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09",
+          "path": "sdk/continuum-rt/fixtures.json"
+        },
+        {
+          "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457",
+          "path": "sdk/continuum-rt/README.md"
+        },
+        {
+          "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10",
+          "path": "sdk/continuum-rt/user.ld"
+        },
+        {
+          "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782",
+          "path": "sdk/continuum-rt/src/allocator.rs"
+        },
+        {
+          "sha256": "3afc182c782fc391e56aa1ec0b89adeda647bc5ddeb0ee21a9fe24a156f7cd7e",
+          "path": "sdk/continuum-rt/src/generated.rs"
+        },
+        {
+          "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d",
+          "path": "sdk/continuum-rt/src/guest.rs"
+        },
+        {
+          "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154",
+          "path": "sdk/continuum-rt/src/lib.rs"
+        },
+        {
+          "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec",
+          "path": "sdk/continuum-rt/src/wire.rs"
+        },
+        {
+          "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634",
+          "path": "sdk/continuum-rt/src/bin/conformance.rs"
+        }
+      ]
+    },
+    {
+      "bytes": 158944,
+      "sdk_version": "0.1.0",
+      "metadata_sha256": "eb8774f5a3b4b5fb438126da9575a4b54308a66fa6b1049caa5914040087ce46",
+      "root": "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\service-old",
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "--release",
+        "--target",
+        "x86_64-unknown-none",
+        "--manifest-path",
+        "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\service-old\\experiments\\sdk-service\\Cargo.toml"
+      ],
+      "file": "service.elf",
+      "wire_minor": 0,
+      "variant": "service-old",
+      "sha256": "8b06ebed4659683c20f7e2a04dfd43278dbe1fb8ca6e47ad301d9fade87db3b4",
+      "inputs": [
+        {
+          "sha256": "fa6f1a5f1d106a5da8f7e32a0965eb5de56f22b99e323936c8e39c63caa14321",
+          "path": "Cargo.toml"
+        },
+        {
+          "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20",
+          "path": "LICENSE"
+        },
+        {
+          "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2",
+          "path": "experiments/sdk-service/Cargo.lock"
+        },
+        {
+          "sha256": "a11a8d23d9c81ce1e25c6bb163285f4107d2ef5767a16b23ab337af558f61525",
+          "path": "experiments/sdk-service/Cargo.toml"
+        },
+        {
+          "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a",
+          "path": "experiments/sdk-service/src/handshake.rs"
+        },
+        {
+          "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea",
+          "path": "experiments/sdk-service/src/main.rs"
+        },
+        {
+          "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7",
+          "path": "experiments/sdk-service/src/policy.rs"
+        },
+        {
+          "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e",
+          "path": "experiments/sdk-service/src/routes.rs"
+        },
+        {
+          "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c",
+          "path": "experiments/sdk-service/src/runtime.rs"
+        },
+        {
+          "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd",
+          "path": "sdk/continuum-rt/Cargo.lock"
+        },
+        {
+          "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc",
+          "path": "sdk/continuum-rt/Cargo.toml"
+        },
+        {
+          "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+          "path": "sdk/continuum-rt/contract.json"
+        },
+        {
+          "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09",
+          "path": "sdk/continuum-rt/fixtures.json"
+        },
+        {
+          "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457",
+          "path": "sdk/continuum-rt/README.md"
+        },
+        {
+          "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10",
+          "path": "sdk/continuum-rt/user.ld"
+        },
+        {
+          "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782",
+          "path": "sdk/continuum-rt/src/allocator.rs"
+        },
+        {
+          "sha256": "3afc182c782fc391e56aa1ec0b89adeda647bc5ddeb0ee21a9fe24a156f7cd7e",
+          "path": "sdk/continuum-rt/src/generated.rs"
+        },
+        {
+          "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d",
+          "path": "sdk/continuum-rt/src/guest.rs"
+        },
+        {
+          "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154",
+          "path": "sdk/continuum-rt/src/lib.rs"
+        },
+        {
+          "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec",
+          "path": "sdk/continuum-rt/src/wire.rs"
+        },
+        {
+          "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634",
+          "path": "sdk/continuum-rt/src/bin/conformance.rs"
+        }
+      ]
+    },
+    {
+      "bytes": 158936,
+      "sdk_version": "0.1.0",
+      "metadata_sha256": "ac074197f31d391f1833204d3b92b47f2d069d19d79ac83ebf4dfb2527480248",
+      "root": "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\service-new",
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "--release",
+        "--target",
+        "x86_64-unknown-none",
+        "--manifest-path",
+        "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\service-new\\experiments\\sdk-service\\Cargo.toml",
+        "--features",
+        "minor-1"
+      ],
+      "file": "user_b.elf",
+      "wire_minor": 1,
+      "variant": "service-new",
+      "sha256": "b23b8ca46d5673e966eb7a456e50f47347346cd1f0c0bca908d84f9226eea411",
+      "inputs": [
+        {
+          "sha256": "fa6f1a5f1d106a5da8f7e32a0965eb5de56f22b99e323936c8e39c63caa14321",
+          "path": "Cargo.toml"
+        },
+        {
+          "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20",
+          "path": "LICENSE"
+        },
+        {
+          "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2",
+          "path": "experiments/sdk-service/Cargo.lock"
+        },
+        {
+          "sha256": "a11a8d23d9c81ce1e25c6bb163285f4107d2ef5767a16b23ab337af558f61525",
+          "path": "experiments/sdk-service/Cargo.toml"
+        },
+        {
+          "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a",
+          "path": "experiments/sdk-service/src/handshake.rs"
+        },
+        {
+          "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea",
+          "path": "experiments/sdk-service/src/main.rs"
+        },
+        {
+          "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7",
+          "path": "experiments/sdk-service/src/policy.rs"
+        },
+        {
+          "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e",
+          "path": "experiments/sdk-service/src/routes.rs"
+        },
+        {
+          "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c",
+          "path": "experiments/sdk-service/src/runtime.rs"
+        },
+        {
+          "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd",
+          "path": "sdk/continuum-rt/Cargo.lock"
+        },
+        {
+          "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc",
+          "path": "sdk/continuum-rt/Cargo.toml"
+        },
+        {
+          "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+          "path": "sdk/continuum-rt/contract.json"
+        },
+        {
+          "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09",
+          "path": "sdk/continuum-rt/fixtures.json"
+        },
+        {
+          "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457",
+          "path": "sdk/continuum-rt/README.md"
+        },
+        {
+          "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10",
+          "path": "sdk/continuum-rt/user.ld"
+        },
+        {
+          "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782",
+          "path": "sdk/continuum-rt/src/allocator.rs"
+        },
+        {
+          "sha256": "3afc182c782fc391e56aa1ec0b89adeda647bc5ddeb0ee21a9fe24a156f7cd7e",
+          "path": "sdk/continuum-rt/src/generated.rs"
+        },
+        {
+          "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d",
+          "path": "sdk/continuum-rt/src/guest.rs"
+        },
+        {
+          "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154",
+          "path": "sdk/continuum-rt/src/lib.rs"
+        },
+        {
+          "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec",
+          "path": "sdk/continuum-rt/src/wire.rs"
+        },
+        {
+          "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634",
+          "path": "sdk/continuum-rt/src/bin/conformance.rs"
+        }
+      ]
+    }
+  ],
+  "unchanged_client_sha256": "47cbe4dfd5a296c976fd2ffb63039281eae5870e01ee7a606cf43f45a2b6c736",
+  "runtime": false,
+  "schema_version": 1,
+  "status": "passed"
+}

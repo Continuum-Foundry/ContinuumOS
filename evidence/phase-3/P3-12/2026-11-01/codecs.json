@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "cases": 4871,
+  "rejections": 2411,
+  "canonical_successes": 2460,
+  "contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+  "production_sha256": "8506d45e3c724c1c80adbb98a695c0d1feace1f43d2ac89de36df0dc4aaacb24",
+  "fixtures_sha256": "9f47379c3f4c81b5c261e002300815dbc008bd0f017cab7964652fa84f2c13b7",
+  "reference_sha256": "f069ac0645211ed767e00ca13ad4f481b915e62a4bac82e6f55d628a9161c6a1",
+  "semantic": {
+    "decoded_cases": 4871,
+    "independent_producer_cases": 2411,
+    "paired_field_swap_rejected": true,
+    "build": {
+      "source_sha256": "e419bc58fc8d5a9a673816d5c306914ed403d6d0d32398f36622a1716fdc4438",
+      "library_sha256": "399afb7b8edb491eaea15427e016842524f59e6832a382fefd613c84648579bc",
+      "arguments": [
+        "${WORKSPACE}\\tools\\sdk_codec_consumer.rs",
+        "--edition=2024",
+        "--crate-name",
+        "sdk_codec_semantics",
+        "--extern",
+        "continuum_rt=${WORKSPACE}\\build\\cargo\\signed\\debug\\deps\\libcontinuum_rt-4873709a8e290c38.rlib",
+        "-o",
+        "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793551030131\\codecs\\semantic-consumer.exe"
+      ],
+      "consumer_sha256": "40b30b2088cd072cd0a2440150c123b1dfd5a4107b7cfa1fb11793a029b1ad8f",
+      "status": "passed",
+      "compiler": [
+        "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+        "binary: rustc",
+        "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+        "commit-date: 2026-10-13",
+        "host: x86_64-pc-windows-msvc",
+        "release: 1.99.1",
+        "LLVM version: 23.1.1"
+      ]
+    }
+  }
+}

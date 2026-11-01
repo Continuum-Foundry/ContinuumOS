@@ -1,0 +1,535 @@
+{
+  "revision": 1,
+  "status": "tested-subset-v1",
+  "sdk_version": "0.1.0",
+  "target": "x86_64-unknown-none",
+  "syscall_register_version": 0,
+  "syscalls": {
+    "abi_query": 0,
+    "diagnostic_log": 1,
+    "thread_yield": 4,
+    "process_exit": 5,
+    "object_info": 6,
+    "handle_close": 7,
+    "handle_duplicate": 8,
+    "memory_create": 9,
+    "memory_map": 10,
+    "memory_unmap": 11,
+    "memory_protect": 12,
+    "channel_create": 13,
+    "channel_send": 14,
+    "channel_receive": 15,
+    "channel_size": 16,
+    "clock_now": 17,
+    "clock_resolution": 18,
+    "event_create": 19,
+    "event_set": 20,
+    "timer_create": 21,
+    "timer_arm": 22,
+    "timer_cancel": 23,
+    "wait_many": 24,
+    "channel_send_until": 25,
+    "channel_receive_until": 26,
+    "context_live": 34
+  },
+  "errors": {
+    "BadHandle": 1,
+    "WrongType": 2,
+    "AccessDenied": 3,
+    "InvalidArgument": 4,
+    "BufferTooSmall": 5,
+    "WouldBlock": 6,
+    "TimedOut": 7,
+    "Cancelled": 8,
+    "PeerClosed": 9,
+    "OutOfMemory": 10,
+    "QuotaExceeded": 11,
+    "Unsupported": 12,
+    "StaleEpoch": 13,
+    "IncompatibleProtocol": 14,
+    "InternalFailure": 15
+  },
+  "startup_fields": [
+    [
+      "magic",
+      8
+    ],
+    [
+      "revision",
+      4
+    ],
+    [
+      "length",
+      4
+    ],
+    [
+      "features",
+      8
+    ],
+    [
+      "bootstrap_handle",
+      8
+    ],
+    [
+      "page_bytes",
+      4
+    ],
+    [
+      "reserved",
+      4
+    ],
+    [
+      "clock_resolution_ns",
+      8
+    ],
+    [
+      "reserved_tail",
+      16
+    ]
+  ],
+  "message_fields": [
+    [
+      "protocol",
+      4
+    ],
+    [
+      "major",
+      2
+    ],
+    [
+      "minor",
+      2
+    ],
+    [
+      "operation",
+      4
+    ],
+    [
+      "required_features",
+      4
+    ],
+    [
+      "payload_bytes",
+      4
+    ],
+    [
+      "handle_count",
+      2
+    ],
+    [
+      "reserved",
+      2
+    ],
+    [
+      "request_id",
+      8
+    ],
+    [
+      "route_epoch",
+      8
+    ],
+    [
+      "policy_epoch",
+      8
+    ]
+  ],
+  "major": 1,
+  "minor": 1,
+  "protocol": 5456971,
+  "supported_features": 1,
+  "compatible_minor": "accept unknown minor; reject unknown required feature before mutation",
+  "operations": {
+    "discover": 1,
+    "echo": 2,
+    "transfer": 3
+  },
+  "records": {
+    "startup": 64,
+    "discovery": 32,
+    "header": 48,
+    "map": 32,
+    "attachment": 24,
+    "send": 32,
+    "receive": 48,
+    "metadata": 64,
+    "wait": 32,
+    "wait_item": 32,
+    "timer": 24,
+    "attempt": 24,
+    "context": 40,
+    "route": 160,
+    "service_request": 16
+  },
+  "unsupported": [
+    "legacy allocation dispatch 2/3 in object profile",
+    "supervision dispatch 27-33 remains experimental",
+    "threads",
+    "device",
+    "irq",
+    "dma",
+    "accounts",
+    "credentials",
+    "installer",
+    "filesystem",
+    "network",
+    "presentation",
+    "wall-clock source"
+  ],
+  "authority": "self handles delivered explicitly by trusted launch adapter; metadata historical, provider checks current liveness/session/policy/route/deadline; checkpoint bytes carry no authority",
+  "record_fields": {
+    "map": [
+      [
+        "base",
+        8
+      ],
+      [
+        "offset",
+        8
+      ],
+      [
+        "bytes",
+        8
+      ],
+      [
+        "access",
+        8
+      ]
+    ],
+    "attachment": [
+      [
+        "source",
+        8
+      ],
+      [
+        "rights",
+        8
+      ],
+      [
+        "mode",
+        4
+      ],
+      [
+        "reserved",
+        4
+      ]
+    ],
+    "send": [
+      [
+        "bytes_ptr",
+        8
+      ],
+      [
+        "bytes",
+        8
+      ],
+      [
+        "attachments_ptr",
+        8
+      ],
+      [
+        "attachments",
+        8
+      ]
+    ],
+    "receive": [
+      [
+        "bytes_ptr",
+        8
+      ],
+      [
+        "byte_capacity",
+        8
+      ],
+      [
+        "handles_ptr",
+        8
+      ],
+      [
+        "handle_capacity",
+        8
+      ],
+      [
+        "metadata_ptr",
+        8
+      ],
+      [
+        "metadata_capacity",
+        8
+      ]
+    ],
+    "metadata": [
+      [
+        "bytes",
+        8
+      ],
+      [
+        "handles",
+        8
+      ],
+      [
+        "process",
+        8
+      ],
+      [
+        "process_generation",
+        8
+      ],
+      [
+        "principal",
+        8
+      ],
+      [
+        "authority_session",
+        8
+      ],
+      [
+        "service",
+        8
+      ],
+      [
+        "reserved",
+        8
+      ]
+    ],
+    "wait": [
+      [
+        "items_address",
+        8
+      ],
+      [
+        "item_count",
+        8
+      ],
+      [
+        "absolute_deadline_ns",
+        8
+      ],
+      [
+        "cancel_event_handle_or_zero",
+        8
+      ]
+    ],
+    "wait_item": [
+      [
+        "handle",
+        8
+      ],
+      [
+        "interest",
+        8
+      ],
+      [
+        "required_bytes",
+        8
+      ],
+      [
+        "required_attachments",
+        8
+      ]
+    ],
+    "timer": [
+      [
+        "absolute_deadline_ns",
+        8
+      ],
+      [
+        "period_ns_zero_for_one_shot",
+        8
+      ],
+      [
+        "reserved_zero",
+        8
+      ]
+    ],
+    "attempt": [
+      [
+        "original_channel_descriptor_address",
+        8
+      ],
+      [
+        "absolute_deadline_ns",
+        8
+      ],
+      [
+        "cancel_event_handle_or_zero",
+        8
+      ]
+    ],
+    "context": [
+      [
+        "process",
+        8
+      ],
+      [
+        "generation",
+        8
+      ],
+      [
+        "principal",
+        8
+      ],
+      [
+        "authority_session",
+        8
+      ],
+      [
+        "service",
+        8
+      ]
+    ],
+    "discovery": [
+      [
+        "register_revision",
+        8
+      ],
+      [
+        "page_bytes",
+        8
+      ],
+      [
+        "diagnostic_principal",
+        8
+      ],
+      [
+        "diagnostic_authority_session",
+        8
+      ]
+    ],
+    "route": [
+      [
+        "case",
+        8
+      ],
+      [
+        "command",
+        8
+      ],
+      [
+        "target",
+        8
+      ],
+      [
+        "request_id",
+        8
+      ],
+      [
+        "service",
+        8
+      ],
+      [
+        "protocol",
+        8
+      ],
+      [
+        "major",
+        8
+      ],
+      [
+        "features",
+        8
+      ],
+      [
+        "route_epoch",
+        8
+      ],
+      [
+        "policy_epoch",
+        8
+      ],
+      [
+        "caller_grant",
+        8
+      ],
+      [
+        "instance_grant",
+        8
+      ],
+      [
+        "deadline_ns",
+        8
+      ],
+      [
+        "delta",
+        8
+      ],
+      [
+        "claimed_process",
+        8
+      ],
+      [
+        "claimed_generation",
+        8
+      ],
+      [
+        "claimed_principal",
+        8
+      ],
+      [
+        "claimed_session",
+        8
+      ],
+      [
+        "claimed_service",
+        8
+      ],
+      [
+        "fixture_mode",
+        8
+      ]
+    ],
+    "service_request": [
+      [
+        "fixture_sequence",
+        8
+      ],
+      [
+        "reserved_zero",
+        8
+      ]
+    ]
+  },
+  "rights": {
+    "QUERY": 1,
+    "DUPLICATE": 2,
+    "CLOSE": 4,
+    "CREATE": 8,
+    "MAP": 16,
+    "READ": 32,
+    "WRITE": 64,
+    "EXECUTE": 128,
+    "CONTROL": 256,
+    "TRANSFER": 512,
+    "SEND": 1024,
+    "RECEIVE": 2048
+  },
+  "service_payload": {
+    "bytes": 16,
+    "request": "fixture sequence u64, reserved zero u64",
+    "reply": "status u64, supported minor u32, supported features u32",
+    "byte_order": "little",
+    "validation": "request fixture sequence equals header request; reserved word must be zero, otherwise InvalidArgument before operation",
+    "echo": "operation 2 correlates the fixture sequence through the reply request ID; reply payload remains status/minor/features, not arbitrary user data"
+  },
+  "ownership_rules": [
+    "handle numeric copies are not authority duplication",
+    "close removes one handle; duplicates/mappings retain independent references",
+    "enqueue commits an attenuated queued reference; move invalidates sender then",
+    "receive commits destination handles and dequeue atomically",
+    "application protocol rejection after receive closes received handles, never restores sender ownership",
+    "failed receive leaves queued bytes/authority intact; copied outputs unspecified",
+    "wait readiness is level, non-consuming and not capacity reservation",
+    "blocking helpers retry one original absolute monotonic deadline and cancel token",
+    "historical sender metadata plus current live/session/policy/route/deadline checks required",
+    "checkpoint data cannot mint live handles or grants"
+  ],
+  "freeze": "Only the exact contract SHA-256 accepted by the final P3-12 review is frozen; package remains experimental.",
+  "allocator_profile": {
+    "backing_bytes": 65536,
+    "live_allocations": 32,
+    "cell_bytes": 64,
+    "maximum_alignment": 4096,
+    "backing": "one process-owned RW memory object, close handle after mapping, explicitly unmap on quiescent shutdown",
+    "reuse": "free returns cells/metadata for reuse, each allocation zeroes requested bytes; failed realloc preserves old ownership",
+    "accounting": "entire 64 KiB remains resident/committed until shutdown or process teardown; prepaid kernel lifetime credits are unchanged"
+  }
+}

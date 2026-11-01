@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "scope": "Final prerequisites, M1, ten regressions and both SDK ISO runs use the same current runtime/build inputs",
+  "runtime_input_files": 149,
+  "runtime_source_manifest_sha256": "916fe257210878529dd97d05e84b6f405fd52a30c769c6d5d9f9e2cf7f05947f",
+  "validation_tools": {
+    "tools/Review-P3-12.py": "2a757e45e239fc8712bccd3078a5a86f25063b4f331f00ad5dbe7c15d3959af6",
+    "tools/sdk_contract.py": "f069ac0645211ed767e00ca13ad4f481b915e62a4bac82e6f55d628a9161c6a1",
+    "tools/sdk_codec_consumer.rs": "e419bc58fc8d5a9a673816d5c306914ed403d6d0d32398f36622a1716fdc4438",
+    "tools/Build-P3-12CodecConsumer.ps1": "9851573870c4501693f6badf69317a7c1ce1a8f199cc6e14a07d3d37a4ec7936"
+  },
+  "earlier_interruption": {
+    "active": "user-boundary child allowed to finish under unchanged deadline",
+    "utc": "2026-11-01T16:31:06.2478848Z",
+    "acceptance_directory": "build/m3/P3-12/acceptance-1793508086664",
+    "completed": "fresh prerequisites, complete M1 review, owned-memory, static-loader",
+    "status": "interrupted-not-acceptance",
+    "reason": "Review found fixture service payload reserved word was not validated; add explicit rejection and compatible echo before freezing",
+    "bounded_child_outcome": {
+      "directory": "build/m1/user-boundary-1793513370141928700-15312",
+      "status": "passed",
+      "note": "Child completed normally after the driver stopped; no resumed aggregate acceptance claim."
+    }
+  }
+}

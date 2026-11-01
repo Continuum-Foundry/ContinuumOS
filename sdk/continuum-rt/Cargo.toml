@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+
+[package]
+name = "continuum-rt"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license-file = "../../LICENSE"
+
+[lib]
+path = "src/lib.rs"

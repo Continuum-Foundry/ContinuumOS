@@ -61,3 +61,5 @@ the user's original-kernel/no-hidden-reboot requirements silently.
 [ADR-0026: ephemeral scoped policy and exact forwarding tickets](0026-ephemeral-scoped-policy-and-exact-forwarding-tickets.md) remains Proposed; P3-10 owns its experiment.
 
 [ADR-0027: ephemeral service routes and mandatory writer fences](0027-ephemeral-service-routes-and-mandatory-writer-fences.md) remains Proposed; P3-11 owns its synthetic guest gate.
+
+[ADR-0028: bounded independent SDK and portable runtime subset](0028-bounded-independent-sdk-and-portable-runtime-subset.md) remains Proposed; P3-12 owns its independent byte/guest/runtime gate.

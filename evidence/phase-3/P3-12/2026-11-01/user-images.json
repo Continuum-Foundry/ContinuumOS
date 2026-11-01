@@ -1,0 +1,144 @@
+{
+  "code_model": "small",
+  "images": [
+    {
+      "baseline": "x87/SSE2; no AVX/XSAVE/TLS or CPU dispatch",
+      "bytes": 151760,
+      "inspection": {
+        "dynamic_linking": false,
+        "entry": "0x400000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "machine": "x86_64",
+        "relocations": 0,
+        "segments": [
+          {
+            "address": "0x400000",
+            "alignment": 4096,
+            "file_size": 76207,
+            "flags": 5,
+            "memory_size": 76207,
+            "offset": 4096
+          },
+          {
+            "address": "0x413000",
+            "alignment": 4096,
+            "file_size": 38676,
+            "flags": 4,
+            "memory_size": 38676,
+            "offset": 81920
+          },
+          {
+            "address": "0x41d000",
+            "alignment": 4096,
+            "file_size": 5664,
+            "flags": 6,
+            "memory_size": 9624,
+            "offset": 122880
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "name": "user_a",
+      "sha256": "47cbe4dfd5a296c976fd2ffb63039281eae5870e01ee7a606cf43f45a2b6c736",
+      "simd_mnemonics": []
+    },
+    {
+      "baseline": "x87/SSE2; no AVX/XSAVE/TLS or CPU dispatch",
+      "bytes": 158936,
+      "inspection": {
+        "dynamic_linking": false,
+        "entry": "0x400000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "machine": "x86_64",
+        "relocations": 0,
+        "segments": [
+          {
+            "address": "0x400000",
+            "alignment": 4096,
+            "file_size": 87012,
+            "flags": 5,
+            "memory_size": 87012,
+            "offset": 4096
+          },
+          {
+            "address": "0x416000",
+            "alignment": 4096,
+            "file_size": 37956,
+            "flags": 4,
+            "memory_size": 37956,
+            "offset": 94208
+          },
+          {
+            "address": "0x420000",
+            "alignment": 4096,
+            "file_size": 4816,
+            "flags": 6,
+            "memory_size": 9624,
+            "offset": 135168
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "name": "user_b",
+      "sha256": "b23b8ca46d5673e966eb7a456e50f47347346cd1f0c0bca908d84f9226eea411",
+      "simd_mnemonics": []
+    },
+    {
+      "baseline": "x87/SSE2; no AVX/XSAVE/TLS or CPU dispatch",
+      "bytes": 158944,
+      "inspection": {
+        "dynamic_linking": false,
+        "entry": "0x400000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "machine": "x86_64",
+        "relocations": 0,
+        "segments": [
+          {
+            "address": "0x400000",
+            "alignment": 4096,
+            "file_size": 87028,
+            "flags": 5,
+            "memory_size": 87028,
+            "offset": 4096
+          },
+          {
+            "address": "0x416000",
+            "alignment": 4096,
+            "file_size": 37956,
+            "flags": 4,
+            "memory_size": 37956,
+            "offset": 94208
+          },
+          {
+            "address": "0x420000",
+            "alignment": 4096,
+            "file_size": 4816,
+            "flags": 6,
+            "memory_size": 9624,
+            "offset": 135168
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "name": "service",
+      "sha256": "8b06ebed4659683c20f7e2a04dfd43278dbe1fb8ca6e47ad301d9fade87db3b4",
+      "simd_mnemonics": []
+    }
+  ],
+  "public_sdk": true,
+  "red_zone": false,
+  "required_cpu_features": 7,
+  "runtime_ids_sha256": "3ead590b9bcca7b902adc1ede57ef6fd2729cd37d2d96b2dc6b307b8295ed6f0",
+  "scheduler": true,
+  "schema_version": 1,
+  "sdk_version": "0.1.0",
+  "target": "x86_64-unknown-none",
+  "trusted_descriptors_sha256": "e7cc14b67d62355eb0268333cf1d71b8372b86bf19bb109c92fcf79a4928762f",
+  "user_execution": true
+}

@@ -112,6 +112,8 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "supervisor" => Flavor::Supervisor,
         "policy" => Flavor::Policy,
         "routes" => Flavor::Routes,
+        "sdk" => Flavor::Sdk,
+        "sdk-runtime" => Flavor::SdkRuntime,
         "iso-smoke" | "boot-metadata" => Flavor::Smoke,
         "iso-negative" => Flavor::NoEntry,
         "boot-reject" => Flavor::Inject,
@@ -144,13 +146,15 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
             | Flavor::Supervisor
             | Flavor::Policy
             | Flavor::Routes
+            | Flavor::Sdk
+            | Flavor::SdkRuntime
     ) {
         let run = boot_run(
             dir,
             action,
             dir,
             &manifest,
-            if flavor == Flavor::Routes {
+            if matches!(flavor, Flavor::Routes | Flavor::Sdk | Flavor::SdkRuntime) {
                 "routes"
             } else if flavor == Flavor::Policy {
                 "policy"

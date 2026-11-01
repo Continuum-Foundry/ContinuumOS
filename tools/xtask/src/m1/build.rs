@@ -45,6 +45,8 @@ pub(super) enum Flavor {
     Supervisor,
     Policy,
     Routes,
+    Sdk,
+    SdkRuntime,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -66,6 +68,8 @@ impl Flavor {
             Self::Supervisor => "supervisor-test",
             Self::Policy => "policy-test",
             Self::Routes => "route-test",
+            Self::Sdk => "sdk-test",
+            Self::SdkRuntime => "sdk-runtime-test",
         }
     }
     fn features(self) -> &'static str {
@@ -87,6 +91,8 @@ impl Flavor {
             Self::Supervisor => "supervisor-test",
             Self::Policy => "policy-test",
             Self::Routes => "route-test",
+            Self::Sdk => "sdk-test",
+            Self::SdkRuntime => "sdk-runtime-test",
         }
     }
 }
@@ -278,6 +284,9 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         "tools/xtask",
         "tools/windows",
         "experiments/user-images",
+        "sdk/continuum-rt",
+        "experiments/sdk-client",
+        "experiments/sdk-service",
     ] {
         collect(&root().join(p), &mut sources)?;
     }
@@ -285,6 +294,9 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         "contracts/runtime-v0.json",
         "contracts/policy-v0.json",
         "contracts/routes-v0.json",
+        "contracts/sdk-v1.json",
+        "sdk/continuum-rt/Cargo.toml",
+        "tools/Build-P3-12Sdk.ps1",
         "Cargo.toml",
         "Cargo.lock",
         "rust-toolchain.toml",
@@ -309,7 +321,12 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
 }
 pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     check_pin()?;
-    let user_descriptors = if matches!(
+    let user_descriptors = if matches!(flavor, Flavor::Sdk | Flavor::SdkRuntime) {
+        Some(super::user_images::build_sdk(
+            dir,
+            flavor == Flavor::SdkRuntime,
+        )?)
+    } else if matches!(
         flavor,
         Flavor::StaticLoader
             | Flavor::UserBoundary
@@ -320,6 +337,8 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             | Flavor::Supervisor
             | Flavor::Policy
             | Flavor::Routes
+            | Flavor::Sdk
+            | Flavor::SdkRuntime
     ) {
         Some(super::user_images::build(
             dir,
@@ -333,6 +352,8 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     | Flavor::Supervisor
                     | Flavor::Policy
                     | Flavor::Routes
+                    | Flavor::Sdk
+                    | Flavor::SdkRuntime
             ),
             flavor == Flavor::Capabilities,
             flavor == Flavor::Channels,
@@ -486,6 +507,8 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     | Flavor::Supervisor
                     | Flavor::Policy
                     | Flavor::Routes
+                    | Flavor::Sdk
+                    | Flavor::SdkRuntime
             ) {
                 let mut symbol = "";
                 let mut filtered = String::new();

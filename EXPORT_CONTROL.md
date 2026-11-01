@@ -1201,3 +1201,119 @@ work/build trees. The included compact evidence remains unchanged.
 - `tools/xtask/src/m1/records.rs` — Git blob `9559a9b67b2be16d9205b2af3a2008ed03eb7cfa`
 - `tools/xtask/src/m1/user_images.rs` — Git blob `58806460b8e61242ae3a2589942af759435f2df0`
 - `tools/xtask/src/main.rs` — Git blob `c70bf981a0823aac449a3be226cbb6408ee12265`
+
+## One-time owner authorization — P3-12 PR, 2026-11-01
+
+The owner instructed: "I give you exemption to make PR" after completed local
+P3-12 acceptance. This authorizes one non-force push of the exact 87 reviewed
+paths and staged Git blobs below, plus this authorization record (88 files total),
+to https://github.com/Continuum-Foundry/ContinuumOS.git, target
+refs/heads/codex/p3-12-independent-sdk-runtime, and creation of one PR against
+main in that same repository. Base: 5e412e8196db893a828a7ec4ef23597a42e42ae8. Commit metadata and the
+P3-12 PR title, description and local validation summary are included.
+
+Only this invocation may bypass the pre-push hold:
+`git push --no-verify --set-upstream origin HEAD:refs/heads/codex/p3-12-independent-sdk-runtime`.
+The normal pre-commit hygiene check stays enabled; the pre-push guard stays
+installed unchanged. Push authority is exhausted by the first successful push;
+PR authority is exhausted by creation of that PR. No merge, force push, release,
+remote build, additional recipient, upload or standing waiver is authorized.
+Geographic containment remains unverified; this administrative exception is not
+legal clearance. Existing handling and applicable-law restrictions remain.
+
+The three pre-existing owner signing-policy edits are excluded:
+`docs/05-delivery/windows-development-signing.md`,
+`tools/windows/New-DevPolicy.ps1`, and `tools/windows/Set-DevMachinePolicy.ps1`.
+Ignored full logs, source copies, binaries, ISOs and local signing material are
+excluded; only the reviewed compact 31-file P3-12 evidence bundle is included.
+The record itself is additional to the blob list below, avoiding a self-hash.
+Listing SHA-256 over `blob + space + path + newline` in this order:
+`156797a6e687b108020331f1bec12ae055310a803a22654931add809aef4ac6f`.
+
+- `AGENTS.md` — Git blob `4667b999fd05f4160d1ee9a0542f93c1a7fb896c`
+- `audit/check-docs.cjs` — Git blob `f78358d9f3f8a7dba4c3ca9ba96acf589d05baff`
+- `contracts/sdk-v1.json` — Git blob `fdeb5a8c620333586dc922daad11f9097b1c40f3`
+- `docs/00-overview/requirements.md` — Git blob `9755a1462094966c54a1a2cb30c39216cc0396f1`
+- `docs/04-decisions/0028-bounded-independent-sdk-and-portable-runtime-subset.md` — Git blob `be1d17d13786f1699c2dc211c043c35890ed831d`
+- `docs/04-decisions/README.md` — Git blob `73165f1394f1598158698b0abf3af79e6b2498f9`
+- `docs/05-delivery/agent-handoff.md` — Git blob `111a6464711c26bb654abb89005e8acd21e179b4`
+- `docs/05-delivery/phase-3/12-independent-sdk-and-runtime-conformance.md` — Git blob `db592bb54634c6b2e81d6bc447c7eb11bd5c9560`
+- `docs/05-delivery/phase-3/README.md` — Git blob `694fc0a81f76c9040c90f9f5d584c193cf2c0415`
+- `docs/05-delivery/phase-3/sdk-runbook.md` — Git blob `09fa9e53479a582100e09d724b38d74f2f0b124b`
+- `docs/05-delivery/validation.md` — Git blob `8d5bdc7afea2cc6c3a38f3077abdb7b53ee3c107`
+- `docs/06-contracts/README.md` — Git blob `af6cff4612427befab08148b07f21ab2b83ca9cd`
+- `docs/06-contracts/runtime-v0.md` — Git blob `be8146845965efcccc60e9035adbadc3d533d420`
+- `docs/06-contracts/sdk-v1.md` — Git blob `01f8b85985d382ec921dd63db88c7ff8b7042739`
+- `docs/README.md` — Git blob `703f35504d110b5705b26b3464ee18f49d180e06`
+- `evidence/phase-3/P3-12/2026-11-01/README.md` — Git blob `22fba66e3f0842058897070ea55f374f463d74ad`
+- `evidence/phase-3/P3-12/2026-11-01/SHA256SUMS.json` — Git blob `0f0153299915dae8bdf2f65b93d58f8467d136ae`
+- `evidence/phase-3/P3-12/2026-11-01/acceptance.json` — Git blob `19f38d8da74b9291572e0b9da5f627a56d1f6e98`
+- `evidence/phase-3/P3-12/2026-11-01/build-inputs.json` — Git blob `163fa06f986c4a6d70014d3cec6c6f9f7af70459`
+- `evidence/phase-3/P3-12/2026-11-01/build-manifest.json` — Git blob `600a3a379f4a66c459f42b74e607677854772347`
+- `evidence/phase-3/P3-12/2026-11-01/codecs.json` — Git blob `0bc47d0fe472140dba2a374a7a7e55ca1a19502e`
+- `evidence/phase-3/P3-12/2026-11-01/contract-structure-review.json` — Git blob `a06c51eccaebfdac2c9378771559f8b0b00d3ef8`
+- `evidence/phase-3/P3-12/2026-11-01/development-findings.json` — Git blob `56e44232f89a00b749d5941c084402ff125d624d`
+- `evidence/phase-3/P3-12/2026-11-01/final-documentation-inputs.json` — Git blob `796526d7e96acee192ed9bb668529e0e2b41250c`
+- `evidence/phase-3/P3-12/2026-11-01/host-tests.txt` — Git blob `6da604e90eaf737aa192e8dd8d5a82caa6f0daf4`
+- `evidence/phase-3/P3-12/2026-11-01/launch-context.json` — Git blob `85d5c6a7b317bff04e6d17ff6cd8c47b5b4cba79`
+- `evidence/phase-3/P3-12/2026-11-01/m1-review.json` — Git blob `92b90f95674160cde49eed82842a7403fc29c4d8`
+- `evidence/phase-3/P3-12/2026-11-01/oracle-mutation-check.json` — Git blob `51bc6e0931168cde9056dfd8c63194bb27311efc`
+- `evidence/phase-3/P3-12/2026-11-01/owner-edits-preserved.json` — Git blob `b6209985966e1b4fd4c1e7cad2079cb14a25b1e9`
+- `evidence/phase-3/P3-12/2026-11-01/prerequisites.json` — Git blob `8aee5612cf449e60ef9fa5fb591e83ba1e704cc5`
+- `evidence/phase-3/P3-12/2026-11-01/regression-acceptance.json` — Git blob `ebab4a763e35b6e086bc427c93e3cb4ca0939303`
+- `evidence/phase-3/P3-12/2026-11-01/review.json` — Git blob `6604caa8418fd38e9ee55d8fdc03906dcf096599`
+- `evidence/phase-3/P3-12/2026-11-01/runtime-build-manifest.json` — Git blob `1198c193c5537d8a151a33dbce4e42dc26df46ef`
+- `evidence/phase-3/P3-12/2026-11-01/runtime-builds.json` — Git blob `cca30ef8f204de89f120a156313fee2004a9f194`
+- `evidence/phase-3/P3-12/2026-11-01/runtime-launch-context.json` — Git blob `d5e85dba11d63c66285f8fefdb68eea59a6b0a07`
+- `evidence/phase-3/P3-12/2026-11-01/runtime-serial-0.txt` — Git blob `32ffd1cb869a401a126ef9ba0d93cada951c2897`
+- `evidence/phase-3/P3-12/2026-11-01/runtime-source-freeze-check.json` — Git blob `68ce49b2b471c817f5e9ffc25ceae906c55d9e60`
+- `evidence/phase-3/P3-12/2026-11-01/runtime-user-images.json` — Git blob `9f202c38ad0012db103b7856b17e0ad8b300f77f`
+- `evidence/phase-3/P3-12/2026-11-01/sdk-builds.json` — Git blob `6c9ecd917e4130860bf4ec0d5a6bb1c12a598c9b`
+- `evidence/phase-3/P3-12/2026-11-01/sdk-serial-0.txt` — Git blob `db58f56f6be0016db4f31267a4cedd6ab6b9dfd8`
+- `evidence/phase-3/P3-12/2026-11-01/sdk-serial-1.txt` — Git blob `a169655f8899d6624e0f3b43a13da0f1b6f65b3c`
+- `evidence/phase-3/P3-12/2026-11-01/sdk-serial-2.txt` — Git blob `888b0211d2b90aa64270d80f32071b297666ef2b`
+- `evidence/phase-3/P3-12/2026-11-01/sdk-serial-3.txt` — Git blob `64677e9b7ba7bcabd2af7f1f90c0ec211f42119f`
+- `evidence/phase-3/P3-12/2026-11-01/sdk-serial-4.txt` — Git blob `5b8601249bd3020d52f407bdc1003c51400b62ae`
+- `evidence/phase-3/P3-12/2026-11-01/source-provenance.json` — Git blob `ab06cfadbbf8949aa0c488b9e208895d7dab10a3`
+- `evidence/phase-3/P3-12/2026-11-01/user-images.json` — Git blob `2892dacbc17758eac527767f130919c5bd5a05e5`
+- `experiments/sdk-client/Cargo.lock` — Git blob `6042e43f66972f95ac2a987786a289b8ebbcfa07`
+- `experiments/sdk-client/Cargo.toml` — Git blob `a3692a887579d0ba5895bab8a72f2e22d6f72bd7`
+- `experiments/sdk-client/src/handshake.rs` — Git blob `f501a94b7a537773200ed1affdbcbc3601d4b72a`
+- `experiments/sdk-client/src/main.rs` — Git blob `36b71e73c59c28b40225f2be9382b7f57e78abf0`
+- `experiments/sdk-client/src/probe.rs` — Git blob `1a26ccb6d40b170c04176d6ccb17e56398fcc5f5`
+- `experiments/sdk-client/src/runtime.rs` — Git blob `bcf3efe561c9ff0ec089531f0939993ffb02a350`
+- `experiments/sdk-client/src/smoke.rs` — Git blob `58a7c9c091ba2a0181922dfe4e83ef6023cebf2b`
+- `experiments/sdk-service/Cargo.lock` — Git blob `04a8e00e1485ac5008b72a0cbbf89b06063d8968`
+- `experiments/sdk-service/Cargo.toml` — Git blob `653f7ae20677044a6cb1e9f74acd578324cb9358`
+- `experiments/sdk-service/src/handshake.rs` — Git blob `c140042d1d6bac38ba9b017d9a6efeeb4ee5f235`
+- `experiments/sdk-service/src/main.rs` — Git blob `a16d3eb748a324446a72802210bb2bc27e06c135`
+- `experiments/sdk-service/src/policy.rs` — Git blob `c2987b42d90fc296bc10ea8ed57e371445fa8eef`
+- `experiments/sdk-service/src/routes.rs` — Git blob `2a765b7f659d2780ac44d434a7674ab62ffe2e00`
+- `experiments/sdk-service/src/runtime.rs` — Git blob `bcf3efe561c9ff0ec089531f0939993ffb02a350`
+- `kernel/Cargo.toml` — Git blob `4653d2eb9f7469d6b0d7a95c3559f788f5e4e109`
+- `kernel/src/scheduling.rs` — Git blob `92f07192b25dfaf1e2e69793f9e5521a81971bd9`
+- `kernel/src/sdk_guest.rs` — Git blob `b9c9881c4306d709323d3e3ebbc1fa163628aa49`
+- `sdk/continuum-rt/Cargo.lock` — Git blob `f515a48d56b70dc645d1df51275c341f0bf8f31f`
+- `sdk/continuum-rt/Cargo.toml` — Git blob `fdd6d02030dc61261e299f1c0bf8031103f6556a`
+- `sdk/continuum-rt/README.md` — Git blob `2c299f78e5b2153f7c1afbf459cef1a1d1ebd206`
+- `sdk/continuum-rt/contract.json` — Git blob `fdeb5a8c620333586dc922daad11f9097b1c40f3`
+- `sdk/continuum-rt/fixtures.json` — Git blob `89f8a27595bd47d960e59d9ba84ad42c2e8936a5`
+- `sdk/continuum-rt/src/allocator.rs` — Git blob `76d845b9eb3dbade9b47a69cd753818c40742cd6`
+- `sdk/continuum-rt/src/bin/conformance.rs` — Git blob `4d3170d9df1c03dca9750615af30d16bfafb0b5c`
+- `sdk/continuum-rt/src/generated.rs` — Git blob `9aad3791adf2f9302f0d4649e3632e8b5bc30f7b`
+- `sdk/continuum-rt/src/guest.rs` — Git blob `39e3efb983ec9e471353cbfff27a8e3762ba63bb`
+- `sdk/continuum-rt/src/lib.rs` — Git blob `87762a4d0b372e5c67fe4382623148b8fa653403`
+- `sdk/continuum-rt/src/wire.rs` — Git blob `addc51c6527797e73231dbdb583f7dbc9fd6e422`
+- `sdk/continuum-rt/user.ld` — Git blob `2b82b4ba416887a1387a8e598a5402410a2602d7`
+- `tools/Build-P3-12CodecConsumer.ps1` — Git blob `27a07b034c696eda710c22f45c8fc58a3e0204af`
+- `tools/Build-P3-12Sdk.ps1` — Git blob `9e0fe3540638340138ca097fa7d1828b437fd10b`
+- `tools/Check-P3-12Flavors.ps1` — Git blob `da4d4016b61575354952c8f134b1ddd96d085ac7`
+- `tools/Check-P3-12Portable.ps1` — Git blob `a2d85472fd80cac3a40e34437209833a232df1a4`
+- `tools/Review-P3-12.py` — Git blob `cb21ca7df821ecb82a1845f9e9a9358fe5b51e9f`
+- `tools/Test-P3-12.ps1` — Git blob `a000636f6c05ab44e34ac35c5b95e9a2bc982fc4`
+- `tools/sdk_codec_consumer.rs` — Git blob `8991646a1ac2e4b6e95873b902e3b8949294679d`
+- `tools/sdk_contract.py` — Git blob `81770dc5e5a503153f64445965394b5fe0239159`
+- `tools/xtask/src/m1/build.rs` — Git blob `b5d3e34d96415e8adea1a96a2c4fcbd80b95742d`
+- `tools/xtask/src/m1/cases.rs` — Git blob `5a1490bc22eccb77462cba4b8e9451fc6c156ef4`
+- `tools/xtask/src/m1/user_images.rs` — Git blob `b11149bf36f25275ae55f50a170ea911579f4283`
+- `tools/xtask/src/main.rs` — Git blob `04c1a68dbf05884f2670b6b2164aae8806eecf25`

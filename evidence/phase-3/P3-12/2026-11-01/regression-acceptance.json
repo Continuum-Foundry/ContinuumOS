@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "story": "P3-11",
+  "status": "passed",
+  "commands": [
+    {
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 440400,
+      "name": "prerequisites"
+    },
+    {
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-P1-07.ps1"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 2789127,
+      "name": "m1"
+    },
+    {
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Review-P1-07.ps1",
+        "-Run",
+        "${WORKSPACE}\\build/m1\\suite-1793551559261804900-73840"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 9188,
+      "name": "m1-review"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 66605,
+      "name": "owned-memory"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "static-loader"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 84314,
+      "name": "static-loader"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 183523,
+      "name": "user-boundary"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "scheduler"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 128656,
+      "name": "scheduler"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "capabilities"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 63529,
+      "name": "capabilities"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "channels"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 74024,
+      "name": "channels"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "waits"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 94799,
+      "name": "waits"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "supervisor"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 87556,
+      "name": "supervisor"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "policy"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 103830,
+      "name": "policy"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "routes"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 98917,
+      "name": "routes"
+    }
+  ],
+  "runs": {
+    "routes": "${WORKSPACE}\\build/m1\\routes-1793555242688923200-79836",
+    "m1": "${WORKSPACE}\\build/m1\\suite-1793551559261804900-73840",
+    "boundary": "${WORKSPACE}\\build/m1\\user-boundary-1793554507635015700-69744",
+    "scheduler": "${WORKSPACE}\\build/m1\\scheduler-1793554689519113300-67084",
+    "channels": "${WORKSPACE}\\build/m1\\channels-1793554882171090200-77804",
+    "capabilities": "${WORKSPACE}\\build/m1\\capabilities-1793554818253072900-78888",
+    "memory": "${WORKSPACE}\\build/m1\\owned-memory-1793554357381300000-70372",
+    "loader": "${WORKSPACE}\\build/m1\\static-loader-1793554421600471000-64500",
+    "prerequisites": "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1793551115271",
+    "supervisor": "${WORKSPACE}\\build/m1\\supervisor-1793555051137228300-73696",
+    "waits": "${WORKSPACE}\\build/m1\\waits-1793554955845753400-69228",
+    "policy": "${WORKSPACE}\\build/m1\\policy-1793555138570699400-71660"
+  },
+  "source_commit": "5e412e8196db893a828a7ec4ef23597a42e42ae8",
+  "user_execution": true,
+  "host_test_threads": 1,
+  "derived_scope": "P3-11 regression subset of P3-12",
+  "parent_acceptance_sha256": "e4f7064ae764512ffa18379b77bdaa3419aa56423581a7f7a51bcd7b9dfb4671"
+}

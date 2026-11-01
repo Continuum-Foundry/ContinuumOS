@@ -1,6 +1,7 @@
 # Draft interface contracts
 
-These are version 0.1 design drafts, not implemented or frozen ABIs.
+Most interfaces remain version 0.1 design drafts. P3-12 freezes only the explicitly
+tested [bounded independent SDK subset](sdk-v1.md); other interfaces remain drafts.
 
 P1-03's internal `BootInfoV1` and version-2 serial diagnostics are documented in the
 [boot-metadata runbook](../05-delivery/phase-1/boot-metadata-runbook.md).
@@ -12,8 +13,8 @@ their assertions in [m1/records.rs](../../tools/xtask/src/m1/records.rs).
 
 | Interface | Specification | Machine-readable material |
 | --- | --- | --- |
-| Kernel/service IPC | [Objects and IPC](ipc-and-objects.md) | Codec/ABI IDs frozen at M3, not supplied yet |
-| M3 runtime startup/syscalls | [Implementation draft](runtime-v0.md) | [Revision-0 source](../../contracts/runtime-v0.json), generated offsets/names only; no ABI IDs frozen |
+| Kernel/service IPC | [Objects and IPC](ipc-and-objects.md) | Only the P3-12 bounded SDK subset is frozen; later families remain drafts |
+| M3 runtime startup/syscalls | [Implementation draft](runtime-v0.md) | [Revision-0 source](../../contracts/runtime-v0.json), historical experimental source; selected IDs frozen separately in [sdk-v1](sdk-v1.md) |
 | Development updates | [Wire format](update-wire-format.md) | [Schema](schemas/update-manifest.schema.json), [synthetic fixture](examples/update-manifest.json) |
 | UI/compositor | [Scene protocol](ui-and-scene-protocol.md) | Freeze encoding after renderer/IPC experiments |
 | Hosted UI comparison | [Shared boundaries/corpus](hosted-ui-fixtures.md) | Version-1 [authored fixtures and lock](../../fixtures/m2/ui-v1/README.md); seven `hosted-*.schema.json` drafts |
@@ -43,7 +44,12 @@ examples, prose contracts and generated bindings synchronized.
 P3-10 adds the [experimental scoped policy protocol](../../contracts/policy-v0.json)
 and its [use-time/restart runbook](../05-delivery/phase-3/policy-runbook.md).
 The synthetic controller fields confer no policy authority; independent SDK
-freeze remains P3-12.
+closure follows in the P3-12 subset below.
 
 P3-11 adds the unfrozen [synthetic route profile](../../contracts/routes-v0.json)
 and [writer-fence runbook](../05-delivery/phase-3/routes-runbook.md); the bounded subset passes local self-review. It adds no syscall or durable activation protocol.
+
+P3-12 [passes local self-review](../../evidence/phase-3/P3-12/2026-11-01/README.md) for the
+[bounded independent SDK subset](sdk-v1.md), [contract source](../../contracts/sdk-v1.json),
+generated constants and public byte fixtures. Only the exact reviewed contract hash
+is frozen. The remaining runtime-v0 families and desktop interfaces stay experimental.

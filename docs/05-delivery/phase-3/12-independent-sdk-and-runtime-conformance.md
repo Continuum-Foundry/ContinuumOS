@@ -1,6 +1,6 @@
 # P3-12 — Prove independent SDK interoperability and runtime closure
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done. Owner: Unassigned.
 Depends on: P3-11 Done. Suggested labels: `phase-3`, `sdk`, `interoperability`.
 Backlog: B02/B11/B12 ABI closure, B13 conformance, B15/B37 handoff.
 Requirements: R03/R10/R14/R18; preparatory R05/R06/R19.
@@ -42,18 +42,18 @@ interoperate so compiler layout or shared implementation mistakes cannot define 
 
 ## Acceptance criteria
 
-- [ ] Client and service build independently from clean locked inputs using public
+- [x] Client and service build independently from clean locked inputs using public
   contracts only, then interoperate in the guest without private native-layout sharing.
-- [ ] An independent codec/semantic consumer verifies every supported message and
+- [x] An independent codec/semantic consumer verifies every supported message and
   malformed fixture; changing one production codec cannot make both sides agree falsely.
-- [ ] Unchanged compatible clients work across a fixture service rebuild/route switch;
+- [x] Unchanged compatible clients work across a fixture service rebuild/route switch;
   incompatible versions/features fail before mutation without a stale-writer bypass.
-- [ ] Actual runtime hook tests demonstrate reclaiming allocation, FP/context
+- [x] Actual runtime hook tests demonstrate reclaiming allocation, FP/context
   isolation and bounded failure for the nonrendering portable workload; remaining
   M4 presentation/text/font/input/resource obligations are itemized explicitly.
-- [ ] The tested ABI subset and compatibility policy are reviewed/frozen coherently;
+- [x] The tested ABI subset and compatibility policy are reviewed/frozen coherently;
   no untested family, credential format or desktop-service implementation is claimed.
-- [ ] Public SDK types and M4/M5 authority/lifetime handoff distinguish process,
+- [x] Public SDK types and M4/M5 authority/lifetime handoff distinguish process,
   session, policy and route epochs, monotonic/wall time and data versus authority.
 
 ## Tests and evidence
@@ -76,3 +76,9 @@ tested bounded subset and open obligations. Sources:
 [runtime hooks](../../../experiments/ui-link/hooks.json),
 [desktop service seeds](../../06-contracts/desktop-services.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+## Local acceptance — 2026-11-01
+
+P3-12 passes local Codex self-review for the bounded independent SDK 0.1.0 subset. Three clean public-only build roots per ISO preserve one unchanged client across minor-0/minor-1 service builds. The route guest completes 20 version exchanges, two accepted immutable moves, two incompatible-message handle closures and the full nine-incarnation writer-fence matrix. A separate six-process ISO passes reusable 64 KiB heap/32-slot limits, zero/copy/reallocation checks, selected model/grapheme/libm work, preempted FP state, normal return, panic, fallible OOM and exact teardown. The independent reference passes 4871 byte cases and 2411 separately supplied producer cases, including paired field-swap rejection. All 93 kernel host tests, ten fresh prerequisites, complete M1 (33 rows/42 launches), ten prior runtime regressions, eleven separate metadata build flavors and affected selected portable link/model checks pass. Only the exact tested contract hash is frozen; supervision and later desktop families remain experimental. No guest display/font/shaping/raster backend, dev transport, state migration, safe old-code retirement, M3 exit or desktop efficiency target is accepted. P3-13 is next.
+
+See [criterion/unsafe review and exact artifact identities](../../../evidence/phase-3/P3-12/2026-11-01/README.md), [SDK contract](../../06-contracts/sdk-v1.md) and [runbook](sdk-runbook.md). ADR-0028 remains Proposed pending project review.

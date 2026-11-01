@@ -1,0 +1,23 @@
+[workspace]
+resolver = "2"
+[package]
+name = "sdk-service"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license-file = "../../LICENSE"
+[dependencies]
+continuum-rt = { path = "../../sdk/continuum-rt", version = "=0.1.0" }
+[features]
+minor-1 = []
+[[bin]]
+name = "sdk-image"
+path = "src/main.rs"
+test = false
+bench = false
+[profile.release]
+panic = "abort"
+opt-level = 1
+debug = 0
+lto = false
+codegen-units = 1

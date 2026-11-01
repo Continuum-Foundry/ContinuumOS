@@ -1,0 +1,78 @@
+{
+  "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "51217abb298a602223f303b603a6c7f5faf25a2e9c9b383f7ce0e304b5d7a4fe",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "sdk-test",
+  "inspection": {
+    "diagnostic_sites": {
+      "diagnostic_double_site": 18446744071562077831,
+      "diagnostic_guard_site": 18446744071562077806,
+      "diagnostic_invalid_opcode": 18446744071562077079,
+      "diagnostic_nx_page": 18446744071562371072,
+      "diagnostic_page_fault_site": 18446744071562077091,
+      "diagnostic_panic_report": 18446744071562077096,
+      "diagnostic_write_site": 18446744071562077811
+    },
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "kernel_image_bounds": {
+      "all_load_memory_including_bss": true,
+      "end": "0xffffffff813f5000",
+      "load_memory_end": "0xffffffff813f5000",
+      "start": "0xffffffff80000000"
+    },
+    "machine": "x86_64",
+    "relocations": 0,
+    "returning_interrupt_entry": {
+      "df_cleared_before_rust": true,
+      "gprs": 15,
+      "return": "iretq",
+      "sysv_alignment": 16,
+      "vectors": [
+        64,
+        255
+      ]
+    },
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 266373,
+        "flags": 5,
+        "memory_size": 266373,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff80042000",
+        "alignment": 4096,
+        "file_size": 27835,
+        "flags": 4,
+        "memory_size": 27835,
+        "offset": 274432
+      },
+      {
+        "address": "0xffffffff80049000",
+        "alignment": 4096,
+        "file_size": 9694600,
+        "flags": 6,
+        "memory_size": 20627456,
+        "offset": 303104
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "34d879b7204ecc6ae3bf4ae2c2741bc20c6a5be7226a29ba929f0df2817995fe",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "5e412e8196db893a828a7ec4ef23597a42e42ae8",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M  audit/check-docs.cjs\nA  contracts/sdk-v1.json\nA  docs/04-decisions/0028-bounded-independent-sdk-and-portable-runtime-subset.md\nM  docs/04-decisions/README.md\nM  docs/05-delivery/phase-3/12-independent-sdk-and-runtime-conformance.md\nM  docs/05-delivery/phase-3/README.md\nA  docs/05-delivery/phase-3/sdk-runbook.md\n M docs/05-delivery/windows-development-signing.md\nM  docs/06-contracts/README.md\nM  docs/06-contracts/runtime-v0.md\nA  docs/06-contracts/sdk-v1.md\nA  experiments/sdk-client/Cargo.lock\nA  experiments/sdk-client/Cargo.toml\nA  experiments/sdk-client/src/handshake.rs\nA  experiments/sdk-client/src/main.rs\nA  experiments/sdk-client/src/probe.rs\nA  experiments/sdk-client/src/runtime.rs\nA  experiments/sdk-client/src/smoke.rs\nA  experiments/sdk-service/Cargo.lock\nA  experiments/sdk-service/Cargo.toml\nA  experiments/sdk-service/src/handshake.rs\nA  experiments/sdk-service/src/main.rs\nA  experiments/sdk-service/src/policy.rs\nA  experiments/sdk-service/src/routes.rs\nA  experiments/sdk-service/src/runtime.rs\nM  kernel/Cargo.toml\nM  kernel/src/scheduling.rs\nA  kernel/src/sdk_guest.rs\nA  sdk/continuum-rt/Cargo.lock\nA  sdk/continuum-rt/Cargo.toml\nA  sdk/continuum-rt/README.md\nA  sdk/continuum-rt/contract.json\nA  sdk/continuum-rt/fixtures.json\nA  sdk/continuum-rt/src/allocator.rs\nA  sdk/continuum-rt/src/bin/conformance.rs\nA  sdk/continuum-rt/src/generated.rs\nA  sdk/continuum-rt/src/guest.rs\nA  sdk/continuum-rt/src/lib.rs\nA  sdk/continuum-rt/src/wire.rs\nA  sdk/continuum-rt/user.ld\nA  tools/Build-P3-12CodecConsumer.ps1\nA  tools/Build-P3-12Sdk.ps1\nA  tools/Check-P3-12Flavors.ps1\nA  tools/Check-P3-12Portable.ps1\nA  tools/Review-P3-12.py\nA  tools/Test-P3-12.ps1\nA  tools/sdk_codec_consumer.rs\nA  tools/sdk_contract.py\n M tools/windows/New-DevPolicy.ps1\n M tools/windows/Set-DevMachinePolicy.ps1\nM  tools/xtask/src/m1/build.rs\nM  tools/xtask/src/m1/cases.rs\nM  tools/xtask/src/m1/user_images.rs\nM  tools/xtask/src/main.rs"
+}

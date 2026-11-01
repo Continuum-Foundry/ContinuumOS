@@ -7,7 +7,8 @@ const N: usize = 32;
 #[path = "policy_guest.rs"]
 pub(crate) mod policy;
 #[cfg(feature = "route-test")]
-#[path = "routes_guest.rs"]
+#[cfg_attr(feature = "sdk-test", path = "sdk_guest.rs")]
+#[cfg_attr(not(feature = "sdk-test"), path = "routes_guest.rs")]
 pub(crate) mod routes;
 #[cfg(feature = "supervisor-test")]
 #[path = "supervisor_guest.rs"]

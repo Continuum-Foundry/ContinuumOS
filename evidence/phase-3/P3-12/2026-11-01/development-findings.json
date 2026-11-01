@@ -1,0 +1,666 @@
+{
+  "schema_version": 1,
+  "story": "P3-12",
+  "scope": "retained development findings, not final acceptance",
+  "prerequisites": [
+    {
+      "directory": "build/m2/P2-01/prerequisites-1793490312628",
+      "status": "blocked",
+      "sha256": "0f291969f133feed87cea042d0cb63bad8fd6d8d03a2fb5e9cb51faea743a6df",
+      "commands": [
+        {
+          "elapsed_ms": 21740,
+          "name": "signing",
+          "arguments": [
+            "-NoProfile",
+            "-File",
+            "tools/windows/Test-DevSigning.ps1"
+          ],
+          "exit_code": 0,
+          "program": "pwsh"
+        },
+        {
+          "elapsed_ms": 32581,
+          "name": "compiler",
+          "arguments": [
+            "-NoProfile",
+            "-File",
+            "tools/windows/Test-DevCompiler.ps1"
+          ],
+          "exit_code": 0,
+          "program": "pwsh"
+        },
+        {
+          "elapsed_ms": 23301,
+          "name": "host-metadata",
+          "arguments": [
+            "metadata",
+            "--locked",
+            "--offline",
+            "--format-version",
+            "1",
+            "--filter-platform",
+            "x86_64-pc-windows-msvc"
+          ],
+          "exit_code": 0,
+          "program": "cargo"
+        },
+        {
+          "elapsed_ms": 96855,
+          "name": "doctor",
+          "arguments": [
+            "xtask",
+            "doctor"
+          ],
+          "exit_code": 0,
+          "program": "cargo"
+        },
+        {
+          "elapsed_ms": 72495,
+          "name": "doctor-json",
+          "arguments": [
+            "xtask",
+            "doctor",
+            "--json"
+          ],
+          "exit_code": 0,
+          "program": "cargo"
+        },
+        {
+          "elapsed_ms": 19236,
+          "name": "build",
+          "arguments": [
+            "xtask",
+            "build",
+            "--profile",
+            "feasibility"
+          ],
+          "exit_code": 0,
+          "program": "cargo"
+        },
+        {
+          "elapsed_ms": 41665,
+          "name": "m0",
+          "arguments": [
+            "xtask",
+            "test",
+            "--suite",
+            "m0"
+          ],
+          "exit_code": 0,
+          "program": "cargo"
+        },
+        {
+          "elapsed_ms": 250164,
+          "name": "acceptance",
+          "arguments": [
+            "-NoProfile",
+            "-File",
+            "tools/Test-M0.ps1"
+          ],
+          "exit_code": 1,
+          "program": "pwsh"
+        },
+        {
+          "elapsed_ms": 57882,
+          "name": "dependencies",
+          "arguments": [
+            "-NoProfile",
+            "-File",
+            "tools/Probe-Dependencies.ps1"
+          ],
+          "exit_code": 0,
+          "program": "pwsh"
+        },
+        {
+          "elapsed_ms": 29822,
+          "name": "m1-doctor",
+          "arguments": [
+            "xtask",
+            "doctor",
+            "--profile",
+            "m1",
+            "--json"
+          ],
+          "exit_code": 0,
+          "program": "cargo"
+        }
+      ]
+    },
+    {
+      "directory": "build/m2/P2-01/prerequisites-1793491252071",
+      "status": "passed",
+      "sha256": "28bc97bad961031a9f5ae0fd32fc0c4dbe16a3b77b103f429a01e356176de45f",
+      "commands": [
+        {
+          "elapsed_ms": 9754,
+          "program": "pwsh",
+          "name": "signing",
+          "exit_code": 0,
+          "arguments": [
+            "-NoProfile",
+            "-File",
+            "tools/windows/Test-DevSigning.ps1"
+          ]
+        },
+        {
+          "elapsed_ms": 24976,
+          "program": "pwsh",
+          "name": "compiler",
+          "exit_code": 0,
+          "arguments": [
+            "-NoProfile",
+            "-File",
+            "tools/windows/Test-DevCompiler.ps1"
+          ]
+        },
+        {
+          "elapsed_ms": 3569,
+          "program": "cargo",
+          "name": "host-metadata",
+          "exit_code": 0,
+          "arguments": [
+            "metadata",
+            "--locked",
+            "--offline",
+            "--format-version",
+            "1",
+            "--filter-platform",
+            "x86_64-pc-windows-msvc"
+          ]
+        },
+        {
+          "elapsed_ms": 8225,
+          "program": "cargo",
+          "name": "doctor",
+          "exit_code": 0,
+          "arguments": [
+            "xtask",
+            "doctor"
+          ]
+        },
+        {
+          "elapsed_ms": 9844,
+          "program": "cargo",
+          "name": "doctor-json",
+          "exit_code": 0,
+          "arguments": [
+            "xtask",
+            "doctor",
+            "--json"
+          ]
+        },
+        {
+          "elapsed_ms": 7401,
+          "program": "cargo",
+          "name": "build",
+          "exit_code": 0,
+          "arguments": [
+            "xtask",
+            "build",
+            "--profile",
+            "feasibility"
+          ]
+        },
+        {
+          "elapsed_ms": 12836,
+          "program": "cargo",
+          "name": "m0",
+          "exit_code": 0,
+          "arguments": [
+            "xtask",
+            "test",
+            "--suite",
+            "m0"
+          ]
+        },
+        {
+          "elapsed_ms": 339395,
+          "program": "pwsh",
+          "name": "acceptance",
+          "exit_code": 0,
+          "arguments": [
+            "-NoProfile",
+            "-File",
+            "tools/Test-M0.ps1"
+          ]
+        },
+        {
+          "elapsed_ms": 41888,
+          "program": "pwsh",
+          "name": "dependencies",
+          "exit_code": 0,
+          "arguments": [
+            "-NoProfile",
+            "-File",
+            "tools/Probe-Dependencies.ps1"
+          ]
+        },
+        {
+          "elapsed_ms": 20726,
+          "program": "cargo",
+          "name": "m1-doctor",
+          "exit_code": 0,
+          "arguments": [
+            "xtask",
+            "doctor",
+            "--profile",
+            "m1",
+            "--json"
+          ]
+        }
+      ]
+    }
+  ],
+  "host_fixture_finding": "Initial host test run hit its unchanged 3000 ms child-start deadline. Serialized rerun passed; no guest failure or root cause inferred from that timeout alone.",
+  "permission_context_finding": "A restricted metadata build could not read the enrolled certificate; approved signer-context metadata compilation passed. No enrollment or security-policy change.",
+  "legacy_reviewer_finding": "The old capability reviewer intentionally requires integer-only user images. New SDK reviewer preserves its kernel instruction restrictions and separately audits the admitted SSE2 user instruction set.",
+  "runs": [
+    {
+      "directory": "build/m1/sdk-1793491113256491600-53664",
+      "classification": "development; not final acceptance",
+      "observed": "User image size exceeded the unchanged 1 MiB loader bound.",
+      "next_bounded_experiment": "Release user images omit debug information; no loader bound changed.",
+      "result": {
+        "build_id": "1210d195822b1f7a7dda99a62ad4504af6d8a1c89108396e0d40da171f6d9a87",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 6191,
+        "emulator_test_exit": null,
+        "error": "Unexpected guest rejection",
+        "final_process_exit": 1,
+        "fixture": "routes",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "6d24411480a4d1307ee067ccf432465929024405daa6000ab7df036b3f08267f",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "abf769da3540cfd504d75822f931a9368c6dcc960ba2a32a4f9fb2be5828e367",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 42524,
+        "schema_version": 1,
+        "status": "failed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "run_result_sha256": "c7a34bc293e634ad08212671666b015fc3b25241136b7841b2b602186e295585",
+      "serial_sha256": "169fef681f16c8435709813566556c3b822fe3ec08502bcdb744525e58a85294",
+      "serial_bytes": 27115,
+      "sdk_builds_sha256": "54f2d6e96a368df7a0671f087fdba92f17ac07b022825d76e1b86cb579d08031"
+    },
+    {
+      "directory": "build/m1/sdk-1793491822790043300-45408",
+      "classification": "development; not final acceptance",
+      "observed": "Trusted fixture rejected channel pair creation.",
+      "next_bounded_experiment": "Negotiation reuses an existing pair through a temporary endpoint alias; eight-pair capacity unchanged.",
+      "result": {
+        "build_id": "4a031990c4624a5f961bfb838c253d81d997f286c305dedba5247876cf2a2e03",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 7803,
+        "emulator_test_exit": null,
+        "error": "Unexpected guest rejection",
+        "final_process_exit": 1,
+        "fixture": "routes",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "6714da88d19b87a73f2dae14055f1194cc6229f276a1fa2ad25d0357044b70d9",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "569744494ef83675dfa3a53cc0b11a3d781dc1e8a50dc001b9310d816bd9d452",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 36852,
+        "schema_version": 1,
+        "status": "failed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "run_result_sha256": "62a97599bdd8ef8d7d9ce9e1eed0a0807ca43e5dd57c7e7550cc4f1bf8debec9",
+      "serial_sha256": "74a4660c673df5b6eddf61f22c8be41c9fbe4107f0beeeadcea126ee643b3348",
+      "serial_bytes": 64197,
+      "sdk_builds_sha256": "7a84875a18f445e31b8fd7f77c0c72cdc43aefcceec88e5798db2801a331b29d"
+    },
+    {
+      "directory": "build/m1/sdk-1793492003891440500-51892",
+      "classification": "development; not final acceptance",
+      "observed": "30-second guest deadline exceeded without completion.",
+      "next_bounded_experiment": "No timeout root cause inferred. Negotiate each service version once; retain the full route fault schedule; preserve the failed stream.",
+      "result": {
+        "build_id": "fdee807d596806280d758cc8b446275fd2387f3b4772c8ca0de32367593b1b3b",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 30140,
+        "emulator_test_exit": null,
+        "error": "Guest deadline exceeded",
+        "final_process_exit": 1,
+        "fixture": "routes",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "2f8eaa4d693e2b5cbc11b9b0de509f0ca270b96c521184bcb545d2b65732d430",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "516bde249239ff5c26c6ea66dd050d42dfd166e56e446c2782326b7562e8d407",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 51408,
+        "schema_version": 1,
+        "status": "failed",
+        "timed_out": true,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "run_result_sha256": "041411f5a3fd9e6ba71958d6cca1d8647adc24f144e3e98419b787fa05d13ca5",
+      "serial_sha256": "4377ed595062cbed2a9a8f2796c01ad4bd4f39ac86ed02d917a220442eca30cf",
+      "serial_bytes": 741753,
+      "sdk_builds_sha256": "2fe4dd287335d18300cd4aad3270ed0f546d2b3c513a4acf9c0104aaf6f3b5b3"
+    },
+    {
+      "directory": "build/m1/sdk-1793492235801859700-55040",
+      "classification": "development; not final acceptance",
+      "observed": "All route incarnations completed, then the channel-size assertion failed.",
+      "next_bounded_experiment": "Correct SDK test and documentation: bytes are low 32 bits, attachments high 32 bits. Runtime workload moved to a separate ISO as required by the story.",
+      "result": {
+        "build_id": "174270c9df4031542d60dff1c3df9e6c86ec047051a912be3790b8117045ea05",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 28206,
+        "emulator_test_exit": 35,
+        "error": "Unexpected guest rejection",
+        "final_process_exit": 35,
+        "fixture": "routes",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "a3fd3ebe1117ec03735bda494c37eb465ca8b030f3c439315c897905f1cdbbab",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "53f636a7e194f8814269a449cb1beb6512d536e9d669967aa88489e9800ad2c3",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 40384,
+        "schema_version": 1,
+        "status": "failed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "run_result_sha256": "daeb88636f0eeb5966f059b22fd4f6f036b5b32b3f6b1ef507ab7b2efde42518",
+      "serial_sha256": "3c2f913c79fe463a3b5913a0ab2368aed3fea473cf54528e2d3f0abbe9c32660",
+      "serial_bytes": 845809,
+      "sdk_builds_sha256": "489c587fe193fd63a4eeacce91c6bda2e66ce83320e2cb00cc94098456ad5dc4"
+    },
+    {
+      "directory": "build/m1/sdk-runtime-1793492528092536000-55948",
+      "classification": "development; not final acceptance",
+      "observed": "Portable workload assertion after supported-syscall probe; stage unknown.",
+      "next_bounded_experiment": "Add per-stage diagnostics; no passing acceptance claim.",
+      "result": {
+        "build_id": "ca597950973b532f06e8577b4becf5580930ed06d9729c8a38654e11f13d5900",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 7905,
+        "emulator_test_exit": null,
+        "error": "Unexpected guest rejection",
+        "final_process_exit": 1,
+        "fixture": "routes",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "a38185b0bd6c8b4ac80ebeefe3b7f8b2b916c60727aa867d6f9dd95362325579",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "9fa6cd73024dd43d70f2e9df76eacf8b50a967f86aaf62746619edb9731a9db0",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 47928,
+        "schema_version": 1,
+        "status": "failed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "run_result_sha256": "9bf91d5669180bb5571b13e6df15770be05467dd9ca7506888569804c734ae15",
+      "serial_sha256": "0cc120f650945e5e586e28331bc145e64e20717fd5d24cb86fa5ad2f7e91952c",
+      "serial_bytes": 75132,
+      "sdk_builds_sha256": "47e95927ad974255be6096ec1ee5b9aa4fbe83b9ebd431b6b0daf84a12043543"
+    },
+    {
+      "directory": "build/m1/sdk-runtime-1793492757580920500-50768",
+      "classification": "development; not final acceptance",
+      "observed": "Same generic assertion. An attempted diagnostic edit failed a host CP1252 read before changing source; the run used the prior snapshot.",
+      "next_bounded_experiment": "Use explicit UTF-8 source handling and stage labels. No interrupted/failed probe counted.",
+      "result": {
+        "build_id": "b64b2081e13cb5d1eaed3423b0b8a7f7188e7ff8ada4e01acfe2b6607e0ffdb7",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 8089,
+        "emulator_test_exit": null,
+        "error": "Unexpected guest rejection",
+        "final_process_exit": 1,
+        "fixture": "routes",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "64adcc8f3793bd7b9297d15d461488fc8c748bf120662bf07035bbb10e912952",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "809b9aa4c64df63563757a39a371acd09fc63b3a595e22761634f268bfe370ba",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 49084,
+        "schema_version": 1,
+        "status": "failed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "run_result_sha256": "24fb617a84825dd17598f72c5b9867e8094a7a5a8dc12d40e6b28ba6d9e8b404",
+      "serial_sha256": "6f03fa8412f553637769fc73755895f14fb80753e2bf7565fbc93e7f5834432f",
+      "serial_bytes": 75133,
+      "sdk_builds_sha256": "a941e8f7076fdc4692a736877f1d238d603c990ae9954bc0d4698fce2bb31868"
+    },
+    {
+      "directory": "build/m1/sdk-runtime-1793492873830502100-56284",
+      "classification": "development; not final acceptance",
+      "observed": "Stage label identifies realloc rejection.",
+      "next_bounded_experiment": "Add process-local allocator create/map status, without logging pointers.",
+      "result": {
+        "build_id": "a0b83e3587ae99c446dd8488b150c0cfc44a54fc0244ac948a0b15f14804b880",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 7630,
+        "emulator_test_exit": null,
+        "error": "Unexpected guest rejection",
+        "final_process_exit": 1,
+        "fixture": "routes",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "88adb490d52fa982a746ba498e45ae8ef6425ca0e24f3b4415a1fcdf074b7acc",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "bc6a66d385730f629f708296c6a556803851ac3ad1cc9135ff62d09be9a54b0b",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 54000,
+        "schema_version": 1,
+        "status": "failed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "run_result_sha256": "e10c1e25a1549c5f495e1e5ad416087fb0a5f0712cce09883c768ee5283ed99a",
+      "serial_sha256": "52b977c0a7f1e542307c1222d60a3c4c5cb14460de4608dc02cb28bf2ad347ae",
+      "serial_bytes": 75137,
+      "sdk_builds_sha256": "913b8e40a2cb65d4c4714bb9dfa118fb139fc6846e51c57f598ef3abd8962c61"
+    },
+    {
+      "directory": "build/m1/sdk-runtime-1793493056941207300-52368",
+      "classification": "development; not final acceptance",
+      "observed": "Allocator diagnostic 4294967307 = create-stage QuotaExceeded (11).",
+      "next_bounded_experiment": "Existing prepaid lifetime allocation credits are not refunded. Use one bounded 64 KiB reclaiming user heap and explicitly release backing; preserve kernel ceilings.",
+      "result": {
+        "build_id": "41d17ecef0258b618495ebc7adf620ff401e390c75fd48298cac1d1bcc40280c",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 7008,
+        "emulator_test_exit": null,
+        "error": "Unexpected guest rejection",
+        "final_process_exit": 1,
+        "fixture": "routes",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "6c3ec39c9cbf6b01cb7c494970392131947e75187703be9a4e8053198adf448d",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "e14a3948780321ca79e6f1a280ebb41aacc144e5f94dbc71bb28df1b16d154b1",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 54336,
+        "schema_version": 1,
+        "status": "failed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "run_result_sha256": "9309223e2b3823767b049a929f389b1673ca9bd5a43af78280e4b1d1c24c3a5b",
+      "serial_sha256": "32ddabaa3760306e363281f5137f0e9827a2007d81948defcb7b0b5e41789bd1",
+      "serial_bytes": 75458,
+      "sdk_builds_sha256": "b73da6914848a044d98e96cc4ac6d89d736fa9651b72bf6098ff5b194175a882"
+    },
+    {
+      "directory": "build/m1/sdk-runtime-1793493295276967200-50180",
+      "classification": "development; not final acceptance",
+      "observed": "Focused development runtime ISO passes.",
+      "next_bounded_experiment": "Final source adds full-heap/32-slot reuse, live-shutdown denial and real Vec try_reserve failure; final-source acceptance remains separate.",
+      "result": {
+        "build_id": "af251890c9d253cb8a304656f9d9426a87e09fcc1fe453b8b64b66ab6d000adf",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 8063,
+        "emulator_test_exit": 33,
+        "error": null,
+        "final_process_exit": 33,
+        "fixture": "routes",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "583af0b7b5fc82ad4cec3bca1d374a6486f5d31ab762c1ec747396bd28517b90",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "9b16c22b6616eded70fc72afda70f0c2c0676f316feee135c94faa68ac6a2c15",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 51404,
+        "schema_version": 1,
+        "status": "passed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "run_result_sha256": "f487894c29e5fb81096372223439638741cb26ff6937805b1c7b9e1464480701",
+      "serial_sha256": "991536270ced7cdc7040d57fb8b18664607abe282ed13f3125cec9864001e078",
+      "serial_bytes": 78813,
+      "sdk_builds_sha256": "fcf62e8ede84e80e0b69aa528821435abd4ac5731ed7f47fc4351893d84ca098"
+    },
+    {
+      "directory": "build/m1/sdk-1793493368370265000-56176",
+      "classification": "development; not final acceptance",
+      "observed": "Focused independent SDK-route ISO and raw semantic reviewer pass.",
+      "next_bounded_experiment": "Final acceptance reruns the same route/fault semantics from final locked public sources.",
+      "result": {
+        "build_id": "5ddfe6ddc3495f6776db78ed8c8ae240fa01c9e25b867794f94758de31d80bc0",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 18489,
+        "emulator_test_exit": 33,
+        "error": null,
+        "final_process_exit": 33,
+        "fixture": "routes",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "7d9c32a2bc1779024df33e7f6009b944ab4c59a990490a1ca1fd698d5d10ff8f",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "be35db89e13791b5152599a62609f3b3fb32f90e4e7dc68cb7d5115dcf3d6f94",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 48592,
+        "schema_version": 1,
+        "status": "passed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      "run_result_sha256": "48e063f7f0a129e7e7d453b5f5150bd96f19be810684a28d33ae08cbe446d8db",
+      "serial_sha256": "5f825c7fda3b66fb4155394f387e6237d5e5b0f066c54f1de2c13cb1e92bf635",
+      "serial_bytes": 839122,
+      "sdk_builds_sha256": "198a238986dcccc377988c0166852f0c4a1e15fecd31ca1e83e2e3d119326b3a"
+    }
+  ],
+  "owner_edits": [
+    {
+      "path": "docs/05-delivery/windows-development-signing.md",
+      "original_sha256": "17ea166c84fa8162c4f617c0f44118ef6ebee2d580db9ffe6024c3cf1158505a",
+      "current_sha256": "17ea166c84fa8162c4f617c0f44118ef6ebee2d580db9ffe6024c3cf1158505a",
+      "unchanged": true,
+      "excluded_from_staging": true
+    },
+    {
+      "path": "tools/windows/New-DevPolicy.ps1",
+      "original_sha256": "87bf507058c564a945e7b1631ca95ae1377e1f5c692ec2fd8dfcfb72c951ee96",
+      "current_sha256": "87bf507058c564a945e7b1631ca95ae1377e1f5c692ec2fd8dfcfb72c951ee96",
+      "unchanged": true,
+      "excluded_from_staging": true
+    },
+    {
+      "path": "tools/windows/Set-DevMachinePolicy.ps1",
+      "original_sha256": "442625fc8b91f5c7e4e60c5a0936b0d1cc525c6fbe25a85d1ba9aa31e84ea660",
+      "current_sha256": "442625fc8b91f5c7e4e60c5a0936b0d1cc525c6fbe25a85d1ba9aa31e84ea660",
+      "unchanged": true,
+      "excluded_from_staging": true
+    }
+  ],
+  "pre_freeze_review_finding": {
+    "finding": "The fixture service validated header reserved bits but not the reserved payload word; request correlation and compatible echo were not separately exercised.",
+    "fix": "Validate payload reserved zero and sequence equality before operation, add guest cases 9 and 10, use echo in compatible-minor case 2, add independently decoded/produced 16-byte service-request fixtures.",
+    "interrupted_run": {
+      "active": "user-boundary child allowed to finish under unchanged deadline",
+      "utc": "2026-11-01T16:31:06.2478848Z",
+      "acceptance_directory": "build/m3/P3-12/acceptance-1793508086664",
+      "completed": "fresh prerequisites, complete M1 review, owned-memory, static-loader",
+      "status": "interrupted-not-acceptance",
+      "reason": "Review found fixture service payload reserved word was not validated; add explicit rejection and compatible echo before freezing",
+      "bounded_child_outcome": {
+        "directory": "build/m1/user-boundary-1793513370141928700-15312",
+        "status": "passed",
+        "note": "Child completed normally after the driver stopped; no resumed aggregate acceptance claim."
+      }
+    },
+    "acceptance_policy": "Earlier aggregate interrupted and excluded; corrected SDK and codecs checked before a fresh full serial acceptance.",
+    "corrected_guest": {
+      "directory": "build/m1/sdk-1793550780819685000-58448",
+      "status": "passed",
+      "review_sha256": "6734e6dbf501301717df20ab4d9b891ee26b270fa68831bf9e4f367405b18d20"
+    },
+    "corrected_codecs": {
+      "status": "passed",
+      "cases": 4871,
+      "rejections": 2411,
+      "canonical_successes": 2460,
+      "contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+      "production_sha256": "8506d45e3c724c1c80adbb98a695c0d1feace1f43d2ac89de36df0dc4aaacb24",
+      "fixtures_sha256": "9f47379c3f4c81b5c261e002300815dbc008bd0f017cab7964652fa84f2c13b7",
+      "reference_sha256": "f069ac0645211ed767e00ca13ad4f481b915e62a4bac82e6f55d628a9161c6a1",
+      "semantic": {
+        "decoded_cases": 4871,
+        "independent_producer_cases": 2411,
+        "paired_field_swap_rejected": true,
+        "build": {
+          "status": "passed",
+          "compiler": [
+            "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+            "binary: rustc",
+            "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+            "commit-date: 2026-10-13",
+            "host: x86_64-pc-windows-msvc",
+            "release: 1.99.1",
+            "LLVM version: 23.1.1"
+          ],
+          "source_sha256": "e419bc58fc8d5a9a673816d5c306914ed403d6d0d32398f36622a1716fdc4438",
+          "arguments": [
+            "C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\sdk_codec_consumer.rs",
+            "--edition=2024",
+            "--crate-name",
+            "sdk_codec_semantics",
+            "--extern",
+            "continuum_rt=C:\\Users\\archi\\Documents\\ContinuumOS\\build\\cargo\\signed\\debug\\deps\\libcontinuum_rt-4873709a8e290c38.rlib",
+            "-o",
+            "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-12\\payload-fix-codecs\\semantic-consumer.exe"
+          ],
+          "consumer_sha256": "b9ce018207e778cac4b108fd96782728571eb0e02421f72b4d94bc5f70cc2f1b",
+          "library_sha256": "399afb7b8edb491eaea15427e016842524f59e6832a382fefd613c84648579bc"
+        }
+      }
+    },
+    "host_probe_path_failure": {
+      "log": "work/P3-12/payload-fix-codecs.log",
+      "reason": "existing signer excludes work/P3-12 executable output; rerun under already permitted build/ path passed, no signing-policy change"
+    }
+  },
+  "validation_hardening": {
+    "change": "Final raw evidence reader explicitly requires zero wait records/watches and rejects removed/nonzero settlement records; runtime/build inputs unchanged.",
+    "corrected_sdk_probe": "passed, work/P3-12/payload-fix-review-waits.log",
+    "older_runtime_probe": "Rejected as expected for absent sdk-heap-capacity-reused tokens; that older development build predates the final full-heap/slot probes and cannot substitute for fresh runtime acceptance.",
+    "older_runtime_probe_log": "work/P3-12/development-runtime-review-waits.log"
+  }
+}

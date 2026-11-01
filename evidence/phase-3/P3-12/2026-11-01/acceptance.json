@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "story": "P3-12",
+  "status": "passed",
+  "commands": [
+    {
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 440400,
+      "name": "prerequisites"
+    },
+    {
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-P1-07.ps1"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 2789127,
+      "name": "m1"
+    },
+    {
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Review-P1-07.ps1",
+        "-Run",
+        "${WORKSPACE}\\build/m1\\suite-1793551559261804900-73840"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 9188,
+      "name": "m1-review"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 66605,
+      "name": "owned-memory"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "static-loader"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 84314,
+      "name": "static-loader"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 183523,
+      "name": "user-boundary"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "scheduler"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 128656,
+      "name": "scheduler"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "capabilities"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 63529,
+      "name": "capabilities"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "channels"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 74024,
+      "name": "channels"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "waits"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 94799,
+      "name": "waits"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "supervisor"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 87556,
+      "name": "supervisor"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "policy"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 103830,
+      "name": "policy"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "routes"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 98917,
+      "name": "routes"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 111128,
+      "name": "sdk"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-runtime"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 79671,
+      "name": "sdk-runtime"
+    },
+    {
+      "program": "cargo",
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "--manifest-path",
+        "sdk/continuum-rt/Cargo.toml",
+        "--bin",
+        "conformance"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 289,
+      "name": "sdk-codec-build"
+    },
+    {
+      "program": "python",
+      "arguments": [
+        "tools/sdk_contract.py",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793551030131\\codecs",
+        "--production",
+        "${WORKSPACE}\\build\\cargo\\signed\\debug\\conformance.exe"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 3738,
+      "name": "sdk-codecs"
+    },
+    {
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Check-P3-12Flavors.ps1",
+        "-Descriptors",
+        "${WORKSPACE}\\build/m1\\sdk-1793555341732327400-60632",
+        "-Output",
+        "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793551030131\\flavors"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 24048,
+      "name": "sdk-flavors"
+    },
+    {
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Check-P3-12Portable.ps1",
+        "-Output",
+        "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793551030131\\portable"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 14016,
+      "name": "m2-portable"
+    }
+  ],
+  "runs": {
+    "routes": "${WORKSPACE}\\build/m1\\routes-1793555242688923200-79836",
+    "m1": "${WORKSPACE}\\build/m1\\suite-1793551559261804900-73840",
+    "sdk": "${WORKSPACE}\\build/m1\\sdk-1793555341732327400-60632",
+    "boundary": "${WORKSPACE}\\build/m1\\user-boundary-1793554507635015700-69744",
+    "portable": "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793551030131\\portable",
+    "codecs": "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793551030131\\codecs",
+    "scheduler": "${WORKSPACE}\\build/m1\\scheduler-1793554689519113300-67084",
+    "channels": "${WORKSPACE}\\build/m1\\channels-1793554882171090200-77804",
+    "sdk_runtime": "${WORKSPACE}\\build/m1\\sdk-runtime-1793555452124964400-76856",
+    "capabilities": "${WORKSPACE}\\build/m1\\capabilities-1793554818253072900-78888",
+    "memory": "${WORKSPACE}\\build/m1\\owned-memory-1793554357381300000-70372",
+    "loader": "${WORKSPACE}\\build/m1\\static-loader-1793554421600471000-64500",
+    "prerequisites": "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1793551115271",
+    "flavors": "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793551030131\\flavors",
+    "supervisor": "${WORKSPACE}\\build/m1\\supervisor-1793555051137228300-73696",
+    "waits": "${WORKSPACE}\\build/m1\\waits-1793554955845753400-69228",
+    "policy": "${WORKSPACE}\\build/m1\\policy-1793555138570699400-71660"
+  },
+  "source_commit": "5e412e8196db893a828a7ec4ef23597a42e42ae8",
+  "user_execution": true,
+  "host_test_threads": 1
+}

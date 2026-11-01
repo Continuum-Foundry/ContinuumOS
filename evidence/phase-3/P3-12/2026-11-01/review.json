@@ -1,0 +1,7149 @@
+{
+  "status": "passed",
+  "scope": "final-source local acceptance",
+  "audit": {
+    "incarnations": 9,
+    "process_runs": 54,
+    "fixed_bytes": 10581256,
+    "decisions": 131,
+    "mutation_attempts": 25,
+    "successful_commits": 19,
+    "faults": 8,
+    "exact_settlements": 9,
+    "decision_matrix": [
+      {
+        "wave": 0,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 323
+      },
+      {
+        "wave": 0,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 329
+      },
+      {
+        "wave": 0,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 343
+      },
+      {
+        "wave": 0,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 349
+      },
+      {
+        "wave": 0,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 355
+      },
+      {
+        "wave": 0,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 369
+      },
+      {
+        "wave": 0,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 375
+      },
+      {
+        "wave": 0,
+        "case": 6,
+        "operation": 9,
+        "status": 3,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 389
+      },
+      {
+        "wave": 0,
+        "case": 7,
+        "operation": 11,
+        "status": 14,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 403
+      },
+      {
+        "wave": 0,
+        "case": 8,
+        "operation": 11,
+        "status": 14,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 417
+      },
+      {
+        "wave": 0,
+        "case": 9,
+        "operation": 11,
+        "status": 3,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 431
+      },
+      {
+        "wave": 0,
+        "case": 54,
+        "operation": 10,
+        "status": 14,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 445
+      },
+      {
+        "wave": 0,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 100,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 476
+      },
+      {
+        "wave": 0,
+        "case": 11,
+        "operation": 10,
+        "status": 0,
+        "epoch": 100,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 490
+      },
+      {
+        "wave": 0,
+        "case": 57,
+        "operation": 13,
+        "status": 0,
+        "epoch": 100,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 504
+      },
+      {
+        "wave": 0,
+        "case": 12,
+        "operation": 10,
+        "status": 3,
+        "epoch": 100,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 518
+      },
+      {
+        "wave": 0,
+        "case": 13,
+        "operation": 11,
+        "status": 0,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 549
+      },
+      {
+        "wave": 0,
+        "case": 14,
+        "operation": 10,
+        "status": 13,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 563
+      },
+      {
+        "wave": 0,
+        "case": 15,
+        "operation": 10,
+        "status": 13,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 577
+      },
+      {
+        "wave": 0,
+        "case": 16,
+        "operation": 10,
+        "status": 0,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 1,
+        "seq": 591
+      },
+      {
+        "wave": 0,
+        "case": 56,
+        "operation": 10,
+        "status": 6,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 1,
+        "seq": 605
+      },
+      {
+        "wave": 0,
+        "case": 17,
+        "operation": 10,
+        "status": 0,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 2,
+        "seq": 619
+      },
+      {
+        "wave": 0,
+        "case": 18,
+        "operation": 10,
+        "status": 0,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 3,
+        "seq": 633
+      },
+      {
+        "wave": 0,
+        "case": 19,
+        "operation": 10,
+        "status": 0,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 4,
+        "seq": 647
+      },
+      {
+        "wave": 0,
+        "case": 20,
+        "operation": 10,
+        "status": 11,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 4,
+        "seq": 661
+      },
+      {
+        "wave": 0,
+        "case": 21,
+        "operation": 13,
+        "status": 8,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 3,
+        "seq": 675
+      },
+      {
+        "wave": 0,
+        "case": 22,
+        "operation": 12,
+        "status": 0,
+        "epoch": 100,
+        "revision": 3,
+        "value": 3,
+        "queued": 2,
+        "seq": 706
+      },
+      {
+        "wave": 0,
+        "case": 23,
+        "operation": 12,
+        "status": 0,
+        "epoch": 100,
+        "revision": 4,
+        "value": 4,
+        "queued": 1,
+        "seq": 737
+      },
+      {
+        "wave": 0,
+        "case": 24,
+        "operation": 12,
+        "status": 0,
+        "epoch": 100,
+        "revision": 5,
+        "value": 5,
+        "queued": 0,
+        "seq": 768
+      },
+      {
+        "wave": 0,
+        "case": 25,
+        "operation": 11,
+        "status": 13,
+        "epoch": 101,
+        "revision": 5,
+        "value": 5,
+        "queued": 0,
+        "seq": 802
+      },
+      {
+        "wave": 0,
+        "case": 26,
+        "operation": 11,
+        "status": 3,
+        "epoch": 101,
+        "revision": 5,
+        "value": 5,
+        "queued": 0,
+        "seq": 827
+      },
+      {
+        "wave": 0,
+        "case": 51,
+        "operation": 16,
+        "status": 0,
+        "epoch": 101,
+        "revision": 5,
+        "value": 5,
+        "queued": 0,
+        "seq": 837
+      },
+      {
+        "wave": 0,
+        "case": 52,
+        "operation": 10,
+        "status": 13,
+        "epoch": 101,
+        "revision": 5,
+        "value": 5,
+        "queued": 0,
+        "seq": 851
+      },
+      {
+        "wave": 0,
+        "case": 27,
+        "operation": 11,
+        "status": 0,
+        "epoch": 101,
+        "revision": 6,
+        "value": 6,
+        "queued": 0,
+        "seq": 882
+      },
+      {
+        "wave": 0,
+        "case": 28,
+        "operation": 11,
+        "status": 3,
+        "epoch": 101,
+        "revision": 6,
+        "value": 6,
+        "queued": 0,
+        "seq": 913
+      },
+      {
+        "wave": 0,
+        "case": 29,
+        "operation": 11,
+        "status": 13,
+        "epoch": 101,
+        "revision": 7,
+        "value": 7,
+        "queued": 0,
+        "seq": 945
+      },
+      {
+        "wave": 0,
+        "case": 31,
+        "operation": 11,
+        "status": 7,
+        "epoch": 101,
+        "revision": 7,
+        "value": 7,
+        "queued": 0,
+        "seq": 980
+      },
+      {
+        "wave": 0,
+        "case": 32,
+        "operation": 11,
+        "status": 3,
+        "epoch": 101,
+        "revision": 7,
+        "value": 7,
+        "queued": 0,
+        "seq": 1011
+      },
+      {
+        "wave": 0,
+        "case": 33,
+        "operation": 1,
+        "status": 0,
+        "epoch": 101,
+        "revision": 7,
+        "value": 7,
+        "queued": 0,
+        "seq": 1017
+      },
+      {
+        "wave": 0,
+        "case": 34,
+        "operation": 10,
+        "status": 13,
+        "epoch": 101,
+        "revision": 7,
+        "value": 7,
+        "queued": 0,
+        "seq": 1031
+      },
+      {
+        "wave": 0,
+        "case": 35,
+        "operation": 11,
+        "status": 0,
+        "epoch": 101,
+        "revision": 8,
+        "value": 8,
+        "queued": 0,
+        "seq": 1062
+      },
+      {
+        "wave": 0,
+        "case": 36,
+        "operation": 11,
+        "status": 7,
+        "epoch": 101,
+        "revision": 8,
+        "value": 8,
+        "queued": 0,
+        "seq": 1093
+      },
+      {
+        "wave": 0,
+        "case": 37,
+        "operation": 10,
+        "status": 7,
+        "epoch": 101,
+        "revision": 8,
+        "value": 8,
+        "queued": 0,
+        "seq": 1107
+      },
+      {
+        "wave": 1,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1151
+      },
+      {
+        "wave": 1,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1157
+      },
+      {
+        "wave": 1,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1171
+      },
+      {
+        "wave": 1,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1177
+      },
+      {
+        "wave": 1,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1183
+      },
+      {
+        "wave": 1,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1197
+      },
+      {
+        "wave": 1,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1203
+      },
+      {
+        "wave": 1,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1218
+      },
+      {
+        "wave": 1,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 200,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1249
+      },
+      {
+        "wave": 2,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1292
+      },
+      {
+        "wave": 2,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1298
+      },
+      {
+        "wave": 2,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1312
+      },
+      {
+        "wave": 2,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1318
+      },
+      {
+        "wave": 2,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1324
+      },
+      {
+        "wave": 2,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1338
+      },
+      {
+        "wave": 2,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1344
+      },
+      {
+        "wave": 2,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1359
+      },
+      {
+        "wave": 2,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 300,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1390
+      },
+      {
+        "wave": 2,
+        "case": 20,
+        "operation": 2,
+        "status": 0,
+        "epoch": 301,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1396
+      },
+      {
+        "wave": 3,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1439
+      },
+      {
+        "wave": 3,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1445
+      },
+      {
+        "wave": 3,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1459
+      },
+      {
+        "wave": 3,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1465
+      },
+      {
+        "wave": 3,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1471
+      },
+      {
+        "wave": 3,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1485
+      },
+      {
+        "wave": 3,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1491
+      },
+      {
+        "wave": 3,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1506
+      },
+      {
+        "wave": 3,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 400,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1537
+      },
+      {
+        "wave": 3,
+        "case": 20,
+        "operation": 2,
+        "status": 0,
+        "epoch": 401,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1543
+      },
+      {
+        "wave": 3,
+        "case": 21,
+        "operation": 3,
+        "status": 0,
+        "epoch": 401,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1549
+      },
+      {
+        "wave": 4,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1592
+      },
+      {
+        "wave": 4,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1598
+      },
+      {
+        "wave": 4,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1612
+      },
+      {
+        "wave": 4,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1618
+      },
+      {
+        "wave": 4,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1624
+      },
+      {
+        "wave": 4,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1638
+      },
+      {
+        "wave": 4,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1644
+      },
+      {
+        "wave": 4,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1659
+      },
+      {
+        "wave": 4,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 500,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1690
+      },
+      {
+        "wave": 4,
+        "case": 20,
+        "operation": 2,
+        "status": 0,
+        "epoch": 501,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1696
+      },
+      {
+        "wave": 4,
+        "case": 21,
+        "operation": 3,
+        "status": 0,
+        "epoch": 501,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1702
+      },
+      {
+        "wave": 4,
+        "case": 22,
+        "operation": 4,
+        "status": 0,
+        "epoch": 501,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1708
+      },
+      {
+        "wave": 5,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1751
+      },
+      {
+        "wave": 5,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1757
+      },
+      {
+        "wave": 5,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1771
+      },
+      {
+        "wave": 5,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1777
+      },
+      {
+        "wave": 5,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1783
+      },
+      {
+        "wave": 5,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1797
+      },
+      {
+        "wave": 5,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1803
+      },
+      {
+        "wave": 5,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1818
+      },
+      {
+        "wave": 5,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 600,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1849
+      },
+      {
+        "wave": 5,
+        "case": 40,
+        "operation": 11,
+        "status": 9,
+        "epoch": 601,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1874
+      },
+      {
+        "wave": 5,
+        "case": 42,
+        "operation": 3,
+        "status": 0,
+        "epoch": 601,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1880
+      },
+      {
+        "wave": 5,
+        "case": 43,
+        "operation": 4,
+        "status": 0,
+        "epoch": 601,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1886
+      },
+      {
+        "wave": 5,
+        "case": 44,
+        "operation": 11,
+        "status": 0,
+        "epoch": 601,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 1917
+      },
+      {
+        "wave": 6,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1958
+      },
+      {
+        "wave": 6,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1964
+      },
+      {
+        "wave": 6,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1978
+      },
+      {
+        "wave": 6,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1984
+      },
+      {
+        "wave": 6,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1990
+      },
+      {
+        "wave": 6,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2004
+      },
+      {
+        "wave": 6,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2010
+      },
+      {
+        "wave": 6,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2025
+      },
+      {
+        "wave": 6,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 700,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2056
+      },
+      {
+        "wave": 6,
+        "case": 40,
+        "operation": 11,
+        "status": 9,
+        "epoch": 701,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2081
+      },
+      {
+        "wave": 6,
+        "case": 42,
+        "operation": 3,
+        "status": 0,
+        "epoch": 701,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2088
+      },
+      {
+        "wave": 6,
+        "case": 43,
+        "operation": 4,
+        "status": 0,
+        "epoch": 701,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2094
+      },
+      {
+        "wave": 6,
+        "case": 44,
+        "operation": 11,
+        "status": 9,
+        "epoch": 701,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2108
+      },
+      {
+        "wave": 7,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2149
+      },
+      {
+        "wave": 7,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2155
+      },
+      {
+        "wave": 7,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2169
+      },
+      {
+        "wave": 7,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2175
+      },
+      {
+        "wave": 7,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2181
+      },
+      {
+        "wave": 7,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2195
+      },
+      {
+        "wave": 7,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2201
+      },
+      {
+        "wave": 7,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2216
+      },
+      {
+        "wave": 7,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 800,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2247
+      },
+      {
+        "wave": 8,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2303
+      },
+      {
+        "wave": 8,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2309
+      },
+      {
+        "wave": 8,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2323
+      },
+      {
+        "wave": 8,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2329
+      },
+      {
+        "wave": 8,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2335
+      },
+      {
+        "wave": 8,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2349
+      },
+      {
+        "wave": 8,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2355
+      },
+      {
+        "wave": 8,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2370
+      },
+      {
+        "wave": 8,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 900,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2401
+      },
+      {
+        "wave": 8,
+        "case": 40,
+        "operation": 11,
+        "status": 9,
+        "epoch": 900,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 2430
+      },
+      {
+        "wave": 8,
+        "case": 41,
+        "operation": 10,
+        "status": 0,
+        "epoch": 900,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 2444
+      }
+    ],
+    "cut_states": {
+      "1": [
+        200,
+        4,
+        200,
+        200
+      ],
+      "2": [
+        301,
+        0,
+        300,
+        300
+      ],
+      "3": [
+        401,
+        5,
+        400,
+        400
+      ],
+      "4": [
+        501,
+        5,
+        501,
+        500
+      ],
+      "7": [
+        800,
+        4,
+        800,
+        800
+      ]
+    },
+    "version_exchanges": 20,
+    "accepted_moves": 2,
+    "rejected_protocol_moves_closed": 2
+  },
+  "mutations": [
+    "missing m1.route_ready",
+    "missing m1.route_admit",
+    "missing m1.route_end",
+    "missing m1.route_settled",
+    "missing m1.ipc_sender",
+    "missing m1.wait_settled",
+    "missing sdk-hello-",
+    "missing sdk-transfer-",
+    "missing sdk-discard-",
+    "missing state-0-250-",
+    "missing state-0-251-",
+    "missing state-0-252-",
+    "missing commit-0-25-",
+    "missing commit-0-26-",
+    "missing commit-0-27-",
+    "m1.route_ready.tasks",
+    "m1.route_admit.principal",
+    "m1.route_end.code",
+    "m1.route_settled.frames",
+    "m1.ipc_sender.sender_generation",
+    "m1.wait_settled.records",
+    "m1.wait_settled.watches"
+  ],
+  "codegen": {
+    "helpers": {
+      "task_resume": "<task_resume>:\nffffffff8000269d:      \tcli\nffffffff8000269e:      \tcld\nffffffff8000269f:      \tpushq\t%rbp\nffffffff800026a0:      \tpushq\t%rbx\nffffffff800026a1:      \tpushq\t%r12\nffffffff800026a3:      \tpushq\t%r13\nffffffff800026a5:      \tpushq\t%r14\nffffffff800026a7:      \tpushq\t%r15\nffffffff800026a9:      \tmovq\t%rsp, 0x9be958(%rip) # 0xffffffff809c1008 <_RNvNtCsbqYYt735GVt_16continuum_kernel10user_entry12CONTINUATION>\nffffffff800026b0:      \tmovq\t%cr3, %rax\nffffffff800026b3:      \tmovq\t%rax, 0x9be946(%rip) # 0xffffffff809c1000 <_RNvNtCsbqYYt735GVt_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff800026ba:      \tmovq\t%rdi, %cr3\nffffffff800026bd:      \tmovq\t0x9bee7c(%rip), %rsp # 0xffffffff809c1540 <_RNvNtCsbqYYt735GVt_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800026c4:      \tsubq\t$0xa0, %rsp\nffffffff800026cb:      \tmovq\t%rdx, %r8\nffffffff800026ce:      \tmovq\t%rsp, %rdi\nffffffff800026d1:      \tmovl\t$0x14, %ecx\nffffffff800026d6:      \trep\t\tmovsq\t(%rsi), %es:(%rdi)\nffffffff800026d9:      \txorl\t%eax, %eax\nffffffff800026db:      \tmovw\t%ax, %ds\nffffffff800026de:      \tmovw\t%ax, %es\nffffffff800026e1:      \tmovw\t%ax, %fs\nffffffff800026e4:      \tmovw\t%ax, %gs\nffffffff800026e7:      \tclts\nffffffff800026e9:      \tfxrstor64\t(%r8)\nffffffff800026ed:      \tpopq\t%r15\nffffffff800026ef:      \tpopq\t%r14\nffffffff800026f1:      \tpopq\t%r13\nffffffff800026f3:      \tpopq\t%r12\nffffffff800026f5:      \tpopq\t%r11\nffffffff800026f7:      \tpopq\t%r10\nffffffff800026f9:      \tpopq\t%r9\nffffffff800026fb:      \tpopq\t%r8\nffffffff800026fd:      \tpopq\t%rdi\nffffffff800026fe:      \tpopq\t%rsi\nffffffff800026ff:      \tpopq\t%rbp\nffffffff80002700:      \tpopq\t%rbx\nffffffff80002701:      \tpopq\t%rdx\nffffffff80002702:      \tpopq\t%rcx\nffffffff80002703:      \tpopq\t%rax\nffffffff80002704:      \tiretq\nffffffff80002706:      \tint3\nffffffff80002707:      \tint3\nffffffff80002708:      \tint3\nffffffff80002709:      \tint3\nffffffff8000270a:      \tint3\nffffffff8000270b:      \tint3\nffffffff8000270c:      \tint3\nffffffff8000270d:      \tint3\nffffffff8000270e:      \tint3\nffffffff8000270f:      \tint3\n",
+      "task_save_fp": "<task_save_fp>:\nffffffff8000268c:      \tclts\nffffffff8000268e:      \tfxsave64\t(%rdi)\nffffffff80002692:      \tmovq\t%cr0, %rax\nffffffff80002695:      \torq\t$0x8, %rax\nffffffff80002699:      \tmovq\t%rax, %cr0\nffffffff8000269c:      \tretq\n",
+      "user_syscall": "<user_syscall>:\nffffffff8000243c:      \tmovq\t%rsp, 0x9bf0f5(%rip) # 0xffffffff809c1538 <_RNvNtCsbqYYt735GVt_16continuum_kernel10user_entry7USER_SP>\nffffffff80002443:      \tmovq\t0x9bf0f6(%rip), %rsp # 0xffffffff809c1540 <_RNvNtCsbqYYt735GVt_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff8000244a:      \tpushq\t%rax\nffffffff8000244b:      \tmovq\t%cr0, %rax\nffffffff8000244e:      \torq\t$0x8, %rax\nffffffff80002452:      \tmovq\t%rax, %cr0\nffffffff80002455:      \tpopq\t%rax\nffffffff80002456:      \tpushq\t$0x3b\nffffffff80002458:      \tpushq\t0x9bf0da(%rip)  # 0xffffffff809c1538 <_RNvNtCsbqYYt735GVt_16continuum_kernel10user_entry7USER_SP>\nffffffff8000245e:      \tpushq\t%r11\nffffffff80002460:      \tpushq\t$0x33\nffffffff80002462:      \tpushq\t%rcx\nffffffff80002463:      \tpushq\t%rax\nffffffff80002464:      \tpushq\t%rcx\nffffffff80002465:      \tpushq\t%rdx\nffffffff80002466:      \tpushq\t%rbx\nffffffff80002467:      \tpushq\t%rbp\nffffffff80002468:      \tpushq\t%rsi\nffffffff80002469:      \tpushq\t%rdi\nffffffff8000246a:      \tpushq\t%r8\nffffffff8000246c:      \tpushq\t%r9\nffffffff8000246e:      \tpushq\t%r10\nffffffff80002470:      \tpushq\t%r11\nffffffff80002472:      \tpushq\t%r12\nffffffff80002474:      \tpushq\t%r13\nffffffff80002476:      \tpushq\t%r14\nffffffff80002478:      \tpushq\t%r15\nffffffff8000247a:      \tcld\nffffffff8000247b:      \tmovq\t%rsp, %rdi\nffffffff8000247e:      \tcallq\t0xffffffff8001b620 <_RNvNtCsbqYYt735GVt_16continuum_kernel10user_entry8dispatch>\nffffffff80002483:      \tpopq\t%r15\nffffffff80002485:      \tpopq\t%r14\nffffffff80002487:      \tpopq\t%r13\nffffffff80002489:      \tpopq\t%r12\nffffffff8000248b:      \tpopq\t%r11\nffffffff8000248d:      \tpopq\t%r10\nffffffff8000248f:      \tpopq\t%r9\nffffffff80002491:      \tpopq\t%r8\nffffffff80002493:      \tpopq\t%rdi\nffffffff80002494:      \tpopq\t%rsi\nffffffff80002495:      \tpopq\t%rbp\nffffffff80002496:      \tpopq\t%rbx\nffffffff80002497:      \tpopq\t%rdx\nffffffff80002498:      \tpopq\t%rcx\nffffffff80002499:      \tpopq\t%rax\nffffffff8000249a:      \tiretq\n",
+      "timer_vector": "<timer_vector>:\nffffffff800024b9:      \tpushq\t%rax\nffffffff800024ba:      \tpushq\t%rcx\nffffffff800024bb:      \tpushq\t%rdx\nffffffff800024bc:      \tpushq\t%rbx\nffffffff800024bd:      \tpushq\t%rbp\nffffffff800024be:      \tpushq\t%rsi\nffffffff800024bf:      \tpushq\t%rdi\nffffffff800024c0:      \tpushq\t%r8\nffffffff800024c2:      \tpushq\t%r9\nffffffff800024c4:      \tpushq\t%r10\nffffffff800024c6:      \tpushq\t%r11\nffffffff800024c8:      \tpushq\t%r12\nffffffff800024ca:      \tpushq\t%r13\nffffffff800024cc:      \tpushq\t%r14\nffffffff800024ce:      \tpushq\t%r15\nffffffff800024d0:      \tcld\nffffffff800024d1:      \tmovq\t%cr0, %rax\nffffffff800024d4:      \tpushq\t%rax\nffffffff800024d5:      \torq\t$0x8, %rax\nffffffff800024d9:      \tmovq\t%rax, %cr0\nffffffff800024dc:      \tleaq\t0x8(%rsp), %rbx\nffffffff800024e1:      \tandq\t$-0x10, %rsp\nffffffff800024e5:      \tmovl\t$0x40, %edi\nffffffff800024ea:      \tmovq\t0x80(%rbx), %rsi\nffffffff800024f1:      \tmovq\t%rbx, %rdx\nffffffff800024f4:      \tcallq\t0xffffffff8001cc50 <_RNvNtCsbqYYt735GVt_16continuum_kernel5timer9interrupt>\nffffffff800024f9:      \tmovq\t-0x8(%rbx), %rax\nffffffff800024fd:      \tmovq\t%rax, %cr0\nffffffff80002500:      \tmovq\t%rbx, %rsp\nffffffff80002503:      \tpopq\t%r15\nffffffff80002505:      \tpopq\t%r14\nffffffff80002507:      \tpopq\t%r13\nffffffff80002509:      \tpopq\t%r12\nffffffff8000250b:      \tpopq\t%r11\nffffffff8000250d:      \tpopq\t%r10\nffffffff8000250f:      \tpopq\t%r9\nffffffff80002511:      \tpopq\t%r8\nffffffff80002513:      \tpopq\t%rdi\nffffffff80002514:      \tpopq\t%rsi\nffffffff80002515:      \tpopq\t%rbp\nffffffff80002516:      \tpopq\t%rbx\nffffffff80002517:      \tpopq\t%rdx\nffffffff80002518:      \tpopq\t%rcx\nffffffff80002519:      \tpopq\t%rax\nffffffff8000251a:      \tiretq\n"
+    },
+    "simd_instruction_counts": {
+      "user_a": {},
+      "user_b": {},
+      "service": {}
+    }
+  },
+  "build_id": "51217abb298a602223f303b603a6c7f5faf25a2e9c9b383f7ce0e304b5d7a4fe",
+  "kernel_sha256": "34d879b7204ecc6ae3bf4ae2c2741bc20c6a5be7226a29ba929f0df2817995fe",
+  "iso_sha256": "33b7d6d336217fd49f9d423fc5355c26d18bbf1ec83f5e1299fcdf8ae38d1fa5",
+  "serial_sha256": "caabc3b3a1d4377bc049c09702944da67f15e7a30cdf57d57191423c4eb6ad89",
+  "builds": {
+    "offline": true,
+    "images": [
+      {
+        "bytes": 151760,
+        "sdk_version": "0.1.0",
+        "metadata_sha256": "043b9b40a18722b9d26e3cf1483a0cfe9d65fc094fb6b93d6e4962727c941cf2",
+        "root": "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\client",
+        "arguments": [
+          "build",
+          "--locked",
+          "--offline",
+          "--release",
+          "--target",
+          "x86_64-unknown-none",
+          "--manifest-path",
+          "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\client\\experiments\\sdk-client\\Cargo.toml"
+        ],
+        "file": "user_a.elf",
+        "wire_minor": 0,
+        "variant": "client",
+        "sha256": "47cbe4dfd5a296c976fd2ffb63039281eae5870e01ee7a606cf43f45a2b6c736",
+        "inputs": [
+          {
+            "sha256": "fa6f1a5f1d106a5da8f7e32a0965eb5de56f22b99e323936c8e39c63caa14321",
+            "path": "Cargo.toml"
+          },
+          {
+            "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20",
+            "path": "LICENSE"
+          },
+          {
+            "sha256": "3c2e2a2762ccaea3283333dcb7b2f771f1a1fa5de03673917ac5f2d561ec5ffe",
+            "path": "crates/editor-model/Cargo.toml"
+          },
+          {
+            "sha256": "457aaab085d11f4ecc9fefd3c8594ad2aa239843eec302a1730a5a58fc4e324b",
+            "path": "crates/editor-model/src/lib.rs"
+          },
+          {
+            "sha256": "097035262cd12ec1ee83cc5322b280fbb69a2ef9f7a4d358d766683a32b05045",
+            "path": "crates/editor-model/src/snapshot.rs"
+          },
+          {
+            "sha256": "1c630f81aa46eefe1602599539ddbc34777bfb7db8f673da9b331344f10ad0a2",
+            "path": "crates/editor-model/src/tests.rs"
+          },
+          {
+            "sha256": "a0f83061d5bd29044faac86b196f9fe6b8621fbf0066b90dd46c7f2b00fbe8ee",
+            "path": "experiments/sdk-client/Cargo.lock"
+          },
+          {
+            "sha256": "ccf2f54be0744e884f8728394ec0ff68232acf134ed19cb0b99ce0b7da358c14",
+            "path": "experiments/sdk-client/Cargo.toml"
+          },
+          {
+            "sha256": "8d8fcad8a48fae05f262b4b79aec764ff6d19354556bc3739d1c76bb71bbc62e",
+            "path": "experiments/sdk-client/src/handshake.rs"
+          },
+          {
+            "sha256": "27367f41984751bb0d09a92858806b42fa751abc4b76516b6cd549ae65137a8d",
+            "path": "experiments/sdk-client/src/main.rs"
+          },
+          {
+            "sha256": "dacfd3e3bf066e7d12e96597cc7b8a88971cb4192a332edd6524901566d21929",
+            "path": "experiments/sdk-client/src/probe.rs"
+          },
+          {
+            "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c",
+            "path": "experiments/sdk-client/src/runtime.rs"
+          },
+          {
+            "sha256": "858cb95fa236caf2358b8fcbc9222fd2a8880ce93a0bcba12551af30aebf5a23",
+            "path": "experiments/sdk-client/src/smoke.rs"
+          },
+          {
+            "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd",
+            "path": "sdk/continuum-rt/Cargo.lock"
+          },
+          {
+            "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc",
+            "path": "sdk/continuum-rt/Cargo.toml"
+          },
+          {
+            "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+            "path": "sdk/continuum-rt/contract.json"
+          },
+          {
+            "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09",
+            "path": "sdk/continuum-rt/fixtures.json"
+          },
+          {
+            "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457",
+            "path": "sdk/continuum-rt/README.md"
+          },
+          {
+            "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10",
+            "path": "sdk/continuum-rt/user.ld"
+          },
+          {
+            "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782",
+            "path": "sdk/continuum-rt/src/allocator.rs"
+          },
+          {
+            "sha256": "3afc182c782fc391e56aa1ec0b89adeda647bc5ddeb0ee21a9fe24a156f7cd7e",
+            "path": "sdk/continuum-rt/src/generated.rs"
+          },
+          {
+            "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d",
+            "path": "sdk/continuum-rt/src/guest.rs"
+          },
+          {
+            "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154",
+            "path": "sdk/continuum-rt/src/lib.rs"
+          },
+          {
+            "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec",
+            "path": "sdk/continuum-rt/src/wire.rs"
+          },
+          {
+            "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634",
+            "path": "sdk/continuum-rt/src/bin/conformance.rs"
+          }
+        ]
+      },
+      {
+        "bytes": 158944,
+        "sdk_version": "0.1.0",
+        "metadata_sha256": "eb8774f5a3b4b5fb438126da9575a4b54308a66fa6b1049caa5914040087ce46",
+        "root": "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\service-old",
+        "arguments": [
+          "build",
+          "--locked",
+          "--offline",
+          "--release",
+          "--target",
+          "x86_64-unknown-none",
+          "--manifest-path",
+          "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\service-old\\experiments\\sdk-service\\Cargo.toml"
+        ],
+        "file": "service.elf",
+        "wire_minor": 0,
+        "variant": "service-old",
+        "sha256": "8b06ebed4659683c20f7e2a04dfd43278dbe1fb8ca6e47ad301d9fade87db3b4",
+        "inputs": [
+          {
+            "sha256": "fa6f1a5f1d106a5da8f7e32a0965eb5de56f22b99e323936c8e39c63caa14321",
+            "path": "Cargo.toml"
+          },
+          {
+            "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20",
+            "path": "LICENSE"
+          },
+          {
+            "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2",
+            "path": "experiments/sdk-service/Cargo.lock"
+          },
+          {
+            "sha256": "a11a8d23d9c81ce1e25c6bb163285f4107d2ef5767a16b23ab337af558f61525",
+            "path": "experiments/sdk-service/Cargo.toml"
+          },
+          {
+            "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a",
+            "path": "experiments/sdk-service/src/handshake.rs"
+          },
+          {
+            "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea",
+            "path": "experiments/sdk-service/src/main.rs"
+          },
+          {
+            "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7",
+            "path": "experiments/sdk-service/src/policy.rs"
+          },
+          {
+            "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e",
+            "path": "experiments/sdk-service/src/routes.rs"
+          },
+          {
+            "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c",
+            "path": "experiments/sdk-service/src/runtime.rs"
+          },
+          {
+            "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd",
+            "path": "sdk/continuum-rt/Cargo.lock"
+          },
+          {
+            "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc",
+            "path": "sdk/continuum-rt/Cargo.toml"
+          },
+          {
+            "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+            "path": "sdk/continuum-rt/contract.json"
+          },
+          {
+            "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09",
+            "path": "sdk/continuum-rt/fixtures.json"
+          },
+          {
+            "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457",
+            "path": "sdk/continuum-rt/README.md"
+          },
+          {
+            "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10",
+            "path": "sdk/continuum-rt/user.ld"
+          },
+          {
+            "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782",
+            "path": "sdk/continuum-rt/src/allocator.rs"
+          },
+          {
+            "sha256": "3afc182c782fc391e56aa1ec0b89adeda647bc5ddeb0ee21a9fe24a156f7cd7e",
+            "path": "sdk/continuum-rt/src/generated.rs"
+          },
+          {
+            "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d",
+            "path": "sdk/continuum-rt/src/guest.rs"
+          },
+          {
+            "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154",
+            "path": "sdk/continuum-rt/src/lib.rs"
+          },
+          {
+            "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec",
+            "path": "sdk/continuum-rt/src/wire.rs"
+          },
+          {
+            "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634",
+            "path": "sdk/continuum-rt/src/bin/conformance.rs"
+          }
+        ]
+      },
+      {
+        "bytes": 158936,
+        "sdk_version": "0.1.0",
+        "metadata_sha256": "ac074197f31d391f1833204d3b92b47f2d069d19d79ac83ebf4dfb2527480248",
+        "root": "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\service-new",
+        "arguments": [
+          "build",
+          "--locked",
+          "--offline",
+          "--release",
+          "--target",
+          "x86_64-unknown-none",
+          "--manifest-path",
+          "${WORKSPACE}\\build\\m1\\sdk-1793555341732327400-60632\\service-new\\experiments\\sdk-service\\Cargo.toml",
+          "--features",
+          "minor-1"
+        ],
+        "file": "user_b.elf",
+        "wire_minor": 1,
+        "variant": "service-new",
+        "sha256": "b23b8ca46d5673e966eb7a456e50f47347346cd1f0c0bca908d84f9226eea411",
+        "inputs": [
+          {
+            "sha256": "fa6f1a5f1d106a5da8f7e32a0965eb5de56f22b99e323936c8e39c63caa14321",
+            "path": "Cargo.toml"
+          },
+          {
+            "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20",
+            "path": "LICENSE"
+          },
+          {
+            "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2",
+            "path": "experiments/sdk-service/Cargo.lock"
+          },
+          {
+            "sha256": "a11a8d23d9c81ce1e25c6bb163285f4107d2ef5767a16b23ab337af558f61525",
+            "path": "experiments/sdk-service/Cargo.toml"
+          },
+          {
+            "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a",
+            "path": "experiments/sdk-service/src/handshake.rs"
+          },
+          {
+            "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea",
+            "path": "experiments/sdk-service/src/main.rs"
+          },
+          {
+            "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7",
+            "path": "experiments/sdk-service/src/policy.rs"
+          },
+          {
+            "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e",
+            "path": "experiments/sdk-service/src/routes.rs"
+          },
+          {
+            "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c",
+            "path": "experiments/sdk-service/src/runtime.rs"
+          },
+          {
+            "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd",
+            "path": "sdk/continuum-rt/Cargo.lock"
+          },
+          {
+            "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc",
+            "path": "sdk/continuum-rt/Cargo.toml"
+          },
+          {
+            "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+            "path": "sdk/continuum-rt/contract.json"
+          },
+          {
+            "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09",
+            "path": "sdk/continuum-rt/fixtures.json"
+          },
+          {
+            "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457",
+            "path": "sdk/continuum-rt/README.md"
+          },
+          {
+            "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10",
+            "path": "sdk/continuum-rt/user.ld"
+          },
+          {
+            "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782",
+            "path": "sdk/continuum-rt/src/allocator.rs"
+          },
+          {
+            "sha256": "3afc182c782fc391e56aa1ec0b89adeda647bc5ddeb0ee21a9fe24a156f7cd7e",
+            "path": "sdk/continuum-rt/src/generated.rs"
+          },
+          {
+            "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d",
+            "path": "sdk/continuum-rt/src/guest.rs"
+          },
+          {
+            "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154",
+            "path": "sdk/continuum-rt/src/lib.rs"
+          },
+          {
+            "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec",
+            "path": "sdk/continuum-rt/src/wire.rs"
+          },
+          {
+            "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634",
+            "path": "sdk/continuum-rt/src/bin/conformance.rs"
+          }
+        ]
+      }
+    ],
+    "unchanged_client_sha256": "47cbe4dfd5a296c976fd2ffb63039281eae5870e01ee7a606cf43f45a2b6c736",
+    "runtime": false,
+    "schema_version": 1,
+    "status": "passed"
+  },
+  "runtime": {
+    "status": "passed",
+    "scope": "focused only; final regression gate separate",
+    "audit": {
+      "process_runs": 6,
+      "exact_settlements": 1,
+      "preemptions": [
+        10,
+        6
+      ],
+      "runtime_hooks": "nonrendering selected model, segmentation, libm, reclaim/zero/realloc/return/panic/OOM"
+    },
+    "mutations": [
+      "missing m1.route_admit",
+      "missing m1.route_end",
+      "missing m1.route_settled",
+      "missing m1.route_ready",
+      "missing m1.wait_settled",
+      "missing sdk-runtime-0-",
+      "missing sdk-runtime-1-",
+      "missing sdk-runtime-5-",
+      "missing sdk-syscalls-",
+      "missing sdk-panic-contained",
+      "missing sdk-oom-contained",
+      "missing sdk-startup-return",
+      "missing sdk-heap-capacity-reused",
+      "missing sdk-heap-unmapped",
+      "m1.route_end.preemptions",
+      "m1.route_end.code",
+      "m1.route_settled.frames",
+      "m1.wait_settled.records",
+      "m1.wait_settled.watches"
+    ],
+    "codegen": {
+      "helpers": {
+        "task_resume": "<task_resume>:\nffffffff8000269d:      \tcli\nffffffff8000269e:      \tcld\nffffffff8000269f:      \tpushq\t%rbp\nffffffff800026a0:      \tpushq\t%rbx\nffffffff800026a1:      \tpushq\t%r12\nffffffff800026a3:      \tpushq\t%r13\nffffffff800026a5:      \tpushq\t%r14\nffffffff800026a7:      \tpushq\t%r15\nffffffff800026a9:      \tmovq\t%rsp, 0x9bc958(%rip) # 0xffffffff809bf008 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry12CONTINUATION>\nffffffff800026b0:      \tmovq\t%cr3, %rax\nffffffff800026b3:      \tmovq\t%rax, 0x9bc946(%rip) # 0xffffffff809bf000 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff800026ba:      \tmovq\t%rdi, %cr3\nffffffff800026bd:      \tmovq\t0x9bce7c(%rip), %rsp # 0xffffffff809bf540 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800026c4:      \tsubq\t$0xa0, %rsp\nffffffff800026cb:      \tmovq\t%rdx, %r8\nffffffff800026ce:      \tmovq\t%rsp, %rdi\nffffffff800026d1:      \tmovl\t$0x14, %ecx\nffffffff800026d6:      \trep\t\tmovsq\t(%rsi), %es:(%rdi)\nffffffff800026d9:      \txorl\t%eax, %eax\nffffffff800026db:      \tmovw\t%ax, %ds\nffffffff800026de:      \tmovw\t%ax, %es\nffffffff800026e1:      \tmovw\t%ax, %fs\nffffffff800026e4:      \tmovw\t%ax, %gs\nffffffff800026e7:      \tclts\nffffffff800026e9:      \tfxrstor64\t(%r8)\nffffffff800026ed:      \tpopq\t%r15\nffffffff800026ef:      \tpopq\t%r14\nffffffff800026f1:      \tpopq\t%r13\nffffffff800026f3:      \tpopq\t%r12\nffffffff800026f5:      \tpopq\t%r11\nffffffff800026f7:      \tpopq\t%r10\nffffffff800026f9:      \tpopq\t%r9\nffffffff800026fb:      \tpopq\t%r8\nffffffff800026fd:      \tpopq\t%rdi\nffffffff800026fe:      \tpopq\t%rsi\nffffffff800026ff:      \tpopq\t%rbp\nffffffff80002700:      \tpopq\t%rbx\nffffffff80002701:      \tpopq\t%rdx\nffffffff80002702:      \tpopq\t%rcx\nffffffff80002703:      \tpopq\t%rax\nffffffff80002704:      \tiretq\nffffffff80002706:      \tint3\nffffffff80002707:      \tint3\nffffffff80002708:      \tint3\nffffffff80002709:      \tint3\nffffffff8000270a:      \tint3\nffffffff8000270b:      \tint3\nffffffff8000270c:      \tint3\nffffffff8000270d:      \tint3\nffffffff8000270e:      \tint3\nffffffff8000270f:      \tint3\n",
+        "task_save_fp": "<task_save_fp>:\nffffffff8000268c:      \tclts\nffffffff8000268e:      \tfxsave64\t(%rdi)\nffffffff80002692:      \tmovq\t%cr0, %rax\nffffffff80002695:      \torq\t$0x8, %rax\nffffffff80002699:      \tmovq\t%rax, %cr0\nffffffff8000269c:      \tretq\n",
+        "user_syscall": "<user_syscall>:\nffffffff8000243c:      \tmovq\t%rsp, 0x9bd0f5(%rip) # 0xffffffff809bf538 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry7USER_SP>\nffffffff80002443:      \tmovq\t0x9bd0f6(%rip), %rsp # 0xffffffff809bf540 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff8000244a:      \tpushq\t%rax\nffffffff8000244b:      \tmovq\t%cr0, %rax\nffffffff8000244e:      \torq\t$0x8, %rax\nffffffff80002452:      \tmovq\t%rax, %cr0\nffffffff80002455:      \tpopq\t%rax\nffffffff80002456:      \tpushq\t$0x3b\nffffffff80002458:      \tpushq\t0x9bd0da(%rip)  # 0xffffffff809bf538 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry7USER_SP>\nffffffff8000245e:      \tpushq\t%r11\nffffffff80002460:      \tpushq\t$0x33\nffffffff80002462:      \tpushq\t%rcx\nffffffff80002463:      \tpushq\t%rax\nffffffff80002464:      \tpushq\t%rcx\nffffffff80002465:      \tpushq\t%rdx\nffffffff80002466:      \tpushq\t%rbx\nffffffff80002467:      \tpushq\t%rbp\nffffffff80002468:      \tpushq\t%rsi\nffffffff80002469:      \tpushq\t%rdi\nffffffff8000246a:      \tpushq\t%r8\nffffffff8000246c:      \tpushq\t%r9\nffffffff8000246e:      \tpushq\t%r10\nffffffff80002470:      \tpushq\t%r11\nffffffff80002472:      \tpushq\t%r12\nffffffff80002474:      \tpushq\t%r13\nffffffff80002476:      \tpushq\t%r14\nffffffff80002478:      \tpushq\t%r15\nffffffff8000247a:      \tcld\nffffffff8000247b:      \tmovq\t%rsp, %rdi\nffffffff8000247e:      \tcallq\t0xffffffff8001b550 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry8dispatch>\nffffffff80002483:      \tpopq\t%r15\nffffffff80002485:      \tpopq\t%r14\nffffffff80002487:      \tpopq\t%r13\nffffffff80002489:      \tpopq\t%r12\nffffffff8000248b:      \tpopq\t%r11\nffffffff8000248d:      \tpopq\t%r10\nffffffff8000248f:      \tpopq\t%r9\nffffffff80002491:      \tpopq\t%r8\nffffffff80002493:      \tpopq\t%rdi\nffffffff80002494:      \tpopq\t%rsi\nffffffff80002495:      \tpopq\t%rbp\nffffffff80002496:      \tpopq\t%rbx\nffffffff80002497:      \tpopq\t%rdx\nffffffff80002498:      \tpopq\t%rcx\nffffffff80002499:      \tpopq\t%rax\nffffffff8000249a:      \tiretq\n",
+        "timer_vector": "<timer_vector>:\nffffffff800024b9:      \tpushq\t%rax\nffffffff800024ba:      \tpushq\t%rcx\nffffffff800024bb:      \tpushq\t%rdx\nffffffff800024bc:      \tpushq\t%rbx\nffffffff800024bd:      \tpushq\t%rbp\nffffffff800024be:      \tpushq\t%rsi\nffffffff800024bf:      \tpushq\t%rdi\nffffffff800024c0:      \tpushq\t%r8\nffffffff800024c2:      \tpushq\t%r9\nffffffff800024c4:      \tpushq\t%r10\nffffffff800024c6:      \tpushq\t%r11\nffffffff800024c8:      \tpushq\t%r12\nffffffff800024ca:      \tpushq\t%r13\nffffffff800024cc:      \tpushq\t%r14\nffffffff800024ce:      \tpushq\t%r15\nffffffff800024d0:      \tcld\nffffffff800024d1:      \tmovq\t%cr0, %rax\nffffffff800024d4:      \tpushq\t%rax\nffffffff800024d5:      \torq\t$0x8, %rax\nffffffff800024d9:      \tmovq\t%rax, %cr0\nffffffff800024dc:      \tleaq\t0x8(%rsp), %rbx\nffffffff800024e1:      \tandq\t$-0x10, %rsp\nffffffff800024e5:      \tmovl\t$0x40, %edi\nffffffff800024ea:      \tmovq\t0x80(%rbx), %rsi\nffffffff800024f1:      \tmovq\t%rbx, %rdx\nffffffff800024f4:      \tcallq\t0xffffffff8001cb80 <_RNvNtCs39pDQjBFXuf_16continuum_kernel5timer9interrupt>\nffffffff800024f9:      \tmovq\t-0x8(%rbx), %rax\nffffffff800024fd:      \tmovq\t%rax, %cr0\nffffffff80002500:      \tmovq\t%rbx, %rsp\nffffffff80002503:      \tpopq\t%r15\nffffffff80002505:      \tpopq\t%r14\nffffffff80002507:      \tpopq\t%r13\nffffffff80002509:      \tpopq\t%r12\nffffffff8000250b:      \tpopq\t%r11\nffffffff8000250d:      \tpopq\t%r10\nffffffff8000250f:      \tpopq\t%r9\nffffffff80002511:      \tpopq\t%r8\nffffffff80002513:      \tpopq\t%rdi\nffffffff80002514:      \tpopq\t%rsi\nffffffff80002515:      \tpopq\t%rbp\nffffffff80002516:      \tpopq\t%rbx\nffffffff80002517:      \tpopq\t%rdx\nffffffff80002518:      \tpopq\t%rcx\nffffffff80002519:      \tpopq\t%rax\nffffffff8000251a:      \tiretq\n"
+      },
+      "simd_instruction_counts": {
+        "user_a": {
+          "addsd": 1,
+          "movq": 2,
+          "xorpd": 1
+        },
+        "user_b": {},
+        "service": {}
+      }
+    },
+    "build_id": "6c4a6447a4136d7eceb9adfc8b6b958e729a55355dd318d9f74cf3cb17cb8516",
+    "kernel_sha256": "f448147c4f2b096b8c50ba26d6baae8b992071af35ba2cab4744cc82b5112704",
+    "iso_sha256": "b0107ab15288332d43370f9bb9f7252333961515818213867a89bea6e54ef875",
+    "serial_sha256": "3876cae5faaf45343fda0c5b26584d2989708cf66ac5d0db0af4e1153d77d1ab",
+    "builds": {
+      "runtime": true,
+      "offline": true,
+      "images": [
+        {
+          "arguments": [
+            "build",
+            "--locked",
+            "--offline",
+            "--release",
+            "--target",
+            "x86_64-unknown-none",
+            "--manifest-path",
+            "${WORKSPACE}\\build\\m1\\sdk-runtime-1793555452124964400-76856\\client\\experiments\\sdk-client\\Cargo.toml",
+            "--features",
+            "runtime-smoke"
+          ],
+          "sdk_version": "0.1.0",
+          "metadata_sha256": "091021c4790c1b41689ea8fca21dca46efc84e919eac0e987dff044a2a534de7",
+          "bytes": 308296,
+          "root": "${WORKSPACE}\\build\\m1\\sdk-runtime-1793555452124964400-76856\\client",
+          "file": "user_a.elf",
+          "wire_minor": 0,
+          "variant": "client",
+          "inputs": [
+            {
+              "sha256": "fa6f1a5f1d106a5da8f7e32a0965eb5de56f22b99e323936c8e39c63caa14321",
+              "path": "Cargo.toml"
+            },
+            {
+              "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20",
+              "path": "LICENSE"
+            },
+            {
+              "sha256": "3c2e2a2762ccaea3283333dcb7b2f771f1a1fa5de03673917ac5f2d561ec5ffe",
+              "path": "crates/editor-model/Cargo.toml"
+            },
+            {
+              "sha256": "457aaab085d11f4ecc9fefd3c8594ad2aa239843eec302a1730a5a58fc4e324b",
+              "path": "crates/editor-model/src/lib.rs"
+            },
+            {
+              "sha256": "097035262cd12ec1ee83cc5322b280fbb69a2ef9f7a4d358d766683a32b05045",
+              "path": "crates/editor-model/src/snapshot.rs"
+            },
+            {
+              "sha256": "1c630f81aa46eefe1602599539ddbc34777bfb7db8f673da9b331344f10ad0a2",
+              "path": "crates/editor-model/src/tests.rs"
+            },
+            {
+              "sha256": "a0f83061d5bd29044faac86b196f9fe6b8621fbf0066b90dd46c7f2b00fbe8ee",
+              "path": "experiments/sdk-client/Cargo.lock"
+            },
+            {
+              "sha256": "ccf2f54be0744e884f8728394ec0ff68232acf134ed19cb0b99ce0b7da358c14",
+              "path": "experiments/sdk-client/Cargo.toml"
+            },
+            {
+              "sha256": "8d8fcad8a48fae05f262b4b79aec764ff6d19354556bc3739d1c76bb71bbc62e",
+              "path": "experiments/sdk-client/src/handshake.rs"
+            },
+            {
+              "sha256": "27367f41984751bb0d09a92858806b42fa751abc4b76516b6cd549ae65137a8d",
+              "path": "experiments/sdk-client/src/main.rs"
+            },
+            {
+              "sha256": "dacfd3e3bf066e7d12e96597cc7b8a88971cb4192a332edd6524901566d21929",
+              "path": "experiments/sdk-client/src/probe.rs"
+            },
+            {
+              "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c",
+              "path": "experiments/sdk-client/src/runtime.rs"
+            },
+            {
+              "sha256": "858cb95fa236caf2358b8fcbc9222fd2a8880ce93a0bcba12551af30aebf5a23",
+              "path": "experiments/sdk-client/src/smoke.rs"
+            },
+            {
+              "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd",
+              "path": "sdk/continuum-rt/Cargo.lock"
+            },
+            {
+              "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc",
+              "path": "sdk/continuum-rt/Cargo.toml"
+            },
+            {
+              "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+              "path": "sdk/continuum-rt/contract.json"
+            },
+            {
+              "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09",
+              "path": "sdk/continuum-rt/fixtures.json"
+            },
+            {
+              "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457",
+              "path": "sdk/continuum-rt/README.md"
+            },
+            {
+              "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10",
+              "path": "sdk/continuum-rt/user.ld"
+            },
+            {
+              "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782",
+              "path": "sdk/continuum-rt/src/allocator.rs"
+            },
+            {
+              "sha256": "3afc182c782fc391e56aa1ec0b89adeda647bc5ddeb0ee21a9fe24a156f7cd7e",
+              "path": "sdk/continuum-rt/src/generated.rs"
+            },
+            {
+              "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d",
+              "path": "sdk/continuum-rt/src/guest.rs"
+            },
+            {
+              "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154",
+              "path": "sdk/continuum-rt/src/lib.rs"
+            },
+            {
+              "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec",
+              "path": "sdk/continuum-rt/src/wire.rs"
+            },
+            {
+              "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634",
+              "path": "sdk/continuum-rt/src/bin/conformance.rs"
+            }
+          ],
+          "sha256": "0fd24b2bd43f0566e10745838d41c5f3669e4873fbcc33b1685223d68f5c9c63"
+        },
+        {
+          "arguments": [
+            "build",
+            "--locked",
+            "--offline",
+            "--release",
+            "--target",
+            "x86_64-unknown-none",
+            "--manifest-path",
+            "${WORKSPACE}\\build\\m1\\sdk-runtime-1793555452124964400-76856\\service-old\\experiments\\sdk-service\\Cargo.toml"
+          ],
+          "sdk_version": "0.1.0",
+          "metadata_sha256": "364b9bce9dd184c4d31ce16746dcd2ce2e424bc3bc64e928a722af64102c5f6b",
+          "bytes": 158944,
+          "root": "${WORKSPACE}\\build\\m1\\sdk-runtime-1793555452124964400-76856\\service-old",
+          "file": "service.elf",
+          "wire_minor": 0,
+          "variant": "service-old",
+          "inputs": [
+            {
+              "sha256": "fa6f1a5f1d106a5da8f7e32a0965eb5de56f22b99e323936c8e39c63caa14321",
+              "path": "Cargo.toml"
+            },
+            {
+              "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20",
+              "path": "LICENSE"
+            },
+            {
+              "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2",
+              "path": "experiments/sdk-service/Cargo.lock"
+            },
+            {
+              "sha256": "a11a8d23d9c81ce1e25c6bb163285f4107d2ef5767a16b23ab337af558f61525",
+              "path": "experiments/sdk-service/Cargo.toml"
+            },
+            {
+              "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a",
+              "path": "experiments/sdk-service/src/handshake.rs"
+            },
+            {
+              "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea",
+              "path": "experiments/sdk-service/src/main.rs"
+            },
+            {
+              "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7",
+              "path": "experiments/sdk-service/src/policy.rs"
+            },
+            {
+              "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e",
+              "path": "experiments/sdk-service/src/routes.rs"
+            },
+            {
+              "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c",
+              "path": "experiments/sdk-service/src/runtime.rs"
+            },
+            {
+              "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd",
+              "path": "sdk/continuum-rt/Cargo.lock"
+            },
+            {
+              "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc",
+              "path": "sdk/continuum-rt/Cargo.toml"
+            },
+            {
+              "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+              "path": "sdk/continuum-rt/contract.json"
+            },
+            {
+              "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09",
+              "path": "sdk/continuum-rt/fixtures.json"
+            },
+            {
+              "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457",
+              "path": "sdk/continuum-rt/README.md"
+            },
+            {
+              "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10",
+              "path": "sdk/continuum-rt/user.ld"
+            },
+            {
+              "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782",
+              "path": "sdk/continuum-rt/src/allocator.rs"
+            },
+            {
+              "sha256": "3afc182c782fc391e56aa1ec0b89adeda647bc5ddeb0ee21a9fe24a156f7cd7e",
+              "path": "sdk/continuum-rt/src/generated.rs"
+            },
+            {
+              "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d",
+              "path": "sdk/continuum-rt/src/guest.rs"
+            },
+            {
+              "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154",
+              "path": "sdk/continuum-rt/src/lib.rs"
+            },
+            {
+              "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec",
+              "path": "sdk/continuum-rt/src/wire.rs"
+            },
+            {
+              "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634",
+              "path": "sdk/continuum-rt/src/bin/conformance.rs"
+            }
+          ],
+          "sha256": "7412353651ef9c19f21aba33a495d231550690023a95a29e22b35892e4e0b58e"
+        },
+        {
+          "arguments": [
+            "build",
+            "--locked",
+            "--offline",
+            "--release",
+            "--target",
+            "x86_64-unknown-none",
+            "--manifest-path",
+            "${WORKSPACE}\\build\\m1\\sdk-runtime-1793555452124964400-76856\\service-new\\experiments\\sdk-service\\Cargo.toml",
+            "--features",
+            "minor-1"
+          ],
+          "sdk_version": "0.1.0",
+          "metadata_sha256": "c1bfa599aa9258581420578379b86d13ca362894a74df1a0c9acbf4f417bb5c5",
+          "bytes": 158944,
+          "root": "${WORKSPACE}\\build\\m1\\sdk-runtime-1793555452124964400-76856\\service-new",
+          "file": "user_b.elf",
+          "wire_minor": 1,
+          "variant": "service-new",
+          "inputs": [
+            {
+              "sha256": "fa6f1a5f1d106a5da8f7e32a0965eb5de56f22b99e323936c8e39c63caa14321",
+              "path": "Cargo.toml"
+            },
+            {
+              "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20",
+              "path": "LICENSE"
+            },
+            {
+              "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2",
+              "path": "experiments/sdk-service/Cargo.lock"
+            },
+            {
+              "sha256": "a11a8d23d9c81ce1e25c6bb163285f4107d2ef5767a16b23ab337af558f61525",
+              "path": "experiments/sdk-service/Cargo.toml"
+            },
+            {
+              "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a",
+              "path": "experiments/sdk-service/src/handshake.rs"
+            },
+            {
+              "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea",
+              "path": "experiments/sdk-service/src/main.rs"
+            },
+            {
+              "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7",
+              "path": "experiments/sdk-service/src/policy.rs"
+            },
+            {
+              "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e",
+              "path": "experiments/sdk-service/src/routes.rs"
+            },
+            {
+              "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c",
+              "path": "experiments/sdk-service/src/runtime.rs"
+            },
+            {
+              "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd",
+              "path": "sdk/continuum-rt/Cargo.lock"
+            },
+            {
+              "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc",
+              "path": "sdk/continuum-rt/Cargo.toml"
+            },
+            {
+              "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+              "path": "sdk/continuum-rt/contract.json"
+            },
+            {
+              "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09",
+              "path": "sdk/continuum-rt/fixtures.json"
+            },
+            {
+              "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457",
+              "path": "sdk/continuum-rt/README.md"
+            },
+            {
+              "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10",
+              "path": "sdk/continuum-rt/user.ld"
+            },
+            {
+              "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782",
+              "path": "sdk/continuum-rt/src/allocator.rs"
+            },
+            {
+              "sha256": "3afc182c782fc391e56aa1ec0b89adeda647bc5ddeb0ee21a9fe24a156f7cd7e",
+              "path": "sdk/continuum-rt/src/generated.rs"
+            },
+            {
+              "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d",
+              "path": "sdk/continuum-rt/src/guest.rs"
+            },
+            {
+              "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154",
+              "path": "sdk/continuum-rt/src/lib.rs"
+            },
+            {
+              "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec",
+              "path": "sdk/continuum-rt/src/wire.rs"
+            },
+            {
+              "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634",
+              "path": "sdk/continuum-rt/src/bin/conformance.rs"
+            }
+          ],
+          "sha256": "b3b79d5dd4b85636d88ec2abdd9b9475f461ea02094d408b57cbd1f224ae605b"
+        }
+      ],
+      "unchanged_client_sha256": "0fd24b2bd43f0566e10745838d41c5f3669e4873fbcc33b1685223d68f5c9c63",
+      "status": "passed",
+      "schema_version": 1
+    }
+  },
+  "portable_regression": {
+    "elf_sha256": "87b3bc723d2ea6a9e8f3f5785cdcc90919f2cdc4fbda33b94e63aef3133fdabe",
+    "guest_ui_executed": false,
+    "scope": "selected custom portable final link and model host tests",
+    "schema_version": 1,
+    "lock_sha256": "a881290009b683a88cff485235f9717a19835c6e5fe5c321640eea6bca06b081",
+    "status": "passed",
+    "audit": {
+      "format": "ELF64-LE",
+      "machine": "x86_64",
+      "entry": "0x400000",
+      "segments": [
+        {
+          "address": "0x400000",
+          "offset": 4096,
+          "file_bytes": 739228,
+          "memory_bytes": 739228,
+          "flags": 5,
+          "alignment": 4096
+        },
+        {
+          "address": "0x4b5000",
+          "offset": 745472,
+          "file_bytes": 18267556,
+          "memory_bytes": 18267556,
+          "flags": 4,
+          "alignment": 4096
+        },
+        {
+          "address": "0x1621000",
+          "offset": 19013632,
+          "file_bytes": 68200,
+          "memory_bytes": 67182640,
+          "flags": 6,
+          "alignment": 4096
+        }
+      ],
+      "allocated_sections": [
+        {
+          "name": ".text",
+          "bytes": 739228,
+          "flags": "0x6"
+        },
+        {
+          "name": ".rodata",
+          "bytes": 18267459,
+          "flags": "0x32"
+        },
+        {
+          "name": ".eh_frame_hdr",
+          "bytes": 28,
+          "flags": "0x2"
+        },
+        {
+          "name": ".eh_frame",
+          "bytes": 68,
+          "flags": "0x2"
+        },
+        {
+          "name": ".data",
+          "bytes": 68200,
+          "flags": "0x3"
+        },
+        {
+          "name": ".bss",
+          "bytes": 67113008,
+          "flags": "0x3"
+        }
+      ],
+      "unresolved_symbols": 0,
+      "remaining_relocations": 0,
+      "dynamic": false,
+      "tls": false,
+      "unwinding": false,
+      "executed": false,
+      "sha256": "87b3bc723d2ea6a9e8f3f5785cdcc90919f2cdc4fbda33b94e63aef3133fdabe",
+      "file_bytes": 26055872,
+      "llvm_undefined_empty": true,
+      "unexpected_os_symbols": false,
+      "passive_cfi_sections": [
+        {
+          "name": ".eh_frame_hdr",
+          "bytes": 28,
+          "flags": "0x2"
+        },
+        {
+          "name": ".eh_frame",
+          "bytes": 68,
+          "flags": "0x2"
+        }
+      ],
+      "cfi_augmentations": [
+        "zR"
+      ],
+      "runtime_unwinder_linked": false,
+      "fp_simd_instruction_count": 0,
+      "fp_simd_opcodes": {},
+      "fp_simd_excerpt": [],
+      "symbol_excerpts": {
+        "ui_probe_entry": [
+          "0000000000400000 T ui_probe_entry"
+        ],
+        "ui_link::ARENA": [
+          "0000000001632000 b ui_link::ARENA"
+        ],
+        "__rust_alloc": [
+          "0000000000401bd0 t __rustc::__rust_alloc",
+          "0000000000401d30 t __rustc::__rust_alloc_zeroed",
+          "0000000000401e40 T __rustc::__rust_alloc_error_handler"
+        ],
+        "custom_ui::scene": [
+          "0000000000402010 t <core::result::Result<&custom_ui::scene::Node, custom_ui::Error>>::map_or::<bool, <custom_ui::retained::Frame>::draw::{closure#2}>",
+          "00000000004023d0 t core::ptr::drop_glue::<custom_ui::scene::Node>",
+          "00000000004024c0 T <core::iter::adapters::map::Map<core::slice::iter::Iter<&custom_ui::scene::Node>, <custom_ui::scene::Tree>::semantics::{closure#0}> as core::iter::traits::iterator::Iterator>::fold::<(), core::iter::traits::iterator::Iterator::for_each::call<custom_ui::Semantic, <alloc::vec::Vec<custom_ui::Semantic>>::extend_trusted<core::iter::adapters::map::Map<core::slice::iter::Iter<&custom_ui::scene::Node>, <custom_ui::scene::Tree>::semantics::{closure#0}>>::{closure#0}>::{closure#0}>",
+          "0000000000402a20 t <core::slice::iter::Iter<&custom_ui::scene::Node> as core::iter::traits::iterator::Iterator>::position::<<custom_ui::input::Controller>::event::{closure#8}>",
+          "0000000000402ac0 T <alloc::vec::into_iter::IntoIter<&custom_ui::scene::Node> as core::iter::traits::iterator::Iterator>::try_fold::<alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, core::iter::adapters::filter::filter_try_fold<&custom_ui::scene::Node, alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, core::result::Result<alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, !>, <custom_ui::input::Controller>::event::{closure#6}, core::iter::adapters::filter::filter_try_fold<&custom_ui::scene::Node, alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, core::result::Result<alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, !>, <custom_ui::input::Controller>::event::{closure#7}, alloc::vec::in_place_collect::write_in_place_with_drop<&custom_ui::scene::Node>::{closure#0}>::{closure#0}>::{closure#0}, core::result::Result<alloc::vec::in_place_drop::InPlaceDrop<&custom_ui::scene::Node>, !>>"
+        ],
+        "custom_ui::retained::Frame::draw": [
+          "0000000000402010 t <core::result::Result<&custom_ui::scene::Node, custom_ui::Error>>::map_or::<bool, <custom_ui::retained::Frame>::draw::{closure#2}>",
+          "0000000000402da0 t <core::iter::adapters::enumerate::Enumerate<core::slice::iter::Iter<custom_ui::scene::Node>> as core::iter::traits::iterator::Iterator>::any::<<custom_ui::retained::Frame>::draw::{closure#1}>",
+          "0000000000402e70 t <custom_ui::retained::Frame>::draw::{closure#0}",
+          "000000000040c0a0 T <custom_ui::retained::Frame>::draw",
+          "0000000000412e70 T <alloc::vec::Vec<f32> as alloc::vec::spec_from_iter_nested::SpecFromIterNested<f32, core::iter::adapters::map::Map<core::slice::iter::Iter<custom_ui::scene::Node>, <custom_ui::retained::Frame>::draw::{closure#7}>>>::from_iter"
+        ],
+        "text_core::Engine::layout_cached": [
+          "0000000000420a00 T <alloc::collections::vec_deque::iter::Iter<(alloc::string::String, text_core::Config, text_core::Layout)> as core::iter::traits::iterator::Iterator>::try_fold::<(), core::iter::traits::iterator::Iterator::position::check<&(alloc::string::String, text_core::Config, text_core::Layout), <text_core::Engine>::layout_cached::{closure#0}>::{closure#0}, core::ops::control_flow::ControlFlow<usize>>",
+          "0000000000423ea0 T <text_core::Engine>::layout_cached"
+        ],
+        "text_core::Engine": [
+          "00000000004143f0 t <[text_core::Caret]>::sort_by::<<text_core::Engine>::shape_line::{closure#5}>",
+          "0000000000417340 T <alloc::vec::Vec<text_core::Caret>>::dedup_by::<<text_core::Engine>::shape_line::{closure#6}>",
+          "000000000041ab00 T core::slice::sort::stable::driftsort_main::<text_core::Caret, <[text_core::Caret]>::sort_by<<text_core::Engine>::shape_line::{closure#5}>::{closure#0}, alloc::vec::Vec<text_core::Caret>>",
+          "000000000041af40 T core::slice::sort::shared::pivot::median3_rec::<text_core::Caret, <[text_core::Caret]>::sort_by<<text_core::Engine>::shape_line::{closure#5}>::{closure#0}>",
+          "000000000041b3d0 T core::slice::sort::shared::smallsort::sort4_stable::<text_core::Caret, <[text_core::Caret]>::sort_by<<text_core::Engine>::shape_line::{closure#5}>::{closure#0}>"
+        ],
+        "fontdue": [
+          "0000000000414430 T <ttf_parser::tables::cmap::Subtable>::codepoints::<<fontdue::font::Font>::from_bytes<&[u8]>::{closure#1}>",
+          "0000000000415090 T <fontdue::font::Font>::from_bytes::<&[u8]>",
+          "0000000000417450 T <ttf_parser::tables::cmap::format2::Subtable2>::codepoints::<<fontdue::font::Font>::from_bytes<&[u8]>::{closure#1}>",
+          "0000000000417970 t core::ptr::drop_glue::<core::option::Option<fontdue::font::Font>>",
+          "0000000000417c00 t core::ptr::drop_glue::<fontdue::math::Geometry>"
+        ],
+        "rustybuzz": [
+          "0000000000436e50 t core::ptr::drop_glue::<rustybuzz::hb::paint_extents::hb_paint_extents_context_t>",
+          "0000000000436ece T core::panicking::assert_failed::<rustybuzz::hb::common::Direction, rustybuzz::hb::common::Direction>",
+          "0000000000436f10 T core::slice::sort::stable::driftsort_main::<rustybuzz::hb::buffer::hb_glyph_info_t, <[rustybuzz::hb::buffer::hb_glyph_info_t]>::sort_by_key<u8, rustybuzz::hb::ot_shaper_indic::initial_reordering_consonant_syllable::{closure#0}>::{closure#0}, alloc::vec::Vec<rustybuzz::hb::buffer::hb_glyph_info_t>>",
+          "0000000000437040 T core::slice::sort::stable::driftsort_main::<rustybuzz::hb::ot_map::lookup_map_t, <rustybuzz::hb::ot_map::lookup_map_t as core::cmp::PartialOrd>::lt, alloc::vec::Vec<rustybuzz::hb::ot_map::lookup_map_t>>",
+          "0000000000437170 T core::slice::sort::stable::driftsort_main::<rustybuzz::hb::ot_map::feature_map_t, <rustybuzz::hb::ot_map::feature_map_t as core::cmp::PartialOrd>::lt, alloc::vec::Vec<rustybuzz::hb::ot_map::feature_map_t>>"
+        ],
+        "memcpy": [
+          "00000000004b3d90 t memcpy"
+        ],
+        "memmove": [
+          "00000000004b46f0 t memmove"
+        ],
+        "memset": [
+          "00000000004b44f0 t memset"
+        ],
+        "memcmp": [
+          "00000000004b40c0 t memcmp"
+        ],
+        "slint_ui::paint": [],
+        "CandidateWindow": [],
+        "i_slint_renderer_software": [],
+        "libm": [
+          "00000000004a1ab0 t libm::math::rem_pio2_large::rem_pio2_large",
+          "00000000004a29f0 T libm::math::cosf::cosf",
+          "00000000004a2d80 T libm::math::sinf::sinf",
+          "00000000004a30a0 T libm::math::tanf::tanf",
+          "00000000004a31f0 T libm::math::round::roundf"
+        ],
+        "__addsf3": [
+          "00000000004b3880 t compiler_builtins::float::add::__addsf3",
+          "00000000004b3618 t __addsf3"
+        ],
+        "__mulsf3": [
+          "00000000004b3440 t compiler_builtins::float::mul::__mulsf3",
+          "00000000004b3218 t __mulsf3"
+        ],
+        "__divsf3": [
+          "00000000004b2ff0 t compiler_builtins::float::div::__divsf3",
+          "00000000004b2d38 t __divsf3"
+        ]
+      },
+      "negative_checks": [
+        {
+          "case": "wrong-machine",
+          "rejected": true,
+          "reason": "not x86-64 ET_EXEC"
+        },
+        {
+          "case": "wrong-entry",
+          "rejected": true,
+          "reason": "wrong probe entry"
+        },
+        {
+          "case": "wx",
+          "rejected": true,
+          "reason": "invalid or WX load permissions"
+        },
+        {
+          "case": "dynamic",
+          "rejected": true,
+          "reason": "dynamic/interpreter/TLS segment"
+        },
+        {
+          "case": "interpreter",
+          "rejected": true,
+          "reason": "dynamic/interpreter/TLS segment"
+        },
+        {
+          "case": "tls-segment",
+          "rejected": true,
+          "reason": "dynamic/interpreter/TLS segment"
+        },
+        {
+          "case": "tls-section",
+          "rejected": true,
+          "reason": "TLS section"
+        },
+        {
+          "case": "relocations",
+          "rejected": true,
+          "reason": "unresolved relocations"
+        },
+        {
+          "case": "unresolved-symbol",
+          "rejected": true,
+          "reason": "unresolved named symbol"
+        },
+        {
+          "case": "truncated-0",
+          "rejected": true
+        },
+        {
+          "case": "truncated-16",
+          "rejected": true
+        },
+        {
+          "case": "truncated-63",
+          "rejected": true
+        },
+        {
+          "case": "truncated-13027936",
+          "rejected": true
+        }
+      ]
+    }
+  },
+  "story": "P3-12",
+  "review": "local Codex self-review; not external approval",
+  "acceptance_sha256": "e4f7064ae764512ffa18379b77bdaa3419aa56423581a7f7a51bcd7b9dfb4671",
+  "regression": {
+    "audit": {
+      "incarnations": 9,
+      "process_runs": 54,
+      "fixed_bytes": 10581256,
+      "decisions": 131,
+      "mutation_attempts": 25,
+      "successful_commits": 19,
+      "faults": 8,
+      "exact_settlements": 9,
+      "decision_matrix": [
+        {
+          "wave": 0,
+          "case": 1,
+          "operation": 10,
+          "status": 3,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 211
+        },
+        {
+          "wave": 0,
+          "case": 2,
+          "operation": 1,
+          "status": 0,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 217
+        },
+        {
+          "wave": 0,
+          "case": 58,
+          "operation": 10,
+          "status": 9,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 231
+        },
+        {
+          "wave": 0,
+          "case": 3,
+          "operation": 4,
+          "status": 13,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 237
+        },
+        {
+          "wave": 0,
+          "case": 4,
+          "operation": 3,
+          "status": 0,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 243
+        },
+        {
+          "wave": 0,
+          "case": 59,
+          "operation": 10,
+          "status": 9,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 257
+        },
+        {
+          "wave": 0,
+          "case": 5,
+          "operation": 4,
+          "status": 0,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 263
+        },
+        {
+          "wave": 0,
+          "case": 6,
+          "operation": 9,
+          "status": 3,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 277
+        },
+        {
+          "wave": 0,
+          "case": 7,
+          "operation": 11,
+          "status": 14,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 291
+        },
+        {
+          "wave": 0,
+          "case": 8,
+          "operation": 11,
+          "status": 14,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 304
+        },
+        {
+          "wave": 0,
+          "case": 9,
+          "operation": 11,
+          "status": 3,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 319
+        },
+        {
+          "wave": 0,
+          "case": 54,
+          "operation": 10,
+          "status": 14,
+          "epoch": 100,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 333
+        },
+        {
+          "wave": 0,
+          "case": 10,
+          "operation": 11,
+          "status": 0,
+          "epoch": 100,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 364
+        },
+        {
+          "wave": 0,
+          "case": 11,
+          "operation": 10,
+          "status": 0,
+          "epoch": 100,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 378
+        },
+        {
+          "wave": 0,
+          "case": 57,
+          "operation": 13,
+          "status": 0,
+          "epoch": 100,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 392
+        },
+        {
+          "wave": 0,
+          "case": 12,
+          "operation": 10,
+          "status": 3,
+          "epoch": 100,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 406
+        },
+        {
+          "wave": 0,
+          "case": 13,
+          "operation": 11,
+          "status": 0,
+          "epoch": 100,
+          "revision": 2,
+          "value": 2,
+          "queued": 0,
+          "seq": 437
+        },
+        {
+          "wave": 0,
+          "case": 14,
+          "operation": 10,
+          "status": 13,
+          "epoch": 100,
+          "revision": 2,
+          "value": 2,
+          "queued": 0,
+          "seq": 451
+        },
+        {
+          "wave": 0,
+          "case": 15,
+          "operation": 10,
+          "status": 13,
+          "epoch": 100,
+          "revision": 2,
+          "value": 2,
+          "queued": 0,
+          "seq": 465
+        },
+        {
+          "wave": 0,
+          "case": 16,
+          "operation": 10,
+          "status": 0,
+          "epoch": 100,
+          "revision": 2,
+          "value": 2,
+          "queued": 1,
+          "seq": 479
+        },
+        {
+          "wave": 0,
+          "case": 56,
+          "operation": 10,
+          "status": 6,
+          "epoch": 100,
+          "revision": 2,
+          "value": 2,
+          "queued": 1,
+          "seq": 493
+        },
+        {
+          "wave": 0,
+          "case": 17,
+          "operation": 10,
+          "status": 0,
+          "epoch": 100,
+          "revision": 2,
+          "value": 2,
+          "queued": 2,
+          "seq": 507
+        },
+        {
+          "wave": 0,
+          "case": 18,
+          "operation": 10,
+          "status": 0,
+          "epoch": 100,
+          "revision": 2,
+          "value": 2,
+          "queued": 3,
+          "seq": 521
+        },
+        {
+          "wave": 0,
+          "case": 19,
+          "operation": 10,
+          "status": 0,
+          "epoch": 100,
+          "revision": 2,
+          "value": 2,
+          "queued": 4,
+          "seq": 535
+        },
+        {
+          "wave": 0,
+          "case": 20,
+          "operation": 10,
+          "status": 11,
+          "epoch": 100,
+          "revision": 2,
+          "value": 2,
+          "queued": 4,
+          "seq": 549
+        },
+        {
+          "wave": 0,
+          "case": 21,
+          "operation": 13,
+          "status": 8,
+          "epoch": 100,
+          "revision": 2,
+          "value": 2,
+          "queued": 3,
+          "seq": 563
+        },
+        {
+          "wave": 0,
+          "case": 22,
+          "operation": 12,
+          "status": 0,
+          "epoch": 100,
+          "revision": 3,
+          "value": 3,
+          "queued": 2,
+          "seq": 594
+        },
+        {
+          "wave": 0,
+          "case": 23,
+          "operation": 12,
+          "status": 0,
+          "epoch": 100,
+          "revision": 4,
+          "value": 4,
+          "queued": 1,
+          "seq": 625
+        },
+        {
+          "wave": 0,
+          "case": 24,
+          "operation": 12,
+          "status": 0,
+          "epoch": 100,
+          "revision": 5,
+          "value": 5,
+          "queued": 0,
+          "seq": 656
+        },
+        {
+          "wave": 0,
+          "case": 25,
+          "operation": 11,
+          "status": 13,
+          "epoch": 101,
+          "revision": 5,
+          "value": 5,
+          "queued": 0,
+          "seq": 690
+        },
+        {
+          "wave": 0,
+          "case": 26,
+          "operation": 11,
+          "status": 3,
+          "epoch": 101,
+          "revision": 5,
+          "value": 5,
+          "queued": 0,
+          "seq": 715
+        },
+        {
+          "wave": 0,
+          "case": 51,
+          "operation": 16,
+          "status": 0,
+          "epoch": 101,
+          "revision": 5,
+          "value": 5,
+          "queued": 0,
+          "seq": 725
+        },
+        {
+          "wave": 0,
+          "case": 52,
+          "operation": 10,
+          "status": 13,
+          "epoch": 101,
+          "revision": 5,
+          "value": 5,
+          "queued": 0,
+          "seq": 739
+        },
+        {
+          "wave": 0,
+          "case": 27,
+          "operation": 11,
+          "status": 0,
+          "epoch": 101,
+          "revision": 6,
+          "value": 6,
+          "queued": 0,
+          "seq": 770
+        },
+        {
+          "wave": 0,
+          "case": 28,
+          "operation": 11,
+          "status": 3,
+          "epoch": 101,
+          "revision": 6,
+          "value": 6,
+          "queued": 0,
+          "seq": 801
+        },
+        {
+          "wave": 0,
+          "case": 29,
+          "operation": 11,
+          "status": 13,
+          "epoch": 101,
+          "revision": 7,
+          "value": 7,
+          "queued": 0,
+          "seq": 833
+        },
+        {
+          "wave": 0,
+          "case": 31,
+          "operation": 11,
+          "status": 7,
+          "epoch": 101,
+          "revision": 7,
+          "value": 7,
+          "queued": 0,
+          "seq": 868
+        },
+        {
+          "wave": 0,
+          "case": 32,
+          "operation": 11,
+          "status": 3,
+          "epoch": 101,
+          "revision": 7,
+          "value": 7,
+          "queued": 0,
+          "seq": 899
+        },
+        {
+          "wave": 0,
+          "case": 33,
+          "operation": 1,
+          "status": 0,
+          "epoch": 101,
+          "revision": 7,
+          "value": 7,
+          "queued": 0,
+          "seq": 905
+        },
+        {
+          "wave": 0,
+          "case": 34,
+          "operation": 10,
+          "status": 13,
+          "epoch": 101,
+          "revision": 7,
+          "value": 7,
+          "queued": 0,
+          "seq": 919
+        },
+        {
+          "wave": 0,
+          "case": 35,
+          "operation": 11,
+          "status": 0,
+          "epoch": 101,
+          "revision": 8,
+          "value": 8,
+          "queued": 0,
+          "seq": 950
+        },
+        {
+          "wave": 0,
+          "case": 36,
+          "operation": 11,
+          "status": 7,
+          "epoch": 101,
+          "revision": 8,
+          "value": 8,
+          "queued": 0,
+          "seq": 981
+        },
+        {
+          "wave": 0,
+          "case": 37,
+          "operation": 10,
+          "status": 7,
+          "epoch": 101,
+          "revision": 8,
+          "value": 8,
+          "queued": 0,
+          "seq": 995
+        },
+        {
+          "wave": 1,
+          "case": 1,
+          "operation": 10,
+          "status": 3,
+          "epoch": 200,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1039
+        },
+        {
+          "wave": 1,
+          "case": 2,
+          "operation": 1,
+          "status": 0,
+          "epoch": 200,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1045
+        },
+        {
+          "wave": 1,
+          "case": 58,
+          "operation": 10,
+          "status": 9,
+          "epoch": 200,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1059
+        },
+        {
+          "wave": 1,
+          "case": 3,
+          "operation": 4,
+          "status": 13,
+          "epoch": 200,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1065
+        },
+        {
+          "wave": 1,
+          "case": 4,
+          "operation": 3,
+          "status": 0,
+          "epoch": 200,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1071
+        },
+        {
+          "wave": 1,
+          "case": 59,
+          "operation": 10,
+          "status": 9,
+          "epoch": 200,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1085
+        },
+        {
+          "wave": 1,
+          "case": 5,
+          "operation": 4,
+          "status": 0,
+          "epoch": 200,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1091
+        },
+        {
+          "wave": 1,
+          "case": 53,
+          "operation": 10,
+          "status": 3,
+          "epoch": 200,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1106
+        },
+        {
+          "wave": 1,
+          "case": 10,
+          "operation": 11,
+          "status": 0,
+          "epoch": 200,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1137
+        },
+        {
+          "wave": 2,
+          "case": 1,
+          "operation": 10,
+          "status": 3,
+          "epoch": 300,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1180
+        },
+        {
+          "wave": 2,
+          "case": 2,
+          "operation": 1,
+          "status": 0,
+          "epoch": 300,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1186
+        },
+        {
+          "wave": 2,
+          "case": 58,
+          "operation": 10,
+          "status": 9,
+          "epoch": 300,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1200
+        },
+        {
+          "wave": 2,
+          "case": 3,
+          "operation": 4,
+          "status": 13,
+          "epoch": 300,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1206
+        },
+        {
+          "wave": 2,
+          "case": 4,
+          "operation": 3,
+          "status": 0,
+          "epoch": 300,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1212
+        },
+        {
+          "wave": 2,
+          "case": 59,
+          "operation": 10,
+          "status": 9,
+          "epoch": 300,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1226
+        },
+        {
+          "wave": 2,
+          "case": 5,
+          "operation": 4,
+          "status": 0,
+          "epoch": 300,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1232
+        },
+        {
+          "wave": 2,
+          "case": 53,
+          "operation": 10,
+          "status": 3,
+          "epoch": 300,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1247
+        },
+        {
+          "wave": 2,
+          "case": 10,
+          "operation": 11,
+          "status": 0,
+          "epoch": 300,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1278
+        },
+        {
+          "wave": 2,
+          "case": 20,
+          "operation": 2,
+          "status": 0,
+          "epoch": 301,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1284
+        },
+        {
+          "wave": 3,
+          "case": 1,
+          "operation": 10,
+          "status": 3,
+          "epoch": 400,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1327
+        },
+        {
+          "wave": 3,
+          "case": 2,
+          "operation": 1,
+          "status": 0,
+          "epoch": 400,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1333
+        },
+        {
+          "wave": 3,
+          "case": 58,
+          "operation": 10,
+          "status": 9,
+          "epoch": 400,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1347
+        },
+        {
+          "wave": 3,
+          "case": 3,
+          "operation": 4,
+          "status": 13,
+          "epoch": 400,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1353
+        },
+        {
+          "wave": 3,
+          "case": 4,
+          "operation": 3,
+          "status": 0,
+          "epoch": 400,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1359
+        },
+        {
+          "wave": 3,
+          "case": 59,
+          "operation": 10,
+          "status": 9,
+          "epoch": 400,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1373
+        },
+        {
+          "wave": 3,
+          "case": 5,
+          "operation": 4,
+          "status": 0,
+          "epoch": 400,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1379
+        },
+        {
+          "wave": 3,
+          "case": 53,
+          "operation": 10,
+          "status": 3,
+          "epoch": 400,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1394
+        },
+        {
+          "wave": 3,
+          "case": 10,
+          "operation": 11,
+          "status": 0,
+          "epoch": 400,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1425
+        },
+        {
+          "wave": 3,
+          "case": 20,
+          "operation": 2,
+          "status": 0,
+          "epoch": 401,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1431
+        },
+        {
+          "wave": 3,
+          "case": 21,
+          "operation": 3,
+          "status": 0,
+          "epoch": 401,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1437
+        },
+        {
+          "wave": 4,
+          "case": 1,
+          "operation": 10,
+          "status": 3,
+          "epoch": 500,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1480
+        },
+        {
+          "wave": 4,
+          "case": 2,
+          "operation": 1,
+          "status": 0,
+          "epoch": 500,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1486
+        },
+        {
+          "wave": 4,
+          "case": 58,
+          "operation": 10,
+          "status": 9,
+          "epoch": 500,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1500
+        },
+        {
+          "wave": 4,
+          "case": 3,
+          "operation": 4,
+          "status": 13,
+          "epoch": 500,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1506
+        },
+        {
+          "wave": 4,
+          "case": 4,
+          "operation": 3,
+          "status": 0,
+          "epoch": 500,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1512
+        },
+        {
+          "wave": 4,
+          "case": 59,
+          "operation": 10,
+          "status": 9,
+          "epoch": 500,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1526
+        },
+        {
+          "wave": 4,
+          "case": 5,
+          "operation": 4,
+          "status": 0,
+          "epoch": 500,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1532
+        },
+        {
+          "wave": 4,
+          "case": 53,
+          "operation": 10,
+          "status": 3,
+          "epoch": 500,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1547
+        },
+        {
+          "wave": 4,
+          "case": 10,
+          "operation": 11,
+          "status": 0,
+          "epoch": 500,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1578
+        },
+        {
+          "wave": 4,
+          "case": 20,
+          "operation": 2,
+          "status": 0,
+          "epoch": 501,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1584
+        },
+        {
+          "wave": 4,
+          "case": 21,
+          "operation": 3,
+          "status": 0,
+          "epoch": 501,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1590
+        },
+        {
+          "wave": 4,
+          "case": 22,
+          "operation": 4,
+          "status": 0,
+          "epoch": 501,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1596
+        },
+        {
+          "wave": 5,
+          "case": 1,
+          "operation": 10,
+          "status": 3,
+          "epoch": 600,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1639
+        },
+        {
+          "wave": 5,
+          "case": 2,
+          "operation": 1,
+          "status": 0,
+          "epoch": 600,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1645
+        },
+        {
+          "wave": 5,
+          "case": 58,
+          "operation": 10,
+          "status": 9,
+          "epoch": 600,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1659
+        },
+        {
+          "wave": 5,
+          "case": 3,
+          "operation": 4,
+          "status": 13,
+          "epoch": 600,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1665
+        },
+        {
+          "wave": 5,
+          "case": 4,
+          "operation": 3,
+          "status": 0,
+          "epoch": 600,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1671
+        },
+        {
+          "wave": 5,
+          "case": 59,
+          "operation": 10,
+          "status": 9,
+          "epoch": 600,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1685
+        },
+        {
+          "wave": 5,
+          "case": 5,
+          "operation": 4,
+          "status": 0,
+          "epoch": 600,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1691
+        },
+        {
+          "wave": 5,
+          "case": 53,
+          "operation": 10,
+          "status": 3,
+          "epoch": 600,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1706
+        },
+        {
+          "wave": 5,
+          "case": 10,
+          "operation": 11,
+          "status": 0,
+          "epoch": 600,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1737
+        },
+        {
+          "wave": 5,
+          "case": 40,
+          "operation": 11,
+          "status": 9,
+          "epoch": 601,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1762
+        },
+        {
+          "wave": 5,
+          "case": 42,
+          "operation": 3,
+          "status": 0,
+          "epoch": 601,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1768
+        },
+        {
+          "wave": 5,
+          "case": 43,
+          "operation": 4,
+          "status": 0,
+          "epoch": 601,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1774
+        },
+        {
+          "wave": 5,
+          "case": 44,
+          "operation": 11,
+          "status": 0,
+          "epoch": 601,
+          "revision": 2,
+          "value": 2,
+          "queued": 0,
+          "seq": 1805
+        },
+        {
+          "wave": 6,
+          "case": 1,
+          "operation": 10,
+          "status": 3,
+          "epoch": 700,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1846
+        },
+        {
+          "wave": 6,
+          "case": 2,
+          "operation": 1,
+          "status": 0,
+          "epoch": 700,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1852
+        },
+        {
+          "wave": 6,
+          "case": 58,
+          "operation": 10,
+          "status": 9,
+          "epoch": 700,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1866
+        },
+        {
+          "wave": 6,
+          "case": 3,
+          "operation": 4,
+          "status": 13,
+          "epoch": 700,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1872
+        },
+        {
+          "wave": 6,
+          "case": 4,
+          "operation": 3,
+          "status": 0,
+          "epoch": 700,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1878
+        },
+        {
+          "wave": 6,
+          "case": 59,
+          "operation": 10,
+          "status": 9,
+          "epoch": 700,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1892
+        },
+        {
+          "wave": 6,
+          "case": 5,
+          "operation": 4,
+          "status": 0,
+          "epoch": 700,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1898
+        },
+        {
+          "wave": 6,
+          "case": 53,
+          "operation": 10,
+          "status": 3,
+          "epoch": 700,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 1913
+        },
+        {
+          "wave": 6,
+          "case": 10,
+          "operation": 11,
+          "status": 0,
+          "epoch": 700,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1944
+        },
+        {
+          "wave": 6,
+          "case": 40,
+          "operation": 11,
+          "status": 9,
+          "epoch": 701,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1968
+        },
+        {
+          "wave": 6,
+          "case": 42,
+          "operation": 3,
+          "status": 0,
+          "epoch": 701,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1976
+        },
+        {
+          "wave": 6,
+          "case": 43,
+          "operation": 4,
+          "status": 0,
+          "epoch": 701,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1982
+        },
+        {
+          "wave": 6,
+          "case": 44,
+          "operation": 11,
+          "status": 9,
+          "epoch": 701,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 1996
+        },
+        {
+          "wave": 7,
+          "case": 1,
+          "operation": 10,
+          "status": 3,
+          "epoch": 800,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2037
+        },
+        {
+          "wave": 7,
+          "case": 2,
+          "operation": 1,
+          "status": 0,
+          "epoch": 800,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2043
+        },
+        {
+          "wave": 7,
+          "case": 58,
+          "operation": 10,
+          "status": 9,
+          "epoch": 800,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2057
+        },
+        {
+          "wave": 7,
+          "case": 3,
+          "operation": 4,
+          "status": 13,
+          "epoch": 800,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2063
+        },
+        {
+          "wave": 7,
+          "case": 4,
+          "operation": 3,
+          "status": 0,
+          "epoch": 800,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2069
+        },
+        {
+          "wave": 7,
+          "case": 59,
+          "operation": 10,
+          "status": 9,
+          "epoch": 800,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2083
+        },
+        {
+          "wave": 7,
+          "case": 5,
+          "operation": 4,
+          "status": 0,
+          "epoch": 800,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2089
+        },
+        {
+          "wave": 7,
+          "case": 53,
+          "operation": 10,
+          "status": 3,
+          "epoch": 800,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2104
+        },
+        {
+          "wave": 7,
+          "case": 10,
+          "operation": 11,
+          "status": 0,
+          "epoch": 800,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 2135
+        },
+        {
+          "wave": 8,
+          "case": 1,
+          "operation": 10,
+          "status": 3,
+          "epoch": 900,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2191
+        },
+        {
+          "wave": 8,
+          "case": 2,
+          "operation": 1,
+          "status": 0,
+          "epoch": 900,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2197
+        },
+        {
+          "wave": 8,
+          "case": 58,
+          "operation": 10,
+          "status": 9,
+          "epoch": 900,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2211
+        },
+        {
+          "wave": 8,
+          "case": 3,
+          "operation": 4,
+          "status": 13,
+          "epoch": 900,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2217
+        },
+        {
+          "wave": 8,
+          "case": 4,
+          "operation": 3,
+          "status": 0,
+          "epoch": 900,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2223
+        },
+        {
+          "wave": 8,
+          "case": 59,
+          "operation": 10,
+          "status": 9,
+          "epoch": 900,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2237
+        },
+        {
+          "wave": 8,
+          "case": 5,
+          "operation": 4,
+          "status": 0,
+          "epoch": 900,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2243
+        },
+        {
+          "wave": 8,
+          "case": 53,
+          "operation": 10,
+          "status": 3,
+          "epoch": 900,
+          "revision": 0,
+          "value": 0,
+          "queued": 0,
+          "seq": 2257
+        },
+        {
+          "wave": 8,
+          "case": 10,
+          "operation": 11,
+          "status": 0,
+          "epoch": 900,
+          "revision": 1,
+          "value": 1,
+          "queued": 0,
+          "seq": 2289
+        },
+        {
+          "wave": 8,
+          "case": 40,
+          "operation": 11,
+          "status": 9,
+          "epoch": 900,
+          "revision": 2,
+          "value": 2,
+          "queued": 0,
+          "seq": 2318
+        },
+        {
+          "wave": 8,
+          "case": 41,
+          "operation": 10,
+          "status": 0,
+          "epoch": 900,
+          "revision": 2,
+          "value": 2,
+          "queued": 0,
+          "seq": 2332
+        }
+      ],
+      "cut_states": {
+        "1": [
+          200,
+          4,
+          200,
+          200
+        ],
+        "2": [
+          301,
+          0,
+          300,
+          300
+        ],
+        "3": [
+          401,
+          5,
+          400,
+          400
+        ],
+        "4": [
+          501,
+          5,
+          501,
+          500
+        ],
+        "7": [
+          800,
+          4,
+          800,
+          800
+        ]
+      }
+    },
+    "mutations": [
+      "remove m1.route_admit",
+      "remove m1.route_end",
+      "remove m1.route_settled",
+      "remove m1.route_ready",
+      "remove m1.ipc_sender",
+      "remove m1.user_fault",
+      "remove m1.wait_call",
+      "m1.route_admit.generation",
+      "m1.route_admit.principal",
+      "m1.route_admit.private_root",
+      "m1.route_admit.roster_readonly",
+      "m1.route_end.code",
+      "m1.route_end.vector",
+      "m1.route_settled.frames",
+      "m1.route_ready.settled",
+      "m1.ipc_sender.sender_generation",
+      "missing case 1",
+      "wrong case status 1",
+      "missing case 2",
+      "wrong case status 2",
+      "missing case 58",
+      "wrong case status 58",
+      "missing case 3",
+      "wrong case status 3",
+      "missing case 4",
+      "wrong case status 4",
+      "missing case 59",
+      "wrong case status 59",
+      "missing case 5",
+      "wrong case status 5",
+      "missing case 6",
+      "wrong case status 6",
+      "missing case 7",
+      "wrong case status 7",
+      "missing case 8",
+      "wrong case status 8",
+      "missing case 9",
+      "wrong case status 9",
+      "missing case 54",
+      "wrong case status 54",
+      "missing case 10",
+      "wrong case status 10",
+      "missing case 11",
+      "wrong case status 11",
+      "missing case 57",
+      "wrong case status 57",
+      "missing case 12",
+      "wrong case status 12",
+      "missing case 13",
+      "wrong case status 13",
+      "missing case 14",
+      "wrong case status 14",
+      "missing case 15",
+      "wrong case status 15",
+      "missing case 16",
+      "wrong case status 16",
+      "missing case 56",
+      "wrong case status 56",
+      "missing case 17",
+      "wrong case status 17",
+      "missing case 18",
+      "wrong case status 18",
+      "missing case 19",
+      "wrong case status 19",
+      "missing case 20",
+      "wrong case status 20",
+      "missing case 21",
+      "wrong case status 21",
+      "missing case 22",
+      "wrong case status 22",
+      "missing case 23",
+      "wrong case status 23",
+      "missing case 24",
+      "wrong case status 24",
+      "missing case 25",
+      "wrong case status 25",
+      "missing case 26",
+      "wrong case status 26",
+      "missing case 51",
+      "wrong case status 51",
+      "missing case 52",
+      "wrong case status 52",
+      "missing case 27",
+      "wrong case status 27",
+      "missing case 28",
+      "wrong case status 28",
+      "missing case 29",
+      "wrong case status 29",
+      "missing case 31",
+      "wrong case status 31",
+      "missing case 32",
+      "wrong case status 32",
+      "missing case 33",
+      "wrong case status 33",
+      "missing case 34",
+      "wrong case status 34",
+      "missing case 35",
+      "wrong case status 35",
+      "missing case 36",
+      "wrong case status 36",
+      "missing case 37",
+      "wrong case status 37",
+      "remove state-0-250-",
+      "remove state-0-251-",
+      "remove state-0-252-",
+      "remove commit-0-25-",
+      "remove commit-0-26-",
+      "remove commit-0-27-",
+      "remove expired-",
+      "remove retention-",
+      "remove reply-0-25-",
+      "remove reply-0-29-",
+      "remove wire-0-29-",
+      "remove corrupt-",
+      "remove replay-",
+      "remove lost-",
+      "remove direct-",
+      "remove m1.policy_admit",
+      "remove m1.policy_end",
+      "remove m1.policy_settled",
+      "remove m1.policy_ready",
+      "remove m1.ipc_sender",
+      "remove m1.user_log",
+      "m1.policy_admit.generation",
+      "m1.policy_admit.principal",
+      "m1.policy_admit.private_root",
+      "m1.policy_admit.roster_readonly",
+      "m1.policy_end.code",
+      "m1.policy_end.vector",
+      "m1.policy_settled.frames",
+      "m1.policy_ready.settled",
+      "m1.ipc_sender.sender_generation",
+      "missing matrix 1",
+      "missing matrix 2",
+      "missing matrix 3",
+      "missing matrix 4",
+      "missing matrix 5",
+      "missing matrix 6",
+      "missing matrix 7",
+      "missing matrix 8",
+      "missing matrix 9",
+      "missing matrix 10",
+      "missing matrix 11",
+      "missing matrix 12",
+      "missing matrix 13",
+      "missing matrix 14",
+      "missing matrix 15",
+      "missing matrix 16",
+      "missing matrix 17",
+      "missing matrix 18",
+      "missing matrix 19",
+      "missing matrix 20",
+      "missing matrix 21",
+      "missing matrix 22",
+      "missing matrix 23",
+      "missing matrix 24",
+      "missing matrix 25",
+      "missing matrix 26",
+      "missing matrix 27",
+      "missing matrix 28",
+      "missing matrix 29",
+      "missing matrix 30",
+      "missing matrix 31",
+      "missing matrix 32",
+      "missing matrix 33",
+      "missing matrix 34",
+      "missing matrix 35",
+      "missing matrix 36",
+      "missing matrix 37",
+      "missing matrix 38",
+      "missing matrix 39",
+      "missing matrix 40",
+      "missing matrix 41",
+      "missing matrix 42",
+      "missing matrix 43",
+      "missing matrix 44",
+      "missing matrix 45",
+      "missing matrix 46",
+      "missing matrix 47",
+      "missing matrix 48",
+      "missing matrix 49",
+      "missing matrix 50",
+      "missing matrix 51",
+      "missing matrix 53",
+      "missing matrix 54",
+      "missing matrix 55",
+      "missing matrix 56",
+      "missing matrix 57",
+      "missing matrix 60",
+      "missing matrix 61",
+      "missing matrix 62",
+      "missing matrix 52",
+      "expiry preceded queue admission",
+      "wrong matrix result 1",
+      "wrong matrix result 2",
+      "wrong matrix result 3",
+      "wrong matrix result 4",
+      "wrong matrix result 5",
+      "wrong matrix result 6",
+      "wrong matrix result 7",
+      "wrong matrix result 8",
+      "wrong matrix result 9",
+      "wrong matrix result 10",
+      "wrong matrix result 11",
+      "wrong matrix result 12",
+      "wrong matrix result 13",
+      "wrong matrix result 14",
+      "wrong matrix result 15",
+      "wrong matrix result 16",
+      "wrong matrix result 17",
+      "wrong matrix result 18",
+      "wrong matrix result 19",
+      "wrong matrix result 20",
+      "wrong matrix result 21",
+      "wrong matrix result 22",
+      "wrong matrix result 23",
+      "wrong matrix result 24",
+      "wrong matrix result 25",
+      "wrong matrix result 26",
+      "wrong matrix result 27",
+      "wrong matrix result 28",
+      "wrong matrix result 29",
+      "wrong matrix result 30",
+      "wrong matrix result 31",
+      "wrong matrix result 32",
+      "wrong matrix result 33",
+      "wrong matrix result 34",
+      "wrong matrix result 35",
+      "wrong matrix result 36",
+      "wrong matrix result 37",
+      "wrong matrix result 38",
+      "wrong matrix result 39",
+      "wrong matrix result 40",
+      "wrong matrix result 41",
+      "wrong matrix result 42",
+      "wrong matrix result 43",
+      "wrong matrix result 44",
+      "wrong matrix result 45",
+      "wrong matrix result 46",
+      "wrong matrix result 47",
+      "wrong matrix result 48",
+      "wrong matrix result 49",
+      "wrong matrix result 50",
+      "wrong matrix result 51",
+      "wrong matrix result 53",
+      "wrong matrix result 54",
+      "wrong matrix result 55",
+      "wrong matrix result 56",
+      "wrong matrix result 57",
+      "wrong matrix result 60",
+      "wrong matrix result 61",
+      "wrong matrix result 62",
+      "wrong matrix result 52",
+      "remove m1.supervisor_admit",
+      "remove m1.supervisor",
+      "remove m1.supervisor_dispatch",
+      "remove m1.supervisor_end",
+      "remove m1.supervisor_settled",
+      "remove m1.supervisor_ready",
+      "remove m1.supervisor_call",
+      "remove m1.supervisor_request",
+      "remove m1.user_log",
+      "m1.supervisor_admit.token",
+      "m1.supervisor_admit.authority_session",
+      "m1.supervisor_dispatch.generation",
+      "m1.wait_park.generation",
+      "m1.supervisor_end.code",
+      "m1.supervisor_end.parked",
+      "m1.supervisor_settled.frames",
+      "m1.supervisor_ready.fixed_bytes",
+      "missing m1.wait_park",
+      "missing m1.wait_complete",
+      "missing m1.wait_wake",
+      "missing m1.wait_settled",
+      "missing m1.wait_clock",
+      "missing m1.wait_kill",
+      "missing m1.wait_resume",
+      "missing m1.wait_boundary",
+      "missing m1.wait_delay",
+      "missing m1.ipc_admit",
+      "missing m1.cap_ready",
+      "missing m1.cap_reap",
+      "missing m1.user_log",
+      "m1.wait_wake.generation",
+      "m1.wait_wake.status",
+      "m1.wait_wake.since_ns",
+      "m1.wait_settled.records",
+      "m1.wait_clock.source",
+      "m1.wait_clock.ticks_after",
+      "m1.cap_ready.fixed_bytes",
+      "m1.cap_reap.result",
+      "missing m1.cap_ready",
+      "missing m1.cap_admit",
+      "missing m1.cap_reap",
+      "missing m1.cap_inventory",
+      "missing m1.cap_call",
+      "missing m1.cap_pin",
+      "missing m1.cap_map",
+      "missing m1.user_fault",
+      "missing m1.user_log",
+      "m1.cap_call.status",
+      "m1.cap_reap.principal",
+      "m1.cap_reap.result",
+      "m1.cap_inventory.objects",
+      "m1.cap_inventory.backing",
+      "m1.cap_map.e3",
+      "m1.cap_pin.close",
+      "m1.user_fault.error",
+      "m1.cap_ready.fixed_bytes",
+      "successful operation 10.x",
+      "successful operation 10.c",
+      "successful operation 10.d",
+      "successful operation 10.n",
+      "successful operation 8.b",
+      "missing m1.cap_ready",
+      "missing m1.ipc_admit",
+      "missing m1.cap_reap",
+      "missing m1.cap_inventory",
+      "missing m1.ipc_sender",
+      "missing m1.ipc_call",
+      "missing m1.user_log",
+      "m1.ipc_sender.principal",
+      "m1.ipc_sender.sender_generation",
+      "m1.cap_reap.result",
+      "m1.cap_inventory.objects",
+      "m1.cap_ready.fixed_bytes",
+      "m1.ipc_call.held",
+      "missing m1.scheduler_policy",
+      "missing m1.scheduler_ready",
+      "missing m1.task_start",
+      "missing m1.task_end",
+      "missing m1.task_settlement",
+      "missing m1.user_fault",
+      "missing m1.task_switch",
+      "m1.task_start/principal",
+      "m1.task_end/result",
+      "m1.task_end/preemptions",
+      "m1.task_end/progress",
+      "m1.task_settlement/frames",
+      "m1.scheduler_ready/max_wait_ns",
+      "m1.scheduler_ready/pin_irqs",
+      "m1.scheduler_policy/priority",
+      "missing m1.scheduler_policy",
+      "missing m1.scheduler_ready",
+      "missing m1.task_start",
+      "missing m1.task_end",
+      "missing m1.task_settlement",
+      "missing m1.user_fault",
+      "m1.task_start/principal",
+      "m1.task_end/result",
+      "m1.task_end/preemptions",
+      "m1.task_end/progress",
+      "m1.task_settlement/frames",
+      "m1.scheduler_ready/max_wait_ns",
+      "m1.scheduler_ready/pin_irqs",
+      "m1.scheduler_policy/priority",
+      {
+        "case": "m1.user_end/reason",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_end/principal",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_settlement/frames",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_ready/user_irqs",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_ready/copy_recovery",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_call/entry_flags",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_fault/cs",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_start/generation",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_start",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_end",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_settlement",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_call",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_fault",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_irq",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_ready",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_inventory",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_runtime",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_end/reason",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_end/principal",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_settlement/frames",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_ready/user_irqs",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_ready/copy_recovery",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_call/entry_flags",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_fault/cs",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_start/generation",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_start",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_end",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_settlement",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_call",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_fault",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_bad_return",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_irq",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_ready",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_inventory",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_runtime",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_end/reason",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_end/principal",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_settlement/frames",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_ready/user_irqs",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_ready/copy_recovery",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_call/entry_flags",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_fault/cs",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_start/generation",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_start",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_end",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_settlement",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_call",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_fault",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_bad_return",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_irq",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_ready",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_inventory",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_runtime",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_end/reason",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_end/principal",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_settlement/frames",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_ready/user_irqs",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_ready/copy_recovery",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_call/entry_flags",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_fault/cs",
+        "status": "rejected"
+      },
+      {
+        "case": "m1.user_start/generation",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_start",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_end",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_settlement",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_call",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_fault",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_bad_return",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_irq",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_ready",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_inventory",
+        "status": "rejected"
+      },
+      {
+        "case": "missing m1.user_runtime",
+        "status": "rejected"
+      }
+    ],
+    "build_id": "16f26a7b5939d5245772c4dcb7de6e71db35516d97944b8563da7113f32e77a9",
+    "kernel_sha256": "3aa175820c4f92525ae2f02fad4e6d55f3a00895a9554cccce349e09e4262ab3",
+    "iso_sha256": "a3680de50a0b6d3ed4ae1737c48df1ba33546ec5b5e59a3807f341bbcfce233a",
+    "serial_sha256": "011ee8949ac0ee020d8fdda6fd899620121777bdad92f780f260a0c56e398fac",
+    "policy_regression": {
+      "incarnations": 2,
+      "process_runs": 12,
+      "fixed_bytes": 10581256,
+      "decisions": 120,
+      "denials": 67,
+      "exact_settlements": 2,
+      "decision_matrix": [
+        {
+          "wave": 0,
+          "case": 1,
+          "actor": 2,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 2,
+          "actor": 2,
+          "command": 1,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 3,
+          "actor": 1,
+          "command": 1,
+          "status": 0,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 4,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 1,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 5,
+          "actor": 2,
+          "command": 3,
+          "status": 0,
+          "value": 1,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 6,
+          "actor": 4,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 7,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 8,
+          "actor": 4,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 202,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 9,
+          "actor": 2,
+          "command": 2,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 10,
+          "actor": 1,
+          "command": 2,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 99,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 11,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 2,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 12,
+          "actor": 3,
+          "command": 3,
+          "status": 0,
+          "value": 1,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 2
+        },
+        {
+          "wave": 0,
+          "case": 13,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 2
+        },
+        {
+          "wave": 0,
+          "case": 14,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 2,
+          "owner": 202,
+          "operation": 1,
+          "grant": 2
+        },
+        {
+          "wave": 0,
+          "case": 15,
+          "actor": 2,
+          "command": 7,
+          "status": 0,
+          "value": 3,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 16,
+          "actor": 4,
+          "command": 3,
+          "status": 0,
+          "value": 1,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 3
+        },
+        {
+          "wave": 0,
+          "case": 17,
+          "actor": 4,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 3
+        },
+        {
+          "wave": 0,
+          "case": 18,
+          "actor": 4,
+          "command": 7,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 3
+        },
+        {
+          "wave": 0,
+          "case": 19,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 4,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 20,
+          "actor": 3,
+          "command": 8,
+          "status": 0,
+          "value": 1,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 2
+        },
+        {
+          "wave": 0,
+          "case": 21,
+          "actor": 5,
+          "command": 9,
+          "status": 0,
+          "value": 1,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 4
+        },
+        {
+          "wave": 0,
+          "case": 22,
+          "actor": 5,
+          "command": 9,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 4
+        },
+        {
+          "wave": 0,
+          "case": 23,
+          "actor": 3,
+          "command": 8,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 2
+        },
+        {
+          "wave": 0,
+          "case": 24,
+          "actor": 2,
+          "command": 8,
+          "status": 0,
+          "value": 2,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 25,
+          "actor": 5,
+          "command": 9,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 4
+        },
+        {
+          "wave": 0,
+          "case": 26,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 5,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 27,
+          "actor": 5,
+          "command": 9,
+          "status": 3,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 5
+        },
+        {
+          "wave": 0,
+          "case": 28,
+          "actor": 5,
+          "command": 9,
+          "status": 0,
+          "value": 2,
+          "epoch": 100,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 4
+        },
+        {
+          "wave": 0,
+          "case": 29,
+          "actor": 2,
+          "command": 4,
+          "status": 0,
+          "value": 2,
+          "epoch": 100,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 30,
+          "actor": 1,
+          "command": 5,
+          "status": 0,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 31,
+          "actor": 2,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 32,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 1,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 33,
+          "actor": 2,
+          "command": 3,
+          "status": 13,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 34,
+          "actor": 2,
+          "command": 3,
+          "status": 16,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 35,
+          "actor": 2,
+          "command": 3,
+          "status": 7,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 36,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 2,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 37,
+          "actor": 2,
+          "command": 3,
+          "status": 7,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 2
+        },
+        {
+          "wave": 0,
+          "case": 38,
+          "actor": 1,
+          "command": 6,
+          "status": 0,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 39,
+          "actor": 2,
+          "command": 3,
+          "status": 7,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 40,
+          "actor": 1,
+          "command": 2,
+          "status": 7,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 41,
+          "actor": 4,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 2,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 42,
+          "actor": 4,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 3,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 43,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 3,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 2,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 44,
+          "actor": 3,
+          "command": 3,
+          "status": 0,
+          "value": 2,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 2,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 3
+        },
+        {
+          "wave": 0,
+          "case": 45,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 3,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 3
+        },
+        {
+          "wave": 0,
+          "case": 46,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 4,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 3
+        },
+        {
+          "wave": 0,
+          "case": 47,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 5,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 3
+        },
+        {
+          "wave": 0,
+          "case": 48,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 6,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 3
+        },
+        {
+          "wave": 0,
+          "case": 49,
+          "actor": 4,
+          "command": 10,
+          "status": 3,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 50,
+          "actor": 2,
+          "command": 12,
+          "status": 0,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 51,
+          "actor": 4,
+          "command": 13,
+          "status": 7,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 52,
+          "actor": 2,
+          "command": 3,
+          "status": 0,
+          "value": 1,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 0,
+          "case": 53,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 4,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 54,
+          "actor": 1,
+          "command": 15,
+          "status": 0,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 55,
+          "actor": 3,
+          "command": 3,
+          "status": 7,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 4
+        },
+        {
+          "wave": 0,
+          "case": 56,
+          "actor": 1,
+          "command": 2,
+          "status": 7,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 57,
+          "actor": 1,
+          "command": 3,
+          "status": 14,
+          "value": 0,
+          "epoch": 101,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 60,
+          "actor": 1,
+          "command": 15,
+          "status": 0,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 61,
+          "actor": 1,
+          "command": 15,
+          "status": 0,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 0,
+          "case": 62,
+          "actor": 1,
+          "command": 15,
+          "status": 0,
+          "value": 0,
+          "epoch": 100,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 1,
+          "actor": 2,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 2,
+          "actor": 2,
+          "command": 1,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 3,
+          "actor": 1,
+          "command": 1,
+          "status": 0,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 4,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 1,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 5,
+          "actor": 2,
+          "command": 3,
+          "status": 0,
+          "value": 1,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 6,
+          "actor": 4,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 7,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 8,
+          "actor": 4,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 202,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 9,
+          "actor": 2,
+          "command": 2,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 10,
+          "actor": 1,
+          "command": 2,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 99,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 11,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 2,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 12,
+          "actor": 3,
+          "command": 3,
+          "status": 0,
+          "value": 1,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 2
+        },
+        {
+          "wave": 1,
+          "case": 13,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 2
+        },
+        {
+          "wave": 1,
+          "case": 14,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 2,
+          "owner": 202,
+          "operation": 1,
+          "grant": 2
+        },
+        {
+          "wave": 1,
+          "case": 15,
+          "actor": 2,
+          "command": 7,
+          "status": 0,
+          "value": 3,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 16,
+          "actor": 4,
+          "command": 3,
+          "status": 0,
+          "value": 1,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 3
+        },
+        {
+          "wave": 1,
+          "case": 17,
+          "actor": 4,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 3
+        },
+        {
+          "wave": 1,
+          "case": 18,
+          "actor": 4,
+          "command": 7,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 3
+        },
+        {
+          "wave": 1,
+          "case": 19,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 4,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 20,
+          "actor": 3,
+          "command": 8,
+          "status": 0,
+          "value": 1,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 2
+        },
+        {
+          "wave": 1,
+          "case": 21,
+          "actor": 5,
+          "command": 9,
+          "status": 0,
+          "value": 1,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 4
+        },
+        {
+          "wave": 1,
+          "case": 22,
+          "actor": 5,
+          "command": 9,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 4
+        },
+        {
+          "wave": 1,
+          "case": 23,
+          "actor": 3,
+          "command": 8,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 2
+        },
+        {
+          "wave": 1,
+          "case": 24,
+          "actor": 2,
+          "command": 8,
+          "status": 0,
+          "value": 2,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 25,
+          "actor": 5,
+          "command": 9,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 4
+        },
+        {
+          "wave": 1,
+          "case": 26,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 5,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 27,
+          "actor": 5,
+          "command": 9,
+          "status": 3,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 5
+        },
+        {
+          "wave": 1,
+          "case": 28,
+          "actor": 5,
+          "command": 9,
+          "status": 0,
+          "value": 2,
+          "epoch": 200,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 4
+        },
+        {
+          "wave": 1,
+          "case": 29,
+          "actor": 2,
+          "command": 4,
+          "status": 0,
+          "value": 2,
+          "epoch": 200,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 30,
+          "actor": 1,
+          "command": 5,
+          "status": 0,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 31,
+          "actor": 2,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 2,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 32,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 1,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 33,
+          "actor": 2,
+          "command": 3,
+          "status": 13,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 34,
+          "actor": 2,
+          "command": 3,
+          "status": 16,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 35,
+          "actor": 2,
+          "command": 3,
+          "status": 7,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 36,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 2,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 37,
+          "actor": 2,
+          "command": 3,
+          "status": 7,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 2
+        },
+        {
+          "wave": 1,
+          "case": 38,
+          "actor": 1,
+          "command": 6,
+          "status": 0,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 39,
+          "actor": 2,
+          "command": 3,
+          "status": 7,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 40,
+          "actor": 1,
+          "command": 2,
+          "status": 7,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 41,
+          "actor": 4,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 2,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 42,
+          "actor": 4,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 3,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 43,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 3,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 2,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 44,
+          "actor": 3,
+          "command": 3,
+          "status": 0,
+          "value": 2,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 2,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 3
+        },
+        {
+          "wave": 1,
+          "case": 45,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 3,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 3
+        },
+        {
+          "wave": 1,
+          "case": 46,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 4,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 3
+        },
+        {
+          "wave": 1,
+          "case": 47,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 5,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 3
+        },
+        {
+          "wave": 1,
+          "case": 48,
+          "actor": 3,
+          "command": 3,
+          "status": 3,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 6,
+          "resource": 1,
+          "owner": 101,
+          "operation": 4,
+          "grant": 3
+        },
+        {
+          "wave": 1,
+          "case": 49,
+          "actor": 4,
+          "command": 10,
+          "status": 3,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 50,
+          "actor": 2,
+          "command": 12,
+          "status": 0,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 51,
+          "actor": 4,
+          "command": 13,
+          "status": 7,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 52,
+          "actor": 2,
+          "command": 3,
+          "status": 13,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 1
+        },
+        {
+          "wave": 1,
+          "case": 53,
+          "actor": 1,
+          "command": 2,
+          "status": 0,
+          "value": 4,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 54,
+          "actor": 1,
+          "command": 15,
+          "status": 0,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 55,
+          "actor": 3,
+          "command": 3,
+          "status": 7,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 4
+        },
+        {
+          "wave": 1,
+          "case": 56,
+          "actor": 1,
+          "command": 2,
+          "status": 7,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 57,
+          "actor": 1,
+          "command": 3,
+          "status": 14,
+          "value": 0,
+          "epoch": 201,
+          "revision": 2,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 60,
+          "actor": 1,
+          "command": 15,
+          "status": 0,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 61,
+          "actor": 1,
+          "command": 15,
+          "status": 0,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        },
+        {
+          "wave": 1,
+          "case": 62,
+          "actor": 1,
+          "command": 15,
+          "status": 0,
+          "value": 0,
+          "epoch": 200,
+          "revision": 1,
+          "kind": 1,
+          "resource": 1,
+          "owner": 101,
+          "operation": 1,
+          "grant": 0
+        }
+      ]
+    },
+    "supervisor_regression": {
+      "epochs": 4,
+      "admissions": 29,
+      "reaped": 29,
+      "joins": 21,
+      "dispatches": 360,
+      "parked_owner_kills": 4,
+      "retries": 2,
+      "quarantine": 1,
+      "exact_settlements": 4,
+      "fixed_bytes": 10583088
+    },
+    "waits_regression": {
+      "tasks": 18,
+      "parks": 65,
+      "wakes": 64,
+      "kills": 1,
+      "calls": 590,
+      "fixed_bytes": 10582040,
+      "clock": {
+        "version": "5",
+        "build": "f92ce29b860916ed1edd602e464e313f53c25b630842367d434649abfcd37210",
+        "session": "27155715f47646459b9e9f0d26736ae2fd406948c0fbca195acc15d33b8c8591",
+        "session_origin": "host",
+        "seq": "189",
+        "stage": "waits",
+        "outcome": "ok",
+        "emergency": "false",
+        "source": "hpet",
+        "resolution_ns": "10",
+        "before_ns": "1617098900",
+        "after_ns": "1647359500",
+        "ticks_before": "100",
+        "ticks_after": "100",
+        "observer_samples": "100",
+        "observer_total_ns": "677200",
+        "irq_off": "true"
+      },
+      "wake_dispatch_max_ns": 49543400,
+      "errors": [
+        [
+          17,
+          0
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          19,
+          0
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          20,
+          3
+        ],
+        [
+          20,
+          4
+        ],
+        [
+          21,
+          0
+        ],
+        [
+          22,
+          0
+        ],
+        [
+          23,
+          0
+        ],
+        [
+          24,
+          0
+        ],
+        [
+          24,
+          1
+        ],
+        [
+          24,
+          2
+        ],
+        [
+          24,
+          4
+        ],
+        [
+          24,
+          7
+        ],
+        [
+          24,
+          8
+        ],
+        [
+          24,
+          9
+        ],
+        [
+          25,
+          0
+        ],
+        [
+          25,
+          6
+        ],
+        [
+          25,
+          8
+        ],
+        [
+          26,
+          0
+        ],
+        [
+          26,
+          6
+        ]
+      ]
+    },
+    "capabilities_regression": {
+      "tasks": 18,
+      "waves": 6,
+      "hardware_faults": 5,
+      "unique_handle_installations": 91,
+      "syscalls": 402,
+      "pin_interleavings": 6,
+      "denials": {
+        "(2, 12)": 18,
+        "(3, 12)": 18,
+        "(5, 2)": 18,
+        "(4, 2)": 18,
+        "(6, 1)": 21,
+        "(8, 3)": 7,
+        "(10, 1)": 6,
+        "(10, 3)": 13,
+        "(9, 1)": 6,
+        "(7, 1)": 6,
+        "(12, 3)": 14,
+        "(11, 4)": 1,
+        "(9, 2)": 1,
+        "(9, 3)": 1,
+        "(6, 3)": 1,
+        "(7, 3)": 1,
+        "(9, 4)": 5,
+        "(10, 4)": 11,
+        "(10, 2)": 1,
+        "(8, 11)": 1,
+        "(9, 11)": 1,
+        "(10, 11)": 1
+      },
+      "fixed_bytes": 10560280,
+      "switches": 250
+    },
+    "channels_regression": {
+      "tasks": 6,
+      "waves": 2,
+      "syscalls": 259,
+      "receives": 40,
+      "preserved_failure_inventories": 145,
+      "fixed_bytes": 10560280,
+      "switches": 441,
+      "errors": [
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          14,
+          3
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          14,
+          6
+        ],
+        [
+          14,
+          9
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          15,
+          4
+        ],
+        [
+          15,
+          5
+        ],
+        [
+          15,
+          6
+        ],
+        [
+          15,
+          11
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          16,
+          6
+        ],
+        [
+          16,
+          9
+        ]
+      ]
+    },
+    "scheduler_regression": [
+      {
+        "tasks": 30,
+        "waves": 10,
+        "switches": 379,
+        "non_yielding_hogs": 20,
+        "max_masked_upper_ns": 14909500,
+        "max_body_ns": 14525800,
+        "max_wait_ns": 43357100,
+        "nested_irqs": 29,
+        "pin_irqs": 25,
+        "observer_total_ns": 450800
+      },
+      {
+        "tasks": 30,
+        "waves": 10,
+        "switches": 379,
+        "non_yielding_hogs": 20,
+        "max_masked_upper_ns": 17683400,
+        "max_body_ns": 16257400,
+        "max_wait_ns": 38381600,
+        "nested_irqs": 29,
+        "pin_irqs": 25,
+        "observer_total_ns": 225500
+      }
+    ],
+    "memory_regression": {
+      "fixed_kernel_storage_bytes": 9859072,
+      "active_table_pages": {
+        "0": 6,
+        "1": 4
+      },
+      "private_user_pages": {
+        "0": 20,
+        "1": 16
+      },
+      "cycles": 1000,
+      "resident_after": 0
+    },
+    "loader_regression": {
+      "images": [
+        {
+          "image": 0,
+          "sha256": "4307b5ea8a83967d4ca71cfee99cf85f231fa00cb93b12c71fd266b2334f342c",
+          "bytes": 13216,
+          "entry": 4194304,
+          "loads": [
+            {
+              "address": 4194304,
+              "offset": 4096,
+              "file_bytes": 27,
+              "memory_bytes": 27,
+              "flags": 5
+            },
+            {
+              "address": 4198400,
+              "offset": 8192,
+              "file_bytes": 17,
+              "memory_bytes": 17,
+              "flags": 4
+            },
+            {
+              "address": 4202496,
+              "offset": 12288,
+              "file_bytes": 8,
+              "memory_bytes": 12289,
+              "flags": 6
+            }
+          ],
+          "commitment": 98304,
+          "pages": 24,
+          "table_pages": 6
+        },
+        {
+          "image": 1,
+          "sha256": "315356d58045b4bf95f0ead8f714a0636660e9635f482bdd98f0a87a1d27b590",
+          "bytes": 13216,
+          "entry": 4194304,
+          "loads": [
+            {
+              "address": 4194304,
+              "offset": 4096,
+              "file_bytes": 27,
+              "memory_bytes": 27,
+              "flags": 5
+            },
+            {
+              "address": 4198400,
+              "offset": 8192,
+              "file_bytes": 17,
+              "memory_bytes": 17,
+              "flags": 4
+            },
+            {
+              "address": 4202496,
+              "offset": 12288,
+              "file_bytes": 8,
+              "memory_bytes": 12289,
+              "flags": 6
+            }
+          ],
+          "commitment": 98304,
+          "pages": 24,
+          "table_pages": 6
+        },
+        {
+          "image": 2,
+          "sha256": "136964ed96bd400903b517745e74c9f6f663038d064fae61f59da24b69be9211",
+          "bytes": 13216,
+          "entry": 4194304,
+          "loads": [
+            {
+              "address": 4194304,
+              "offset": 4096,
+              "file_bytes": 27,
+              "memory_bytes": 27,
+              "flags": 5
+            },
+            {
+              "address": 4198400,
+              "offset": 8192,
+              "file_bytes": 17,
+              "memory_bytes": 17,
+              "flags": 4
+            },
+            {
+              "address": 4202496,
+              "offset": 12288,
+              "file_bytes": 8,
+              "memory_bytes": 12289,
+              "flags": 6
+            }
+          ],
+          "commitment": 98304,
+          "pages": 24,
+          "table_pages": 6
+        }
+      ],
+      "private_pages": 72,
+      "allocation_failures": 24,
+      "malformed_cases": 19,
+      "trusted_bindings": 4,
+      "settled_frames": 0
+    },
+    "schema_version": 1,
+    "story": "P3-11",
+    "status": "passed",
+    "scope": "complete final-source story acceptance",
+    "review": "local Codex self-review, not external approval",
+    "reviewer_sha256": "f9cdd59fe1d8e0faff79551a8be5efd0aca58aa847f17ad43bf16e414158bba7",
+    "source_commit": "5e412e8196db893a828a7ec4ef23597a42e42ae8",
+    "acceptance_sha256": "27e3107912568536013d0bf7642218c3dee9f86f611aeddef53358c3f1eb4f84",
+    "kernel_host_tests": 93,
+    "prerequisite_checks": 10,
+    "m1_rows": 33,
+    "m1_launches": 42,
+    "criterion_review": {
+      "routing": "pass: authenticated control, separate writer grant/publication, compatible proxy path, bounded queue/results, unavailable/incompatible errors",
+      "fence": "pass: two live private services, delayed old-epoch and retained direct-endpoint writes reject; only resource authority commits",
+      "requests": "pass: pending/result dedupe, reorder/substitution/retention/cancellation, expiry and correlated stale reply rejection",
+      "authorization": "pass: current exact sender/origin/service, finite policy/session grants, invalidation and literal stale-incarnation replay",
+      "death": "pass: authority cuts around fence/grant/publication/commit/reply, service and proxy deaths, explicit surviving-owner rejection or declared unknown outcome, fresh bootstrap and exact settlements"
+    },
+    "unsafe_review": {
+      "kernel": "registered fixture hooks only; unchanged public dispatch and return-state validation; one CPU, IF-clear kernel transitions; no new assembly",
+      "authority": "CPL3 bounded allocation-free routing/policy/resource owner; only commit changes counter; no service RW mapping to resource; exact generation identities and monotonically fenced epochs",
+      "outcomes": "ephemeral resource/result loss after authority death is explicitly unknown, never blindly replayed; cancel after commit does not undo effect; high-water marks survive result expiry within incarnation",
+      "direct_authority": "retained service endpoint survives switches but fails mandatory mutation fence; independent private RW mappings survive broker death until process teardown",
+      "limits": "trusted synthetic bootstrap and fixture-controlled failure schedule, no durable activation/state migration/old-code retirement, no general discovery/SDK freeze/SMP/guest UI"
+    }
+  },
+  "codecs": {
+    "status": "passed",
+    "cases": 4871,
+    "rejections": 2411,
+    "canonical_successes": 2460,
+    "contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+    "production_sha256": "8506d45e3c724c1c80adbb98a695c0d1feace1f43d2ac89de36df0dc4aaacb24",
+    "fixtures_sha256": "9f47379c3f4c81b5c261e002300815dbc008bd0f017cab7964652fa84f2c13b7",
+    "reference_sha256": "f069ac0645211ed767e00ca13ad4f481b915e62a4bac82e6f55d628a9161c6a1",
+    "semantic": {
+      "decoded_cases": 4871,
+      "independent_producer_cases": 2411,
+      "paired_field_swap_rejected": true,
+      "build": {
+        "source_sha256": "e419bc58fc8d5a9a673816d5c306914ed403d6d0d32398f36622a1716fdc4438",
+        "library_sha256": "399afb7b8edb491eaea15427e016842524f59e6832a382fefd613c84648579bc",
+        "arguments": [
+          "${WORKSPACE}\\tools\\sdk_codec_consumer.rs",
+          "--edition=2024",
+          "--crate-name",
+          "sdk_codec_semantics",
+          "--extern",
+          "continuum_rt=${WORKSPACE}\\build\\cargo\\signed\\debug\\deps\\libcontinuum_rt-4873709a8e290c38.rlib",
+          "-o",
+          "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793551030131\\codecs\\semantic-consumer.exe"
+        ],
+        "consumer_sha256": "40b30b2088cd072cd0a2440150c123b1dfd5a4107b7cfa1fb11793a029b1ad8f",
+        "status": "passed",
+        "compiler": [
+          "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+          "binary: rustc",
+          "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+          "commit-date: 2026-10-13",
+          "host: x86_64-pc-windows-msvc",
+          "release: 1.99.1",
+          "LLVM version: 23.1.1"
+        ]
+      }
+    }
+  },
+  "flavors": [
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev"
+      ],
+      "flavor": "ordinary",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev",
+        "--features",
+        "user-boundary-test"
+      ],
+      "flavor": "user-boundary-test",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev",
+        "--features",
+        "scheduler-test"
+      ],
+      "flavor": "scheduler-test",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev",
+        "--features",
+        "capability-test"
+      ],
+      "flavor": "capability-test",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev",
+        "--features",
+        "channel-test"
+      ],
+      "flavor": "channel-test",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev",
+        "--features",
+        "wait-test"
+      ],
+      "flavor": "wait-test",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev",
+        "--features",
+        "supervisor-test"
+      ],
+      "flavor": "supervisor-test",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev",
+        "--features",
+        "policy-test"
+      ],
+      "flavor": "policy-test",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev",
+        "--features",
+        "route-test"
+      ],
+      "flavor": "route-test",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev",
+        "--features",
+        "sdk-test"
+      ],
+      "flavor": "sdk-test",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "check",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--bin",
+        "continuum-kernel",
+        "--target",
+        "x86_64-unknown-none",
+        "--profile",
+        "kernel-dev",
+        "--features",
+        "sdk-runtime-test"
+      ],
+      "flavor": "sdk-runtime-test",
+      "exit_code": 0
+    }
+  ],
+  "freeze_contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+  "limitations": [
+    "one thread/process; x87/SSE2 only, masked SSE exceptions",
+    "no native x87 debug metadata or shared-process threads",
+    "no guest display/font/shaping/raster backend, dev transport, durable policy or state migration",
+    "supervision IDs remain experimental; no general SDK release"
+  ],
+  "reviewer_sha256": "2a757e45e239fc8712bccd3078a5a86f25063b4f331f00ad5dbe7c15d3959af6",
+  "criterion_review": {
+    "independent_builds": "pass: three fresh public-only locked/offline Cargo roots per ISO, declared SDK 0.1.0, separate old/new service artifacts and one unchanged client",
+    "codec_semantics": "pass: independent reference classifications, decoded field values and independently supplied producer fields; canonical bytes and paired field-swap rejection",
+    "compatibility_and_ownership": "pass: 20 old/new service exchanges, compatible minor/echo/features, explicit major/mandatory-feature/header and payload reserved/correlation rejection; two accepted immutable moves and two rejected application messages with received handles closed",
+    "route_fences": "pass: independent public client/service artifacts execute the full nine-incarnation route/policy matrix; delayed old epoch and retained endpoint cannot bypass the writer fence",
+    "runtime_hooks": "pass: separate six-process ISO, full heap/slot reuse, zero/copy/reallocation failure atomicity, selected model/segmentation/libm, live FP preemption, return/panic/fallible OOM, healthy continuation and exact settlement",
+    "freeze_and_handoff": "pass: only the exact selected contract hash freezes; distinct time/epoch domains, manual authority ownership, current provider checks and M4/M5 obligations remain explicit"
+  },
+  "unsafe_review": {
+    "kernel": "registered user_fixture observer and existing checked dispatcher/return-state validation; public operations cannot select return IP/selectors/privileged flags; one CPU and original deadlines/quotas",
+    "register_boundary": "raw pointer-bearing wrapper remains unsafe; R8/R9 zero, RAX/RDX/RCX/R11 and memory clobbers; explicit little-endian records rather than Rust layout; actual ELF and ISO payload identities checked",
+    "allocator": "single owning thread with no callback/signal reentry; private RW 64 KiB object, source handle closed after map; 64-byte cells/32 slots/alignment <=4096; zero before return, matching deallocation, live-allocation shutdown denied; default allocate-copy-free realloc preserves old allocation on failure",
+    "fp_and_dependencies": "kernel FP limited to eager fxsave64/fxrstor64 helpers; admitted user SSE2 instruction whitelist and no AVX/XSAVE/CPU dispatch or unresolved imports; selected model/segmentation/libm only execute in runtime guest",
+    "authority": "numeric identities and startup/checkpoint bytes confer no authority; receive outputs usable only after success; transferred handles explicitly closed on protocol rejection; existing current-session/policy/revision/deadline and writer-fence rules retained",
+    "limits": "trusted synthetic bootstrap; one thread/process, masked SSE exceptions, no shared-process threads/TLS/SMP, no full text/font/raster/display guest, durable policy, state migration, safe old-code retirement or general SDK release"
+  }
+}

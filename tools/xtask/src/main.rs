@@ -337,7 +337,7 @@ fn run() -> Result<()> {
         ["test", "--suite", "m1", "--case", "boot-metadata"] => m1::execute("boot-metadata"),
         ["test", "--suite", "m1", "--case", "boot-reject"] => m1::execute("boot-reject"),
         ["test", "--suite", "m1", "--case", case @ ("exception-invalid-opcode" | "exception-page-fault" | "panic" | "exception-emergency")] => m1::execute(case),
-        ["test", "--suite", "m1", "--case", case @ ("memory-ownership" | "memory-exhaustion" | "guard-fault" | "write-protect-fault" | "execute-disable-fault" | "emergency-stack" | "owned-memory" | "static-loader" | "user-boundary" | "scheduler" | "capabilities" | "channels" | "waits" | "supervisor" | "policy" | "routes")] => m1::execute(case),
+        ["test", "--suite", "m1", "--case", case @ ("memory-ownership" | "memory-exhaustion" | "guard-fault" | "write-protect-fault" | "execute-disable-fault" | "emergency-stack" | "owned-memory" | "static-loader" | "user-boundary" | "scheduler" | "capabilities" | "channels" | "waits" | "supervisor" | "policy" | "routes" | "sdk" | "sdk-runtime")] => m1::execute(case),
         ["test", "--suite", "m1", "--case", case @ ("timer-progress" | "timer-masked" | "clock-read" | "idle-wakeup" | "timer-exception" | "acpi-corrupt" | "timer-unsupported" | "timer-calibration")] => m1::execute(case),
         _ => Err(
             "Usage: cargo xtask doctor [--profile m1] [--json] | build --profile feasibility|dev | iso --profile m1 | run --profile vm-baseline | test --suite m0 | test --suite m1 --case iso-smoke|iso-negative|boot-metadata|boot-reject|exception-invalid-opcode|exception-page-fault|panic|exception-emergency|memory-ownership|memory-exhaustion|guard-fault|write-protect-fault|execute-disable-fault|emergency-stack"

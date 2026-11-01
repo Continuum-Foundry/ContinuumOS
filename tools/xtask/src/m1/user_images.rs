@@ -21,36 +21,7 @@ pub(super) fn build(
     policy: bool,
     routes: bool,
 ) -> Result<PathBuf> {
-    let contract: serde_json::Value =
-        serde_json::from_slice(&read(&root().join("contracts/runtime-v0.json"))?)
-            .map_err(|e| e.to_string())?;
-    let mut ids = String::new();
-    for group in ["dispatch_ids", "error_ids"] {
-        for (name, value) in contract["syscall"][group]
-            .as_object()
-            .ok_or("Missing runtime IDs")?
-        {
-            ids.push_str(&format!(
-                "pub const {}: u64 = {};\n",
-                name.to_uppercase(),
-                value.as_u64().ok_or("Bad runtime ID")?
-            ));
-        }
-    }
-    // xor edi,edi; xor r8d,r8d; xor r9d,r9d; mov eax,exit; syscall; ud2.
-    let mut trampoline = vec![0x31u8, 0xff, 0x45, 0x31, 0xc0, 0x45, 0x31, 0xc9, 0xb8];
-    trampoline.extend_from_slice(
-        &(contract["syscall"]["dispatch_ids"]["process_exit"]
-            .as_u64()
-            .ok_or("Missing exit ID")? as u32)
-            .to_le_bytes(),
-    );
-    trampoline.extend_from_slice(&[0x0f, 0x05, 0x0f, 0x0b]);
-    ids.push_str(&format!(
-        "pub const EXIT_TRAMPOLINE: &[u8] = &{trampoline:?};\n"
-    ));
-    let runtime_ids = dir.join("runtime-ids.rs");
-    fs::write(&runtime_ids, ids).map_err(|e| e.to_string())?;
+    let runtime_ids = runtime_ids(dir)?;
     let source = if routes {
         "experiments/user-images/routes.rs"
     } else if policy {
@@ -206,6 +177,182 @@ pub(super) fn build(
     write_json(
         &dir.join("user-images.json"),
         &json!({"schema_version":1,"target":"x86_64-unknown-none","code_model":"small","relocation":"static","red_zone":false,"panic":"abort","opt_level":1,"entry":"fixture_entry","compiler_sha256":digest(&Path::new(&sysroot).join("bin/rustc.exe"))?,"audit_tools_sha256":audits,"source_sha256":digest(&root().join(source))?,"runtime_source_sha256":digest(&root().join("experiments/user-images/runtime.rs"))?,"runtime_ids_sha256":digest(&runtime_ids)?,"linker_sha256":digest(&root().join("experiments/user-images/link.ld"))?,"images":images,"trusted_descriptors_sha256":digest(&path)?,"user_execution":execution || scheduler,"scheduler":scheduler,"required_cpu_features":if scheduler {7}else{0}}),
+    )?;
+    Ok(path)
+}
+
+fn runtime_ids(dir: &Path) -> Result<PathBuf> {
+    let contract: serde_json::Value =
+        serde_json::from_slice(&read(&root().join("contracts/runtime-v0.json"))?)
+            .map_err(|e| e.to_string())?;
+    let mut ids = String::new();
+    for group in ["dispatch_ids", "error_ids"] {
+        for (name, value) in contract["syscall"][group]
+            .as_object()
+            .ok_or("Missing runtime IDs")?
+        {
+            ids.push_str(&format!(
+                "pub const {}: u64 = {};\n",
+                name.to_uppercase(),
+                value.as_u64().ok_or("Bad runtime ID")?
+            ));
+        }
+    }
+    // xor edi,edi; xor r8d,r8d; xor r9d,r9d; mov eax,exit; syscall; ud2.
+    let mut trampoline = vec![0x31u8, 0xff, 0x45, 0x31, 0xc0, 0x45, 0x31, 0xc9, 0xb8];
+    trampoline.extend_from_slice(
+        &(contract["syscall"]["dispatch_ids"]["process_exit"]
+            .as_u64()
+            .ok_or("Missing exit ID")? as u32)
+            .to_le_bytes(),
+    );
+    trampoline.extend_from_slice(&[0x0f, 0x05, 0x0f, 0x0b]);
+    ids.push_str(&format!(
+        "pub const EXIT_TRAMPOLINE: &[u8] = &{trampoline:?};\n"
+    ));
+    let runtime_ids = dir.join("runtime-ids.rs");
+    fs::write(&runtime_ids, ids).map_err(|e| e.to_string())?;
+    Ok(runtime_ids)
+}
+
+pub(super) fn build_sdk(dir: &Path, runtime: bool) -> Result<PathBuf> {
+    let ids = runtime_ids(dir)?;
+    let mut command = Command::new("pwsh");
+    command
+        .args(["-NoProfile", "-File"])
+        .arg(root().join("tools/Build-P3-12Sdk.ps1"))
+        .arg("-Output")
+        .arg(dir);
+    if runtime {
+        command.arg("-Runtime");
+    }
+    capture(&mut command, dir, "public-sdk-build", 300)?;
+    let sysroot = output(Command::new(tool("rustc")?).args(["--print", "sysroot"]))?;
+    let llvm = Path::new(&sysroot).join("lib/rustlib/x86_64-pc-windows-msvc/bin");
+    let mut descriptors = String::from("pub const IMAGES: [([u8;32],usize);3] = [\n");
+    let mut images = Vec::new();
+    for name in ["user_a", "user_b", "service"] {
+        let path = dir.join(format!("{name}.elf"));
+        let bytes = read(&path)?;
+        if bytes.len() > 1048576 {
+            return Err("Public SDK ELF exceeds unchanged 1 MiB loader file bound".into());
+        }
+        let inspection = elf::inspect(&bytes, "userland-link")?;
+        let undefined = capture(
+            Command::new(llvm.join("llvm-nm.exe"))
+                .arg("--undefined-only")
+                .arg(&path),
+            dir,
+            &format!("{name}-llvm-nm"),
+            30,
+        )?;
+        if !undefined.trim().is_empty() {
+            return Err("Public SDK image has unresolved symbols".into());
+        }
+        let text = super::process::capture_audit(
+            Command::new(llvm.join("llvm-objdump.exe"))
+                .args(["--disassemble", "--no-show-raw-insn"])
+                .arg(&path),
+            dir,
+            &format!("{name}-llvm-objdump"),
+            30,
+        )?;
+        let mut simd = std::collections::BTreeSet::new();
+        for line in text.lines() {
+            if let Some((address, body)) = line.split_once(':') {
+                if address.trim().is_empty()
+                    || !address.trim().bytes().all(|v| v.is_ascii_hexdigit())
+                {
+                    continue;
+                }
+                let m = body.split_whitespace().next().unwrap_or("");
+                if m.starts_with('v')
+                    || ["cpuid", "xsave", "xrstor", "rdtsc", "rdrand", "rdseed"].contains(&m)
+                    || line.contains("%ymm")
+                    || line.contains("%zmm")
+                {
+                    return Err(format!("Unsupported SDK CPU instruction: {line}"));
+                }
+                if line.contains("%xmm") {
+                    if ![
+                        "movups",
+                        "movaps",
+                        "movupd",
+                        "movapd",
+                        "movsd",
+                        "movss",
+                        "movdqa",
+                        "movdqu",
+                        "movd",
+                        "movq",
+                        "pxor",
+                        "xorps",
+                        "xorpd",
+                        "andps",
+                        "andpd",
+                        "andnps",
+                        "andnpd",
+                        "orps",
+                        "orpd",
+                        "por",
+                        "pand",
+                        "pandn",
+                        "pcmpeqd",
+                        "pcmpeqb",
+                        "pshufd",
+                        "pshuflw",
+                        "pshufhw",
+                        "punpckldq",
+                        "punpcklqdq",
+                        "punpckhqdq",
+                        "pslldq",
+                        "psrldq",
+                        "psllq",
+                        "psrlq",
+                        "paddq",
+                        "paddd",
+                        "psubq",
+                        "psubd",
+                        "addsd",
+                        "subsd",
+                        "mulsd",
+                        "divsd",
+                        "sqrtsd",
+                        "comisd",
+                        "ucomisd",
+                        "cvtsi2sd",
+                        "cvttsd2si",
+                        "cvtsd2ss",
+                        "cvtss2sd",
+                        "unpcklpd",
+                        "unpckhpd",
+                        "movhlps",
+                        "movlhps",
+                        "shufps",
+                        "shufpd",
+                    ]
+                    .contains(&m)
+                    {
+                        return Err(format!("Unreviewed SDK SIMD instruction: {line}"));
+                    }
+                    simd.insert(m.to_owned());
+                }
+            }
+        }
+        let sha = digest(&path)?;
+        let raw = (0..64)
+            .step_by(2)
+            .map(|i| u8::from_str_radix(&sha[i..i + 2], 16).unwrap())
+            .collect::<Vec<_>>();
+        descriptors.push_str(&format!("({raw:?},{}),\n", bytes.len()));
+        images.push(json!({"name":name,"sha256":sha,"bytes":bytes.len(),"inspection":inspection,"simd_mnemonics":simd,"baseline":"x87/SSE2; no AVX/XSAVE/TLS or CPU dispatch"}));
+    }
+    descriptors.push_str("];\n");
+    let path = dir.join("trusted-images.rs");
+    fs::write(&path, descriptors).map_err(|e| e.to_string())?;
+    write_json(
+        &dir.join("user-images.json"),
+        &json!({"schema_version":1,"public_sdk":true,"sdk_version":"0.1.0","target":"x86_64-unknown-none","code_model":"small","red_zone":false,"user_execution":true,"scheduler":true,"required_cpu_features":7,"runtime_ids_sha256":digest(&ids)?,"images":images,"trusted_descriptors_sha256":digest(&path)?}),
     )?;
     Ok(path)
 }

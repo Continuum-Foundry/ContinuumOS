@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "scope": "static exact candidate structure review; final guest acceptance remains separate",
+  "contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+  "selected_syscalls": 26,
+  "errors": 15,
+  "records": {
+    "map": {
+      "bytes": 32,
+      "field_count": 4,
+      "explicit_little_endian": true
+    },
+    "attachment": {
+      "bytes": 24,
+      "field_count": 4,
+      "explicit_little_endian": true
+    },
+    "send": {
+      "bytes": 32,
+      "field_count": 4,
+      "explicit_little_endian": true
+    },
+    "receive": {
+      "bytes": 48,
+      "field_count": 6,
+      "explicit_little_endian": true
+    },
+    "metadata": {
+      "bytes": 64,
+      "field_count": 8,
+      "explicit_little_endian": true
+    },
+    "wait": {
+      "bytes": 32,
+      "field_count": 4,
+      "explicit_little_endian": true
+    },
+    "wait_item": {
+      "bytes": 32,
+      "field_count": 4,
+      "explicit_little_endian": true
+    },
+    "timer": {
+      "bytes": 24,
+      "field_count": 3,
+      "explicit_little_endian": true
+    },
+    "attempt": {
+      "bytes": 24,
+      "field_count": 3,
+      "explicit_little_endian": true
+    },
+    "context": {
+      "bytes": 40,
+      "field_count": 5,
+      "explicit_little_endian": true
+    },
+    "discovery": {
+      "bytes": 32,
+      "field_count": 4,
+      "explicit_little_endian": true
+    },
+    "route": {
+      "bytes": 160,
+      "field_count": 20,
+      "explicit_little_endian": true
+    },
+    "service_request": {
+      "bytes": 16,
+      "field_count": 2,
+      "explicit_little_endian": true
+    }
+  },
+  "startup_bytes": 64,
+  "header_bytes": 48,
+  "packaged_contract_identical": true,
+  "allocator_profile": {
+    "backing_bytes": 65536,
+    "live_allocations": 32,
+    "cell_bytes": 64,
+    "maximum_alignment": 4096,
+    "backing": "one process-owned RW memory object, close handle after mapping, explicitly unmap on quiescent shutdown",
+    "reuse": "free returns cells/metadata for reuse, each allocation zeroes requested bytes; failed realloc preserves old ownership",
+    "accounting": "entire 64 KiB remains resident/committed until shutdown or process teardown; prepaid kernel lifetime credits are unchanged"
+  }
+}

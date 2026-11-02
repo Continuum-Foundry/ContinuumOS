@@ -16,8 +16,10 @@ def codegen(folder):
     text=(folder/'llvm-objdump.stdout.log').read_text()
     instructions=lambda t:re.findall(r'^\s*[0-9a-f]+:\s+(\S+)([^\n]*)',t,re.M)
     fp=lambda m,o:m.startswith(('f','v','xsave','xrstor')) or m in ('ldmxcsr','stmxcsr','emms') or re.search(r'%(?:[xyz]mm|st|mm|k[0-7])',o)
-    require(sorted(m for m,o in instructions(text) if fp(m,o))==['fxrstor64','fxsave64'],'kernel FP outside context helpers')
+    controls=routes.cap.scheduler.control_helper(text)
+    require(sorted(m for m,o in instructions(text) if fp(m,o))==['fxrstor64','fxsave64']+(['stmxcsr'] if controls else []),'kernel FP outside context helpers')
     helpers={n:routes.cap.boundary.excerpt(text,n) for n in ('task_resume','task_save_fp','user_syscall','timer_vector')}
+    helpers.update(controls)
     require('fxrstor64' in helpers['task_resume'] and 'iretq' in helpers['task_resume'] and 'fxsave64' in helpers['task_save_fp'] and 'sysret' not in text,'context instruction closure')
     require(helpers['user_syscall'].count('pushq')==21 and helpers['user_syscall'].count('popq')==16,'syscall frame closure')
     allowed=set('movups movaps movupd movapd movsd movss movdqa movdqu movd movq pxor xorps xorpd andps andpd andnps andnpd orps orpd por pand pandn pcmpeqd pcmpeqb pshufd pshuflw pshufhw punpckldq punpcklqdq punpckhqdq pslldq psrldq psllq psrlq paddq paddd psubq psubd addsd subsd mulsd divsd sqrtsd comisd ucomisd cvtsi2sd cvttsd2si cvtsd2ss cvtss2sd unpcklpd unpckhpd movhlps movlhps shufps shufpd'.split())
@@ -196,7 +198,7 @@ def main():
         'kernel':'registered user_fixture observer and existing checked dispatcher/return-state validation; public operations cannot select return IP/selectors/privileged flags; one CPU and original deadlines/quotas',
         'register_boundary':'raw pointer-bearing wrapper remains unsafe; R8/R9 zero, RAX/RDX/RCX/R11 and memory clobbers; explicit little-endian records rather than Rust layout; actual ELF and ISO payload identities checked',
         'allocator':'single owning thread with no callback/signal reentry; private RW 64 KiB object, source handle closed after map; 64-byte cells/32 slots/alignment <=4096; zero before return, matching deallocation, live-allocation shutdown denied; default allocate-copy-free realloc preserves old allocation on failure',
-        'fp_and_dependencies':'kernel FP limited to eager fxsave64/fxrstor64 helpers; admitted user SSE2 instruction whitelist and no AVX/XSAVE/CPU dispatch or unresolved imports; selected model/segmentation/libm only execute in runtime guest',
+        'fp_and_dependencies':'kernel FP state access limited to eager fxsave64/fxrstor64 helpers and the audited MXCSR control reader or guarded entry snapshot; no kernel FP arithmetic; admitted user SSE2 instruction whitelist and no AVX/XSAVE/CPU dispatch or unresolved imports; selected model/segmentation/libm only execute in runtime guest',
         'authority':'numeric identities and startup/checkpoint bytes confer no authority; receive outputs usable only after success; transferred handles explicitly closed on protocol rejection; existing current-session/policy/revision/deadline and writer-fence rules retained',
         'limits':'trusted synthetic bootstrap; one thread/process, masked SSE exceptions, no shared-process threads/TLS/SMP, no full text/font/raster/display guest, durable policy, state migration, safe old-code retirement or general SDK release'
     }

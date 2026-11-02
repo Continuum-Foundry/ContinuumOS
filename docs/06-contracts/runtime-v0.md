@@ -288,7 +288,13 @@ XSAVE/OSXSAVE and lazy FP switching are unavailable. Audit compiler/library code
 and CPU dispatch against actual CPUID and target flags; P2 UI probes are not
 admitted before that audit. P3-05 tests register patterns, rounding/masks, forced
 preemption and cross-process leakage. FP exceptions terminate the user process;
-kernel FP use remains an audited failure. No UI code runs in IRQ context.
+kernel FP arithmetic remains an audited failure. P3-13 snapshots MXCSR in syscall
+entry assembly before the existing TS guard, into a supervisor-only single-CPU
+scratch word. Only eager FP resume enables that snapshot; integer entry/leave
+clear its ownership marker and the integer boundary build omits STMXCSR entirely.
+Rust checks the same mask before any operation. Full FXSAVE remains eager at every
+switch and termination; FXRSTOR remains the owning thread's resume operation.
+No UI code runs in IRQ context.
 
 P3-08's experimental elapsed source is the explicitly mapped 64-bit HPET main
 counter with validated femtosecond period. Delivered LAPIC ticks retain their
@@ -470,3 +476,8 @@ major 1/minor 1. The SDK guest uses clean public packages, not kernel module
 imports. The [matching final-source review](../../evidence/phase-3/P3-12/2026-11-01/README.md)
 freezes only the exact sdk-v1 contract hash. Historical integer/staged probes
 and unselected families are not retroactively frozen.
+
+
+## P3-13 stress adapter
+
+The [bounded stress profile](../05-delivery/phase-3/stress-runbook.md) uses the unchanged SDK operation subset and explicit little-endian fixture records. Trusted repeated bootstrap and public supervision are separate admission profiles; throughput does not increase prepaid lifetime quotas. Copy-pin termination remains deferred until commit and quiescence. The immutable verified-image cache and guarded MXCSR entry snapshot change mechanisms, with final-source regressions; neither freezes additional runtime-v0 families nor accepts reload.

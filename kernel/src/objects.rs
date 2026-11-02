@@ -421,8 +421,23 @@ impl Registry {
         r: &mut Runtime<S, A, M, T>,
         store: &mut impl Store,
     ) -> Result<()> {
+        self.settle_channel_call(r, store, true)
+    }
+    /// Inline-only enqueue/dequeue changes no authority graph edge. The adapter
+    /// supplies the actual committed attachment count, not descriptor capacity.
+    /// Pin quiescence remains mandatory even when collection has no work.
+    pub fn settle_channel_call<const S: usize, const A: usize, const M: usize, const T: usize>(
+        &mut self,
+        r: &mut Runtime<S, A, M, T>,
+        store: &mut impl Store,
+        authority_changed: bool,
+    ) -> Result<()> {
         self.quiescent(r)?;
-        self.collect(r, store)
+        if authority_changed {
+            self.collect(r, store)
+        } else {
+            Ok(())
+        }
     }
     fn quiescent<const S: usize, const A: usize, const M: usize, const T: usize>(
         &self,
@@ -678,3 +693,6 @@ pub mod channels;
 #[cfg(test)]
 mod tests;
 pub mod waiting;
+
+#[cfg(any(test, feature = "stress-test"))]
+pub mod accounting;

@@ -696,7 +696,31 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
                     return Err("Unexpected loader record".into());
                 }
             }
-            "m1.route_admit" | "m1.route_end" | "m1.route_settled" | "m1.route_ready" => {
+            "m1.route_admit"
+            | "m1.route_end"
+            | "m1.route_settled"
+            | "m1.route_ready"
+            | "m1.stress_samples"
+            | "m1.stress_metric"
+            | "m1.stress_memory"
+            | "m1.stress_objects"
+            | "m1.stress_backing"
+            | "m1.stress_end"
+            | "m1.stress_cycle"
+            | "m1.stress_idle"
+            | "m1.stress_peaks"
+            | "m1.stress_bounds"
+            | "m1.stress_storage"
+            | "m1.stress_capacity"
+            | "m1.stress_cpu"
+            | "m1.stress_export"
+            | "m1.stress_kill"
+            | "m1.stress_owner"
+            | "m1.stress_share"
+            | "m1.stress_admit"
+            | "m1.stress_interval"
+            | "m1.stress_cache"
+            | "m1.stress_inventory" => {
                 if !p.memory
                     || p.boot_complete
                     || stage != "routes"

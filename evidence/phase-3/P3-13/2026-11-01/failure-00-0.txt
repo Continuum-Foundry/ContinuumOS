@@ -1,0 +1,6 @@
+thread 'objects::tests::object_slot_retirement_and_page_table_failure_unwind' (85476) has overflowed its stack
+error: test failed, to rerun pass `-p continuum-kernel --lib`
+
+Caused by:
+  process didn't exit successfully: `pwsh -NoProfile -File C:\Users\archi\Documents\ContinuumOS\tools\windows\Invoke-DevExecutable.ps1 C:\Users\archi\Documents\ContinuumOS\build\cargo\signed\debug\deps\continuum_kernel-172e592285f33fd1.exe` (exit code: 0xc00000fd, STATUS_STACK_OVERFLOW)
+note: test exited abnormally; to see the full output pass --no-capture to the harness.

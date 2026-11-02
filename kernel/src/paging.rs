@@ -473,3 +473,11 @@ pub fn establish(mode: u64) -> Result<()> {
     }
     Ok(())
 }
+
+#[cfg(feature = "stress-test")]
+pub(crate) fn runtime_pool() -> (usize, usize) {
+    unsafe {
+        let frames = &*FRAMES.0.get();
+        (frames.total, frames.allocated)
+    }
+}

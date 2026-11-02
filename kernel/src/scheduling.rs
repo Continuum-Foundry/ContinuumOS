@@ -7,7 +7,11 @@ const N: usize = 32;
 #[path = "policy_guest.rs"]
 pub(crate) mod policy;
 #[cfg(feature = "route-test")]
-#[cfg_attr(feature = "sdk-test", path = "sdk_guest.rs")]
+#[cfg_attr(
+    all(feature = "sdk-test", not(feature = "stress-test")),
+    path = "sdk_guest.rs"
+)]
+#[cfg_attr(feature = "stress-test", path = "stress_guest.rs")]
 #[cfg_attr(not(feature = "sdk-test"), path = "routes_guest.rs")]
 pub(crate) mod routes;
 #[cfg(feature = "supervisor-test")]
@@ -50,7 +54,7 @@ static NESTED: Local<u64> = Local(UnsafeCell::new(0));
 static MAX_WAIT: Local<u64> = Local(UnsafeCell::new(0));
 static PIN_IRQS: Local<u64> = Local(UnsafeCell::new(0));
 global_asm!(include_str!("scheduler-entry.S"), continuation=sym CONTINUATION,
-    kernel_root=sym KERNEL_ROOT, kernel_sp=sym KERNEL_SP);
+    kernel_root=sym KERNEL_ROOT, kernel_sp=sym KERNEL_SP, fp_mode=sym SYSCALL_FP);
 unsafe extern "C" {
     fn task_resume(root: u64, frame: *const Frame, fp: *const FxState);
     fn task_save_fp(fp: *mut FxState);
@@ -201,11 +205,7 @@ pub(crate) fn syscall_return(f: &Frame, voluntary: bool) {
 }
 pub(crate) fn check_fp_policy() {
     if active() {
-        let supported = unsafe {
-            let t = (&mut *TASKS.0.get())[*INDEX.0.get()].as_mut().unwrap();
-            task_save_fp(&mut t.fp);
-            t.fp.supported_controls()
-        };
+        let supported = unsafe { SYSCALL_MXCSR.0.get().read_volatile() } & 0x1f80 == 0x1f80;
         if !supported {
             finish("fp-control", 0x400, 0);
         }

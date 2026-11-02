@@ -63,3 +63,5 @@ the user's original-kernel/no-hidden-reboot requirements silently.
 [ADR-0027: ephemeral service routes and mandatory writer fences](0027-ephemeral-service-routes-and-mandatory-writer-fences.md) remains Proposed; P3-11 owns its synthetic guest gate.
 
 [ADR-0028: bounded independent SDK and portable runtime subset](0028-bounded-independent-sdk-and-portable-runtime-subset.md) remains Proposed; P3-12 owns its independent byte/guest/runtime gate.
+
+[ADR-0029: bounded runtime stress observation](0029-bounded-runtime-stress-observation.md) remains Proposed; P3-13 owns its sustained accounting and measurement gate.

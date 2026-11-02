@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "encoding": "canonical unsigned LEB128, u64, then lowercase hexadecimal chunks",
+  "maximum_encoded_bytes": 512,
+  "chunk_bytes": 64,
+  "order": "owner count, memory fields, object fields, backing fields, then owner rows in ascending actor order",
+  "memory": [
+    "spaces",
+    "allocations",
+    "committed",
+    "resident",
+    "frames",
+    "free",
+    "pool",
+    "image_bytes",
+    "foreign_commitment"
+  ],
+  "objects": [
+    "objects",
+    "handles",
+    "mappings",
+    "object_backing",
+    "mapped_attribution",
+    "queued_messages",
+    "queued_bytes",
+    "queued_handles",
+    "active_tables",
+    "stacks",
+    "pins"
+  ],
+  "backing": [
+    "private",
+    "shared",
+    "queued_only",
+    "nonobject",
+    "wait_records",
+    "wait_watches",
+    "timers",
+    "events",
+    "orphan",
+    "ready_records"
+  ],
+  "owner": [
+    "actor",
+    "process",
+    "generation",
+    "requested",
+    "resident",
+    "object_references",
+    "charged"
+  ],
+  "routepack": "seven consecutive four-byte tuples: status, revision, value, queued; step is tuple index 0..6"
+}

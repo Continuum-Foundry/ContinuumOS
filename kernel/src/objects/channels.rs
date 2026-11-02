@@ -478,3 +478,25 @@ impl Registry {
         }
     }
 }
+
+#[cfg(any(test, feature = "stress-test"))]
+impl Registry {
+    pub(super) fn queued_references(&self, id: Id) -> usize {
+        self.channels
+            .iter()
+            .flat_map(|p| p.queues.iter())
+            .map(|q| {
+                (0..q.count)
+                    .map(|j| {
+                        q.messages[(q.head + j) % MESSAGES]
+                            .held
+                            .iter()
+                            .flatten()
+                            .filter(|h| h.object == id)
+                            .count()
+                    })
+                    .sum::<usize>()
+            })
+            .sum()
+    }
+}

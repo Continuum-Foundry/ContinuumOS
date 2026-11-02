@@ -215,12 +215,16 @@ fn runtime_ids(dir: &Path) -> Result<PathBuf> {
     Ok(runtime_ids)
 }
 
-pub(super) fn build_sdk(dir: &Path, runtime: bool) -> Result<PathBuf> {
+pub(super) fn build_sdk(dir: &Path, runtime: bool, stress: bool) -> Result<PathBuf> {
     let ids = runtime_ids(dir)?;
     let mut command = Command::new("pwsh");
     command
         .args(["-NoProfile", "-File"])
-        .arg(root().join("tools/Build-P3-12Sdk.ps1"))
+        .arg(root().join(if stress {
+            "tools/Build-P3-13Sdk.ps1"
+        } else {
+            "tools/Build-P3-12Sdk.ps1"
+        }))
         .arg("-Output")
         .arg(dir);
     if runtime {

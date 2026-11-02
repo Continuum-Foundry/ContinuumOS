@@ -130,6 +130,22 @@ def user_elf(path):
     return loads
 
 
+def control_helper(text):
+    if '<task_read_mxcsr>:' not in text:
+        body=boundary.excerpt(text,'user_syscall')
+        if 'stmxcsr' not in body:return {}
+        require(body.count('stmxcsr')==1 and re.search(r'stmxcsr\s+[^\n]*\(%rip\)',body),'control snapshot pointer closure')
+        prefix=body[:body.index('stmxcsr')]
+        require('cmpb' in prefix and re.search(r'\bje\s',prefix) and '%cr0' not in prefix,'unguarded/late FP control snapshot')
+        for name,value in (('task_resume','1'),('user_enter','0'),('user_leave','0')):
+            require(re.search(r'movb\s+\$(?:0x)?'+value+r',\s+[^\n]*\(%rip\)',boundary.excerpt(text,name)),'FP entry ownership marker '+name)
+        return {'syscall_mxcsr_snapshot':body}
+    body=boundary.excerpt(text,'task_read_mxcsr')
+    ops=[m for m in re.findall(r'^\s*[0-9a-f]+:\s+(\S+)',body,re.M) if not m.startswith('nop')]
+    require(ops in (['clts','subq','stmxcsr','movl','addq','movq','orq','movq','movl','retq'],['clts','subq','stmxcsr','movl','addq','movq','orq','movq','movl','ret']),'unexpected control reader instructions')
+    require(re.search(r'stmxcsr\s+\(%rsp\)',body) and body.count('%cr0')==2 and re.search(r'orq\s+\$(?:0x8|8),\s*%rax',body),'control reader pointer/TS closure')
+    return {'task_read_mxcsr':body}
+
 def codegen(folder):
     kernel=(folder/'llvm-objdump.stdout.log').read_text()
     helpers={n:boundary.excerpt(kernel,n) for n in ('task_save_fp','task_resume','user_leave','user_syscall','timer_vector','exception_common')}
@@ -140,7 +156,8 @@ def codegen(folder):
     instructions=lambda t: re.findall(r'^\s*[0-9a-f]+:\s+(\S+)([^\n]*)',t,re.M)
     def fp(m,o): return m.startswith(('f','v','xsave','xrstor')) or m in ('ldmxcsr','stmxcsr','emms') or re.search(r'%(?:[xyz]mm|st|mm|k[0-7])',o)
     actual=[m for m,o in instructions(kernel) if fp(m,o)]
-    require(sorted(actual)==['fxrstor64','fxsave64'],'kernel FP outside narrow helpers')
+    controls=control_helper(kernel);helpers.update(controls)
+    require(sorted(actual)==['fxrstor64','fxsave64']+(['stmxcsr'] if controls else []),'kernel FP outside narrow helpers')
     images=read(folder/'user-images.json')
     require(images['scheduler'] and images['required_cpu_features']==7,'missing image CPU manifest')
     inventories={}
@@ -197,7 +214,7 @@ def main():
         'scope':'local Codex source/assembly review and independently parsed execution/artifact evidence',
         'entry':'160-byte integer/IRET continuation; per-owner CR3, guarded syscall stack and TSS RSP0; trusted selectors and reset bases; no SYSRET or suspended Rust stack',
         'irq':'all GPRs and original CR0 retained; TS set before Rust; LAPIC acknowledged before fixed-buffer capture; no allocation, queue operations, logging or memory borrows in IRQ',
-        'fp':'aligned private 512-byte architectural state; fresh zero payload/default controls; only two kernel FX helpers; no kernel FP arithmetic, OSXSAVE, FSGSBASE or PKRU state',
+        'fp':'aligned private 512-byte architectural state; fresh zero payload/default controls; two full FX context helpers, with any MXCSR snapshot confined to the audited control helper or guarded syscall entry; no kernel FP arithmetic, OSXSAVE, FSGSBASE or PKRU state',
         'copy':'live-pin timer delivery only marks pending; no switch until copy unpins and syscall completes; precise copy recovery remains bounded',
         'teardown':'active CR3 captures page-table-bank publication; return to retained supervisor stack/root before any owned memory or stack is reclaimed',
         'limits':'one owner thread per process, equal priority, no blocking kernel continuations/SMP/TLS; unmasked SSE unsupported with bounded policy kill; hardware #XM and nonzero x87 debug metadata not execution-validated on TCG'}

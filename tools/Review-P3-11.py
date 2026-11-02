@@ -212,7 +212,11 @@ def aggregate(path):
     require(m1['status']=='passed' and len(m1['launches'])==42 and len(read(runs['m1']/'result.json')['stages']['rows'])==33 and m1['review_tool_sha256']==digest(ROOT/'tools/Review-P1-07.ps1'),'incomplete M1')
     for launch in m1['launches']:memory.lifecycle(channel.local(launch['directory']),launch['outcome']!='broken-before-entry')
     host=(runs['m1']/'kernel-host/check.stdout.log').read_text(encoding='utf-8-sig')
-    require('93 passed; 0 failed' in host and host.count('wait::tests::')==9 and host.count('objects::tests::waiting::')==7 and host.count('objects::tests::channels::')==10,'host wait/atomicity coverage')
+    host_count=94 if 'objects::tests::accounting::physical_backing_is_partitioned_once_across_duplicate_transfer_and_orphan_lifetimes ... ok' in host else 93
+    if 'user_image::tests::verified_plan_reuse_preserves_ceiling_failure_atomicity_and_generations ... ok' in host:
+        require(host_count==94,'missing physical backing host test')
+        host_count=95
+    require(f'{host_count} passed; 0 failed' in host and host.count('wait::tests::')==9 and host.count('objects::tests::waiting::')==7 and host.count('objects::tests::channels::')==10,'host wait/atomicity coverage')
     wait_observed,_=waits.focused(runs['waits'])
     supervisor_observed,_=supervision.focused(runs['supervisor'])
     supervisor_folder=runs['supervisor'];smf=read(supervisor_folder/'build-manifest.json');sr=read(supervisor_folder/'supervisor-run/run-result.json')
@@ -249,7 +253,7 @@ def aggregate(path):
         rows=memory.records((run/'serial.log').read_bytes(),read(runs['boundary']/'build-manifest.json')['build_id'],r['host_session_id'])
         channel.boundary.audit(rows,group);report['mutations']+=channel.boundary.mutation_checks(rows,group)
     cap.boundary_codegen(runs['boundary'])
-    report.update(schema_version=1,story='P3-11',status='passed',scope='complete final-source story acceptance',review='local Codex self-review, not external approval',reviewer_sha256=digest(__file__),source_commit=a['source_commit'],acceptance_sha256=digest(path),kernel_host_tests=93,prerequisite_checks=10,m1_rows=33,m1_launches=42)
+    report.update(schema_version=1,story='P3-11',status='passed',scope='complete final-source story acceptance',review='local Codex self-review, not external approval',reviewer_sha256=digest(__file__),source_commit=a['source_commit'],acceptance_sha256=digest(path),kernel_host_tests=host_count,prerequisite_checks=10,m1_rows=33,m1_launches=42)
     report['criterion_review']={
         'routing':'pass: authenticated control, separate writer grant/publication, compatible proxy path, bounded queue/results, unavailable/incompatible errors',
         'fence':'pass: two live private services, delayed old-epoch and retained direct-endpoint writes reject; only resource authority commits',

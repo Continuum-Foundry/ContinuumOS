@@ -27,7 +27,8 @@ see `evidence/phase-3/P3-06/2026-10-29/README.md`. P3-07's bounded channels and 
 `evidence/phase-3/P3-10/2026-10-30/README.md`. P3-11's ephemeral routes and writer fences pass local self-review; see
 `evidence/phase-3/P3-11/2026-10-31/README.md`. P3-12's independent bounded SDK and nonrendering runtime hooks pass local self-review; see
 `evidence/phase-3/P3-12/2026-11-01/README.md`. Only its exact tested contract subset
-is frozen. Next is P3-13; guest UI/reload and the M3 exit remain open.
+is frozen. P3-13's bounded SDK stress and resource accounting pass local self-review; see
+`evidence/phase-3/P3-13/2026-11-01/README.md`. Next is P3-14; guest UI/reload and the M3 exit remain open.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other

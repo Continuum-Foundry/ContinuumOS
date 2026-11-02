@@ -139,3 +139,14 @@ The switch mechanism contains no fixture address. Samples still feed
 `task_switch.progress`, `task_end.progress` and the non-yielding hog's positive
 progress assertion; inventory settlement does not depend on them. Capability
 fixtures install the same observer, preserving their prior sample behavior.
+
+P3-13 passes local self-review for a narrow control-read optimization: syscall entry snapshots
+MXCSR into a supervisor-only single-CPU scratch word before the existing TS guard.
+Eager resume enables the snapshot; integer entry/leave clear the ownership marker.
+The integer boundary build omits STMXCSR. Rust tests the same exception-mask bits
+before each operation without a full FXSAVE on every call. Full FP state still
+saves at switches and termination and restores at resume. Actual instruction
+audits confine STMXCSR to the guarded entry prefix. This
+revision passes the fresh scheduling/capability/runtime regressions in the
+[stress gate](stress-runbook.md); historical P3-05 evidence describes its earlier
+full-save-on-call implementation.

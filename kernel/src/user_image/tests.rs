@@ -424,6 +424,72 @@ fn digest_and_parse_fail_without_context_or_frames() {
     assert_eq!(l.live(), 0);
 }
 #[test]
+fn verified_plan_reuse_preserves_ceiling_failure_atomicity_and_generations() {
+    let bytes = image();
+    let verified = VerifiedImage::verify(trusted(&bytes)).unwrap();
+    let mut runtime = runtime();
+    let mut ram = Ram::new();
+    let mut launcher = Launcher::<1>::EMPTY;
+    let empty = runtime.inventory();
+    let context = Binding::UserA.context();
+    for generation in 1..=5 {
+        let calls = ram.calls;
+        let refused = Context {
+            commitment_ceiling: 1,
+            ..context
+        };
+        assert_eq!(
+            launcher
+                .launch_verified_context(
+                    &mut runtime,
+                    &mut ram,
+                    &verified,
+                    refused,
+                    &RETURN_CODE,
+                    false
+                )
+                .err(),
+            Some(error("launch", "ceiling"))
+        );
+        assert_eq!(ram.calls, calls);
+        ram.fail_at = calls;
+        assert!(
+            launcher
+                .launch_verified_context(
+                    &mut runtime,
+                    &mut ram,
+                    &verified,
+                    context,
+                    &RETURN_CODE,
+                    false
+                )
+                .is_err()
+        );
+        assert_eq!(runtime.inventory(), empty);
+        assert!(ram.pages.is_empty());
+        assert_eq!(launcher.live(), 0);
+        ram.fail_at = usize::MAX;
+        let id = launcher
+            .launch_verified_context(
+                &mut runtime,
+                &mut ram,
+                &verified,
+                context,
+                &RETURN_CODE,
+                false,
+            )
+            .unwrap();
+        assert_eq!(id.generation, generation);
+        let process = launcher.get(id).unwrap();
+        assert_eq!(process.entry, verified.plan.entry);
+        assert_eq!(process.context, context);
+        assert_eq!(process.image_digest, sha256(&bytes));
+        launcher.destroy(&mut runtime, &mut ram, id).unwrap();
+        assert_eq!(runtime.inventory(), empty);
+        assert!(ram.pages.is_empty());
+    }
+}
+#[test]
 fn generation_wrap_retires_process_slot() {
     let mut r = runtime();
     let mut ram = Ram::new();

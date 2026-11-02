@@ -261,6 +261,25 @@ pub struct TrustedImage<'a> {
     pub digest: [u8; 32],
     pub size: usize,
 }
+/// A checked plan tied to the exact immutably borrowed bytes. No writable alias
+/// may exist for this lifetime. Boot adapters additionally enforce RO/NX module
+/// mappings without direct-map aliases. This is not a user-supplied trust token.
+pub struct VerifiedImage<'a> {
+    image: TrustedImage<'a>,
+    plan: Plan,
+}
+impl<'a> VerifiedImage<'a> {
+    pub fn verify(image: TrustedImage<'a>) -> Result<Self> {
+        if image.bytes.len() > MAX_IMAGE {
+            return Err(bad("image_limit"));
+        }
+        if image.bytes.len() != image.size || sha256(image.bytes) != image.digest {
+            return Err(error("image", "digest"));
+        }
+        let plan = parse(image.bytes)?;
+        Ok(Self { image, plan })
+    }
+}
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ProcessId {
     pub slot: usize,
@@ -336,13 +355,30 @@ impl<const N: usize> Launcher<N> {
         if return_code.is_empty() || return_code.len() > PAGE as usize {
             return Err(bad("return_code"));
         }
-        if image.bytes.len() > MAX_IMAGE {
-            return Err(bad("image_limit"));
+        let verified = VerifiedImage::verify(image)?;
+        self.launch_verified_context(r, store, &verified, context, return_code, bounded)
+    }
+    /// Reuse a verified immutable plan, retaining all per-launch checks and the
+    /// same staging/publication transaction. The caller owns any bounded cache.
+    pub fn launch_verified_context<
+        const S: usize,
+        const A: usize,
+        const M: usize,
+        const T: usize,
+    >(
+        &mut self,
+        r: &mut Runtime<S, A, M, T>,
+        store: &mut impl Store,
+        verified: &VerifiedImage<'_>,
+        context: Context,
+        return_code: &[u8],
+        bounded: bool,
+    ) -> Result<ProcessId> {
+        if return_code.is_empty() || return_code.len() > PAGE as usize {
+            return Err(bad("return_code"));
         }
-        if image.bytes.len() != image.size || sha256(image.bytes) != image.digest {
-            return Err(error("image", "digest"));
-        }
-        let plan = parse(image.bytes)?;
+        let plan = &verified.plan;
+        let image = &verified.image;
         if plan.commitment > context.commitment_ceiling {
             return Err(error("launch", "ceiling"));
         }

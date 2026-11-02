@@ -3,6 +3,7 @@ use super::*;
 type Value = core::result::Result<u64, u64>;
 #[derive(Clone, Copy)]
 pub(super) struct Hooks {
+    // Read-only policy query; callers may consult it before diagnostic work.
     pub record_event: fn(&str) -> bool,
     pub entry_time: fn() -> u64,
     pub entry: fn(&mut Frame, u64),
@@ -286,6 +287,46 @@ pub(super) fn install_routes() {
                         | "m1.wait_park"
                         | "m1.ipc_call"
                         | "m1.cap_call"
+                )
+        },
+        ..hooks()
+    });
+}
+
+#[cfg(feature = "stress-test")]
+pub(super) fn install_stress() {
+    install_policy();
+    scheduled::install(Hooks {
+        entry: |f, entered| scheduling::routes::entry(f.rax, f.rdi, entered),
+        copy_observer: scheduling::routes::copy_observer,
+        wait_boundary: |phase, watched| {
+            if current().case == 902
+                && scheduling::routes::race_pending()
+                && (phase == 1 || phase == 2)
+            {
+                capabilities::registry(|c| c.event_set(current().space, watched, phase == 1))
+                    .unwrap();
+                if phase == 2 {
+                    scheduling::routes::race_complete();
+                }
+            }
+        },
+        return_to_user: scheduling::routes::return_observer,
+        record_event: |event| {
+            !(event == "m1.user_log"
+                && scheduling::routes::diagnostic_benchmark()
+                && !cfg!(feature = "stress-trace"))
+                && !matches!(
+                    event,
+                    "m1.wait_call"
+                        | "m1.wait_complete"
+                        | "m1.wait_wake"
+                        | "m1.wait_resume"
+                        | "m1.wait_park"
+                        | "m1.ipc_call"
+                        | "m1.ipc_sender"
+                        | "m1.cap_call"
+                        | "m1.user_call"
                 )
         },
         ..hooks()

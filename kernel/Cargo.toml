@@ -34,3 +34,7 @@ policy-test = ["supervisor-test"]
 route-test = ["policy-test"]
 sdk-test = ["route-test"]
 sdk-runtime-test = ["sdk-test"]
+
+stress-test = ["sdk-test"]
+stress-trace = ["stress-test"]
+stress-supervisor-test = ["sdk-test"]

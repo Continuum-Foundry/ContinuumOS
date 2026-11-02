@@ -8,7 +8,7 @@ function Hash([string]$path) { (Get-FileHash -LiteralPath $path -Algorithm SHA25
 function Local([string]$path) { $path.Replace('${WORKSPACE}', $root) }
 function Safe([string]$text) {
     $cygRoot = '/cygdrive/' + $root.Substring(0,1).ToLowerInvariant() + $root.Substring(2).Replace('\','/')
-    $text.Replace($cygRoot,'${WORKSPACE_CYGWIN}').Replace($root.Replace('\','\\'),'${WORKSPACE}').Replace($root.Replace('\','/'),'${WORKSPACE}').Replace($root,'${WORKSPACE}').Replace($env:USERPROFILE.Replace('\','\\'),'${USERPROFILE}').Replace($env:USERPROFILE,'${USERPROFILE}')
+    $text.Replace($cygRoot,'${WORKSPACE_CYGWIN}').Replace($root.Replace('\','\\'),'${WORKSPACE}').Replace($root.Replace('\','/'),'${WORKSPACE}').Replace($root,'${WORKSPACE}').Replace(([Environment]::GetFolderPath('UserProfile')).Replace('\','\\'),'${USERPROFILE}').Replace(([Environment]::GetFolderPath('UserProfile')),'${USERPROFILE}')
 }
 function Require([bool]$condition, [string]$message) { if (-not $condition) { throw $message } }
 if ($Partial) {

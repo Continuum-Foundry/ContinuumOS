@@ -12,6 +12,9 @@ const TARGET: &str = "x86_64-unknown-none";
 fn collect(dir: &Path, result: &mut BTreeMap<String, String>) -> Result<()> {
     for e in fs::read_dir(dir).map_err(|e| e.to_string())? {
         let e = e.map_err(|e| e.to_string())?;
+        if e.file_name() == "__pycache__" {
+            continue; // generated Python bytecode is not a source input
+        }
         if e.file_type().map_err(|e| e.to_string())?.is_dir() {
             collect(&e.path(), result)?;
         } else {
@@ -265,10 +268,15 @@ pub(super) fn audit_disassembly(text: &str) -> Result<()> {
     for line in text.lines() {
         let lower = line.to_ascii_lowercase();
         // LLVM AT&T register spellings plus x87/implicit vector instructions.
-        let mnemonic = lower
-            .split_once(':')
-            .map(|(_, v)| v.split_whitespace().next().unwrap_or(""))
-            .unwrap_or("");
+        let Some((address, body)) = lower.split_once(':') else {
+            continue;
+        };
+        // A POSIX filename header also contains a colon ("file format ...").
+        // Only instruction rows have a nonempty hexadecimal address.
+        if address.trim().is_empty() || !address.trim().bytes().all(|b| b.is_ascii_hexdigit()) {
+            continue;
+        }
+        let mnemonic = body.split_whitespace().next().unwrap_or("");
         if [
             "%xmm", "%ymm", "%zmm", "%mm", "%st", "%k0", "%k1", "%k2", "%k3", "%k4", "%k5", "%k6",
             "%k7",
@@ -292,6 +300,7 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         "kernel",
         "tools/xtask",
         "tools/windows",
+        "tools/linux",
         "experiments/user-images",
         "sdk/continuum-rt",
         "experiments/sdk-client",
@@ -319,6 +328,8 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         "config/m3-profiles.json",
         "fixtures/m2/runner-input.txt",
         "tools/Enter-Dev.ps1",
+        "tools/Host.ps1",
+        "config/m1-inputs.linux.lock.json",
         "tools/Test-M0.ps1",
         "tools/Probe-Dependencies.ps1",
         "tools/Test-M1Prerequisites.ps1",
@@ -398,8 +409,12 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     let sources = source_inputs()?;
     let compiler = rust_version()?;
     let sysroot = output(Command::new(tool("rustc")?).args(["--print", "sysroot"]))?;
-    let llvm = Path::new(&sysroot).join("lib/rustlib/x86_64-pc-windows-msvc/bin");
-    let compiler_hash = digest(&Path::new(&sysroot).join("bin/rustc.exe"))?;
+    let llvm = crate::llvm_bin(&sysroot);
+    let compiler_hash = digest(
+        &Path::new(&sysroot)
+            .join("bin")
+            .join(crate::executable("rustc")),
+    )?;
     let flags = [
         "code-model=kernel",
         "relocation-model=static",
@@ -491,7 +506,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         ("llvm-nm", vec!["--undefined-only"]),
         ("llvm-objdump", vec!["--disassemble", "--no-show-raw-insn"]),
     ] {
-        let mut cmd = Command::new(llvm.join(format!("{name}.exe")));
+        let mut cmd = Command::new(llvm.join(crate::executable(name)));
         let text = if name == "llvm-objdump" {
             capture_audit(cmd.args(args).arg(dir.join("kernel.elf")), dir, name, 30)?
         } else {
@@ -690,6 +705,7 @@ mod tests {
     }
     #[test]
     fn rejects_vector_and_fp_code() {
+        assert!(audit_disassembly("/tmp/kernel.elf: file format elf64-x86-64\n").is_ok());
         assert!(audit_disassembly("1000: movq %rax, %rbx\n1004: outl %eax, %dx").is_ok());
         for text in [
             "1000: movaps %xmm0, %xmm1",

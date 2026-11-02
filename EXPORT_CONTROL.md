@@ -1489,3 +1489,32 @@ Listing SHA-256 over `blob + space + path + newline` in this order:
 - `tools/xtask/src/m1/records.rs` — Git blob `0fdcb38e52b4683bc5c1fe789925dfa7754483ed`
 - `tools/xtask/src/m1/user_images.rs` — Git blob `6e9ea5fd09a07c5ebd4dfc6acb2671431faca6a6`
 - `tools/xtask/src/main.rs` — Git blob `a6a31921a794172aa6411897852391500b1ec58e`
+
+## One-time owner authorization — Linux ISO/VM validation port, 2026-11-02
+
+The owner instructed: “Perform the previously mentioned work and make PR
+(through my given exemption which covers the description you will eventually
+choose and final payload)”, explicitly covering Linux host checks/discovery,
+PowerShell/path/process adaptation, verified Linux prerequisites, separation of
+Windows executable signing and full ISO/guest regressions with unchanged
+assertions, deadlines and expected exits.
+
+This authorizes the necessary work in the current cloud environment, explicit
+acquisition of the public pinned tool/dependency inputs for this port, and one
+push of its final implementation, Linux prerequisite lock/supplier, runbooks,
+compact reviewed validation evidence and this record to the existing GitHub
+`origin/codex/linux-iso-vm-validation` at
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, followed by one PR against
+`main`. The chosen title is “Port ISO and guest validation to Linux”; its final
+description and payload are within the owner's explicit exemption. This permits
+the scoped Cargo cache-supply network override; acceptance stays offline.
+
+For that one push only, the installed hooks directory may be replaced in the
+command's Git configuration by a local hooks directory retaining the original
+pre-commit check and omitting the transfer-hold pre-push hook. The repository's
+hooks and configured hooks path remain installed afterward. No force push,
+merge, release, other destination or standing remote approval is authorized.
+Generated binaries/ISOs, private keys, credentials, full raw logs, dependency
+caches and full source/build trees are excluded. Geographic containment remains
+unverified; this is an administrative exception, not legal clearance or a finding
+of U.S.-only handling, and does not waive applicable law.

@@ -88,7 +88,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('elf',type=Path);p.add_argument('output',type=Path);p.add_argument('--llvm',type=Path,required=True)
     a=p.parse_args();a.output.mkdir(parents=True,exist_ok=True);data=a.elf.read_bytes();record=inspect(data)
     def run(tool,*args):
-        r=subprocess.run([str(a.llvm/(tool+'.exe')),*args,str(a.elf)],capture_output=True,text=True,encoding='utf-8')
+        r=subprocess.run([str(a.llvm/(tool+('.exe' if __import__('os').name == 'nt' else ''))),*args,str(a.elf)],capture_output=True,text=True,encoding='utf-8')
         assert r.returncode==0,r.stderr
         (a.output/(tool+'.txt')).write_text(r.stdout,encoding='utf-8')
         return r.stdout

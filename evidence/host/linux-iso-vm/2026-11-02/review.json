@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "review": "local Codex self-review; not independent approval",
+  "base_commit": "bdadc144eb648b54eb8ec8b3f82fba5058287c90",
+  "scope": "full existing ISO/guest chain on x86-64 GNU/Linux; no guest implementation change",
+  "m1": {
+    "rows": 33,
+    "launches": 42,
+    "status": "passed"
+  },
+  "kernel_host_tests": {
+    "passed": 95
+  },
+  "xtask_host_tests": {
+    "passed": 29,
+    "ignored": 1,
+    "ignored_reason": "existing paint test belongs to Test-P2-05, outside Phase 0"
+  },
+  "runtime_acceptance_commands": 19,
+  "stress_acceptance_commands": 25,
+  "all_guest_launches": 70,
+  "expected_negative_launches": 2,
+  "stress": {
+    "guests": 10,
+    "waves": 1000,
+    "worker_lifecycles": 2000,
+    "route_cycles": 1000,
+    "measured_ipc_round_trips": 100000,
+    "warmup_round_trips": 10000
+  },
+  "sdk_codecs": {
+    "cases": 4871,
+    "independent_producers": 2411
+  },
+  "metadata_flavors": 14,
+  "linux_runtime_files": 119,
+  "vm_profile_identical_to_windows": true,
+  "firmware_identical_to_windows": {
+    "firmware_code": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+    "firmware_vars": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e"
+  },
+  "preserved_policy_files": {
+    "tools/xtask/src/m1/records.rs": "109a02ab8374fa5999e91f558f371a60e31e11f964febe572cf9925fd2a6b389",
+    "tools/xtask/src/m1/observe.rs": "5e7c95dd00c9f5cf76be12e4ffa9b731ccf508b97ccb975c54cf9765a0cbcba2",
+    "config/p3-13-stress.json": "926ef821931ed0204377675fee6d8797f6b4123f4a25b46a322d8ec172960154",
+    "config/p3-13-inventory.json": "102740f49e4bb150d0b5375eedc86076afd5d959e889196638ba6dcb99afada8"
+  },
+  "supplier_repeat": {
+    "command": "python3 tools/linux/supply.py --download --build",
+    "exit_code": 0,
+    "runtime_hashes_unchanged": true,
+    "raw_log_sha256": "beb4443e1b51e03be10c6c03c2502ab77e3dfc809ccca6d45d784db355fbd0bb"
+  },
+  "development_findings": [
+    "Initial host execution needed managed sandbox escalation.",
+    "Fixed hidden-file lookup and Linux argument-array discovery; preserved 15000 ms probes.",
+    "Fixed POSIX filename headers falsely classified as FP instructions; real instruction rejection remains tested.",
+    "One pre-final acceptance was interrupted for source-fingerprint/accounting corrections; not counted as acceptance."
+  ],
+  "limitations": [
+    "Windows native execution was not available and was not claimed.",
+    "Hosted Windows UI/private-commit performance commands remain outside this port.",
+    "Known dependency-probe final-link blockers remain visible; all five compile probes passed, selected portable final link passed.",
+    "Full logs, source/build trees, binaries and ISOs remain local and are excluded from the PR.",
+    "This validates the current instance and supplier repeat, not restoration in a new task."
+  ]
+}

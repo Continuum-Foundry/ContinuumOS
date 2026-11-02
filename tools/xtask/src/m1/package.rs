@@ -4,7 +4,7 @@ use super::{
     process::capture,
     support::{digest, read},
 };
-use crate::{Result, hash, root, write_json};
+use crate::{Result, hash, write_json};
 use serde_json::{Value, json};
 use std::{
     collections::BTreeMap,
@@ -32,6 +32,13 @@ fn config(missing: bool, session: &str, fixture: &str, module: bool) -> String {
 // This pinned MSYS2 runtime uses /cygdrive, and xorriso treats a native C:\\...
 // source path as relative. argv quoting alone does not translate filesystem paths.
 fn iso_path(path: &Path) -> Result<String> {
+    if cfg!(target_os = "linux") {
+        return if path.is_absolute() {
+            Ok(path.to_string_lossy().into_owned())
+        } else {
+            Err("xorriso requires an absolute path".into())
+        };
+    }
     let s = path.to_string_lossy().replace('\\', "/");
     let b = s.as_bytes();
     if b.len() < 3 || !b[0].is_ascii_alphabetic() || &b[1..3] != b":/" {
@@ -202,7 +209,7 @@ pub(super) fn package(
             return Err(format!("ISO payload mismatch: {name}"));
         }
     }
-    let report = json!({"schema_version":2,"build_id":manifest["build_id"],"kernel_sha256":manifest["kernel_sha256"],"diagnostic_sites":manifest["inspection"]["diagnostic_sites"],"host_session_id":session,"session_origin":"host; correlation only, not a security credential or reset detector","fixture":fixture,"module_fixture":module,"build_flavor":manifest["flavor"],"configuration_sha256":payload["boot/limine/limine.conf"],"iso_sha256":digest(&iso)?,"payload":payload,"uefi_optical_catalog":true,"payload_extraction_verified":true,"fault":if missing {"missing-configured-kernel"} else {fixture},"input_lock_sha256":digest(&root().join("config/m1-inputs.lock.json"))?,"firmware_code_sha256":digest(pins.file("firmware_code")?)?,"firmware_vars_template_sha256":digest(pins.file("firmware_vars")?)?,"bios_tested":false,"boot_tested":false});
+    let report = json!({"schema_version":2,"build_id":manifest["build_id"],"kernel_sha256":manifest["kernel_sha256"],"diagnostic_sites":manifest["inspection"]["diagnostic_sites"],"host_session_id":session,"session_origin":"host; correlation only, not a security credential or reset detector","fixture":fixture,"module_fixture":module,"build_flavor":manifest["flavor"],"configuration_sha256":payload["boot/limine/limine.conf"],"iso_sha256":digest(&iso)?,"payload":payload,"uefi_optical_catalog":true,"payload_extraction_verified":true,"fault":if missing {"missing-configured-kernel"} else {fixture},"input_lock_sha256":digest(&crate::input_lock_path())?,"firmware_code_sha256":digest(pins.file("firmware_code")?)?,"firmware_vars_template_sha256":digest(pins.file("firmware_vars")?)?,"bios_tested":false,"boot_tested":false});
     write_json(&dir.join("iso-manifest.json"), &report)?;
     Ok(report)
 }
@@ -211,6 +218,7 @@ pub(super) fn package(
 mod tests {
     use super::*;
     #[test]
+    #[cfg(windows)]
     fn windows_paths_are_translated_without_shell_quoting() {
         assert_eq!(
             iso_path(Path::new("C:\\space directory\\image.iso")).unwrap(),
@@ -218,5 +226,18 @@ mod tests {
         );
         assert!(iso_path(Path::new("relative.iso")).is_err());
         assert!(iso_path(Path::new("\\\\server\\share")).is_err());
+    }
+}
+
+#[cfg(all(test, target_os = "linux"))]
+mod linux_tests {
+    use super::*;
+    #[test]
+    fn native_absolute_paths_preserve_spaces() {
+        assert_eq!(
+            iso_path(Path::new("/tmp/a space/image.iso")).unwrap(),
+            "/tmp/a space/image.iso"
+        );
+        assert!(iso_path(Path::new("relative.iso")).is_err());
     }
 }

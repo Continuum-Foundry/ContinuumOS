@@ -32,7 +32,7 @@ try {
         $sourceManifest=Join-Path $priorData.runs.m1 'suite-source-inputs.json'
         $measured=Get-Content -LiteralPath $sourceManifest -Raw | ConvertFrom-Json -AsHashtable
         $sourcePaths=@{}
-        foreach ($directory in @('kernel','tools/xtask','tools/windows','experiments/user-images','sdk/continuum-rt','experiments/sdk-client','experiments/sdk-service','experiments/sdk-stress')) {
+        foreach ($directory in @('kernel','tools/xtask','tools/windows','tools/linux','experiments/user-images','sdk/continuum-rt','experiments/sdk-client','experiments/sdk-service','experiments/sdk-stress')) {
             foreach ($file in @(Get-ChildItem -LiteralPath (Join-Path $root $directory) -Recurse -File -Force)) {$sourcePaths[[IO.Path]::GetRelativePath($root,$file.FullName).Replace('\','/')]=$file.FullName}
         }
         foreach ($path in $measured.Keys) {if (-not $sourcePaths.ContainsKey($path)) {$sourcePaths[$path]=Join-Path $root $path}}
@@ -42,7 +42,7 @@ try {
         }
         $priorSdk=Get-Content (Join-Path $priorData.runs.sdk 'build-inputs.json') -Raw | ConvertFrom-Json
         $compilerRoot=(& rustc --print sysroot | Out-String).Trim()
-        if ($LASTEXITCODE -ne 0 -or (Get-FileHash (Join-Path $compilerRoot 'bin/rustc.exe')).Hash.ToLowerInvariant() -ne $priorSdk.rustc_sha256) {throw 'Regression compiler changed.'}
+        if ($LASTEXITCODE -ne 0 -or (Get-FileHash (Join-Path $compilerRoot ('bin/rustc'+$script:ContinuumExeSuffix))).Hash.ToLowerInvariant() -ne $priorSdk.rustc_sha256) {throw 'Regression compiler changed.'}
         $report['regression_reuse']=@{acceptance_sha256=(Get-FileHash -LiteralPath $priorPath).Hash.ToLowerInvariant();source_manifest=$sourceManifest;source_manifest_sha256=(Get-FileHash -LiteralPath $sourceManifest).Hash.ToLowerInvariant();validated_files=$measured.Count;reason='identical complete measured source set and compiler; native observer build optimized without changing validation policy or guest inputs'}
         $report.commands+=@{name='runtime-regressions';program='validated-local-reference';arguments=@($priorPath,$sourceManifest);exit_code=0;elapsed_ms=0}
     } else {
@@ -60,7 +60,7 @@ try {
     if (-not $match.Success) {throw 'Missing public supervision artifact path.'}
     $report.runs.public_supervision=$match.Groups[1].Value.Trim()
     Check public-supervision-review python @('tools/Review-P3-13.py','--supervisor','--run',$report.runs.public_supervision,'--output',(Join-Path $run 'public-supervision-review')) | Out-Null
-    $observer=Join-Path $env:CARGO_TARGET_DIR 'release/xtask.exe'
+    $observer=Join-Path $env:CARGO_TARGET_DIR ('release/xtask'+$script:ContinuumExeSuffix)
     $report['native_observer']=@{path=$observer;sha256=(Get-FileHash -LiteralPath $observer).Hash.ToLowerInvariant()}
     foreach ($repetition in 0..4) {
         foreach ($trace in @('off','on')) {

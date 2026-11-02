@@ -205,6 +205,7 @@ fn channel_dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>
         })());
     }
     let v = (|| {
+        let mut authority_changed = true;
         if op == 13 {
             if f.rdx != 16 {
                 return Err(INVALIDARGUMENT);
@@ -277,6 +278,7 @@ fn channel_dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>
                     )
                 }
                 .map_err(status)?;
+                authority_changed = w[3] != 0;
             } else {
                 if w[5] < 64 {
                     return Err(BUFFERTOOSMALL);
@@ -337,6 +339,7 @@ fn channel_dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>
                 )
                 .map_err(status)?;
                 if let Some((sender, bytes, handles)) = delivered {
+                    authority_changed = handles != 0;
                     record(
                         "m1.ipc_sender",
                         "channels",
@@ -354,32 +357,36 @@ fn channel_dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>
                 }
             }
         }
-        runtime_memory::with(|r, b| unsafe { (&mut *REGISTRY.0.get()).sweep(r, b) })
-            .map_err(status)?;
+        runtime_memory::with(|r, b| unsafe {
+            (&mut *REGISTRY.0.get()).settle_channel_call(r, b, authority_changed)
+        })
+        .map_err(status)?;
         Ok(0)
     })();
-    let u = unsafe { (&*REGISTRY.0.get()).channel_usage() };
-    let inventory = inventory();
-    let (e, value) = match v {
-        Ok(value) => (0, value),
-        Err(e) => (e, 0),
-    };
-    record(
-        "m1.ipc_call",
-        "channels",
-        "ok",
-        format_args!(
-            "process={} generation={} operation={op} status={e} value={value} pairs={} messages={} bytes={} held={} objects={} handles={}",
-            current().id.slot,
-            current().id.generation,
-            u.pairs,
-            u.messages,
-            u.bytes,
-            u.handles,
-            inventory.objects,
-            inventory.handles
-        ),
-    );
+    if super::record_event("m1.ipc_call") {
+        let u = unsafe { (&*REGISTRY.0.get()).channel_usage() };
+        let inventory = inventory();
+        let (e, value) = match v {
+            Ok(value) => (0, value),
+            Err(e) => (e, 0),
+        };
+        record(
+            "m1.ipc_call",
+            "channels",
+            "ok",
+            format_args!(
+                "process={} generation={} operation={op} status={e} value={value} pairs={} messages={} bytes={} held={} objects={} handles={}",
+                current().id.slot,
+                current().id.generation,
+                u.pairs,
+                u.messages,
+                u.bytes,
+                u.handles,
+                inventory.objects,
+                inventory.handles
+            ),
+        );
+    }
     Some(v)
 }
 fn log_call(op: u64, f: &Frame, value: core::result::Result<u64, u64>, request: Option<[u64; 4]>) {

@@ -189,7 +189,8 @@ def codegen(folder):
     helpers={n:boundary.excerpt(text,n) for n in ('task_resume','task_save_fp','user_syscall','user_leave','timer_vector','exception_common')}
     fp=lambda m,o: m.startswith(('f','v','xsave','xrstor')) or m in ('ldmxcsr','stmxcsr','emms') or re.search(r'%(?:[xyz]mm|st|mm|k[0-7])',o)
     instructions=lambda t: re.findall(r'^\s*[0-9a-f]+:\s+(\S+)([^\n]*)',t,re.M)
-    require(sorted(m for m,o in instructions(text) if fp(m,o))==['fxrstor64','fxsave64'],'unexpected kernel FP')
+    controls=scheduler.control_helper(text);helpers.update(controls)
+    require(sorted(m for m,o in instructions(text) if fp(m,o))==['fxrstor64','fxsave64']+(['stmxcsr'] if controls else []),'unexpected kernel FP')
     require('fxrstor64' in helpers['task_resume'] and 'fxsave64' in helpers['task_save_fp'] and 'iretq' in helpers['task_resume'] and 'sysret' not in text,'context instruction closure')
     require(helpers['user_syscall'].count('pushq')==21 and helpers['user_syscall'].count('popq')==16,'syscall frame closure')
     for name,item in zip(('user_a','user_b','service'),read(folder/'user-images.json')['images']):

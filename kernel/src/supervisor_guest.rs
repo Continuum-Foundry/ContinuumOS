@@ -47,18 +47,25 @@ pub(super) fn prepare_task(
     let slot = unsafe { (&*TASKS.0.get()).iter().position(Option::is_none) }
         .ok_or(error("supervisor", "quota"))?;
     let id = runtime_memory::with(|r, b| unsafe {
-        (&mut *LAUNCHER.0.get()).launch_context(
-            r,
-            b,
-            TrustedImage {
-                bytes: crate::paging::module(module)?,
-                digest: IMAGES[module].0,
-                size: IMAGES[module].1,
-            },
-            context,
-            EXIT_TRAMPOLINE,
-            true,
-        )
+        #[cfg(feature = "stress-test")]
+        {
+            routes::launch(&mut *LAUNCHER.0.get(), r, b, module, context)
+        }
+        #[cfg(not(feature = "stress-test"))]
+        {
+            (&mut *LAUNCHER.0.get()).launch_context(
+                r,
+                b,
+                TrustedImage {
+                    bytes: crate::paging::module(module)?,
+                    digest: IMAGES[module].0,
+                    size: IMAGES[module].1,
+                },
+                context,
+                EXIT_TRAMPOLINE,
+                true,
+            )
+        }
     })?;
     let (space, entry, sp) = unsafe {
         let p = (&*LAUNCHER.0.get()).get(id)?;

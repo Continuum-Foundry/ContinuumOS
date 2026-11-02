@@ -47,6 +47,9 @@ pub(super) enum Flavor {
     Routes,
     Sdk,
     SdkRuntime,
+    Stress,
+    StressTrace,
+    StressSupervision,
 }
 impl Flavor {
     fn name(self) -> &'static str {
@@ -70,6 +73,9 @@ impl Flavor {
             Self::Routes => "route-test",
             Self::Sdk => "sdk-test",
             Self::SdkRuntime => "sdk-runtime-test",
+            Self::Stress => "stress-test",
+            Self::StressTrace => "stress-trace",
+            Self::StressSupervision => "stress-supervisor-test",
         }
     }
     fn features(self) -> &'static str {
@@ -93,6 +99,9 @@ impl Flavor {
             Self::Routes => "route-test",
             Self::Sdk => "sdk-test",
             Self::SdkRuntime => "sdk-runtime-test",
+            Self::Stress => "stress-test",
+            Self::StressTrace => "stress-trace",
+            Self::StressSupervision => "stress-supervisor-test",
         }
     }
 }
@@ -287,6 +296,7 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         "sdk/continuum-rt",
         "experiments/sdk-client",
         "experiments/sdk-service",
+        "experiments/sdk-stress",
     ] {
         collect(&root().join(p), &mut sources)?;
     }
@@ -297,6 +307,9 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         "contracts/sdk-v1.json",
         "sdk/continuum-rt/Cargo.toml",
         "tools/Build-P3-12Sdk.ps1",
+        "tools/Build-P3-13Sdk.ps1",
+        "config/p3-13-stress.json",
+        "config/p3-13-inventory.json",
         "Cargo.toml",
         "Cargo.lock",
         "rust-toolchain.toml",
@@ -321,10 +334,21 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
 }
 pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     check_pin()?;
-    let user_descriptors = if matches!(flavor, Flavor::Sdk | Flavor::SdkRuntime) {
+    let user_descriptors = if matches!(
+        flavor,
+        Flavor::Sdk
+            | Flavor::SdkRuntime
+            | Flavor::Stress
+            | Flavor::StressTrace
+            | Flavor::StressSupervision
+    ) {
         Some(super::user_images::build_sdk(
             dir,
             flavor == Flavor::SdkRuntime,
+            matches!(
+                flavor,
+                Flavor::Stress | Flavor::StressTrace | Flavor::StressSupervision
+            ),
         )?)
     } else if matches!(
         flavor,
@@ -339,6 +363,9 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             | Flavor::Routes
             | Flavor::Sdk
             | Flavor::SdkRuntime
+            | Flavor::Stress
+            | Flavor::StressTrace
+            | Flavor::StressSupervision
     ) {
         Some(super::user_images::build(
             dir,
@@ -354,6 +381,9 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     | Flavor::Routes
                     | Flavor::Sdk
                     | Flavor::SdkRuntime
+                    | Flavor::Stress
+                    | Flavor::StressTrace
+                    | Flavor::StressSupervision
             ),
             flavor == Flavor::Capabilities,
             flavor == Flavor::Channels,
@@ -377,7 +407,15 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         "link-arg=-Tkernel/link.ld",
         "remap-path-prefix=/continuum",
     ];
-    let identity = json!({"schema_version":1,"sources":sources,"compiler":compiler,"rustc_sha256":compiler_hash,"profile":"kernel-dev","target":TARGET,"flavor":flavor.name(),"flags":flags,"user_images":if user_descriptors.is_some(){Some(digest(&dir.join("user-images.json"))?)}else{None}});
+    let profile = if matches!(
+        flavor,
+        Flavor::Stress | Flavor::StressTrace | Flavor::StressSupervision
+    ) {
+        "kernel-stress"
+    } else {
+        "kernel-dev"
+    };
+    let identity = json!({"schema_version":1,"sources":sources,"compiler":compiler,"rustc_sha256":compiler_hash,"profile":profile,"target":TARGET,"flavor":flavor.name(),"flags":flags,"user_images":if user_descriptors.is_some(){Some(digest(&dir.join("user-images.json"))?)}else{None}});
     let id = hash(&serde_json::to_vec(&identity).map_err(|e| e.to_string())?);
     write_json(&dir.join("build-inputs.json"), &identity)?;
     let mut c = Command::new(tool("cargo")?);
@@ -392,7 +430,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             "--target",
             TARGET,
             "--profile",
-            "kernel-dev",
+            profile,
             "--target-dir",
         ])
         .arg(dir.join("cargo"));
@@ -434,7 +472,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         c.env_remove(k);
     }
     capture(&mut c, dir, "kernel-build", 180)?;
-    let bytes = read(&dir.join(format!("cargo/{TARGET}/kernel-dev/continuum-kernel")))?;
+    let bytes = read(&dir.join(format!("cargo/{TARGET}/{profile}/continuum-kernel")))?;
     fs::write(dir.join("kernel.elf"), &bytes).map_err(|e| e.to_string())?;
     let mut inspection = elf::inspect(&bytes, "continuum-kernel")?;
     audit_requests(&bytes, &inspection)?;
@@ -509,11 +547,15 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     | Flavor::Routes
                     | Flavor::Sdk
                     | Flavor::SdkRuntime
+                    | Flavor::Stress
+                    | Flavor::StressTrace
+                    | Flavor::StressSupervision
             ) {
                 let mut symbol = "";
                 let mut filtered = String::new();
                 let mut saves = 0;
                 let mut restores = 0;
+                let mut control_reads = 0;
                 for line in text.lines() {
                     if line.ends_with(">:") {
                         symbol = line.split('<').nth(1).unwrap_or("").trim_end_matches(">:");
@@ -526,10 +568,14 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                         restores += 1;
                         continue;
                     }
+                    if symbol == "user_syscall" && line.contains("stmxcsr") {
+                        control_reads += 1;
+                        continue;
+                    }
                     filtered.push_str(line);
                     filtered.push('\n');
                 }
-                if saves != 1 || restores != 1 {
+                if saves != 1 || restores != 1 || control_reads != 1 {
                     return Err("Missing narrow eager FP helpers".into());
                 }
                 audit_disassembly(&filtered)?;

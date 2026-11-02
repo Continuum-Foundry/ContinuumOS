@@ -1,0 +1,497 @@
+{
+  "schema_version": 1,
+  "story": "P3-13",
+  "status": "passed",
+  "source_commit": "be11413128531cb38e114cca7024841a1834f85e",
+  "native_observer_profile": "release",
+  "commands": [
+    {
+      "exit_code": 0,
+      "program": "validated-local-reference",
+      "elapsed_ms": 0,
+      "name": "runtime-regressions",
+      "arguments": [
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-12\\acceptance-1793581117641\\acceptance.json",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\suite-1793581397017670500-77588\\suite-source-inputs.json"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 15847,
+      "name": "runtime-regression-review",
+      "arguments": [
+        "tools/Review-P3-12.py",
+        "--acceptance",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-12\\acceptance-1793581117641\\acceptance.json"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 37719,
+      "name": "public-supervision",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-supervisor"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 882,
+      "name": "public-supervision-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--supervisor",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-supervisor-1793594526529180700-93372",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\public-supervision-review"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 47242,
+      "name": "stress-off-0",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 3266,
+      "name": "stress-off-0-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594565152600300-94504",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-off-0-review"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "pwsh",
+      "elapsed_ms": 18131,
+      "name": "stress-flavors",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Check-P3-13Flavors.ps1",
+        "-Descriptors",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594565152600300-94504",
+        "-Output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\flavors"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 44414,
+      "name": "stress-on-0",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 3019,
+      "name": "stress-on-0-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-trace-1793594634069547000-97144",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-on-0-review"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 44179,
+      "name": "stress-off-1",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 3275,
+      "name": "stress-off-1-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594681122540900-78756",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-off-1-review"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 51082,
+      "name": "stress-on-1",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 3385,
+      "name": "stress-on-1-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-trace-1793594728608478800-97248",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-on-1-review"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 44878,
+      "name": "stress-off-2",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 3039,
+      "name": "stress-off-2-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594783207601500-96288",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-off-2-review"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 44927,
+      "name": "stress-on-2",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 3094,
+      "name": "stress-on-2-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-trace-1793594830998318000-94124",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-on-2-review"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 46043,
+      "name": "stress-off-3",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 3073,
+      "name": "stress-off-3-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594879022035800-96948",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-off-3-review"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 45544,
+      "name": "stress-on-3",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 4887,
+      "name": "stress-on-3-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-trace-1793594928165459100-93580",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-on-3-review"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 50574,
+      "name": "stress-off-4",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 4334,
+      "name": "stress-off-4-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594979069394500-96500",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-off-4-review"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "cargo",
+      "elapsed_ms": 60255,
+      "name": "stress-on-4",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "program": "python",
+      "elapsed_ms": 3744,
+      "name": "stress-on-4-review",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-trace-1793595033855769500-96116",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-on-4-review"
+      ]
+    }
+  ],
+  "runs": {
+    "prior_acceptance": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-12\\acceptance-1793581117641\\acceptance.json",
+    "flavors": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\flavors",
+    "public_supervision": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-supervisor-1793594526529180700-93372"
+  },
+  "stress": [
+    {
+      "status": "passed",
+      "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594565152600300-94504",
+      "trace": "off",
+      "review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-off-0-review",
+      "repetition": 0
+    },
+    {
+      "status": "passed",
+      "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-trace-1793594634069547000-97144",
+      "trace": "on",
+      "review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-on-0-review",
+      "repetition": 0
+    },
+    {
+      "status": "passed",
+      "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594681122540900-78756",
+      "trace": "off",
+      "review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-off-1-review",
+      "repetition": 1
+    },
+    {
+      "status": "passed",
+      "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-trace-1793594728608478800-97248",
+      "trace": "on",
+      "review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-on-1-review",
+      "repetition": 1
+    },
+    {
+      "status": "passed",
+      "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594783207601500-96288",
+      "trace": "off",
+      "review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-off-2-review",
+      "repetition": 2
+    },
+    {
+      "status": "passed",
+      "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-trace-1793594830998318000-94124",
+      "trace": "on",
+      "review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-on-2-review",
+      "repetition": 2
+    },
+    {
+      "status": "passed",
+      "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594879022035800-96948",
+      "trace": "off",
+      "review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-off-3-review",
+      "repetition": 3
+    },
+    {
+      "status": "passed",
+      "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-trace-1793594928165459100-93580",
+      "trace": "on",
+      "review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-on-3-review",
+      "repetition": 3
+    },
+    {
+      "status": "passed",
+      "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-1793594979069394500-96500",
+      "trace": "off",
+      "review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-off-4-review",
+      "repetition": 4
+    },
+    {
+      "status": "passed",
+      "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-stress-trace-1793595033855769500-96116",
+      "trace": "on",
+      "review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\acceptance-1793594502383\\stress-on-4-review",
+      "repetition": 4
+    }
+  ],
+  "regression_reuse": {
+    "acceptance_sha256": "cd3d6ab51ca4a5b7a5107f88b38c0115134e7d6b53f842f6fa24e996c7fa5dfb",
+    "reason": "identical complete measured source set and compiler; native observer build optimized without changing validation policy or guest inputs",
+    "validated_files": 160,
+    "source_manifest": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\suite-1793581397017670500-77588\\suite-source-inputs.json",
+    "source_manifest_sha256": "60d43ed98976a3424a445210f09cf76a81508c567104b259e0887553c8dac7d1"
+  },
+  "native_observer": {
+    "sha256": "e92fc426448803b605358a836ddcc94812e4e76aad3ffc032f0b09d8aa1fd59a",
+    "path": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\cargo\\signed\\release\\xtask.exe"
+  }
+}

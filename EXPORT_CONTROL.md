@@ -1317,3 +1317,175 @@ Listing SHA-256 over `blob + space + path + newline` in this order:
 - `tools/xtask/src/m1/cases.rs` — Git blob `5a1490bc22eccb77462cba4b8e9451fc6c156ef4`
 - `tools/xtask/src/m1/user_images.rs` — Git blob `b11149bf36f25275ae55f50a170ea911579f4283`
 - `tools/xtask/src/main.rs` — Git blob `04c1a68dbf05884f2670b6b2164aae8806eecf25`
+
+
+## One-time owner authorization — P3-13 PR, 2026-11-02
+
+The owner instructed: "I give you exemption to make the PR" after completed local
+P3-13 acceptance. This authorizes one non-force push of the exact 139 reviewed
+paths and staged Git blobs below, plus this authorization record (140 files total),
+to `https://github.com/Continuum-Foundry/ContinuumOS.git`, target
+`refs/heads/codex/p3-13-runtime-stress-accounting`, and creation of one PR against
+`main` in that same repository. Base: `be11413128531cb38e114cca7024841a1834f85e`.
+Commit metadata and the P3-13 PR title, description and local validation summary
+are included.
+
+Only this invocation may bypass the administrative pre-push hold:
+`git push --no-verify --set-upstream origin HEAD:refs/heads/codex/p3-13-runtime-stress-accounting`.
+The normal pre-commit hygiene check stays enabled; the pre-push guard and persistent
+`core.hooksPath=.githooks` setting stay installed unchanged. Push authority is
+exhausted by the first successful push; PR authority is exhausted by creation of
+that PR. No merge, force push, release, remote build, additional recipient, later
+push or standing waiver is authorized. Geographic containment remains unverified;
+this administrative exception is not legal clearance and does not waive applicable law.
+
+Only the reviewed 87-file compact P3-13 evidence bundle is included. Full local
+logs, source copies, disassembly, binaries, ISOs, signing material and ignored
+build/work artifacts are excluded. Original owner signing-policy and display-roadmap
+edits are preserved and excluded. The four partially staged owner files include
+only the task's ADR-count change and three acceptance appendices, as represented
+by the exact staged blobs below. The record itself is additional to the blob
+list to avoid a self-hash.
+
+Listing SHA-256 over `blob + space + path + newline` in this order:
+`946885f6ccad85a1349f89eaf53cac3ac4d6a9eef5e6c851be0c04e684c0653e`.
+
+- `AGENTS.md` — Git blob `08faf591dabc9fb77afbde14dde06d15429378d4`
+- `Cargo.toml` — Git blob `2b7d95beb8dc2e3d7ca08553e17845769dccc1b6`
+- `audit/check-docs.cjs` — Git blob `b7ccf44b84f836dc4fc59517aa1e1dbff05ebecc`
+- `config/p3-13-inventory.json` — Git blob `f2cc06d9755159a3fa3f4720a77460ca6bad2146`
+- `config/p3-13-stress.json` — Git blob `ab66c849afc88ae824882181e1e6c65cac9bf704`
+- `docs/04-decisions/0029-bounded-runtime-stress-observation.md` — Git blob `ae73dfa0fee07666a7b34a5577b14f8edf8dfcf7`
+- `docs/04-decisions/README.md` — Git blob `71b81fdd276880f65ee4c7821dc873697e6d284e`
+- `docs/05-delivery/agent-handoff.md` — Git blob `338e22eb1fe296ccd33c63552381d73e52264459`
+- `docs/05-delivery/phase-3/13-adversarial-lifecycle-and-resource-accounting.md` — Git blob `0fe7005c153a1c4e7852e54fc20e8bea156b313b`
+- `docs/05-delivery/phase-3/README.md` — Git blob `0fce3c52a6d6b55658c419e3c8a66cd58a7e457a`
+- `docs/05-delivery/phase-3/scheduler-runbook.md` — Git blob `6daa8b7156290d0e0bbf8c29d586fe844bffcde7`
+- `docs/05-delivery/phase-3/stress-runbook.md` — Git blob `225c339f6f0057f3512cc641c57b16c6b9186e74`
+- `docs/05-delivery/validation.md` — Git blob `5c2f51cccf25d04b61ceb2409a94fc4bbf379ee7`
+- `docs/06-contracts/runtime-v0.md` — Git blob `03acbdff03a7b7ca176f93f4d205f0bdc3c1c338`
+- `docs/README.md` — Git blob `a4ed868a38ff7159194e9db2bc1e06f95809644f`
+- `evidence/phase-3/P3-13/2026-11-01/README.md` — Git blob `30ce70a8e280c202aec9ed0ad7cc8c43e157a85e`
+- `evidence/phase-3/P3-13/2026-11-01/SHA256SUMS.json` — Git blob `032b4b4ec7b7e94247cbdf7c27218d252c65054e`
+- `evidence/phase-3/P3-13/2026-11-01/acceptance.json` — Git blob `406719e13a53775b0e0314f58f948e759ed390b6`
+- `evidence/phase-3/P3-13/2026-11-01/development-findings.json` — Git blob `fa6c985e5099d4d07e953672ffd3af20a0069321`
+- `evidence/phase-3/P3-13/2026-11-01/documentation-inputs.json` — Git blob `d212f1add87c48f1250d2fe12c17aa4f85dc6cfb`
+- `evidence/phase-3/P3-13/2026-11-01/failure-00-0.txt` — Git blob `ac9764877324f7e9301c28f8e0d68c1155e63029`
+- `evidence/phase-3/P3-13/2026-11-01/failure-01-0.txt` — Git blob `83ee159bb4dd715f0a739d882595fdb99a9ba206`
+- `evidence/phase-3/P3-13/2026-11-01/failure-02-0.txt` — Git blob `0c199d4d0f24cf1aec0d07aa6389b7a48d64be8c`
+- `evidence/phase-3/P3-13/2026-11-01/failure-03-0.txt` — Git blob `d59fc9bb637389aa8eaf970fc74412c6e96ee852`
+- `evidence/phase-3/P3-13/2026-11-01/failure-04-0.txt` — Git blob `5dbf517e469856e13a65eb3af24daf1517610a36`
+- `evidence/phase-3/P3-13/2026-11-01/failure-05-0.txt` — Git blob `b17dc6e4720e7f12c8684cb113acbf5dc0c9bca1`
+- `evidence/phase-3/P3-13/2026-11-01/failure-06-0.txt` — Git blob `61949fa5101d093c7a1c2273179a8f6ca0b6d06d`
+- `evidence/phase-3/P3-13/2026-11-01/failure-07-0.txt` — Git blob `486d898e90651f1342a208385a79ce75a34f34d9`
+- `evidence/phase-3/P3-13/2026-11-01/failure-08-0.txt` — Git blob `13db297f0c00d6e31f44c817a556cec4c2f6e2df`
+- `evidence/phase-3/P3-13/2026-11-01/failure-09-0.txt` — Git blob `847f6ce3cdea847057d8bfc04074c3e1a5ca974d`
+- `evidence/phase-3/P3-13/2026-11-01/failure-10-0.txt` — Git blob `cf85846c3ba157a99049e660522e4a0bf4c904dd`
+- `evidence/phase-3/P3-13/2026-11-01/failure-11-0.txt` — Git blob `0486a332f6aee127f43076009b15072c857607f8`
+- `evidence/phase-3/P3-13/2026-11-01/failure-12-0.txt` — Git blob `602bfe0fe0fec99bbbb386091252bd313a4ae537`
+- `evidence/phase-3/P3-13/2026-11-01/failure-13-0.txt` — Git blob `5ec24bf2ee587bf5746bd374d2b0af43c00663f2`
+- `evidence/phase-3/P3-13/2026-11-01/failure-14-0.txt` — Git blob `7b6c0c453601cb2c864fc8f93750f9d0a989f5d4`
+- `evidence/phase-3/P3-13/2026-11-01/failure-15-0.txt` — Git blob `4baf27567eb730262bd3030547697eac8ef651db`
+- `evidence/phase-3/P3-13/2026-11-01/failure-16-0.txt` — Git blob `d40de7c824ad6a32a752942145db1dc2017ebb4e`
+- `evidence/phase-3/P3-13/2026-11-01/failure-17-0.txt` — Git blob `59b61c1aef23f1d6bb5fd986f8bd87ff036a1284`
+- `evidence/phase-3/P3-13/2026-11-01/failure-18-0.txt` — Git blob `9cadabc5d34a827740797ea78a0a1d48e427393e`
+- `evidence/phase-3/P3-13/2026-11-01/failure-19-0.txt` — Git blob `97840d39035a00b70b3d78f1e76f68c1b2f38592`
+- `evidence/phase-3/P3-13/2026-11-01/failure-20-0.txt` — Git blob `4cb59e722b26441a236e02d943c32b061d1f1e30`
+- `evidence/phase-3/P3-13/2026-11-01/failure-21-0.txt` — Git blob `78a0e4433b807de9a91e78d7d73a7aa9b7d889d6`
+- `evidence/phase-3/P3-13/2026-11-01/failure-22-0.txt` — Git blob `9e8b05842f6761d91329a0cb52b86a94865e8598`
+- `evidence/phase-3/P3-13/2026-11-01/failure-selection.json` — Git blob `650fa3c404ca90fee18233381d9ae1664b6d774f`
+- `evidence/phase-3/P3-13/2026-11-01/host-observer-tests.json` — Git blob `afdde0d16bdaae42608ed0d3fdff643428cffd14`
+- `evidence/phase-3/P3-13/2026-11-01/inventory-schema.json` — Git blob `73df14e013547ca271bb06bd82d3f50cea9b48f7`
+- `evidence/phase-3/P3-13/2026-11-01/m1-review.json` — Git blob `083967424fd43987c5188e1e037d9bac99355652`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/admit.csv` — Git blob `fb64e60b2a8c0215c846064eeff8afb56e9a8be4`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/backing.csv` — Git blob `2d270945aeaa3a355c846345a5134e208a3191bc`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/cycle.csv` — Git blob `576afc12f0cdd1218a9d43948480427856e21e7d`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/end.csv` — Git blob `ae60a3ed538f9b67dcfd413c0bd1eb3270990b2b`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/ipc.csv` — Git blob `680083b10103c8c2bfb147d8aa8232626c3f4472`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/memory.csv` — Git blob `fac35592f166a8cb495d1c02a93035fcfdf0371e`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/mutation-check.json` — Git blob `5ac54047887e0ae6e288190e7ca8c2c60b798361`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/objects.csv` — Git blob `f4cb06e6362fac64a958b2eed3eb6118cb8c6b56`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/owner.csv` — Git blob `9e3f38617b6ab1e1e96a3c53f0051ab58cfb7689`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/scheduling.csv` — Git blob `432404413ba9f3fd6afa97e2ccbdf5da8eb08107`
+- `evidence/phase-3/P3-13/2026-11-01/off-0/share.csv` — Git blob `501ed28c571bd3d74b28ceccecfbcca0281032cd`
+- `evidence/phase-3/P3-13/2026-11-01/off-1/cycle.csv` — Git blob `420326e01848aaaf8c3af1c2d057a26e4cbe48ff`
+- `evidence/phase-3/P3-13/2026-11-01/off-1/ipc.csv` — Git blob `9525658c54d8e5dd59e5c7401fb6d1191b8077a8`
+- `evidence/phase-3/P3-13/2026-11-01/off-1/mutation-check.json` — Git blob `5ac54047887e0ae6e288190e7ca8c2c60b798361`
+- `evidence/phase-3/P3-13/2026-11-01/off-2/cycle.csv` — Git blob `f27d6caecbab926decff0f0f582beabb83797227`
+- `evidence/phase-3/P3-13/2026-11-01/off-2/ipc.csv` — Git blob `2691befed4d62a3324b423dfaeaaa143cb71ecde`
+- `evidence/phase-3/P3-13/2026-11-01/off-2/mutation-check.json` — Git blob `5ac54047887e0ae6e288190e7ca8c2c60b798361`
+- `evidence/phase-3/P3-13/2026-11-01/off-3/cycle.csv` — Git blob `def1c424ae1854d2c1b951ee338ff8996b7352d5`
+- `evidence/phase-3/P3-13/2026-11-01/off-3/ipc.csv` — Git blob `0ab90e7524b94c8393d3ed696b2cfe6e8b236058`
+- `evidence/phase-3/P3-13/2026-11-01/off-3/mutation-check.json` — Git blob `5ac54047887e0ae6e288190e7ca8c2c60b798361`
+- `evidence/phase-3/P3-13/2026-11-01/off-4/cycle.csv` — Git blob `c5649998957053524f58b60cb827c01612fc0205`
+- `evidence/phase-3/P3-13/2026-11-01/off-4/ipc.csv` — Git blob `a9a556725131859eb88241a64f28151aeab5e2fd`
+- `evidence/phase-3/P3-13/2026-11-01/off-4/mutation-check.json` — Git blob `5ac54047887e0ae6e288190e7ca8c2c60b798361`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/admit.csv` — Git blob `67b0afdfaa7d62800c865392a44179d61437ae78`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/backing.csv` — Git blob `2872b0dbaa48d84ace710a709d6a4f781b351a98`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/cycle.csv` — Git blob `1b2f93eb6acebcf87e7b626b3de2f2418c16030d`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/end.csv` — Git blob `d90da2c1bf69b975feea6aa628ab13b2939e7fbc`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/ipc.csv` — Git blob `74422f846812439cf9eb639817343deaa60bf433`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/memory.csv` — Git blob `3a91080da52a7c6816850efbab7067c9f69a712d`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/mutation-check.json` — Git blob `5ac54047887e0ae6e288190e7ca8c2c60b798361`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/objects.csv` — Git blob `5f81fbad9197cbdbe6aa04044761f9c7ee1a83b2`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/owner.csv` — Git blob `61e3b70e48eb4225a2afc382e9d51998cc6becaa`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/scheduling.csv` — Git blob `bcae6b9ec7410d97d6568720e295ad95e824387e`
+- `evidence/phase-3/P3-13/2026-11-01/on-0/share.csv` — Git blob `bb440793590269400b7251aa58b899487ca08f28`
+- `evidence/phase-3/P3-13/2026-11-01/on-1/cycle.csv` — Git blob `55e1b265938228859cb524579661cc86a8d598b1`
+- `evidence/phase-3/P3-13/2026-11-01/on-1/ipc.csv` — Git blob `c52560ff37fcec81c2446f7bad8b1f5c0339459e`
+- `evidence/phase-3/P3-13/2026-11-01/on-1/mutation-check.json` — Git blob `5ac54047887e0ae6e288190e7ca8c2c60b798361`
+- `evidence/phase-3/P3-13/2026-11-01/on-2/cycle.csv` — Git blob `8bef5380c170db766933cc9d2506d09453438d1e`
+- `evidence/phase-3/P3-13/2026-11-01/on-2/ipc.csv` — Git blob `a723731f26ddb45be628d7833d0d0f00a0f34677`
+- `evidence/phase-3/P3-13/2026-11-01/on-2/mutation-check.json` — Git blob `5ac54047887e0ae6e288190e7ca8c2c60b798361`
+- `evidence/phase-3/P3-13/2026-11-01/on-3/cycle.csv` — Git blob `7a51a3480adc327ea2965bcb9a54dac58be42cdb`
+- `evidence/phase-3/P3-13/2026-11-01/on-3/ipc.csv` — Git blob `17baff1002721767a6e4c25f3bc5a6c6913ce81d`
+- `evidence/phase-3/P3-13/2026-11-01/on-3/mutation-check.json` — Git blob `5ac54047887e0ae6e288190e7ca8c2c60b798361`
+- `evidence/phase-3/P3-13/2026-11-01/on-4/cycle.csv` — Git blob `d0b5cf1292d7a00e5c6924742f0efaf3657cd78f`
+- `evidence/phase-3/P3-13/2026-11-01/on-4/ipc.csv` — Git blob `8de84083e0dfb570bf0a1f81797df5d109eed0cf`
+- `evidence/phase-3/P3-13/2026-11-01/on-4/mutation-check.json` — Git blob `5ac54047887e0ae6e288190e7ca8c2c60b798361`
+- `evidence/phase-3/P3-13/2026-11-01/owner-preservation.json` — Git blob `4411cef3e12d99bf60f851f2ffbbb33d8d70b863`
+- `evidence/phase-3/P3-13/2026-11-01/prerequisites.json` — Git blob `cc65b0ea0ae071b26564fc4fb2f54f085d06c5c8`
+- `evidence/phase-3/P3-13/2026-11-01/profile.json` — Git blob `123700d9babd1fddaa7a4ebf0de4addc5c01971b`
+- `evidence/phase-3/P3-13/2026-11-01/review.json` — Git blob `eae0d3b25ac293d0ec1d260b548a7e42a5518119`
+- `evidence/phase-3/P3-13/2026-11-01/runtime-regression-review.json` — Git blob `c32dee9ed5f09a7665dd1557ff8c50ce5b9562c4`
+- `evidence/phase-3/P3-13/2026-11-01/selected-off.txt` — Git blob `645d185991900c1d8390c710b38cc20cfd68e674`
+- `evidence/phase-3/P3-13/2026-11-01/selected-on.txt` — Git blob `e48fcc27066aa2f230812ce469ebaa7691dce2ac`
+- `evidence/phase-3/P3-13/2026-11-01/source-provenance.json` — Git blob `bde87ddc7603624f48cb08a9c761d7bc1653b42c`
+- `evidence/phase-3/P3-13/2026-11-01/trace-selection.json` — Git blob `8a4bdd68ef6d42cbdd67790b85c8d79c54d9640e`
+- `experiments/sdk-stress/Cargo.lock` — Git blob `acc3c287c0ef0cd947b6047cd56eb8e174825ab0`
+- `experiments/sdk-stress/Cargo.toml` — Git blob `5852ad55cfd11d3ae6aa45fcefa6bd7a30cb64d7`
+- `experiments/sdk-stress/src/faults.rs` — Git blob `d1c664e7c05a91675438f84d006393f64b59daf5`
+- `experiments/sdk-stress/src/main.rs` — Git blob `339aff4a5c55c641c1a82290d08da2f23b3e8f00`
+- `experiments/sdk-stress/src/supervision.rs` — Git blob `875dd08f495fdb248c66ec0263a65e7223536e87`
+- `kernel/Cargo.toml` — Git blob `cc31a1ab0c2fdb463b61eb6b6ce94cd5943fbdd0`
+- `kernel/src/capability_guest.rs` — Git blob `afa1be945dcbe5c7c481cbdd0accba408c240ff6`
+- `kernel/src/objects.rs` — Git blob `e31501b4c5ec66f51111346400a1ca0318ac121b`
+- `kernel/src/objects/accounting.rs` — Git blob `22a18145bfe16b973f0831abbf5202ed5afb94c7`
+- `kernel/src/objects/channels.rs` — Git blob `4381ce9b901bc47e724d3f5b820af87b5e42dc0b`
+- `kernel/src/objects/tests.rs` — Git blob `d354d905611262e4b8fb528b41d08fcd1e11cd4e`
+- `kernel/src/objects/tests/accounting.rs` — Git blob `687d9b50f016cdcb7ba770e3caa19db8014db546`
+- `kernel/src/owned_memory.rs` — Git blob `92c2bda6543ab368e65026d5c316ce4203aa2633`
+- `kernel/src/paging.rs` — Git blob `015ab82d02dbb84ea5789b8c711b640d93d63617`
+- `kernel/src/scheduler-entry.S` — Git blob `921f881f145d7a80e03a6feef76fdc74bca86ca7`
+- `kernel/src/scheduling.rs` — Git blob `7ef7e90723a8a1c281904799e5ac28e9eed43087`
+- `kernel/src/stress_guest.rs` — Git blob `80d1d76a1b240bcf73b9d847604e2dd5ecec1b62`
+- `kernel/src/supervisor_guest.rs` — Git blob `2d0facf3705aa9743038dfa5ad685d63ab1b05c3`
+- `kernel/src/user-entry.S` — Git blob `650a523bff976ef65921a62ae9fe5120aa318eba`
+- `kernel/src/user_entry.rs` — Git blob `e8e3d83824dbe9c652f887bdec1a0d28ce7c2148`
+- `kernel/src/user_fixture.rs` — Git blob `44937429ddf7b80b935c648ca06c154790c09cfb`
+- `kernel/src/user_image.rs` — Git blob `db914c86bec1f87aa3beeeaded5d7f9622514e9b`
+- `kernel/src/user_image/tests.rs` — Git blob `0f744e83e5dbf416f916ac9335f011a224af4d3a`
+- `kernel/src/waiting_guest.rs` — Git blob `28ea83604874c1b8a0c0ef373aa0b4fc361614b3`
+- `tools/Build-P3-13Sdk.ps1` — Git blob `5b2d24ecd314a3603d2e6b66773a24982237368d`
+- `tools/Check-P3-13Flavors.ps1` — Git blob `59bafa5676d0046bacba3530b6b43e5952030d1b`
+- `tools/Review-P3-05.py` — Git blob `63bc76f5b66df2c69e0c5e7e41467b243f2e446c`
+- `tools/Review-P3-06.py` — Git blob `52eef208b52d7cf47404ab9b089994c33f688e5b`
+- `tools/Review-P3-11.py` — Git blob `80f0dafcb147f64f9ea3fe7cb8568573c89f3a90`
+- `tools/Review-P3-12.py` — Git blob `9dfe52dc29715ac31bf22d957831257b1206d474`
+- `tools/Review-P3-13.py` — Git blob `83fade3cf55e1531e5a8b41ab60a833a0c03c687`
+- `tools/Test-P3-13.ps1` — Git blob `1930b3955ef8a4f3123acf7754fcf68132e7e147`
+- `tools/xtask/src/m1/build.rs` — Git blob `fccf4bb61969e198766ca456a5977ff74ce506d6`
+- `tools/xtask/src/m1/cases.rs` — Git blob `92b9146b55ae79565b55b1f764ef1bac8cdff6c7`
+- `tools/xtask/src/m1/records.rs` — Git blob `0fdcb38e52b4683bc5c1fe789925dfa7754483ed`
+- `tools/xtask/src/m1/user_images.rs` — Git blob `6e9ea5fd09a07c5ebd4dfc6acb2671431faca6a6`
+- `tools/xtask/src/main.rs` — Git blob `a6a31921a794172aa6411897852391500b1ec58e`

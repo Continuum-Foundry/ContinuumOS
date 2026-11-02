@@ -35,6 +35,10 @@ static CONTINUATION: Local<u64> = Local(UnsafeCell::new(0));
 static KERNEL_ROOT: Local<u64> = Local(UnsafeCell::new(0));
 static KERNEL_SP: Local<u64> = Local(UnsafeCell::new(0));
 static USER_SP: Local<u64> = Local(UnsafeCell::new(0));
+// Single-CPU entry scratch, never mapped to userspace. Assembly marks only
+// eager-FP resume as active; integer entry and every leave clear the marker.
+static SYSCALL_FP: Local<u8> = Local(UnsafeCell::new(0));
+static SYSCALL_MXCSR: Local<u32> = Local(UnsafeCell::new(0));
 static LAUNCHER: Local<Launcher<16>> = Local(UnsafeCell::new(Launcher::EMPTY));
 #[derive(Clone, Copy)]
 struct Current {
@@ -58,7 +62,8 @@ static CALLS: Local<u64> = Local(UnsafeCell::new(0));
 static PEAK: Local<u64> = Local(UnsafeCell::new(0));
 global_asm!(include_str!("user-entry.S"), continuation=sym CONTINUATION,
     kernel_root=sym KERNEL_ROOT, kernel_sp=sym KERNEL_SP, user_sp=sym USER_SP,
-    dispatch=sym dispatch);
+    dispatch=sym dispatch, fp_mode=sym SYSCALL_FP, mxcsr=sym SYSCALL_MXCSR,
+    eager_fp=const (cfg!(feature="scheduler-test") as u8));
 unsafe extern "C" {
     fn user_enter(root: u64, ip: u64, sp: u64);
     fn user_leave() -> !;
@@ -229,7 +234,7 @@ fn copy(address: u64, bytes: &mut [u8], output: bool) -> core::result::Result<()
         let kernel = bytes.as_mut_ptr() as u64;
         #[cfg(feature = "scheduler-test")]
         {
-            assert!(r.inventory().active_pins > 0);
+            assert!(r.active_pin_count() > 0);
             (fixture::hooks().copy_observer)(true);
         }
         let failed = unsafe {
@@ -492,7 +497,8 @@ pub fn run(group: u64) -> Result<()> {
         + core::mem::size_of::<[Option<Heap>; 32]>()
         + core::mem::size_of::<Option<(u64, u64)>>()
         + core::mem::size_of::<fixture::Hooks>()
-        + 8 * 8; // seven entry counters/slots plus the timer user-IRQ counter
+        + 8 * 8
+        + 8; // entry counters/slots, user-IRQ counter and FP entry scratch
     need(
         empty.metadata_bytes + empty.table_storage_bytes + 16 * 73728 + extra <= 16 * 1024 * 1024,
     )?;

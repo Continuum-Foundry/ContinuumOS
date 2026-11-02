@@ -1,4 +1,5 @@
-// Only these two functions may use FP state in CPL0. No arithmetic, no lazy state.
+// Eager context helpers; user-entry.S also snapshots MXCSR before its TS guard.
+// No FP arithmetic or lazy ownership is admitted in CPL0.
 .section .text
 .global task_save_fp
 .type task_save_fp,@function
@@ -37,6 +38,7 @@ task_resume:
     mov es, ax
     mov fs, ax
     mov gs, ax
+    mov byte ptr [rip + {fp_mode}], 1
     clts
     fxrstor64 [r8]
     pop r15

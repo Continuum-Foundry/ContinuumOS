@@ -741,6 +741,11 @@ impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, 
         }
         Ok(())
     }
+    /// Bounded pin observation without scanning mapping/allocation inventories.
+    /// The copy observer asks this while the newly acquired pin is still live.
+    pub fn active_pin_count(&self) -> usize {
+        self.spaces.iter().filter(|s| s.live).map(|s| s.pins).sum()
+    }
     pub fn inventory(&self) -> Inventory {
         let mut v = Inventory {
             spaces: 0,
@@ -796,3 +801,42 @@ pub fn user_range(address: u64, bytes: u64) -> Result<Range> {
 
 #[cfg(test)]
 mod tests;
+
+#[cfg(any(test, feature = "stress-test"))]
+impl<const S: usize, const A: usize, const M: usize, const T: usize> Runtime<S, A, M, T> {
+    pub fn owner_backing(&self, space: SpaceId) -> Result<(u64, u64)> {
+        self.space(space)?;
+        Ok(self
+            .allocations
+            .iter()
+            .filter(|a| a.live && a.owner == Some(space))
+            .fold((0, 0), |(requested, resident), a| {
+                (requested + a.requested, resident + a.pages as u64 * PAGE)
+            }))
+    }
+    pub fn owner_commitment(&self, space: SpaceId) -> Result<u64> {
+        Ok(self.spaces[self.space(space)?].committed)
+    }
+    pub fn foreign_commitment(&self) -> u64 {
+        self.spaces
+            .iter()
+            .enumerate()
+            .filter(|(_, space)| space.live)
+            .map(|(slot, space)| {
+                let owner = SpaceId {
+                    slot,
+                    generation: space.generation,
+                };
+                space
+                    .maps
+                    .iter()
+                    .flatten()
+                    .filter(|mapping| {
+                        self.allocations[mapping.allocation.slot].owner != Some(owner)
+                    })
+                    .map(|mapping| mapping.bytes)
+                    .sum::<u64>()
+            })
+            .sum()
+    }
+}

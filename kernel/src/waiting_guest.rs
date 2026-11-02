@@ -167,6 +167,12 @@ pub(super) fn notify() -> Result<()> {
     if !enabled() {
         return Ok(());
     }
+    // With no registered owner there is no readiness/deadline to latch. Avoid
+    // an HPET MMIO read on every unrelated syscall; timer/watch queries and
+    // admission still observe their current clock when a wait actually exists.
+    if unsafe { (&*BLOCKED.0.get()).iter().all(Option::is_none) } {
+        return Ok(());
+    }
     let time = crate::timer::elapsed().map(Instant)?;
     let mut previous = 0;
     for _ in 0..32 {
@@ -296,6 +302,8 @@ pub(super) fn resume(id: ThreadId) -> Result<()> {
     let ready = unsafe { (&mut *READY_AT.0.get())[id.slot].take() };
     if let Some(ready) = ready {
         let resumed = crate::timer::elapsed()?;
+        #[cfg(feature = "stress-test")]
+        scheduling::routes::wake_sample(resumed - ready);
         record(
             "m1.wait_resume",
             "waits",
@@ -530,17 +538,33 @@ pub(super) fn dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u
         Ok(v) => (0, v),
         Err(e) => (e, 0),
     };
-    let pending = op == WAIT_MANY && pending_current();
-    let observed_ns = crate::timer::elapsed().unwrap_or(0);
-    record(
-        "m1.wait_call",
-        "waits",
-        "ok",
-        format_args!(
-            "process={} generation={} operation={op} status={status} value={value} pending={pending} deadline_ns={declared_deadline} observed_ns={observed_ns}",
-            current().id.slot,
-            current().id.generation
-        ),
-    );
+    if super::record_event("m1.wait_call") {
+        let pending = op == WAIT_MANY && pending_current();
+        let observed_ns = crate::timer::elapsed().unwrap_or(0);
+        record(
+            "m1.wait_call",
+            "waits",
+            "ok",
+            format_args!(
+                "process={} generation={} operation={op} status={status} value={value} pending={pending} deadline_ns={declared_deadline} observed_ns={observed_ns}",
+                current().id.slot,
+                current().id.generation
+            ),
+        );
+    }
     Some(result)
+}
+
+#[cfg(feature = "stress-test")]
+pub(super) fn stress_usage() -> (usize, usize, usize) {
+    let blocked = unsafe { &*BLOCKED.0.get() };
+    (
+        unsafe { (&*WAITS.0.get()).count() },
+        blocked
+            .iter()
+            .flatten()
+            .map(|b| b.set.len() + b.cancel.as_ref().map_or(0, |s| s.len()))
+            .sum(),
+        unsafe { (&*READY_AT.0.get()).iter().flatten().count() },
+    )
 }

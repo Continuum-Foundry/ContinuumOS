@@ -21,6 +21,10 @@ codegen-units = 1
 [profile.kernel-dev]
 inherits = "feasibility"
 
+[profile.kernel-stress]
+inherits = "kernel-dev"
+opt-level = 3
+
 [profile.m2-comparison]
 inherits = "release"
 opt-level = 3

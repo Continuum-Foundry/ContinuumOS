@@ -5,6 +5,7 @@
 .type user_enter,@function
 user_enter:
     cli
+    mov byte ptr [rip + {fp_mode}], 0
     push rbp
     push rbx
     push r12
@@ -47,6 +48,7 @@ user_enter:
 .type user_leave,@function
 user_leave:
     cli
+    mov byte ptr [rip + {fp_mode}], 0
     cld
     mov rax, [rip + {kernel_root}]
     mov cr3, rax
@@ -67,6 +69,15 @@ user_syscall:
     mov [rip + {user_sp}], rsp
     mov rsp, [rip + {kernel_sp}]
     push rax
+    // IF is already masked by SYSCALL. Eager resume owns enabled FP state;
+    // capture its control word before setting TS, without any FP arithmetic.
+    // Integer-only entry keeps TS set and skips this instruction entirely.
+    .if {eager_fp}
+    cmp byte ptr [rip + {fp_mode}], 0
+    je .Lno_mxcsr_snapshot
+    stmxcsr dword ptr [rip + {mxcsr}]
+.Lno_mxcsr_snapshot:
+    .endif
     mov rax, cr0
     or rax, 8
     mov cr0, rax

@@ -327,3 +327,5 @@ fn closing_self_handles_preserves_admitted_owner_lifecycle() {
     assert_eq!(c.inventory(), Registry::EMPTY.inventory());
     assert!(b.pages.is_empty());
 }
+
+mod accounting;

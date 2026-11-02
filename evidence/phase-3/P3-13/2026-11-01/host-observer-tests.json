@@ -1,0 +1,19 @@
+{
+  "arguments": [
+    "cargo",
+    "test",
+    "--release",
+    "--locked",
+    "--offline",
+    "-p",
+    "xtask"
+  ],
+  "status": "passed",
+  "passed": 29,
+  "failed": 0,
+  "ignored": 1,
+  "ignored_reason": "pre-existing P2 font-dependent paint test; explicitly owned by Test-P2-05, outside this runtime gate",
+  "log_sha256": "6e08c8ee57c484cfb804287a71fabb61a230197365643175ea8f43a3a1e7b700",
+  "full_log": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-13\\host-observer-release-tests.log",
+  "scope": "native optimized observer host tests; final acceptance independently checks its executable identity"
+}

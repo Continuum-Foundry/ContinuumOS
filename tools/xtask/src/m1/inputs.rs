@@ -29,7 +29,7 @@ pub(super) struct Pins {
 }
 impl Pins {
     fn load() -> Result<Self> {
-        let lock = json_read(&root().join("config/m1-inputs.lock.json"))?;
+        let lock = json_read(&crate::input_lock_path())?;
         Self::from_lock(lock)
     }
     fn from_lock(lock: Value) -> Result<Self> {
@@ -99,7 +99,7 @@ mod tests {
     }
     #[test]
     fn locked_kernel_loader_and_firmware_inputs_fail_closed() {
-        let lock = json_read(&root().join("config/m1-inputs.lock.json")).unwrap();
+        let lock = json_read(&crate::input_lock_path()).unwrap();
         for suffix in ["limine-binary/BOOTX64.EFI", "edk2-x86_64-code.fd"] {
             let mut missing = lock.clone();
             let f = missing["files"]

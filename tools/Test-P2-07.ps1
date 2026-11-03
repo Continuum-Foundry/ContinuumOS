@@ -8,7 +8,7 @@ $env:CARGO_TARGET_X86_64_UNKNOWN_NONE_RUSTFLAGS='--emit=dep-info,llvm-ir,link'
 $env:CONTINUUM_FONT_DIR=Join-Path $root 'work/text-inputs'
 $run=Join-Path $root ('build/m2/P2-07/acceptance-'+[DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds())
 New-Item -ItemType Directory -Force $run | Out-Null
-$llvm=Join-Path (& rustc --print sysroot) 'lib/rustlib/x86_64-pc-windows-msvc/bin'
+$llvm=Join-Path (& rustc --print sysroot) ('lib/rustlib/'+$script:ContinuumHost+'/bin')
 $rows=@();$artifacts=@()
 Push-Location $root
 try {

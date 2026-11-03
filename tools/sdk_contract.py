@@ -88,7 +88,7 @@ def check_produced(row,line):
     status,canonical,_=line.split();assert status=='0' and canonical==row['hex'],row['name']+' independent producer bytes'
 
 def semantic_check(rows,production,output):
-    built=subprocess.run(['pwsh','-NoProfile','-File',str(ROOT/'tools/Build-P3-12CodecConsumer.ps1'),'-Production',str(production.resolve()),'-Output',str(output.resolve())],capture_output=True,text=True,timeout=60,creationflags=subprocess.CREATE_NO_WINDOW)
+    built=subprocess.run(['pwsh','-NoProfile','-File',str(ROOT/'tools/Build-P3-12CodecConsumer.ps1'),'-Production',str(production.resolve()),'-Output',str(output.resolve())],capture_output=True,text=True,timeout=60,creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     (output/'semantic-builder.stdout.log').write_text(built.stdout,encoding='utf-8');(output/'semantic-builder.stderr.log').write_text(built.stderr,encoding='utf-8')
     assert built.returncode==0,built.stderr
     producers=[]
@@ -99,7 +99,7 @@ def semantic_check(rows,production,output):
         b=bytes.fromhex(row['hex']);w=fields(row['kind'],b)
         producers.append((row,'encode-'+row['kind']+' '+','.join(map(str,w))+' '+(b[48:].hex() if row['kind']=='header' else '')))
     lines=''.join(f"{r['kind']} {r['hex']}\n" for r in rows)+''.join(line+'\n' for _,line in producers)
-    run=subprocess.run([str((output/'semantic-consumer.exe').resolve())],input=lines,capture_output=True,text=True,timeout=30,creationflags=subprocess.CREATE_NO_WINDOW)
+    run=subprocess.run([str((output/'semantic-consumer.exe').resolve())],input=lines,capture_output=True,text=True,timeout=30,creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     (output/'semantic.stdout.log').write_text(run.stdout,encoding='utf-8');(output/'semantic.stderr.log').write_text(run.stderr,encoding='utf-8');assert run.returncode==0,run.stderr
     observed=run.stdout.splitlines();assert len(observed)==len(rows)+len(producers)
     for row,line in zip(rows,observed):check_decoded(row,line)
@@ -126,7 +126,7 @@ def main():
     (a.output/'fixtures.json').write_text(json.dumps(rows,indent=2)+'\n')
     if not a.production:return
     lines=''.join(f"{r['kind']} {r['hex']}\n" for r in rows)
-    result=subprocess.run([str(a.production.resolve())],input=lines,text=True,capture_output=True,timeout=30,creationflags=subprocess.CREATE_NO_WINDOW)
+    result=subprocess.run([str(a.production.resolve())],input=lines,text=True,capture_output=True,timeout=30,creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     (a.output/'production.stdout.log').write_text(result.stdout);(a.output/'production.stderr.log').write_text(result.stderr)
     assert result.returncode==0,result.stderr
     observed=result.stdout.splitlines();assert len(observed)==len(rows)

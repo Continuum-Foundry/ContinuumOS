@@ -192,7 +192,10 @@ environment with the required inputs already supplied. Scoped owner push
 exceptions are recorded in [the handling policy](EXPORT_CONTROL.md); they do not
 approve a remote environment or lift the general hold.
 
-The tested host is native Windows with PowerShell 7, MSVC, and the Windows SDK.
+Linux host setup and full ISO/guest validation are documented in the
+[Linux validation runbook](docs/05-delivery/linux-iso-validation.md).
+
+The original tested host is native Windows with PowerShell 7, MSVC, and the Windows SDK.
 Rust and the supplied emulator/packaging tools live under ignored `work/`.
 Follow the [setup runbook](docs/05-delivery/phase-0.md) and
 [pinned prerequisite guide](docs/05-delivery/phase-1/prerequisites-runbook.md)

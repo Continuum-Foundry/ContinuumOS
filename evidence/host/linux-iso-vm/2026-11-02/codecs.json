@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "cases": 4871,
+  "rejections": 2411,
+  "canonical_successes": 2460,
+  "contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+  "production_sha256": "ee3ec74dd25a35aa0d1ffee186d60c3c59b230bad734063dfb1f342c3c4b804f",
+  "fixtures_sha256": "11b8029d611ea09a822ce5d8236139b385d5e6b5b5099c2aba6481ef513c16fb",
+  "reference_sha256": "4c637dd7d309a4fb10bdd6b7de23e2f97f8a70329c471efd9ab83edc682e11e8",
+  "semantic": {
+    "decoded_cases": 4871,
+    "independent_producer_cases": 2411,
+    "paired_field_swap_rejected": true,
+    "build": {
+      "compiler": [
+        "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+        "binary: rustc",
+        "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+        "commit-date: 2026-10-13",
+        "host: x86_64-unknown-linux-gnu",
+        "release: 1.99.1",
+        "LLVM version: 23.1.1"
+      ],
+      "consumer_sha256": "d1f556f684949ae8a2b4cb517c21520c33af8262c353c03868d5847ff86d977a",
+      "library_sha256": "6d5508b40a92cea46a9ac987ccddefe640ca4d3214eb16a2a2ac1edda0d7b5a4",
+      "status": "passed",
+      "source_sha256": "e419bc58fc8d5a9a673816d5c306914ed403d6d0d32398f36622a1716fdc4438",
+      "arguments": [
+        "${WORKSPACE}/tools/sdk_codec_consumer.rs",
+        "--edition=2024",
+        "--crate-name",
+        "sdk_codec_semantics",
+        "--extern",
+        "continuum_rt=${WORKSPACE}/build/cargo/debug/deps/libcontinuum_rt-4cf97ad0812edce2.rlib",
+        "-o",
+        "${WORKSPACE}/build/m3/P3-12/acceptance-1793600598211/codecs/semantic-consumer.exe"
+      ]
+    }
+  }
+}

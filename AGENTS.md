@@ -95,3 +95,6 @@ Pinned QEMU/OVMF/ISO tools are workspace-local under ignored `work/tools/`.
 P1-02/P1-03 launch bounded offline QEMU processes; no WSL, system setting, physical
 disk or global package was changed. xorriso needs execution outside the sandbox's
 MSYS2 named-object restriction. Do not attempt the entire backlog at once.
+
+Linux host tooling and serial ISO/guest acceptance use `docs/05-delivery/linux-iso-validation.md`.
+Windows signing remains Windows-specific; Linux uses native execution preflights.

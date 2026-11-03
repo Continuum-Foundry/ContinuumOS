@@ -20,9 +20,9 @@ try {
     ConvertTo-Json -InputObject @($inputs) -Depth 4 | Set-Content (Join-Path $run 'source-inputs.json')
     $rows = @()
     $commands = @(
-        @{name='signing';exe='pwsh';arguments=@('-NoProfile','-File','tools/windows/Test-DevSigning.ps1')},
-        @{name='compiler';exe='pwsh';arguments=@('-NoProfile','-File','tools/windows/Test-DevCompiler.ps1')},
-        @{name='host-metadata';exe='cargo';arguments=@('metadata','--locked','--offline','--format-version','1','--filter-platform','x86_64-pc-windows-msvc')},
+        @{name='signing';exe='pwsh';arguments=@('-NoProfile','-File',$(if ($IsWindows) {'tools/windows/Test-DevSigning.ps1'} else {'tools/linux/Test-HostExecution.ps1'}))},
+        @{name='compiler';exe='pwsh';arguments=@('-NoProfile','-File',$(if ($IsWindows) {'tools/windows/Test-DevCompiler.ps1'} else {'tools/linux/Test-HostCompiler.ps1'}))},
+        @{name='host-metadata';exe='cargo';arguments=@('metadata','--locked','--offline','--format-version','1','--filter-platform',$script:ContinuumHost)},
         @{name='doctor';exe='cargo';arguments=@('xtask','doctor')},
         @{name='doctor-json';exe='cargo';arguments=@('xtask','doctor','--json')},
         @{name='build';exe='cargo';arguments=@('xtask','build','--profile','feasibility')},
@@ -39,11 +39,13 @@ try {
         # Signing failure makes every later executable check unreliable.
         if ($command.name -eq 'signing' -and $LASTEXITCODE -ne 0) { break }
     }
+    if ($IsWindows) {
     . (Join-Path $PSScriptRoot 'windows/DevSigning.ps1')
     try {
         $cert = Get-DevCertificate
         $signing = @{status='passed';has_private_key=$cert.HasPrivateKey;expires_utc=$cert.NotAfter.ToUniversalTime().ToString('o');runner_config_sha256=(Get-FileHash (Join-Path $env:CARGO_HOME 'config.toml')).Hash.ToLowerInvariant()}
     } catch { $signing = @{status='blocked';reason=$_.Exception.Message} }
+    } else { $signing = @{status='passed';authenticode='not-applicable';platform='linux';policy='portable executable and compiler preflights passed; no signing guarantee'} }
     $cpu = try { (Get-CimInstance Win32_Processor | Select-Object -First 1).Name } catch { 'unavailable' }
     $cache = Join-Path $env:CARGO_HOME 'registry/src'
     $facilities = @(Get-ChildItem $cache -Directory | Get-ChildItem -Directory | Where-Object Name -Match '^(winit-|softbuffer-|windows-|windows-sys-|image-|png-|tracing-|slint-|i-slint-)')

@@ -30,11 +30,11 @@ fn read_log_limit(path: &Path, limit: u64) -> Result<Vec<u8>> {
 fn command_record(c: &Command) -> Value {
     json!({"program":sanitize(&c.get_program().to_string_lossy()),"arguments":c.get_args().map(|a|sanitize(&a.to_string_lossy())).collect::<Vec<_>>()})
 }
-fn hidden(c: &mut Command) {
+fn hidden(_c: &mut Command) {
     #[cfg(windows)]
     {
         use std::os::windows::process::CommandExt;
-        c.creation_flags(0x08000000); // CREATE_NO_WINDOW
+        _c.creation_flags(0x08000000); // CREATE_NO_WINDOW
     }
 }
 // Owning guard: early error returns also kill and wait for our child. QEMU is

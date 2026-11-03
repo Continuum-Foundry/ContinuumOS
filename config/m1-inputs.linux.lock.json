@@ -1,0 +1,1127 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-11-02",
+  "limine_version": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "binding": "limine =0.5.0, defaults off; base revision 3; experiments/boot-bindings/Cargo.lock",
+  "vm": {
+    "deadline_ms": 30000,
+    "machine": "pc-q35-11.1",
+    "cpu": "qemu64-v1",
+    "accelerator": "tcg",
+    "vcpus": 1,
+    "ram_mib": 2048,
+    "hpet": true,
+    "local_apic": "CPU APIC capability retained; guest register discovery pending",
+    "secure_boot": false,
+    "firmware_format": "raw pflash: 3653632-byte code + 540672-byte fresh vars = 4 MiB",
+    "arguments": [
+      "-machine",
+      "pc-q35-11.1,hpet=on",
+      "-accel",
+      "tcg",
+      "-cpu",
+      "qemu64-v1,+apic",
+      "-smp",
+      "1",
+      "-m",
+      "2048",
+      "-nic",
+      "none",
+      "-monitor",
+      "none",
+      "-display",
+      "none",
+      "-vga",
+      "std",
+      "-parallel",
+      "none",
+      "-serial",
+      "file:<new-run>/serial.log",
+      "-no-reboot",
+      "-boot",
+      "order=d,strict=on",
+      "-drive",
+      "if=pflash,format=raw,unit=0,readonly=on,file=<locked-code>",
+      "-drive",
+      "if=pflash,format=raw,unit=1,file=<fresh-vars-copy>",
+      "-drive",
+      "file=<exact-iso>,media=cdrom,readonly=on,format=raw"
+    ],
+    "launch_implemented": true,
+    "disabled_endpoints": "QMP/GDB omitted (disabled by default); monitor explicitly none; no networking or shares"
+  },
+  "platform": "x86_64-unknown-linux-gnu",
+  "qemu_version": "11.1.0",
+  "xorriso_version": "1.5.6",
+  "qemu_source_commit": "84f07211cc5b4fc6a371559bf8a5de4fb068e648",
+  "files": [
+    {
+      "id": "work\\tools\\limine\\limine-binary\\3RDPARTY.md",
+      "path": "work/tools/limine/limine-binary/3RDPARTY.md",
+      "bytes": 89220,
+      "sha256": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\BOOTAA64.EFI",
+      "path": "work/tools/limine/limine-binary/BOOTAA64.EFI",
+      "bytes": 327680,
+      "sha256": "7bb2659066a08c903d7854a67c10be2ee6ecf52bec74cdd81a0603d1cc9a30e9",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\BOOTIA32.EFI",
+      "path": "work/tools/limine/limine-binary/BOOTIA32.EFI",
+      "bytes": 397312,
+      "sha256": "09ef6821836d913fa7b17149547edfb048cbad3726f3ed2e8c06dd2f0de19564",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\BOOTLOONGARCH64.EFI",
+      "path": "work/tools/limine/limine-binary/BOOTLOONGARCH64.EFI",
+      "bytes": 360448,
+      "sha256": "8d9e12ccb6d84e2f95dd28630962a547d978c0bacbc741f9557b8e35ecf10529",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\BOOTRISCV64.EFI",
+      "path": "work/tools/limine/limine-binary/BOOTRISCV64.EFI",
+      "bytes": 294912,
+      "sha256": "e496d73d15492a2e06f9456be4345d03288f2e14bde479596de054267d20a7c9",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\BOOTX64.EFI",
+      "path": "work/tools/limine/limine-binary/BOOTX64.EFI",
+      "bytes": 376832,
+      "sha256": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\LICENSE",
+      "path": "work/tools/limine/limine-binary/LICENSE",
+      "bytes": 1297,
+      "sha256": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-bios-cd.bin",
+      "path": "work/tools/limine/limine-binary/limine-bios-cd.bin",
+      "bytes": 26624,
+      "sha256": "4384c85cd22fdc40787978a1b8b6e722be71ddc1b914ceafab0e8b80e15fe521",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-bios-hdd.h",
+      "path": "work/tools/limine/limine-binary/limine-bios-hdd.h",
+      "bytes": 150260,
+      "sha256": "4ce14ec318bae22676fc405db7d8593b83a71620ab95f3b79962dae5b0a7e63d",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-bios-pxe.bin",
+      "path": "work/tools/limine/limine-binary/limine-bios-pxe.bin",
+      "bytes": 23633,
+      "sha256": "1f56f9bad853250e9c4d5d8e8591129b280b89b6e5961bc6d7a9b63b9326856f",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-bios.sys",
+      "path": "work/tools/limine/limine-binary/limine-bios.sys",
+      "bytes": 333800,
+      "sha256": "67ba6238aaaa34d5e2c6206932b979f6115fd427b8203aca06c88c3a36a5b0ab",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-tool-windows-x86\\COPYING.MinGW-w64-runtime.txt",
+      "path": "work/tools/limine/limine-binary/limine-tool-windows-x86/COPYING.MinGW-w64-runtime.txt",
+      "bytes": 12155,
+      "sha256": "1db8da07b436c68833c0673ffee3d9fcb2526047f3820b81661865dfedc79a1f",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-tool-windows-x86\\limine.exe",
+      "path": "work/tools/limine/limine-binary/limine-tool-windows-x86/limine.exe",
+      "bytes": 95744,
+      "sha256": "a3d5a187fcd81021cf79efaec65515bbe9b49c23d2305f6c886695a8d2b7d4d4",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine-uefi-cd.bin",
+      "path": "work/tools/limine/limine-binary/limine-uefi-cd.bin",
+      "bytes": 3145728,
+      "sha256": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\limine.c",
+      "path": "work/tools/limine/limine-binary/limine.c",
+      "bytes": 69088,
+      "sha256": "a1305ff41117039cccce435ffb43c671acecbd8f396f3e84357c07ea1258bd33",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine\\limine-binary\\Makefile",
+      "path": "work/tools/limine/limine-binary/Makefile",
+      "bytes": 260,
+      "sha256": "bf65c6e9e26c9ec7a0e07054ad3cf7206e394cc12871f438c8b8b0e088a57ae2",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine-protocol\\LICENSE",
+      "path": "work/tools/limine-protocol/LICENSE",
+      "bytes": 659,
+      "sha256": "e2b1c35814afb22acbddf7ff567d2b05a467e503628ffea62752bc1f3fa2595c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine-protocol\\limine.h",
+      "path": "work/tools/limine-protocol/limine.h",
+      "bytes": 17709,
+      "sha256": "0aadf2633c85d8cb145344c968add158aeb1deb68af567d55ba8431c492b6d4c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\limine-protocol\\PROTOCOL.md",
+      "path": "work/tools/limine-protocol/PROTOCOL.md",
+      "bytes": 80094,
+      "sha256": "9e69fdd01af4c31f419f1e06a74c7371e4cd8f14021d9c49dd3a4fa9f2359cac",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\.cargo_vcs_info.json",
+      "path": "work/tools/bindings/limine-0.5.0/.cargo_vcs_info.json",
+      "bytes": 94,
+      "sha256": "63e786fc8d19b9707812aa8b0f669a5f8c5e9700759851c7b8340a843d689b01",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\.github\\workflows\\rust.yml",
+      "path": "work/tools/bindings/limine-0.5.0/.github/workflows/rust.yml",
+      "bytes": 1158,
+      "sha256": "56dd427750c41cde59ed076f181c19154cb21b26c1be56ab9843991b7fbce50a",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\.gitignore",
+      "path": "work/tools/bindings/limine-0.5.0/.gitignore",
+      "bytes": 155,
+      "sha256": "7c14698f140d4a31c9dc8d10b84ddc6f60de953ff14e12dce4f802433d863cf1",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\Cargo.toml",
+      "path": "work/tools/bindings/limine-0.5.0/Cargo.toml",
+      "bytes": 1031,
+      "sha256": "3446ca252b73e7cd36c988ebe32dfce8ca2f74aa9f4fa9bd25e3d6bf3e1a0934",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\Cargo.toml.orig",
+      "path": "work/tools/bindings/limine-0.5.0/Cargo.toml.orig",
+      "bytes": 549,
+      "sha256": "67b9f5b2eb67b867457f40df901ba82e479f83ebfe7f9aabe737ab0286897e7a",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\CHANGELOG.md",
+      "path": "work/tools/bindings/limine-0.5.0/CHANGELOG.md",
+      "bytes": 3349,
+      "sha256": "c207343b654d90f97fb1459eb10d9e3e80121aba49bb7b95275b5251e8fca008",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\LICENSE-APACHE",
+      "path": "work/tools/bindings/limine-0.5.0/LICENSE-APACHE",
+      "bytes": 11361,
+      "sha256": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\LICENSE-MIT",
+      "path": "work/tools/bindings/limine-0.5.0/LICENSE-MIT",
+      "bytes": 1088,
+      "sha256": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\README.md",
+      "path": "work/tools/bindings/limine-0.5.0/README.md",
+      "bytes": 1301,
+      "sha256": "53fcbe4bebdc5fae0e52ad895f26afee9cae4965d28e8c18de144edd375e5d7d",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\rust-toolchain.toml",
+      "path": "work/tools/bindings/limine-0.5.0/rust-toolchain.toml",
+      "bytes": 49,
+      "sha256": "607927a22b330e2f984fd18878dccd419fb002b823a27bf2ddd74a66098de242",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\file.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/file.rs",
+      "bytes": 5950,
+      "sha256": "1148889a30f1dc165428ceff24d96d9793d37a017bcf3036a58cdcf35789e80c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\firmware_type.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/firmware_type.rs",
+      "bytes": 537,
+      "sha256": "bb17b52cdc66896072b99e3097bd71c42313e0a49ee5b28c53699f16a72335ee",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\framebuffer.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/framebuffer.rs",
+      "bytes": 6945,
+      "sha256": "c6cdbf417fdd45706e68c7934a9ac1935aa5d2f4de05830b3795c5f2e5b2bb8c",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\lib.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/lib.rs",
+      "bytes": 4612,
+      "sha256": "78f8fcbedcc3d54a4261b16c4be366afcd4d46b1b334c9c0215561d2f136cd99",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\memory_map.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/memory_map.rs",
+      "bytes": 1948,
+      "sha256": "f91dfe43cd374eebc37f394d5101277e01f3937a21f63f2d635efab56b58a7a8",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\modules.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/modules.rs",
+      "bytes": 3631,
+      "sha256": "cf11466e9aca2852d9facc095c33967b8a421974efc5e6fb381e0a4ee4a6f264",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\mp.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/mp.rs",
+      "bytes": 3654,
+      "sha256": "2c712be53c15ef1ba10b64cc55ee5eeb58bb55e74bfdb0f27310bfac71c72b18",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\paging.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/paging.rs",
+      "bytes": 1668,
+      "sha256": "05942bb80b713fa0fe96e7cdeecf9dbbc46e104b1deaac28f72665a20c63d50b",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\request.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/request.rs",
+      "bytes": 27656,
+      "sha256": "f0689df1507230f219ce866e7df5420e88d3574fa542c2c9ff6d16c1811d1474",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\response.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/response.rs",
+      "bytes": 14982,
+      "sha256": "be8e8927b3e6db747ac96c31cdcacbfb7f2b125c7fede0db208ef90673cd81b7",
+      "override": null
+    },
+    {
+      "id": "work\\tools\\bindings\\limine-0.5.0\\src\\smp.rs",
+      "path": "work/tools/bindings/limine-0.5.0/src/smp.rs",
+      "bytes": 909,
+      "sha256": "c1df4a3b4f03a27df19338eaee57b0b574dc2663ede2340dc41a8cc3b910230c",
+      "override": null
+    },
+    {
+      "id": "qemu",
+      "path": "work/tools/linux/bin/qemu-system-x86_64",
+      "bytes": 205,
+      "sha256": "93e8c6ae169db219f55b47fb679870404e20105ad7f1cd074e5beafd2ea9cbcb",
+      "override": "CONTINUUM_QEMU_SYSTEM_X86_64"
+    },
+    {
+      "id": "xorriso",
+      "path": "work/tools/linux/bin/xorriso",
+      "bytes": 177,
+      "sha256": "9ee283600bc706618f9ceca6adf7d7e1bd3f080d789a81ade7dfe616cc66fc90",
+      "override": "CONTINUUM_XORRISO"
+    },
+    {
+      "id": "work/tools/linux/lib/libacl.so.1",
+      "path": "work/tools/linux/lib/libacl.so.1",
+      "bytes": 38832,
+      "sha256": "3c03774961231d8485a4dba36ec359a95939a84719799c58cd26173e44bbde90",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libatomic.so.1",
+      "path": "work/tools/linux/lib/libatomic.so.1",
+      "bytes": 30848,
+      "sha256": "9558489f171274c220104894258f483055853ed8a23d4ff754c850ce55765aa2",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libburn.so.4",
+      "path": "work/tools/linux/lib/libburn.so.4",
+      "bytes": 330344,
+      "sha256": "b62ca2489f5d1b02c2be90ff90ae9e00962f629e520c85e3e01b0163aaeedae4",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libbz2.so.1.0",
+      "path": "work/tools/linux/lib/libbz2.so.1.0",
+      "bytes": 74688,
+      "sha256": "c630f057efedc12f848710d71f40283895591e5b4608539f387895c64e0553da",
+      "override": null
+    },
+    {
+      "id": "linux-runtime",
+      "path": "work/tools/linux/lib/libglib-2.0.so.0",
+      "bytes": 1404320,
+      "sha256": "980ab64e995225de1543779e3bafafac9d705904d42ca3b5eb76e7a336cc5e1d",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libisoburn.so.1",
+      "path": "work/tools/linux/lib/libisoburn.so.1",
+      "bytes": 1072424,
+      "sha256": "fe6abe25988c699ac63e7b6890dbf463fb4bea91474e7bf329b39bec420d20fd",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libisofs.so.6",
+      "path": "work/tools/linux/lib/libisofs.so.6",
+      "bytes": 496208,
+      "sha256": "8c7a67195f6e7f1b86392a9aebdb9f30dd6cd9f6a1296b22b07ab8698e1ec68f",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libjte.so.2",
+      "path": "work/tools/linux/lib/libjte.so.2",
+      "bytes": 55784,
+      "sha256": "677e9ede0dbe3a26af3731c663b06f0c5a54d2984e0ffeb1a05a8c2258c81f9f",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libm.so.6",
+      "path": "work/tools/linux/lib/libm.so.6",
+      "bytes": 977112,
+      "sha256": "6d567d53e895273ca14a1f9dc164fc6c8d39aed2f60aa46a733c2784228915f3",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libpcre2-8.so.0",
+      "path": "work/tools/linux/lib/libpcre2-8.so.0",
+      "bytes": 711216,
+      "sha256": "8dde125b341abfdf4a596d2974cd3048e350cbc8d2d77acd54ea044f7815ca77",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libpixman-1.so.0",
+      "path": "work/tools/linux/lib/libpixman-1.so.0",
+      "bytes": 706576,
+      "sha256": "806ef6cd6ff8dace4332b8d611afe2f1c5ec0c1b743ea7ed0ebd48ed307618cd",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libreadline.so.8",
+      "path": "work/tools/linux/lib/libreadline.so.8",
+      "bytes": 362728,
+      "sha256": "a3334d88f3f6c6a25736667e0b39db0f68b4e7e6bf758a475aff681ddb33ad8b",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libtinfo.so.6",
+      "path": "work/tools/linux/lib/libtinfo.so.6",
+      "bytes": 220464,
+      "sha256": "4013e7651ac68f547d8333517def25b2366c97eec7de7f06e105dbf3444ffebf",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/lib/libz.so.1",
+      "path": "work/tools/linux/lib/libz.so.1",
+      "bytes": 125376,
+      "sha256": "85590dd58edf5445e18bc7193e5ebc01ac5841f1ae187e97705a662e90c6421e",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/libexec/qemu-system-x86_64",
+      "path": "work/tools/linux/libexec/qemu-system-x86_64",
+      "bytes": 73390640,
+      "sha256": "1417455fa2e7e92af8775f88bc822f24cec6f4c990b6ab3050933938cf5d5af3",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/libexec/xorriso",
+      "path": "work/tools/linux/libexec/xorriso",
+      "bytes": 14416,
+      "sha256": "3b60f7b61ca6967e8e7ecf5c90beffc6c8453e8724aeaf3bc96385b00c44f544",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/QEMU,cgthree.bin",
+      "path": "work/tools/linux/share/QEMU,cgthree.bin",
+      "bytes": 850,
+      "sha256": "a99f3a06fdac5cf5d72bd0fd24647d897302c3ff8e918add65168185f8cbdf4d",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/QEMU,tcx.bin",
+      "path": "work/tools/linux/share/QEMU,tcx.bin",
+      "bytes": 1402,
+      "sha256": "92da99a770ab24f96c33c78382940cac8b25e88cb110634c1b32aa2d8cb852e7",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/README",
+      "path": "work/tools/linux/share/README",
+      "bytes": 5175,
+      "sha256": "0ac34e181b730945e0eb250ac1c8bab32a0db78d6401c5cbda8205759a712080",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/ast27x0_bootrom.bin",
+      "path": "work/tools/linux/share/ast27x0_bootrom.bin",
+      "bytes": 28564,
+      "sha256": "f46fbeb7adbc300d65aef4862fc4566208aae9b34be3eceecb5aa5ae4ea3c535",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/bios-256k.bin",
+      "path": "work/tools/linux/share/bios-256k.bin",
+      "bytes": 262144,
+      "sha256": "ae6f6aa973aaccc143f57aa960fb035fd9de4daee4ad0cd713322f8c259e7650",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/bios-microvm.bin",
+      "path": "work/tools/linux/share/bios-microvm.bin",
+      "bytes": 131072,
+      "sha256": "d226177d125aaf1b91e507738f4e9a0ade9474169b211751f78be08008cb394c",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/bios.bin",
+      "path": "work/tools/linux/share/bios.bin",
+      "bytes": 131072,
+      "sha256": "3dfd946d0c03ab0e022f84f10c3eb5f1dd507761f73e7d8067511ba35a10f776",
+      "override": null
+    },
+    {
+      "id": "firmware_vars",
+      "path": "work/tools/linux/share/edk2-i386-vars.fd",
+      "bytes": 540672,
+      "sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+      "override": "CONTINUUM_OVMF_VARS"
+    },
+    {
+      "id": "work/tools/linux/share/edk2-licenses.txt",
+      "path": "work/tools/linux/share/edk2-licenses.txt",
+      "bytes": 42903,
+      "sha256": "1ddeaed2e7d2e9ecb960bdfc1b8ee45387aff70d056d985d145949af3951657c",
+      "override": null
+    },
+    {
+      "id": "firmware_code",
+      "path": "work/tools/linux/share/edk2-x86_64-code.fd",
+      "bytes": 3653632,
+      "sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+      "override": "CONTINUUM_OVMF_CODE"
+    },
+    {
+      "id": "work/tools/linux/share/efi-e1000.rom",
+      "path": "work/tools/linux/share/efi-e1000.rom",
+      "bytes": 159232,
+      "sha256": "f37222fcdf0481bfbaf7a16d9aaf740aeb41d3d24c187801eb6e9a628cec0fc8",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/efi-e1000e.rom",
+      "path": "work/tools/linux/share/efi-e1000e.rom",
+      "bytes": 159232,
+      "sha256": "102c20348be2d0ebe45a77b076b31848182c2f7b4364775b6bc2ece6e97b4024",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/efi-eepro100.rom",
+      "path": "work/tools/linux/share/efi-eepro100.rom",
+      "bytes": 159232,
+      "sha256": "2b5b55ba8afae7b5ef7116606babf60e6ceaa531c345d54542857cc3fbe3912e",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/efi-ne2k_pci.rom",
+      "path": "work/tools/linux/share/efi-ne2k_pci.rom",
+      "bytes": 157696,
+      "sha256": "9925e0a34547118110479d8fc4e01092a0a73e0a236416e9ff862655b46751f7",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/efi-pcnet.rom",
+      "path": "work/tools/linux/share/efi-pcnet.rom",
+      "bytes": 157696,
+      "sha256": "71c494fde94efa9871cf43868d7e3c8f4190e406d47a5102a2a21b36ded8a162",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/efi-rtl8139.rom",
+      "path": "work/tools/linux/share/efi-rtl8139.rom",
+      "bytes": 160768,
+      "sha256": "4cdd69a7f5c6ce7aec3a3f20a034dc80e1d22aa37a739c364378952d997a32c7",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/efi-virtio.rom",
+      "path": "work/tools/linux/share/efi-virtio.rom",
+      "bytes": 160768,
+      "sha256": "26be36901db7f8181c306cc62bd74891d8646528965a78e40cceadba5dd7c8e7",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/efi-vmxnet3.rom",
+      "path": "work/tools/linux/share/efi-vmxnet3.rom",
+      "bytes": 156672,
+      "sha256": "33e833123ad9831df94b2d623a17f91e4c779e3cb799baa97058f5972676a32a",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/hppa-firmware.img",
+      "path": "work/tools/linux/share/hppa-firmware.img",
+      "bytes": 633992,
+      "sha256": "04f20553e93b723cdfc252ca098c50ed4d950920d0e26b4ae50fadee26b1a98d",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/hppa-firmware64.img",
+      "path": "work/tools/linux/share/hppa-firmware64.img",
+      "bytes": 666392,
+      "sha256": "ae9ddea11aad5c059625fd52e123f5d285b62b92ef7b810087bb467b3786e4a1",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/kvmvapic.bin",
+      "path": "work/tools/linux/share/kvmvapic.bin",
+      "bytes": 9216,
+      "sha256": "cdf057a71b07e3b52b19cbe210bdefa59250d01a9810b960f7fe1f98eed95a27",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/linuxboot_dma.bin",
+      "path": "work/tools/linux/share/linuxboot_dma.bin",
+      "bytes": 1536,
+      "sha256": "9c49e255340c78fc12e54ed043462bca02fb7fca29b7cfab62ff88a5344b6950",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/multiboot_dma.bin",
+      "path": "work/tools/linux/share/multiboot_dma.bin",
+      "bytes": 1024,
+      "sha256": "46def003b1c413cc4a5880d858ca54456ad6978d5fdb6e1b7d086b2905a66df0",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/npcm7xx_bootrom.bin",
+      "path": "work/tools/linux/share/npcm7xx_bootrom.bin",
+      "bytes": 736,
+      "sha256": "2b17c3531daba9c133cbaa53595052e799505b2b4b3005ebc7b229f5c5e64322",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/npcm8xx_bootrom.bin",
+      "path": "work/tools/linux/share/npcm8xx_bootrom.bin",
+      "bytes": 672,
+      "sha256": "30b1f5151076e789c33c886a3a87a909df89dd4226bdc4829ebbaf063152f9cd",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/openbios-ppc",
+      "path": "work/tools/linux/share/openbios-ppc",
+      "bytes": 673104,
+      "sha256": "032884eab588cd8d45903ed7be718f7a23fecaa4fc45c2dbf18c1220f13218ef",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/openbios-sparc32",
+      "path": "work/tools/linux/share/openbios-sparc32",
+      "bytes": 382048,
+      "sha256": "bf6e231eeea72b17f97055a20de1195005cf79cbd6c118b7ca89287b4a77fd1f",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/openbios-sparc64",
+      "path": "work/tools/linux/share/openbios-sparc64",
+      "bytes": 1593408,
+      "sha256": "0f9a2ef7db57d9c4ece8e94fdc1a35c7e127288034001f149192c4c9a0cef23f",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/opensbi-riscv32-generic-fw_dynamic.bin",
+      "path": "work/tools/linux/share/opensbi-riscv32-generic-fw_dynamic.bin",
+      "bytes": 270384,
+      "sha256": "ee4c0a2115960824e203c7f4ae8e55efb04dc6616727eb464a0954e6159c1ed7",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/opensbi-riscv64-generic-fw_dynamic.bin",
+      "path": "work/tools/linux/share/opensbi-riscv64-generic-fw_dynamic.bin",
+      "bytes": 275928,
+      "sha256": "894e2aef99590fc07ec6c60ab00282b8bc5d5d5bb2a1d0c6ada0c52df24274c0",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/palcode-clipper",
+      "path": "work/tools/linux/share/palcode-clipper",
+      "bytes": 153728,
+      "sha256": "9f8da7264c7438fe4a24a2215e81893586f5cfafcd6e5fd0059fccc31a4e8839",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/pnv-pnor.bin",
+      "path": "work/tools/linux/share/pnv-pnor.bin",
+      "bytes": 139264,
+      "sha256": "241ac7576721f565abd8b492b8acda036c72d233e03d1f78bddbd7b1599d863f",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/pvh.bin",
+      "path": "work/tools/linux/share/pvh.bin",
+      "bytes": 1536,
+      "sha256": "918ff03a118615c2f4611a5df2d9496aabe099b5cfaaf69e544ebf973305d59d",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/pxe-e1000.rom",
+      "path": "work/tools/linux/share/pxe-e1000.rom",
+      "bytes": 67072,
+      "sha256": "981a728f95b7a01645645e9b753cfb764c9eb59266fa888ac58d7008fbb48c10",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/pxe-eepro100.rom",
+      "path": "work/tools/linux/share/pxe-eepro100.rom",
+      "bytes": 61440,
+      "sha256": "07b89a742e0f6d0e92dafe57b0f28c493436d0e1e07b7b77e728490c1f7b45dd",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/pxe-ne2k_pci.rom",
+      "path": "work/tools/linux/share/pxe-ne2k_pci.rom",
+      "bytes": 61440,
+      "sha256": "bb9c0eaad36b9b4ce26c5f348bd05a832c8bf83ef38391db0ce9b51de8523ac7",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/pxe-pcnet.rom",
+      "path": "work/tools/linux/share/pxe-pcnet.rom",
+      "bytes": 61440,
+      "sha256": "92358396c05b3346c6bfd52bbf2a47978d0a8c6ddea932ee091a24faefbd489e",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/pxe-rtl8139.rom",
+      "path": "work/tools/linux/share/pxe-rtl8139.rom",
+      "bytes": 61440,
+      "sha256": "d491351e37a50eb5a40e98a9f6b4d85010ee60fb9e64129d65ea10839287f138",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/pxe-virtio.rom",
+      "path": "work/tools/linux/share/pxe-virtio.rom",
+      "bytes": 60416,
+      "sha256": "6994337fe07783a6233072e33771dc4f58260edc3269debe677a5227b264bfdc",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/qboot.rom",
+      "path": "work/tools/linux/share/qboot.rom",
+      "bytes": 65536,
+      "sha256": "9b9dfc6c25740d6225625570d71cab6805cc9216e68c8932e343266daaeb8c4b",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/qemu-nsis.bmp",
+      "path": "work/tools/linux/share/qemu-nsis.bmp",
+      "bytes": 154542,
+      "sha256": "93f79a2b6e0f97bc7b7c75ded89a3c4c7657af37c087cf067470771e0affda9c",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/qemu-nsis.ico",
+      "path": "work/tools/linux/share/qemu-nsis.ico",
+      "bytes": 4846,
+      "sha256": "a63f8dabf35130d2da8e8e0f59e3346f3af6d6d0a050e00817c3f2393408c7b2",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/qemu.rsrc",
+      "path": "work/tools/linux/share/qemu.rsrc",
+      "bytes": 134622,
+      "sha256": "9e1e5cf3d8f835501fc8bf6f6bc8353580b40c57edc4de83e4fed64518697b8a",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/qemu_logo.svg",
+      "path": "work/tools/linux/share/qemu_logo.svg",
+      "bytes": 32447,
+      "sha256": "0f0879c3929d8fa0750960f35cf100147ab5152fbd4a0c489ae225616c1c2671",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/qemu_vga.ndrv",
+      "path": "work/tools/linux/share/qemu_vga.ndrv",
+      "bytes": 18752,
+      "sha256": "d8697354bde8a7ac9e6fe3a5fbca03698de623e95433a59c248e8e09b882c6b8",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/s390-ccw.img",
+      "path": "work/tools/linux/share/s390-ccw.img",
+      "bytes": 104136,
+      "sha256": "1591cbcbaaf07f1b3869b2f6fcaf7005d24dbe7dfc9e32b6ed7f1606d8085ef5",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/skiboot.lid",
+      "path": "work/tools/linux/share/skiboot.lid",
+      "bytes": 2592960,
+      "sha256": "bad55219becfc1198a3dfc0cb33aa9e27eb97c0f447f499031044f920d708a7e",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/slof.bin",
+      "path": "work/tools/linux/share/slof.bin",
+      "bytes": 997576,
+      "sha256": "c68816fe81f8eb1d7bc4413a8a15e09ecaaec7c0bea7cb084c9b8b1810abc501",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/u-boot-sam460.bin",
+      "path": "work/tools/linux/share/u-boot-sam460.bin",
+      "bytes": 524288,
+      "sha256": "2bc672480506885e658ccfb4486cb85214f331b4364c717ed7dff741d7d61623",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/u-boot.e500",
+      "path": "work/tools/linux/share/u-boot.e500",
+      "bytes": 421720,
+      "sha256": "f0250e391566bca7b5e643c43b761ab9629a0b82427792a772e80c8b97836425",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vgabios-ati.bin",
+      "path": "work/tools/linux/share/vgabios-ati.bin",
+      "bytes": 39424,
+      "sha256": "f033484968c31c066c0e9fbc77127e0d41211496c7559f57076c9344885665b0",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vgabios-bochs-display.bin",
+      "path": "work/tools/linux/share/vgabios-bochs-display.bin",
+      "bytes": 28672,
+      "sha256": "da07e26661279edb7935284a99f8ddfa77dbf04ddb939e4a8c7bc7e36e40cdc7",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vgabios-cirrus.bin",
+      "path": "work/tools/linux/share/vgabios-cirrus.bin",
+      "bytes": 39424,
+      "sha256": "10ecbac600620eb589f0c6d98f3f32a073d745c8a7f390b1704155d46a6b59d7",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vgabios-qxl.bin",
+      "path": "work/tools/linux/share/vgabios-qxl.bin",
+      "bytes": 39424,
+      "sha256": "33f6e0775ff725026e6f7eba21c8a0ad816ecfe238c4923fa26e8eeaa2aa0b04",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vgabios-ramfb.bin",
+      "path": "work/tools/linux/share/vgabios-ramfb.bin",
+      "bytes": 28672,
+      "sha256": "24f6b98b2c263f3f562b1180df23e949f7dd27f194fa26aeba27f36bbf6265c6",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vgabios-stdvga.bin",
+      "path": "work/tools/linux/share/vgabios-stdvga.bin",
+      "bytes": 39424,
+      "sha256": "e8fc9e55790dbe3cb31f019a3deb57206ba6c54f5e581adb2ab2677a9d391472",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vgabios-virtio.bin",
+      "path": "work/tools/linux/share/vgabios-virtio.bin",
+      "bytes": 39424,
+      "sha256": "02853140c262001ecb7245b151ffe47a0f0c79767a6fb2a9eb60f5f1938c5cee",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vgabios-vmware.bin",
+      "path": "work/tools/linux/share/vgabios-vmware.bin",
+      "bytes": 39424,
+      "sha256": "00bfccc4e09b832a98a727c0fa5bceaaad0556e38b7718f5a6579189abbe627b",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vgabios.bin",
+      "path": "work/tools/linux/share/vgabios.bin",
+      "bytes": 38912,
+      "sha256": "a7ea86bb06a58ff969fd0942e73b8eae00cb58e4c90bccbd900f6a3a01f54fbb",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vof-nvram.bin",
+      "path": "work/tools/linux/share/vof-nvram.bin",
+      "bytes": 16384,
+      "sha256": "cf97201f9403212ab75287bf209bfb7710cb5f253e8fe80723cf43760a9e8a12",
+      "override": null
+    },
+    {
+      "id": "work/tools/linux/share/vof.bin",
+      "path": "work/tools/linux/share/vof.bin",
+      "bytes": 3456,
+      "sha256": "8c88070f252075111468e7b2a8043209e7798c3fb136326227390ea50f168f13",
+      "override": null
+    }
+  ],
+  "acquisitions": [
+    {
+      "path": "work/linux/apt/cache/archives/ovmf_2025.02-8+deb13u1_all.deb",
+      "url": "https://deb.debian.org/debian/pool/main/e/edk2/ovmf_2025.02-8+deb13u1_all.deb",
+      "bytes": 5779964,
+      "sha256": "78e0d54df11fc77406cb7a0bc9a39e5bca6d1cbe06556b91d9a73491c52decdf",
+      "package": "ovmf",
+      "version": "2025.02-8+deb13u1"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libffi-dev_3.4.8-2_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/libf/libffi/libffi-dev_3.4.8-2_amd64.deb",
+      "bytes": 61136,
+      "sha256": "76b2b80193a656733e1408ebec5371334be5fd48eb5f50ab99d6baf6081d0f1b",
+      "package": "libffi-dev",
+      "version": "3.4.8-2"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/xorriso_1.5.6-1.2+b1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/libi/libisoburn/xorriso_1.5.6-1.2+b1_amd64.deb",
+      "bytes": 323180,
+      "sha256": "9ee40b0f45479283c1c69e5d914f69c44051c61b6efb3f86994238a62ceddd1a",
+      "package": "xorriso",
+      "version": "1.5.6-1.2+b1"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libburn4t64_1.5.6-1.1+b1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/libb/libburn/libburn4t64_1.5.6-1.1+b1_amd64.deb",
+      "bytes": 164240,
+      "sha256": "59edae2bc41ec2319d1569157b82c49f54b64e7459ce57c7ff443029fa8bb82f",
+      "package": "libburn4t64",
+      "version": "1.5.6-1.1+b1"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libglib2.0-0t64_2.84.4-3~deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/g/glib2.0/libglib2.0-0t64_2.84.4-3~deb13u5_amd64.deb",
+      "bytes": 1521120,
+      "sha256": "e2baf92c57d1db1753e5781a61450d9a01e7833c7bd2dfe87776a6811c11ecc2",
+      "package": "libglib2.0-0t64",
+      "version": "2.84.4-3~deb13u5"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libpixman-1-0_0.44.0-3_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/p/pixman/libpixman-1-0_0.44.0-3_amd64.deb",
+      "bytes": 247888,
+      "sha256": "3862c87596f6b4b60fc916395fd69aa10af28a875a8e5c081a8cf30ddd120bd6",
+      "package": "libpixman-1-0",
+      "version": "0.44.0-3"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libgio-2.0-dev_2.84.4-3~deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/g/glib2.0/libgio-2.0-dev_2.84.4-3~deb13u5_amd64.deb",
+      "bytes": 1691796,
+      "sha256": "a9bbd748ddd40a08b336e8d6b1755e698957ac640d081ddc4c330b716c6b89c3",
+      "package": "libgio-2.0-dev",
+      "version": "2.84.4-3~deb13u5"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libgio-2.0-dev-bin_2.84.4-3~deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/g/glib2.0/libgio-2.0-dev-bin_2.84.4-3~deb13u5_amd64.deb",
+      "bytes": 168564,
+      "sha256": "d43dddb9b306cb8427bd383e100b8510da8cfa03b5968624f3787bc66a5a95b8",
+      "package": "libgio-2.0-dev-bin",
+      "version": "2.84.4-3~deb13u5"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libblkid-dev_2.41.5-0+deb13u1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/u/util-linux/libblkid-dev_2.41.5-0+deb13u1_amd64.deb",
+      "bytes": 208756,
+      "sha256": "775bc91f7a265d21cdfc6b710813017b2366e5c5bb665cd2e6979af5dd8a03a8",
+      "package": "libblkid-dev",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libsepol-dev_3.8.1-1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/libs/libsepol/libsepol-dev_3.8.1-1_amd64.deb",
+      "bytes": 372908,
+      "sha256": "c085881d0546f6d539909f5710d7a3243aeb24338f6dc455b0ef6199f45bd753",
+      "package": "libsepol-dev",
+      "version": "3.8.1-1"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libglib2.0-dev-bin_2.84.4-3~deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/g/glib2.0/libglib2.0-dev-bin_2.84.4-3~deb13u5_amd64.deb",
+      "bytes": 56944,
+      "sha256": "d35ef75a4b04ea10081d484e025b0a4fecd0232ffc0e76403bcd249b3b47e643",
+      "package": "libglib2.0-dev-bin",
+      "version": "2.84.4-3~deb13u5"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/girepository-tools_2.84.4-3~deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/g/glib2.0/girepository-tools_2.84.4-3~deb13u5_amd64.deb",
+      "bytes": 152356,
+      "sha256": "2498e412b01d5d77049829d525b7ff559fd4be269a59cc4a50479337a50d8619",
+      "package": "girepository-tools",
+      "version": "2.84.4-3~deb13u5"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libglib2.0-dev_2.84.4-3~deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/g/glib2.0/libglib2.0-dev_2.84.4-3~deb13u5_amd64.deb",
+      "bytes": 57744,
+      "sha256": "ad98b1a769da55a8007ea9953306b0deb6092205d4fac8d915e2bd83d4ecc8a5",
+      "package": "libglib2.0-dev",
+      "version": "2.84.4-3~deb13u5"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libmount-dev_2.41.5-0+deb13u1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/u/util-linux/libmount-dev_2.41.5-0+deb13u1_amd64.deb",
+      "bytes": 30740,
+      "sha256": "2bef03b918e927648c6552143e17e82aa7ed2a4ce180fabd07a7d1cac7ff8686",
+      "package": "libmount-dev",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libpixman-1-dev_0.44.0-3_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/p/pixman/libpixman-1-dev_0.44.0-3_amd64.deb",
+      "bytes": 11380,
+      "sha256": "091478a78864d25257788473a36b9545ae2e0bc3f621bad3c229090b54b67e1e",
+      "package": "libpixman-1-dev",
+      "version": "0.44.0-3"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libjte2_1.22-4+b2_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/j/jigit/libjte2_1.22-4+b2_amd64.deb",
+      "bytes": 29592,
+      "sha256": "2e7799a28deac613ffaa75bb131046e8f9311fc211b747a10cf6760f15f0c4ae",
+      "package": "libjte2",
+      "version": "1.22-4+b2"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/uuid-dev_2.41.5-0+deb13u1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/u/util-linux/uuid-dev_2.41.5-0+deb13u1_amd64.deb",
+      "bytes": 49068,
+      "sha256": "cb7d7db20e5d91193c2c6629a3f4aa917e3bc558c72b7f2db7203bcfa9a3ba1b",
+      "package": "uuid-dev",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libisoburn1t64_1.5.6-1.2+b1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/libi/libisoburn/libisoburn1t64_1.5.6-1.2+b1_amd64.deb",
+      "bytes": 410400,
+      "sha256": "b80bb60269492aaf4a7dd316b238db0e1fc34647f59bc0d86aeb9d298089931d",
+      "package": "libisoburn1t64",
+      "version": "1.5.6-1.2+b1"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libselinux1-dev_3.8.1-1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/libs/libselinux/libselinux1-dev_3.8.1-1_amd64.deb",
+      "bytes": 169104,
+      "sha256": "0107595c65dd5cfe7ce3643d400e7b2be2c2528bcd110ad5af8605711a858921",
+      "package": "libselinux1-dev",
+      "version": "3.8.1-1"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/native-architecture_0.2.6_all.deb",
+      "url": "https://deb.debian.org/debian/pool/main/a/architecture-properties/native-architecture_0.2.6_all.deb",
+      "bytes": 2264,
+      "sha256": "cb065efb2dd0ad8de45ace298bdb959e4d66478ca8599312bde4fa543d8b7532",
+      "package": "native-architecture",
+      "version": "0.2.6"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libsysprof-capture-4-dev_48.0-2_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/s/sysprof/libsysprof-capture-4-dev_48.0-2_amd64.deb",
+      "bytes": 49864,
+      "sha256": "3cb76e124187700f5977a0acb914b3f82b2bd28105fce6f1cf2a34497b234af2",
+      "package": "libsysprof-capture-4-dev",
+      "version": "48.0-2"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libisofs6t64_1.5.6.pl01-1.1+b1_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/libi/libisofs/libisofs6t64_1.5.6.pl01-1.1+b1_amd64.deb",
+      "bytes": 218604,
+      "sha256": "52e9b19b888ff9af70299068ccd2bad790583da54ef8b6b6d8cb16b55d16aa88",
+      "package": "libisofs6t64",
+      "version": "1.5.6.pl01-1.1+b1"
+    },
+    {
+      "path": "work/linux/apt/cache/archives/libgirepository-2.0-0_2.84.4-3~deb13u5_amd64.deb",
+      "url": "https://deb.debian.org/debian/pool/main/g/glib2.0/libgirepository-2.0-0_2.84.4-3~deb13u5_amd64.deb",
+      "bytes": 144928,
+      "sha256": "c87a2d4dac81be719fb3dc2e3a1d78376151d8c5c34071e08c10304b8d1fd3c3",
+      "package": "libgirepository-2.0-0",
+      "version": "2.84.4-3~deb13u5"
+    },
+    {
+      "bytes": 22403,
+      "path": "work/downloads/p1-01/limine-0.5.0.crate",
+      "sha256": "af6d2ee42712e7bd2c787365cd1dab06ef59a61becbf87bec7b32b970bd2594b",
+      "url": "https://static.crates.io/crates/limine/limine-0.5.0.crate"
+    },
+    {
+      "bytes": 2062228,
+      "path": "work/downloads/p1-01/limine-binary.zip",
+      "sha256": "1bdbbcda650c5dba9b1eca5833d598137bf11bd6289bc89b6bcc4f8f112fa676",
+      "url": "https://github.com/Limine-Bootloader/Limine/releases/download/v12.9.3/limine-binary.zip"
+    },
+    {
+      "path": "work/linux/powershell.tar.gz",
+      "url": "https://github.com/PowerShell/PowerShell/releases/download/v7.6.5/powershell-7.6.5-linux-x64.tar.gz",
+      "bytes": 73393424,
+      "sha256": "b34ab3b19acac1d3d4d0d3cfdb02acf62f457b0b6a962ff008132033f7566844"
+    },
+    {
+      "path": "work/linux/wheels/meson-1.12.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/57/99/36cd25f9598eef70db97577440a70a360af505f6f01c2338a18d1556079c/meson-1.12.1-py3-none-any.whl",
+      "bytes": 1108668,
+      "sha256": "930bc7542cbd9f57009e182fd014eba48cf1a0180a7b9006d2d32d8f168d8b02"
+    },
+    {
+      "path": "work/linux/wheels/ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/6e/53/ebfed7b689c338dd8ebeec9c0730c8d56821292f14e2536e5f3ef1a05744/ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "bytes": 183365,
+      "sha256": "65a24341b5ac09fcadcc37082660be40a94174e51a937fabf6e2cae26225fa2c"
+    }
+  ],
+  "build": {
+    "qemu_commit": "84f07211cc5b4fc6a371559bf8a5de4fb068e648",
+    "jobs": 4,
+    "configure": [
+      "--target-list=x86_64-softmmu",
+      "--without-default-features",
+      "--enable-tcg",
+      "--enable-system",
+      "--enable-pixman",
+      "--disable-werror",
+      "--disable-rust",
+      "--disable-docs"
+    ],
+    "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+    "meson": "1.12.1",
+    "ninja": "1.13.2",
+    "firmware": "identical hashes to Windows lock; supplied by QEMU source pc-bios"
+  }
+}

@@ -1,0 +1,749 @@
+{
+  "worker_lifecycles": 200,
+  "route_cycles": 100,
+  "route_decisions": 700,
+  "ipc": {
+    "samples": 10000,
+    "p50_ns": 153170,
+    "p95_ns": 249460,
+    "p99_ns": 731000,
+    "max_ns": 1577290
+  },
+  "ipc_serial_rate_per_second": 5693.909716729813,
+  "active_guest_elapsed_ns": 5215617010,
+  "active_round_trip_rate_including_warmup_per_second": 2109.050564661764,
+  "observer_cost_probes": {
+    "clockcost": {
+      "calls": 1024,
+      "guest_elapsed_ns": 5054940
+    },
+    "diagcost": {
+      "calls": 32,
+      "guest_elapsed_ns": 429250
+    }
+  },
+  "timer_lateness": {
+    "samples": 15,
+    "p50_ns": 126790,
+    "p95_ns": 397040,
+    "p99_ns": 397040,
+    "max_ns": 397040
+  },
+  "queued_session_expiry_observation_lateness": {
+    "samples": 100,
+    "p50_ns": 56160,
+    "p95_ns": 104110,
+    "p99_ns": 274900,
+    "max_ns": 291110
+  },
+  "scheduling": {
+    "dispatch": {
+      "samples": 1195,
+      "p50_ns": 101340,
+      "p95_ns": 344610,
+      "p99_ns": 3273220,
+      "max_ns": 20228340,
+      "observed": 38241,
+      "maximum_all_ns": 22353180
+    },
+    "wake": {
+      "samples": 6,
+      "p50_ns": 83880,
+      "p95_ns": 434240,
+      "p99_ns": 434240,
+      "max_ns": 434240,
+      "observed": 211,
+      "maximum_all_ns": 894530
+    }
+  },
+  "peaks": {
+    "version": "5",
+    "build": "0b67d314187e3d3ba1703dff6de9bd5f0ac9339d73b272049a36508e413d563d",
+    "session": "678cd53ad213b8d8a2e8151e6eea36d6054f8e99ecf3053602a0db65b1f304c5",
+    "session_origin": "host",
+    "seq": "2580",
+    "stage": "routes",
+    "outcome": "ok",
+    "emergency": "false",
+    "frames": "203",
+    "objects": "41",
+    "handles": "40",
+    "messages": "8",
+    "queued_bytes": "2048",
+    "masked_ns": "30568050",
+    "masked_body_ns": "29350990",
+    "segments": "38308",
+    "committed": "835584",
+    "method": "adjacent_resume_sti",
+    "calls": "207530",
+    "traced": "false"
+  },
+  "bounds": {
+    "version": "5",
+    "build": "0b67d314187e3d3ba1703dff6de9bd5f0ac9339d73b272049a36508e413d563d",
+    "session": "678cd53ad213b8d8a2e8151e6eea36d6054f8e99ecf3053602a0db65b1f304c5",
+    "session_origin": "host",
+    "seq": "2581",
+    "stage": "routes",
+    "outcome": "ok",
+    "emergency": "false",
+    "peak_shared": "4096",
+    "peak_waits": "1",
+    "peak_timers": "1",
+    "pins_deferred": "20",
+    "shared_counted_once": "true"
+  },
+  "idle": {
+    "version": "5",
+    "build": "0b67d314187e3d3ba1703dff6de9bd5f0ac9339d73b272049a36508e413d563d",
+    "session": "678cd53ad213b8d8a2e8151e6eea36d6054f8e99ecf3053602a0db65b1f304c5",
+    "session_origin": "host",
+    "seq": "2499",
+    "stage": "routes",
+    "outcome": "ok",
+    "emergency": "false",
+    "elapsed_ns": "323816640",
+    "ticks": "65",
+    "requested_halts": "64",
+    "halts": "65",
+    "processes": "0"
+  },
+  "retained_cache": {
+    "version": "5",
+    "build": "0b67d314187e3d3ba1703dff6de9bd5f0ac9339d73b272049a36508e413d563d",
+    "session": "678cd53ad213b8d8a2e8151e6eea36d6054f8e99ecf3053602a0db65b1f304c5",
+    "session_origin": "host",
+    "seq": "198",
+    "stage": "routes",
+    "outcome": "ok",
+    "emergency": "false",
+    "entries": "3",
+    "bytes": "1584",
+    "verification_ns": "13336330",
+    "immutable": "true",
+    "writable_aliases": "0",
+    "retained": "true",
+    "charged": "kernel_image"
+  },
+  "client_phase_spans_ns": {
+    "0": [
+      187816290,
+      11368930,
+      3518640
+    ],
+    "1": [
+      17998690,
+      7387090,
+      1242710
+    ],
+    "2": [
+      18766190,
+      7230110,
+      1234020
+    ],
+    "3": [
+      18483800,
+      7705600,
+      1246340
+    ],
+    "4": [
+      18070920,
+      7244390,
+      1297590
+    ],
+    "5": [
+      17857720,
+      7328030,
+      1521230
+    ],
+    "6": [
+      17942780,
+      7156130,
+      1290560
+    ],
+    "7": [
+      18831790,
+      6939460,
+      1245590
+    ],
+    "8": [
+      17725330,
+      7371670,
+      1211700
+    ],
+    "9": [
+      18322980,
+      7314780,
+      1298660
+    ],
+    "10": [
+      18612270,
+      7181040,
+      1288680
+    ],
+    "11": [
+      17513750,
+      6973360,
+      1475470
+    ],
+    "12": [
+      18845780,
+      7304630,
+      1628300
+    ],
+    "13": [
+      17454080,
+      7238930,
+      1677450
+    ],
+    "14": [
+      17261170,
+      6818380,
+      1410650
+    ],
+    "15": [
+      17134170,
+      7080430,
+      1378550
+    ],
+    "16": [
+      17572640,
+      7167530,
+      1379560
+    ],
+    "17": [
+      19523800,
+      7496630,
+      1234820
+    ],
+    "18": [
+      17425960,
+      7208150,
+      1278260
+    ],
+    "19": [
+      21160540,
+      8080870,
+      2147360
+    ],
+    "20": [
+      17651640,
+      9612780,
+      1315120
+    ],
+    "21": [
+      18529130,
+      7352470,
+      1259360
+    ],
+    "22": [
+      19277730,
+      7016100,
+      1248600
+    ],
+    "23": [
+      19184740,
+      7717680,
+      1245860
+    ],
+    "24": [
+      17881670,
+      6967270,
+      1507760
+    ],
+    "25": [
+      18417280,
+      7286870,
+      1268880
+    ],
+    "26": [
+      18435180,
+      7351720,
+      1376700
+    ],
+    "27": [
+      18306120,
+      7335840,
+      1252190
+    ],
+    "28": [
+      17833870,
+      7379490,
+      1226900
+    ],
+    "29": [
+      18307910,
+      7060510,
+      1573070
+    ],
+    "30": [
+      17082450,
+      7070210,
+      1188860
+    ],
+    "31": [
+      18404890,
+      7792610,
+      1314660
+    ],
+    "32": [
+      18273720,
+      7245100,
+      1252030
+    ],
+    "33": [
+      18096980,
+      7182530,
+      1462910
+    ],
+    "34": [
+      18142150,
+      6909510,
+      1462800
+    ],
+    "35": [
+      17998570,
+      6928380,
+      1483850
+    ],
+    "36": [
+      17762280,
+      7373840,
+      1445400
+    ],
+    "37": [
+      18613710,
+      7693440,
+      1429580
+    ],
+    "38": [
+      17348650,
+      6853640,
+      1269150
+    ],
+    "39": [
+      17506920,
+      7061250,
+      1472950
+    ],
+    "40": [
+      17860340,
+      8967420,
+      1434490
+    ],
+    "41": [
+      18049170,
+      6901070,
+      1255830
+    ],
+    "42": [
+      18883340,
+      7641070,
+      1259250
+    ],
+    "43": [
+      26477430,
+      10422890,
+      1827180
+    ],
+    "44": [
+      17803080,
+      7008580,
+      1239280
+    ],
+    "45": [
+      17859850,
+      6968660,
+      1248290
+    ],
+    "46": [
+      17368140,
+      7121200,
+      1374140
+    ],
+    "47": [
+      17961280,
+      6669650,
+      1220440
+    ],
+    "48": [
+      17709020,
+      6849360,
+      1246320
+    ],
+    "49": [
+      17285470,
+      6886650,
+      1213530
+    ],
+    "50": [
+      17898460,
+      6838020,
+      1351810
+    ],
+    "51": [
+      17153390,
+      6940800,
+      1337190
+    ],
+    "52": [
+      17830180,
+      7016670,
+      1373810
+    ],
+    "53": [
+      17388670,
+      7069430,
+      1388960
+    ],
+    "54": [
+      16878480,
+      7056450,
+      1327610
+    ],
+    "55": [
+      17420600,
+      6742220,
+      1422350
+    ],
+    "56": [
+      17586190,
+      7445550,
+      1426490
+    ],
+    "57": [
+      17451120,
+      7565880,
+      1345960
+    ],
+    "58": [
+      17216730,
+      6880900,
+      1181650
+    ],
+    "59": [
+      17992230,
+      7643610,
+      1329520
+    ],
+    "60": [
+      18454120,
+      6973670,
+      1549520
+    ],
+    "61": [
+      17740430,
+      7608680,
+      1337290
+    ],
+    "62": [
+      18314400,
+      7760270,
+      1749070
+    ],
+    "63": [
+      17044190,
+      7515790,
+      1456320
+    ],
+    "64": [
+      17396720,
+      7207760,
+      1397610
+    ],
+    "65": [
+      17600480,
+      6845130,
+      1364050
+    ],
+    "66": [
+      17771710,
+      7042400,
+      1366530
+    ],
+    "67": [
+      18278200,
+      6961660,
+      1318710
+    ],
+    "68": [
+      17364350,
+      8370830,
+      2583040
+    ],
+    "69": [
+      18927290,
+      7415280,
+      1263070
+    ],
+    "70": [
+      18355560,
+      7155510,
+      1270790
+    ],
+    "71": [
+      18738260,
+      6933520,
+      1316830
+    ],
+    "72": [
+      17984780,
+      6909390,
+      1429670
+    ],
+    "73": [
+      18637680,
+      7261000,
+      1218370
+    ],
+    "74": [
+      17902500,
+      7125850,
+      1328370
+    ],
+    "75": [
+      18498720,
+      7293240,
+      1341220
+    ],
+    "76": [
+      17937120,
+      7544290,
+      1261230
+    ],
+    "77": [
+      17503990,
+      7065600,
+      1375870
+    ],
+    "78": [
+      17587720,
+      6944750,
+      1702160
+    ],
+    "79": [
+      17668360,
+      7232490,
+      1489860
+    ],
+    "80": [
+      18416900,
+      7827330,
+      1281400
+    ],
+    "81": [
+      21831020,
+      7567000,
+      1272710
+    ],
+    "82": [
+      17231140,
+      6888610,
+      1369310
+    ],
+    "83": [
+      17592560,
+      7556430,
+      1491020
+    ],
+    "84": [
+      17444960,
+      6861940,
+      1338790
+    ],
+    "85": [
+      17224280,
+      7484300,
+      1203940
+    ],
+    "86": [
+      17876320,
+      7620280,
+      1231740
+    ],
+    "87": [
+      18312250,
+      7568460,
+      1530990
+    ],
+    "88": [
+      17805970,
+      6963420,
+      1595330
+    ],
+    "89": [
+      17982380,
+      7452610,
+      1275980
+    ],
+    "90": [
+      17747130,
+      7712770,
+      1247850
+    ],
+    "91": [
+      17979940,
+      7582030,
+      1287010
+    ],
+    "92": [
+      18166290,
+      7185550,
+      1700130
+    ],
+    "93": [
+      17523670,
+      7218510,
+      1416000
+    ],
+    "94": [
+      17617520,
+      6862020,
+      1268450
+    ],
+    "95": [
+      19214070,
+      7254860,
+      1332150
+    ],
+    "96": [
+      17760540,
+      7453420,
+      1542310
+    ],
+    "97": [
+      19872900,
+      7088610,
+      1568390
+    ],
+    "98": [
+      18017960,
+      7212710,
+      1234460
+    ],
+    "99": [
+      17084310,
+      6996930,
+      1279020
+    ]
+  },
+  "artifacts": {
+    "build_id": "0b67d314187e3d3ba1703dff6de9bd5f0ac9339d73b272049a36508e413d563d",
+    "kernel_sha256": "60c09962d714c2ed8146417240def8f8c1ca8bb43dbbd9b353cb051816b7a9aa",
+    "user_sha256": "535f3c578d9c8faf95b42f70c7b41a58b58f9b39f06f36507e152896333f2b2e",
+    "codegen": {
+      "helpers": {
+        "task_resume": "<task_resume>:\nffffffff8000284b:      \tcli\nffffffff8000284c:      \tcld\nffffffff8000284d:      \tpushq\t%rbp\nffffffff8000284e:      \tpushq\t%rbx\nffffffff8000284f:      \tpushq\t%r12\nffffffff80002851:      \tpushq\t%r13\nffffffff80002853:      \tpushq\t%r14\nffffffff80002855:      \tpushq\t%r15\nffffffff80002857:      \tmovq\t%rsp, 0x9c27b2(%rip) # 0xffffffff809c5010 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry12CONTINUATION>\nffffffff8000285e:      \tmovq\t%cr3, %rax\nffffffff80002861:      \tmovq\t%rax, 0x9c27a0(%rip) # 0xffffffff809c5008 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff80002868:      \tmovq\t%rdi, %cr3\nffffffff8000286b:      \tmovq\t0x9c2cde(%rip), %rsp # 0xffffffff809c5550 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff80002872:      \tsubq\t$0xa0, %rsp\nffffffff80002879:      \tmovq\t%rdx, %r8\nffffffff8000287c:      \tmovq\t%rsp, %rdi\nffffffff8000287f:      \tmovl\t$0x14, %ecx\nffffffff80002884:      \trep\t\tmovsq\t(%rsi), %es:(%rdi)\nffffffff80002887:      \txorl\t%eax, %eax\nffffffff80002889:      \tmovw\t%ax, %ds\nffffffff8000288c:      \tmovw\t%ax, %es\nffffffff8000288f:      \tmovw\t%ax, %fs\nffffffff80002892:      \tmovw\t%ax, %gs\nffffffff80002895:      \tmovb\t$0x1, 0x9c2764(%rip) # 0xffffffff809c5000 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff8000289c:      \tclts\nffffffff8000289e:      \tfxrstor64\t(%r8)\nffffffff800028a2:      \tpopq\t%r15\nffffffff800028a4:      \tpopq\t%r14\nffffffff800028a6:      \tpopq\t%r13\nffffffff800028a8:      \tpopq\t%r12\nffffffff800028aa:      \tpopq\t%r11\nffffffff800028ac:      \tpopq\t%r10\nffffffff800028ae:      \tpopq\t%r9\nffffffff800028b0:      \tpopq\t%r8\nffffffff800028b2:      \tpopq\t%rdi\nffffffff800028b3:      \tpopq\t%rsi\nffffffff800028b4:      \tpopq\t%rbp\nffffffff800028b5:      \tpopq\t%rbx\nffffffff800028b6:      \tpopq\t%rdx\nffffffff800028b7:      \tpopq\t%rcx\nffffffff800028b8:      \tpopq\t%rax\nffffffff800028b9:      \tiretq\nffffffff800028bb:      \tint3\nffffffff800028bc:      \tint3\nffffffff800028bd:      \tint3\nffffffff800028be:      \tint3\nffffffff800028bf:      \tint3\n",
+        "task_save_fp": "<task_save_fp>:\nffffffff8000283a:      \tclts\nffffffff8000283c:      \tfxsave64\t(%rdi)\nffffffff80002840:      \tmovq\t%cr0, %rax\nffffffff80002843:      \torq\t$0x8, %rax\nffffffff80002847:      \tmovq\t%rax, %cr0\nffffffff8000284a:      \tretq\n",
+        "user_syscall": "<user_syscall>:\nffffffff800025da:      \tmovq\t%rsp, 0x9c2f67(%rip) # 0xffffffff809c5548 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry7USER_SP>\nffffffff800025e1:      \tmovq\t0x9c2f68(%rip), %rsp # 0xffffffff809c5550 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800025e8:      \tpushq\t%rax\nffffffff800025e9:      \tcmpb\t$0x0, 0x9c2a10(%rip) # 0xffffffff809c5000 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800025f0:      \tje\t0xffffffff800025f9 <user_syscall+0x1f>\nffffffff800025f2:      \tstmxcsr\t0x9c2a1f(%rip)  # 0xffffffff809c5018 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff800025f9:      \tmovq\t%cr0, %rax\nffffffff800025fc:      \torq\t$0x8, %rax\nffffffff80002600:      \tmovq\t%rax, %cr0\nffffffff80002603:      \tpopq\t%rax\nffffffff80002604:      \tpushq\t$0x3b\nffffffff80002606:      \tpushq\t0x9c2f3c(%rip)  # 0xffffffff809c5548 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry7USER_SP>\nffffffff8000260c:      \tpushq\t%r11\nffffffff8000260e:      \tpushq\t$0x33\nffffffff80002610:      \tpushq\t%rcx\nffffffff80002611:      \tpushq\t%rax\nffffffff80002612:      \tpushq\t%rcx\nffffffff80002613:      \tpushq\t%rdx\nffffffff80002614:      \tpushq\t%rbx\nffffffff80002615:      \tpushq\t%rbp\nffffffff80002616:      \tpushq\t%rsi\nffffffff80002617:      \tpushq\t%rdi\nffffffff80002618:      \tpushq\t%r8\nffffffff8000261a:      \tpushq\t%r9\nffffffff8000261c:      \tpushq\t%r10\nffffffff8000261e:      \tpushq\t%r11\nffffffff80002620:      \tpushq\t%r12\nffffffff80002622:      \tpushq\t%r13\nffffffff80002624:      \tpushq\t%r14\nffffffff80002626:      \tpushq\t%r15\nffffffff80002628:      \tcld\nffffffff80002629:      \tmovq\t%rsp, %rdi\nffffffff8000262c:      \tcallq\t0xffffffff8001b290 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry8dispatch>\nffffffff80002631:      \tpopq\t%r15\nffffffff80002633:      \tpopq\t%r14\nffffffff80002635:      \tpopq\t%r13\nffffffff80002637:      \tpopq\t%r12\nffffffff80002639:      \tpopq\t%r11\nffffffff8000263b:      \tpopq\t%r10\nffffffff8000263d:      \tpopq\t%r9\nffffffff8000263f:      \tpopq\t%r8\nffffffff80002641:      \tpopq\t%rdi\nffffffff80002642:      \tpopq\t%rsi\nffffffff80002643:      \tpopq\t%rbp\nffffffff80002644:      \tpopq\t%rbx\nffffffff80002645:      \tpopq\t%rdx\nffffffff80002646:      \tpopq\t%rcx\nffffffff80002647:      \tpopq\t%rax\nffffffff80002648:      \tiretq\n",
+        "timer_vector": "<timer_vector>:\nffffffff80002667:      \tpushq\t%rax\nffffffff80002668:      \tpushq\t%rcx\nffffffff80002669:      \tpushq\t%rdx\nffffffff8000266a:      \tpushq\t%rbx\nffffffff8000266b:      \tpushq\t%rbp\nffffffff8000266c:      \tpushq\t%rsi\nffffffff8000266d:      \tpushq\t%rdi\nffffffff8000266e:      \tpushq\t%r8\nffffffff80002670:      \tpushq\t%r9\nffffffff80002672:      \tpushq\t%r10\nffffffff80002674:      \tpushq\t%r11\nffffffff80002676:      \tpushq\t%r12\nffffffff80002678:      \tpushq\t%r13\nffffffff8000267a:      \tpushq\t%r14\nffffffff8000267c:      \tpushq\t%r15\nffffffff8000267e:      \tcld\nffffffff8000267f:      \tmovq\t%cr0, %rax\nffffffff80002682:      \tpushq\t%rax\nffffffff80002683:      \torq\t$0x8, %rax\nffffffff80002687:      \tmovq\t%rax, %cr0\nffffffff8000268a:      \tleaq\t0x8(%rsp), %rbx\nffffffff8000268f:      \tandq\t$-0x10, %rsp\nffffffff80002693:      \tmovl\t$0x40, %edi\nffffffff80002698:      \tmovq\t0x80(%rbx), %rsi\nffffffff8000269f:      \tmovq\t%rbx, %rdx\nffffffff800026a2:      \tcallq\t0xffffffff8001c560 <_RNvNtCs9PORJx22tjj_16continuum_kernel5timer9interrupt>\nffffffff800026a7:      \tmovq\t-0x8(%rbx), %rax\nffffffff800026ab:      \tmovq\t%rax, %cr0\nffffffff800026ae:      \tmovq\t%rbx, %rsp\nffffffff800026b1:      \tpopq\t%r15\nffffffff800026b3:      \tpopq\t%r14\nffffffff800026b5:      \tpopq\t%r13\nffffffff800026b7:      \tpopq\t%r12\nffffffff800026b9:      \tpopq\t%r11\nffffffff800026bb:      \tpopq\t%r10\nffffffff800026bd:      \tpopq\t%r9\nffffffff800026bf:      \tpopq\t%r8\nffffffff800026c1:      \tpopq\t%rdi\nffffffff800026c2:      \tpopq\t%rsi\nffffffff800026c3:      \tpopq\t%rbp\nffffffff800026c4:      \tpopq\t%rbx\nffffffff800026c5:      \tpopq\t%rdx\nffffffff800026c6:      \tpopq\t%rcx\nffffffff800026c7:      \tpopq\t%rax\nffffffff800026c8:      \tiretq\n",
+        "syscall_mxcsr_snapshot": "<user_syscall>:\nffffffff800025da:      \tmovq\t%rsp, 0x9c2f67(%rip) # 0xffffffff809c5548 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry7USER_SP>\nffffffff800025e1:      \tmovq\t0x9c2f68(%rip), %rsp # 0xffffffff809c5550 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800025e8:      \tpushq\t%rax\nffffffff800025e9:      \tcmpb\t$0x0, 0x9c2a10(%rip) # 0xffffffff809c5000 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800025f0:      \tje\t0xffffffff800025f9 <user_syscall+0x1f>\nffffffff800025f2:      \tstmxcsr\t0x9c2a1f(%rip)  # 0xffffffff809c5018 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff800025f9:      \tmovq\t%cr0, %rax\nffffffff800025fc:      \torq\t$0x8, %rax\nffffffff80002600:      \tmovq\t%rax, %cr0\nffffffff80002603:      \tpopq\t%rax\nffffffff80002604:      \tpushq\t$0x3b\nffffffff80002606:      \tpushq\t0x9c2f3c(%rip)  # 0xffffffff809c5548 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry7USER_SP>\nffffffff8000260c:      \tpushq\t%r11\nffffffff8000260e:      \tpushq\t$0x33\nffffffff80002610:      \tpushq\t%rcx\nffffffff80002611:      \tpushq\t%rax\nffffffff80002612:      \tpushq\t%rcx\nffffffff80002613:      \tpushq\t%rdx\nffffffff80002614:      \tpushq\t%rbx\nffffffff80002615:      \tpushq\t%rbp\nffffffff80002616:      \tpushq\t%rsi\nffffffff80002617:      \tpushq\t%rdi\nffffffff80002618:      \tpushq\t%r8\nffffffff8000261a:      \tpushq\t%r9\nffffffff8000261c:      \tpushq\t%r10\nffffffff8000261e:      \tpushq\t%r11\nffffffff80002620:      \tpushq\t%r12\nffffffff80002622:      \tpushq\t%r13\nffffffff80002624:      \tpushq\t%r14\nffffffff80002626:      \tpushq\t%r15\nffffffff80002628:      \tcld\nffffffff80002629:      \tmovq\t%rsp, %rdi\nffffffff8000262c:      \tcallq\t0xffffffff8001b290 <_RNvNtCs9PORJx22tjj_16continuum_kernel10user_entry8dispatch>\nffffffff80002631:      \tpopq\t%r15\nffffffff80002633:      \tpopq\t%r14\nffffffff80002635:      \tpopq\t%r13\nffffffff80002637:      \tpopq\t%r12\nffffffff80002639:      \tpopq\t%r11\nffffffff8000263b:      \tpopq\t%r10\nffffffff8000263d:      \tpopq\t%r9\nffffffff8000263f:      \tpopq\t%r8\nffffffff80002641:      \tpopq\t%rdi\nffffffff80002642:      \tpopq\t%rsi\nffffffff80002643:      \tpopq\t%rbp\nffffffff80002644:      \tpopq\t%rbx\nffffffff80002645:      \tpopq\t%rdx\nffffffff80002646:      \tpopq\t%rcx\nffffffff80002647:      \tpopq\t%rax\nffffffff80002648:      \tiretq\n"
+      },
+      "simd_instruction_counts": {
+        "user_a": {},
+        "user_b": {},
+        "service": {}
+      }
+    },
+    "launch": {
+      "arguments": [
+        "-machine",
+        "pc-q35-11.1,hpet=on",
+        "-accel",
+        "tcg",
+        "-cpu",
+        "qemu64-v1,+apic",
+        "-smp",
+        "1",
+        "-m",
+        "2048",
+        "-nic",
+        "none",
+        "-monitor",
+        "none",
+        "-display",
+        "none",
+        "-vga",
+        "std",
+        "-parallel",
+        "none",
+        "-serial",
+        "file:${WORKSPACE}/build/m1/sdk-stress-1793602183711387048-64459/sdk-stress-run/serial.log",
+        "-no-reboot",
+        "-boot",
+        "order=d,strict=on",
+        "-drive",
+        "if=pflash,format=raw,unit=0,readonly=on,file=${WORKSPACE}/work/tools/linux/share/edk2-x86_64-code.fd",
+        "-drive",
+        "if=pflash,format=raw,unit=1,file=${WORKSPACE}/build/m1/sdk-stress-1793602183711387048-64459/sdk-stress-run/fresh firmware vars.fd",
+        "-drive",
+        "file=${WORKSPACE}/build/m1/sdk-stress-1793602183711387048-64459/sdk-stress-package/continuum.iso,media=cdrom,readonly=on,format=raw",
+        "-device",
+        "isa-debug-exit,iobase=0xf4,iosize=0x04"
+      ],
+      "build_id": "0b67d314187e3d3ba1703dff6de9bd5f0ac9339d73b272049a36508e413d563d",
+      "configuration_sha256": "35f4aae439832f98f01b19d1244bf2022738f11fcd8b8f635303d75dec51e298",
+      "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+      "fixture": "routes",
+      "host_session_id": "678cd53ad213b8d8a2e8151e6eea36d6054f8e99ecf3053602a0db65b1f304c5",
+      "iso_sha256": "08bb1a9d2e5cec1484c1c415f3d4608d2541dc17bd1ad4b95c0e8ee1c4299f6b",
+      "schema_version": 2,
+      "session_origin": "host; correlation only, not a security credential or reset detector",
+      "test_device": true,
+      "vars_copy_before_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+      "vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+      "vm": {
+        "accelerator": "tcg",
+        "arguments": [
+          "-machine",
+          "pc-q35-11.1,hpet=on",
+          "-accel",
+          "tcg",
+          "-cpu",
+          "qemu64-v1,+apic",
+          "-smp",
+          "1",
+          "-m",
+          "2048",
+          "-nic",
+          "none",
+          "-monitor",
+          "none",
+          "-display",
+          "none",
+          "-vga",
+          "std",
+          "-parallel",
+          "none",
+          "-serial",
+          "file:<new-run>/serial.log",
+          "-no-reboot",
+          "-boot",
+          "order=d,strict=on",
+          "-drive",
+          "if=pflash,format=raw,unit=0,readonly=on,file=<locked-code>",
+          "-drive",
+          "if=pflash,format=raw,unit=1,file=<fresh-vars-copy>",
+          "-drive",
+          "file=<exact-iso>,media=cdrom,readonly=on,format=raw"
+        ],
+        "cpu": "qemu64-v1",
+        "deadline_ms": 30000,
+        "disabled_endpoints": "QMP/GDB omitted (disabled by default); monitor explicitly none; no networking or shares",
+        "firmware_format": "raw pflash: 3653632-byte code + 540672-byte fresh vars = 4 MiB",
+        "hpet": true,
+        "launch_implemented": true,
+        "local_apic": "CPU APIC capability retained; guest register discovery pending",
+        "machine": "pc-q35-11.1",
+        "ram_mib": 2048,
+        "secure_boot": false,
+        "vcpus": 1
+      }
+    }
+  },
+  "build": "0b67d314187e3d3ba1703dff6de9bd5f0ac9339d73b272049a36508e413d563d",
+  "session": "678cd53ad213b8d8a2e8151e6eea36d6054f8e99ecf3053602a0db65b1f304c5",
+  "iso_sha256": "08bb1a9d2e5cec1484c1c415f3d4608d2541dc17bd1ad4b95c0e8ee1c4299f6b",
+  "serial_sha256": "5242c8fbb65ce674c5333933a67c3d1fc9f5ffcffa49a52c76f0564a1ed6329f",
+  "host_elapsed_ms": 8800
+}

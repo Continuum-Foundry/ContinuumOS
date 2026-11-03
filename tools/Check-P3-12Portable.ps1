@@ -6,7 +6,7 @@ $root=Split-Path $PSScriptRoot -Parent
 if ($env:RUSTFLAGS -or $env:CARGO_ENCODED_RUSTFLAGS -or $env:CARGO_TARGET_X86_64_UNKNOWN_NONE_RUSTFLAGS) {throw 'Unexpected inherited target flags.'}
 New-Item -ItemType Directory -Force $Output | Out-Null
 $env:CONTINUUM_FONT_DIR=Join-Path $root 'work/text-inputs'
-$llvm=Join-Path (& rustc --print sysroot) 'lib/rustlib/x86_64-pc-windows-msvc/bin'
+$llvm=Join-Path (& rustc --print sysroot) ('lib/rustlib/'+$script:ContinuumHost+'/bin')
 & cargo test --locked --offline -p editor-model --lib *> (Join-Path $Output 'model-tests.log')
 if ($LASTEXITCODE -ne 0) {throw 'Portable model host regression failed.'}
 & cargo rustc --locked --offline --manifest-path experiments/ui-link/Cargo.toml --target x86_64-unknown-none --release --bin ui-link -- -C code-model=small -C relocation-model=static -C ('link-arg=-T'+(Join-Path $root 'experiments/ui-link/link.ld')) -C link-arg=--no-undefined *> (Join-Path $Output 'selected-link.log')

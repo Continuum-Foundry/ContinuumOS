@@ -1,8 +1,9 @@
 param([switch]$Json, [switch]$M1)
 $ErrorActionPreference = 'Stop'
+if ($IsLinux) { & (Join-Path $PSScriptRoot 'linux/Inventory.ps1') -Json:$Json -M1:$M1; exit $LASTEXITCODE }
 $root = Split-Path $PSScriptRoot -Parent
 function Sanitize([string]$value) {
-    $value.Replace($root, '${WORKSPACE}').Replace($env:USERPROFILE, '${USERPROFILE}')
+    $value.Replace($root, '${WORKSPACE}').Replace(([Environment]::GetFolderPath('UserProfile')), '${USERPROFILE}')
 }
 function Capture([string]$exe, [string[]]$arguments) {
     try {

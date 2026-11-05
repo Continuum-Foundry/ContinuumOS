@@ -92,6 +92,29 @@ fn sanitize(text: &str) -> String {
 fn rust_version() -> Result<String> {
     output(Command::new(tool("rustc")?).arg("-vV"))
 }
+fn host_triple() -> &'static str {
+    if cfg!(windows) {
+        "x86_64-pc-windows-msvc"
+    } else {
+        "x86_64-unknown-linux-gnu"
+    }
+}
+fn executable(name: &str) -> String {
+    format!("{name}{}", env::consts::EXE_SUFFIX)
+}
+fn llvm_bin(sysroot: &str) -> PathBuf {
+    Path::new(sysroot)
+        .join("lib/rustlib")
+        .join(host_triple())
+        .join("bin")
+}
+fn input_lock_path() -> PathBuf {
+    root().join(if cfg!(target_os = "linux") {
+        "config/m1-inputs.linux.lock.json"
+    } else {
+        "config/m1-inputs.lock.json"
+    })
+}
 fn check_pin() -> Result<()> {
     let config =
         fs::read_to_string(root().join("rust-toolchain.toml")).map_err(|e| e.to_string())?;
@@ -104,8 +127,11 @@ fn check_pin() -> Result<()> {
     if !actual.lines().any(|l| l == format!("release: {pin}")) {
         return Err(format!("Rust version differs from pin {pin}: {actual}"));
     }
-    if !actual.contains("host: x86_64-pc-windows-msvc") {
-        return Err("Phase 0 currently validates Windows MSVC hosts only".into());
+    if !["x86_64-pc-windows-msvc", "x86_64-unknown-linux-gnu"]
+        .iter()
+        .any(|host| actual.contains(&format!("host: {host}")))
+    {
+        return Err("Supported hosts are x86-64 Windows MSVC and Linux GNU".into());
     }
     Ok(())
 }
@@ -244,7 +270,7 @@ fn test_m0() -> Result<()> {
     }
     // LLVM is independent corroboration of the narrow in-process ELF validator.
     let sysroot = output(Command::new(tool("rustc")?).args(["--print", "sysroot"]))?;
-    let llvm = Path::new(&sysroot).join("lib/rustlib/x86_64-pc-windows-msvc/bin");
+    let llvm = crate::llvm_bin(&sysroot);
     for component in COMPONENTS {
         let image = run.join("clean-a").join(format!("{component}.elf"));
         for (name, flags) in [
@@ -265,7 +291,7 @@ fn test_m0() -> Result<()> {
             let executable = if env::var_os(&key).is_some() {
                 tool(name)?
             } else {
-                llvm.join(format!("{name}.exe"))
+                llvm.join(crate::executable(name))
             };
             let text = output(Command::new(executable).args(flags).arg(&image))?;
             fs::write(run.join(format!("{component}-{name}.txt")), sanitize(&text))

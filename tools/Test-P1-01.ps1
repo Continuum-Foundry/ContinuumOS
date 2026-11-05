@@ -1,9 +1,10 @@
+. (Join-Path $PSScriptRoot 'Host.ps1')
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $run = Join-Path $root ('build/m1/p1-01-tests-' + [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds())
 New-Item -ItemType Directory -Force $run | Out-Null
 $probe = Join-Path $PSScriptRoot 'Test-M1Prerequisites.ps1'
-$lockPath = Join-Path $root 'config/m1-inputs.lock.json'
+$lockPath = Get-M1LockPath
 $saved = @{}
 foreach ($name in 'CONTINUUM_QEMU_SYSTEM_X86_64','CONTINUUM_XORRISO','CONTINUUM_OVMF_CODE','CONTINUUM_OVMF_VARS') {
     $saved[$name] = [Environment]::GetEnvironmentVariable($name)
@@ -34,7 +35,7 @@ try {
     Check corrupted_firmware $report blocked
     if ($report.queries.Count -or -not ($report.failures -match 'Hash/size mismatch')) { throw 'Corruption was not rejected before execution' }
     $env:CONTINUUM_OVMF_CODE = $null
-    $runtime = $lock.files | Where-Object id -eq 'msys-2.0.dll'
+    $runtime = $lock.files | Where-Object id -eq $(if ($IsWindows) {'msys-2.0.dll'} else {'linux-runtime'})
     $runtime.path = [IO.Path]::GetRelativePath($root,(Join-Path $run 'missing-msys-2.0.dll'))
     $missingLock = Join-Path $run 'missing-runtime.lock.json'
     $lock | ConvertTo-Json -Depth 12 | Set-Content $missingLock

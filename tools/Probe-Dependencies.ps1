@@ -39,7 +39,7 @@ $report = @{schema_version=1;scope='Resolved Cargo graph includes host build too
 $report | ConvertTo-Json -Depth 12 | Set-Content (Join-Path $run 'dependency-report.json')
 $workspacePrefix = $root
 foreach ($file in Get-ChildItem $run -Filter '*.log') {
-    $content = [IO.File]::ReadAllText($file.FullName).Replace($workspacePrefix,'${WORKSPACE}').Replace($env:USERPROFILE,'${USERPROFILE}')
+    $content = [IO.File]::ReadAllText($file.FullName).Replace($workspacePrefix,'${WORKSPACE}').Replace(([Environment]::GetFolderPath('UserProfile')),'${USERPROFILE}')
     [IO.File]::WriteAllText($file.FullName,$content)
 }
 $results | Format-Table feature,compile,link,runtime

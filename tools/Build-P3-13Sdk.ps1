@@ -22,7 +22,7 @@ if (-not $CacheBuild) {
     if ($LASTEXITCODE -ne 0) {throw 'Compiler identity failed.'}
     $compilerRoot=(& rustc --print sysroot | Out-String).Trim()
     if ($LASTEXITCODE -ne 0) {throw 'Compiler backend identity failed.'}
-    $keyInputs['compiler-backend']=(Get-FileHash -LiteralPath (Join-Path $compilerRoot 'bin/rustc.exe')).Hash.ToLowerInvariant()
+    $keyInputs['compiler-backend']=(Get-FileHash -LiteralPath (Join-Path $compilerRoot ('bin/rustc'+$script:ContinuumExeSuffix))).Hash.ToLowerInvariant()
     $keyBytes=[Text.Encoding]::UTF8.GetBytes(($keyInputs | ConvertTo-Json -Compress))
     $key=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($keyBytes)).ToLowerInvariant()
     $cache=Join-Path $root ('build/m3/P3-13/public-cache/'+$key)

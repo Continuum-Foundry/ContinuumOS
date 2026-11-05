@@ -1494,3 +1494,44 @@ Listing SHA-256 over `blob + space + path + newline` in this order:
 
 The owner explicitly authorized an exemption to make the P3-14 pull request. Scope: the staged P3-14 task-only payload represented by Git tree `7d631fde3fe70df2056060d80fa07a3b67a3f86d`, plus this record, to `https://github.com/Continuum-Foundry/ContinuumOS.git`, branch `codex/p3-14-acceptance`, targeting `main`. The one-time push bypasses the pre-push guard; the pre-commit check remains enabled and the guard remains installed. Unrelated local edits and local-only artifacts are excluded. This is not a standing exemption.
 
+### PR #34 merge-conflict repair — proposed one-time push
+
+The owner requested merging the latest `main`, resolving the conflict, committing
+and pushing the fix. The resolved merge payload before this record is Git tree
+`739de375af154562c052e504e28f6519e510f8bd`, combining PR head
+`91798dde924fad802d9e1516d1de75ba7434bd66` with main
+`41248c78c94a567d2418e2a351692882f8edc277`. The proposed destination is
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/p3-14-acceptance`, targeting `main`. A one-time pre-push guard bypass
+for this merge-resolution commit requires explicit owner approval; the pre-commit
+check remains enabled, the guard stays installed, and unrelated local edits and
+local-only artifacts are excluded. No standing exemption is granted.
+
+## One-time owner authorization — Linux ISO/VM validation port, 2026-11-02
+
+The owner instructed: “Perform the previously mentioned work and make PR
+(through my given exemption which covers the description you will eventually
+choose and final payload)”, explicitly covering Linux host checks/discovery,
+PowerShell/path/process adaptation, verified Linux prerequisites, separation of
+Windows executable signing and full ISO/guest regressions with unchanged
+assertions, deadlines and expected exits.
+
+This authorizes the necessary work in the current cloud environment, explicit
+acquisition of the public pinned tool/dependency inputs for this port, and one
+push of its final implementation, Linux prerequisite lock/supplier, runbooks,
+compact reviewed validation evidence and this record to the existing GitHub
+`origin/codex/linux-iso-vm-validation` at
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, followed by one PR against
+`main`. The chosen title is “Port ISO and guest validation to Linux”; its final
+description and payload are within the owner's explicit exemption. This permits
+the scoped Cargo cache-supply network override; acceptance stays offline.
+
+For that one push only, the installed hooks directory may be replaced in the
+command's Git configuration by a local hooks directory retaining the original
+pre-commit check and omitting the transfer-hold pre-push hook. The repository's
+hooks and configured hooks path remain installed afterward. No force push,
+merge, release, other destination or standing remote approval is authorized.
+Generated binaries/ISOs, private keys, credentials, full raw logs, dependency
+caches and full source/build trees are excluded. Geographic containment remains
+unverified; this is an administrative exception, not legal clearance or a finding
+of U.S.-only handling, and does not waive applicable law.

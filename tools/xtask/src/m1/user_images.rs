@@ -44,10 +44,10 @@ pub(super) fn build(
     let mut descriptors = String::from("pub const IMAGES: [([u8;32],usize);3] = [\n");
     let mut images = Vec::new();
     let sysroot = output(Command::new(tool("rustc")?).args(["--print", "sysroot"]))?;
-    let llvm = Path::new(&sysroot).join("lib/rustlib/x86_64-pc-windows-msvc/bin");
+    let llvm = crate::llvm_bin(&sysroot);
     let mut audits = std::collections::BTreeMap::new();
     for name in ["llvm-readobj", "llvm-nm", "llvm-objdump"] {
-        audits.insert(name, digest(&llvm.join(format!("{name}.exe")))?);
+        audits.insert(name, digest(&llvm.join(crate::executable(name)))?);
     }
     for name in ["user_a", "user_b", "service"] {
         let image = dir.join(format!("{name}.elf"));
@@ -104,7 +104,7 @@ pub(super) fn build(
             ("llvm-objdump", vec!["--disassemble", "--no-show-raw-insn"]),
         ] {
             let text = capture(
-                Command::new(llvm.join(format!("{toolname}.exe")))
+                Command::new(llvm.join(crate::executable(toolname)))
                     .args(args)
                     .arg(&image),
                 dir,
@@ -176,7 +176,7 @@ pub(super) fn build(
     fs::write(&path, descriptors).map_err(|e| e.to_string())?;
     write_json(
         &dir.join("user-images.json"),
-        &json!({"schema_version":1,"target":"x86_64-unknown-none","code_model":"small","relocation":"static","red_zone":false,"panic":"abort","opt_level":1,"entry":"fixture_entry","compiler_sha256":digest(&Path::new(&sysroot).join("bin/rustc.exe"))?,"audit_tools_sha256":audits,"source_sha256":digest(&root().join(source))?,"runtime_source_sha256":digest(&root().join("experiments/user-images/runtime.rs"))?,"runtime_ids_sha256":digest(&runtime_ids)?,"linker_sha256":digest(&root().join("experiments/user-images/link.ld"))?,"images":images,"trusted_descriptors_sha256":digest(&path)?,"user_execution":execution || scheduler,"scheduler":scheduler,"required_cpu_features":if scheduler {7}else{0}}),
+        &json!({"schema_version":1,"target":"x86_64-unknown-none","code_model":"small","relocation":"static","red_zone":false,"panic":"abort","opt_level":1,"entry":"fixture_entry","compiler_sha256":digest(&Path::new(&sysroot).join("bin").join(crate::executable("rustc")))?,"audit_tools_sha256":audits,"source_sha256":digest(&root().join(source))?,"runtime_source_sha256":digest(&root().join("experiments/user-images/runtime.rs"))?,"runtime_ids_sha256":digest(&runtime_ids)?,"linker_sha256":digest(&root().join("experiments/user-images/link.ld"))?,"images":images,"trusted_descriptors_sha256":digest(&path)?,"user_execution":execution || scheduler,"scheduler":scheduler,"required_cpu_features":if scheduler {7}else{0}}),
     )?;
     Ok(path)
 }
@@ -232,7 +232,7 @@ pub(super) fn build_sdk(dir: &Path, runtime: bool, stress: bool) -> Result<PathB
     }
     capture(&mut command, dir, "public-sdk-build", 300)?;
     let sysroot = output(Command::new(tool("rustc")?).args(["--print", "sysroot"]))?;
-    let llvm = Path::new(&sysroot).join("lib/rustlib/x86_64-pc-windows-msvc/bin");
+    let llvm = crate::llvm_bin(&sysroot);
     let mut descriptors = String::from("pub const IMAGES: [([u8;32],usize);3] = [\n");
     let mut images = Vec::new();
     for name in ["user_a", "user_b", "service"] {
@@ -243,7 +243,7 @@ pub(super) fn build_sdk(dir: &Path, runtime: bool, stress: bool) -> Result<PathB
         }
         let inspection = elf::inspect(&bytes, "userland-link")?;
         let undefined = capture(
-            Command::new(llvm.join("llvm-nm.exe"))
+            Command::new(llvm.join(crate::executable("llvm-nm")))
                 .arg("--undefined-only")
                 .arg(&path),
             dir,
@@ -254,7 +254,7 @@ pub(super) fn build_sdk(dir: &Path, runtime: bool, stress: bool) -> Result<PathB
             return Err("Public SDK image has unresolved symbols".into());
         }
         let text = super::process::capture_audit(
-            Command::new(llvm.join("llvm-objdump.exe"))
+            Command::new(llvm.join(crate::executable("llvm-objdump")))
                 .args(["--disassemble", "--no-show-raw-insn"])
                 .arg(&path),
             dir,

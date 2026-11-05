@@ -83,7 +83,7 @@ try {
     $report.runs.sdk_runtime=Extract $runtime 'M1 artifacts: ([^\r\n]+)'
     Check sdk-codec-build cargo @('build','--locked','--offline','--manifest-path','sdk/continuum-rt/Cargo.toml','--bin','conformance') | Out-Null
     $codec=Join-Path $run 'codecs'
-    Check sdk-codecs python @('tools/sdk_contract.py','--output',$codec,'--production',(Join-Path $env:CARGO_TARGET_DIR 'debug/conformance.exe')) | Out-Null
+    Check sdk-codecs python @('tools/sdk_contract.py','--output',$codec,'--production',(Join-Path $env:CARGO_TARGET_DIR ('debug/conformance'+$script:ContinuumExeSuffix))) | Out-Null
     $report.runs.codecs=$codec
     Check sdk-flavors pwsh @('-NoProfile','-File','tools/Check-P3-12Flavors.ps1','-Descriptors',$report.runs.sdk,'-Output',(Join-Path $run 'flavors')) | Out-Null
     $report.runs.flavors=Join-Path $run 'flavors'

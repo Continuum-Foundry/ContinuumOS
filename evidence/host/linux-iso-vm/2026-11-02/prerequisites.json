@@ -1,0 +1,132 @@
+{
+  "os": "Unix 6.18.57.0",
+  "offline": true,
+  "signing": {
+    "policy": "portable executable and compiler preflights passed; no signing guarantee",
+    "status": "passed",
+    "authenticode": "not-applicable",
+    "platform": "linux"
+  },
+  "architecture": "X64",
+  "commands": [
+    {
+      "exit_code": 0,
+      "name": "signing",
+      "elapsed_ms": 298,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/linux/Test-HostExecution.ps1"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "compiler",
+      "elapsed_ms": 678,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/linux/Test-HostCompiler.ps1"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "host-metadata",
+      "elapsed_ms": 174,
+      "program": "cargo",
+      "arguments": [
+        "metadata",
+        "--locked",
+        "--offline",
+        "--format-version",
+        "1",
+        "--filter-platform",
+        "x86_64-unknown-linux-gnu"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "doctor",
+      "elapsed_ms": 1268,
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "doctor"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "doctor-json",
+      "elapsed_ms": 489,
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--json"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "build",
+      "elapsed_ms": 441,
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "build",
+        "--profile",
+        "feasibility"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "m0",
+      "elapsed_ms": 815,
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m0"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "acceptance",
+      "elapsed_ms": 56033,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-M0.ps1"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "dependencies",
+      "elapsed_ms": 1959,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Probe-Dependencies.ps1"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "m1-doctor",
+      "elapsed_ms": 759,
+      "program": "cargo",
+      "arguments": [
+        "xtask",
+        "doctor",
+        "--profile",
+        "m1",
+        "--json"
+      ]
+    }
+  ],
+  "status": "passed",
+  "guest_boot_tested": false
+}

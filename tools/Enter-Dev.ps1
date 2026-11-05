@@ -1,21 +1,23 @@
 param([switch]$SkipCompilerSigning)
+. (Join-Path $PSScriptRoot 'Host.ps1')
 # Dot-source this script. Changes apply only to the calling PowerShell process.
 $continuumRoot = Split-Path $PSScriptRoot -Parent
 $continuumCargo = Join-Path $continuumRoot 'work/toolchains/cargo'
 $continuumRustup = Join-Path $continuumRoot 'work/toolchains/rustup'
-if (Test-Path (Join-Path $continuumCargo 'bin/cargo.exe')) {
+if (Test-Path (Join-Path $continuumCargo ('bin/cargo'+$script:ContinuumExeSuffix))) {
     $env:CARGO_HOME = $continuumCargo
     $env:RUSTUP_HOME = $continuumRustup
-    $env:PATH = "$(Join-Path $continuumCargo 'bin');$env:PATH"
+    $env:PATH = ((Join-Path $continuumCargo 'bin') + [IO.Path]::PathSeparator + $env:PATH)
 }
 if (-not (Get-Command cargo -ErrorAction SilentlyContinue)) {
     throw 'Rust is missing. See docs/05-delivery/phase-0.md for explicit setup; no automatic installation is performed.'
 }
+if ($IsLinux) { $env:PATH = (Join-Path $continuumRoot 'work/tools/linux/bin') + [IO.Path]::PathSeparator + (Join-Path $continuumRoot 'work/tools/powershell') + [IO.Path]::PathSeparator + $env:PATH }
 $env:CARGO_TARGET_DIR = Join-Path $continuumRoot 'build/cargo'
 $env:RUSTUP_AUTO_INSTALL = '0'
 # This process only; no global Cargo configuration or guest signing changes.
 $continuumEnrollment = Join-Path $continuumRoot 'work/windows-dev-signing/admin-enforce.json'
-if ((Test-Path -LiteralPath $continuumEnrollment) -and ((Get-Content -LiteralPath $continuumEnrollment -Raw | ConvertFrom-Json).status -eq 'passed')) {
+if ($IsWindows -and (Test-Path -LiteralPath $continuumEnrollment) -and ((Get-Content -LiteralPath $continuumEnrollment -Raw | ConvertFrom-Json).status -eq 'passed')) {
     # Runner arrays preserve spaces; Cargo's runner environment string splits words
     # and treats embedded quotes literally. The generated config stays in work/.
     if ($env:CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_RUNNER) {

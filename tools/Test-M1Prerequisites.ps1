@@ -1,6 +1,8 @@
 param([string]$LockPath = (Join-Path $PSScriptRoot '../config/m1-inputs.lock.json'), [switch]$Json)
+. (Join-Path $PSScriptRoot 'Host.ps1')
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
+if ($IsLinux -and $LockPath -eq (Join-Path $PSScriptRoot '../config/m1-inputs.lock.json')) { $LockPath = Get-M1LockPath }
 $failures = [Collections.Generic.List[string]]::new()
 $queries = [Collections.Generic.List[object]]::new()
 function Probe([string]$exe, [string[]]$arguments) {
@@ -14,7 +16,7 @@ function Probe([string]$exe, [string[]]$arguments) {
     $stdout = $p.StandardOutput.ReadToEndAsync()
     $stderr = $p.StandardError.ReadToEndAsync()
     if (-not $p.WaitForExit(15000)) { $p.Kill($true); $p.WaitForExit(); throw "Probe timed out: $exe" }
-    $text = ($stdout.Result + $stderr.Result).Replace($root,'${WORKSPACE}').Replace($env:USERPROFILE,'${USERPROFILE}')
+    $text = ($stdout.Result + $stderr.Result).Replace($root,'${WORKSPACE}').Replace(([Environment]::GetFolderPath('UserProfile')),'${USERPROFILE}')
     $queries.Add(@{arguments=$arguments;exit_code=$p.ExitCode;output=$text})
     if ($p.ExitCode -ne 0) { throw "Probe failed ($($p.ExitCode)): $text" }
     return $text
@@ -38,7 +40,7 @@ try {
         }
         $paths[$file.id] = $path
         if (-not (Test-Path -LiteralPath $path -PathType Leaf)) { $failures.Add("Missing $($file.id): $path; restore the locked input (no fallback)"); continue }
-        $item = Get-Item -LiteralPath $path
+        $item = Get-Item -Force -LiteralPath $path
         if ($item.Length -ne $file.bytes -or (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -ne $file.sha256) {
             $failures.Add("Hash/size mismatch: $($file.id); restore the locked input; overrides must match the pin")
         }
@@ -55,6 +57,6 @@ try {
         $isoVersion = Probe $paths.xorriso @('-version')
         if (-not $isoVersion.Contains($lock.xorriso_version)) { throw 'xorriso version differs from lock' }
     }
-} catch { $failures.Add($_.Exception.Message.Replace($root,'${WORKSPACE}').Replace($env:USERPROFILE,'${USERPROFILE}')) }
+} catch { $failures.Add($_.Exception.Message.Replace($root,'${WORKSPACE}').Replace(([Environment]::GetFolderPath('UserProfile')),'${USERPROFILE}')) }
 $report = [ordered]@{status=$(if ($failures.Count) {'blocked'} else {'passed'});failures=@($failures);queries=@($queries);boot_tested=$false;policy='Read-only probes; no VM launch, install, network or host feature change'}
 if ($Json) { $report | ConvertTo-Json -Depth 12; if ($failures.Count) { exit 1 } } else { $report }

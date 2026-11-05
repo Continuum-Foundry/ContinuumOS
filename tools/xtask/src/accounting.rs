@@ -57,6 +57,7 @@ unsafe impl GlobalAlloc for Counted {
         unsafe { System.dealloc(p, l) }
     }
 }
+#[cfg(windows)]
 #[repr(C)]
 #[derive(Default)]
 struct Memory {
@@ -72,6 +73,7 @@ struct Memory {
     peak_pagefile: usize,
     private: usize,
 }
+#[cfg(windows)]
 #[link(name = "kernel32")]
 unsafe extern "system" {
     fn GetCurrentProcess() -> *mut std::ffi::c_void;
@@ -83,10 +85,12 @@ unsafe extern "system" {
         user: *mut u64,
     ) -> i32;
 }
+#[cfg(windows)]
 #[link(name = "psapi")]
 unsafe extern "system" {
     fn GetProcessMemoryInfo(p: *mut std::ffi::c_void, m: *mut Memory, cb: u32) -> i32;
 }
+#[cfg(windows)]
 pub(crate) fn process() -> Result<Value> {
     let mut m = Memory {
         cb: std::mem::size_of::<Memory>() as u32,
@@ -102,4 +106,9 @@ pub(crate) fn process() -> Result<Value> {
     Ok(
         json!({"cpu_100ns":k+u,"working_set":m.ws,"private_commit":m.private,"peak_working_set":m.peak_ws,"peak_commit":m.peak_pagefile,"page_faults":m.faults}),
     )
+}
+
+#[cfg(target_os = "linux")]
+pub(crate) fn process() -> Result<Value> {
+    Err("Hosted Windows private-commit/performance accounting is unavailable on Linux; ISO and guest validation do not require it".into())
 }

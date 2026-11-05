@@ -1,0 +1,745 @@
+{
+  "build": {
+    "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+    "base_revision": 3,
+    "binding": "limine =0.5.0; defaults off",
+    "boot_tested": false,
+    "build_id": "ab4ed20b42e5e7653625c4d485896a6ecf55cf58ff0644e497822f9c95e5f38e",
+    "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+    "flavor": "sdk-test",
+    "inspection": {
+      "diagnostic_sites": {
+        "diagnostic_double_site": 18446744071562077861,
+        "diagnostic_guard_site": 18446744071562077836,
+        "diagnostic_invalid_opcode": 18446744071562077079,
+        "diagnostic_nx_page": 18446744071562371072,
+        "diagnostic_page_fault_site": 18446744071562077091,
+        "diagnostic_panic_report": 18446744071562077096,
+        "diagnostic_write_site": 18446744071562077841
+      },
+      "dynamic_linking": false,
+      "entry": "0xffffffff80000000",
+      "executed": false,
+      "format": "ELF64-LE",
+      "kernel_image_bounds": {
+        "all_load_memory_including_bss": true,
+        "end": "0xffffffff813f5000",
+        "load_memory_end": "0xffffffff813f5000",
+        "start": "0xffffffff80000000"
+      },
+      "machine": "x86_64",
+      "relocations": 0,
+      "returning_interrupt_entry": {
+        "df_cleared_before_rust": true,
+        "gprs": 15,
+        "return": "iretq",
+        "sysv_alignment": 16,
+        "vectors": [
+          64,
+          255
+        ]
+      },
+      "segments": [
+        {
+          "address": "0xffffffff80000000",
+          "alignment": 4096,
+          "file_size": 267269,
+          "flags": 5,
+          "memory_size": 267269,
+          "offset": 4096
+        },
+        {
+          "address": "0xffffffff80042000",
+          "alignment": 4096,
+          "file_size": 27779,
+          "flags": 4,
+          "memory_size": 27779,
+          "offset": 274432
+        },
+        {
+          "address": "0xffffffff80049000",
+          "alignment": 4096,
+          "file_size": 9694616,
+          "flags": 6,
+          "memory_size": 20627456,
+          "offset": 303104
+        }
+      ],
+      "type": "ET_EXEC",
+      "unresolved_symbols": 0
+    },
+    "kernel_sha256": "1f9b273d1e660263469318e463e810d10af2b07e3383d06eacc19baeabbcf1e4",
+    "loader": "12.9.3",
+    "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+    "schema_version": 1,
+    "source_commit": "bdadc144eb648b54eb8ec8b3f82fba5058287c90",
+    "source_dirty": true,
+    "source_identity": "build-inputs.json contains hashes of all build source inputs",
+    "source_status": "M audit/check-docs.cjs\n M docs/00-overview/reconciled-plan.md\n M docs/00-overview/requirements.md\n M docs/02-architecture/graphics-and-compositor.md\n M docs/04-decisions/0029-bounded-runtime-stress-observation.md\n M docs/05-delivery/agent-handoff.md\n M docs/05-delivery/backlog.md\n M docs/05-delivery/desktop-feature-matrix.md\n M docs/05-delivery/milestones.md\n M docs/05-delivery/phase-3/14-phase-3-acceptance.md\n M docs/05-delivery/phase-3/README.md\n M docs/05-delivery/validation.md\n M docs/05-delivery/windows-development-signing.md\n M docs/06-contracts/ui-and-scene-protocol.md\n M docs/README.md\n M tools/windows/New-DevPolicy.ps1\n M tools/windows/Set-DevMachinePolicy.ps1\n M tools/xtask/src/m1/observe.rs\n M tools/xtask/src/m1/records.rs\n?? config/p3-14-acceptance.json\n?? docs/05-delivery/display-roadmap.md\n?? docs/05-delivery/phase-3/acceptance-runbook.md\n?? tools/Test-P3-14.ps1\n?? tools/Test-P3-14Runner.py\n?? tools/p3_acceptance.py"
+  },
+  "images": {
+    "code_model": "small",
+    "images": [
+      {
+        "baseline": "x87/SSE2; no AVX/XSAVE/TLS or CPU dispatch",
+        "bytes": 264808,
+        "inspection": {
+          "dynamic_linking": false,
+          "entry": "0x400000",
+          "executed": false,
+          "format": "ELF64-LE",
+          "machine": "x86_64",
+          "relocations": 0,
+          "segments": [
+            {
+              "address": "0x400000",
+              "alignment": 4096,
+              "file_size": 98996,
+              "flags": 5,
+              "memory_size": 98996,
+              "offset": 4096
+            },
+            {
+              "address": "0x419000",
+              "alignment": 4096,
+              "file_size": 120476,
+              "flags": 4,
+              "memory_size": 120476,
+              "offset": 106496
+            },
+            {
+              "address": "0x437000",
+              "alignment": 4096,
+              "file_size": 5672,
+              "flags": 6,
+              "memory_size": 9624,
+              "offset": 229376
+            }
+          ],
+          "type": "ET_EXEC",
+          "unresolved_symbols": 0
+        },
+        "name": "user_a",
+        "sha256": "9263afa51f30f5ef74ad854caa3d5de0d48a3032a52657ac526e1670a005e7ea",
+        "simd_mnemonics": []
+      },
+      {
+        "baseline": "x87/SSE2; no AVX/XSAVE/TLS or CPU dispatch",
+        "bytes": 158944,
+        "inspection": {
+          "dynamic_linking": false,
+          "entry": "0x400000",
+          "executed": false,
+          "format": "ELF64-LE",
+          "machine": "x86_64",
+          "relocations": 0,
+          "segments": [
+            {
+              "address": "0x400000",
+              "alignment": 4096,
+              "file_size": 87012,
+              "flags": 5,
+              "memory_size": 87012,
+              "offset": 4096
+            },
+            {
+              "address": "0x416000",
+              "alignment": 4096,
+              "file_size": 37956,
+              "flags": 4,
+              "memory_size": 37956,
+              "offset": 94208
+            },
+            {
+              "address": "0x420000",
+              "alignment": 4096,
+              "file_size": 4816,
+              "flags": 6,
+              "memory_size": 9624,
+              "offset": 135168
+            }
+          ],
+          "type": "ET_EXEC",
+          "unresolved_symbols": 0
+        },
+        "name": "user_b",
+        "sha256": "22bebaf1fb95c7888265aab93885265d8afe9a4ecb03cc1a4c9e1d0d296ff88e",
+        "simd_mnemonics": []
+      },
+      {
+        "baseline": "x87/SSE2; no AVX/XSAVE/TLS or CPU dispatch",
+        "bytes": 158944,
+        "inspection": {
+          "dynamic_linking": false,
+          "entry": "0x400000",
+          "executed": false,
+          "format": "ELF64-LE",
+          "machine": "x86_64",
+          "relocations": 0,
+          "segments": [
+            {
+              "address": "0x400000",
+              "alignment": 4096,
+              "file_size": 87028,
+              "flags": 5,
+              "memory_size": 87028,
+              "offset": 4096
+            },
+            {
+              "address": "0x416000",
+              "alignment": 4096,
+              "file_size": 37956,
+              "flags": 4,
+              "memory_size": 37956,
+              "offset": 94208
+            },
+            {
+              "address": "0x420000",
+              "alignment": 4096,
+              "file_size": 4816,
+              "flags": 6,
+              "memory_size": 9624,
+              "offset": 135168
+            }
+          ],
+          "type": "ET_EXEC",
+          "unresolved_symbols": 0
+        },
+        "name": "service",
+        "sha256": "416d836d072e9e497d4b65734a6e01f753a69766c954853968fdd49c03b617d5",
+        "simd_mnemonics": []
+      }
+    ],
+    "public_sdk": true,
+    "red_zone": false,
+    "required_cpu_features": 7,
+    "runtime_ids_sha256": "3ead590b9bcca7b902adc1ede57ef6fd2729cd37d2d96b2dc6b307b8295ed6f0",
+    "scheduler": true,
+    "schema_version": 1,
+    "sdk_version": "0.1.0",
+    "target": "x86_64-unknown-none",
+    "trusted_descriptors_sha256": "0a366604fb2e1d1b116551e078ffd103c459220faf537d71ab76e5e9a7140d7e",
+    "user_execution": true
+  },
+  "independent_builds": {
+    "images": [
+      {
+        "root": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\sdk-1793839486144747300-81168\\client",
+        "sha256": "9263afa51f30f5ef74ad854caa3d5de0d48a3032a52657ac526e1670a005e7ea",
+        "bytes": 264808,
+        "arguments": [
+          "build",
+          "--locked",
+          "--offline",
+          "--release",
+          "--target",
+          "x86_64-unknown-none",
+          "--manifest-path",
+          "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\sdk-1793839486144747300-81168\\client\\experiments\\sdk-client\\Cargo.toml"
+        ],
+        "inputs": [
+          {
+            "path": "Cargo.toml",
+            "sha256": "c32e41e050f24c0dbc7b6fcc9927878a456de38b1466561f5a4dc54f82932f7d"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20"
+          },
+          {
+            "path": "crates/editor-model/Cargo.toml",
+            "sha256": "3c2e2a2762ccaea3283333dcb7b2f771f1a1fa5de03673917ac5f2d561ec5ffe"
+          },
+          {
+            "path": "crates/editor-model/src/lib.rs",
+            "sha256": "457aaab085d11f4ecc9fefd3c8594ad2aa239843eec302a1730a5a58fc4e324b"
+          },
+          {
+            "path": "crates/editor-model/src/snapshot.rs",
+            "sha256": "097035262cd12ec1ee83cc5322b280fbb69a2ef9f7a4d358d766683a32b05045"
+          },
+          {
+            "path": "crates/editor-model/src/tests.rs",
+            "sha256": "1c630f81aa46eefe1602599539ddbc34777bfb7db8f673da9b331344f10ad0a2"
+          },
+          {
+            "path": "experiments/sdk-client/Cargo.lock",
+            "sha256": "a0f83061d5bd29044faac86b196f9fe6b8621fbf0066b90dd46c7f2b00fbe8ee"
+          },
+          {
+            "path": "experiments/sdk-client/Cargo.toml",
+            "sha256": "5373a1e6caba446ef1625c7b89ac98287611cbb15b94f94e8e152be2d83169de"
+          },
+          {
+            "path": "experiments/sdk-client/src/handshake.rs",
+            "sha256": "8d8fcad8a48fae05f262b4b79aec764ff6d19354556bc3739d1c76bb71bbc62e"
+          },
+          {
+            "path": "experiments/sdk-client/src/main.rs",
+            "sha256": "27367f41984751bb0d09a92858806b42fa751abc4b76516b6cd549ae65137a8d"
+          },
+          {
+            "path": "experiments/sdk-client/src/probe.rs",
+            "sha256": "a0c89f31adbf1fc5b46b991e7c805c217ee6fbf43c95c0d4002c4673d3ccc354"
+          },
+          {
+            "path": "experiments/sdk-client/src/runtime.rs",
+            "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c"
+          },
+          {
+            "path": "experiments/sdk-client/src/smoke.rs",
+            "sha256": "858cb95fa236caf2358b8fcbc9222fd2a8880ce93a0bcba12551af30aebf5a23"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.lock",
+            "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.toml",
+            "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc"
+          },
+          {
+            "path": "sdk/continuum-rt/contract.json",
+            "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b"
+          },
+          {
+            "path": "sdk/continuum-rt/fixtures.json",
+            "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09"
+          },
+          {
+            "path": "sdk/continuum-rt/README.md",
+            "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457"
+          },
+          {
+            "path": "sdk/continuum-rt/user.ld",
+            "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10"
+          },
+          {
+            "path": "sdk/continuum-rt/src/allocator.rs",
+            "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782"
+          },
+          {
+            "path": "sdk/continuum-rt/src/generated.rs",
+            "sha256": "cd1b6cef110d2d074ca0432c8a8a707cbae156fd4c0082672bb9674a89911eb4"
+          },
+          {
+            "path": "sdk/continuum-rt/src/guest.rs",
+            "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d"
+          },
+          {
+            "path": "sdk/continuum-rt/src/lib.rs",
+            "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154"
+          },
+          {
+            "path": "sdk/continuum-rt/src/wire.rs",
+            "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec"
+          },
+          {
+            "path": "sdk/continuum-rt/src/bin/conformance.rs",
+            "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634"
+          }
+        ],
+        "sdk_version": "0.1.0",
+        "metadata_sha256": "86ccf1405670cb7faaa53b265538d92e8967e2ee663f67b060ccd6d84bca6458",
+        "variant": "client",
+        "file": "user_a.elf",
+        "wire_minor": 0
+      },
+      {
+        "root": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\sdk-1793839486144747300-81168\\service-old",
+        "sha256": "416d836d072e9e497d4b65734a6e01f753a69766c954853968fdd49c03b617d5",
+        "bytes": 158944,
+        "arguments": [
+          "build",
+          "--locked",
+          "--offline",
+          "--release",
+          "--target",
+          "x86_64-unknown-none",
+          "--manifest-path",
+          "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\sdk-1793839486144747300-81168\\service-old\\experiments\\sdk-service\\Cargo.toml"
+        ],
+        "inputs": [
+          {
+            "path": "Cargo.toml",
+            "sha256": "c32e41e050f24c0dbc7b6fcc9927878a456de38b1466561f5a4dc54f82932f7d"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20"
+          },
+          {
+            "path": "experiments/sdk-service/Cargo.lock",
+            "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2"
+          },
+          {
+            "path": "experiments/sdk-service/Cargo.toml",
+            "sha256": "2771c3cd723647095b0030a6a5125db33951d24de29e322e7f5b1a45f4cdcbac"
+          },
+          {
+            "path": "experiments/sdk-service/src/handshake.rs",
+            "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a"
+          },
+          {
+            "path": "experiments/sdk-service/src/main.rs",
+            "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea"
+          },
+          {
+            "path": "experiments/sdk-service/src/policy.rs",
+            "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7"
+          },
+          {
+            "path": "experiments/sdk-service/src/routes.rs",
+            "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e"
+          },
+          {
+            "path": "experiments/sdk-service/src/runtime.rs",
+            "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.lock",
+            "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.toml",
+            "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc"
+          },
+          {
+            "path": "sdk/continuum-rt/contract.json",
+            "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b"
+          },
+          {
+            "path": "sdk/continuum-rt/fixtures.json",
+            "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09"
+          },
+          {
+            "path": "sdk/continuum-rt/README.md",
+            "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457"
+          },
+          {
+            "path": "sdk/continuum-rt/user.ld",
+            "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10"
+          },
+          {
+            "path": "sdk/continuum-rt/src/allocator.rs",
+            "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782"
+          },
+          {
+            "path": "sdk/continuum-rt/src/generated.rs",
+            "sha256": "cd1b6cef110d2d074ca0432c8a8a707cbae156fd4c0082672bb9674a89911eb4"
+          },
+          {
+            "path": "sdk/continuum-rt/src/guest.rs",
+            "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d"
+          },
+          {
+            "path": "sdk/continuum-rt/src/lib.rs",
+            "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154"
+          },
+          {
+            "path": "sdk/continuum-rt/src/wire.rs",
+            "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec"
+          },
+          {
+            "path": "sdk/continuum-rt/src/bin/conformance.rs",
+            "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634"
+          }
+        ],
+        "sdk_version": "0.1.0",
+        "metadata_sha256": "739636a63934bc41092d651fa7947c14cc8ba122acab0e1208db9e45b705d6c1",
+        "variant": "service-old",
+        "file": "service.elf",
+        "wire_minor": 0
+      },
+      {
+        "root": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\sdk-1793839486144747300-81168\\service-new",
+        "sha256": "22bebaf1fb95c7888265aab93885265d8afe9a4ecb03cc1a4c9e1d0d296ff88e",
+        "bytes": 158944,
+        "arguments": [
+          "build",
+          "--locked",
+          "--offline",
+          "--release",
+          "--target",
+          "x86_64-unknown-none",
+          "--manifest-path",
+          "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\sdk-1793839486144747300-81168\\service-new\\experiments\\sdk-service\\Cargo.toml",
+          "--features",
+          "minor-1"
+        ],
+        "inputs": [
+          {
+            "path": "Cargo.toml",
+            "sha256": "c32e41e050f24c0dbc7b6fcc9927878a456de38b1466561f5a4dc54f82932f7d"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20"
+          },
+          {
+            "path": "experiments/sdk-service/Cargo.lock",
+            "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2"
+          },
+          {
+            "path": "experiments/sdk-service/Cargo.toml",
+            "sha256": "2771c3cd723647095b0030a6a5125db33951d24de29e322e7f5b1a45f4cdcbac"
+          },
+          {
+            "path": "experiments/sdk-service/src/handshake.rs",
+            "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a"
+          },
+          {
+            "path": "experiments/sdk-service/src/main.rs",
+            "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea"
+          },
+          {
+            "path": "experiments/sdk-service/src/policy.rs",
+            "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7"
+          },
+          {
+            "path": "experiments/sdk-service/src/routes.rs",
+            "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e"
+          },
+          {
+            "path": "experiments/sdk-service/src/runtime.rs",
+            "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.lock",
+            "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.toml",
+            "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc"
+          },
+          {
+            "path": "sdk/continuum-rt/contract.json",
+            "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b"
+          },
+          {
+            "path": "sdk/continuum-rt/fixtures.json",
+            "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09"
+          },
+          {
+            "path": "sdk/continuum-rt/README.md",
+            "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457"
+          },
+          {
+            "path": "sdk/continuum-rt/user.ld",
+            "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10"
+          },
+          {
+            "path": "sdk/continuum-rt/src/allocator.rs",
+            "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782"
+          },
+          {
+            "path": "sdk/continuum-rt/src/generated.rs",
+            "sha256": "cd1b6cef110d2d074ca0432c8a8a707cbae156fd4c0082672bb9674a89911eb4"
+          },
+          {
+            "path": "sdk/continuum-rt/src/guest.rs",
+            "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d"
+          },
+          {
+            "path": "sdk/continuum-rt/src/lib.rs",
+            "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154"
+          },
+          {
+            "path": "sdk/continuum-rt/src/wire.rs",
+            "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec"
+          },
+          {
+            "path": "sdk/continuum-rt/src/bin/conformance.rs",
+            "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634"
+          }
+        ],
+        "sdk_version": "0.1.0",
+        "metadata_sha256": "58dc2c33412b4e6c7e2a73ea87884c0cebc43b484916322f3a6327bb743950bf",
+        "variant": "service-new",
+        "file": "user_b.elf",
+        "wire_minor": 1
+      }
+    ],
+    "unchanged_client_sha256": "9263afa51f30f5ef74ad854caa3d5de0d48a3032a52657ac526e1670a005e7ea",
+    "status": "passed",
+    "offline": true,
+    "schema_version": 1,
+    "runtime": false
+  },
+  "launch": {
+    "arguments": [
+      "-machine",
+      "pc-q35-11.1,hpet=on",
+      "-accel",
+      "tcg",
+      "-cpu",
+      "qemu64-v1,+apic",
+      "-smp",
+      "1",
+      "-m",
+      "2048",
+      "-nic",
+      "none",
+      "-monitor",
+      "none",
+      "-display",
+      "none",
+      "-vga",
+      "std",
+      "-parallel",
+      "none",
+      "-serial",
+      "file:${WORKSPACE}\\build/m1\\sdk-1793839486144747300-81168\\sdk-run/serial.log",
+      "-no-reboot",
+      "-boot",
+      "order=d,strict=on",
+      "-drive",
+      "if=pflash,format=raw,unit=0,readonly=on,file=${WORKSPACE}\\work/tools/qemu/share/edk2-x86_64-code.fd",
+      "-drive",
+      "if=pflash,format=raw,unit=1,file=${WORKSPACE}\\build/m1\\sdk-1793839486144747300-81168\\sdk-run\\fresh firmware vars.fd",
+      "-drive",
+      "file=${WORKSPACE}\\build/m1\\sdk-1793839486144747300-81168\\sdk-package\\continuum.iso,media=cdrom,readonly=on,format=raw",
+      "-device",
+      "isa-debug-exit,iobase=0xf4,iosize=0x04"
+    ],
+    "build_id": "ab4ed20b42e5e7653625c4d485896a6ecf55cf58ff0644e497822f9c95e5f38e",
+    "configuration_sha256": "43ca63baae467c47fdccbea374c27e46cf25ff128176590c05c5e9d12fe0004e",
+    "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+    "fixture": "routes",
+    "host_session_id": "7673faea266906f8ba7012126af8ff3b9f1bdc294f255171fac72714e0b79ea0",
+    "iso_sha256": "02014ea278fbb76f7976c2e47b5c66e73de508ab5549c972dd4998d8b305e8dd",
+    "schema_version": 2,
+    "session_origin": "host; correlation only, not a security credential or reset detector",
+    "test_device": true,
+    "vars_copy_before_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+    "vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+    "vm": {
+      "accelerator": "tcg",
+      "arguments": [
+        "-machine",
+        "pc-q35-11.1,hpet=on",
+        "-accel",
+        "tcg",
+        "-cpu",
+        "qemu64-v1,+apic",
+        "-smp",
+        "1",
+        "-m",
+        "2048",
+        "-nic",
+        "none",
+        "-monitor",
+        "none",
+        "-display",
+        "none",
+        "-vga",
+        "std",
+        "-parallel",
+        "none",
+        "-serial",
+        "file:<new-run>/serial.log",
+        "-no-reboot",
+        "-boot",
+        "order=d,strict=on",
+        "-drive",
+        "if=pflash,format=raw,unit=0,readonly=on,file=<locked-code>",
+        "-drive",
+        "if=pflash,format=raw,unit=1,file=<fresh-vars-copy>",
+        "-drive",
+        "file=<exact-iso>,media=cdrom,readonly=on,format=raw"
+      ],
+      "cpu": "qemu64-v1",
+      "deadline_ms": 30000,
+      "disabled_endpoints": "QMP/GDB omitted (disabled by default); monitor explicitly none; no networking or shares",
+      "firmware_format": "raw pflash: 3653632-byte code + 540672-byte fresh vars = 4 MiB",
+      "hpet": true,
+      "launch_implemented": true,
+      "local_apic": "CPU APIC capability retained; guest register discovery pending",
+      "machine": "pc-q35-11.1",
+      "ram_mib": 2048,
+      "secure_boot": false,
+      "vcpus": 1
+    }
+  },
+  "result": {
+    "artifact_directory": "${WORKSPACE}\\build/m1\\sdk-1793839486144747300-81168\\sdk-run",
+    "build_id": "ab4ed20b42e5e7653625c4d485896a6ecf55cf58ff0644e497822f9c95e5f38e",
+    "checked_summary": {
+      "acpi": "locator-only",
+      "boot_info": "1",
+      "build": "ab4ed20b42e5e7653625c4d485896a6ecf55cf58ff0644e497822f9c95e5f38e",
+      "emergency": "false",
+      "framebuffers": "1",
+      "hhdm": "0xffff800000000000",
+      "mode": "framebuffer",
+      "modules": "3",
+      "outcome": "ok",
+      "regions": "37",
+      "seq": "1",
+      "session": "7673faea266906f8ba7012126af8ff3b9f1bdc294f255171fac72714e0b79ea0",
+      "session_origin": "host",
+      "stage": "metadata",
+      "version": "5"
+    },
+    "cleanup_reaped": true,
+    "deadline_ms": 30000,
+    "elapsed_host_ms": 19730,
+    "emulator_test_exit": 33,
+    "error": null,
+    "final_process_exit": 33,
+    "fixture": "routes",
+    "guest_shutdown_claimed": false,
+    "host_session_id": "7673faea266906f8ba7012126af8ff3b9f1bdc294f255171fac72714e0b79ea0",
+    "host_stopped_after_checkpoint": false,
+    "iso_sha256": "02014ea278fbb76f7976c2e47b5c66e73de508ab5549c972dd4998d8b305e8dd",
+    "iso_unchanged_after_run": true,
+    "kernel_entry_observed": true,
+    "package": {
+      "bios_tested": false,
+      "boot_tested": false,
+      "build_flavor": "sdk-test",
+      "build_id": "ab4ed20b42e5e7653625c4d485896a6ecf55cf58ff0644e497822f9c95e5f38e",
+      "configuration_sha256": "43ca63baae467c47fdccbea374c27e46cf25ff128176590c05c5e9d12fe0004e",
+      "diagnostic_sites": {
+        "diagnostic_double_site": 18446744071562077861,
+        "diagnostic_guard_site": 18446744071562077836,
+        "diagnostic_invalid_opcode": 18446744071562077079,
+        "diagnostic_nx_page": 18446744071562371072,
+        "diagnostic_page_fault_site": 18446744071562077091,
+        "diagnostic_panic_report": 18446744071562077096,
+        "diagnostic_write_site": 18446744071562077841
+      },
+      "fault": "routes",
+      "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+      "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+      "fixture": "routes",
+      "host_session_id": "7673faea266906f8ba7012126af8ff3b9f1bdc294f255171fac72714e0b79ea0",
+      "input_lock_sha256": "5d8ecae5ae201abc0b8d848134b5357378152de08fac8f64603b01d9be9fb22e",
+      "iso_sha256": "02014ea278fbb76f7976c2e47b5c66e73de508ab5549c972dd4998d8b305e8dd",
+      "kernel_sha256": "1f9b273d1e660263469318e463e810d10af2b07e3383d06eacc19baeabbcf1e4",
+      "module_fixture": false,
+      "payload": {
+        "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+        "boot/kernel.elf": "1f9b273d1e660263469318e463e810d10af2b07e3383d06eacc19baeabbcf1e4",
+        "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+        "boot/limine/limine.conf": "43ca63baae467c47fdccbea374c27e46cf25ff128176590c05c5e9d12fe0004e",
+        "boot/service.elf": "416d836d072e9e497d4b65734a6e01f753a69766c954853968fdd49c03b617d5",
+        "boot/user_a.elf": "9263afa51f30f5ef74ad854caa3d5de0d48a3032a52657ac526e1670a005e7ea",
+        "boot/user_b.elf": "22bebaf1fb95c7888265aab93885265d8afe9a4ecb03cc1a4c9e1d0d296ff88e",
+        "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+        "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+        "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+        "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+      },
+      "payload_extraction_verified": true,
+      "schema_version": 2,
+      "session_origin": "host; correlation only, not a security credential or reset detector",
+      "uefi_optical_catalog": true
+    },
+    "pid": 10732,
+    "schema_version": 1,
+    "status": "passed",
+    "timed_out": false,
+    "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "story": "P3-14",
+  "status": "accepted-with-owner-exception",
+  "review": "local Codex self-review; not independent approval",
+  "matrix": [
+    {
+      "scenario": "current-prerequisites-clean-optical-iso",
+      "status": "passed",
+      "evidence": [
+        "prerequisites.json",
+        "m1-review.json"
+      ]
+    },
+    {
+      "scenario": "memory-ownership-allocation",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.memory_regression"
+      ]
+    },
+    {
+      "scenario": "static-elf-admission",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.loader_regression",
+        "kernel host malformed-image tests"
+      ]
+    },
+    {
+      "scenario": "trusted-launch-child-ceiling",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.loader_regression",
+        "sdk-review.json:regression.supervisor_regression"
+      ]
+    },
+    {
+      "scenario": "user-entry-syscall-boundary",
+      "status": "passed",
+      "evidence": [
+        "raw four-guest boundary regression and instruction audit"
+      ]
+    },
+    {
+      "scenario": "user-fault-containment",
+      "status": "passed",
+      "evidence": [
+        "raw four-guest boundary regression",
+        "sdk-review.json:runtime.audit"
+      ]
+    },
+    {
+      "scenario": "preemption-cpu-isolation",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.scheduler_regression"
+      ]
+    },
+    {
+      "scenario": "handles-memory-objects",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.capabilities_regression"
+      ]
+    },
+    {
+      "scenario": "ipc-bytes-transfer",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.channels_regression"
+      ]
+    },
+    {
+      "scenario": "caller-provenance-after-delegation",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.channels_regression",
+        "sdk-review.json:regression.policy_regression"
+      ]
+    },
+    {
+      "scenario": "waits-deadlines-cancellation",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.waits_regression"
+      ]
+    },
+    {
+      "scenario": "deadlock-backpressure-exhaustion",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.waits_regression",
+        "stress-review.json:criterion_review"
+      ]
+    },
+    {
+      "scenario": "supervision-teardown",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.supervisor_regression",
+        "stress-review.json:public_supervision"
+      ]
+    },
+    {
+      "scenario": "cross-owner-same-user-authority",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.policy_regression"
+      ]
+    },
+    {
+      "scenario": "scoped-policy-confused-deputy",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.policy_regression"
+      ]
+    },
+    {
+      "scenario": "reserved-privileged-operations",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.policy_regression"
+      ]
+    },
+    {
+      "scenario": "brokered-invalidation-restart",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.policy_regression",
+        "sdk-review.json:audit"
+      ]
+    },
+    {
+      "scenario": "proxy-route-writer-fence",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:audit",
+        "sdk-review.json:criterion_review.route_fences"
+      ]
+    },
+    {
+      "scenario": "route-transition-faults",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.audit"
+      ]
+    },
+    {
+      "scenario": "independent-sdk-version-conformance",
+      "status": "passed",
+      "evidence": [
+        "sdk-artifacts.json:independent_builds",
+        "sdk-review.json:codecs",
+        "sdk-review.json:audit"
+      ]
+    },
+    {
+      "scenario": "selected-runtime-hooks",
+      "status": "passed",
+      "evidence": [
+        "runtime-artifacts.json",
+        "sdk-review.json:runtime.audit"
+      ]
+    },
+    {
+      "scenario": "sustained-lifecycle-accounting",
+      "status": "passed",
+      "evidence": [
+        "stress-review.json:profiles",
+        "stress-review.json:criterion_review"
+      ]
+    },
+    {
+      "scenario": "regression-evidence-integrity",
+      "status": "accepted-with-legacy-host-fixture-waiver",
+      "evidence": [
+        "m1-review.json",
+        "sdk-review.json:portable_regression",
+        "negative-probes.json",
+        "source-lock.json"
+      ]
+    }
+  ],
+  "guest_and_artifact_review": "passed",
+  "negative_probes": {
+    "status": "passed",
+    "control": {
+      "name": "control",
+      "status": "passed",
+      "error": null,
+      "timed_out": false,
+      "cleanup_reaped": true,
+      "launched": true,
+      "exit_code": 33,
+      "deadline_ms": 30000,
+      "elapsed_ms": 16171,
+      "serial_sha256": "c2b278dd1e8d242ce746089e5d7656f4e8f6b2eb80584755f97660fc5590e95e"
+    },
+    "cases": [
+      {
+        "name": "broken-user-image",
+        "status": "rejected",
+        "error": "user ELF identity/size",
+        "launched": false,
+        "cleanup_reaped": true
+      },
+      {
+        "name": "artifact-hash",
+        "status": "rejected",
+        "error": "user artifact hash mismatch",
+        "launched": false,
+        "cleanup_reaped": true
+      },
+      {
+        "name": "expected-process-outcome",
+        "status": "rejected",
+        "error": "deliberately wrong process outcome: expected panic code 97",
+        "timed_out": false,
+        "cleanup_reaped": true,
+        "launched": true,
+        "exit_code": 33,
+        "deadline_ms": 30000,
+        "elapsed_ms": 13547,
+        "serial_sha256": "9c6959009122e907f4cad6860197c898f0134ec470b76700c18632f6f5591c38"
+      },
+      {
+        "name": "missing-completion-record",
+        "status": "rejected",
+        "error": "runtime completion",
+        "timed_out": false,
+        "cleanup_reaped": true,
+        "launched": true,
+        "exit_code": 33,
+        "deadline_ms": 30000,
+        "elapsed_ms": 9703,
+        "serial_sha256": "b17122682d8b4c9f33e81d8280afdcbf2938e0da8931bd69e77129c323f077d6"
+      },
+      {
+        "name": "runner-timeout",
+        "status": "rejected",
+        "error": "runner deadline exceeded",
+        "timed_out": true,
+        "cleanup_reaped": true,
+        "launched": true,
+        "exit_code": 1,
+        "deadline_ms": 1,
+        "elapsed_ms": 266
+      }
+    ],
+    "adapter": "wrong expected panic code / dropped completion apply to independent consumer after real ISO replay; prelaunch ELF/hash faults launch no VM; timeout kills/reaps real QEMU"
+  },
+  "strict_gate_passed": false,
+  "owner_exception_approved": true,
+  "remaining": "Legacy P3-01 host-lifecycle fixture: normal Python child startup repeatedly exceeds its original 1000-ms bound. Failed runs stay failed; no deadline changed.",
+  "guest_source_inputs_unchanged": {
+    "guest_sources_unchanged": true,
+    "guest_source_files": 160,
+    "host_changes": "Correct exact registered profile pin; collision-resistant fixture directory IDs. Experimental startup changes reverted after failing to establish a reliable pass.",
+    "host_fixture_status": "original one-second Python child startup bound remains unpassed; not accepted or silently extended"
+  },
+  "acceptance_sha256": "a343709cf4acf236504104d129bff412569a3aa07e779562433d3f3ce30b7983",
+  "source_lock_sha256": "e8e2dc8c4c932af6bf621f50863f07a625f8754683e7fb3e3517410177cf0490",
+  "owner_acceptance": {
+    "date": "2026-11-04",
+    "decision": "Mark Done with this exception",
+    "approved_scope": "P3-14 story closure only: legacy P3-01 one-second host-lifecycle fixture waived. All guest/runtime/stress and five failure probes pass. Strict M3 exit remains open; no failed check is labeled passed.",
+    "standing_waiver": false
+  }
+}

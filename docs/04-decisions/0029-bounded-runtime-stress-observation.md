@@ -85,3 +85,22 @@ promotion follows the existing evidence budget and handling hold.
 ## Local experiment result
 
 The bounded [P3-13 experiment](../../evidence/phase-3/P3-13/2026-11-01/README.md) passes local Codex self-review. Exact source/ISA/ISO checks, all ten continuous guests, the separate public supervision guest and final-source regressions pass without widening bounds. This ADR remains Proposed pending the separate milestone/project review. The native host observer uses an optimized release build of the same validating source; its debug-build timeout and earlier failed experiments remain retained.
+
+## P3-14 observer experiment
+
+An additional P3-14 attempt reached only wave 78 of its first stress guest before
+the unchanged 30-second deadline. The same ISO completed 100 waves in a separate
+final-review-only diagnostic; that diagnostic is not acceptance. A captured-log
+experiment measured about 16.9 ms per full owned-record-tree check versus 3.9 ms
+for the same validation with export-tree capture disabled. The live observer now
+uses that shared validation path, while final assertions/export retain full capture.
+No validation branch, record, poll sleep, quota, guest sample count or deadline is
+removed. Host parity tests pass; fresh guest and aggregate acceptance remain the
+decision gates. These observations do not establish a cause for the earlier
+pre-entry/partial-boot timeouts or accept a desktop performance target.
+
+## P3-14 owner-accepted closure
+
+P3-14 is Done by explicit owner acceptance with a legacy host-lifecycle exception. All current guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child misses its original one-second startup bound; that fixture is waived for this story closure only. The strict full gate and M3 exit remain open. No failed check is labeled passed, and no deadline is extended.
+
+See the [evidence, failed fixture and explicit owner exception](../../evidence/phase-3/P3-14/2026-11-04/README.md). M4 guest UI/reload, M5 migration and safe retirement, M6 durability, M7 accounts/installation and all desktop efficiency targets remain open. Only the existing exact SDK subset is frozen; broader ADRs remain Proposed.

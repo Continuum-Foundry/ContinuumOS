@@ -1,0 +1,60 @@
+"""Complete the owner-directed continuation with unchanged measured sources."""
+import copy,json,re,shutil,subprocess,sys,time
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'tools'))
+import p3_acceptance as g
+WORK=ROOT/'work/p3-14-continuation'
+OLD=ROOT/'build/m3/P3-14/acceptance-1793833378736137100'
+
+def main():
+    locked=g.read(OLD/'source-lock.json')
+    g.require(g.source_lock()==locked,'changed measured source')
+    inputs=g.read(WORK/'continuation-inputs.json')
+    script="""$ErrorActionPreference='Stop'
+Set-Location 'C:/Users/archi/Documents/ContinuumOS'
+$runtime=& pwsh -NoProfile -File work/p3-14-continuation/runtime-remaining.ps1
+if($LASTEXITCODE -ne 0){$runtime; throw 'Remaining runtime checks failed'}
+$runtime
+$text=$runtime -join "`n"
+$match=[regex]::Match($text,'P3-12 acceptance: ([^\\r\\n]+)')
+if(-not $match.Success){throw 'Missing current runtime acceptance'}
+& pwsh -NoProfile -File work/p3-14-continuation/stress-remaining.ps1 -RuntimeAcceptance $match.Groups[1].Value.Trim()
+if($LASTEXITCODE -ne 0){throw 'Remaining stress checks failed'}
+"""
+    (WORK/'invoke-remaining.ps1').write_text(script)
+    run=ROOT/'build/m3/P3-14'/('continuation-'+str(time.time_ns()))
+    run.mkdir()
+    for name in ('source-lock.json','source.patch','source-status.txt','runner-tests-command.json','runner-tests.stdout.log','runner-tests.stderr.log'):
+        shutil.copyfile(OLD/name,run/name)
+    authority=dict(mode='owner-directed remaining checks',interrupted_run=str(OLD),m1_continuation=inputs['m1'],
+        interrupted_run_accepted=False,authorization='Owner explicitly selected Complete the remaining checks after requesting stop.',
+        exception='Completed current-source cases and prerequisite checks are revalidated; this is a completed-case continuation, not an uninterrupted invocation of the default fresh-run command.',
+        source_lock_sha256=g.digest(OLD/'source-lock.json'))
+    g.save(run/'continuation.json',authority)
+    report=dict(schema_version=1,story='P3-14',status='running',source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+        source_lock_sha256=g.digest(run/'source-lock.json'),config=g.read(g.CONFIG),commands=[g.read(run/'runner-tests-command.json')],runs={},
+        continuation=authority,fresh_stress_cache=True)
+    print('P3-14 continuation: '+str(run),flush=True)
+    try:
+        report['commands'].append(g.command(run,'runtime-stress',['pwsh','-NoProfile','-File',str(WORK/'invoke-remaining.ps1')],10800))
+        output=(run/'runtime-stress.stdout.log').read_text(encoding='utf-8-sig')
+        matches=re.findall(r'P3-13 acceptance: ([^\r\n]+)',output)
+        g.require(len(matches)==1,'missing current completed stress report')
+        stress_path=g.local(matches[0].strip());stress=g.read(stress_path)
+        report['runs']['stress_acceptance']=str(stress_path)
+        prior=g.read(g.local(stress['runs']['prior_acceptance']))
+        report['commands'].append(g.command(run,'prerequisite-lifecycle',[sys.executable,'tools/Test-P3-01.py','--prerequisites',prior['runs']['prerequisites'],'--m1',prior['runs']['m1']],180))
+        report['runs']['prerequisite_acceptance']=(run/'prerequisite-lifecycle.stdout.log').read_text().strip().splitlines()[-1]
+        report['negative_probes']=g.negatives(run,g.local(prior['runs']['sdk_runtime']))
+        g.require(g.source_lock()==locked,'source changed during remaining checks')
+        report['status']='passed'
+    except Exception as error:
+        if isinstance(error,g.CommandFailure):report['commands'].append(error.result)
+        report.update(status='failed',error=str(error));raise
+    finally:
+        g.save(run/'acceptance.json',report)
+        print('P3-14 acceptance: '+str(run/'acceptance.json'),flush=True)
+    g.review(run/'acceptance.json')
+
+if __name__=='__main__':main()

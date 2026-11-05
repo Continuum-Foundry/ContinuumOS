@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "story": "P3-12",
+  "status": "passed",
+  "commands": [
+    {
+      "name": "prerequisites",
+      "elapsed_ms": 0,
+      "exit_code": 0,
+      "arguments": [
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m2\\P2-01\\prerequisites-1793833414584"
+      ],
+      "program": "validated-completed-checkpoint"
+    },
+    {
+      "name": "m1",
+      "elapsed_ms": 0,
+      "exit_code": 0,
+      "arguments": [
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\continuation-1793837526663208500/continuation.json"
+      ],
+      "program": "validated-completed-case-aggregate"
+    },
+    {
+      "name": "m1-review",
+      "elapsed_ms": 10831,
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Review-P1-07.ps1",
+        "-Run",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\continuation-1793837526663208500"
+      ],
+      "program": "pwsh"
+    },
+    {
+      "name": "owned-memory",
+      "elapsed_ms": 94450,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "static-loader",
+      "elapsed_ms": 117684,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "static-loader"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "user-boundary",
+      "elapsed_ms": 331207,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "scheduler",
+      "elapsed_ms": 279070,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "scheduler"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "capabilities",
+      "elapsed_ms": 169046,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "capabilities"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "channels",
+      "elapsed_ms": 186758,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "channels"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "waits",
+      "elapsed_ms": 236529,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "waits"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "supervisor",
+      "elapsed_ms": 201754,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "supervisor"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "policy",
+      "elapsed_ms": 156988,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "policy"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "routes",
+      "elapsed_ms": 149159,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "routes"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "sdk",
+      "elapsed_ms": 186777,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "sdk-runtime",
+      "elapsed_ms": 181459,
+      "exit_code": 0,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-runtime"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "sdk-codec-build",
+      "elapsed_ms": 1151,
+      "exit_code": 0,
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "--manifest-path",
+        "sdk/continuum-rt/Cargo.toml",
+        "--bin",
+        "conformance"
+      ],
+      "program": "cargo"
+    },
+    {
+      "name": "sdk-codecs",
+      "elapsed_ms": 11216,
+      "exit_code": 0,
+      "arguments": [
+        "tools/sdk_contract.py",
+        "--output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-12\\acceptance-1793837534642\\codecs",
+        "--production",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\cargo\\signed\\debug\\conformance.exe"
+      ],
+      "program": "python"
+    },
+    {
+      "name": "sdk-flavors",
+      "elapsed_ms": 53674,
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Check-P3-12Flavors.ps1",
+        "-Descriptors",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-1793839486144747300-81168",
+        "-Output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-12\\acceptance-1793837534642\\flavors"
+      ],
+      "program": "pwsh"
+    },
+    {
+      "name": "m2-portable",
+      "elapsed_ms": 16292,
+      "exit_code": 0,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Check-P3-12Portable.ps1",
+        "-Output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-12\\acceptance-1793837534642\\portable"
+      ],
+      "program": "pwsh"
+    }
+  ],
+  "runs": {
+    "waits": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\waits-1793838742091758300-86048",
+    "flavors": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-12\\acceptance-1793837534642\\flavors",
+    "codecs": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-12\\acceptance-1793837534642\\codecs",
+    "scheduler": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\scheduler-1793838106104575000-107800",
+    "capabilities": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\capabilities-1793838388049294000-100980",
+    "prerequisites": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m2\\P2-01\\prerequisites-1793833414584",
+    "portable": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-12\\acceptance-1793837534642\\portable",
+    "memory": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\owned-memory-1793837562394445500-83308",
+    "boundary": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\user-boundary-1793837775067431900-93436",
+    "routes": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\routes-1793839335916657100-99028",
+    "channels": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\channels-1793838555593119200-98900",
+    "policy": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\policy-1793839181706281200-113408",
+    "m1": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\continuation-1793837526663208500",
+    "supervisor": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\supervisor-1793838979404215200-109168",
+    "loader": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\static-loader-1793837657329342200-111824",
+    "sdk_runtime": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-runtime-1793839671930995400-108552",
+    "sdk": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\sdk-1793839486144747300-81168"
+  },
+  "source_commit": "bdadc144eb648b54eb8ec8b3f82fba5058287c90",
+  "user_execution": true,
+  "host_test_threads": 1,
+  "continuation": {
+    "mode": "owner-directed completed-case continuation",
+    "interrupted_aggregate": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\acceptance-1793833378736137100",
+    "interrupted_m1": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\suite-1793833777741823500-104860",
+    "checkpoint_sha256": "9168eee0b08dbb9d79325405eb28630f49d2aeed74aabb488992a0e2cae71dcf",
+    "source_lock_sha256": "7e4b2986173337f1a858981d229f6a07249e13a4837911cee7bae4888e12c2ac",
+    "remaining_cases": [
+      {
+        "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\timer-unsupported-1793837324493612200-99296",
+        "exit_code": 0,
+        "case": "timer-unsupported",
+        "elapsed_ms": 94121
+      },
+      {
+        "artifacts": "C:\\Users\\archi\\Documents\\ContinuumOS\\build/m1\\timer-calibration-1793837417199832800-58092",
+        "exit_code": 0,
+        "case": "timer-calibration",
+        "elapsed_ms": 95479
+      }
+    ],
+    "authority": "Owner stopped testing, then explicitly selected Complete the remaining checks. Completed independent cases revalidated; original interrupted run remains incomplete and is never relabeled passed.",
+    "limits": "Original guest limits and required row/launch counts unchanged; fresh uninterrupted full-run policy excepted only for this owner-directed continuation."
+  }
+}

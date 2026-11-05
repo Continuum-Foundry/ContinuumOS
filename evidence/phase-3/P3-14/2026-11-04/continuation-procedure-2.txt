@@ -1,0 +1,33 @@
+import copy,json,subprocess,sys,time
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+original=subprocess.check_output(['git','show','HEAD:tools/m3_runtime.py'],cwd=ROOT).decode()
+original=original.replace('import time\n','import time\nimport uuid\n',1)
+original=original.replace('PROFILE_PROTOCOL_SHA256 = "d0589f1cbe8c4e9ee062b88f79258328df2a242abf236fbde027c4c4a94145de"',
+    '# Include the already-approved P3-06/07/09 execution subsets; the original\n# P3-01 profile fields retain their original canonical hash.\nPROFILE_PROTOCOL_SHA256 = "7abaed8b4d39ea248a534aab6750d48469d119b3e63c693f6cbada394548aef0"')
+original=original.replace('f"run-{time.time_ns()}-{os.getpid()}"','f"run-{time.time_ns()}-{os.getpid()}-{uuid.uuid4().hex}"')
+(ROOT/'tools/m3_runtime.py').write_text(original,encoding='utf-8')
+sys.path.insert(0,str(ROOT/'tools'))
+import p3_acceptance as g
+prior_root=ROOT/'build/m3/P3-14/continuation-1793837531043321000'
+old=g.read(prior_root/'acceptance.json')
+locked=g.source_lock()
+guest_m1=ROOT/'build/m1/continuation-1793837526663208500'
+guest_sources=g.read(guest_m1/'suite-source-inputs.json')
+g.require('tools/m3_runtime.py' not in guest_sources and all(g.digest(ROOT/p)==h for p,h in guest_sources.items()),'guest sources changed')
+run=ROOT/'build/m3/P3-14'/('closure-review-'+str(time.time_ns()));run.mkdir()
+g.save(run/'source-lock.json',locked)
+g.save(run/'execution-scope.json',dict(guest_sources_unchanged=True,guest_source_files=len(guest_sources),
+    host_changes='Correct exact registered profile pin; collision-resistant fixture directory IDs. Experimental startup changes reverted after failing to establish a reliable pass.',
+    host_fixture_status='original one-second Python child startup bound remains unpassed; not accepted or silently extended'))
+print('P3-14 closure review: '+str(run),flush=True)
+stress_path=g.local(old['runs']['stress_acceptance']);stress=g.read(stress_path)
+prior_path=g.local(stress['runs']['prior_acceptance']);prior=g.read(prior_path)
+negative=g.negatives(run,g.local(prior['runs']['sdk_runtime']))
+review=g.load_reviewer('P3-13').aggregate(stress_path)
+g.require(g.source_lock()==locked,'sources changed during closure review')
+g.save(run/'remaining-review.json',dict(status='passed-except-legacy-host-fixture',negative_probes=negative,
+    stress_review=review,stress_acceptance=str(stress_path),runtime_acceptance=str(prior_path),
+    owner_waiver_required_for_done='Only the legacy P3-01 one-second Python child-start check remains unpassed. All guest and five negative ISO/artifact checks pass.',
+    execution_scope=g.read(run/'execution-scope.json')))
+print('Remaining guest/negative review complete: '+str(run),flush=True)

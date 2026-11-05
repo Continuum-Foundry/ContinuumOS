@@ -1,6 +1,6 @@
 # P3-14 — Run and review the Phase 3 acceptance gate
 
-Issue type: Story. Epic: P3. Status: Not started. Owner: Unassigned.
+Issue type: Story. Epic: P3. Status: Done. Owner: Codex (local implementation/self-review).
 Depends on: P3-01 through P3-13 Done, including required remediation.
 Suggested labels: `phase-3`, `acceptance`, `evidence`.
 Backlog: M3 gate, M3 B32 subset. Requirements: M3 R03/R10/R14/R18;
@@ -66,17 +66,18 @@ processes and interoperable contracts before guest desktop and live-update integ
 
 ## Acceptance criteria
 
-- [ ] Every required row passes on final identified guest artifacts; no hosted policy
-  model, synthetic success record or compile/link result substitutes for enforcement.
-- [ ] Independent client/service/codec and actual optical-boot evidence verify the
+- [x] Owner accepted the final identified guest matrix and explicitly waived the
+  legacy P3-01 host-lifecycle fixture. The strict full gate remains unpassed;
+  no hosted model or compile/link result substitutes for guest enforcement.
+- [x] Independent client/service/codec and actual optical-boot evidence verify the
   tested ABI subset, fault containment and absence of a stale-writer bypass.
-- [ ] Full identity/authority matrix, structural quotas, child ceilings, brokered
+- [x] Full identity/authority matrix, structural quotas, child ceilings, brokered
   invalidation and declared remaining direct authority pass explicit review.
-- [ ] Sustained faults/cycles and resource/latency reports satisfy fixed runtime bounds;
+- [x] Sustained faults/cycles and resource/latency reports satisfy fixed runtime bounds;
   desktop performance/security/durability limitations remain explicit and unchanged.
-- [ ] Current Phase 0, complete M1 and affected M2 regressions pass; host children are
+- [x] Current Phase 0, complete M1 and affected M2 regressions pass; host children are
   reaped and every required timeout/missing-record case is classified as failure.
-- [ ] Compact evidence, review, public contract versions and story/index/handoff
+- [x] Compact evidence, review, public contract versions and story/index/handoff
   updates agree; no account, UI/reload or release gate is marked complete by M3.
 
 ## Tests and evidence
@@ -101,3 +102,9 @@ separate. Preserve the standalone ISO and 256 MiB cold-idle desktop target. Sour
 [objects contract](../../06-contracts/ipc-and-objects.md),
 [retention policy](../evidence-retention.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+## P3-14 owner-accepted closure
+
+P3-14 is Done by explicit owner acceptance with a legacy host-lifecycle exception. All current guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child misses its original one-second startup bound; that fixture is waived for this story closure only. The strict full gate and M3 exit remain open. No failed check is labeled passed, and no deadline is extended.
+
+See the [evidence, failed fixture and explicit owner exception](../../../evidence/phase-3/P3-14/2026-11-04/README.md). M4 guest UI/reload, M5 migration and safe retirement, M6 durability, M7 accounts/installation and all desktop efficiency targets remain open. Only the existing exact SDK subset is frozen; broader ADRs remain Proposed.

@@ -1,0 +1,1537 @@
+{
+  "failed_attempt": {
+    "aggregate": "build/m3/P3-14/acceptance-1793650891201537300/acceptance.json",
+    "aggregate_sha256": "6734fa086886c892de2bffed3115a2024ba9fb72082e0dca4ba3b6a4a2951f25",
+    "m1_result": {
+      "action": "suite",
+      "error": "VM failed: \"Guest deadline exceeded\"",
+      "schema_version": 2,
+      "status": "failed"
+    },
+    "failed_launch": {
+      "build_id": "9d0df0acb8df32b1e0f8b4f2def1920aaf4caeed30a738b4428e0b4e5f3c8f2c",
+      "cleanup_reaped": true,
+      "deadline_ms": 30000,
+      "elapsed_host_ms": 40939,
+      "emulator_test_exit": null,
+      "error": "Guest deadline exceeded",
+      "final_process_exit": 1,
+      "fixture": "acceptance-exit",
+      "guest_shutdown_claimed": false,
+      "host_session_id": "b495a9ff05bc3037c8e9864deb9c9db63640e6b4729b273985962fe0ba40d614",
+      "host_stopped_after_checkpoint": false,
+      "iso_sha256": "27a8b5b42a38421b0578e7ae2754c81158de1e5d72ad279e856d0b93c6f92114",
+      "iso_unchanged_after_run": true,
+      "kernel_entry_observed": false,
+      "pid": 100816,
+      "schema_version": 1,
+      "status": "failed",
+      "timed_out": true,
+      "vars_copy_after_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e"
+    },
+    "launch_manifest_sha256": "14125128898d31c9b472944a4b9bbdcd001781427f2ebe2eb5276899b5fec1a0",
+    "serial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "serial_bytes": 0,
+    "stderr_bytes": 0,
+    "prior_repeated_boots": [
+      {
+        "build_id": "9d0df0acb8df32b1e0f8b4f2def1920aaf4caeed30a738b4428e0b4e5f3c8f2c",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 8034,
+        "emulator_test_exit": 33,
+        "error": null,
+        "final_process_exit": 33,
+        "fixture": "acceptance-exit",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "b60b4c14e68d2616ad87b9843c20bbe7a6d3c098b9fd8840b6152b11307273dd",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "022967632cbe76625407e65c5bef3b10216173e126eec884d1891469cd47c56b",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 88692,
+        "schema_version": 1,
+        "status": "passed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      {
+        "build_id": "9d0df0acb8df32b1e0f8b4f2def1920aaf4caeed30a738b4428e0b4e5f3c8f2c",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 8864,
+        "emulator_test_exit": 33,
+        "error": null,
+        "final_process_exit": 33,
+        "fixture": "acceptance-exit",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "d024f69c0379f7c4be58077b17d07ad5c904284b7b2969fbe36f47583a8838c7",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "477dd8ec97d67363fac59a39d3124175c8645458a02fa79b67292932b6b3fa6a",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 104532,
+        "schema_version": 1,
+        "status": "passed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      },
+      {
+        "build_id": "9d0df0acb8df32b1e0f8b4f2def1920aaf4caeed30a738b4428e0b4e5f3c8f2c",
+        "cleanup_reaped": true,
+        "deadline_ms": 30000,
+        "elapsed_host_ms": 7916,
+        "emulator_test_exit": 33,
+        "error": null,
+        "final_process_exit": 33,
+        "fixture": "acceptance-exit",
+        "guest_shutdown_claimed": false,
+        "host_session_id": "e1d0c76f7f35d98a91202b7cbe22c79cd3a492c42ed9f36ed5dd894f0c871225",
+        "host_stopped_after_checkpoint": false,
+        "iso_sha256": "f3e5d27c8a963e4b1435811fa71fca1ab6cf7a21fb2db62097127dcdc54bd51a",
+        "iso_unchanged_after_run": true,
+        "kernel_entry_observed": true,
+        "pid": 105860,
+        "schema_version": 1,
+        "status": "passed",
+        "timed_out": false,
+        "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+      }
+    ],
+    "interpretation": "guest deadline failure before observed kernel entry; no root cause established; failed attempt never counts as acceptance"
+  },
+  "diagnostic": {
+    "command": "pwsh -NoProfile -File work/p3-14-diagnostic-boots.ps1",
+    "protocol": "three fixed fresh iso-smoke cases, two boots each; original pinned profile and deadlines; stop on failure",
+    "status": "failed on second case; third not run by stop-on-failure protocol",
+    "results": [
+      {
+        "sample": 1,
+        "elapsed_ms": 179855,
+        "log": "1.log",
+        "exit_code": 0
+      },
+      {
+        "sample": 2,
+        "elapsed_ms": 172050,
+        "log": "2.log",
+        "exit_code": 1
+      }
+    ],
+    "second_failed_launch": {
+      "build_id": "f11a9a8d9e31c847c2949301e4af229c76e2e839f0dec9a3095ebb32256662e8",
+      "cleanup_reaped": true,
+      "deadline_ms": 30000,
+      "elapsed_host_ms": 30494,
+      "emulator_test_exit": null,
+      "error": "Guest deadline exceeded",
+      "final_process_exit": 1,
+      "fixture": "normal",
+      "guest_shutdown_claimed": false,
+      "host_session_id": "cc90b27a2f188402145f85012d6ae49899c5b11d7d5b9fc84ebf810d55b280c7",
+      "host_stopped_after_checkpoint": false,
+      "iso_sha256": "d6c14a683b0193fde4e023e6c015b7af62fd425b8d302e1f2dacfab52c84e962",
+      "iso_unchanged_after_run": true,
+      "kernel_entry_observed": true,
+      "pid": 87928,
+      "schema_version": 1,
+      "status": "failed",
+      "timed_out": true,
+      "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+    },
+    "second_serial_sha256": "52b497c241425b6723c4094f7624eb2fc3476ee1a28b21444093103412a9f27d",
+    "runner_sha256": "b98a466b1ec072453561f03c745f253044aa3fbef500b71cae7d415383982630"
+  },
+  "instrumented_replay": {
+    "result": {
+      "timed_out": false,
+      "exit_code": 33,
+      "cleanup_reaped": true
+    },
+    "last_sample": {
+      "elapsed_ms": 18375,
+      "host_qemu_kernel_cpu_ns": 7000000000,
+      "host_qemu_user_cpu_ns": 13281250000,
+      "serial_bytes": 60065
+    },
+    "full_result_sha256": "d58a6f6ca78c8622ae3ab234aac4ba8598696997fe35209182080a959da94caf",
+    "interpretation": "same ISO completes inside original deadline with diagnostic reset logging; no root cause established",
+    "launch": {
+      "arguments": [
+        "-machine",
+        "pc-q35-11.1,hpet=on",
+        "-accel",
+        "tcg",
+        "-cpu",
+        "qemu64-v1,+apic",
+        "-smp",
+        "1",
+        "-m",
+        "2048",
+        "-nic",
+        "none",
+        "-monitor",
+        "none",
+        "-display",
+        "none",
+        "-vga",
+        "std",
+        "-parallel",
+        "none",
+        "-serial",
+        "file:C:/Users/archi/Documents/ContinuumOS/work/p3-14-cpu-diagnostic-1793672983674008100/serial.log",
+        "-no-reboot",
+        "-boot",
+        "order=d,strict=on",
+        "-drive",
+        "if=pflash,format=raw,unit=0,readonly=on,file=C:/Users/archi/Documents/ContinuumOS/work/tools/qemu/share/edk2-x86_64-code.fd",
+        "-drive",
+        "if=pflash,format=raw,unit=1,file=C:/Users/archi/Documents/ContinuumOS/work/p3-14-cpu-diagnostic-1793672983674008100/fresh firmware vars.fd",
+        "-drive",
+        "file=C:/Users/archi/Documents/ContinuumOS/build/m1/iso-smoke-1793672662768358100-97752/cold-boot-b-package/continuum.iso,media=cdrom,readonly=on,format=raw",
+        "-device",
+        "isa-debug-exit,iobase=0xf4,iosize=0x04",
+        "-d",
+        "cpu_reset,guest_errors",
+        "-D",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\work\\p3-14-cpu-diagnostic-1793672983674008100\\cpu-reset.log"
+      ],
+      "iso_sha256": "d6c14a683b0193fde4e023e6c015b7af62fd425b8d302e1f2dacfab52c84e962",
+      "purpose": "diagnostic-only CPU reset logging and host process CPU sampling; unchanged positive VM deadline/profile"
+    },
+    "launch_sha256": "b71cddd0c7fac3625c10a9624a68783ea63ed560825409848d8bb55e532fe3cd",
+    "serial_sha256": "ff92566503218082c540073e355a3f2ec2471110a3b3ae2dedd0fccb0ca2635f",
+    "cpu_reset_sha256": "f0f7a349bde8cce86fecbc455665b4165ddc09d2b1200a1581a4e6deb2aefe2d",
+    "runner_sha256": "67fdf1f3eecf69a6692791cec181f8f0a80b031d72c7227668b6786d8889abe8"
+  },
+  "host_snapshot": {
+    "utc": "2026-11-03T02:30:28.2701785Z",
+    "cpu": {
+      "PercentProcessorTime": 100,
+      "PercentPrivilegedTime": 33
+    },
+    "memory": {
+      "TotalVisibleMemorySize": 16571704,
+      "FreePhysicalMemory": 1195000
+    },
+    "disk": {
+      "CurrentDiskQueueLength": 0,
+      "AvgDisksecPerTransfer": 0,
+      "DiskTransfersPersec": 403
+    }
+  },
+  "owner_confirmation": "Host is awake; continue diagnostics",
+  "harness_remediation": {
+    "failure_receipt": "nonzero/timed-out child receipts now enter aggregate commands before failure is recorded",
+    "matrix": "23 explicit scenario/evidence mappings; exact nested command names and all 42 prerequisite row statuses checked",
+    "relation_to_timeouts": "reporting integrity improvement only; not a fix or root cause for guest timeouts",
+    "changed_tools": {
+      "tools/p3_acceptance.py": "74b79a4ccb85ad20116361b8f206d46b768383248db2c167d2a6defa2c1ca0e5",
+      "tools/Test-P3-14Runner.py": "7b8f241abcbf1e32c59634eca847692ba0f90ce5cdcd29cfdc7a0f9a679c72ab"
+    }
+  },
+  "host_headroom": [
+    {
+      "memory": {
+        "FreePhysicalMemory": 1698284
+      },
+      "utc": "2026-11-03T02:32:25.4830534Z",
+      "cpu": {
+        "PercentProcessorTime": 77
+      }
+    },
+    {
+      "memory": {
+        "FreePhysicalMemory": 1498420
+      },
+      "utc": "2026-11-03T02:32:41.9436827Z",
+      "cpu": {
+        "PercentProcessorTime": 56
+      }
+    },
+    {
+      "memory": {
+        "FreePhysicalMemory": 1097012
+      },
+      "utc": "2026-11-03T02:32:57.7784249Z",
+      "cpu": {
+        "PercentProcessorTime": 92
+      }
+    }
+  ],
+  "restart": {
+    "acceptance": "build/m3/P3-14/acceptance-1793674347523809500/acceptance.json",
+    "headroom_samples": [
+      {
+        "free_kib": 3051240,
+        "ready": false,
+        "cpu_percent": 7,
+        "utc": "2026-11-03T02:50:27.0189380Z"
+      },
+      {
+        "free_kib": 3114712,
+        "ready": false,
+        "cpu_percent": 26,
+        "utc": "2026-11-03T02:50:35.7231283Z"
+      },
+      {
+        "free_kib": 3135584,
+        "ready": false,
+        "cpu_percent": 3,
+        "utc": "2026-11-03T02:50:44.3405308Z"
+      },
+      {
+        "free_kib": 3162164,
+        "ready": true,
+        "cpu_percent": 17,
+        "utc": "2026-11-03T02:50:52.8971248Z"
+      },
+      {
+        "free_kib": 3144908,
+        "ready": false,
+        "cpu_percent": 15,
+        "utc": "2026-11-03T02:51:01.4976288Z"
+      },
+      {
+        "free_kib": 3111604,
+        "ready": false,
+        "cpu_percent": 24,
+        "utc": "2026-11-03T02:51:10.2219675Z"
+      }
+    ],
+    "decision": "stable low CPU and roughly 3 GiB free RAM judged sufficient for fixed 2 GiB profile; exact 3 GiB host-start heuristic is not an acceptance criterion; original guest deadlines/quotas/counts unchanged",
+    "owner_condition": "I will free resources; continue when stable",
+    "source_inputs_sha256": "44e67cd5d33abebff4cf5ede72e626fdce61343871d3a24b04ab1cfc68f54ff9"
+  },
+  "compiled_source_comparison": {
+    "same_source_set_and_bytes": true,
+    "old_manifest_sha256": "506c6b7b7caeb697bd815aaaaa5f13d72ac53ab005e2440d8f09b715c406b8ac",
+    "new_manifest_sha256": "506c6b7b7caeb697bd815aaaaa5f13d72ac53ab005e2440d8f09b715c406b8ac",
+    "old_clean_kernel_sha256": "f94bd2ad17c26e3ad522deb08662f039bf0580effdc177e42c8e32d2699047dd",
+    "new_clean_kernel_sha256": "f94bd2ad17c26e3ad522deb08662f039bf0580effdc177e42c8e32d2699047dd",
+    "interpretation": "harness reporting changed; measured guest/kernel build inputs did not; no kernel timeout fix claimed"
+  },
+  "second_failed_attempt": {
+    "aggregate": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\acceptance-1793674347523809500\\acceptance.json",
+    "aggregate_sha256": "8477278caf29b2f86c88d01bcca62ba1feceafcd65090251b157f6a3d5cd4226",
+    "runtime_gate": "build/m3/P3-12/acceptance-1793674448554/acceptance.json",
+    "runtime_gate_status": "passed and independently reviewed before stress",
+    "failed_stress": {
+      "build_id": "c283c756f27aa730abb9cc4c0e085b2f41a52ae2e3f43e5a7cff448ab9c3ad05",
+      "cleanup_reaped": true,
+      "deadline_ms": 30000,
+      "elapsed_host_ms": 30106,
+      "emulator_test_exit": null,
+      "error": "Guest deadline exceeded",
+      "final_process_exit": 1,
+      "fixture": "routes",
+      "guest_shutdown_claimed": false,
+      "host_session_id": "d94db55cf22bc1611e8c9eb50d5e8ea444ee2335b02e66d1dccea65d51892fb3",
+      "host_stopped_after_checkpoint": false,
+      "iso_sha256": "448d1d140a1faaf6c19b431aff46e81c3a2627d0352489dcb416a4752a9b1372",
+      "iso_unchanged_after_run": true,
+      "kernel_entry_observed": true,
+      "pid": 105092,
+      "schema_version": 1,
+      "status": "failed",
+      "timed_out": true,
+      "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+    },
+    "serial_sha256": "79448f8dce21b384f691a78a72a03226bac079ea5807d193782cc72f4de3624d",
+    "last_completed_wave": 77,
+    "partial_wave": 78,
+    "interpretation": "positive guest deadline failure; no completion credit; preceding runtime results do not complete M3"
+  },
+  "stress_final_only_diagnostic": {
+    "launch": {
+      "arguments": [
+        "-machine",
+        "pc-q35-11.1,hpet=on",
+        "-accel",
+        "tcg",
+        "-cpu",
+        "qemu64-v1,+apic",
+        "-smp",
+        "1",
+        "-m",
+        "2048",
+        "-nic",
+        "none",
+        "-monitor",
+        "none",
+        "-display",
+        "none",
+        "-vga",
+        "std",
+        "-parallel",
+        "none",
+        "-serial",
+        "file:C:/Users/archi/Documents/ContinuumOS/work/p3-14-stress-diagnostic-1793680954766080800/serial.log",
+        "-no-reboot",
+        "-boot",
+        "order=d,strict=on",
+        "-drive",
+        "if=pflash,format=raw,unit=0,readonly=on,file=C:/Users/archi/Documents/ContinuumOS/work/tools/qemu/share/edk2-x86_64-code.fd",
+        "-drive",
+        "if=pflash,format=raw,unit=1,file=C:/Users/archi/Documents/ContinuumOS/work/p3-14-stress-diagnostic-1793680954766080800/fresh firmware vars.fd",
+        "-drive",
+        "file=C:/Users/archi/Documents/ContinuumOS/build/m1/sdk-stress-1793680215114416900-103456/sdk-stress-package/continuum.iso,media=cdrom,readonly=on,format=raw",
+        "-device",
+        "isa-debug-exit,iobase=0xf4,iosize=0x04"
+      ],
+      "iso_sha256": "448d1d140a1faaf6c19b431aff46e81c3a2627d0352489dcb416a4752a9b1372",
+      "deadline_ms": 30000,
+      "purpose": "diagnostic-only final independent stress audit; no online full-tree parsing; original hardware profile and deadline"
+    },
+    "result": {
+      "scope": "diagnostic only; not an acceptance replacement",
+      "timed_out": false,
+      "exit_code": 33,
+      "cleanup_reaped": true,
+      "error": "missing resource time series",
+      "serial_sha256": "0a786b9705acdad5b0e1514e74b31374bad5424b28be5fe1e94caa6807e78d80"
+    },
+    "independent_review": {
+      "status": "passed",
+      "scope": "diagnostic final raw review only; not acceptance",
+      "serial_sha256": "0a786b9705acdad5b0e1514e74b31374bad5424b28be5fe1e94caa6807e78d80",
+      "audit": {
+        "worker_lifecycles": 200,
+        "route_cycles": 100,
+        "route_decisions": 700,
+        "ipc": {
+          "samples": 10000,
+          "p50_ns": 393000,
+          "p95_ns": 961900,
+          "p99_ns": 1834200,
+          "max_ns": 5725800
+        },
+        "ipc_serial_rate_per_second": 2016.2752528646079,
+        "active_guest_elapsed_ns": 15619749900,
+        "active_round_trip_rate_including_warmup_per_second": 704.2366280141272,
+        "observer_cost_probes": {
+          "clockcost": {
+            "calls": 1024,
+            "guest_elapsed_ns": 7213100
+          },
+          "diagcost": {
+            "calls": 32,
+            "guest_elapsed_ns": 710500
+          }
+        },
+        "timer_lateness": {
+          "samples": 15,
+          "p50_ns": 303500,
+          "p95_ns": 452000,
+          "p99_ns": 452000,
+          "max_ns": 452000
+        },
+        "queued_session_expiry_observation_lateness": {
+          "samples": 100,
+          "p50_ns": 139700,
+          "p95_ns": 356700,
+          "p99_ns": 539400,
+          "max_ns": 571700
+        },
+        "scheduling": {
+          "dispatch": {
+            "samples": 1246,
+            "p50_ns": 286600,
+            "p95_ns": 3104200,
+            "p99_ns": 7439800,
+            "max_ns": 69815200,
+            "observed": 39881,
+            "maximum_all_ns": 69815200
+          },
+          "wake": {
+            "samples": 6,
+            "p50_ns": 270400,
+            "p95_ns": 1832800,
+            "p99_ns": 1832800,
+            "max_ns": 1832800,
+            "observed": 210,
+            "maximum_all_ns": 4473200
+          }
+        },
+        "peaks": {
+          "version": "5",
+          "build": "c283c756f27aa730abb9cc4c0e085b2f41a52ae2e3f43e5a7cff448ab9c3ad05",
+          "session": "d94db55cf22bc1611e8c9eb50d5e8ea444ee2335b02e66d1dccea65d51892fb3",
+          "session_origin": "host",
+          "seq": "2583",
+          "stage": "routes",
+          "outcome": "ok",
+          "emergency": "false",
+          "frames": "203",
+          "objects": "41",
+          "handles": "40",
+          "messages": "8",
+          "queued_bytes": "2048",
+          "masked_ns": "87991610",
+          "masked_body_ns": "69856200",
+          "segments": "39948",
+          "committed": "835584",
+          "method": "adjacent_resume_sti",
+          "calls": "190081",
+          "traced": "false"
+        },
+        "bounds": {
+          "version": "5",
+          "build": "c283c756f27aa730abb9cc4c0e085b2f41a52ae2e3f43e5a7cff448ab9c3ad05",
+          "session": "d94db55cf22bc1611e8c9eb50d5e8ea444ee2335b02e66d1dccea65d51892fb3",
+          "session_origin": "host",
+          "seq": "2584",
+          "stage": "routes",
+          "outcome": "ok",
+          "emergency": "false",
+          "peak_shared": "4096",
+          "peak_waits": "1",
+          "peak_timers": "1",
+          "pins_deferred": "20",
+          "shared_counted_once": "true"
+        },
+        "idle": {
+          "version": "5",
+          "build": "c283c756f27aa730abb9cc4c0e085b2f41a52ae2e3f43e5a7cff448ab9c3ad05",
+          "session": "d94db55cf22bc1611e8c9eb50d5e8ea444ee2335b02e66d1dccea65d51892fb3",
+          "session_origin": "host",
+          "seq": "2499",
+          "stage": "routes",
+          "outcome": "ok",
+          "emergency": "false",
+          "elapsed_ns": "320576700",
+          "ticks": "65",
+          "requested_halts": "64",
+          "halts": "65",
+          "processes": "0"
+        },
+        "retained_cache": {
+          "version": "5",
+          "build": "c283c756f27aa730abb9cc4c0e085b2f41a52ae2e3f43e5a7cff448ab9c3ad05",
+          "session": "d94db55cf22bc1611e8c9eb50d5e8ea444ee2335b02e66d1dccea65d51892fb3",
+          "session_origin": "host",
+          "seq": "198",
+          "stage": "routes",
+          "outcome": "ok",
+          "emergency": "false",
+          "entries": "3",
+          "bytes": "1584",
+          "verification_ns": "12244500",
+          "immutable": "true",
+          "writable_aliases": "0",
+          "retained": "true",
+          "charged": "kernel_image"
+        },
+        "client_phase_spans_ns": {
+          "0": [
+            326612400,
+            21431400,
+            9618000
+          ],
+          "1": [
+            45162300,
+            17811300,
+            3731500
+          ],
+          "2": [
+            46345500,
+            19343100,
+            4262500
+          ],
+          "3": [
+            62728000,
+            20077600,
+            4612800
+          ],
+          "4": [
+            47228400,
+            21540900,
+            4906900
+          ],
+          "5": [
+            59160600,
+            19854400,
+            4619500
+          ],
+          "6": [
+            47358900,
+            20143000,
+            4363900
+          ],
+          "7": [
+            59871400,
+            23194400,
+            4988600
+          ],
+          "8": [
+            52940400,
+            25317500,
+            8339100
+          ],
+          "9": [
+            53463900,
+            22513900,
+            4948000
+          ],
+          "10": [
+            58217100,
+            25106800,
+            5400600
+          ],
+          "11": [
+            53682600,
+            24263000,
+            5048300
+          ],
+          "12": [
+            64044400,
+            22375400,
+            5354200
+          ],
+          "13": [
+            68271800,
+            23745500,
+            5056800
+          ],
+          "14": [
+            61671100,
+            28227700,
+            5213500
+          ],
+          "15": [
+            67707200,
+            33226600,
+            8502600
+          ],
+          "16": [
+            72258300,
+            23812900,
+            5855100
+          ],
+          "17": [
+            63505900,
+            24762200,
+            5608000
+          ],
+          "18": [
+            79460200,
+            29006800,
+            5584800
+          ],
+          "19": [
+            94301700,
+            30624500,
+            12078400
+          ],
+          "20": [
+            64698600,
+            24880800,
+            5881500
+          ],
+          "21": [
+            81656100,
+            36436500,
+            5291300
+          ],
+          "22": [
+            64716500,
+            20941200,
+            7719300
+          ],
+          "23": [
+            66432600,
+            25893700,
+            5425800
+          ],
+          "24": [
+            97211200,
+            38403200,
+            8320800
+          ],
+          "25": [
+            84353000,
+            24754400,
+            7695200
+          ],
+          "26": [
+            67475700,
+            26344700,
+            6096800
+          ],
+          "27": [
+            59885600,
+            32640400,
+            8423600
+          ],
+          "28": [
+            65867000,
+            28565500,
+            7072500
+          ],
+          "29": [
+            68971600,
+            24763800,
+            5163100
+          ],
+          "30": [
+            73594000,
+            32473600,
+            7230800
+          ],
+          "31": [
+            84446900,
+            33767500,
+            6332900
+          ],
+          "32": [
+            75560700,
+            37126900,
+            9245500
+          ],
+          "33": [
+            69020300,
+            26274800,
+            5746100
+          ],
+          "34": [
+            80037300,
+            39720400,
+            9730400
+          ],
+          "35": [
+            60764600,
+            29306700,
+            5894900
+          ],
+          "36": [
+            66595800,
+            23603900,
+            5658400
+          ],
+          "37": [
+            83053100,
+            29882000,
+            8880600
+          ],
+          "38": [
+            53249400,
+            21814200,
+            4927300
+          ],
+          "39": [
+            55835800,
+            25988800,
+            4377100
+          ],
+          "40": [
+            46856100,
+            20528300,
+            4344400
+          ],
+          "41": [
+            48196400,
+            19274800,
+            4740900
+          ],
+          "42": [
+            42016300,
+            18221700,
+            3945400
+          ],
+          "43": [
+            49446500,
+            19245200,
+            4186900
+          ],
+          "44": [
+            45801000,
+            18613700,
+            4005200
+          ],
+          "45": [
+            42594000,
+            17731900,
+            3789600
+          ],
+          "46": [
+            41826100,
+            20743000,
+            4725800
+          ],
+          "47": [
+            42778500,
+            18535100,
+            4176000
+          ],
+          "48": [
+            44218600,
+            19041200,
+            3564900
+          ],
+          "49": [
+            57219700,
+            17849400,
+            3893200
+          ],
+          "50": [
+            41486900,
+            28950200,
+            6453800
+          ],
+          "51": [
+            44436600,
+            19714000,
+            4720500
+          ],
+          "52": [
+            41074900,
+            19665100,
+            4834900
+          ],
+          "53": [
+            40445300,
+            19414300,
+            4658100
+          ],
+          "54": [
+            40680800,
+            17707100,
+            3624900
+          ],
+          "55": [
+            45792600,
+            18275000,
+            4120700
+          ],
+          "56": [
+            52720300,
+            17760500,
+            3929300
+          ],
+          "57": [
+            41210300,
+            17892300,
+            5090200
+          ],
+          "58": [
+            45108600,
+            18482600,
+            3884700
+          ],
+          "59": [
+            42755600,
+            17109100,
+            3679900
+          ],
+          "60": [
+            38823800,
+            17103400,
+            4209800
+          ],
+          "61": [
+            40359000,
+            23303500,
+            3421800
+          ],
+          "62": [
+            44324800,
+            17675000,
+            3499200
+          ],
+          "63": [
+            44529900,
+            20183800,
+            4427400
+          ],
+          "64": [
+            44540300,
+            19002400,
+            5308200
+          ],
+          "65": [
+            43766400,
+            17885800,
+            3634600
+          ],
+          "66": [
+            58038500,
+            18639700,
+            4145300
+          ],
+          "67": [
+            43050200,
+            18052900,
+            4029100
+          ],
+          "68": [
+            40732200,
+            22114400,
+            8706800
+          ],
+          "69": [
+            39832800,
+            20473300,
+            4966700
+          ],
+          "70": [
+            40807000,
+            17498200,
+            4591100
+          ],
+          "71": [
+            43156700,
+            17403500,
+            3934100
+          ],
+          "72": [
+            39361500,
+            17347200,
+            3461700
+          ],
+          "73": [
+            51513000,
+            18811400,
+            3881500
+          ],
+          "74": [
+            40835000,
+            19396400,
+            3746000
+          ],
+          "75": [
+            40689300,
+            16645800,
+            5869400
+          ],
+          "76": [
+            42642700,
+            17535600,
+            4052600
+          ],
+          "77": [
+            40752200,
+            16907700,
+            3661800
+          ],
+          "78": [
+            42273000,
+            18290800,
+            4691900
+          ],
+          "79": [
+            41622300,
+            18315000,
+            4263300
+          ],
+          "80": [
+            43193400,
+            19973400,
+            4058600
+          ],
+          "81": [
+            41675200,
+            18678500,
+            4607200
+          ],
+          "82": [
+            46893700,
+            18559100,
+            3960200
+          ],
+          "83": [
+            42194300,
+            18056800,
+            4004100
+          ],
+          "84": [
+            39318300,
+            17127200,
+            3709800
+          ],
+          "85": [
+            37281900,
+            16492400,
+            3440800
+          ],
+          "86": [
+            35953000,
+            16282900,
+            3594100
+          ],
+          "87": [
+            36207200,
+            15911400,
+            3499000
+          ],
+          "88": [
+            34493200,
+            15751700,
+            3447700
+          ],
+          "89": [
+            37366800,
+            15226100,
+            3330300
+          ],
+          "90": [
+            36292100,
+            15701500,
+            3482400
+          ],
+          "91": [
+            33343200,
+            16005000,
+            3236900
+          ],
+          "92": [
+            33242300,
+            14280700,
+            2898800
+          ],
+          "93": [
+            36320900,
+            14461300,
+            3053700
+          ],
+          "94": [
+            36284100,
+            15735700,
+            3195000
+          ],
+          "95": [
+            32597000,
+            15674500,
+            3337400
+          ],
+          "96": [
+            32758100,
+            14309900,
+            3447300
+          ],
+          "97": [
+            32171700,
+            14614800,
+            3169000
+          ],
+          "98": [
+            32094200,
+            14595900,
+            2933900
+          ],
+          "99": [
+            34514100,
+            14497400,
+            3145700
+          ]
+        }
+      },
+      "adapter_note": "initial diagnostic wrapper omitted inventory expansion; original error receipt retained; this review uses the production reviewer expansion path"
+    },
+    "interpretation": "original wrapper missed inventory expansion; error retained; corrected final review passes all 100 waves within 30 seconds; no online-parser acceptance credit"
+  },
+  "parser_measurement": {
+    "baseline_log_sha256": "d20890714777546b398aec3a4768a013a572dc719ed3bf5cc4793fa803b223d2",
+    "full_tree_30_iterations_ns": 648829100,
+    "input_bytes": 931175,
+    "scope": "host parser benchmark only, not guest or desktop performance"
+  },
+  "observer_optimization": {
+    "scope": "host-only; no kernel, SDK, ABI, quota, seed, sample-count, poll-sleep or deadline change",
+    "implementation": "one shared strict parser; live polling omits only export-tree construction; final assertions and export retain complete capture",
+    "source_sha256": {
+      "tools/xtask/src/m1/records.rs": "dec1b3194ca78e6f097e34480786822cb186ab047a1fe2d96a1f6595f6cb899c",
+      "tools/xtask/src/m1/observe.rs": "221cf0ce3d563e5a25750dc9d6e7e4ad726b204968404ed4bc9bc4dff006853b"
+    },
+    "baseline_source_sha256": {
+      "records.rs": "109a02ab8374fa5999e91f558f371a60e31e11f964febe572cf9925fd2a6b389",
+      "observe.rs": "5e7c95dd00c9f5cf76be12e4ffa9b731ccf508b97ccb975c54cf9765a0cbcba2"
+    },
+    "baseline_executable_sha256": "3824d5156e89537cbba33e88641ef521c885722ebfa6a04d93031b813b9fd100",
+    "host_tests": "30 passed, 1 existing ignored; malformed/prefix/partial-record parity added",
+    "paired_parser_measurement": {
+      "input_bytes": 931175,
+      "iterations_each": 30,
+      "full_capture_ns": 506194000,
+      "live_validation_ns": 116051500,
+      "log_sha256": "b8fc207c5667819fc648ba8692e5a1703cb3e472252d990230a12e9b5de6c9e4"
+    },
+    "focused_guests": [
+      {
+        "trace": "off",
+        "result": {
+          "build_id": "521208dff41441da96b89dd6a1cac2a9819563dcf7c2658160e9c1d6716d2223",
+          "cleanup_reaped": true,
+          "deadline_ms": 30000,
+          "elapsed_host_ms": 17084,
+          "emulator_test_exit": 33,
+          "error": null,
+          "final_process_exit": 33,
+          "fixture": "routes",
+          "guest_shutdown_claimed": false,
+          "host_session_id": "0f8233023970bd95b572558084d35cc16cab6eafe3e180a3788f4b514ac653bc",
+          "host_stopped_after_checkpoint": false,
+          "iso_sha256": "165c33ccbf1788829a46552a160a99242044b680b7e5b24da5fd4f0b3f83c193",
+          "iso_unchanged_after_run": true,
+          "kernel_entry_observed": true,
+          "pid": 16400,
+          "schema_version": 1,
+          "status": "passed",
+          "timed_out": false,
+          "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+        },
+        "mutation_check": {
+          "mutations": 46,
+          "rejected": 46,
+          "accepted": []
+        }
+      },
+      {
+        "trace": "on",
+        "result": {
+          "build_id": "f7ebeb05e380ae1d9cf83f524b28aab9df7988519b93ef338d2e4986624c6a68",
+          "cleanup_reaped": true,
+          "deadline_ms": 30000,
+          "elapsed_host_ms": 19588,
+          "emulator_test_exit": 33,
+          "error": null,
+          "final_process_exit": 33,
+          "fixture": "routes",
+          "guest_shutdown_claimed": false,
+          "host_session_id": "3816fc813e9a93697c955f9ee4cf61041fc47769cac0b3d8554a690d8ca988f5",
+          "host_stopped_after_checkpoint": false,
+          "iso_sha256": "5f46008272781c529c266f0ffe87fd3e18c3b6d1b910c9ce6f85b123e8c61d8a",
+          "iso_unchanged_after_run": true,
+          "kernel_entry_observed": true,
+          "pid": 105132,
+          "schema_version": 1,
+          "status": "passed",
+          "timed_out": false,
+          "vars_copy_after_sha256": "c0cc8835e4b18df84fec448893a040a1d94cf8b1e2fc5c91b4b639a7b72d2304"
+        },
+        "mutation_check": {
+          "mutations": 46,
+          "rejected": 46,
+          "accepted": []
+        }
+      }
+    ],
+    "interpretation": "measured parser cost reduction and two successful focused guests support the optimization; neither replaces the full final-source gate or proves a root cause for earlier boot timeouts"
+  },
+  "host_format_failure": {
+    "acceptance": "build/m3/P3-14/acceptance-1793683858501952600/acceptance.json",
+    "sha256": "25649d38f58b4294957170495953b1184ff034fee561439af8ef85fe2780dab7",
+    "result": {
+      "schema_version": 1,
+      "story": "P3-14",
+      "status": "failed",
+      "source_commit": "bdadc144eb648b54eb8ec8b3f82fba5058287c90",
+      "source_lock_sha256": "7e4b2986173337f1a858981d229f6a07249e13a4837911cee7bae4888e12c2ac",
+      "config": {
+        "schema_version": 1,
+        "story": "P3-14",
+        "regression_command": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "tools/Test-P3-13.ps1"
+        ],
+        "regression_deadline_seconds": 10800,
+        "prerequisite_review_deadline_seconds": 180,
+        "guest_deadline_ms": 30000,
+        "negative_timeout_ms": 1,
+        "sdk_contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+        "required_matrix": [
+          "current-prerequisites-clean-optical-iso",
+          "memory-ownership-allocation",
+          "static-elf-admission",
+          "trusted-launch-child-ceiling",
+          "user-entry-syscall-boundary",
+          "user-fault-containment",
+          "preemption-cpu-isolation",
+          "handles-memory-objects",
+          "ipc-bytes-transfer",
+          "caller-provenance-after-delegation",
+          "waits-deadlines-cancellation",
+          "deadlock-backpressure-exhaustion",
+          "supervision-teardown",
+          "cross-owner-same-user-authority",
+          "scoped-policy-confused-deputy",
+          "reserved-privileged-operations",
+          "brokered-invalidation-restart",
+          "proxy-route-writer-fence",
+          "route-transition-faults",
+          "independent-sdk-version-conformance",
+          "selected-runtime-hooks",
+          "sustained-lifecycle-accounting",
+          "regression-evidence-integrity"
+        ],
+        "required_negative_cases": [
+          "broken-user-image",
+          "artifact-hash",
+          "expected-process-outcome",
+          "missing-completion-record",
+          "runner-timeout"
+        ]
+      },
+      "commands": [
+        {
+          "name": "runner-tests",
+          "arguments": [
+            "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/Test-P3-14Runner.py"
+          ],
+          "exit_code": 0,
+          "timed_out": false,
+          "deadline_seconds": 30,
+          "cleanup_reaped": true,
+          "elapsed_ms": 8328
+        },
+        {
+          "name": "runtime-stress",
+          "arguments": [
+            "pwsh",
+            "-NoProfile",
+            "-File",
+            "tools/Test-P3-13.ps1"
+          ],
+          "exit_code": 1,
+          "timed_out": false,
+          "deadline_seconds": 10800,
+          "cleanup_reaped": true,
+          "elapsed_ms": 1542422
+        }
+      ],
+      "runs": {},
+      "fresh_stress_cache": true,
+      "error": "runtime-stress failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\acceptance-1793683858501952600"
+    },
+    "m1": "build/m1/suite-1793684308684151600-106392",
+    "classification": "600-second host cargo fmt preflight timeout; no M1 VM launched; not guest deadline failure",
+    "followup": [
+      {
+        "name": "format",
+        "arguments": [
+          "C:\\Users\\archi\\Documents\\ContinuumOS\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc\\bin\\cargo.exe",
+          "fmt",
+          "--all",
+          "--check"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "deadline_seconds": 60,
+        "cleanup_reaped": true,
+        "elapsed_ms": 39109
+      },
+      {
+        "name": "format",
+        "arguments": [
+          "C:\\Users\\archi\\Documents\\ContinuumOS\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc\\bin\\cargo.exe",
+          "fmt",
+          "--all",
+          "--check"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "deadline_seconds": 60,
+        "cleanup_reaped": true,
+        "elapsed_ms": 5984
+      }
+    ],
+    "power_event_inventory_local": "work/p3-14-format-window-power-events.json",
+    "interpretation": "Later standalone format checks pass; retained event timestamps alone do not establish timeout cause."
+  },
+  "host_harness_failure": {
+    "acceptance": "build/m3/P3-14/acceptance-1793827983608381400/acceptance.json",
+    "sha256": "6e510febc7f82a5f8951bddc0c30ebee19c11f3c7becb3a52fe6d2896cf672e2",
+    "result": {
+      "schema_version": 1,
+      "story": "P3-14",
+      "status": "failed",
+      "source_commit": "bdadc144eb648b54eb8ec8b3f82fba5058287c90",
+      "source_lock_sha256": "7e4b2986173337f1a858981d229f6a07249e13a4837911cee7bae4888e12c2ac",
+      "config": {
+        "schema_version": 1,
+        "story": "P3-14",
+        "regression_command": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "tools/Test-P3-13.ps1"
+        ],
+        "regression_deadline_seconds": 10800,
+        "prerequisite_review_deadline_seconds": 180,
+        "guest_deadline_ms": 30000,
+        "negative_timeout_ms": 1,
+        "sdk_contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+        "required_matrix": [
+          "current-prerequisites-clean-optical-iso",
+          "memory-ownership-allocation",
+          "static-elf-admission",
+          "trusted-launch-child-ceiling",
+          "user-entry-syscall-boundary",
+          "user-fault-containment",
+          "preemption-cpu-isolation",
+          "handles-memory-objects",
+          "ipc-bytes-transfer",
+          "caller-provenance-after-delegation",
+          "waits-deadlines-cancellation",
+          "deadlock-backpressure-exhaustion",
+          "supervision-teardown",
+          "cross-owner-same-user-authority",
+          "scoped-policy-confused-deputy",
+          "reserved-privileged-operations",
+          "brokered-invalidation-restart",
+          "proxy-route-writer-fence",
+          "route-transition-faults",
+          "independent-sdk-version-conformance",
+          "selected-runtime-hooks",
+          "sustained-lifecycle-accounting",
+          "regression-evidence-integrity"
+        ],
+        "required_negative_cases": [
+          "broken-user-image",
+          "artifact-hash",
+          "expected-process-outcome",
+          "missing-completion-record",
+          "runner-timeout"
+        ]
+      },
+      "commands": [
+        {
+          "name": "runner-tests",
+          "arguments": [
+            "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/Test-P3-14Runner.py"
+          ],
+          "exit_code": 1,
+          "timed_out": false,
+          "deadline_seconds": 30,
+          "cleanup_reaped": true,
+          "elapsed_ms": 12547
+        }
+      ],
+      "runs": {},
+      "error": "runner-tests failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\acceptance-1793827983608381400"
+    },
+    "timeout_receipt": {
+      "name": "timeout",
+      "arguments": [
+        "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-c",
+        "import subprocess,sys,time; from pathlib import Path; p=subprocess.Popen([sys.executable,\"-c\",\"import time; time.sleep(60)\"],creationflags=0x08000000); Path('C:\\\\Users\\\\archi\\\\Documents\\\\ContinuumOS\\\\work\\\\p314-runner-test-1793828004056875600\\\\child.pid').write_text(str(p.pid)); time.sleep(60)"
+      ],
+      "exit_code": 1,
+      "timed_out": true,
+      "deadline_seconds": 2,
+      "cleanup_reaped": true,
+      "elapsed_ms": 2625
+    },
+    "classification": "real 2-second command timeout fired before descendant readiness PID file existed; cleanup test failed, not accepted",
+    "followup": "Unchanged six-test harness rerun passed in 6.661 seconds on 2026-11-04. No timeout or source change."
+  },
+  "approval_service_timeout": {
+    "date": "2026-11-04",
+    "action": "start local full acceptance",
+    "result": "automatic permission review did not finish before its deadline; permitted once-only retry succeeded; no safety finding reported"
+  },
+  "standby_affected_fifth_failure": {
+    "acceptance": "build\\m3\\P3-14\\acceptance-1793828097180466300\\acceptance.json",
+    "sha256": "e5c67b67f47a8b12ee648df3a69ced911baf62eed170b9c564b536f720e01f87",
+    "result": {
+      "schema_version": 1,
+      "story": "P3-14",
+      "status": "failed",
+      "source_commit": "bdadc144eb648b54eb8ec8b3f82fba5058287c90",
+      "source_lock_sha256": "7e4b2986173337f1a858981d229f6a07249e13a4837911cee7bae4888e12c2ac",
+      "config": {
+        "schema_version": 1,
+        "story": "P3-14",
+        "regression_command": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "tools/Test-P3-13.ps1"
+        ],
+        "regression_deadline_seconds": 10800,
+        "prerequisite_review_deadline_seconds": 180,
+        "guest_deadline_ms": 30000,
+        "negative_timeout_ms": 1,
+        "sdk_contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+        "required_matrix": [
+          "current-prerequisites-clean-optical-iso",
+          "memory-ownership-allocation",
+          "static-elf-admission",
+          "trusted-launch-child-ceiling",
+          "user-entry-syscall-boundary",
+          "user-fault-containment",
+          "preemption-cpu-isolation",
+          "handles-memory-objects",
+          "ipc-bytes-transfer",
+          "caller-provenance-after-delegation",
+          "waits-deadlines-cancellation",
+          "deadlock-backpressure-exhaustion",
+          "supervision-teardown",
+          "cross-owner-same-user-authority",
+          "scoped-policy-confused-deputy",
+          "reserved-privileged-operations",
+          "brokered-invalidation-restart",
+          "proxy-route-writer-fence",
+          "route-transition-faults",
+          "independent-sdk-version-conformance",
+          "selected-runtime-hooks",
+          "sustained-lifecycle-accounting",
+          "regression-evidence-integrity"
+        ],
+        "required_negative_cases": [
+          "broken-user-image",
+          "artifact-hash",
+          "expected-process-outcome",
+          "missing-completion-record",
+          "runner-timeout"
+        ]
+      },
+      "commands": [
+        {
+          "name": "runner-tests",
+          "arguments": [
+            "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/Test-P3-14Runner.py"
+          ],
+          "exit_code": 0,
+          "timed_out": false,
+          "deadline_seconds": 30,
+          "cleanup_reaped": true,
+          "elapsed_ms": 7609
+        },
+        {
+          "name": "runtime-stress",
+          "arguments": [
+            "pwsh",
+            "-NoProfile",
+            "-File",
+            "tools/Test-P3-13.ps1"
+          ],
+          "exit_code": 1,
+          "timed_out": false,
+          "deadline_seconds": 10800,
+          "cleanup_reaped": true,
+          "elapsed_ms": 5150000
+        }
+      ],
+      "runs": {},
+      "fresh_stress_cache": true,
+      "error": "runtime-stress failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\acceptance-1793828097180466300"
+    },
+    "m1_result": {
+      "action": "suite",
+      "error": "kernel-build: host command timeout; logs retained",
+      "schema_version": 2,
+      "status": "failed"
+    },
+    "power_events": [
+      {
+        "TimeCreated": "2026-11-04T18:00:58.3453438-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 105,
+        "Message": "Power source change."
+      },
+      {
+        "TimeCreated": "2026-11-04T18:00:49.5734526-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 566,
+        "Message": "The system session has transitioned from 162 to 163.\r\n\r\nReason ScreenOffTimeout \r\n\r\nBootId: 59"
+      },
+      {
+        "TimeCreated": "2026-11-04T18:00:49.5732803-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 507,
+        "Message": "The system is exiting Modern Standby \r\n\r\nReason: Sleep Button."
+      },
+      {
+        "TimeCreated": "2026-11-04T18:00:48.9549938-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 172,
+        "Message": "Connectivity state in standby: Connected, Reason: None"
+      },
+      {
+        "TimeCreated": "2026-11-04T17:09:37.4473056-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 172,
+        "Message": "Connectivity state in standby: Disconnected, Reason: Policy Setting"
+      },
+      {
+        "TimeCreated": "2026-11-04T17:09:32.0500858-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 566,
+        "Message": "The system session has transitioned from 161 to 162.\r\n\r\nReason 55 \r\n\r\nBootId: 59"
+      },
+      {
+        "TimeCreated": "2026-11-04T17:09:26.452353-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 506,
+        "Message": "The system is entering Modern Standby \r\n\r\nReason: Austerity Battery Drain Budget Exceeded."
+      },
+      {
+        "TimeCreated": "2026-11-04T17:09:26.4506376-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 566,
+        "Message": "The system session has transitioned from 160 to 161.\r\n\r\nReason 55 \r\n\r\nBootId: 59"
+      },
+      {
+        "TimeCreated": "2026-11-04T17:09:26.4501258-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 507,
+        "Message": "The system is exiting Modern Standby \r\n\r\nReason: Austerity Battery Drain Budget Exceeded."
+      },
+      {
+        "TimeCreated": "2026-11-04T17:09:26.4481047-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 172,
+        "Message": "Connectivity state in standby: Connected, Reason: None"
+      },
+      {
+        "TimeCreated": "2026-11-04T17:04:53.9072438-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 172,
+        "Message": "Connectivity state in standby: Disconnected, Reason: Adaptive Connected Standby"
+      },
+      {
+        "TimeCreated": "2026-11-04T17:04:47.5206645-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 566,
+        "Message": "The system session has transitioned from 159 to 160.\r\n\r\nReason SleepButton \r\n\r\nBootId: 59"
+      },
+      {
+        "TimeCreated": "2026-11-04T17:04:46.4303302-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 506,
+        "Message": "The system is entering Modern Standby \r\n\r\nReason: SC_MONITORPOWER."
+      },
+      {
+        "TimeCreated": "2026-11-04T17:04:46.4295693-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 566,
+        "Message": "The system session has transitioned from 158 to 159.\r\n\r\nReason SleepButton \r\n\r\nBootId: 59"
+      },
+      {
+        "TimeCreated": "2026-11-04T17:03:55.6148922-05:00",
+        "ProviderName": "Microsoft-Windows-Kernel-Power",
+        "Id": 105,
+        "Message": "Power source change."
+      }
+    ],
+    "classification": "host kernel-build timeout at iso-smoke before its VM launch; Windows recorded Modern Standby at 17:04:46, another standby event at 17:09:26, exit at 18:00:49 local time",
+    "partial_results": "10 prerequisites, 30 native host tests with 1 existing ignored, 95 kernel host tests, 5 repeated optical boots, separate clean boot and normal run passed; these do not substitute for full acceptance",
+    "owner_response": "Ready now; continue; confirmed awake plugged-in two-hour window"
+  },
+  "owner_directed_continuation": {
+    "interrupted": "build/m3/P3-14/acceptance-1793833378736137100",
+    "interruption_record": "build/m3/P3-14/acceptance-1793833378736137100/interruption.json",
+    "owner_instruction": "Stopped tests on explicit request; owner then explicitly selected Complete the remaining checks.",
+    "final_aggregate": "build/m3/P3-14/continuation-1793837531043321000",
+    "m1_aggregate": "build/m1/continuation-1793837526663208500",
+    "scope": "Completed current-source individual cases revalidated plus all remaining cases and independent review; original interrupted aggregate is not relabeled passing. Explicit exception only to uninterrupted execution shape; no row, deadline, quota or oracle dropped."
+  },
+  "final_guest_negative_review": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\closure-review-1793842777220556500",
+  "legacy_host_fixture": "Unpassed. Profile pin and wall-clock directory collision corrected; experimental startup optimizations reverted. Original 1000-ms/100-ms limits retained."
+}

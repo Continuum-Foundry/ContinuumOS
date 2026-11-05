@@ -1490,6 +1490,23 @@ Listing SHA-256 over `blob + space + path + newline` in this order:
 - `tools/xtask/src/m1/user_images.rs` — Git blob `6e9ea5fd09a07c5ebd4dfc6acb2671431faca6a6`
 - `tools/xtask/src/main.rs` — Git blob `a6a31921a794172aa6411897852391500b1ec58e`
 
+## One-time owner exemption — P3-14 PR, 2026-11-04
+
+The owner explicitly authorized an exemption to make the P3-14 pull request. Scope: the staged P3-14 task-only payload represented by Git tree `7d631fde3fe70df2056060d80fa07a3b67a3f86d`, plus this record, to `https://github.com/Continuum-Foundry/ContinuumOS.git`, branch `codex/p3-14-acceptance`, targeting `main`. The one-time push bypasses the pre-push guard; the pre-commit check remains enabled and the guard remains installed. Unrelated local edits and local-only artifacts are excluded. This is not a standing exemption.
+
+### PR #34 merge-conflict repair — proposed one-time push
+
+The owner requested merging the latest `main`, resolving the conflict, committing
+and pushing the fix. The resolved merge payload before this record is Git tree
+`739de375af154562c052e504e28f6519e510f8bd`, combining PR head
+`91798dde924fad802d9e1516d1de75ba7434bd66` with main
+`41248c78c94a567d2418e2a351692882f8edc277`. The proposed destination is
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/p3-14-acceptance`, targeting `main`. A one-time pre-push guard bypass
+for this merge-resolution commit requires explicit owner approval; the pre-commit
+check remains enabled, the guard stays installed, and unrelated local edits and
+local-only artifacts are excluded. No standing exemption is granted.
+
 ## One-time owner authorization — Linux ISO/VM validation port, 2026-11-02
 
 The owner instructed: “Perform the previously mentioned work and make PR

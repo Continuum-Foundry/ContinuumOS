@@ -11,11 +11,14 @@ from pathlib import Path
 import subprocess
 import sys
 import time
+import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE = ROOT / "config/m3-profiles.json"
 CONTRACT = ROOT / "contracts/runtime-v0.json"
-PROFILE_PROTOCOL_SHA256 = "d0589f1cbe8c4e9ee062b88f79258328df2a242abf236fbde027c4c4a94145de"
+# Include the already-approved P3-06/07/09 execution subsets; the original
+# P3-01 profile fields retain their original canonical hash.
+PROFILE_PROTOCOL_SHA256 = "7abaed8b4d39ea248a534aab6750d48469d119b3e63c693f6cbada394548aef0"
 
 
 def digest(path):
@@ -123,7 +126,7 @@ def child(case, run_id, image_sha256):
 
 
 def run(profile_path, image, image_sha256, case, interpreter=None):
-    directory = ROOT / "build/m3/P3-01" / f"run-{time.time_ns()}-{os.getpid()}"
+    directory = ROOT / "build/m3/P3-01" / f"run-{time.time_ns()}-{os.getpid()}-{uuid.uuid4().hex}"
     directory.mkdir(parents=True)
     report = {"schema_version": 1, "scope": "host-lifecycle-only; image never executed",
               "case": case, "launched": False, "cleanup": "not-launched", "exit_code": None,

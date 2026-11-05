@@ -40,7 +40,7 @@ Reinspect actual source, tools and evidence availability before implementation.
 | P3-11 | [Fence service writers behind proxy routes and epochs](11-proxy-routes-epochs-and-writer-fencing.md) | P3-10 | B13 routes/invalidation/restart | Done |
 | P3-12 | [Prove independent SDK interoperability and runtime closure](12-independent-sdk-and-runtime-conformance.md) | P3-11 | B02/B11/B12 ABI closure, B15/B37 handoff | Done |
 | P3-13 | [Stress isolation, teardown and runtime resource bounds](13-adversarial-lifecycle-and-resource-accounting.md) | P3-12 | B06/B11–B13 robustness, M3 B32 subset | Done |
-| P3-14 | [Run and review Phase 3 acceptance](14-phase-3-acceptance.md) | P3-01 through P3-13 | M3 gate, M3 B32 subset | Not started |
+| P3-14 | [Run and review Phase 3 acceptance](14-phase-3-acceptance.md) | P3-01 through P3-13 | M3 gate, M3 B32 subset | Done |
 
 Use this default execution order and accept one story before advancing. Each
 story owns a complete boundary and its negative tests, rather than a collection
@@ -201,4 +201,10 @@ P3-12 passes local Codex self-review for the bounded independent SDK 0.1.0 subse
 
 ## P3-13 sustained runtime stress
 
-P3-13 passes local Codex self-review for bounded SDK stress and resource accounting. Ten continuous guests complete 100 waves each: 2000 worker lifecycles, 1000 route/fence cycles, 100000 measured IPC round trips and 10000 warmups, with healthy control progress and exact settled inventories. A separate public supervision guest preserves 29 admissions across four epochs. The final-source regressions pass 95 kernel host tests, ten prerequisites, complete M1 (33 rows/42 launches), prior runtime/SDK/portable checks and 14 separate metadata flavors. The optimized native observer retains the original 30000-ms deadline and all validation; regression reuse requires identical measured source and compiler hashes. Only the existing exact SDK contract subset remains frozen. P3-14 is next; M3 exit, guest UI/reload and desktop efficiency targets remain open. See the [acceptance evidence](../../../evidence/phase-3/P3-13/2026-11-01/README.md).
+P3-13 passes local Codex self-review for bounded SDK stress and resource accounting. Ten continuous guests complete 100 waves each: 2000 worker lifecycles, 1000 route/fence cycles, 100000 measured IPC round trips and 10000 warmups, with healthy control progress and exact settled inventories. A separate public supervision guest preserves 29 admissions across four epochs. The final-source regressions pass 95 kernel host tests, ten prerequisites, complete M1 (33 rows/42 launches), prior runtime/SDK/portable checks and 14 separate metadata flavors. The optimized native observer retains the original 30000-ms deadline and all validation; regression reuse requires identical measured source and compiler hashes. Only the existing exact SDK contract subset remains frozen. P3-14 is now Done with an owner-accepted legacy host-fixture exception; strict M3 exit, guest UI/reload and desktop efficiency targets remain open. See the [acceptance evidence](../../../evidence/phase-3/P3-13/2026-11-01/README.md).
+
+## P3-14 owner-accepted closure
+
+P3-14 is Done by explicit owner acceptance with a legacy host-lifecycle exception. All current guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child misses its original one-second startup bound; that fixture is waived for this story closure only. The strict full gate and M3 exit remain open. No failed check is labeled passed, and no deadline is extended.
+
+See the [evidence, failed fixture and explicit owner exception](../../../evidence/phase-3/P3-14/2026-11-04/README.md). M4 guest UI/reload, M5 migration and safe retirement, M6 durability, M7 accounts/installation and all desktop efficiency targets remain open. Only the existing exact SDK subset is frozen; broader ADRs remain Proposed.

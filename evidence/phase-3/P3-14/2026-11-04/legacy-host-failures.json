@@ -1,0 +1,51 @@
+[
+  {
+    "path": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793841704070924300\\acceptance.json",
+    "sha256": "fc263316a7bff17cf3138f0723fe88f143f39c333511aca542a85e499d2d2f01",
+    "status": "failed",
+    "error": "prerequisite-lifecycle failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793841704070924300",
+    "host_stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 221, in <module>\n    main()\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 152, in main\n    check(\"actual-child-\" + case, report[\"outcome\"] == outcome and report[\"launched\"] and\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 27, in check\n    runtime.require(condition, name)\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\m3_runtime.py\", line 33, in require\n    raise ValueError(message)\nValueError: actual-child-success\n"
+  },
+  {
+    "path": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793841867391254500\\acceptance.json",
+    "sha256": "f290d11dac5896c70c613addd33f180c982785d579abc879c7107a46519b4aca",
+    "status": "failed",
+    "error": "prerequisite-lifecycle failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793841867391254500",
+    "host_stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 221, in <module>\n    main()\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 152, in main\n    check(\"actual-child-\" + case, report[\"outcome\"] == outcome and report[\"launched\"] and\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 27, in check\n    runtime.require(condition, name)\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\m3_runtime.py\", line 33, in require\n    raise ValueError(message)\nValueError: actual-child-success\n"
+  },
+  {
+    "path": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793841978623196700\\acceptance.json",
+    "sha256": "92600c5c2cdbaea98790c2e8d40cd3b7063f0953ff612632b284d19d889b97b3",
+    "status": "failed",
+    "error": "prerequisite-lifecycle failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793841978623196700",
+    "host_stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 221, in <module>\n    main()\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 152, in main\n    check(\"actual-child-\" + case, report[\"outcome\"] == outcome and report[\"launched\"] and\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 27, in check\n    runtime.require(condition, name)\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\m3_runtime.py\", line 53, in require\n    raise ValueError(message)\nValueError: actual-child-nonzero\n"
+  },
+  {
+    "path": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793842097908030400\\acceptance.json",
+    "sha256": "351d8fc8b93d12efb76765782e709912917270b6003db9c319c5abafba960e5b",
+    "status": "failed",
+    "error": "prerequisite-lifecycle failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793842097908030400",
+    "host_stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 221, in <module>\n    main()\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 121, in main\n    directory, report = runtime.run(config, image, sha, \"success\")\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\m3_runtime.py\", line 138, in run\n    directory.mkdir(parents=True)\n  File \"C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\pathlib.py\", line 1311, in mkdir\n    os.mkdir(self, mode)\nFileExistsError: [WinError 183] Cannot create a file when that file already exists: 'C:\\\\Users\\\\archi\\\\Documents\\\\ContinuumOS\\\\build\\\\m3\\\\P3-01\\\\run-1793842101270388000-98056'\n"
+  },
+  {
+    "path": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793842159219119800\\acceptance.json",
+    "sha256": "bc7f344694f427b9f7f7f5df718e95203afb0efab08bb0b3a3f9735ad37d7d88",
+    "status": "failed",
+    "error": "prerequisite-lifecycle failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793842159219119800",
+    "host_stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 221, in <module>\n    main()\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 152, in main\n    check(\"actual-child-\" + case, report[\"outcome\"] == outcome and report[\"launched\"] and\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 27, in check\n    runtime.require(condition, name)\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\m3_runtime.py\", line 56, in require\n    raise ValueError(message)\nValueError: actual-child-success\n"
+  },
+  {
+    "path": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793842443480618900\\acceptance.json",
+    "sha256": "5e275a56549e866167db8fde836a53c64ac5fcba1d3ebf901ea3198ec83b9e81",
+    "status": "failed",
+    "error": "prerequisite-lifecycle failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793842443480618900",
+    "host_stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 221, in <module>\n    main()\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 152, in main\n    check(\"actual-child-\" + case, report[\"outcome\"] == outcome and report[\"launched\"] and\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 27, in check\n    runtime.require(condition, name)\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\m3_runtime.py\", line 56, in require\n    raise ValueError(message)\nValueError: actual-child-success\n"
+  },
+  {
+    "path": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793842538343221800\\acceptance.json",
+    "sha256": "1c0b5b4d8e17b2defff259c63921a41b54b6c04294cf727ca6f42b980adf79f2",
+    "status": "failed",
+    "error": "prerequisite-lifecycle failed; see C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m3\\P3-14\\final-continuation-1793842538343221800",
+    "host_stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 221, in <module>\n    main()\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 152, in main\n    check(\"actual-child-\" + case, report[\"outcome\"] == outcome and report[\"launched\"] and\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\Test-P3-01.py\", line 27, in check\n    runtime.require(condition, name)\n  File \"C:\\Users\\archi\\Documents\\ContinuumOS\\tools\\m3_runtime.py\", line 44, in require\n    raise ValueError(message)\nValueError: actual-child-success\n"
+  }
+]

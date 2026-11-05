@@ -43,8 +43,8 @@ pub(super) fn observe(
                 break None;
             }
         };
-        match records::check(&bytes, expected, false) {
-            Ok(progress) if progress.ready() => {
+        match records::progress(&bytes, expected) {
+            Ok(true) => {
                 if seen_at.is_none() {
                     seen_at = Some(Instant::now());
                 }

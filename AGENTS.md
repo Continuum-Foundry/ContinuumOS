@@ -28,7 +28,7 @@ see `evidence/phase-3/P3-06/2026-10-29/README.md`. P3-07's bounded channels and 
 `evidence/phase-3/P3-11/2026-10-31/README.md`. P3-12's independent bounded SDK and nonrendering runtime hooks pass local self-review; see
 `evidence/phase-3/P3-12/2026-11-01/README.md`. Only its exact tested contract subset
 is frozen. P3-13's bounded SDK stress and resource accounting pass local self-review; see
-`evidence/phase-3/P3-13/2026-11-01/README.md`. Next is P3-14; guest UI/reload and the M3 exit remain open.
+`evidence/phase-3/P3-13/2026-11-01/README.md`. P3-14 is Done by owner acceptance with a legacy host-lifecycle exception; see `evidence/phase-3/P3-14/2026-11-04/README.md`. Strict M3 exit, guest UI/reload and desktop efficiency targets remain open. This is not a standing test waiver.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other

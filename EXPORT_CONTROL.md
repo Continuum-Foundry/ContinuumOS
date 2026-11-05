@@ -1489,3 +1489,8 @@ Listing SHA-256 over `blob + space + path + newline` in this order:
 - `tools/xtask/src/m1/records.rs` — Git blob `0fdcb38e52b4683bc5c1fe789925dfa7754483ed`
 - `tools/xtask/src/m1/user_images.rs` — Git blob `6e9ea5fd09a07c5ebd4dfc6acb2671431faca6a6`
 - `tools/xtask/src/main.rs` — Git blob `a6a31921a794172aa6411897852391500b1ec58e`
+
+## One-time owner exemption — P3-14 PR, 2026-11-04
+
+The owner explicitly authorized an exemption to make the P3-14 pull request. Scope: the staged P3-14 task-only payload represented by Git tree `7d631fde3fe70df2056060d80fa07a3b67a3f86d`, plus this record, to `https://github.com/Continuum-Foundry/ContinuumOS.git`, branch `codex/p3-14-acceptance`, targeting `main`. The one-time push bypasses the pre-push guard; the pre-commit check remains enabled and the guard remains installed. Unrelated local edits and local-only artifacts are excluded. This is not a standing exemption.
+

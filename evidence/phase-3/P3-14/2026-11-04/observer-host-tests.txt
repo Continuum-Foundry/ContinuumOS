@@ -1,0 +1,38 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.34s
+     Running unittests src\main.rs (build\cargo\signed\debug\deps\xtask-cb31c8a23392a25f.exe)
+
+running 31 tests
+test custom::tests::failed_paint_abandons_unpublished_buffer_and_keeps_document ... ignored, requires locked P2-04 fonts; explicitly run by Test-P2-05, outside Phase 0
+test editor::tests::json_decoder_rejects_unknown_keys_overflows_and_wrong_payloads ... ok
+test elf::tests::rejects_unsafe_or_host_linked_images ... ok
+test elf::tests::truncation_and_overflow ... ok
+test elf::tests::valid_static_probe ... ok
+test m1::build::tests::image_bounds_include_bss_and_orphan_load_memory ... ok
+test m1::build::tests::rejects_vector_and_fp_code ... ok
+test m1::inputs::tests::locked_kernel_loader_and_firmware_inputs_fail_closed ... ok
+test m1::inputs::tests::rejects_missing_and_changed_inputs ... ok
+test m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped ... ok
+test m1::package::tests::windows_paths_are_translated_without_shell_quoting ... ok
+test m1::records::tests::expected_rejection_needs_exact_error_and_exit_and_no_ready_marker ... ok
+test m1::records::tests::fatal_requires_exact_hardware_context_symbol_and_exit ... ok
+test m1::records::tests::live_validation_matches_full_capture_at_record_and_partial_boundaries ... ok
+test m1::records::tests::protection_and_real_double_fault_require_owned_context ... ok
+test m1::records::tests::rejects_false_or_incomplete_success ... ok
+test m1::suite::tests::iso_comparison_rejects_unexplained_changes ... ok
+test m2::tests::fixed_matrix_and_rejections ... ok
+test performance::remediation_tests::backdrop_halo_changes_fall_back_but_disjoint_damage_stays_partial ... ok
+test performance::remediation_tests::rich_caret_damage_is_small_and_matches_full_render ... ok
+test probe_arena::tests::alignment_writes_and_disjoint_ranges ... ok
+test probe_arena::tests::exact_limit_failure_is_atomic_and_no_reuse ... ok
+test probe_arena::tests::oversize_overflow_zeroing_and_reallocation ... ok
+test reload::tests::desktop_opacity_is_validated_before_a_generation_can_publish ... ok
+test reload::tests::generation_codec_rejects_unknown_and_wrapping_numeric_fields ... ok
+test reload::tests::immutable_reader_and_weak_registry_are_bounded ... ok
+test reload::tests::staged_frame_reuse_requires_unchanged_render_state_and_submits_fully ... ok
+test reload::tests::trigger_retries_identical_content_after_interrupted_write ... ok
+test ui_fixtures::tests::schema_numeric_values_match_json_schema_semantics ... ok
+test ui_fixtures::tests::shared_corpus_and_all_negative_cases ... ok
+test ui_fixtures::tests::unsupported_schema_keyword_rejects ... ok
+
+test result: ok. 30 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 52.43s
+

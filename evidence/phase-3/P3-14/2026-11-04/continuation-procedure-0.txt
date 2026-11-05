@@ -1,0 +1,93 @@
+"""Owner-requested continuation: completed cases are references, not a passed interrupted run."""
+import json,re,shutil,sys,time
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'tools'))
+import p3_acceptance as g
+OLD=ROOT/'build/m3/P3-14/acceptance-1793833378736137100'
+M1=ROOT/'build/m1/suite-1793833777741823500-104860'
+WORK=ROOT/'work/p3-14-continuation'
+
+def main():
+    g.require(g.source_lock()==g.read(OLD/'source-lock.json'),'source changed since checkpoints')
+    done=g.read(M1/'suite-progress.json')['rows']
+    remaining=g.read(WORK/'m1-remaining.json')
+    g.require([r['case'] for r in remaining]==['timer-unsupported','timer-calibration'] and all(r['exit_code']==0 for r in remaining),'remaining cases incomplete')
+    g.require(len(done)==31 and all(r['status']=='passed' for r in done),'incomplete completed checkpoint rows')
+    for row in done[10:]:
+        result=g.read(M1/row['case']/'result.json')
+        g.require(result['status']=='passed' and result['action']==row['case'],'checkpoint case did not complete')
+    for row in remaining:
+        g.require(g.read(Path(row['artifacts'])/'result.json')['status']=='passed','remaining case not passed')
+    folder=ROOT/'build/m1'/('continuation-'+str(time.time_ns()))
+    folder.mkdir()
+    sources=g.read(M1/'suite-source-inputs.json')
+    for name,sha in sources.items():g.require(g.digest(ROOT/name)==sha,'changed measured source: '+name)
+    builds=[];launches=[]
+    def collect(path):
+        if (path/'build-inputs.json').is_file():
+            inputs=g.read(path/'build-inputs.json');manifest=g.read(path/'build-manifest.json')
+            g.require(inputs['sources']==sources and g.digest(path/'kernel.elf')==manifest['kernel_sha256'],'changed kernel checkpoint')
+            builds.append(dict(directory=str(path),inputs=inputs,manifest=manifest))
+        if (path/'run-result.json').is_file():
+            result=g.read(path/'run-result.json');launch=g.read(path/'launch-manifest.json')
+            g.require(result['cleanup_reaped'] and result['iso_unchanged_after_run'] and result['deadline_ms']==launch['vm']['deadline_ms']==30000,'bad launch checkpoint')
+            g.require(result['status']=='passed' or path.name in ('no-entry-run','bad-config-run'),'unexpected failed checkpoint')
+            launches.append(dict(directory=str(path),result=result,launch=launch))
+        for child in path.iterdir():
+            if child.is_dir() and child.name not in ('cargo','iso root with spaces','extracted payload'):
+                if path==M1 and child.name=='timer-unsupported':continue
+                collect(child)
+    collect(M1)
+    for row in remaining:collect(Path(row['artifacts']))
+    g.require(len(launches)==42 and len({x['result']['host_session_id'] for x in launches})==42,'missing/duplicate launches')
+    flavors={}
+    for item in builds:
+        m=item['manifest'];identity=(m['build_id'],m['kernel_sha256'])
+        g.require(m['flavor'] not in flavors or flavors[m['flavor']]==identity,'within-flavor bytes changed')
+        flavors[m['flavor']]=identity
+    rows=done+[dict(case=r['case'],status='passed') for r in remaining]
+    g.require(len(rows)==33 and len({r['case'] for r in rows})==33,'wrong complete row set')
+    comparison=g.read(M1/'clean-comparison.json')
+    g.save(folder/'suite-inventory.json',dict(builds=builds,launches=launches))
+    shutil.copyfile(M1/'suite-source-inputs.json',folder/'suite-source-inputs.json')
+    shutil.copyfile(M1/'clean-comparison.json',folder/'clean-comparison.json')
+    for name in ('m0','kernel-host'):
+        shutil.copytree(M1/name,folder/name)
+    continuation=dict(mode='owner-directed completed-case continuation',interrupted_aggregate=str(OLD),
+        interrupted_m1=str(M1),checkpoint_sha256=g.digest(M1/'suite-progress.json'),source_lock_sha256=g.digest(OLD/'source-lock.json'),
+        remaining_cases=remaining,authority='Owner stopped testing, then explicitly selected Complete the remaining checks. Completed independent cases revalidated; original interrupted run remains incomplete and is never relabeled passed.',
+        limits='Original guest limits and required row/launch counts unchanged; fresh uninterrupted full-run policy excepted only for this owner-directed continuation.')
+    g.save(folder/'continuation.json',continuation)
+    g.save(OLD/'interruption.json',dict(status='interrupted-by-owner',acceptance=False,continuation=str(folder),source_lock_sha256=g.digest(OLD/'source-lock.json')))
+    g.save(folder/'result.json',dict(schema_version=2,action='suite',status='passed',continuation=continuation,
+        stages=dict(matrix='P1-07',rows=rows,launch_count=42,distinct_sessions=42,sources_unchanged=True,clean_comparison=comparison,
+        required_cases=[r['case'] for r in rows[10:]],limits='experimental baseline; owner-directed completed-case aggregate, not an uninterrupted suite execution')))
+    text=(ROOT/'tools/Test-P3-12.ps1').read_text(encoding='utf-8-sig')
+    text=text.replace('$root = Split-Path $PSScriptRoot -Parent',f"$root = '{ROOT.as_posix()}'")
+    text=text.replace("(Join-Path $PSScriptRoot 'Enter-Dev.ps1')","(Join-Path $root 'tools/Enter-Dev.ps1')")
+    start=text.index('    if ($Prerequisites) {')
+    end=text.index('    $memory=Check owned-memory',start)
+    pre=str(ROOT/'build/m2/P2-01/prerequisites-1793833414584')
+    block=f"""    $report['continuation']=Get-Content '{folder}/continuation.json' -Raw | ConvertFrom-Json
+    $report.runs.prerequisites='{pre}'
+    $report.commands+=@{{name='prerequisites';program='validated-completed-checkpoint';arguments=@('{pre}');exit_code=0;elapsed_ms=0}}
+    $report.runs.m1='{folder}'
+    $report.commands+=@{{name='m1';program='validated-completed-case-aggregate';arguments=@('{folder}/continuation.json');exit_code=0;elapsed_ms=0}}
+    Check m1-review pwsh @('-NoProfile','-File','tools/Review-P1-07.ps1','-Run',$report.runs.m1) | Out-Null
+"""
+    (WORK/'runtime-remaining.ps1').write_text(text[:start]+block+text[end:])
+    stress=(ROOT/'tools/Test-P3-13.ps1').read_text(encoding='utf-8-sig')
+    stress=stress.replace('$root=Split-Path $PSScriptRoot -Parent',f"$root='{ROOT.as_posix()}'")
+    stress=stress.replace("(Join-Path $PSScriptRoot 'Enter-Dev.ps1')","(Join-Path $root 'tools/Enter-Dev.ps1')")
+    lo=stress.index('    if ($RuntimeAcceptance) {')
+    hi=stress.index('    $previous=Get-Content',lo)
+    replacement="""    $priorPath=(Resolve-Path -LiteralPath $RuntimeAcceptance).Path
+    $report['continuation']=@{mode='owner-directed remaining checks';prior_current_runtime=$priorPath;interrupted_root='build/m3/P3-14/acceptance-1793833378736137100';no_interrupted_aggregate_accepted=$true}
+    $report.commands+=@{name='runtime-regressions';program='validated-current-continuation';arguments=@($priorPath);exit_code=0;elapsed_ms=0}
+"""
+    (WORK/'stress-remaining.ps1').write_text(stress[:lo]+replacement+stress[hi:])
+    g.save(WORK/'continuation-inputs.json',dict(m1=str(folder),prerequisites=pre,source_lock=str(OLD/'source-lock.json'),interrupted=str(OLD)))
+    print(folder)
+
+if __name__=='__main__':main()

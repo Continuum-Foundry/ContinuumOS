@@ -31,6 +31,19 @@ impl Progress {
     }
 }
 pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> Result<Progress> {
+    parse(serial, expected, final_log, true)
+}
+/// Every live snapshot runs the same field/order/resource checks as final review.
+/// Only the export-only owned JSON tree is omitted; no record is skipped.
+pub(super) fn progress(serial: &[u8], expected: Expected<'_>) -> Result<bool> {
+    parse(serial, expected, false, false).map(|p| p.ready())
+}
+fn parse(
+    serial: &[u8],
+    expected: Expected<'_>,
+    final_log: bool,
+    capture_records: bool,
+) -> Result<Progress> {
     if serial.len() as u64 > LIMIT {
         return Err("Serial output limit exceeded".into());
     }
@@ -869,7 +882,9 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
             }
             _ => return Err(format!("Unexpected guest event {event}")),
         }
-        p.records.push(json!({"event":event,"fields":fields}));
+        if capture_records {
+            p.records.push(json!({"event":event,"fields":fields}));
+        }
     }
     Ok(p)
 }
@@ -1198,6 +1213,11 @@ mod tests {
             good[..good.len() - 1].into(),
             String::new(),
         ] {
+            assert_eq!(
+                progress(bad.as_bytes(), e),
+                check(bad.as_bytes(), e, false).map(|p| p.ready()),
+                "live/full validation differ: {bad}"
+            );
             assert!(
                 assertions(bad.as_bytes(), e, Some(33), false).is_err(),
                 "{bad}"
@@ -1210,6 +1230,44 @@ mod tests {
         assert!(check(&vec![b'x'; LIMIT as usize + 1], e, false).is_err());
         assert!(!check(b"m1.kernel_entry", e, false).unwrap().ready());
         assert!(check(b"m1.kernel_entry", e, true).is_err());
+    }
+    #[test]
+    fn live_validation_matches_full_capture_at_record_and_partial_boundaries() {
+        let expected = Expected {
+            build: "abc",
+            session: "def",
+            fixture: "normal",
+            rejection: None,
+            fault_rip: None,
+        };
+        let complete = good();
+        let mut prefix = String::new();
+        for line in complete.split_inclusive('\n') {
+            prefix.push_str(line);
+            for bytes in [prefix.as_bytes(), &prefix.as_bytes()[..prefix.len() - 1]] {
+                assert_eq!(
+                    progress(bytes, expected),
+                    check(bytes, expected, false).map(|p| p.ready())
+                );
+            }
+        }
+        assert_eq!(progress(complete.as_bytes(), expected), Ok(true));
+        assert!(
+            check(complete.as_bytes(), expected, true)
+                .unwrap()
+                .records
+                .len()
+                > 100
+        );
+        for bytes in [
+            vec![b'x'; LIMIT as usize + 1],
+            b"m1.kernel_entry \xff\n".to_vec(),
+        ] {
+            assert_eq!(
+                progress(&bytes, expected),
+                check(&bytes, expected, false).map(|p| p.ready())
+            );
+        }
     }
     #[test]
     fn expected_rejection_needs_exact_error_and_exit_and_no_ready_marker() {

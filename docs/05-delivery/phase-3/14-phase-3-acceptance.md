@@ -66,9 +66,9 @@ processes and interoperable contracts before guest desktop and live-update integ
 
 ## Acceptance criteria
 
-- [x] Owner accepted the final identified guest matrix and explicitly waived the
-  legacy P3-01 host-lifecycle fixture. The strict full gate remains unpassed;
-  no hosted model or compile/link result substitutes for guest enforcement.
+- [x] The fresh strict full gate and independent aggregate review pass at the
+  original guest and host deadlines, including the legacy P3-01 lifecycle fixture.
+  No hosted model or compile/link result substitutes for guest enforcement.
 - [x] Independent client/service/codec and actual optical-boot evidence verify the
   tested ABI subset, fault containment and absence of a stale-writer bypass.
 - [x] Full identity/authority matrix, structural quotas, child ceilings, brokered
@@ -105,6 +105,21 @@ Apply the [epic definition of done](README.md#evidence-and-story-completion).
 
 ## P3-14 owner-accepted closure
 
-P3-14 is Done by explicit owner acceptance with a legacy host-lifecycle exception. All current guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child misses its original one-second startup bound; that fixture is waived for this story closure only. The strict full gate and M3 exit remain open. No failed check is labeled passed, and no deadline is extended.
+P3-14 was closed on 2026-11-04 by explicit owner acceptance with a legacy host-lifecycle exception. In that earlier evidence, guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child missed its original one-second startup bound; the owner waived it for that earlier closure only. That run did not pass the strict gate; the subsequent strict result is recorded below. No failed check is labeled passed, and no deadline is extended.
 
 See the [evidence, failed fixture and explicit owner exception](../../../evidence/phase-3/P3-14/2026-11-04/README.md). M4 guest UI/reload, M5 migration and safe retirement, M6 durability, M7 accounts/installation and all desktop efficiency targets remain open. Only the existing exact SDK subset is frozen; broader ADRs remain Proposed.
+
+
+## Strict M3 acceptance - 2026-11-06
+
+The fresh full P3-14 gate and independent aggregate reviewer pass all 23
+matrix rows and five deliberate failures at the original 30000-ms guest,
+1000-ms normal host-fixture and 1-ms negative guest limits. No historical
+regression or prerequisite reuse and no exception are used for this result.
+M3's declared isolated-runtime/interface exit passes local Codex self-review;
+M4 guest desktop/live assets is next. Guest UI/reload, M5 migration/retirement,
+durability, real accounts and desktop efficiency targets remain open.
+
+See the [strict acceptance and runner repair evidence](../../../evidence/phase-3/P3-14/2026-11-06/README.md). The earlier
+failed/interrupted runs and owner exception remain recorded as history; only
+the existing exact SDK subset is frozen. This is not human/security certification.

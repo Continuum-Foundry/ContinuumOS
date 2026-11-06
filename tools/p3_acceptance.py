@@ -6,6 +6,7 @@ Full logs, artifacts and patches remain local. No historical-run reuse.
 import argparse
 import copy
 import ctypes
+from datetime import datetime, timezone
 from ctypes import wintypes
 import importlib.util
 import json
@@ -146,6 +147,8 @@ class ChildJob:
 
 def command(run, name, args, timeout):
     started = time.monotonic()
+    started_utc = datetime.now(timezone.utc).isoformat()
+    print(f'M3 stage start name={name} utc={started_utc} artifacts={run}', flush=True)
     job = ChildJob()
     process = None
     timed_out = False
@@ -154,20 +157,40 @@ def command(run, name, args, timeout):
             process = subprocess.Popen(args, cwd=ROOT, stdout=stdout, stderr=stderr,
                                        creationflags=subprocess.CREATE_NO_WINDOW)
             job.assign(process)
-            try:
-                process.wait(timeout=timeout)
-            except subprocess.TimeoutExpired:
-                timed_out = True
-                job.close()
-                process.wait(timeout=10)
+            with (run / (name + '.stdout.log')).open('rb') as live:
+                pending = b''
+                while True:
+                    pending += live.read()
+                    lines = pending.split(b'\n')
+                    pending = lines.pop()
+                    for line in lines:
+                        if line.startswith(b'M3 stage '):
+                            print(line.decode('utf-8', errors='replace'), flush=True)
+                    remaining = timeout - (time.monotonic() - started)
+                    if remaining <= 0:
+                        timed_out = True
+                        job.close()
+                        process.wait(timeout=10)
+                        break
+                    try:
+                        process.wait(timeout=min(0.25, remaining))
+                        # Drain final progress records after process exit.
+                        for line in (pending + live.read()).splitlines():
+                            if line.startswith(b'M3 stage '):
+                                print(line.decode('utf-8', errors='replace'), flush=True)
+                        break
+                    except subprocess.TimeoutExpired:
+                        pass
     finally:
         job.close()
         if process is not None:
             process.wait(timeout=10)
     result = dict(name=name, arguments=args, exit_code=process.returncode,
+                  started_utc=started_utc, finished_utc=datetime.now(timezone.utc).isoformat(),
                   timed_out=timed_out, deadline_seconds=timeout,
                   cleanup_reaped=True, elapsed_ms=round((time.monotonic() - started) * 1000))
     save(run / (name + '-command.json'), result)
+    print(f'M3 stage finish name={name} exit={process.returncode} elapsed_ms={result["elapsed_ms"]} artifacts={run}', flush=True)
     if timed_out or result['exit_code'] != 0:
         raise CommandFailure(f'{name} failed; see {run}', result)
     return result
@@ -332,6 +355,7 @@ def run_gate():
     print('P3-14 local run: ' + str(run), flush=True)
     try:
         report['commands'].append(command(run, 'runner-tests', [sys.executable, 'tools/Test-P3-14Runner.py'], 30))
+        report['commands'].append(command(run, 'host-lifecycle-preflight', [sys.executable, 'tools/Test-M3HostLifecycle.py'], 30))
         # Force one fresh public stress build; later repetitions may share its
         # exact source/compiler-keyed immutable artifact. Preserve old caches.
         cache = (ROOT / 'build/m3/P3-13/public-cache').resolve()
@@ -359,6 +383,9 @@ def run_gate():
         report['negative_probes'] = negatives(run, local(prior['runs']['sdk_runtime']))
         require(source_lock() == locked, 'implementation source set changed during acceptance')
         report['status'] = 'passed'
+    except KeyboardInterrupt:
+        report.update(status='interrupted', error='owner interrupted acceptance')
+        raise
     except Exception as error:
         if isinstance(error, CommandFailure):
             report['commands'].append(error.result)
@@ -378,7 +405,7 @@ def review(path, destination=None):
     require(read(CONFIG)['required_matrix'] == list(MATRIX), 'missing/unknown matrix scenario')
     locked = read(path.parent / 'source-lock.json')
     require(digest(path.parent / 'source-lock.json') == acceptance['source_lock_sha256'] and locked == source_lock(), 'stale acceptance source')
-    require([c['name'] for c in acceptance['commands']] == ['runner-tests', 'runtime-stress', 'prerequisite-lifecycle'] and all(c['exit_code'] == 0 and not c['timed_out'] and c['cleanup_reaped'] for c in acceptance['commands']), 'missing/failed required command')
+    require([c['name'] for c in acceptance['commands']] == ['runner-tests', 'host-lifecycle-preflight', 'runtime-stress', 'prerequisite-lifecycle'] and all(c['exit_code'] == 0 and not c['timed_out'] and c['cleanup_reaped'] for c in acceptance['commands']), 'missing/failed required command')
     stress_path = local(acceptance['runs']['stress_acceptance'])
     stress = read(stress_path)
     require('regression_reuse' not in stress, 'historical stress regression reuse')
@@ -390,13 +417,14 @@ def review(path, destination=None):
                       'supervisor', 'policy', 'routes', 'sdk', 'sdk-runtime',
                       'sdk-codec-build', 'sdk-codecs', 'sdk-flavors', 'm2-portable']
     require([c['name'] for c in prior['commands']] == expected_prior, 'missing/substituted runtime command')
-    expected_stress = ['runtime-regressions', 'runtime-regression-review', 'public-supervision', 'public-supervision-review']
+    expected_stress = ['public-supervision', 'public-supervision-review']
     for repetition in range(5):
         for trace in ('off', 'on'):
             label = f'stress-{trace}-{repetition}'
             expected_stress += [label, label+'-review']
             if trace == 'off' and repetition == 0:
                 expected_stress += ['stress-flavors']
+    expected_stress += ['runtime-regressions', 'runtime-regression-review']
     require([c['name'] for c in stress['commands']] == expected_stress, 'missing/substituted stress command')
     # Full existing independent raw-byte, artifact, inventory, authority and
     # codegen review. A pass string alone is never the aggregate oracle.

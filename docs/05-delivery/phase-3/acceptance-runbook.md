@@ -1,8 +1,8 @@
 # Phase 3 aggregate acceptance
 
-P3-14 is Done by owner acceptance with one legacy host-lifecycle exception.
-The strict full gate has not passed; the default command below retains every
-original check and deadline for future runs. Keep the host awake. Run serially in the existing
+P3-14 passes the strict full gate at its original limits; see the result below.
+The earlier owner-accepted host exception remains historical evidence.
+The default command below retains every original check and deadline. Keep the host awake. Run serially in the existing
 approved Windows development signer/xorriso context; do not change power/security
 settings. Full generated files remain local under `build/m3/P3-14/` and `work/`.
 
@@ -23,7 +23,9 @@ Documentation and evidence can be prepared during execution without changing the
 measured implementation. Final documentation hashes are recorded at promotion.
 
 The runner executes its host lifecycle tests and a fresh complete P3-13 gate with
-no regression/prerequisite reuse. P3-13 calls the complete P3-12 gate: ten Phase 0/
+no regression/prerequisite reuse. P3-13 runs the bounded stress guests first, so
+a stress deadline failure is reported before the longer regression suite. A pass
+still requires the complete P3-12 gate: ten Phase 0/
 signing/doctor prerequisites, all 33 M1 rows/42 optical launches, 95 kernel host
 tests, separate memory/loader/boundary/scheduler/handle/channel/wait/supervision/
 policy/route/SDK/runtime guests, independent codecs, eleven metadata flavors and
@@ -40,17 +42,38 @@ host-child failures. Independent reviewers reopen the raw serial, ELF/disassembl
 extracted ISO images, build identities, authority decisions and resource series.
 This is local Codex self-review, not independent human or security approval.
 
-The live native observer uses the same strict parser as final review with owned
-JSON record-tree capture disabled during polling. Every current snapshot still
-runs all field, sequence, stage and resource checks; the 20-ms polling sleep,
-log caps, readiness policy and deadlines are unchanged. Final assertions and
-export still build and consume the complete record tree. Host tests compare both
-paths over malformed records, complete prefixes and partial-record boundaries.
-On one captured 931,175-byte stress log, 30 release-mode checks took 506.194 ms
-with record capture and 116.052 ms without it. These are host-parser observations,
-not guest CPU or desktop performance results. The changed host source requires a
-fresh final-source regression gate; the earlier passing runtime subset alone
-does not accept this observer revision.
+The live native observer reads only appended serial bytes and retains parser
+state between polls. It buffers partial lines and applies the same field,
+sequence, stage and resource checks to every completed record. Truncation,
+malformed records and output-limit violations fail closed. The 20-ms polling
+sleep, log caps, readiness policy and original deadlines remain unchanged. Final
+assertions reopen and validate the complete log and export its full record tree.
+Reports include live read-byte counts and read/parse time. Differential tests cover
+chunk boundaries and invalid input; the opt-in retained-log benchmark compares
+full-prefix polling with incremental parsing. This measures host parser work,
+not guest CPU or desktop performance. Changed host source still requires fresh
+final-source acceptance.
+
+An early host-only lifecycle preflight runs success, nonzero, missing-final and
+timeout children before the expensive guest suite; the later complete P3-01 gate
+remains mandatory. Child reports separate process-creation and post-creation
+time. Nested runners stream stage timestamps and artifact paths as work starts
+and finishes. To diagnose only the ten stress guests and public supervision:
+
+```powershell
+pwsh -NoProfile -File tools/Test-P3-13.ps1 -StressOnly
+```
+
+This command produces `diagnostic-passed`, which the final acceptance reviewer
+rejects as a substitute for the complete gate. Supplied runtime reuse references
+are validated before any guest launch; final P3-14 still forbids such reuse.
+
+The supervision fixture's diagnostic-rate assertion observes guest clock values
+around each call. Its bounded oracle accounts for a call crossing an elapsed
+one-second quota boundary and requires a witnessed quota rejection. It still
+rejects a fifth accepted call in a known unchanged window and premature quota
+errors. The ordinary and public-SDK fixtures share this oracle; the kernel's
+four-record allowance, guest limits and independent resource review are unchanged.
 
 Five deliberate failures exercise the aggregate consumer. A malformed user ELF
 and wrong artifact hash reject before launch. Three fresh executions of the exact
@@ -86,6 +109,21 @@ frame/input targets remain open.
 
 ## P3-14 owner-accepted closure
 
-P3-14 is Done by explicit owner acceptance with a legacy host-lifecycle exception. All current guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child misses its original one-second startup bound; that fixture is waived for this story closure only. The strict full gate and M3 exit remain open. No failed check is labeled passed, and no deadline is extended.
+P3-14 was closed on 2026-11-04 by explicit owner acceptance with a legacy host-lifecycle exception. In that earlier evidence, guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child missed its original one-second startup bound; the owner waived it for that earlier closure only. That run did not pass the strict gate; the subsequent strict result is recorded below. No failed check is labeled passed, and no deadline is extended.
 
 See the [evidence, failed fixture and explicit owner exception](../../../evidence/phase-3/P3-14/2026-11-04/README.md). M4 guest UI/reload, M5 migration and safe retirement, M6 durability, M7 accounts/installation and all desktop efficiency targets remain open. Only the existing exact SDK subset is frozen; broader ADRs remain Proposed.
+
+
+## Strict M3 acceptance - 2026-11-06
+
+The fresh full P3-14 gate and independent aggregate reviewer pass all 23
+matrix rows and five deliberate failures at the original 30000-ms guest,
+1000-ms normal host-fixture and 1-ms negative guest limits. No historical
+regression or prerequisite reuse and no exception are used for this result.
+M3's declared isolated-runtime/interface exit passes local Codex self-review;
+M4 guest desktop/live assets is next. Guest UI/reload, M5 migration/retirement,
+durability, real accounts and desktop efficiency targets remain open.
+
+See the [strict acceptance and runner repair evidence](../../../evidence/phase-3/P3-14/2026-11-06/README.md). The earlier
+failed/interrupted runs and owner exception remain recorded as history; only
+the existing exact SDK subset is frozen. This is not human/security certification.

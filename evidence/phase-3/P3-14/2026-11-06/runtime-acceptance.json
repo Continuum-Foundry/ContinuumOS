@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "story": "P3-12",
+  "status": "passed",
+  "commands": [
+    {
+      "finished_utc": "2026-11-06T05:50:22.5425187+00:00",
+      "elapsed_ms": 299030,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ],
+      "program": "pwsh",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T05:45:23.4993445+00:00",
+      "name": "prerequisites"
+    },
+    {
+      "finished_utc": "2026-11-06T06:27:22.2497104+00:00",
+      "elapsed_ms": 2219670,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Test-P1-07.ps1"
+      ],
+      "program": "pwsh",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T05:50:22.5790972+00:00",
+      "name": "m1"
+    },
+    {
+      "finished_utc": "2026-11-06T06:27:29.6489805+00:00",
+      "elapsed_ms": 7384,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Review-P1-07.ps1",
+        "-Run",
+        "${WORKSPACE}\\build/m1\\suite-1793944225279488300-48200"
+      ],
+      "program": "pwsh",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:27:22.2639319+00:00",
+      "name": "m1-review"
+    },
+    {
+      "finished_utc": "2026-11-06T06:28:25.2644819+00:00",
+      "elapsed_ms": 55603,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:27:29.6612053+00:00",
+      "name": "owned-memory"
+    },
+    {
+      "finished_utc": "2026-11-06T06:29:33.1319381+00:00",
+      "elapsed_ms": 67857,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "static-loader"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:28:25.2740032+00:00",
+      "name": "static-loader"
+    },
+    {
+      "finished_utc": "2026-11-06T06:32:32.6555627+00:00",
+      "elapsed_ms": 179503,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:29:33.1456136+00:00",
+      "name": "user-boundary"
+    },
+    {
+      "finished_utc": "2026-11-06T06:34:49.2449552+00:00",
+      "elapsed_ms": 136572,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "scheduler"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:32:32.6724189+00:00",
+      "name": "scheduler"
+    },
+    {
+      "finished_utc": "2026-11-06T06:36:02.8693704+00:00",
+      "elapsed_ms": 73610,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "capabilities"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:34:49.2583315+00:00",
+      "name": "capabilities"
+    },
+    {
+      "finished_utc": "2026-11-06T06:37:20.7123514+00:00",
+      "elapsed_ms": 77828,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "channels"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:36:02.8831936+00:00",
+      "name": "channels"
+    },
+    {
+      "finished_utc": "2026-11-06T06:38:40.9249267+00:00",
+      "elapsed_ms": 80200,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "waits"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:37:20.7238727+00:00",
+      "name": "waits"
+    },
+    {
+      "finished_utc": "2026-11-06T06:40:05.3608806+00:00",
+      "elapsed_ms": 84423,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "supervisor"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:38:40.9367823+00:00",
+      "name": "supervisor"
+    },
+    {
+      "finished_utc": "2026-11-06T06:41:37.3017401+00:00",
+      "elapsed_ms": 91931,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "policy"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:40:05.3702241+00:00",
+      "name": "policy"
+    },
+    {
+      "finished_utc": "2026-11-06T06:43:07.7073046+00:00",
+      "elapsed_ms": 90393,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "routes"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:41:37.3131547+00:00",
+      "name": "routes"
+    },
+    {
+      "finished_utc": "2026-11-06T06:44:53.6470679+00:00",
+      "elapsed_ms": 105928,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:43:07.7182965+00:00",
+      "name": "sdk"
+    },
+    {
+      "finished_utc": "2026-11-06T06:46:34.4725725+00:00",
+      "elapsed_ms": 100816,
+      "arguments": [
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-runtime"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:44:53.6562692+00:00",
+      "name": "sdk-runtime"
+    },
+    {
+      "finished_utc": "2026-11-06T06:46:35.1077959+00:00",
+      "elapsed_ms": 625,
+      "arguments": [
+        "build",
+        "--locked",
+        "--offline",
+        "--manifest-path",
+        "sdk/continuum-rt/Cargo.toml",
+        "--bin",
+        "conformance"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:46:34.4817515+00:00",
+      "name": "sdk-codec-build"
+    },
+    {
+      "finished_utc": "2026-11-06T06:46:42.0656584+00:00",
+      "elapsed_ms": 6948,
+      "arguments": [
+        "tools/sdk_contract.py",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793943917014\\codecs",
+        "--production",
+        "${WORKSPACE}\\build\\cargo\\signed\\debug\\conformance.exe"
+      ],
+      "program": "python",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:46:35.1169841+00:00",
+      "name": "sdk-codecs"
+    },
+    {
+      "finished_utc": "2026-11-06T06:47:04.5606057+00:00",
+      "elapsed_ms": 22483,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Check-P3-12Flavors.ps1",
+        "-Descriptors",
+        "${WORKSPACE}\\build/m1\\sdk-1793947390188325900-41700",
+        "-Output",
+        "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793943917014\\flavors"
+      ],
+      "program": "pwsh",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:46:42.0766079+00:00",
+      "name": "sdk-flavors"
+    },
+    {
+      "finished_utc": "2026-11-06T06:47:12.5006171+00:00",
+      "elapsed_ms": 7938,
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Check-P3-12Portable.ps1",
+        "-Output",
+        "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793943917014\\portable"
+      ],
+      "program": "pwsh",
+      "exit_code": 0,
+      "started_utc": "2026-11-06T06:47:04.5622111+00:00",
+      "name": "m2-portable"
+    }
+  ],
+  "runs": {
+    "sdk_runtime": "${WORKSPACE}\\build/m1\\sdk-runtime-1793947496072201400-46016",
+    "sdk": "${WORKSPACE}\\build/m1\\sdk-1793947390188325900-41700",
+    "routes": "${WORKSPACE}\\build/m1\\routes-1793947299576396100-47068",
+    "supervisor": "${WORKSPACE}\\build/m1\\supervisor-1793947123617212200-30468",
+    "boundary": "${WORKSPACE}\\build/m1\\user-boundary-1793946575669017900-12308",
+    "portable": "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793943917014\\portable",
+    "waits": "${WORKSPACE}\\build/m1\\waits-1793947043203715200-41460",
+    "prerequisites": "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1793943924410",
+    "scheduler": "${WORKSPACE}\\build/m1\\scheduler-1793946755643758400-42084",
+    "channels": "${WORKSPACE}\\build/m1\\channels-1793946965337762400-40512",
+    "loader": "${WORKSPACE}\\build/m1\\static-loader-1793946507607070300-36544",
+    "codecs": "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793943917014\\codecs",
+    "m1": "${WORKSPACE}\\build/m1\\suite-1793944225279488300-48200",
+    "policy": "${WORKSPACE}\\build/m1\\policy-1793947207748329000-48712",
+    "flavors": "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1793943917014\\flavors",
+    "capabilities": "${WORKSPACE}\\build/m1\\capabilities-1793946891773574100-30884",
+    "memory": "${WORKSPACE}\\build/m1\\owned-memory-1793946451460177800-48192"
+  },
+  "source_commit": "254e73b3e589e24278fab00a32aaa6bdfb39435b",
+  "user_execution": true,
+  "host_test_threads": 1
+}

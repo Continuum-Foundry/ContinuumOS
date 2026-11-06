@@ -52,7 +52,7 @@ B32 measurements/acceptance. B37 remains interface/model work until its B13 and
 replacement dependencies pass; B07/B36 still need M4 guest confirmation. This
 decomposition does not change the Bxx dependencies or mark later requirements Done.
 
-M3 has [fourteen local Phase 3 stories](phase-3/README.md). P3-01 [passes local prerequisites/contracts](../../evidence/phase-3/P3-01/2026-10-25/README.md); this is B01/B02 follow-up, B06/B11–B13 design and B32 profile setup, not runtime implementation. P3-02 [passes the bounded memory foundation](../../evidence/phase-3/P3-02/2026-10-25/README.md), covering B05 follow-up and B11/B13 memory preparation. P3-03 [passes static-loader/launch staging](../../evidence/phase-3/P3-03/2026-10-25/README.md), covering B11 trusted boot-image admission and launch bindings without user execution. P3-04 [passes local user-entry/syscall/fault acceptance](../../evidence/phase-3/P3-04/2026-10-26/README.md), covering B11 entry/syscalls and B13 process-local failure groundwork. P3-01 through P3-13 are Done; P3-14 is Done with the owner-accepted host-fixture exception. P3-02–P3-05 cover memory,
+M3 has [fourteen local Phase 3 stories](phase-3/README.md). P3-01 [passes local prerequisites/contracts](../../evidence/phase-3/P3-01/2026-10-25/README.md); this is B01/B02 follow-up, B06/B11–B13 design and B32 profile setup, not runtime implementation. P3-02 [passes the bounded memory foundation](../../evidence/phase-3/P3-02/2026-10-25/README.md), covering B05 follow-up and B11/B13 memory preparation. P3-03 [passes static-loader/launch staging](../../evidence/phase-3/P3-03/2026-10-25/README.md), covering B11 trusted boot-image admission and launch bindings without user execution. P3-04 [passes local user-entry/syscall/fault acceptance](../../evidence/phase-3/P3-04/2026-10-26/README.md), covering B11 entry/syscalls and B13 process-local failure groundwork. P3-01 through P3-13 are Done; P3-14 is Done with subsequent strict M3 acceptance at the original limits. P3-02–P3-05 cover memory,
 static loading, user entry/syscalls and B06 preemption/FP state. P3-06–P3-08 cover
 B12 objects/handles/channels/waits. P3-09–P3-11 complete B13 supervision, quotas,
 scoped policy and proxy-route fencing. P3-12 proves independent SDK interoperability,
@@ -173,6 +173,21 @@ P3-06 [passes local handle/memory-object acceptance](../../evidence/phase-3/P3-0
 
 ## P3-14 owner-accepted closure
 
-P3-14 is Done by explicit owner acceptance with a legacy host-lifecycle exception. All current guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child misses its original one-second startup bound; that fixture is waived for this story closure only. The strict full gate and M3 exit remain open. No failed check is labeled passed, and no deadline is extended.
+P3-14 was closed on 2026-11-04 by explicit owner acceptance with a legacy host-lifecycle exception. In that earlier evidence, guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child missed its original one-second startup bound; the owner waived it for that earlier closure only. That run did not pass the strict gate; the subsequent strict result is recorded below. No failed check is labeled passed, and no deadline is extended.
 
 See the [evidence, failed fixture and explicit owner exception](../../evidence/phase-3/P3-14/2026-11-04/README.md). M4 guest UI/reload, M5 migration and safe retirement, M6 durability, M7 accounts/installation and all desktop efficiency targets remain open. Only the existing exact SDK subset is frozen; broader ADRs remain Proposed.
+
+
+## Strict M3 acceptance - 2026-11-06
+
+The fresh full P3-14 gate and independent aggregate reviewer pass all 23
+matrix rows and five deliberate failures at the original 30000-ms guest,
+1000-ms normal host-fixture and 1-ms negative guest limits. No historical
+regression or prerequisite reuse and no exception are used for this result.
+M3's declared isolated-runtime/interface exit passes local Codex self-review;
+M4 guest desktop/live assets is next. Guest UI/reload, M5 migration/retirement,
+durability, real accounts and desktop efficiency targets remain open.
+
+See the [strict acceptance and runner repair evidence](../../evidence/phase-3/P3-14/2026-11-06/README.md). The earlier
+failed/interrupted runs and owner exception remain recorded as history; only
+the existing exact SDK subset is frozen. This is not human/security certification.

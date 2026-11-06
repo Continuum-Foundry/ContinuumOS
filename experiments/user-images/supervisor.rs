@@ -1,5 +1,7 @@
 #![no_std]
 #![no_main]
+#[path = "../sdk-stress/src/rate_window.rs"]
+mod rate_window;
 mod runtime;
 use core::{
     arch::{asm, global_asm},
@@ -61,6 +63,22 @@ fn wait_ns(n: u64) {
     while now() < end {
         yield_now();
     }
+}
+// Preserve the four-per-elapsed-second rule across actual epoch boundaries.
+// No kernel quota, clock, resource limit or guest deadline is changed.
+fn check_log_rate() {
+    let mut rate = crate::rate_window::RateWindow::new(now());
+    for _ in 0..16 {
+        let before = now();
+        let status = invoke(DIAGNOSTIC_LOG, b"rate".as_ptr() as u64, 4, 0, 0).0;
+        let after = now();
+        match rate.observe(before, after, status) {
+            Ok(true) => return,
+            Ok(false) => {}
+            Err(()) => check(false),
+        }
+    }
+    check(false);
 }
 fn encode<const N: usize>(words: [u64; N]) -> [u8; 96] {
     let mut b = [0; 96];
@@ -292,10 +310,7 @@ fn root(wave: u64) {
             let p = spawn(1200, 2);
             join(p, 0);
             check(create_request(request(1000, 1)).0 == QUOTAEXCEEDED);
-            for _ in 0..4 {
-                check(invoke(DIAGNOSTIC_LOG, b"rate".as_ptr() as u64, 4, 0, 0).0 == 0);
-            }
-            check(invoke(DIAGNOSTIC_LOG, b"rate".as_ptr() as u64, 4, 0, 0).0 == QUOTAEXCEEDED);
+            check_log_rate();
         }
         2 => {
             let t = spawn(1001, 1);

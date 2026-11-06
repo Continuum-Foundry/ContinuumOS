@@ -1,6 +1,6 @@
 # P3-13 bounded stress experiment
 
-Status: declared bounded P3-13 subset passes local Codex self-review; M3 exit remains open.
+Status: declared bounded P3-13 subset passes local Codex self-review; subsequent strict M3 acceptance is recorded below.
 See the [reviewed measurements](../../../evidence/phase-3/P3-13/2026-11-01/README.md).
 The [story](13-adversarial-lifecycle-and-resource-accounting.md) and
 [fixed inputs](../../../config/p3-13-stress.json) govern the experiment.
@@ -141,3 +141,18 @@ Measured results, source identities, accounting detail and unsafe-code review
 are retained in the compact evidence linked above. Full generated traces and images
 remain local under ignored build/work directories.
 The 256 MiB cold-idle desktop, guest UI/reload and M3 exit remain open.
+
+
+## Strict M3 acceptance - 2026-11-06
+
+The fresh full P3-14 gate and independent aggregate reviewer pass all 23
+matrix rows and five deliberate failures at the original 30000-ms guest,
+1000-ms normal host-fixture and 1-ms negative guest limits. No historical
+regression or prerequisite reuse and no exception are used for this result.
+M3's declared isolated-runtime/interface exit passes local Codex self-review;
+M4 guest desktop/live assets is next. Guest UI/reload, M5 migration/retirement,
+durability, real accounts and desktop efficiency targets remain open.
+
+See the [strict acceptance and runner repair evidence](../../../evidence/phase-3/P3-14/2026-11-06/README.md). The earlier
+failed/interrupted runs and owner exception remain recorded as history; only
+the existing exact SDK subset is frozen. This is not human/security certification.

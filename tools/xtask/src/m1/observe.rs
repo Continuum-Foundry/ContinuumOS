@@ -7,11 +7,33 @@ use crate::{Result, write_json};
 use serde_json::{Value, json};
 use std::{
     fs,
+    io::Read,
     path::Path,
     process::Command,
     thread,
     time::{Duration, Instant},
 };
+
+fn read_appended(
+    reader: &mut fs::File,
+    read_bytes: &mut u64,
+    appended: &mut Vec<u8>,
+) -> Result<()> {
+    let length = reader.metadata().map_err(|e| e.to_string())?.len();
+    if length < *read_bytes {
+        return Err("Serial log truncated".into());
+    }
+    if length > super::process::LIMIT {
+        return Err("Serial output limit exceeded".into());
+    }
+    reader
+        .by_ref()
+        .take(super::process::LIMIT + 1 - *read_bytes)
+        .read_to_end(appended)
+        .map_err(|e| e.to_string())?;
+    *read_bytes += appended.len() as u64;
+    Ok(())
+}
 
 pub(super) fn observe(
     c: &mut Command,
@@ -27,6 +49,12 @@ pub(super) fn observe(
     let mut child = OwnedChild(c.spawn().map_err(|e| e.to_string())?);
     let pid = child.0.id();
     let start = Instant::now();
+    let mut reader = fs::File::open(&serial).map_err(|e| e.to_string())?;
+    let mut parser = records::StreamParser::default();
+    let mut read_bytes = 0u64;
+    let mut read_ns = 0u128;
+    let mut parse_ns = 0u128;
+    let mut appended = Vec::new();
     let mut seen_at = None;
     let mut timeout = false;
     let mut error = None;
@@ -36,14 +64,21 @@ pub(super) fn observe(
             error = Some("VM log limit exceeded".into());
             break None;
         }
-        let bytes = match read_log(&serial) {
-            Ok(bytes) => bytes,
+        let read_start = Instant::now();
+        appended.clear();
+        let read = read_appended(&mut reader, &mut read_bytes, &mut appended);
+        read_ns += read_start.elapsed().as_nanos();
+        match read {
+            Ok(()) => {}
             Err(e) => {
                 error = Some(e);
                 break None;
             }
-        };
-        match records::progress(&bytes, expected) {
+        }
+        let parse_start = Instant::now();
+        let progress = parser.feed(&appended, expected);
+        parse_ns += parse_start.elapsed().as_nanos();
+        match progress {
             Ok(true) => {
                 if seen_at.is_none() {
                     seen_at = Some(Instant::now());
@@ -94,7 +129,7 @@ pub(super) fn observe(
             }
         })
     };
-    let report = json!({"schema_version":1,"status":if checked.is_ok(){"passed"}else{"failed"},"error":checked.err(),"build_id":expected.build,"host_session_id":expected.session,"fixture":expected.fixture,"pid":pid,"deadline_ms":deadline.as_millis(),"timed_out":timeout,"kernel_entry_observed":bytes.split(|b| *b == b'\n').any(|l| l.starts_with(b"m1.kernel_entry ")),"emulator_test_exit":if test {code}else{None},"final_process_exit":final_status.code(),"host_stopped_after_checkpoint":stopped,"cleanup_reaped":true,"elapsed_host_ms":start.elapsed().as_millis(),"guest_shutdown_claimed":false});
+    let report = json!({"observer_read_bytes":read_bytes,"observer_read_ns":read_ns,"observer_parse_ns":parse_ns,"schema_version":1,"status":if checked.is_ok(){"passed"}else{"failed"},"error":checked.err(),"build_id":expected.build,"host_session_id":expected.session,"fixture":expected.fixture,"pid":pid,"deadline_ms":deadline.as_millis(),"timed_out":timeout,"kernel_entry_observed":bytes.split(|b| *b == b'\n').any(|l| l.starts_with(b"m1.kernel_entry ")),"emulator_test_exit":if test {code}else{None},"final_process_exit":final_status.code(),"host_stopped_after_checkpoint":stopped,"cleanup_reaped":true,"elapsed_host_ms":start.elapsed().as_millis(),"guest_shutdown_claimed":false});
     if let Ok(progress) = records::check(&bytes, expected, true) {
         write_json(
             &dir.join("guest-records.json"),
@@ -110,6 +145,38 @@ mod tests {
     use super::super::support::fresh;
     use super::*;
     use crate::tool;
+    #[test]
+    fn append_reader_reads_only_new_bytes_and_rejects_truncation_and_overflow() {
+        use std::io::Write;
+        let dir = fresh("append-reader").unwrap();
+        let path = dir.join("serial.log");
+        let mut writer = fs::File::create(&path).unwrap();
+        let mut reader = fs::File::open(&path).unwrap();
+        let mut count = 0;
+        let mut bytes = Vec::new();
+        writer.write_all(b"abc").unwrap();
+        read_appended(&mut reader, &mut count, &mut bytes).unwrap();
+        assert_eq!(bytes, b"abc");
+        bytes.clear();
+        read_appended(&mut reader, &mut count, &mut bytes).unwrap();
+        assert!(bytes.is_empty());
+        writer.write_all(b"def").unwrap();
+        read_appended(&mut reader, &mut count, &mut bytes).unwrap();
+        assert_eq!(bytes, b"def");
+        assert_eq!(count, 6);
+        writer.set_len(1).unwrap();
+        assert!(
+            read_appended(&mut reader, &mut count, &mut bytes)
+                .unwrap_err()
+                .contains("truncated")
+        );
+        writer.set_len(super::super::process::LIMIT + 1).unwrap();
+        assert!(
+            read_appended(&mut reader, &mut count, &mut bytes)
+                .unwrap_err()
+                .contains("limit")
+        );
+    }
     #[test]
     fn process_success_failure_timeout_and_log_limit_are_reaped() {
         for (name, script, expected) in [

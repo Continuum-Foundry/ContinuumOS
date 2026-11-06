@@ -302,6 +302,10 @@ For implementation work, read [AGENTS.md](AGENTS.md) and the
 at a time, preserve failed runs, and update the relevant specifications when
 experiments change a decision.
 
+M4 is planned in [nineteen ordered guest-desktop/live-assets stories](docs/05-delivery/phase-4/README.md),
+all Not started. Begin with P4-01's prerequisite/profile gate; the final story
+reviews actual guest rendering, authenticated resource reload and sustained continuity.
+
 ## Project policies
 
 Original project material is **all rights reserved**. Third-party components keep

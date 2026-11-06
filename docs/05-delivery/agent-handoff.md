@@ -45,6 +45,15 @@ require technical evidence gates.
 
 ## Next action
 
+M3's [strict original-limit acceptance](../../evidence/phase-3/P3-14/2026-11-06/README.md)
+passes. At the owner's request, M4 now has [nineteen ordered local stories](phase-4/README.md),
+all Not started. Begin with [P4-01](phase-4/01-prerequisites-profiles-and-contract-plan.md):
+reinspect actual source and current prerequisite/guest baselines before implementation.
+Follow the P4 order through runtime/device foundations, guest UI/input/semantics,
+protected input and B61, authenticated transport, resource validation/publication,
+faults, metrics and 100-cycle stability, then final aggregate review. No Jira issues
+were created. This plan does not implement M4 or accept open desktop efficiency targets.
+
 Repository rights and governance are defined in [LEGAL.md](../../LEGAL.md),
 [CONTRIBUTING.md](../../CONTRIBUTING.md), and [SECURITY.md](../../SECURITY.md).
 Original material is all rights reserved; external patches are paused. Preserve
@@ -214,7 +223,7 @@ installation, first-installed-boot owner setup, repair and preserving reinstall.
 The exact M8 ISO must pass B44's independent installed-disk lifecycle with accounts,
 files and ownership preserved. Live-only previews have separately scoped reviews
 and cannot satisfy M8. The four new broad B41–B44 tasks are not P-level stories;
-P3 is now decomposed; decompose P4–P21 only at the owner's request before each
+P3 and P4 are now decomposed; decompose P5–P22 only at the owner's request before each
 milestone. No installer code, disk write, physical-PC operation or publication is
 authorized by these edits.
 
@@ -228,7 +237,8 @@ M18/M19/M20/M21 homes; their actual prerequisites can pass before M15. Keep the
 original kernel and avoid universal Windows-app, browser, driver or foreign-reload
 claims. Backup covers documents/portable settings with explicit authenticated-owner
 mapping and no default credential/policy migration. M3–M6 seed interfaces only;
-do not import later features into their exits. P3 is planned; no P4–P21 stories exist yet.
+do not import later features into their exits. P3 passes its declared gate; P4 is
+planned in [nineteen stories](phase-4/README.md); no P5–P22 stories exist yet.
 
 - Original kernel, not a rebranded existing OS or web-only shell.
 - Modern first-party code, with architecture-specific instructions acknowledged.
@@ -300,6 +310,14 @@ P3-11 passes local self-review for bounded ephemeral service routes and writer f
 ## P3-12 independent SDK and runtime closure
 
 P3-12 passes local Codex self-review for the bounded independent SDK 0.1.0 subset. Three clean public-only build roots per ISO preserve one unchanged client across minor-0/minor-1 service builds. The route guest completes 20 version exchanges, two accepted immutable moves, two incompatible-message handle closures and the full nine-incarnation writer-fence matrix. A separate six-process ISO passes reusable 64 KiB heap/32-slot limits, zero/copy/reallocation checks, selected model/grapheme/libm work, preempted FP state, normal return, panic, fallible OOM and exact teardown. The independent reference passes 4871 byte cases and 2411 separately supplied producer cases, including paired field-swap rejection. All 93 kernel host tests, ten fresh prerequisites, complete M1 (33 rows/42 launches), ten prior runtime regressions, eleven separate metadata build flavors and affected selected portable link/model checks pass. Only the exact tested contract hash is frozen; supervision and later desktop families remain experimental. No guest display/font/shaping/raster backend, dev transport, state migration, safe old-code retirement, M3 exit or desktop efficiency target is accepted. P3-13 is next. See the [criterion and unsafe review](../../evidence/phase-3/P3-12/2026-11-01/README.md).
+
+## Display roadmap amendment — 2026-11-01
+
+The owner requested staged 4K/multi-monitor delivery. See the [display roadmap](display-roadmap.md). M4/B61 seeds contracts;
+M9–M13 prepare integration; M22/B62–B66 follows M14 and precedes M15 hardware
+qualification. Existing milestone IDs, M8/M14 exits and accepted evidence remain
+unchanged. The backlog now has 66 broad tasks. That amendment created no stories;
+M4 now has a separate [P4 decomposition](phase-4/README.md), including B61.
 
 
 ## P3-13 current runtime acceptance

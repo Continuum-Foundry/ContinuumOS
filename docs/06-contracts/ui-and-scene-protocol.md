@@ -64,6 +64,13 @@ RGBA8/premultiplied alpha with explicitly defined conversion to scanout format.
 An opaque hint is verified/limited by contract; lying must not reveal uninitialized
 pixels or break privacy through stale damage assumptions.
 
+Display extension planning: M4/B61 seeds logical/pixel transforms, output identity
+and generation, mode/scale/topology revisions and independently checked buffer
+bounds. M22/B62–B66 extends this to multiple outputs and rejects stale commits
+after reconfiguration. Define explicit wire encodings and independent fixtures
+before freezing those extensions; hosted structs and saved monitor IDs convey no
+authority. See the [display roadmap](../05-delivery/display-roadmap.md).
+
 ## Damage and pacing
 
 Client damage is a hint validated against known operations; compositor computes

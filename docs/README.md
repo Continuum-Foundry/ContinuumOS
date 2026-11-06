@@ -75,7 +75,8 @@ is approved.
 | Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md), [host module layout](05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout), [metadata runbook](05-delivery/phase-1/boot-metadata-runbook.md) |
 | Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-13 accepted locally; M2 hosted subset passes; custom direction remains provisional until guest confirmation |
 | Phase 3 stories | [Isolated runtime epic and fourteen ordered stories](05-delivery/phase-3/README.md): P3-01/P3-02/P3-03/P3-04/P3-05/P3-06/P3-07 Done; P3-08 Done; P3-09 Done; P3-10 Done; P3-11 Done; P3-12 Done; P3-13 Done; P3-14 Done; strict original-limit M3 acceptance passes locally |
-| Later desktop | [Feature/release matrix](05-delivery/desktop-feature-matrix.md), [service responsibilities](06-contracts/desktop-services.md), [Windows study](01-research/windows-compatibility-feasibility.md), [browser study](01-research/browser-feasibility.md); no P4–P21 decomposition yet |
+| Phase 4 stories | [Guest desktop/live-assets epic and nineteen ordered stories](05-delivery/phase-4/README.md): all Not started; begin with P4-01's current prerequisite/profile gate |
+| Later desktop | [Feature/release matrix](05-delivery/desktop-feature-matrix.md), [service responsibilities](06-contracts/desktop-services.md), [Windows study](01-research/windows-compatibility-feasibility.md), [browser study](01-research/browser-feasibility.md); no P5–P22 decomposition yet |
 
 ## Status and interpretation
 
@@ -177,6 +178,14 @@ P3-11 passes local self-review for bounded ephemeral service routes and writer f
 ## P3-12 independent SDK and runtime closure
 
 P3-12 passes local Codex self-review for the bounded independent SDK 0.1.0 subset. Three clean public-only build roots per ISO preserve one unchanged client across minor-0/minor-1 service builds. The route guest completes 20 version exchanges, two accepted immutable moves, two incompatible-message handle closures and the full nine-incarnation writer-fence matrix. A separate six-process ISO passes reusable 64 KiB heap/32-slot limits, zero/copy/reallocation checks, selected model/grapheme/libm work, preempted FP state, normal return, panic, fallible OOM and exact teardown. The independent reference passes 4871 byte cases and 2411 separately supplied producer cases, including paired field-swap rejection. All 93 kernel host tests, ten fresh prerequisites, complete M1 (33 rows/42 launches), ten prior runtime regressions, eleven separate metadata build flavors and affected selected portable link/model checks pass. Only the exact tested contract hash is frozen; supervision and later desktop families remain experimental. No guest display/font/shaping/raster backend, dev transport, state migration, safe old-code retirement, M3 exit or desktop efficiency target is accepted. P3-13 is next. See the [criterion and unsafe review](../evidence/phase-3/P3-12/2026-11-01/README.md).
+
+## Display roadmap amendment — 2026-11-01
+
+The owner requested staged 4K/multi-monitor delivery. See the [display roadmap](05-delivery/display-roadmap.md). M4/B61 seeds contracts;
+M9–M13 prepare integration; M22/B62–B66 follows M14 and precedes M15 hardware
+qualification. Existing milestone IDs, M8/M14 exits and accepted evidence remain
+unchanged. The backlog now has 66 broad tasks. That amendment created no stories;
+M4 is now separately decomposed into [nineteen P4 stories](05-delivery/phase-4/README.md).
 
 
 ## P3-13 current runtime acceptance

@@ -13,7 +13,10 @@ required dependency of M8. Existing M0–M2 acceptance and P2 story boundaries r
 unchanged. The approved desktop/platform expansion adds M9–M21 without extending
 M8's release exit; see the [feature matrix](desktop-feature-matrix.md).
 M3 has [fourteen Phase 3 stories](phase-3/README.md); P3-01 [passes its local prerequisite/contract gate](../../evidence/phase-3/P3-01/2026-10-25/README.md). P3-02 [passes its internal owned-memory gate](../../evidence/phase-3/P3-02/2026-10-25/README.md). P3-03 [passes staged static-loader acceptance](../../evidence/phase-3/P3-03/2026-10-25/README.md). P3-04 [passes the bounded user-entry/syscall/fault gate](../../evidence/phase-3/P3-04/2026-10-26/README.md). P3-01 through P3-13 are Done; P3-14 passes strict M3 acceptance at its original limits.
-Detailed P4–P21 stories are decomposed at the owner's request before
+The [display amendment](display-roadmap.md) adds M22 after M14 and before M15
+qualification, with foundations in M4/M9–M13. Existing milestone IDs are preserved.
+M4 now has [nineteen ordered Phase 4 stories](phase-4/README.md), all Not started.
+Detailed P5–P22 stories are decomposed at the owner's request before
 each milestone; the broad backlog does not substitute for that decomposition.
 
 ## M0 — Feasibility and locked toolchain
@@ -141,6 +144,16 @@ RBAC belong to the separate M7 accounts gate after M6, not the M3 exit.
 
 ## M4 — Guest desktop and live assets
 
+Implementation plan: [P4 epic and nineteen ordered stories](phase-4/README.md).
+Start with [P4-01's current prerequisite/profile gate](phase-4/01-prerequisites-profiles-and-contract-plan.md).
+P4-02–P4-11 cover runtime capacity, device authority, display/surfaces, physical
+input, selected guest UI, shell, semantics, trusted input and B61 display seeds.
+P4-12–P4-16 cover transport, authentication, validation, coherent L0/L1 publication
+and transition faults. P4-17/P4-18 own guest measurements and sustained resource
+checks; [P4-19's required matrix](phase-4/19-phase-4-acceptance.md#required-acceptance-matrix)
+reviews final-source acceptance. All stories are Not started; this decomposition
+does not change the existing exit, waive targets or claim guest implementation.
+
 Bring the same UI core to guest framebuffer/surfaces; add input driver, minimal
 compositor/shell and controlled host→guest dev transport. Keep serial recovery.
 Transmit validated resource/layout updates and publish at scene boundaries.
@@ -162,6 +175,10 @@ guest rendering metrics. Persistence can remain explicitly ephemeral.
 Confirm the selected toolkit's actual guest backend and surface/input/semantics.
 Raster buffer submission is sufficient; custom scene export is not mandatory.
 Supports R04, R08, R09, R13, R17.
+
+Display foundations: B61 requires logical/pixel separation, output generations and
+checked geometry/buffer ownership on the single-output baseline. Use the ordered
+[display plan](display-roadmap.md); 4K and multi-output acceptance belong to M22.
 
 ## M5 — Stateful app behavior replacement
 
@@ -295,6 +312,11 @@ exercise denied access, conflicts, interrupted/cancelled operations and rebooted
 settings. Never imply atomic cross-volume moves or erase a conflict without a
 declared user choice. Required for M14, not added to M8.
 
+M9 also seeds authorized display settings, preview/revert and recoverable window
+placement for M22; these interfaces do not add mode-changing or multiple outputs
+to M9 acceptance. M10 SDK, M11 preferences/session restore and M13 semantic
+coordinates must preserve the [display handoff](display-roadmap.md).
+
 ## M10 — Applications and software management
 
 B48 delivers the native SDK/package lifecycle: install, launch, update, uninstall,
@@ -363,7 +385,7 @@ release. A future browser-delivery commitment requires a separate decision.
 
 ## M15 — One physical-PC profile
 
-B57 follows accepted B56 VM delivery and selects one named UEFI PC, firmware/device
+B57 follows accepted B56 VM delivery and B66/M22 display acceptance, then selects one named UEFI PC, firmware/device
 inventory and explicit support matrix before driver implementation. Qualify boot
 media, storage, input, software display, networking, audio and orderly poweroff.
 No arbitrary-PC, laptop, Wi-Fi or suspend support is inferred from that profile.
@@ -432,6 +454,26 @@ It is never a core-release dependency and does not require M20 Wasm.
 M16–M21 are separately gated tracks, not a universal serial chain: their declared
 prerequisites permit work without completing M15 first. None blocks M8 or M14.
 M15 alone requires the accepted VM desktop before physical qualification.
+
+## M22 — 4K and multi-monitor displays
+
+Required display delivery after M14/B56 and before M15/B57 qualification. This
+identifier preserves existing numbering; M16–M21 are not prerequisites. Follow the
+[display roadmap](display-roadmap.md) for ordered slices and acceptance matrices.
+M4/B61 seeds resolution-independent surfaces/output contracts; M9–M13 seed settings,
+SDK, recovery and semantics. B62 adds single-output 4K/mode switching; B63 adds two
+equal-scale outputs; B64 adds mixed resolutions/fractional per-output scaling; B65
+adds hot-plug, independent refresh pacing and failure recovery; B66 reviews the
+exact ISO/installed display profile and complete fault/resource/continuity matrix.
+
+Exit: 3840×2160 at 100/150/200% scale, dual 1080p, mixed 1080p/4K and dual 4K
+profiles pass guest visual/input/semantic and supported reload tests. Complete at
+least 100 topology/mode/scale/recovery cycles with unsaved work and boot identity
+preserved, bounded buffer lifetimes and exact settled accounting. Lock extended
+profile budgets before performance runs; preserve and separately report the
+256 MiB baseline target. No implicit GPU acceleration, HDR, VRR, mirroring, rotation
+or arbitrary hardware support. M18 remains independent; M15 repeats required cases
+on actual named hardware. Supports R04/R05/R07/R08/R09/R10/R12/R14/R15/R17/R18.
 
 ## Stop/replan criteria
 

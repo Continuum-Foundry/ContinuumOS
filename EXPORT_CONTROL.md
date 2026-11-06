@@ -1551,3 +1551,20 @@ creation of that PR. The pre-commit check remains enabled and the installed push
 guard remains afterward. Unrelated owner edits, full generated logs/source trees,
 ISOs, binaries, caches, credentials and private keys are excluded. This is not a
 standing exemption, a geographic-containment finding or legal clearance.
+
+## One-time owner exemption — M4 story planning, 2026-11-06
+
+The owner explicitly granted an exemption to make the PR for the completed M4
+planning work. The exact staged payload before this record is Git tree
+`1327f7f3c68fe089366e7439cf61b50cfc740760`, plus this record. It contains the
+nineteen P4 stories, traceability/handoff updates and their required display-roadmap
+planning prerequisite. Destination: `https://github.com/Continuum-Foundry/ContinuumOS.git`,
+branch `codex/m4-story-plan`, PR base `main`. The PR title is
+“Decompose M4 guest desktop and live assets into actionable stories”.
+
+This authorizes one push and PR creation, with a one-time command-local hooks
+path retaining the original pre-commit check and omitting the pre-push hold.
+The installed push guard remains afterward. Windows signing-policy documentation
+and scripts, local artifacts, credentials, binaries and full logs are excluded.
+No standing exemption, merge, release, geographic certification or legal clearance
+is granted.

@@ -71,6 +71,24 @@ The original kernel, supported live development, independent ISO and 256 MiB
 baseline target remain central. This amendment authorizes planning edits only,
 not ports, physical writes, executable downloads or publication.
 
+## Display expansion amendment — 2026-11-01
+
+The owner requested sequenced 4K and multi-monitor delivery with a dedicated display
+milestone. M4 seeds output/scale/ownership contracts; M9–M13 prepare settings, SDK,
+portable preferences/session recovery and semantic coordinates. M22 follows M14
+and precedes M15 qualification: single 4K, two equal-scale outputs, mixed/fractional
+scaling, hot-plug/independent pacing and exact-image acceptance, in that order.
+B61–B66 expand the broad backlog to 66; existing IDs and M8/M14 exits remain intact.
+M22 is required display delivery, independent of optional M18 acceleration or other
+research tracks. M15 repeats the supported cases on the selected physical profile.
+
+The [display roadmap](../05-delivery/display-roadmap.md) defines decomposition
+slices, matrix, continuity/failure tests and memory gates. Keep the 256 MiB baseline
+target; lock and review extended-profile budgets before accepting measurements.
+HDR, VRR, rotation, mirroring and arbitrary GPUs remain separate future gates.
+This amendment authorizes planning edits, with no P-level stories, new implemented
+support, changed historical evidence or physical execution/publication approval.
+
 ## First meaningful product demonstration
 
 1. Boot the original kernel/desktop from the ISO in the declared QEMU profile.

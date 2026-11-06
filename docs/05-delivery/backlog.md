@@ -60,6 +60,16 @@ P3-13 stresses lifecycle/resource bounds and P3-14 reviews final guest acceptanc
 B15/B37 receive authority/interface handoffs only; M4 guest UI and M5 behavior
 replacement remain separate. Existing Bxx IDs, dependencies and exits are preserved.
 
+M4 is decomposed into [nineteen local Phase 4 stories](phase-4/README.md), all
+Not started. P4-02/P4-03 explicitly close runtime-capacity/device-authority gaps;
+P4-04–P4-11 cover B16 and B61, with B07–B09/B36 guest confirmation and M4 B37
+seeds. P4-12 owns B14, P4-13/P4-14 own B15, and P4-14–P4-16/P4-18 own B17.
+P4-01/P4-16–P4-19 own M4 B32 profiles, faults, metrics, stress and final review.
+Use the [epic mapping](phase-4/README.md#traceability-and-handoff) and
+[final matrix](phase-4/19-phase-4-acceptance.md#required-acceptance-matrix).
+Existing Bxx dependencies/exits remain intact; M5 behavior replacement and M22
+4K/multi-output delivery are not added to M4. Begin with P4-01 before implementation.
+
 | ID | Owner / task | Depends on | Definition of done | Requirements |
 | --- | --- | --- | --- | --- |
 | B01 | Build: inventory host and candidate tools | Docs | Paths, versions, licenses, host constraints and fallback report | R03,R16,R18 |
@@ -118,10 +128,17 @@ replacement remain separate. Existing Bxx IDs, dependencies and exits are preser
 | B54 | Product: connections and online-update client (M12) | B49,B51,B53 | Connection settings and downloads through the existing verifier/activation path; disconnect/retry and invalid metadata cannot bypass authority or weaken verification | R08,R10,R12,R14,R17 |
 | B55 | Audio: service, devices and capture permissions (M13) | B06,B12,B16,B41 | Bounded playback/capture/mixing, device/format negotiation, explicit permissions/indicators, revocation and underrun/reset/failure cleanup | R08,R09,R10,R14,R15 |
 | B56 | Release: usable VM desktop acceptance (M14) | B35,B45,B46,B47,B48,B49,B50,B51,B52,B54,B55,B31 | Exact ISO/installed M8–M13 workflow, backup/network/audio/accessibility/fault/resource matrix and clean-build/publication review; optional research excluded | R01–R19 |
-| B57 | Hardware: named-PC feasibility and drivers (M15) | B56,B38,B22,B16 | Select one named UEFI profile and required device matrix before implementation; actual boot/storage/input/software display/network/audio/power qualification | R02,R08,R09,R10,R11,R17 |
+| B57 | Hardware: named-PC feasibility and drivers (M15) | B56,B66,B38,B22,B16 | Select one named UEFI profile and required device matrix before implementation; actual boot/storage/input/software display/network/audio/power qualification | R02,R08,R09,R10,R11,R17 |
 | B58 | Release: named-PC installed lifecycle (M15) | B57,B42,B43,B44,B50,B52,B54,B55 | Profile-specific install/boot/accounts, preserving repair/reinstall, independent backup/rescue and poweroff evidence; VM evidence cannot substitute | R02,R08,R10,R11,R12,R15,R16,R17 |
 | B59 | Research: Windows compatibility and probes (M16) | B02,B11,B12,B13,B16,B23,B41 | Sourced native-service versus Wine adaptation study and bounded x64 console/DLL/runtime/GUI probes; costs, denial/cleanup and supported-subset or stop/replan outcome | R03,R09,R10,R14,R17 |
 | B60 | Research: browser feasibility and route decision (M17) | B53,B59,B16,B09,B41 | Native-port versus Windows route, dependency/render/network/isolation/update/memory audit and bounded probe findings; explicit later decision, no sandbox bypass | R08,R09,R10,R14,R15,R17 |
+
+| B61 | Graphics: display contract foundations (M4) | B16 | Logical/pixel coordinates, output generations, checked geometry/stride and buffer lifetime; single-output guest input/semantic fixtures; explicit versioned contract seeds | R08,R09,R10,R14,R15 |
+| B62 | Display: single-output 4K and safe modes (M22) | B56,B61 | Declared VM backend discovers/selects 3840×2160; 100/150/200% scale, mode preview/confirmation/revert, malformed-mode and admission-failure tests | R08,R09,R10,R14,R15,R17 |
+| B63 | Display: two equal-scale outputs (M22) | B62 | Dual 1080p extended desktop, independent buffers/damage/presentation, layout/primary selection, negative coordinates, crossing/spanning windows and correct focus/drag/fullscreen/popups | R08,R09,R10,R14,R15 |
+| B64 | Display: mixed resolutions and per-output scaling (M22) | B63 | 1080p/100% plus 4K/200% and 150%; rerasterization/cache invalidation, text/caret/cursor/semantic transforms and preserved logical app state across seams | R07,R08,R09,R14,R15 |
+| B65 | Display: hot-plug, pacing and recovery (M22) | B64,B47,B52 | Disconnect/reconnect/primary loss, safe topology publication, independent 60/75 Hz pacing on the declared backend, stale-output denial, failed-mode/service-loss recovery and reachable windows/login/lock | R07,R08,R09,R10,R12,R14,R15,R17 |
+| B66 | QA: display milestone acceptance (M22) | B62,B63,B64,B65,B21,B32 | Exact ISO/installed image passes single/mixed/dual-4K matrix and 100 reconfiguration/recovery cycles; unsaved work/reload continuity, buffer/resource/idle/latency evidence and M15 hardware handoff | R04,R05,R07,R08,R09,R10,R12,R14,R15,R16,R17,R18 |
 
 ## Task working format
 
@@ -138,11 +155,13 @@ B22–B24/B40 and the later B33/B34 handoff. It does not add P6 stories or requi
 a complete installer for M6. Include its preparation cases when M6 is decomposed;
 decompose mandatory M7 B41–B44 before implementation. These four newly added broad
 tasks brought the installer-era backlog to 44; existing IDs are preserved. B44 makes all four
-transitive prerequisites of B35/M8, while B39 remains optional. Detailed P4–P8
+transitive prerequisites of B35/M8, while B39 remains optional. M4 now has its
+[P4 decomposition](phase-4/README.md); detailed P5–P8
 stories are created only at the owner's milestone decomposition request.
 
 The approved desktop/platform expansion adds B45–B60 (60 total broad tasks) and
-M9–M21. See the [feature matrix](desktop-feature-matrix.md) for owner, classification
+M9–M21. The [display amendment](display-roadmap.md) adds B61–B66 (66 total broad
+tasks) and M22, required after M14 and before M15 qualification. See the [feature matrix](desktop-feature-matrix.md) for owner, classification
 and future acceptance. B56 is the M14 release root and B58 the named-PC root;
 B27/B29/B30/B39/B59/B60 are optional research tracks excluded from B35 and B56.
 Networking B28/B53 and assistive/audio B31/B55 are required for M14, not M8.

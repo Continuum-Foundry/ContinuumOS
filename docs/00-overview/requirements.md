@@ -1,9 +1,10 @@
 # Requirements and feature matrix
 
 Status: user intent plus proposed engineering acceptance criteria. Metrics are
-targets, not measurements. M0–M21 are defined in [milestones](../05-delivery/milestones.md).
+targets, not measurements. M0–M22 are defined in [milestones](../05-delivery/milestones.md).
 The [desktop feature matrix](../05-delivery/desktop-feature-matrix.md) distinguishes
-M8 installation, M14 desktop delivery, one M15 PC profile and optional/deferred work.
+M8 installation, M14 desktop delivery, M22 display delivery before one M15 PC
+profile, and optional/deferred work.
 
 ## Core requirements
 
@@ -40,7 +41,7 @@ M8 installation, M14 desktop delivery, one M15 PC profile and optional/deferred 
 | Memory | Paging, isolation, quotas, demand-zero or eager mapping | Swap, memory compression, NUMA deferred |
 | Scheduling | Preemption, fairness, bounded priority policy | Deadline/hard real-time contracts deferred |
 | Devices | Serial, timers/APIC, PCI, VirtIO input/block/console/display | M15 selects required drivers for one PC; broad NVMe/USB/Wi-Fi/vendor-device coverage remains separate |
-| Graphics | One display, software, logical scaling | M18 optional acceleration; mixed-DPI multi-display/HDR require separate evidence |
+| Graphics | One display, software, logical scaling | M22: 4K, two outputs, mixed/fractional scaling and hot-plug; M18 optional acceleration; HDR/arbitrary GPUs remain deferred |
 | Input | Keyboard, pointer, focus, keymap service; M4 trusted setup/login prerequisites, validated before M7 credentials | IME and touch staged |
 | Desktop | Initial launcher/windows/settings; M9 cross-app clipboard/drag/defaults/notifications and regional settings | Advanced workspaces and scripting beyond declared desktop scope |
 | Apps | Editor, file browser, console, inspector; M10 native SDK and install/update/uninstall | M16 EXE research and M17 browser study do not promise shipping compatibility/browser; media suite deferred |
@@ -68,7 +69,8 @@ requires M7 accounts and installation readiness for M8; an earlier live-only pre
 does not satisfy that release gate.
 The later desktop/platform expansion preserves M8 and adds M9–M15 delivery and
 M16–M21 separately gated research. B56/M14 requires desktop/network/audio/backup
-acceptance; B58/M15 requires that VM release and one named PC. Neither release
+acceptance; M22/B61–B66 adds staged display delivery before B57/B58 named-PC
+qualification. See the [display roadmap](../05-delivery/display-roadmap.md). Neither release
 requires browser/EXE/GPU/SMP/Wasm/AI experiments. No new feature is implemented by this plan.
 
 ## Performance targets and accounting

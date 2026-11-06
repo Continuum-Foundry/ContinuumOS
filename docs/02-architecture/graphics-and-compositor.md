@@ -64,6 +64,18 @@ Offscreen effect layers can add render passes and memory traffic. Cache only whe
 measured reuse pays for memory and invalidation complexity.
 [S43](../01-research/sources.md#s43)
 
+## Display expansion handoff
+
+The [approved display roadmap](../05-delivery/display-roadmap.md) sequences M4
+output/scale contract foundations, M9–M13 integration seeds and dedicated M22
+delivery after M14, before M15 hardware qualification. Add single 4K, equal-scale
+dual outputs, mixed/fractional scales, hot-plug and independent pacing in that
+order. Logical geometry, output generations, scoped mode/capture authority and
+release fences must survive topology changes; failed admission preserves the
+last usable configuration. M22 acceptance covers exact guest images and repeated
+resource/recovery/reload checks. M18 acceleration is independent; no renderer or
+driver choice is accepted by this plan.
+
 ## Memory reality
 
 A 1920×1080 RGBA8 buffer consumes 8,294,400 bytes (~7.91 MiB). Two consume ~15.82 MiB.

@@ -43,8 +43,8 @@ for(const f of adrs)if(!fs.readFileSync(f,'utf8').includes('Status: Proposed.'))
 const backlog=fs.readFileSync(path.join(root,'docs/05-delivery/backlog.md'),'utf8');
 const tasks=[...backlog.matchAll(/^\| (B\d{2}) \| (.*?) \| (.*?) \|/gm)].map(m=>({id:m[1],dependencies:[...m[3].matchAll(/\bB\d{2}\b/g)].map(m=>m[0])}));
 const taskMap=new Map(tasks.map(t=>[t.id,t]));
-if(tasks.length!==60||taskMap.size!==60)errors.push('Expected 60 distinct backlog tasks');
-for(let n=1;n<=60;n++){const id=`B${String(n).padStart(2,'0')}`;if(!taskMap.has(id))errors.push(`Missing backlog ID ${id}`);}
+if(tasks.length!==66||taskMap.size!==66)errors.push('Expected 66 distinct backlog tasks');
+for(let n=1;n<=66;n++){const id=`B${String(n).padStart(2,'0')}`;if(!taskMap.has(id))errors.push(`Missing backlog ID ${id}`);}
 for(const t of tasks)for(const dep of t.dependencies)if(!taskMap.has(dep))errors.push(`Unknown dependency ${t.id}->${dep}`);
 function visit(id,stack=[],seen=new Set()){
  if(stack.includes(id)){errors.push(`Dependency cycle: ${[...stack,id].join(' -> ')}`);return;}
@@ -64,8 +64,12 @@ function dependencyClosure(rootId){
 }
 const desktopDependencies=dependencyClosure('B56');
 const pcDependencies=dependencyClosure('B58');
+const displayDependencies=dependencyClosure('B66');
+for(const id of ['B56','B61','B62','B63','B64','B65'])if(!displayDependencies.has(id))errors.push(`Missing display gate prerequisite ${id}`);
+for(let n=61;n<=66;n++)if(releaseDependencies.has(`B${n}`)||desktopDependencies.has(`B${n}`))errors.push(`Display expansion B${n} unexpectedly blocks M8/M14`);
+for(const id of ['B27','B29','B30','B39','B59','B60'])if(displayDependencies.has(id))errors.push(`Optional research ${id} blocks M22`);
 const requiredDesktopTasks=['B35','B31',...Array.from({length:11},(_,i)=>`B${45+i}`)];
-const requiredPcTasks=['B56','B57','B42','B43','B44','B50','B52','B54','B55'];
+const requiredPcTasks=['B66','B56','B57','B42','B43','B44','B50','B52','B54','B55'];
 for(const id of requiredDesktopTasks)if(!desktopDependencies.has(id))errors.push(`Missing usable desktop release prerequisite ${id}`);
 for(const id of requiredPcTasks)if(!pcDependencies.has(id))errors.push(`Missing named-PC release prerequisite ${id}`);
 const optionalResearchTasks=['B27','B29','B30','B39','B59','B60'];
@@ -76,12 +80,12 @@ for(let n=45;n<=60;n++)if(releaseDependencies.has(`B${n}`))errors.push(`Later ro
 const milestoneText=fs.readFileSync(path.join(root,'docs/05-delivery/milestones.md'),'utf8');
 const milestoneIds=[...milestoneText.matchAll(/^## (M\d+) — /gm)].map(m=>m[1]);
 const milestoneSet=new Set(milestoneIds);
-if(milestoneIds.length!==22||milestoneSet.size!==22)errors.push('Expected 22 distinct milestones M0–M21');
-for(let n=0;n<=21;n++)if(!milestoneSet.has(`M${n}`))errors.push(`Missing milestone M${n}`);
+if(milestoneIds.length!==23||milestoneSet.size!==23)errors.push('Expected 23 distinct milestones M0 through M22');
+for(let n=0;n<=22;n++)if(!milestoneSet.has(`M${n}`))errors.push(`Missing milestone M${n}`);
 const matrixText=fs.readFileSync(path.join(root,'docs/05-delivery/desktop-feature-matrix.md'),'utf8');
 const featureRows=matrixText.split(/\r?\n/).filter(line=>/^\| F\d+ \|/.test(line)).map(line=>line.split('|').slice(1,-1).map(value=>value.trim()));
 const featureIds=new Set();
-const classifications=new Set(['M8 required','M14 required','named-PC profile','optional research','deferred']);
+const classifications=new Set(['M8 required','M14 required','named-PC profile','M22 required','optional research','deferred']);
 const matrixTasks=new Set();
 for(const row of featureRows){
  if(row.length!==7){errors.push(`Feature matrix row needs seven columns: ${row[0]}`);continue;}
@@ -95,17 +99,17 @@ for(const row of featureRows){
  if(!refsM.length||!refsB.length)errors.push(`Missing feature references ${id}`);
  for(const ref of refsM)if(!milestoneSet.has(ref))errors.push(`Unknown feature milestone ${id}->${ref}`);
  for(const ref of refsB){matrixTasks.add(ref);if(!taskMap.has(ref))errors.push(`Unknown feature task ${id}->${ref}`);}
- const release=classification==='M8 required'?'M8':classification==='M14 required'?'M14':classification==='named-PC profile'?'M15':null;
- const closure=release==='M8'?releaseDependencies:release==='M14'?desktopDependencies:pcDependencies;
+ const release=classification==='M8 required'?'M8':classification==='M14 required'?'M14':classification==='named-PC profile'?'M15':classification==='M22 required'?'M22':null;
+ const closure=release==='M8'?releaseDependencies:release==='M14'?desktopDependencies:release==='M22'?displayDependencies:pcDependencies;
  if(release){
   if(!refsM.includes(release))errors.push(`Feature ${id} omits its release milestone ${release}`);
   for(const ref of refsB)if(!closure.has(ref))errors.push(`Feature ${id} task ${ref} is outside ${release} release dependencies`);
  }
  if(classification==='optional research')for(const ref of refsB)if(releaseDependencies.has(ref)||desktopDependencies.has(ref))errors.push(`Optional feature ${id} task ${ref} blocks a VM release`);
 }
-if(featureRows.length!==36||featureIds.size!==36)errors.push('Expected 36 distinct desktop features');
-for(let n=1;n<=36;n++){const id=`F${String(n).padStart(2,'0')}`;if(!featureIds.has(id))errors.push(`Missing desktop feature ${id}`);}
-for(const id of ['B27','B29','B30','B31','B39',...Array.from({length:16},(_,i)=>`B${45+i}`)])if(!matrixTasks.has(id))errors.push(`Feature matrix omits roadmap task ${id}`);
+if(featureRows.length!==40||featureIds.size!==40)errors.push('Expected 40 distinct desktop features');
+for(let n=1;n<=40;n++){const id=`F${String(n).padStart(2,'0')}`;if(!featureIds.has(id))errors.push(`Missing desktop feature ${id}`);}
+for(const id of ['B27','B29','B30','B31','B39',...Array.from({length:22},(_,i)=>`B${45+i}`)])if(!matrixTasks.has(id))errors.push(`Feature matrix omits roadmap task ${id}`);
 const report={docFiles:docs.length,markdownFiles:docs.filter(p=>p.endsWith('.md')).length,jsonFiles:json.length,
  words:[...texts.values()].join('\n').split(/\s+/).filter(Boolean).length,sources:sourceIds.length,
  adrs:adrs.length,requirements:requirementIds.length,backlogTasks:tasks.length,

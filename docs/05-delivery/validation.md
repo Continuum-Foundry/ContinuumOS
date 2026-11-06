@@ -119,6 +119,20 @@ R10/R14 or guest UI, live updating, accounts, durability or desktop efficiency.
 
 ## Requirement matrix
 
+M4 is planned in [nineteen Phase 4 stories](phase-4/README.md), all Not started.
+Its [required acceptance matrix](phase-4/19-phase-4-acceptance.md#required-acceptance-matrix)
+maps B14–B17/B61 and the M4 B32 subset to actual guest evidence. P4-02–P4-06
+own T02/T03/T04/T06 runtime/device/surface/input boundaries; P4-07–P4-11 own
+T05/T10 guest UI/text/shell/semantics/protected-input/scale coverage. P4-12–P4-16
+own T06/T07/T08/T11 transport/authentication/plan validation/publication/faults.
+P4-17/P4-18 own T09 guest distributions, idle work, 100 compatible reloads and
+reconciled whole-guest resources. P4-19 repeats final-source complete M1/M3 and
+affected M2/build flavors, independently reviews contracts/authority/lifetimes and
+records the tested toolkit confirmation. Required evidence distinguishes pixels,
+logical state, semantics, actual display, current grants and unchanged boot/uptime.
+These are future tests, not new passing results. Efficiency targets and later
+behavior/durability/accounts/display gates remain open until their evidence passes.
+
 The approved M9–M21 expansion has a [feature/release matrix](desktop-feature-matrix.md)
 mapping owner, milestone, backlog and explicit future acceptance. B35/M8 retains
 its installer/accounts scope; B56/M14 adds the declared usable desktop; B58/M15
@@ -343,6 +357,17 @@ P3-11 passes local self-review for bounded ephemeral service routes and writer f
 ## P3-12 independent SDK and runtime closure
 
 P3-12 passes local Codex self-review for the bounded independent SDK 0.1.0 subset. Three clean public-only build roots per ISO preserve one unchanged client across minor-0/minor-1 service builds. The route guest completes 20 version exchanges, two accepted immutable moves, two incompatible-message handle closures and the full nine-incarnation writer-fence matrix. A separate six-process ISO passes reusable 64 KiB heap/32-slot limits, zero/copy/reallocation checks, selected model/grapheme/libm work, preempted FP state, normal return, panic, fallible OOM and exact teardown. The independent reference passes 4871 byte cases and 2411 separately supplied producer cases, including paired field-swap rejection. All 93 kernel host tests, ten fresh prerequisites, complete M1 (33 rows/42 launches), ten prior runtime regressions, eleven separate metadata build flavors and affected selected portable link/model checks pass. Only the exact tested contract hash is frozen; supervision and later desktop families remain experimental. No guest display/font/shaping/raster backend, dev transport, state migration, safe old-code retirement, M3 exit or desktop efficiency target is accepted. P3-13 is next. See the [criterion and unsafe review](../../evidence/phase-3/P3-12/2026-11-01/README.md).
+
+## M22 display acceptance plan
+
+The [display roadmap](display-roadmap.md) maps B61–B66 to R04/R05/R07/R08/R09/
+R10/R12/R14/R15/R16/R17/R18 and the existing T05/T07/T09/T10/T11/T13 families.
+Require exact guest ISO/installed-image visual/input/semantic coverage at single
+4K, dual 1080p, mixed scales and dual 4K; mode/hot-plug/pacing failures, stale
+output/buffer denial, safe preview revert, reload continuity and at least 100
+reconfiguration/recovery cycles with bounded accounting. Lock extended-profile
+budgets before measurement; retain baseline 256 MiB results separately. M15 repeats
+required display cases on named hardware. This is planned acceptance, not evidence.
 
 
 ## P3-13 current runtime acceptance

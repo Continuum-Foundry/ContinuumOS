@@ -1,12 +1,13 @@
 # Desktop feature and release matrix
 
-Status: approved roadmap scope, 2026-10-21; future acceptance, not shipped features.
+Status: approved roadmap scope, 2026-10-21, display amendment 2026-11-01; future acceptance, not shipped features.
 See [milestones](milestones.md), [backlog](backlog.md) and [validation](validation.md).
 Every owner is a responsibility, not a person assignment. Bxx owners carry the
 work; P-level stories are created only on the owner's milestone decomposition request.
 
 M8 remains the installable experimental VM release. M14 adds usable-desktop
-workflows; M15 qualifies one named PC after the VM release. Optional research is
+workflows; M22 adds required display delivery after M14; M15 qualifies one named PC after
+that display gate. See the [display roadmap](display-roadmap.md). Optional research is
 not a release dependency. For deferred rows, milestone/task references identify
 the decision owner, not a promise to deliver that feature in that milestone.
 All rows below describe planned acceptance; existing reviews alone establish
@@ -15,7 +16,7 @@ current implementation. The baseline cold-idle target remains 256 MiB.
 ## Coverage and acceptance
 
 The column structure is checked by the documentation audit. Classifications are
-`M8 required`, `M14 required`, `named-PC profile`, `optional research`, or `deferred`.
+`M8 required`, `M14 required`, `named-PC profile`, `M22 required`, `optional research`, or `deferred`.
 
 | ID | Feature | Owner | Milestones | Backlog | Classification | Acceptance outcome |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -53,8 +54,12 @@ The column structure is checked by the documentation audit. Classifications are
 | F32 | Broader PCs, wireless, Bluetooth, printing and laptop sleep | Platform | M15 | B57,B58 | deferred | Named-PC qualification records exact devices and explicitly excludes untested profiles/device families or power states. |
 | F33 | Encryption and Secure Boot | Security/Platform | M7,M15 | B41,B57,B58 | deferred | Require separate key/trust/recovery and actual platform evidence; account login and installation do not establish these features. |
 | F34 | Complete-machine backup | Data/Recovery | M11 | B50 | deferred | The first backup contract excludes system generations, credentials, secrets and privileged policy from its guarantee. |
-| F35 | Mixed-DPI displays, HDR and arbitrary GPUs | Graphics | M18 | B29 | deferred | Acceleration on one backend does not assert multi-display/color/hardware coverage without separate tests. |
+| F35 | HDR, VRR, mirroring, rotation and arbitrary GPUs | Graphics | M18,M22 | B29,B66 | deferred | M22 covers a declared extended-desktop matrix; these additional features need separate gates and backend/hardware evidence. |
 | F36 | IPv6 and broader networking | Networking | M12 | B53 | deferred | Publish exact protocol coverage; baseline IPv4/TCP/TLS acceptance cannot imply untested IPv6 or other protocol support. |
+| F37 | Single-output 4K and safe mode changes | Graphics/Platform | M4,M22 | B61,B62 | M22 required | 3840×2160 at 100/150/200% scale on the declared VM backend; checked output contracts, mode admission and preview/revert failures pass. |
+| F38 | Extended desktop and per-output scaling | Graphics/Desktop | M22 | B63,B64 | M22 required | Dual 1080p, mixed 1080p/4K and fractional scaling preserve text, window/input/semantic coordinates and independent output ownership. |
+| F39 | Display topology, pacing and recovery | Graphics/Lifecycle | M22 | B65 | M22 required | Hot-plug/primary loss, stale output denial, safe window relocation and independent declared refresh pacing recover without losing unsaved work or breaking session security. |
+| F40 | Display aggregate qualification | Graphics/Release | M22 | B66 | M22 required | Exact ISO/installed dual-4K and mixed matrix, 100 reconfiguration/recovery cycles, reload continuity and reviewed resource/latency/idle limits pass before M15. |
 
 ## Release dependency boundaries
 
@@ -62,3 +67,8 @@ B35 accepts M8 and requires B41–B44. B56 accepts M14 and requires the M8 root,
 B45–B55 and B31. B58 requires B56 through B57 plus installed lifecycle work.
 B27/B29/B30/B39/B59/B60 remain outside B35/B56. Milestone numbers do not impose a
 serial dependency on optional tracks. No row authorizes physical writes or publication.
+
+B66 accepts M22 after B56/M14 and requires B61–B65. B57/B58 require B66
+before named-PC qualification. M22 adds no dependency to B35/M8 or B56/M14;
+M18 acceleration remains optional. Extended display budgets require separate
+review while the baseline 256 MiB target remains unchanged.

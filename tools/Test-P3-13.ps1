@@ -1,4 +1,4 @@
-param([string]$RuntimeAcceptance)
+param([string]$RuntimeAcceptance,[switch]$StressOnly)
 # Final-source serial acceptance. Fixed deadlines and counts; no automatic retries.
 $ErrorActionPreference='Stop'
 $root=Split-Path $PSScriptRoot -Parent
@@ -10,14 +10,28 @@ $run=Join-Path $root ('build/m3/P3-13/acceptance-'+[DateTimeOffset]::UtcNow.ToUn
 New-Item -ItemType Directory -Force $run | Out-Null
 $report=[ordered]@{schema_version=1;story='P3-13';status='running';source_commit=(git rev-parse HEAD);native_observer_profile='release';commands=@();runs=@{};stress=@()}
 function Check([string]$name,[string]$program,[string[]]$arguments) {
+    $started=[DateTimeOffset]::UtcNow.ToString('o')
+    Write-Host "M3 stage start name=$name utc=$started artifacts=$run"
     $timer=[Diagnostics.Stopwatch]::StartNew()
-    & $program @arguments *> (Join-Path $run ($name+'.log'))
-    $report.commands+=@{name=$name;program=$program;arguments=$arguments;exit_code=$LASTEXITCODE;elapsed_ms=$timer.ElapsedMilliseconds}
+    $log=Join-Path $run ($name+'.log')
+    $writer=[IO.StreamWriter]::new($log,$false)
+    $writer.AutoFlush=$true
+    try {
+        & $program @arguments 2>&1 | ForEach-Object {
+            $line=$_.ToString()
+            $writer.WriteLine($line)
+            if ($line.StartsWith('M3 stage ')) {Write-Host $line}
+        }
+    } finally {$writer.Dispose()}
+    $report.commands+=@{name=$name;program=$program;arguments=$arguments;exit_code=$LASTEXITCODE;elapsed_ms=$timer.ElapsedMilliseconds;started_utc=$started;finished_utc=[DateTimeOffset]::UtcNow.ToString('o')}
+    Write-Host "M3 stage finish name=$name exit=$LASTEXITCODE elapsed_ms=$($timer.ElapsedMilliseconds) artifacts=$run"
     if ($LASTEXITCODE -ne 0) {throw "Failed $name; see $run"}
     [IO.File]::ReadAllText((Join-Path $run ($name+'.log')))
 }
 Push-Location $root
 try {
+    if ($StressOnly -and $RuntimeAcceptance) {throw 'StressOnly cannot reuse a runtime acceptance.'}
+    $report['diagnostic_only']=[bool]$StressOnly
     $profile=Get-Content config/p3-13-stress.json -Raw | ConvertFrom-Json
     if ($profile.seed -ne 20261025 -or $profile.quantum_ns -ne 5000000 -or $profile.fairness_dispatch_wake_irq_off_ceiling_ns -ne 320000000 -or $profile.ipc_round_trip_deadline_ns -ne 320000000 -or $profile.repetitions -ne 5 -or $profile.waves_per_continuous_guest -ne 100 -or $profile.measured_round_trips_per_guest -ne 10000 -or $profile.warmup_round_trips_per_guest -ne 1000 -or $profile.guest_deadline_ms -ne 30000 -or $profile.retained_frame_tolerance -ne 0 -or $profile.retained_object_tolerance -ne 0) {throw 'Stress profile diverged from fixed experiment/reviewer.'}
     git status --porcelain=v1 --untracked-files=all | Set-Content (Join-Path $run 'source-status.txt')
@@ -44,17 +58,21 @@ try {
         $compilerRoot=(& rustc --print sysroot | Out-String).Trim()
         if ($LASTEXITCODE -ne 0 -or (Get-FileHash (Join-Path $compilerRoot ('bin/rustc'+$script:ContinuumExeSuffix))).Hash.ToLowerInvariant() -ne $priorSdk.rustc_sha256) {throw 'Regression compiler changed.'}
         $report['regression_reuse']=@{acceptance_sha256=(Get-FileHash -LiteralPath $priorPath).Hash.ToLowerInvariant();source_manifest=$sourceManifest;source_manifest_sha256=(Get-FileHash -LiteralPath $sourceManifest).Hash.ToLowerInvariant();validated_files=$measured.Count;reason='identical complete measured source set and compiler; native observer build optimized without changing validation policy or guest inputs'}
-        $report.commands+=@{name='runtime-regressions';program='validated-local-reference';arguments=@($priorPath,$sourceManifest);exit_code=0;elapsed_ms=0}
-    } else {
-        $prior=Check runtime-regressions pwsh @('-NoProfile','-File','tools/Test-P3-12.ps1')
-        $match=[regex]::Match($prior,'P3-12 acceptance: ([^\r\n]+)')
-        if (-not $match.Success) {throw 'Missing prior runtime acceptance path.'}
-        $priorPath=$match.Groups[1].Value.Trim()
     }
-    $previous=Get-Content -LiteralPath $priorPath -Raw | ConvertFrom-Json
-    if ($previous.status -ne 'passed') {throw 'Incomplete prior runtime regression gate.'}
-    $report.runs.prior_acceptance=$priorPath
-    Check runtime-regression-review python @('tools/Review-P3-12.py','--acceptance',$priorPath) | Out-Null
+    function Check-RuntimeRegression {
+        if ($RuntimeAcceptance) {
+            $report.commands+=@{name='runtime-regressions';program='validated-local-reference';arguments=@($priorPath,$sourceManifest);exit_code=0;elapsed_ms=0}
+        } else {
+            $prior=Check runtime-regressions pwsh @('-NoProfile','-File','tools/Test-P3-12.ps1')
+            $match=[regex]::Match($prior,'P3-12 acceptance: ([^\r\n]+)')
+            if (-not $match.Success) {throw 'Missing prior runtime acceptance path.'}
+            $priorPath=$match.Groups[1].Value.Trim()
+        }
+        $previous=Get-Content -LiteralPath $priorPath -Raw | ConvertFrom-Json
+        if ($previous.status -ne 'passed') {throw 'Incomplete prior runtime regression gate.'}
+        $report.runs.prior_acceptance=$priorPath
+        Check runtime-regression-review python @('tools/Review-P3-12.py','--acceptance',$priorPath) | Out-Null
+    }
     $supervisor=Check public-supervision cargo @('run','--release','--locked','--offline','-p','xtask','--','test','--suite','m1','--case','sdk-stress-supervisor')
     $match=[regex]::Match($supervisor,'M1 artifacts: ([^\r\n]+)')
     if (-not $match.Success) {throw 'Missing public supervision artifact path.'}
@@ -79,12 +97,15 @@ try {
             }
         }
     }
+    # Fail on the bounded stress cases before spending time on the full M1 suite.
+    # The fresh runtime gate and independent review remain required for a pass.
+    if (-not $StressOnly) {Check-RuntimeRegression}
     foreach ($inputFile in $inputs) {
         if ($inputFile.path -match '^(kernel/|tools/xtask/|sdk/|experiments/sdk-|config/|contracts/|tools/Build-P3-1[23]Sdk.ps1$)') {
             if ((Get-FileHash -LiteralPath $inputFile.path).Hash.ToLowerInvariant() -ne $inputFile.sha256) {throw "Source changed during acceptance: $($inputFile.path)"}
         }
     }
     if ((Get-FileHash -LiteralPath $observer).Hash.ToLowerInvariant() -ne $report.native_observer.sha256) {throw 'Native observer executable changed during acceptance.'}
-    $report.status='passed'
+    $report.status=if ($StressOnly) {'diagnostic-passed'} else {'passed'}
 } catch {$report.status='failed';$report['error']=$_.Exception.Message;throw}
 finally {$report | ConvertTo-Json -Depth 14 | Set-Content (Join-Path $run 'acceptance.json');Pop-Location;"P3-13 acceptance: $run/acceptance.json"}

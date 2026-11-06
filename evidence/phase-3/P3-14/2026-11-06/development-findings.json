@@ -1,0 +1,191 @@
+{
+  "attempts": [
+    {
+      "path": "${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1793920596614610400\\acceptance.json",
+      "sha256": "79e7939ebc01c9d1691ceda7c8dcf599b2f552c66d6206fe32064f819800c6f4",
+      "original_status": "failed",
+      "classification": "failed host preflight; no root cause inferred",
+      "error": "runtime-stress failed; see ${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1793920596614610400",
+      "commands": [
+        {
+          "name": "runner-tests",
+          "arguments": [
+            "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/Test-P3-14Runner.py"
+          ],
+          "exit_code": 0,
+          "timed_out": false,
+          "deadline_seconds": 30,
+          "cleanup_reaped": true,
+          "elapsed_ms": 3781
+        },
+        {
+          "name": "runtime-stress",
+          "arguments": [
+            "pwsh",
+            "-NoProfile",
+            "-File",
+            "tools/Test-P3-13.ps1"
+          ],
+          "exit_code": 1,
+          "timed_out": false,
+          "deadline_seconds": 10800,
+          "cleanup_reaped": true,
+          "elapsed_ms": 10448422
+        }
+      ]
+    },
+    {
+      "path": "${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1793931169146567600\\acceptance.json",
+      "sha256": "d15fe20d4acbc39f505fe0ec4ace2e5ca9ee65865bee8540ef7936f2c1c1af35",
+      "original_status": "failed",
+      "classification": "failed 30000-ms stress guest deadline at wave 53",
+      "error": "runtime-stress failed; see ${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1793931169146567600",
+      "commands": [
+        {
+          "name": "runner-tests",
+          "arguments": [
+            "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/Test-P3-14Runner.py"
+          ],
+          "exit_code": 0,
+          "timed_out": false,
+          "deadline_seconds": 30,
+          "cleanup_reaped": true,
+          "elapsed_ms": 3156
+        },
+        {
+          "name": "runtime-stress",
+          "arguments": [
+            "pwsh",
+            "-NoProfile",
+            "-File",
+            "tools/Test-P3-13.ps1"
+          ],
+          "exit_code": 1,
+          "timed_out": false,
+          "deadline_seconds": 10800,
+          "cleanup_reaped": true,
+          "elapsed_ms": 3574250
+        }
+      ]
+    },
+    {
+      "path": "${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1793934836523338800\\acceptance.json",
+      "sha256": "be2c9789b29f8b856590fcadf9e6e63633164caa177e4ef6fb5005480cd0bc80",
+      "original_status": "failed",
+      "classification": "failed 30000-ms stress guest deadline at wave 92",
+      "error": "runtime-stress failed; see ${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1793934836523338800",
+      "commands": [
+        {
+          "name": "runner-tests",
+          "arguments": [
+            "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/Test-P3-14Runner.py"
+          ],
+          "exit_code": 0,
+          "timed_out": false,
+          "deadline_seconds": 30,
+          "cleanup_reaped": true,
+          "elapsed_ms": 3734
+        },
+        {
+          "name": "runtime-stress",
+          "arguments": [
+            "pwsh",
+            "-NoProfile",
+            "-File",
+            "tools/Test-P3-13.ps1"
+          ],
+          "exit_code": 1,
+          "timed_out": false,
+          "deadline_seconds": 10800,
+          "cleanup_reaped": true,
+          "elapsed_ms": 3501610
+        }
+      ]
+    },
+    {
+      "path": "${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1793938528410485900",
+      "report_absent": true,
+      "classification": "owner interrupted; no final aggregate report was written",
+      "source_snapshot_sha256": "5c773cd664bd8582a17f11b3da3fcc05770a87fdb4a700f5d0a647a7e20311bd"
+    },
+    {
+      "path": "${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1793942335646068800\\acceptance.json",
+      "sha256": "530aa47159caaf9b3fd1b80e6218682bacd097e3086141ece9023b55e7699ad2",
+      "original_status": "failed",
+      "classification": "failed supervision guest self-check; five accepted rate logs",
+      "error": "runtime-stress failed; see ${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1793942335646068800",
+      "commands": [
+        {
+          "name": "runner-tests",
+          "arguments": [
+            "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/Test-P3-14Runner.py"
+          ],
+          "exit_code": 0,
+          "started_utc": "2026-11-06T05:18:56.567880+00:00",
+          "finished_utc": "2026-11-06T05:19:00.114203+00:00",
+          "timed_out": false,
+          "deadline_seconds": 30,
+          "cleanup_reaped": true,
+          "elapsed_ms": 3547
+        },
+        {
+          "name": "host-lifecycle-preflight",
+          "arguments": [
+            "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+            "tools/Test-M3HostLifecycle.py"
+          ],
+          "exit_code": 0,
+          "started_utc": "2026-11-06T05:19:00.115527+00:00",
+          "finished_utc": "2026-11-06T05:19:01.316810+00:00",
+          "timed_out": false,
+          "deadline_seconds": 30,
+          "cleanup_reaped": true,
+          "elapsed_ms": 1203
+        },
+        {
+          "name": "runtime-stress",
+          "arguments": [
+            "pwsh",
+            "-NoProfile",
+            "-File",
+            "tools/Test-P3-13.ps1"
+          ],
+          "exit_code": 1,
+          "started_utc": "2026-11-06T05:19:01.319819+00:00",
+          "finished_utc": "2026-11-06T05:19:59.028130+00:00",
+          "timed_out": false,
+          "deadline_seconds": 10800,
+          "cleanup_reaped": true,
+          "elapsed_ms": 57719
+        }
+      ]
+    }
+  ],
+  "quota_failure": {
+    "path": "${WORKSPACE}\\build\\m1\\sdk-stress-supervisor-1793942347516309600-16280\\sdk-stress-supervisor-run\\serial.log",
+    "sha256": "b9e31f1e982903451a94c4f6d9144b84cb91620ec45c3efd2adfd0cdaf54aeb8",
+    "selected_lines": [
+      1004,
+      1006,
+      1008,
+      1010,
+      1012,
+      1013,
+      1016
+    ],
+    "finding": "Fixture assumed a single elapsed quota epoch; accepted logs alone do not timestamp the crossing. Bounded interval oracle fixes that assumption; no kernel quota change."
+  },
+  "focused_stress": {
+    "path": "build/m3/P3-13/acceptance-1793941422638/acceptance.json",
+    "status": "diagnostic-passed",
+    "guests": 10,
+    "min_elapsed_ms": 19250,
+    "max_elapsed_ms": 26243
+  },
+  "slower_host_profile_used": false,
+  "original_failures_preserved": true
+}

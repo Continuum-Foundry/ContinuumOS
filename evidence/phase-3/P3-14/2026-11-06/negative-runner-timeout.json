@@ -1,0 +1,53 @@
+{
+  "launch": {
+    "arguments": [
+      "-machine",
+      "pc-q35-11.1,hpet=on",
+      "-accel",
+      "tcg",
+      "-cpu",
+      "qemu64-v1,+apic",
+      "-smp",
+      "1",
+      "-m",
+      "2048",
+      "-nic",
+      "none",
+      "-monitor",
+      "none",
+      "-display",
+      "none",
+      "-vga",
+      "std",
+      "-parallel",
+      "none",
+      "-serial",
+      "file:${WORKSPACE}/build/m3/P3-14/acceptance-1793943120165050100/negative-probes/runner-timeout/serial.log",
+      "-no-reboot",
+      "-boot",
+      "order=d,strict=on",
+      "-drive",
+      "if=pflash,format=raw,unit=0,readonly=on,file=${WORKSPACE}/work/tools/qemu/share/edk2-x86_64-code.fd",
+      "-drive",
+      "if=pflash,format=raw,unit=1,file=${WORKSPACE}/build/m3/P3-14/acceptance-1793943120165050100/negative-probes/runner-timeout/fresh firmware vars.fd",
+      "-drive",
+      "file=${WORKSPACE}/build/m1/sdk-runtime-1793947496072201400-46016/sdk-runtime-package/continuum.iso,media=cdrom,readonly=on,format=raw",
+      "-device",
+      "isa-debug-exit,iobase=0xf4,iosize=0x04"
+    ],
+    "executable_sha256": "47d57a6072e0bb3bd98f87926eb129eb1736dfe818c67b3b81ef7ce4edd0b3cd",
+    "iso_sha256": "50025ec65c79a76d4c25ec85cb71fa353ad49b2599142629cd3e44c4edebe2e6",
+    "deadline_ms": 1
+  },
+  "result": {
+    "name": "runner-timeout",
+    "status": "rejected",
+    "error": "runner deadline exceeded",
+    "timed_out": true,
+    "cleanup_reaped": true,
+    "launched": true,
+    "exit_code": 1,
+    "deadline_ms": 1,
+    "elapsed_ms": 391
+  }
+}

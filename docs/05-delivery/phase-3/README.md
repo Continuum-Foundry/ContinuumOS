@@ -1,6 +1,6 @@
 # P3 epic — Isolated processes and stable interfaces
 
-Issue type: Epic. Status: In progress. Owner: Unassigned.
+Issue type: Epic. Status: Done. Owner: Codex (local implementation/self-review).
 Created: 2026-10-24. Milestone: M3. Suggested labels: `phase-3`, `milestone-m3`.
 These are repository-local, Jira-ready stories; no Jira issues have been created.
 This directory follows the [Phase 2 story format](../phase-2/README.md).
@@ -61,7 +61,7 @@ guest settlements and the complete current M1 gate. Use the
 [passes local staged-loader acceptance](../../../evidence/phase-3/P3-03/2026-10-25/README.md):
 three Rust boot modules, 72 audited private pages, exact startup/BSS/stack bytes,
 transactional failures and trusted identity/reuse denial, with the complete M1 gate.
-Use the [loader runbook](static-loader-runbook.md). P3-04 [passes local user-boundary acceptance](../../../evidence/phase-3/P3-04/2026-10-26/README.md): four bounded guests, 36 process runs, checked copied buffers, integer register/flag/IRQ checks and process-local faults/panic/OOM with healthy replacements and exact inventories. Use the [boundary runbook](syscall-boundary-runbook.md). P3-05 now passes the declared scheduler/context subset below; P3-06 adds its bounded public handle/memory subset below; the M3 exit remains open.
+Use the [loader runbook](static-loader-runbook.md). P3-04 [passes local user-boundary acceptance](../../../evidence/phase-3/P3-04/2026-10-26/README.md): four bounded guests, 36 process runs, checked copied buffers, integer register/flag/IRQ checks and process-local faults/panic/OOM with healthy replacements and exact inventories. Use the [boundary runbook](syscall-boundary-runbook.md). P3-05 now passes the declared scheduler/context subset below; P3-06 adds its bounded public handle/memory subset below; the strict M3 result is recorded below.
 
 ## Fixed scope and defaults
 
@@ -201,10 +201,25 @@ P3-12 passes local Codex self-review for the bounded independent SDK 0.1.0 subse
 
 ## P3-13 sustained runtime stress
 
-P3-13 passes local Codex self-review for bounded SDK stress and resource accounting. Ten continuous guests complete 100 waves each: 2000 worker lifecycles, 1000 route/fence cycles, 100000 measured IPC round trips and 10000 warmups, with healthy control progress and exact settled inventories. A separate public supervision guest preserves 29 admissions across four epochs. The final-source regressions pass 95 kernel host tests, ten prerequisites, complete M1 (33 rows/42 launches), prior runtime/SDK/portable checks and 14 separate metadata flavors. The optimized native observer retains the original 30000-ms deadline and all validation; regression reuse requires identical measured source and compiler hashes. Only the existing exact SDK contract subset remains frozen. P3-14 is now Done with an owner-accepted legacy host-fixture exception; strict M3 exit, guest UI/reload and desktop efficiency targets remain open. See the [acceptance evidence](../../../evidence/phase-3/P3-13/2026-11-01/README.md).
+P3-13 passes local Codex self-review for bounded SDK stress and resource accounting. Ten continuous guests complete 100 waves each: 2000 worker lifecycles, 1000 route/fence cycles, 100000 measured IPC round trips and 10000 warmups, with healthy control progress and exact settled inventories. A separate public supervision guest preserves 29 admissions across four epochs. The final-source regressions pass 95 kernel host tests, ten prerequisites, complete M1 (33 rows/42 launches), prior runtime/SDK/portable checks and 14 separate metadata flavors. The optimized native observer retains the original 30000-ms deadline and all validation; regression reuse requires identical measured source and compiler hashes. Only the existing exact SDK contract subset remains frozen. P3-14 subsequently passes the strict M3 gate at its original limits; guest UI/reload and desktop efficiency targets remain open. See the [acceptance evidence](../../../evidence/phase-3/P3-13/2026-11-01/README.md).
 
 ## P3-14 owner-accepted closure
 
-P3-14 is Done by explicit owner acceptance with a legacy host-lifecycle exception. All current guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child misses its original one-second startup bound; that fixture is waived for this story closure only. The strict full gate and M3 exit remain open. No failed check is labeled passed, and no deadline is extended.
+P3-14 was closed on 2026-11-04 by explicit owner acceptance with a legacy host-lifecycle exception. In that earlier evidence, guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child missed its original one-second startup bound; the owner waived it for that earlier closure only. That run did not pass the strict gate; the subsequent strict result is recorded below. No failed check is labeled passed, and no deadline is extended.
 
 See the [evidence, failed fixture and explicit owner exception](../../../evidence/phase-3/P3-14/2026-11-04/README.md). M4 guest UI/reload, M5 migration and safe retirement, M6 durability, M7 accounts/installation and all desktop efficiency targets remain open. Only the existing exact SDK subset is frozen; broader ADRs remain Proposed.
+
+
+## Strict M3 acceptance - 2026-11-06
+
+The fresh full P3-14 gate and independent aggregate reviewer pass all 23
+matrix rows and five deliberate failures at the original 30000-ms guest,
+1000-ms normal host-fixture and 1-ms negative guest limits. No historical
+regression or prerequisite reuse and no exception are used for this result.
+M3's declared isolated-runtime/interface exit passes local Codex self-review;
+M4 guest desktop/live assets is next. Guest UI/reload, M5 migration/retirement,
+durability, real accounts and desktop efficiency targets remain open.
+
+See the [strict acceptance and runner repair evidence](../../../evidence/phase-3/P3-14/2026-11-06/README.md). The earlier
+failed/interrupted runs and owner exception remain recorded as history; only
+the existing exact SDK subset is frozen. This is not human/security certification.

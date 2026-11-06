@@ -11,6 +11,7 @@ mod faults;
 #[allow(dead_code)]
 #[path = "../../sdk-service/src/policy.rs"]
 mod policy;
+mod rate_window;
 #[allow(dead_code)]
 #[path = "../../sdk-service/src/routes.rs"]
 mod routes;

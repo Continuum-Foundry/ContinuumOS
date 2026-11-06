@@ -11,10 +11,22 @@ $run = Join-Path $root ('build/m3/P3-12/acceptance-' + [DateTimeOffset]::UtcNow.
 New-Item -ItemType Directory -Force $run | Out-Null
 $report = [ordered]@{schema_version=1;story='P3-12';status='running';commands=@();runs=@{};source_commit=(git rev-parse HEAD);user_execution=$true;host_test_threads=1}
 function Check([string]$name,[string]$exe,[string[]]$arguments) {
+    $started=[DateTimeOffset]::UtcNow.ToString('o')
+    Write-Host "M3 stage start name=$name utc=$started artifacts=$run"
     $timer=[Diagnostics.Stopwatch]::StartNew()
-    & $exe @arguments *> (Join-Path $run ($name+'.log'))
+    $log=Join-Path $run ($name+'.log')
+    $writer=[IO.StreamWriter]::new($log,$false)
+    $writer.AutoFlush=$true
+    try {
+        & $exe @arguments 2>&1 | ForEach-Object {
+            $line=$_.ToString()
+            $writer.WriteLine($line)
+            if ($line.StartsWith('M3 stage ')) {Write-Host $line}
+        }
+    } finally {$writer.Dispose()}
     $code=$LASTEXITCODE
-    $report.commands+=@{name=$name;program=$exe;arguments=$arguments;exit_code=$code;elapsed_ms=$timer.ElapsedMilliseconds}
+    Write-Host "M3 stage finish name=$name exit=$code elapsed_ms=$($timer.ElapsedMilliseconds) artifacts=$run"
+    $report.commands+=@{name=$name;program=$exe;arguments=$arguments;exit_code=$code;elapsed_ms=$timer.ElapsedMilliseconds;started_utc=$started;finished_utc=[DateTimeOffset]::UtcNow.ToString('o')}
     if ($code -ne 0) { throw "$name failed; see $run" }
     [IO.File]::ReadAllText((Join-Path $run ($name+'.log')))
 }

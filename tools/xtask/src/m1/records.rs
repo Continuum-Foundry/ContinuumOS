@@ -4,6 +4,10 @@ use crate::Result;
 use serde_json::{Value, json};
 use std::collections::BTreeMap;
 
+#[cfg(test)]
+#[path = "../../../../experiments/sdk-stress/src/rate_window.rs"]
+mod rate_window_oracle;
+
 #[derive(Clone, Copy)]
 pub(super) struct Expected<'a> {
     pub build: &'a str,
@@ -35,6 +39,7 @@ pub(super) fn check(serial: &[u8], expected: Expected<'_>, final_log: bool) -> R
 }
 /// Every live snapshot runs the same field/order/resource checks as final review.
 /// Only the export-only owned JSON tree is omitted; no record is skipped.
+#[cfg(test)]
 pub(super) fn progress(serial: &[u8], expected: Expected<'_>) -> Result<bool> {
     parse(serial, expected, false, false).map(|p| p.ready())
 }
@@ -47,25 +52,112 @@ fn parse(
     if serial.len() as u64 > LIMIT {
         return Err("Serial output limit exceeded".into());
     }
-    let mut p = Progress::default();
-    let mut sequence = 0u64;
-    let (mut regions, mut modules, mut framebuffers, mut reservations, mut acpi) = (0, 0, 0, 0, 0);
-    let (mut want_regions, mut want_modules, mut want_framebuffers, mut want_acpi) = (0, 0, 0, 0);
-    let mut runtime = None;
-    let mut double = None;
-    let mut switched = None;
-    let mut frames = Vec::new();
-    let mut armed = None;
-    let mut usable = Vec::new();
-    let mut reserved_ranges = Vec::new();
-    let mut physical_regions = Vec::new();
-    let mut discovery = false;
-    let mut calibrated = None;
-    let mut timer_ready = false;
-    let mut samples = 0;
-    let mut last_ticks = 0u64;
-    let mut last_ns = 0u64;
-    let mut masked = false;
+    let mut state = ParserState::default();
+    parse_chunk(serial, expected, final_log, capture_records, &mut state)?;
+    Ok(state.p)
+}
+#[derive(Default)]
+struct ParserState {
+    p: Progress,
+    sequence: u64,
+    regions: usize,
+    modules: usize,
+    framebuffers: usize,
+    reservations: usize,
+    acpi: usize,
+    want_regions: usize,
+    want_modules: usize,
+    want_framebuffers: usize,
+    want_acpi: usize,
+    runtime: Option<u64>,
+    double: Option<u64>,
+    switched: Option<u64>,
+    frames: Vec<u64>,
+    armed: Option<u64>,
+    usable: Vec<(u64, u64)>,
+    reserved_ranges: Vec<(u64, u64)>,
+    physical_regions: Vec<(u64, u64, usize)>,
+    discovery: bool,
+    calibrated: Option<u64>,
+    timer_ready: bool,
+    samples: usize,
+    last_ticks: u64,
+    last_ns: u64,
+    masked: bool,
+}
+/// Append-only bounded live parser. Final review still reopens the full log.
+#[derive(Default)]
+pub(super) struct StreamParser {
+    state: ParserState,
+    pending: Vec<u8>,
+    total: u64,
+    failed: bool,
+}
+impl StreamParser {
+    pub(super) fn feed(&mut self, bytes: &[u8], expected: Expected<'_>) -> Result<bool> {
+        if self.failed {
+            return Err("Live parser already failed".into());
+        }
+        self.total += bytes.len() as u64;
+        if self.total > LIMIT {
+            self.failed = true;
+            return Err("Serial output limit exceeded".into());
+        }
+        let prefix = self.pending.len();
+        self.pending.extend_from_slice(bytes);
+        let end = bytes
+            .iter()
+            .rposition(|b| *b == b'\n')
+            .map_or(0, |i| prefix + i + 1);
+        if let Err(e) = parse_chunk(
+            &self.pending[..end],
+            expected,
+            false,
+            false,
+            &mut self.state,
+        ) {
+            self.failed = true;
+            return Err(e);
+        }
+        self.pending.drain(..end);
+        Ok(self.state.p.ready())
+    }
+}
+fn parse_chunk(
+    serial: &[u8],
+    expected: Expected<'_>,
+    final_log: bool,
+    capture_records: bool,
+    state: &mut ParserState,
+) -> Result<()> {
+    let ParserState {
+        mut p,
+        mut sequence,
+        mut regions,
+        mut modules,
+        mut framebuffers,
+        mut reservations,
+        mut acpi,
+        mut want_regions,
+        mut want_modules,
+        mut want_framebuffers,
+        mut want_acpi,
+        mut runtime,
+        mut double,
+        mut switched,
+        mut frames,
+        mut armed,
+        mut usable,
+        mut reserved_ranges,
+        mut physical_regions,
+        mut discovery,
+        mut calibrated,
+        mut timer_ready,
+        mut samples,
+        mut last_ticks,
+        mut last_ns,
+        mut masked,
+    } = std::mem::take(state);
     for line in serial.split_inclusive(|b| *b == b'\n') {
         if !line.starts_with(b"m1.") {
             continue;
@@ -886,7 +978,35 @@ fn parse(
             p.records.push(json!({"event":event,"fields":fields}));
         }
     }
-    Ok(p)
+    *state = ParserState {
+        p,
+        sequence,
+        regions,
+        modules,
+        framebuffers,
+        reservations,
+        acpi,
+        want_regions,
+        want_modules,
+        want_framebuffers,
+        want_acpi,
+        runtime,
+        double,
+        switched,
+        frames,
+        armed,
+        usable,
+        reserved_ranges,
+        physical_regions,
+        discovery,
+        calibrated,
+        timer_ready,
+        samples,
+        last_ticks,
+        last_ns,
+        masked,
+    };
+    Ok(())
 }
 pub(super) fn assertions(
     serial: &[u8],
@@ -1268,6 +1388,101 @@ mod tests {
                 check(&bytes, expected, false).map(|p| p.ready())
             );
         }
+    }
+    #[test]
+    fn streaming_matches_full_validation_across_chunks_and_failures() {
+        let e = Expected {
+            build: "abc",
+            session: "def",
+            fixture: "normal",
+            rejection: None,
+            fault_rip: None,
+        };
+        let good = good();
+        for serial in [
+            good.clone(),
+            good.replace("seq=1 ", "seq=999 "),
+            good.replace("build=abc", "build=wrong"),
+            good.replace("session=def", "session=wrong"),
+            good.replace("version=5", "version=6"),
+            good.replace("outcome=ok", "outcome=ok outcome=ok"),
+            format!(
+                "{good}{}",
+                line("m1.kernel_entry", 999, "entry", "ok", "fixture=normal")
+            ),
+            good[..good.len() - 1].to_owned(),
+        ] {
+            for size in [1, 7, 511, 4096] {
+                let mut parser = StreamParser::default();
+                let mut result = Ok(false);
+                for chunk in serial.as_bytes().chunks(size) {
+                    result = parser.feed(chunk, e);
+                    if result.is_err() {
+                        break;
+                    }
+                }
+                assert_eq!(result, progress(serial.as_bytes(), e), "chunk size {size}");
+            }
+        }
+        let mut parser = StreamParser::default();
+        assert!(parser.feed(b"m1.kernel_entry \xff\n", e).is_err());
+        assert!(parser.feed(b"", e).is_err(), "failure must be sticky");
+        assert!(
+            StreamParser::default()
+                .feed(&vec![b'x'; LIMIT as usize + 1], e)
+                .is_err()
+        );
+        assert!(check(&good.as_bytes()[..good.len() - 1], e, true).is_err());
+    }
+    #[test]
+    #[ignore = "explicit retained-log host benchmark"]
+    fn streaming_retained_log_benchmark() {
+        use std::time::Instant;
+        let path = std::env::var("CONTINUUM_OBSERVER_BENCH_LOG").unwrap();
+        let bytes = std::fs::read(path).unwrap();
+        let first = bytes
+            .split(|b| *b == b'\n')
+            .find(|l| l.starts_with(b"m1.kernel_entry "))
+            .unwrap();
+        let text = std::str::from_utf8(first).unwrap();
+        let field = |key: &str| {
+            text.split_whitespace()
+                .find_map(|word| word.strip_prefix(key))
+                .unwrap()
+        };
+        let e = Expected {
+            build: field("build="),
+            session: field("session="),
+            fixture: field("fixture="),
+            rejection: None,
+            fault_rip: None,
+        };
+        let start = Instant::now();
+        let mut full = Ok(false);
+        let mut full_bytes = 0usize;
+        for end in (4096..bytes.len()).step_by(4096).chain([bytes.len()]) {
+            full = progress(&bytes[..end], e);
+            full_bytes += end;
+            full.as_ref().unwrap();
+        }
+        let full_ns = start.elapsed().as_nanos();
+        let start = Instant::now();
+        let mut parser = StreamParser::default();
+        let mut streamed = Ok(false);
+        for chunk in bytes.chunks(4096) {
+            streamed = parser.feed(chunk, e);
+            streamed.as_ref().unwrap();
+        }
+        let stream_ns = start.elapsed().as_nanos();
+        assert_eq!(streamed, full);
+        assert_eq!(streamed, Ok(true));
+        check(&bytes, e, true).unwrap();
+        assert_eq!(parser.total, bytes.len() as u64);
+        assert!(full_bytes > bytes.len());
+        println!(
+            "observer_benchmark full_ns={full_ns} stream_ns={stream_ns} full_bytes={full_bytes} stream_bytes={}",
+            bytes.len()
+        );
     }
     #[test]
     fn expected_rejection_needs_exact_error_and_exit_and_no_ready_marker() {

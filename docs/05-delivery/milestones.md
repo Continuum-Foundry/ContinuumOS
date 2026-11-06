@@ -12,7 +12,7 @@ Its 2026-10-21 installer amendment makes M7 account/installation readiness a
 required dependency of M8. Existing M0–M2 acceptance and P2 story boundaries remain
 unchanged. The approved desktop/platform expansion adds M9–M21 without extending
 M8's release exit; see the [feature matrix](desktop-feature-matrix.md).
-M3 has [fourteen Phase 3 stories](phase-3/README.md); P3-01 [passes its local prerequisite/contract gate](../../evidence/phase-3/P3-01/2026-10-25/README.md). P3-02 [passes its internal owned-memory gate](../../evidence/phase-3/P3-02/2026-10-25/README.md). P3-03 [passes staged static-loader acceptance](../../evidence/phase-3/P3-03/2026-10-25/README.md). P3-04 [passes the bounded user-entry/syscall/fault gate](../../evidence/phase-3/P3-04/2026-10-26/README.md). P3-01 through P3-13 are Done; P3-14 is Done with an owner-accepted host-fixture exception. Strict M3 exit remains open.
+M3 has [fourteen Phase 3 stories](phase-3/README.md); P3-01 [passes its local prerequisite/contract gate](../../evidence/phase-3/P3-01/2026-10-25/README.md). P3-02 [passes its internal owned-memory gate](../../evidence/phase-3/P3-02/2026-10-25/README.md). P3-03 [passes staged static-loader acceptance](../../evidence/phase-3/P3-03/2026-10-25/README.md). P3-04 [passes the bounded user-entry/syscall/fault gate](../../evidence/phase-3/P3-04/2026-10-26/README.md). P3-01 through P3-13 are Done; P3-14 passes strict M3 acceptance at its original limits.
 Detailed P4–P21 stories are decomposed at the owner's request before
 each milestone; the broad backlog does not substitute for that decomposition.
 
@@ -106,7 +106,7 @@ guest interpreter support or compiled behavior replacement.
 ## M3 — Isolated processes and stable interfaces
 
 Implementation plan: [P3 epic and fourteen ordered stories](phase-3/README.md).
-P3-01 through P3-13 are Done; P3-14 is Done with an owner-accepted legacy host-fixture exception. Strict M3 exit remains open. The [final story's required matrix](phase-3/14-phase-3-acceptance.md#required-acceptance-matrix)
+P3-01 through P3-13 are Done; P3-14 passes strict M3 acceptance at its original limits. The [final story's required matrix](phase-3/14-phase-3-acceptance.md#required-acceptance-matrix)
 maps the existing exit to guest enforcement and independent SDK evidence; this
 decomposition changes no milestone exit or implementation status.
 
@@ -447,6 +447,21 @@ P3-06 [passes local handle/memory-object acceptance](../../evidence/phase-3/P3-0
 
 ## P3-14 owner-accepted closure
 
-P3-14 is Done by explicit owner acceptance with a legacy host-lifecycle exception. All current guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child misses its original one-second startup bound; that fixture is waived for this story closure only. The strict full gate and M3 exit remain open. No failed check is labeled passed, and no deadline is extended.
+P3-14 was closed on 2026-11-04 by explicit owner acceptance with a legacy host-lifecycle exception. In that earlier evidence, guest/runtime regressions, complete M1 review (33 rows/42 launches), ten stress guests and five aggregate failure probes pass local Codex self-review. The legacy P3-01 Python child missed its original one-second startup bound; the owner waived it for that earlier closure only. That run did not pass the strict gate; the subsequent strict result is recorded below. No failed check is labeled passed, and no deadline is extended.
 
 See the [evidence, failed fixture and explicit owner exception](../../evidence/phase-3/P3-14/2026-11-04/README.md). M4 guest UI/reload, M5 migration and safe retirement, M6 durability, M7 accounts/installation and all desktop efficiency targets remain open. Only the existing exact SDK subset is frozen; broader ADRs remain Proposed.
+
+
+## Strict M3 acceptance - 2026-11-06
+
+The fresh full P3-14 gate and independent aggregate reviewer pass all 23
+matrix rows and five deliberate failures at the original 30000-ms guest,
+1000-ms normal host-fixture and 1-ms negative guest limits. No historical
+regression or prerequisite reuse and no exception are used for this result.
+M3's declared isolated-runtime/interface exit passes local Codex self-review;
+M4 guest desktop/live assets is next. Guest UI/reload, M5 migration/retirement,
+durability, real accounts and desktop efficiency targets remain open.
+
+See the [strict acceptance and runner repair evidence](../../evidence/phase-3/P3-14/2026-11-06/README.md). The earlier
+failed/interrupted runs and owner exception remain recorded as history; only
+the existing exact SDK subset is frozen. This is not human/security certification.

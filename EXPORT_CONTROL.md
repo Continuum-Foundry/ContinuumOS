@@ -1535,3 +1535,19 @@ Generated binaries/ISOs, private keys, credentials, full raw logs, dependency
 caches and full source/build trees are excluded. Geographic containment remains
 unverified; this is an administrative exception, not legal clearance or a finding
 of U.S.-only handling, and does not waive applicable law.
+
+## One-time owner exemption - strict M3 acceptance repair, 2026-11-06
+
+The owner explicitly granted an exemption to make the PR for the completed M3
+acceptance reliability repair. The exact task-only payload before this record is
+Git tree `657149530e470caf006d4bd6512624c4ae3992ff`, plus this record, to
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/m3-acceptance-reliability`, targeting `main`. It contains the incremental
+observer, runner diagnostics, bounded quota-window fixture correction, milestone
+documentation and compact reviewed original-limit acceptance evidence.
+
+This authorization covers one push with a one-time pre-push guard bypass and
+creation of that PR. The pre-commit check remains enabled and the installed push
+guard remains afterward. Unrelated owner edits, full generated logs/source trees,
+ISOs, binaries, caches, credentials and private keys are excluded. This is not a
+standing exemption, a geographic-containment finding or legal clearance.

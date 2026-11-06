@@ -1,5 +1,7 @@
 """Exercise real child-tree timeout cleanup and source-lock additions."""
 import ctypes
+import contextlib
+import io
 from ctypes import wintypes
 import json
 from pathlib import Path
@@ -31,6 +33,24 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(caught.exception.result, result)
         self.assertEqual(result['exit_code'], 7)
         self.assertFalse(result['timed_out'])
+
+    def test_progress_is_relayed_before_child_exit(self):
+        folder = self.scratch()
+        ack = folder / 'progress-relayed'
+        class Sink(io.StringIO):
+            def write(self, value):
+                if 'M3 stage child-ready' in value:
+                    ack.write_text('seen')
+                return super().write(value)
+        script = ('import time; from pathlib import Path; '
+                  'print("M3 stage child-ready",flush=True); '
+                  f'p=Path({str(ack)!r}); deadline=time.monotonic()+3\n'
+                  'while not p.exists() and time.monotonic()<deadline: time.sleep(.02)\n'
+                  'raise SystemExit(0 if p.exists() else 7)')
+        with contextlib.redirect_stdout(Sink()):
+            result = gate.command(folder, 'live-progress', [sys.executable, '-c', script], 5)
+        self.assertTrue(ack.exists())
+        self.assertLessEqual(result['started_utc'], result['finished_utc'])
 
     def test_timeout_reaps_descendant(self):
         folder = self.scratch()

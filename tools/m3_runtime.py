@@ -154,8 +154,10 @@ def run(profile_path, image, image_sha256, case, interpreter=None):
         start = time.perf_counter_ns()
         with (directory / "stdout.log").open("xb") as out, (directory / "stderr.log").open("xb") as err:
             report["outcome"] = "spawn-failed"
+            spawn_start = time.perf_counter_ns()
             proc = subprocess.Popen(args, stdin=subprocess.DEVNULL, stdout=out, stderr=err,
                                     creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0)
+            report["process_creation_ns"] = time.perf_counter_ns() - spawn_start
             report.update(launched=True, cleanup="unconfirmed", child_pid=proc.pid)
             report["outcome"] = "running"
             while proc.poll() is None:
@@ -172,6 +174,7 @@ def run(profile_path, image, image_sha256, case, interpreter=None):
             report["exit_code"] = proc.wait(timeout=5)
             report["cleanup"] = "reaped"
         report["elapsed_ns"] = time.perf_counter_ns() - start
+        report["post_creation_ns"] = report["elapsed_ns"] - report["process_creation_ns"]
         if any((directory / n).stat().st_size > p["runner"]["output_bytes"]
                for n in ("stdout.log", "stderr.log")):
             report["outcome"] = "output-limit"

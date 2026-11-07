@@ -1,0 +1,28 @@
+{
+  "story": "P4-01",
+  "status": "passed",
+  "scope": "local Codex self-review of prerequisites/host planning; no guest desktop or new ABI acceptance",
+  "acceptance_sha256": "6684f0c552f6faa19a1fb392dabdb11e84883009f2f822453ed1a921ac092d30",
+  "source_lock_sha256": "92a9e353abd5a36dcd1345e276a544633f6c4c33460dd0534518a7b0ea5ca78e",
+  "m3_review_sha256": "ac4310c76871b8683a200b4fc263cb2cad5d6e44157fde8bcdac9ff35dfac6f2",
+  "m3_rows": 23,
+  "m1": {
+    "kernel_host_tests": 97,
+    "prerequisite_checks": 10,
+    "m1_rows": 33,
+    "m1_launches": 42
+  },
+  "deadline_profile": "m3-stress-tcg-v2",
+  "ordinary_guest_deadline_ms": 30000,
+  "stress_guest_deadline_ms": 60000,
+  "host_plan_sha256": "75d711ae618dd6a360f474da05457b5c26a7811ce9b0c1b20a5969ecfeff54d0",
+  "profile_mutations": 163,
+  "codec_cases": 1345,
+  "m2_rows": 16,
+  "limits": [
+    "host byte/profile/lifecycle tests only",
+    "no actual guest desktop or driver acceptance",
+    "no cryptographic implementation",
+    "no newly frozen SDK ID"
+  ]
+}

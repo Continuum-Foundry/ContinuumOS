@@ -1,4 +1,18 @@
 use super::*;
+
+#[test]
+fn dispatch_latency_starts_at_wait_completion_and_keeps_real_ready_delays() {
+    assert_eq!(runnable_delay(10, None, 20).unwrap(), 10);
+    // A long legitimate wait is not runnable time. The same long interval for
+    // an already-ready owner remains visible to the unchanged ceiling check.
+    assert_eq!(
+        runnable_delay(10, Some(400_000_010), 405_000_010).unwrap(),
+        5_000_000
+    );
+    assert_eq!(runnable_delay(10, None, 405_000_010).unwrap(), 405_000_000);
+    assert!(runnable_delay(20, None, 10).is_err());
+    assert!(runnable_delay(10, Some(30), 20).is_err());
+}
 fn id(slot: usize, generation: u64) -> ThreadId {
     ThreadId { slot, generation }
 }

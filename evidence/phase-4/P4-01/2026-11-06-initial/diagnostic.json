@@ -1,0 +1,63 @@
+{
+  "status": "blocked",
+  "source_commit": "15e5113b112c179ac9dbe7ad1426a67a2be9f301",
+  "source_lock_current": true,
+  "scope": "read-only local failure review; no M3 or P4 acceptance",
+  "root_cause": "unresolved; timeout alone is insufficient evidence",
+  "independent_consumer_rejection": "incomplete guest",
+  "diagnostic_counts": {
+    "records": 2116,
+    "completed_waves": 82,
+    "last_complete_wave": 81,
+    "next_staged_wave": 82,
+    "last_sequence": 2115,
+    "completion_present": false
+  },
+  "original_full_serial": {
+    "local_path": "build/m1/sdk-stress-trace-1794009349738308300-29224/sdk-stress-trace-run/serial.log",
+    "bytes": 756488,
+    "sha256": "38aed9f5db4a0e14623c322f571cd3f1474644ecc986b797425fe14bbcf2448c"
+  },
+  "host_observer": {
+    "observer_read_bytes": 756488,
+    "observer_read_ns": 111215200,
+    "observer_parse_ns": 25274600
+  },
+  "deadline_ms": 30000,
+  "elapsed_host_ms": 30118,
+  "cleanup_reaped": true,
+  "completed": [
+    "runner-tests",
+    "host-lifecycle-preflight",
+    "public-supervision-and-review",
+    "stress-off-0-and-review",
+    "separate-stress-flavors"
+  ],
+  "not_completed": [
+    "full-10-guest-stress",
+    "full-current-M1",
+    "full-current-M3",
+    "affected-hosted-M2",
+    "P4-profile-validator",
+    "independent-draft-codec-fixtures",
+    "P4-bounded-runner"
+  ],
+  "retries": 0,
+  "deadline_changes": 0,
+  "policy_changes": 0,
+  "guest_code_changes": 0,
+  "preexisting_dirty_inputs": [
+    {
+      "path": "docs/05-delivery/windows-development-signing.md",
+      "sha256": "17ea166c84fa8162c4f617c0f44118ef6ebee2d580db9ffe6024c3cf1158505a"
+    },
+    {
+      "path": "tools/windows/New-DevPolicy.ps1",
+      "sha256": "87bf507058c564a945e7b1631ca95ae1377e1f5c692ec2fd8dfcfb72c951ee96"
+    },
+    {
+      "path": "tools/windows/Set-DevMachinePolicy.ps1",
+      "sha256": "442625fc8b91f5c7e4e60c5a0936b0d1cc525c6fbe25a85d1ba9aa31e84ea660"
+    }
+  ]
+}

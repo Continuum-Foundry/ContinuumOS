@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "story": "P3-14",
+  "status": "passed",
+  "source_commit": "15e5113b112c179ac9dbe7ad1426a67a2be9f301",
+  "source_lock_sha256": "92a9e353abd5a36dcd1345e276a544633f6c4c33460dd0534518a7b0ea5ca78e",
+  "config": {
+    "schema_version": 1,
+    "story": "P3-14",
+    "regression_command": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "tools/Test-P3-13.ps1"
+    ],
+    "regression_deadline_seconds": 10800,
+    "prerequisite_review_deadline_seconds": 180,
+    "guest_deadline_ms": 30000,
+    "stress_guest_deadline_ms": 60000,
+    "stress_deadline_profile": "m3-stress-tcg-v2",
+    "negative_timeout_ms": 1,
+    "sdk_contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+    "required_matrix": [
+      "current-prerequisites-clean-optical-iso",
+      "memory-ownership-allocation",
+      "static-elf-admission",
+      "trusted-launch-child-ceiling",
+      "user-entry-syscall-boundary",
+      "user-fault-containment",
+      "preemption-cpu-isolation",
+      "handles-memory-objects",
+      "ipc-bytes-transfer",
+      "caller-provenance-after-delegation",
+      "waits-deadlines-cancellation",
+      "deadlock-backpressure-exhaustion",
+      "supervision-teardown",
+      "cross-owner-same-user-authority",
+      "scoped-policy-confused-deputy",
+      "reserved-privileged-operations",
+      "brokered-invalidation-restart",
+      "proxy-route-writer-fence",
+      "route-transition-faults",
+      "independent-sdk-version-conformance",
+      "selected-runtime-hooks",
+      "sustained-lifecycle-accounting",
+      "regression-evidence-integrity"
+    ],
+    "required_negative_cases": [
+      "broken-user-image",
+      "artifact-hash",
+      "expected-process-outcome",
+      "missing-completion-record",
+      "runner-timeout"
+    ]
+  },
+  "commands": [
+    {
+      "name": "runner-tests",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-P3-14Runner.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T03:42:28.123918+00:00",
+      "finished_utc": "2026-11-07T03:42:32.087740+00:00",
+      "timed_out": false,
+      "deadline_seconds": 30,
+      "cleanup_reaped": true,
+      "elapsed_ms": 3969
+    },
+    {
+      "name": "host-lifecycle-preflight",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-M3HostLifecycle.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T03:42:32.087740+00:00",
+      "finished_utc": "2026-11-07T03:42:33.288423+00:00",
+      "timed_out": false,
+      "deadline_seconds": 30,
+      "cleanup_reaped": true,
+      "elapsed_ms": 1203
+    },
+    {
+      "name": "runtime-stress",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Test-P3-13.ps1"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T03:42:33.288423+00:00",
+      "finished_utc": "2026-11-07T05:19:33.826032+00:00",
+      "timed_out": false,
+      "deadline_seconds": 10800,
+      "cleanup_reaped": true,
+      "elapsed_ms": 5820531
+    },
+    {
+      "name": "prerequisite-lifecycle",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-P3-01.py",
+        "--prerequisites",
+        "${WORKSPACE}\\build\\m2\\P2-01\\prerequisites-1794024089110",
+        "--m1",
+        "${WORKSPACE}\\build\\m1\\suite-1794024434173025200-45576"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T05:19:33.860395+00:00",
+      "finished_utc": "2026-11-07T05:19:38.623354+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 4782
+    }
+  ],
+  "runs": {
+    "stress_acceptance": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794022953827\\acceptance.json",
+    "prerequisite_acceptance": "${WORKSPACE}\\build\\m3\\P3-01\\acceptance-1794028774157109900"
+  },
+  "fresh_stress_cache": true,
+  "negative_probes": {
+    "status": "passed",
+    "control": {
+      "name": "control",
+      "status": "passed",
+      "error": null,
+      "timed_out": false,
+      "cleanup_reaped": true,
+      "launched": true,
+      "exit_code": 33,
+      "deadline_ms": 30000,
+      "elapsed_ms": 6016,
+      "serial_sha256": "05965d24f2051d9f3b541705a77c1d092c4897e39ff0a45a0ae3031119551a6f"
+    },
+    "cases": [
+      {
+        "name": "broken-user-image",
+        "status": "rejected",
+        "error": "user ELF identity/size",
+        "launched": false,
+        "cleanup_reaped": true
+      },
+      {
+        "name": "artifact-hash",
+        "status": "rejected",
+        "error": "user artifact hash mismatch",
+        "launched": false,
+        "cleanup_reaped": true
+      },
+      {
+        "name": "expected-process-outcome",
+        "status": "rejected",
+        "error": "deliberately wrong process outcome: expected panic code 97",
+        "timed_out": false,
+        "cleanup_reaped": true,
+        "launched": true,
+        "exit_code": 33,
+        "deadline_ms": 30000,
+        "elapsed_ms": 6297,
+        "serial_sha256": "46c5a5aebabdbbb8b82d71b56291a512b4c19eff89340aca15784d07df5af949"
+      },
+      {
+        "name": "missing-completion-record",
+        "status": "rejected",
+        "error": "runtime completion",
+        "timed_out": false,
+        "cleanup_reaped": true,
+        "launched": true,
+        "exit_code": 33,
+        "deadline_ms": 30000,
+        "elapsed_ms": 5953,
+        "serial_sha256": "33e1a65200a0003c5bbca328b1663d67dc3ec020d6e7975729159fe931060087"
+      },
+      {
+        "name": "runner-timeout",
+        "status": "rejected",
+        "error": "runner deadline exceeded",
+        "timed_out": true,
+        "cleanup_reaped": true,
+        "launched": true,
+        "exit_code": 1,
+        "deadline_ms": 1,
+        "elapsed_ms": 62
+      }
+    ],
+    "adapter": "wrong expected panic code / dropped completion apply to independent consumer after real ISO replay; prelaunch ELF/hash faults launch no VM; timeout kills/reaps real QEMU"
+  }
+}

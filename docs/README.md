@@ -75,7 +75,7 @@ is approved.
 | Phase 1 stories | [Epic and ordered implementation gates](05-delivery/phase-1/README.md), [host module layout](05-delivery/phase-1/minimal-iso-runbook.md#host-harness-source-layout), [metadata runbook](05-delivery/phase-1/boot-metadata-runbook.md) |
 | Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-13 accepted locally; M2 hosted subset passes; custom direction remains provisional until guest confirmation |
 | Phase 3 stories | [Isolated runtime epic and fourteen ordered stories](05-delivery/phase-3/README.md): P3-01/P3-02/P3-03/P3-04/P3-05/P3-06/P3-07 Done; P3-08 Done; P3-09 Done; P3-10 Done; P3-11 Done; P3-12 Done; P3-13 Done; P3-14 Done; strict original-limit M3 acceptance passes locally |
-| Phase 4 stories | [Guest desktop/live-assets epic and nineteen ordered stories](05-delivery/phase-4/README.md): all Not started; begin with P4-01's current prerequisite/profile gate |
+| Phase 4 stories | [Guest desktop/live-assets epic and nineteen ordered stories](05-delivery/phase-4/README.md): P4-01 [passes prerequisite/profile acceptance](../evidence/phase-4/P4-01/final-1794022944926085700/README.md), including fresh M1/M3/M2 under the scoped stress profile v2; P4-02–19 Not started |
 | Later desktop | [Feature/release matrix](05-delivery/desktop-feature-matrix.md), [service responsibilities](06-contracts/desktop-services.md), [Windows study](01-research/windows-compatibility-feasibility.md), [browser study](01-research/browser-feasibility.md); no P5–P22 decomposition yet |
 
 ## Status and interpretation

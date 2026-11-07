@@ -1,0 +1,2479 @@
+{
+  "story": "P3-14",
+  "status": "passed",
+  "review": "local Codex self-review; not independent human/security approval",
+  "deadline_profile": "m3-stress-tcg-v2",
+  "original_limit_acceptance": false,
+  "ordinary_guest_deadline_ms": 30000,
+  "stress_guest_deadline_ms": 60000,
+  "source_commit": "15e5113b112c179ac9dbe7ad1426a67a2be9f301",
+  "acceptance_sha256": "52f2021863453cd4fd1f0a6ab28a7ab71beebaae8beb64c3eed160eaeba3354b",
+  "reviewer_sha256": "14f639447be097f9bca0204d79ae9c12884e8e6347ba4b7bac1bc0f4a1660912",
+  "source_lock_sha256": "92a9e353abd5a36dcd1345e276a544633f6c4c33460dd0534518a7b0ea5ca78e",
+  "sdk_contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+  "matrix": [
+    {
+      "scenario": "current-prerequisites-clean-optical-iso",
+      "status": "passed",
+      "evidence": [
+        "prerequisites.json",
+        "m1-review.json"
+      ]
+    },
+    {
+      "scenario": "memory-ownership-allocation",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.memory_regression"
+      ]
+    },
+    {
+      "scenario": "static-elf-admission",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.loader_regression",
+        "kernel host malformed-image tests"
+      ]
+    },
+    {
+      "scenario": "trusted-launch-child-ceiling",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.loader_regression",
+        "sdk-review.json:regression.supervisor_regression"
+      ]
+    },
+    {
+      "scenario": "user-entry-syscall-boundary",
+      "status": "passed",
+      "evidence": [
+        "raw four-guest boundary regression and instruction audit"
+      ]
+    },
+    {
+      "scenario": "user-fault-containment",
+      "status": "passed",
+      "evidence": [
+        "raw four-guest boundary regression",
+        "sdk-review.json:runtime.audit"
+      ]
+    },
+    {
+      "scenario": "preemption-cpu-isolation",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.scheduler_regression"
+      ]
+    },
+    {
+      "scenario": "handles-memory-objects",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.capabilities_regression"
+      ]
+    },
+    {
+      "scenario": "ipc-bytes-transfer",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.channels_regression"
+      ]
+    },
+    {
+      "scenario": "caller-provenance-after-delegation",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.channels_regression",
+        "sdk-review.json:regression.policy_regression"
+      ]
+    },
+    {
+      "scenario": "waits-deadlines-cancellation",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.waits_regression"
+      ]
+    },
+    {
+      "scenario": "deadlock-backpressure-exhaustion",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.waits_regression",
+        "stress-review.json:criterion_review"
+      ]
+    },
+    {
+      "scenario": "supervision-teardown",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.supervisor_regression",
+        "stress-review.json:public_supervision"
+      ]
+    },
+    {
+      "scenario": "cross-owner-same-user-authority",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.policy_regression"
+      ]
+    },
+    {
+      "scenario": "scoped-policy-confused-deputy",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.policy_regression"
+      ]
+    },
+    {
+      "scenario": "reserved-privileged-operations",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.policy_regression"
+      ]
+    },
+    {
+      "scenario": "brokered-invalidation-restart",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.policy_regression",
+        "sdk-review.json:audit"
+      ]
+    },
+    {
+      "scenario": "proxy-route-writer-fence",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:audit",
+        "sdk-review.json:criterion_review.route_fences"
+      ]
+    },
+    {
+      "scenario": "route-transition-faults",
+      "status": "passed",
+      "evidence": [
+        "sdk-review.json:regression.audit"
+      ]
+    },
+    {
+      "scenario": "independent-sdk-version-conformance",
+      "status": "passed",
+      "evidence": [
+        "sdk-artifacts.json:independent_builds",
+        "sdk-review.json:codecs",
+        "sdk-review.json:audit"
+      ]
+    },
+    {
+      "scenario": "selected-runtime-hooks",
+      "status": "passed",
+      "evidence": [
+        "runtime-artifacts.json",
+        "sdk-review.json:runtime.audit"
+      ]
+    },
+    {
+      "scenario": "sustained-lifecycle-accounting",
+      "status": "passed",
+      "evidence": [
+        "stress-review.json:profiles",
+        "stress-review.json:criterion_review"
+      ]
+    },
+    {
+      "scenario": "regression-evidence-integrity",
+      "status": "passed",
+      "evidence": [
+        "m1-review.json",
+        "sdk-review.json:portable_regression",
+        "negative-probes.json",
+        "source-lock.json"
+      ]
+    }
+  ],
+  "prerequisite_rows": 42,
+  "negative_probes": {
+    "status": "passed",
+    "control": {
+      "name": "control",
+      "status": "passed",
+      "error": null,
+      "timed_out": false,
+      "cleanup_reaped": true,
+      "launched": true,
+      "exit_code": 33,
+      "deadline_ms": 30000,
+      "elapsed_ms": 6016,
+      "serial_sha256": "05965d24f2051d9f3b541705a77c1d092c4897e39ff0a45a0ae3031119551a6f"
+    },
+    "cases": [
+      {
+        "name": "broken-user-image",
+        "status": "rejected",
+        "error": "user ELF identity/size",
+        "launched": false,
+        "cleanup_reaped": true
+      },
+      {
+        "name": "artifact-hash",
+        "status": "rejected",
+        "error": "user artifact hash mismatch",
+        "launched": false,
+        "cleanup_reaped": true
+      },
+      {
+        "name": "expected-process-outcome",
+        "status": "rejected",
+        "error": "deliberately wrong process outcome: expected panic code 97",
+        "timed_out": false,
+        "cleanup_reaped": true,
+        "launched": true,
+        "exit_code": 33,
+        "deadline_ms": 30000,
+        "elapsed_ms": 6297,
+        "serial_sha256": "46c5a5aebabdbbb8b82d71b56291a512b4c19eff89340aca15784d07df5af949"
+      },
+      {
+        "name": "missing-completion-record",
+        "status": "rejected",
+        "error": "runtime completion",
+        "timed_out": false,
+        "cleanup_reaped": true,
+        "launched": true,
+        "exit_code": 33,
+        "deadline_ms": 30000,
+        "elapsed_ms": 5953,
+        "serial_sha256": "33e1a65200a0003c5bbca328b1663d67dc3ec020d6e7975729159fe931060087"
+      },
+      {
+        "name": "runner-timeout",
+        "status": "rejected",
+        "error": "runner deadline exceeded",
+        "timed_out": true,
+        "cleanup_reaped": true,
+        "launched": true,
+        "exit_code": 1,
+        "deadline_ms": 1,
+        "elapsed_ms": 62
+      }
+    ],
+    "adapter": "wrong expected panic code / dropped completion apply to independent consumer after real ISO replay; prelaunch ELF/hash faults launch no VM; timeout kills/reaps real QEMU"
+  },
+  "stress_review_sha256": "01a3c90c9ce013943016065f7a49bbfc7dc61b1da206a5f4cb5b396ab2faf02b",
+  "sdk_review_sha256": "c6913bce5522c80a7f2712a906e555c432af6024732c8f6098583f989705e7f3",
+  "runtime_regression": {
+    "kernel_host_tests": 97,
+    "prerequisite_checks": 10,
+    "m1_rows": 33,
+    "m1_launches": 42
+  },
+  "sdk_audit": {
+    "incarnations": 9,
+    "process_runs": 54,
+    "fixed_bytes": 10581256,
+    "decisions": 131,
+    "mutation_attempts": 25,
+    "successful_commits": 19,
+    "faults": 8,
+    "exact_settlements": 9,
+    "decision_matrix": [
+      {
+        "wave": 0,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 323
+      },
+      {
+        "wave": 0,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 329
+      },
+      {
+        "wave": 0,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 343
+      },
+      {
+        "wave": 0,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 349
+      },
+      {
+        "wave": 0,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 355
+      },
+      {
+        "wave": 0,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 369
+      },
+      {
+        "wave": 0,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 375
+      },
+      {
+        "wave": 0,
+        "case": 6,
+        "operation": 9,
+        "status": 3,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 389
+      },
+      {
+        "wave": 0,
+        "case": 7,
+        "operation": 11,
+        "status": 14,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 403
+      },
+      {
+        "wave": 0,
+        "case": 8,
+        "operation": 11,
+        "status": 14,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 417
+      },
+      {
+        "wave": 0,
+        "case": 9,
+        "operation": 11,
+        "status": 3,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 431
+      },
+      {
+        "wave": 0,
+        "case": 54,
+        "operation": 10,
+        "status": 14,
+        "epoch": 100,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 445
+      },
+      {
+        "wave": 0,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 100,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 476
+      },
+      {
+        "wave": 0,
+        "case": 11,
+        "operation": 10,
+        "status": 0,
+        "epoch": 100,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 490
+      },
+      {
+        "wave": 0,
+        "case": 57,
+        "operation": 13,
+        "status": 0,
+        "epoch": 100,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 504
+      },
+      {
+        "wave": 0,
+        "case": 12,
+        "operation": 10,
+        "status": 3,
+        "epoch": 100,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 518
+      },
+      {
+        "wave": 0,
+        "case": 13,
+        "operation": 11,
+        "status": 0,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 549
+      },
+      {
+        "wave": 0,
+        "case": 14,
+        "operation": 10,
+        "status": 13,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 563
+      },
+      {
+        "wave": 0,
+        "case": 15,
+        "operation": 10,
+        "status": 13,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 577
+      },
+      {
+        "wave": 0,
+        "case": 16,
+        "operation": 10,
+        "status": 0,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 1,
+        "seq": 591
+      },
+      {
+        "wave": 0,
+        "case": 56,
+        "operation": 10,
+        "status": 6,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 1,
+        "seq": 605
+      },
+      {
+        "wave": 0,
+        "case": 17,
+        "operation": 10,
+        "status": 0,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 2,
+        "seq": 619
+      },
+      {
+        "wave": 0,
+        "case": 18,
+        "operation": 10,
+        "status": 0,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 3,
+        "seq": 633
+      },
+      {
+        "wave": 0,
+        "case": 19,
+        "operation": 10,
+        "status": 0,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 4,
+        "seq": 647
+      },
+      {
+        "wave": 0,
+        "case": 20,
+        "operation": 10,
+        "status": 11,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 4,
+        "seq": 661
+      },
+      {
+        "wave": 0,
+        "case": 21,
+        "operation": 13,
+        "status": 8,
+        "epoch": 100,
+        "revision": 2,
+        "value": 2,
+        "queued": 3,
+        "seq": 675
+      },
+      {
+        "wave": 0,
+        "case": 22,
+        "operation": 12,
+        "status": 0,
+        "epoch": 100,
+        "revision": 3,
+        "value": 3,
+        "queued": 2,
+        "seq": 706
+      },
+      {
+        "wave": 0,
+        "case": 23,
+        "operation": 12,
+        "status": 0,
+        "epoch": 100,
+        "revision": 4,
+        "value": 4,
+        "queued": 1,
+        "seq": 737
+      },
+      {
+        "wave": 0,
+        "case": 24,
+        "operation": 12,
+        "status": 0,
+        "epoch": 100,
+        "revision": 5,
+        "value": 5,
+        "queued": 0,
+        "seq": 768
+      },
+      {
+        "wave": 0,
+        "case": 25,
+        "operation": 11,
+        "status": 13,
+        "epoch": 101,
+        "revision": 5,
+        "value": 5,
+        "queued": 0,
+        "seq": 802
+      },
+      {
+        "wave": 0,
+        "case": 26,
+        "operation": 11,
+        "status": 3,
+        "epoch": 101,
+        "revision": 5,
+        "value": 5,
+        "queued": 0,
+        "seq": 827
+      },
+      {
+        "wave": 0,
+        "case": 51,
+        "operation": 16,
+        "status": 0,
+        "epoch": 101,
+        "revision": 5,
+        "value": 5,
+        "queued": 0,
+        "seq": 837
+      },
+      {
+        "wave": 0,
+        "case": 52,
+        "operation": 10,
+        "status": 13,
+        "epoch": 101,
+        "revision": 5,
+        "value": 5,
+        "queued": 0,
+        "seq": 851
+      },
+      {
+        "wave": 0,
+        "case": 27,
+        "operation": 11,
+        "status": 0,
+        "epoch": 101,
+        "revision": 6,
+        "value": 6,
+        "queued": 0,
+        "seq": 882
+      },
+      {
+        "wave": 0,
+        "case": 28,
+        "operation": 11,
+        "status": 3,
+        "epoch": 101,
+        "revision": 6,
+        "value": 6,
+        "queued": 0,
+        "seq": 913
+      },
+      {
+        "wave": 0,
+        "case": 29,
+        "operation": 11,
+        "status": 13,
+        "epoch": 101,
+        "revision": 7,
+        "value": 7,
+        "queued": 0,
+        "seq": 944
+      },
+      {
+        "wave": 0,
+        "case": 31,
+        "operation": 11,
+        "status": 7,
+        "epoch": 101,
+        "revision": 7,
+        "value": 7,
+        "queued": 0,
+        "seq": 980
+      },
+      {
+        "wave": 0,
+        "case": 32,
+        "operation": 11,
+        "status": 3,
+        "epoch": 101,
+        "revision": 7,
+        "value": 7,
+        "queued": 0,
+        "seq": 1011
+      },
+      {
+        "wave": 0,
+        "case": 33,
+        "operation": 1,
+        "status": 0,
+        "epoch": 101,
+        "revision": 7,
+        "value": 7,
+        "queued": 0,
+        "seq": 1017
+      },
+      {
+        "wave": 0,
+        "case": 34,
+        "operation": 10,
+        "status": 13,
+        "epoch": 101,
+        "revision": 7,
+        "value": 7,
+        "queued": 0,
+        "seq": 1031
+      },
+      {
+        "wave": 0,
+        "case": 35,
+        "operation": 11,
+        "status": 0,
+        "epoch": 101,
+        "revision": 8,
+        "value": 8,
+        "queued": 0,
+        "seq": 1062
+      },
+      {
+        "wave": 0,
+        "case": 36,
+        "operation": 11,
+        "status": 7,
+        "epoch": 101,
+        "revision": 8,
+        "value": 8,
+        "queued": 0,
+        "seq": 1093
+      },
+      {
+        "wave": 0,
+        "case": 37,
+        "operation": 10,
+        "status": 7,
+        "epoch": 101,
+        "revision": 8,
+        "value": 8,
+        "queued": 0,
+        "seq": 1107
+      },
+      {
+        "wave": 1,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1151
+      },
+      {
+        "wave": 1,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1157
+      },
+      {
+        "wave": 1,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1171
+      },
+      {
+        "wave": 1,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1177
+      },
+      {
+        "wave": 1,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1183
+      },
+      {
+        "wave": 1,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1197
+      },
+      {
+        "wave": 1,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1203
+      },
+      {
+        "wave": 1,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 200,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1218
+      },
+      {
+        "wave": 1,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 200,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1249
+      },
+      {
+        "wave": 2,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1292
+      },
+      {
+        "wave": 2,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1298
+      },
+      {
+        "wave": 2,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1312
+      },
+      {
+        "wave": 2,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1318
+      },
+      {
+        "wave": 2,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1324
+      },
+      {
+        "wave": 2,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1338
+      },
+      {
+        "wave": 2,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1344
+      },
+      {
+        "wave": 2,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 300,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1359
+      },
+      {
+        "wave": 2,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 300,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1390
+      },
+      {
+        "wave": 2,
+        "case": 20,
+        "operation": 2,
+        "status": 0,
+        "epoch": 301,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1396
+      },
+      {
+        "wave": 3,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1439
+      },
+      {
+        "wave": 3,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1445
+      },
+      {
+        "wave": 3,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1459
+      },
+      {
+        "wave": 3,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1465
+      },
+      {
+        "wave": 3,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1471
+      },
+      {
+        "wave": 3,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1485
+      },
+      {
+        "wave": 3,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1491
+      },
+      {
+        "wave": 3,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 400,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1506
+      },
+      {
+        "wave": 3,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 400,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1537
+      },
+      {
+        "wave": 3,
+        "case": 20,
+        "operation": 2,
+        "status": 0,
+        "epoch": 401,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1543
+      },
+      {
+        "wave": 3,
+        "case": 21,
+        "operation": 3,
+        "status": 0,
+        "epoch": 401,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1549
+      },
+      {
+        "wave": 4,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1592
+      },
+      {
+        "wave": 4,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1598
+      },
+      {
+        "wave": 4,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1612
+      },
+      {
+        "wave": 4,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1618
+      },
+      {
+        "wave": 4,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1624
+      },
+      {
+        "wave": 4,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1638
+      },
+      {
+        "wave": 4,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1644
+      },
+      {
+        "wave": 4,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 500,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1659
+      },
+      {
+        "wave": 4,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 500,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1690
+      },
+      {
+        "wave": 4,
+        "case": 20,
+        "operation": 2,
+        "status": 0,
+        "epoch": 501,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1696
+      },
+      {
+        "wave": 4,
+        "case": 21,
+        "operation": 3,
+        "status": 0,
+        "epoch": 501,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1702
+      },
+      {
+        "wave": 4,
+        "case": 22,
+        "operation": 4,
+        "status": 0,
+        "epoch": 501,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1708
+      },
+      {
+        "wave": 5,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1751
+      },
+      {
+        "wave": 5,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1757
+      },
+      {
+        "wave": 5,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1771
+      },
+      {
+        "wave": 5,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1777
+      },
+      {
+        "wave": 5,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1783
+      },
+      {
+        "wave": 5,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1797
+      },
+      {
+        "wave": 5,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1803
+      },
+      {
+        "wave": 5,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 600,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1818
+      },
+      {
+        "wave": 5,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 600,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1849
+      },
+      {
+        "wave": 5,
+        "case": 40,
+        "operation": 11,
+        "status": 9,
+        "epoch": 601,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1874
+      },
+      {
+        "wave": 5,
+        "case": 42,
+        "operation": 3,
+        "status": 0,
+        "epoch": 601,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1880
+      },
+      {
+        "wave": 5,
+        "case": 43,
+        "operation": 4,
+        "status": 0,
+        "epoch": 601,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 1886
+      },
+      {
+        "wave": 5,
+        "case": 44,
+        "operation": 11,
+        "status": 0,
+        "epoch": 601,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 1917
+      },
+      {
+        "wave": 6,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1958
+      },
+      {
+        "wave": 6,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1964
+      },
+      {
+        "wave": 6,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1978
+      },
+      {
+        "wave": 6,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1984
+      },
+      {
+        "wave": 6,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 1990
+      },
+      {
+        "wave": 6,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2004
+      },
+      {
+        "wave": 6,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2010
+      },
+      {
+        "wave": 6,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 700,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2024
+      },
+      {
+        "wave": 6,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 700,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2056
+      },
+      {
+        "wave": 6,
+        "case": 40,
+        "operation": 11,
+        "status": 9,
+        "epoch": 701,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2082
+      },
+      {
+        "wave": 6,
+        "case": 42,
+        "operation": 3,
+        "status": 0,
+        "epoch": 701,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2088
+      },
+      {
+        "wave": 6,
+        "case": 43,
+        "operation": 4,
+        "status": 0,
+        "epoch": 701,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2094
+      },
+      {
+        "wave": 6,
+        "case": 44,
+        "operation": 11,
+        "status": 9,
+        "epoch": 701,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2108
+      },
+      {
+        "wave": 7,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2149
+      },
+      {
+        "wave": 7,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2155
+      },
+      {
+        "wave": 7,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2169
+      },
+      {
+        "wave": 7,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2175
+      },
+      {
+        "wave": 7,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2181
+      },
+      {
+        "wave": 7,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2195
+      },
+      {
+        "wave": 7,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2201
+      },
+      {
+        "wave": 7,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 800,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2216
+      },
+      {
+        "wave": 7,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 800,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2247
+      },
+      {
+        "wave": 8,
+        "case": 1,
+        "operation": 10,
+        "status": 3,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2303
+      },
+      {
+        "wave": 8,
+        "case": 2,
+        "operation": 1,
+        "status": 0,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2309
+      },
+      {
+        "wave": 8,
+        "case": 58,
+        "operation": 10,
+        "status": 9,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2323
+      },
+      {
+        "wave": 8,
+        "case": 3,
+        "operation": 4,
+        "status": 13,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2329
+      },
+      {
+        "wave": 8,
+        "case": 4,
+        "operation": 3,
+        "status": 0,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2335
+      },
+      {
+        "wave": 8,
+        "case": 59,
+        "operation": 10,
+        "status": 9,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2349
+      },
+      {
+        "wave": 8,
+        "case": 5,
+        "operation": 4,
+        "status": 0,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2355
+      },
+      {
+        "wave": 8,
+        "case": 53,
+        "operation": 10,
+        "status": 3,
+        "epoch": 900,
+        "revision": 0,
+        "value": 0,
+        "queued": 0,
+        "seq": 2370
+      },
+      {
+        "wave": 8,
+        "case": 10,
+        "operation": 11,
+        "status": 0,
+        "epoch": 900,
+        "revision": 1,
+        "value": 1,
+        "queued": 0,
+        "seq": 2401
+      },
+      {
+        "wave": 8,
+        "case": 40,
+        "operation": 11,
+        "status": 9,
+        "epoch": 900,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 2430
+      },
+      {
+        "wave": 8,
+        "case": 41,
+        "operation": 10,
+        "status": 0,
+        "epoch": 900,
+        "revision": 2,
+        "value": 2,
+        "queued": 0,
+        "seq": 2444
+      }
+    ],
+    "cut_states": {
+      "1": [
+        200,
+        4,
+        200,
+        200
+      ],
+      "2": [
+        301,
+        0,
+        300,
+        300
+      ],
+      "3": [
+        401,
+        5,
+        400,
+        400
+      ],
+      "4": [
+        501,
+        5,
+        501,
+        500
+      ],
+      "7": [
+        800,
+        4,
+        800,
+        800
+      ]
+    },
+    "version_exchanges": 20,
+    "accepted_moves": 2,
+    "rejected_protocol_moves_closed": 2
+  },
+  "runtime_hooks": {
+    "process_runs": 6,
+    "exact_settlements": 1,
+    "preemptions": [
+      33,
+      18
+    ],
+    "runtime_hooks": "nonrendering selected model, segmentation, libm, reclaim/zero/realloc/return/panic/OOM"
+  },
+  "codecs": {
+    "status": "passed",
+    "cases": 4871,
+    "rejections": 2411,
+    "canonical_successes": 2460,
+    "contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+    "production_sha256": "59ba81d299b14d96abb9bc87e8ee8d96d9b630dc90f7464cf109ef084b39b401",
+    "fixtures_sha256": "9f47379c3f4c81b5c261e002300815dbc008bd0f017cab7964652fa84f2c13b7",
+    "reference_sha256": "4c637dd7d309a4fb10bdd6b7de23e2f97f8a70329c471efd9ab83edc682e11e8",
+    "semantic": {
+      "decoded_cases": 4871,
+      "independent_producer_cases": 2411,
+      "paired_field_swap_rejected": true,
+      "build": {
+        "library_sha256": "bfef637f9deead98dbb77e8b320e8bafd24ae0a0a77902d433ba341e716bd753",
+        "source_sha256": "e419bc58fc8d5a9a673816d5c306914ed403d6d0d32398f36622a1716fdc4438",
+        "consumer_sha256": "9d42eb2400fa5b827c486be809b7ae910dbdcad74c0d2cc6682e874d1c1becec",
+        "compiler": [
+          "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+          "binary: rustc",
+          "commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67",
+          "commit-date: 2026-10-13",
+          "host: x86_64-pc-windows-msvc",
+          "release: 1.99.1",
+          "LLVM version: 23.1.1"
+        ],
+        "status": "passed",
+        "arguments": [
+          "${WORKSPACE}\\tools\\sdk_codec_consumer.rs",
+          "--edition=2024",
+          "--crate-name",
+          "sdk_codec_semantics",
+          "--extern",
+          "continuum_rt=${WORKSPACE}\\build\\cargo\\signed\\debug\\deps\\libcontinuum_rt-4873709a8e290c38.rlib",
+          "-o",
+          "${WORKSPACE}\\build\\m3\\P3-12\\acceptance-1794024079161\\codecs\\semantic-consumer.exe"
+        ]
+      }
+    }
+  },
+  "stress_metrics": {
+    "story": "P3-13",
+    "status": "passed",
+    "scope": "final-source local acceptance",
+    "review": "local Codex self-review; not external approval",
+    "source_commit": "15e5113b112c179ac9dbe7ad1426a67a2be9f301",
+    "acceptance_sha256": "3b902e924a8aa0b4af3f4e1a324c5d37413fd0cc8239aa8d5b2fd5febae3af26",
+    "reviewer_sha256": "6c10aa34beb626a6e755ae9bf017b430b5475a57c8f1b2ea74d968c002d3974c",
+    "runtime_regression_review_sha256": "c6913bce5522c80a7f2712a906e555c432af6024732c8f6098583f989705e7f3",
+    "contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+    "profile": {
+      "schema_version": 2,
+      "story": "P3-13",
+      "deadline_profile": "m3-stress-tcg-v2",
+      "original_guest_deadline_ms": 30000,
+      "deadline_scope": "stress-test and stress-trace only; owner-authorized slower-host wall bound, unchanged guest-local limits and counts",
+      "status": "fixed experiment inputs; no acceptance claim",
+      "inherits": "config/m3-profiles.json",
+      "kernel_profile": "kernel-stress",
+      "kernel_opt_level": 3,
+      "public_fixture_opt_level": 3,
+      "segment_bases": "zero at install, FSGSBASE disabled, null selectors at resume, no TLS or public MSR writer; coordinator omits redundant writes",
+      "verified_image_cache_entries": 3,
+      "verified_image_cache_budget_bytes": 4096,
+      "seed": 20261025,
+      "repetitions": 5,
+      "instrumentation": [
+        "off",
+        "on"
+      ],
+      "clock_cost_probe_calls_per_guest": 1024,
+      "diagnostic_cost_probe_records_per_guest": 32,
+      "registered_cancellation_races_per_guest": 5,
+      "waves_per_continuous_guest": 100,
+      "workers_per_wave": 2,
+      "persistent_control_processes": 1,
+      "lifecycle_cycles_per_instrumentation_profile": 1000,
+      "route_fence_cycles_per_guest": 100,
+      "additional_public_supervision_epochs": 4,
+      "additional_public_supervision_admissions": 29,
+      "warmup_round_trips_per_guest": 1000,
+      "measured_round_trips_per_guest": 10000,
+      "round_trips_per_wave": 100,
+      "settle_quanta": 64,
+      "irq_off_measurement": "conservative maximum sum of adjacent resume/STI observation gaps plus HPET resolution; sample export is interruptible after complete quiescence",
+      "quantum_ns": 5000000,
+      "fairness_dispatch_wake_irq_off_ceiling_ns": 320000000,
+      "ipc_round_trip_deadline_ns": 320000000,
+      "retained_object_tolerance": 0,
+      "retained_frame_tolerance": 0,
+      "guest_deadline_ms": 60000,
+      "quantiles": "nearest-rank",
+      "ipc_latency_samples_per_record": 16,
+      "ipc_latency_encoding": "five fixed-width base62 digits per u32 nanosecond value, alphabet 0-9 A-Z a-z; all bounded samples retain full precision",
+      "scheduler_latency_samples_per_record": 16,
+      "guest_clock": "HPET elapsed nanoseconds",
+      "kernel_metric_sampling": "every 32nd dispatch/wake observation, up to 4096 per family; complete observation counts and maxima; reject sample-buffer overflow",
+      "dispatch_ready_origin": "completed-wait ready timestamp for woken owners; otherwise previous return; blocked time is excluded, all actual ready delay is retained",
+      "trace_on": "additional read-only inventory sample on every 16th syscall; off retains mandatory timing and outcome instrumentation",
+      "fault_classes": [
+        "handle exhaustion, rejected allocation and stale handle reuse",
+        "queue pressure and receiver handle exhaustion after accepted move",
+        "cancellation storm, timer and parked owner termination",
+        "copy/map rejection then process-local hardware memory fault",
+        "timer-preempted CPU hog with persistent healthy control",
+        "unreceived queued authority and peer closure",
+        "combined copy/cancellation pressure and broker death after commit",
+        "combined handle/queue/receiver pressure",
+        "deferred termination requested while copy pin is live during map",
+        "deferred termination requested while copy pin is live during transfer"
+      ],
+      "unaccepted": [
+        "desktop memory",
+        "frame CPU",
+        "guest input latency",
+        "reload",
+        "durability",
+        "security certification"
+      ]
+    },
+    "profiles": {
+      "off": {
+        "ipc": {
+          "samples": 50000,
+          "p50_ns": 887100,
+          "p95_ns": 1916900,
+          "p99_ns": 3983900,
+          "max_ns": 35033100
+        },
+        "worker_lifecycles": 1000,
+        "route_cycles": 500,
+        "active_guest_elapsed_ns": [
+          35991638700,
+          35575809700,
+          35639285600,
+          35428783100,
+          35037946100
+        ],
+        "host_elapsed_ms": [
+          47921,
+          49493,
+          46119,
+          47443,
+          45389
+        ]
+      },
+      "on": {
+        "ipc": {
+          "samples": 50000,
+          "p50_ns": 923400,
+          "p95_ns": 2022100,
+          "p99_ns": 4048800,
+          "max_ns": 12176200
+        },
+        "worker_lifecycles": 1000,
+        "route_cycles": 500,
+        "active_guest_elapsed_ns": [
+          36745078700,
+          35731636000,
+          35593535500,
+          36428798200,
+          36450602600
+        ],
+        "host_elapsed_ms": [
+          46665,
+          48760,
+          45657,
+          45860,
+          51188
+        ]
+      }
+    },
+    "paired_observer_overhead": [
+      {
+        "repetition": 0,
+        "active_guest_elapsed_ratio": 1.0209337509269896,
+        "ipc_p50_ratio": 0.9779860505666957,
+        "ipc_p99_ratio": 0.9288690834638083,
+        "diagnostic_cost_off_ns": 3253500,
+        "diagnostic_cost_on_ns": 137114600
+      },
+      {
+        "repetition": 1,
+        "active_guest_elapsed_ratio": 1.004380119561973,
+        "ipc_p50_ratio": 1.0172163219675796,
+        "ipc_p99_ratio": 1.0540617923423306,
+        "diagnostic_cost_off_ns": 2203700,
+        "diagnostic_cost_on_ns": 141369600
+      },
+      {
+        "repetition": 2,
+        "active_guest_elapsed_ratio": 0.9987163014288929,
+        "ipc_p50_ratio": 1.0044711014176664,
+        "ipc_p99_ratio": 0.8900106647707074,
+        "diagnostic_cost_off_ns": 1924100,
+        "diagnostic_cost_on_ns": 136560600
+      },
+      {
+        "repetition": 3,
+        "active_guest_elapsed_ratio": 1.0282260640219392,
+        "ipc_p50_ratio": 1.033363289148506,
+        "ipc_p99_ratio": 1.1995018545090288,
+        "diagnostic_cost_off_ns": 3088300,
+        "diagnostic_cost_on_ns": 128265700
+      },
+      {
+        "repetition": 4,
+        "active_guest_elapsed_ratio": 1.0403179026524045,
+        "ipc_p50_ratio": 1.1897286114153585,
+        "ipc_p99_ratio": 1.0119947253638992,
+        "diagnostic_cost_off_ns": 2021400,
+        "diagnostic_cost_on_ns": 139771100
+      }
+    ],
+    "median_active_guest_elapsed_ratio": 1.0209337509269896,
+    "public_supervision": {
+      "status": "passed",
+      "audit": {
+        "epochs": 4,
+        "admissions": 29,
+        "reaped": 29,
+        "joins": 21,
+        "dispatches": 481,
+        "parked_owner_kills": 4,
+        "retries": 2,
+        "quarantine": 1,
+        "exact_settlements": 4,
+        "fixed_bytes": 10583088
+      },
+      "mutations_rejected": 17,
+      "build_id": "3605fecee7913f379aa9749b17ff5de146e024198e677042171dd12670070469",
+      "kernel_sha256": "6a0a85c2d0eb4efc3a1b47d4ffd15dce86b8e1faf6bbd32a83afb7143a88ff52",
+      "iso_sha256": "fd85e9a13d070c4a2737eac2e81b1f4ef0df172d23202fa6f816a2fc0e9dc158",
+      "serial_sha256": "7c647503f3e6b4ca56314b001111f458047b2091930f244adb5ac1fd5093ebd6",
+      "artifacts": {
+        "build_id": "3605fecee7913f379aa9749b17ff5de146e024198e677042171dd12670070469",
+        "kernel_sha256": "6a0a85c2d0eb4efc3a1b47d4ffd15dce86b8e1faf6bbd32a83afb7143a88ff52",
+        "user_sha256": "17c1a63ec9f94bf86c750792f2f63bc49e1d09c6f4a8e42bc0a6bc0eba0b46e5",
+        "codegen": {
+          "helpers": {
+            "task_resume": "<task_resume>:\nffffffff8000284b:      \tcli\nffffffff8000284c:      \tcld\nffffffff8000284d:      \tpushq\t%rbp\nffffffff8000284e:      \tpushq\t%rbx\nffffffff8000284f:      \tpushq\t%r12\nffffffff80002851:      \tpushq\t%r13\nffffffff80002853:      \tpushq\t%r14\nffffffff80002855:      \tpushq\t%r15\nffffffff80002857:      \tmovq\t%rsp, 0x9bd7b2(%rip) # 0xffffffff809c0010 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry12CONTINUATION>\nffffffff8000285e:      \tmovq\t%cr3, %rax\nffffffff80002861:      \tmovq\t%rax, 0x9bd7a0(%rip) # 0xffffffff809c0008 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff80002868:      \tmovq\t%rdi, %cr3\nffffffff8000286b:      \tmovq\t0x9bdcde(%rip), %rsp # 0xffffffff809c0550 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff80002872:      \tsubq\t$0xa0, %rsp\nffffffff80002879:      \tmovq\t%rdx, %r8\nffffffff8000287c:      \tmovq\t%rsp, %rdi\nffffffff8000287f:      \tmovl\t$0x14, %ecx\nffffffff80002884:      \trep\t\tmovsq\t(%rsi), %es:(%rdi)\nffffffff80002887:      \txorl\t%eax, %eax\nffffffff80002889:      \tmovw\t%ax, %ds\nffffffff8000288c:      \tmovw\t%ax, %es\nffffffff8000288f:      \tmovw\t%ax, %fs\nffffffff80002892:      \tmovw\t%ax, %gs\nffffffff80002895:      \tmovb\t$0x1, 0x9bd764(%rip) # 0xffffffff809c0000 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff8000289c:      \tclts\nffffffff8000289e:      \tfxrstor64\t(%r8)\nffffffff800028a2:      \tpopq\t%r15\nffffffff800028a4:      \tpopq\t%r14\nffffffff800028a6:      \tpopq\t%r13\nffffffff800028a8:      \tpopq\t%r12\nffffffff800028aa:      \tpopq\t%r11\nffffffff800028ac:      \tpopq\t%r10\nffffffff800028ae:      \tpopq\t%r9\nffffffff800028b0:      \tpopq\t%r8\nffffffff800028b2:      \tpopq\t%rdi\nffffffff800028b3:      \tpopq\t%rsi\nffffffff800028b4:      \tpopq\t%rbp\nffffffff800028b5:      \tpopq\t%rbx\nffffffff800028b6:      \tpopq\t%rdx\nffffffff800028b7:      \tpopq\t%rcx\nffffffff800028b8:      \tpopq\t%rax\nffffffff800028b9:      \tiretq\nffffffff800028bb:      \tint3\nffffffff800028bc:      \tint3\nffffffff800028bd:      \tint3\nffffffff800028be:      \tint3\nffffffff800028bf:      \tint3\n",
+            "task_save_fp": "<task_save_fp>:\nffffffff8000283a:      \tclts\nffffffff8000283c:      \tfxsave64\t(%rdi)\nffffffff80002840:      \tmovq\t%cr0, %rax\nffffffff80002843:      \torq\t$0x8, %rax\nffffffff80002847:      \tmovq\t%rax, %cr0\nffffffff8000284a:      \tretq\n",
+            "user_syscall": "<user_syscall>:\nffffffff800025da:      \tmovq\t%rsp, 0x9bdf67(%rip) # 0xffffffff809c0548 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry7USER_SP>\nffffffff800025e1:      \tmovq\t0x9bdf68(%rip), %rsp # 0xffffffff809c0550 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800025e8:      \tpushq\t%rax\nffffffff800025e9:      \tcmpb\t$0x0, 0x9bda10(%rip) # 0xffffffff809c0000 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800025f0:      \tje\t0xffffffff800025f9 <user_syscall+0x1f>\nffffffff800025f2:      \tstmxcsr\t0x9bda1f(%rip)  # 0xffffffff809c0018 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff800025f9:      \tmovq\t%cr0, %rax\nffffffff800025fc:      \torq\t$0x8, %rax\nffffffff80002600:      \tmovq\t%rax, %cr0\nffffffff80002603:      \tpopq\t%rax\nffffffff80002604:      \tpushq\t$0x3b\nffffffff80002606:      \tpushq\t0x9bdf3c(%rip)  # 0xffffffff809c0548 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry7USER_SP>\nffffffff8000260c:      \tpushq\t%r11\nffffffff8000260e:      \tpushq\t$0x33\nffffffff80002610:      \tpushq\t%rcx\nffffffff80002611:      \tpushq\t%rax\nffffffff80002612:      \tpushq\t%rcx\nffffffff80002613:      \tpushq\t%rdx\nffffffff80002614:      \tpushq\t%rbx\nffffffff80002615:      \tpushq\t%rbp\nffffffff80002616:      \tpushq\t%rsi\nffffffff80002617:      \tpushq\t%rdi\nffffffff80002618:      \tpushq\t%r8\nffffffff8000261a:      \tpushq\t%r9\nffffffff8000261c:      \tpushq\t%r10\nffffffff8000261e:      \tpushq\t%r11\nffffffff80002620:      \tpushq\t%r12\nffffffff80002622:      \tpushq\t%r13\nffffffff80002624:      \tpushq\t%r14\nffffffff80002626:      \tpushq\t%r15\nffffffff80002628:      \tcld\nffffffff80002629:      \tmovq\t%rsp, %rdi\nffffffff8000262c:      \tcallq\t0xffffffff8001ab70 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry8dispatch>\nffffffff80002631:      \tpopq\t%r15\nffffffff80002633:      \tpopq\t%r14\nffffffff80002635:      \tpopq\t%r13\nffffffff80002637:      \tpopq\t%r12\nffffffff80002639:      \tpopq\t%r11\nffffffff8000263b:      \tpopq\t%r10\nffffffff8000263d:      \tpopq\t%r9\nffffffff8000263f:      \tpopq\t%r8\nffffffff80002641:      \tpopq\t%rdi\nffffffff80002642:      \tpopq\t%rsi\nffffffff80002643:      \tpopq\t%rbp\nffffffff80002644:      \tpopq\t%rbx\nffffffff80002645:      \tpopq\t%rdx\nffffffff80002646:      \tpopq\t%rcx\nffffffff80002647:      \tpopq\t%rax\nffffffff80002648:      \tiretq\n",
+            "timer_vector": "<timer_vector>:\nffffffff80002667:      \tpushq\t%rax\nffffffff80002668:      \tpushq\t%rcx\nffffffff80002669:      \tpushq\t%rdx\nffffffff8000266a:      \tpushq\t%rbx\nffffffff8000266b:      \tpushq\t%rbp\nffffffff8000266c:      \tpushq\t%rsi\nffffffff8000266d:      \tpushq\t%rdi\nffffffff8000266e:      \tpushq\t%r8\nffffffff80002670:      \tpushq\t%r9\nffffffff80002672:      \tpushq\t%r10\nffffffff80002674:      \tpushq\t%r11\nffffffff80002676:      \tpushq\t%r12\nffffffff80002678:      \tpushq\t%r13\nffffffff8000267a:      \tpushq\t%r14\nffffffff8000267c:      \tpushq\t%r15\nffffffff8000267e:      \tcld\nffffffff8000267f:      \tmovq\t%cr0, %rax\nffffffff80002682:      \tpushq\t%rax\nffffffff80002683:      \torq\t$0x8, %rax\nffffffff80002687:      \tmovq\t%rax, %cr0\nffffffff8000268a:      \tleaq\t0x8(%rsp), %rbx\nffffffff8000268f:      \tandq\t$-0x10, %rsp\nffffffff80002693:      \tmovl\t$0x40, %edi\nffffffff80002698:      \tmovq\t0x80(%rbx), %rsi\nffffffff8000269f:      \tmovq\t%rbx, %rdx\nffffffff800026a2:      \tcallq\t0xffffffff8001be40 <_RNvNtCsbE2AtfodOPY_16continuum_kernel5timer9interrupt>\nffffffff800026a7:      \tmovq\t-0x8(%rbx), %rax\nffffffff800026ab:      \tmovq\t%rax, %cr0\nffffffff800026ae:      \tmovq\t%rbx, %rsp\nffffffff800026b1:      \tpopq\t%r15\nffffffff800026b3:      \tpopq\t%r14\nffffffff800026b5:      \tpopq\t%r13\nffffffff800026b7:      \tpopq\t%r12\nffffffff800026b9:      \tpopq\t%r11\nffffffff800026bb:      \tpopq\t%r10\nffffffff800026bd:      \tpopq\t%r9\nffffffff800026bf:      \tpopq\t%r8\nffffffff800026c1:      \tpopq\t%rdi\nffffffff800026c2:      \tpopq\t%rsi\nffffffff800026c3:      \tpopq\t%rbp\nffffffff800026c4:      \tpopq\t%rbx\nffffffff800026c5:      \tpopq\t%rdx\nffffffff800026c6:      \tpopq\t%rcx\nffffffff800026c7:      \tpopq\t%rax\nffffffff800026c8:      \tiretq\n",
+            "syscall_mxcsr_snapshot": "<user_syscall>:\nffffffff800025da:      \tmovq\t%rsp, 0x9bdf67(%rip) # 0xffffffff809c0548 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry7USER_SP>\nffffffff800025e1:      \tmovq\t0x9bdf68(%rip), %rsp # 0xffffffff809c0550 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800025e8:      \tpushq\t%rax\nffffffff800025e9:      \tcmpb\t$0x0, 0x9bda10(%rip) # 0xffffffff809c0000 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800025f0:      \tje\t0xffffffff800025f9 <user_syscall+0x1f>\nffffffff800025f2:      \tstmxcsr\t0x9bda1f(%rip)  # 0xffffffff809c0018 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff800025f9:      \tmovq\t%cr0, %rax\nffffffff800025fc:      \torq\t$0x8, %rax\nffffffff80002600:      \tmovq\t%rax, %cr0\nffffffff80002603:      \tpopq\t%rax\nffffffff80002604:      \tpushq\t$0x3b\nffffffff80002606:      \tpushq\t0x9bdf3c(%rip)  # 0xffffffff809c0548 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry7USER_SP>\nffffffff8000260c:      \tpushq\t%r11\nffffffff8000260e:      \tpushq\t$0x33\nffffffff80002610:      \tpushq\t%rcx\nffffffff80002611:      \tpushq\t%rax\nffffffff80002612:      \tpushq\t%rcx\nffffffff80002613:      \tpushq\t%rdx\nffffffff80002614:      \tpushq\t%rbx\nffffffff80002615:      \tpushq\t%rbp\nffffffff80002616:      \tpushq\t%rsi\nffffffff80002617:      \tpushq\t%rdi\nffffffff80002618:      \tpushq\t%r8\nffffffff8000261a:      \tpushq\t%r9\nffffffff8000261c:      \tpushq\t%r10\nffffffff8000261e:      \tpushq\t%r11\nffffffff80002620:      \tpushq\t%r12\nffffffff80002622:      \tpushq\t%r13\nffffffff80002624:      \tpushq\t%r14\nffffffff80002626:      \tpushq\t%r15\nffffffff80002628:      \tcld\nffffffff80002629:      \tmovq\t%rsp, %rdi\nffffffff8000262c:      \tcallq\t0xffffffff8001ab70 <_RNvNtCsbE2AtfodOPY_16continuum_kernel10user_entry8dispatch>\nffffffff80002631:      \tpopq\t%r15\nffffffff80002633:      \tpopq\t%r14\nffffffff80002635:      \tpopq\t%r13\nffffffff80002637:      \tpopq\t%r12\nffffffff80002639:      \tpopq\t%r11\nffffffff8000263b:      \tpopq\t%r10\nffffffff8000263d:      \tpopq\t%r9\nffffffff8000263f:      \tpopq\t%r8\nffffffff80002641:      \tpopq\t%rdi\nffffffff80002642:      \tpopq\t%rsi\nffffffff80002643:      \tpopq\t%rbp\nffffffff80002644:      \tpopq\t%rbx\nffffffff80002645:      \tpopq\t%rdx\nffffffff80002646:      \tpopq\t%rcx\nffffffff80002647:      \tpopq\t%rax\nffffffff80002648:      \tiretq\n"
+          },
+          "simd_instruction_counts": {
+            "user_a": {},
+            "user_b": {},
+            "service": {}
+          }
+        },
+        "launch": {
+          "arguments": [
+            "-machine",
+            "pc-q35-11.1,hpet=on",
+            "-accel",
+            "tcg",
+            "-cpu",
+            "qemu64-v1,+apic",
+            "-smp",
+            "1",
+            "-m",
+            "2048",
+            "-nic",
+            "none",
+            "-monitor",
+            "none",
+            "-display",
+            "none",
+            "-vga",
+            "std",
+            "-parallel",
+            "none",
+            "-serial",
+            "file:${WORKSPACE}\\build/m1\\sdk-stress-supervisor-1794023014089760100-25228\\sdk-stress-supervisor-run/serial.log",
+            "-no-reboot",
+            "-boot",
+            "order=d,strict=on",
+            "-drive",
+            "if=pflash,format=raw,unit=0,readonly=on,file=${WORKSPACE}\\work/tools/qemu/share/edk2-x86_64-code.fd",
+            "-drive",
+            "if=pflash,format=raw,unit=1,file=${WORKSPACE}\\build/m1\\sdk-stress-supervisor-1794023014089760100-25228\\sdk-stress-supervisor-run\\fresh firmware vars.fd",
+            "-drive",
+            "file=${WORKSPACE}\\build/m1\\sdk-stress-supervisor-1794023014089760100-25228\\sdk-stress-supervisor-package\\continuum.iso,media=cdrom,readonly=on,format=raw",
+            "-device",
+            "isa-debug-exit,iobase=0xf4,iosize=0x04"
+          ],
+          "build_id": "3605fecee7913f379aa9749b17ff5de146e024198e677042171dd12670070469",
+          "configuration_sha256": "cc6bc6b214e0254bf0fd62c65598f095ee4ff676157f8b95843849cd97203c2f",
+          "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+          "fixture": "supervisor",
+          "host_session_id": "adb80222761d083dd4e0a769b6c6d57ef0a36bead0ef8e5b46223e7faa6be571",
+          "iso_sha256": "fd85e9a13d070c4a2737eac2e81b1f4ef0df172d23202fa6f816a2fc0e9dc158",
+          "schema_version": 2,
+          "session_origin": "host; correlation only, not a security credential or reset detector",
+          "test_device": true,
+          "vars_copy_before_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+          "vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+          "vm": {
+            "accelerator": "tcg",
+            "arguments": [
+              "-machine",
+              "pc-q35-11.1,hpet=on",
+              "-accel",
+              "tcg",
+              "-cpu",
+              "qemu64-v1,+apic",
+              "-smp",
+              "1",
+              "-m",
+              "2048",
+              "-nic",
+              "none",
+              "-monitor",
+              "none",
+              "-display",
+              "none",
+              "-vga",
+              "std",
+              "-parallel",
+              "none",
+              "-serial",
+              "file:<new-run>/serial.log",
+              "-no-reboot",
+              "-boot",
+              "order=d,strict=on",
+              "-drive",
+              "if=pflash,format=raw,unit=0,readonly=on,file=<locked-code>",
+              "-drive",
+              "if=pflash,format=raw,unit=1,file=<fresh-vars-copy>",
+              "-drive",
+              "file=<exact-iso>,media=cdrom,readonly=on,format=raw"
+            ],
+            "cpu": "qemu64-v1",
+            "deadline_ms": 30000,
+            "disabled_endpoints": "QMP/GDB omitted (disabled by default); monitor explicitly none; no networking or shares",
+            "firmware_format": "raw pflash: 3653632-byte code + 540672-byte fresh vars = 4 MiB",
+            "hpet": true,
+            "launch_implemented": true,
+            "local_apic": "CPU APIC capability retained; guest register discovery pending",
+            "machine": "pc-q35-11.1",
+            "ram_mib": 2048,
+            "secure_boot": false,
+            "vcpus": 1
+          }
+        }
+      }
+    },
+    "flavors": [
+      {
+        "flavor": "ordinary",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "user-boundary-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "user-boundary-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "scheduler-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "scheduler-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "capability-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "capability-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "channel-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "channel-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "wait-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "wait-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "supervisor-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "supervisor-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "policy-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "policy-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "route-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "route-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "sdk-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "sdk-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "sdk-runtime-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "sdk-runtime-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "stress-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-stress",
+          "--features",
+          "stress-test"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "stress-trace",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-stress",
+          "--features",
+          "stress-trace"
+        ],
+        "exit_code": 0
+      },
+      {
+        "flavor": "stress-supervisor-test",
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-stress",
+          "--features",
+          "stress-supervisor-test"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "mutation_checks": [
+      {
+        "mutations": 46,
+        "rejected": 46,
+        "accepted": []
+      },
+      {
+        "mutations": 46,
+        "rejected": 46,
+        "accepted": []
+      },
+      {
+        "mutations": 46,
+        "rejected": 46,
+        "accepted": []
+      },
+      {
+        "mutations": 46,
+        "rejected": 46,
+        "accepted": []
+      },
+      {
+        "mutations": 46,
+        "rejected": 46,
+        "accepted": []
+      },
+      {
+        "mutations": 46,
+        "rejected": 46,
+        "accepted": []
+      },
+      {
+        "mutations": 46,
+        "rejected": 46,
+        "accepted": []
+      },
+      {
+        "mutations": 46,
+        "rejected": 46,
+        "accepted": []
+      },
+      {
+        "mutations": 46,
+        "rejected": 46,
+        "accepted": []
+      },
+      {
+        "mutations": 46,
+        "rejected": 46,
+        "accepted": []
+      }
+    ],
+    "limitations": [
+      "TCG one-vCPU 2GiB capacity profile; no desktop memory/CPU/input acceptance",
+      "mandatory timing/outcome instrumentation remains in both profiles; sampled dispatch/wake quantiles have complete maxima but not every tail sample",
+      "HPET elapsed intervals and host process elapsed are separate; no CPU/RSS claim",
+      "synthetic ephemeral routes, manual trusted bootstrap, experimental supervision IDs; no reload/durability/security certification; M3 exit remains open"
+    ],
+    "criterion_review": {
+      "continuous_faults": "pass: ten distinct continuous guests, 100 waves each, 200 worker lifecycles and 100 route cycles per guest; expected process-local faults and healthy control checksums",
+      "reclamation": "pass: every staged/death/settled resource row independently reconciled; all 100 settled baselines identical within each guest and final frame/object/wait inventories zero",
+      "physical_accounting": "pass: eligible/free/resident partition, physical backing counted once, private/shared/queued holds, owner/orphan attribution, fixed image/table/sample capacity and launch refusal",
+      "timing": "pass: 100000 measured IPC samples plus 10000 warmups, fixed-stride dispatch/wake samples with complete maxima, HPET expiry/timer lateness, 64 idle halts per guest and paired observer cost",
+      "regressions": "pass: fresh P3-12 complete runtime gate, 97 host tests, separate public supervision and 14 separate metadata flavors; declared scoped deadlines, unchanged guest-local quotas and failed development provenance retained"
+    },
+    "unsafe_review": {
+      "boundary": "registered user_fixture hooks; checked dispatcher and common return validation retained; public operations cannot select return IP/selectors/privileged flags",
+      "copy_and_reap": "real nested timer interrupt while map/transfer copy pin is live requests deferred death; return observer asserts successful commit and zero pins before trusted reap; no registry borrow or kernel continuation crosses task switch",
+      "measurement": "single CPU, IF-clear bounded static observer state; fixed-capacity buffers reject overflow; mandatory queue peaks remain observed on inline traffic and ownership scans occur on transfer/ownership changes; snapshots and trace samples are read-only",
+      "public_fixture": "only frozen SDK and packaged pure policy/routes code in isolated locked/offline build; little-endian test records and kernel-authenticated receive identities; explicit handles closed or reaped; all actual user ELFs reviewed for admitted x87/SSE2 baseline",
+      "scope": "trusted synthetic bootstrap and experimental supervision IDs are explicit test facilities; not a general SDK extension, thread model, hostile-code certification, guest UI or reload result"
+    }
+  },
+  "unsafe_review": {
+    "sdk": {
+      "kernel": "registered user_fixture observer and existing checked dispatcher/return-state validation; public operations cannot select return IP/selectors/privileged flags; one CPU and original deadlines/quotas",
+      "register_boundary": "raw pointer-bearing wrapper remains unsafe; R8/R9 zero, RAX/RDX/RCX/R11 and memory clobbers; explicit little-endian records rather than Rust layout; actual ELF and ISO payload identities checked",
+      "allocator": "single owning thread with no callback/signal reentry; private RW 64 KiB object, source handle closed after map; 64-byte cells/32 slots/alignment <=4096; zero before return, matching deallocation, live-allocation shutdown denied; default allocate-copy-free realloc preserves old allocation on failure",
+      "fp_and_dependencies": "kernel FP state access limited to eager fxsave64/fxrstor64 helpers and the audited MXCSR control reader or guarded entry snapshot; no kernel FP arithmetic; admitted user SSE2 instruction whitelist and no AVX/XSAVE/CPU dispatch or unresolved imports; selected model/segmentation/libm only execute in runtime guest",
+      "authority": "numeric identities and startup/checkpoint bytes confer no authority; receive outputs usable only after success; transferred handles explicitly closed on protocol rejection; existing current-session/policy/revision/deadline and writer-fence rules retained",
+      "limits": "trusted synthetic bootstrap; one thread/process, masked SSE exceptions, no shared-process threads/TLS/SMP, no full text/font/raster/display guest, durable policy, state migration, safe old-code retirement or general SDK release"
+    },
+    "stress": {
+      "boundary": "registered user_fixture hooks; checked dispatcher and common return validation retained; public operations cannot select return IP/selectors/privileged flags",
+      "copy_and_reap": "real nested timer interrupt while map/transfer copy pin is live requests deferred death; return observer asserts successful commit and zero pins before trusted reap; no registry borrow or kernel continuation crosses task switch",
+      "measurement": "single CPU, IF-clear bounded static observer state; fixed-capacity buffers reject overflow; mandatory queue peaks remain observed on inline traffic and ownership scans occur on transfer/ownership changes; snapshots and trace samples are read-only",
+      "public_fixture": "only frozen SDK and packaged pure policy/routes code in isolated locked/offline build; little-endian test records and kernel-authenticated receive identities; explicit handles closed or reaped; all actual user ELFs reviewed for admitted x87/SSE2 baseline",
+      "scope": "trusted synthetic bootstrap and experimental supervision IDs are explicit test facilities; not a general SDK extension, thread model, hostile-code certification, guest UI or reload result"
+    },
+    "host": "private kill-on-close Windows jobs contain command descendants; real replay uses exact ISO, fresh locked vars, no host shares/network/disks; all spawned QEMU processes waited"
+  },
+  "limits": [
+    "one vCPU, one thread/process, eager x87/SSE2 with masked SSE exceptions",
+    "ephemeral synthetic identities/policy/routes; surviving direct mappings end at owner teardown",
+    "only exact SDK contract subset frozen; supervision/later desktop families experimental",
+    "no guest UI/input/render/reload, state migration, safe old-code retirement, durability or real accounts",
+    "256 MiB desktop cold-idle and desktop latency targets remain open"
+  ]
+}

@@ -1,0 +1,25 @@
+VGA options:
+  acpi-index=<uint32>    -  (default: 0)
+  addr=<str>             - Slot and optional function number, example: 06.0 or 06 (default: -1)
+  big-endian-framebuffer=<bool>
+  busnr=<busnr>
+  edid=<bool>            - on/off (default: on)
+  failover_pair_id=<str>
+  mmio=<bool>            - on/off (default: on)
+  multifunction=<bool>   - on/off (default: off)
+  qemu-extended-regs=<bool> - on/off (default: on)
+  refresh_rate=<uint32>  -  (default: 0)
+  rombar=<int32>         -  (default: -1)
+  romfile=<str>
+  romsize=<uint32>       -  (default: 4294967295)
+  sriov-pf=<str>
+  vgamem_mb=<uint32>     -  (default: 16)
+  x-max-bounce-buffer-size=<size> - Maximum buffer size allocated for bounce buffers used for mapped access to indirect DMA memory (default: 4096)
+  x-pcie-ari-nextfn-1=<bool> - on/off (default: off)
+  x-pcie-err-unc-mask=<bool> - on/off (default: on)
+  x-pcie-ext-tag=<bool>  - on/off (default: on)
+  x-pcie-lnksta-dllla=<bool> - on/off (default: on)
+  xmax=<uint32>          -  (default: 0)
+  xres=<uint32>          -  (default: 0)
+  ymax=<uint32>          -  (default: 0)
+  yres=<uint32>          -  (default: 0)

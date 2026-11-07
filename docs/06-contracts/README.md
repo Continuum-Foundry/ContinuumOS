@@ -17,6 +17,7 @@ their assertions in [m1/records.rs](../../tools/xtask/src/m1/records.rs).
 | M3 runtime startup/syscalls | [Implementation draft](runtime-v0.md) | [Revision-0 source](../../contracts/runtime-v0.json), historical experimental source; selected IDs frozen separately in [sdk-v1](sdk-v1.md) |
 | Development updates | [Wire format](update-wire-format.md) | [Schema](schemas/update-manifest.schema.json), [synthetic fixture](examples/update-manifest.json) |
 | UI/compositor | [Scene protocol](ui-and-scene-protocol.md) | Freeze encoding after renderer/IPC experiments |
+| M4 desktop boundaries | [Surface/input/semantic/output/dev lifetime plan](desktop-v0.md) | Host draft codecs/fixtures and profiles [pass P4-01 review](../../evidence/phase-4/P4-01/final-1794022944926085700/README.md); real guest consumers remain pending; no new IDs frozen |
 | Hosted UI comparison | [Shared boundaries/corpus](hosted-ui-fixtures.md) | Version-1 [authored fixtures and lock](../../fixtures/m2/ui-v1/README.md); seven `hosted-*.schema.json` drafts |
 | Hosted resource reload | [Experimental version-1 file boundary](hosted-resource-reload.md) | P2-11 bounded JSON builder/parser and negative fixtures in the [runbook](../05-delivery/phase-2/resource-reload-runbook.md); no process ABI |
 | Hosted text | [Bounded pipeline and composition](hosted-text.md) | [Font/data/corpus locks](../../fixtures/m2/text-v1/README.md); no process ABI |

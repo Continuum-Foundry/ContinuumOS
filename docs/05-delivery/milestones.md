@@ -15,7 +15,8 @@ M8's release exit; see the [feature matrix](desktop-feature-matrix.md).
 M3 has [fourteen Phase 3 stories](phase-3/README.md); P3-01 [passes its local prerequisite/contract gate](../../evidence/phase-3/P3-01/2026-10-25/README.md). P3-02 [passes its internal owned-memory gate](../../evidence/phase-3/P3-02/2026-10-25/README.md). P3-03 [passes staged static-loader acceptance](../../evidence/phase-3/P3-03/2026-10-25/README.md). P3-04 [passes the bounded user-entry/syscall/fault gate](../../evidence/phase-3/P3-04/2026-10-26/README.md). P3-01 through P3-13 are Done; P3-14 passes strict M3 acceptance at its original limits.
 The [display amendment](display-roadmap.md) adds M22 after M14 and before M15
 qualification, with foundations in M4/M9–M13. Existing milestone IDs are preserved.
-M4 now has [nineteen ordered Phase 4 stories](phase-4/README.md), all Not started.
+M4 now has [nineteen ordered Phase 4 stories](phase-4/README.md). P4-01 passes
+[local prerequisite/profile acceptance](../../evidence/phase-4/P4-01/final-1794022944926085700/README.md); P4-02–19 remain Not started.
 Detailed P5–P22 stories are decomposed at the owner's request before
 each milestone; the broad backlog does not substitute for that decomposition.
 

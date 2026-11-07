@@ -317,7 +317,7 @@ def review_run(folder, output):
     folder=Path(folder).resolve();output=Path(output);output.mkdir(parents=True,exist_ok=True)
     result=read(folder/'result.json');require(result['status']=='passed', 'failed host/guest run')
     run=next(p for p in folder.iterdir() if p.is_dir() and p.name.endswith('-run'))
-    launch=read(run/'run-result.json');require(launch['status']=='passed' and launch['cleanup_reaped'] and not launch['timed_out'] and launch['deadline_ms']==30000 and launch['iso_unchanged_after_run'], 'guest lifecycle/timeout')
+    launch=read(run/'run-result.json');require(launch['status']=='passed' and launch['cleanup_reaped'] and not launch['timed_out'] and launch['deadline_ms']==60000 and launch['iso_unchanged_after_run'], 'guest lifecycle/timeout')
     raw=rows_from_serial(run/'serial.log')
     require(any(e=='m1.stress_inventory' for e,_ in raw) and not any(e in ('m1.stress_memory','m1.stress_objects','m1.stress_backing','m1.stress_owner') for e,_ in raw),'missing encoded inventory source')
     rows=expand_inventory(raw);report,ipc,indexed,raw_metrics=audit(rows)
@@ -413,7 +413,7 @@ def aggregate(path, destination=None):
     require(all('--release' in c['arguments'] and '--locked' in c['arguments'] and '--offline' in c['arguments'] for c in acceptance['commands'] if c['program']=='cargo'),'unoptimized/unlocked stress observer')
     require(digest(ROOT/'contracts/sdk-v1.json')=='debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b','changed frozen SDK contract')
     prior=Path(acceptance['runs']['prior_acceptance']);previous=read(prior.parent/'review.json')
-    require(previous['story']=='P3-12' and previous['scope']=='final-source local acceptance' and previous['acceptance_sha256']==digest(prior) and previous['regression']['kernel_host_tests']==95,'missing final runtime regression review')
+    require(previous['story']=='P3-12' and previous['scope']=='final-source local acceptance' and previous['acceptance_sha256']==digest(prior) and previous['regression']['kernel_host_tests']==97,'missing final runtime regression review')
     prior_runs=read(prior)['runs'];sources=read(Path(prior_runs['sdk'])/'build-inputs.json')['sources']
     if 'regression_reuse' in acceptance:
         reuse=acceptance['regression_reuse'];manifest=Path(reuse['source_manifest'])
@@ -439,7 +439,7 @@ def aggregate(path, destination=None):
     flavors=read(Path(acceptance['runs']['flavors'])/'flavors.json')
     require(len(flavors)==14 and all(f['exit_code']==0 for f in flavors),'separate flavor matrix incomplete')
     profile=read(ROOT/'config/p3-13-stress.json')
-    require(profile['guest_deadline_ms']==30000 and profile['kernel_opt_level']==profile['public_fixture_opt_level']==3 and profile['repetitions']==5 and profile['retained_object_tolerance']==profile['retained_frame_tolerance']==0 and profile['verified_image_cache_entries']==3 and profile['verified_image_cache_budget_bytes']==4096,'changed experiment bounds')
+    require(profile['schema_version']==2 and profile['deadline_profile']=='m3-stress-tcg-v2' and profile['original_guest_deadline_ms']==30000 and profile['guest_deadline_ms']==60000 and profile['kernel_opt_level']==profile['public_fixture_opt_level']==3 and profile['repetitions']==5 and profile['retained_object_tolerance']==profile['retained_frame_tolerance']==0 and profile['verified_image_cache_entries']==3 and profile['verified_image_cache_budget_bytes']==4096,'changed experiment bounds')
     groups={t:[r for r in reports if r['trace']==t] for t in ('off','on')}
     timing={t:dict(ipc=distribution(samples[t]),worker_lifecycles=sum(r['worker_lifecycles'] for r in groups[t]),route_cycles=sum(r['route_cycles'] for r in groups[t]),active_guest_elapsed_ns=[r['active_guest_elapsed_ns'] for r in groups[t]],host_elapsed_ms=[r['host_elapsed_ms'] for r in groups[t]]) for t in groups}
     require(all(g['worker_lifecycles']==1000 and g['route_cycles']==500 and g['ipc']['samples']==50000 for g in timing.values()),'fixed P3-01 experiment counts')
@@ -453,7 +453,7 @@ def aggregate(path, destination=None):
         'reclamation':'pass: every staged/death/settled resource row independently reconciled; all 100 settled baselines identical within each guest and final frame/object/wait inventories zero',
         'physical_accounting':'pass: eligible/free/resident partition, physical backing counted once, private/shared/queued holds, owner/orphan attribution, fixed image/table/sample capacity and launch refusal',
         'timing':'pass: 100000 measured IPC samples plus 10000 warmups, fixed-stride dispatch/wake samples with complete maxima, HPET expiry/timer lateness, 64 idle halts per guest and paired observer cost',
-        'regressions':'pass: fresh P3-12 complete runtime gate, 95 host tests, separate public supervision and 14 separate metadata flavors; fixed deadlines/quotas and failed development provenance retained'
+        'regressions':'pass: fresh P3-12 complete runtime gate, 97 host tests, separate public supervision and 14 separate metadata flavors; declared scoped deadlines, unchanged guest-local quotas and failed development provenance retained'
     }
     report['unsafe_review']={
         'boundary':'registered user_fixture hooks; checked dispatcher and common return validation retained; public operations cannot select return IP/selectors/privileged flags',

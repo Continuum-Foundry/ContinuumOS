@@ -29,44 +29,57 @@ impl Registry {
             timers: 0,
             events: 0,
         };
+        // Traverse each reference once, rather than rescanning every owner and
+        // channel queue for each memory object. This remains a fresh read-only
+        // snapshot: no cached counters or mutation-path invalidation policy.
+        const { assert!(OWNERS <= u16::BITS as usize) };
+        let mut owners = [0u16; OBJECTS];
+        let mut queued = [0usize; OBJECTS];
+        let memory_slot = |id: Id| {
+            self.objects
+                .get(id.slot)
+                .filter(|object| {
+                    object.generation == id.generation
+                        && matches!(object.body, Some(Body::Memory { .. }))
+                })
+                .map(|_| id.slot)
+        };
+        for (owner, table) in self.tables.iter().enumerate() {
+            for handle in table.handles.iter().flatten() {
+                if let Some(slot) = memory_slot(handle.object) {
+                    usage.memory_handles += 1;
+                    owners[slot] |= 1 << owner;
+                }
+            }
+            for mapping in table.mappings.iter().flatten() {
+                if let Some(slot) = memory_slot(mapping.object) {
+                    usage.memory_maps += 1;
+                    owners[slot] |= 1 << owner;
+                }
+            }
+        }
+        self.visit_queued_references(|id| {
+            if let Some(slot) = memory_slot(id) {
+                queued[slot] += 1;
+            }
+        });
         for (slot, object) in self.objects.iter().enumerate() {
             usage.timers += usize::from(matches!(object.body, Some(Body::Timer(_))));
             usage.events += usize::from(matches!(object.body, Some(Body::Event(_))));
             let Some(Body::Memory { bytes, .. }) = object.body else {
                 continue;
             };
-            let mut owners = 0;
-            let id = Id {
-                slot,
-                generation: object.generation,
-            };
-            for (owner, table) in self.tables.iter().enumerate() {
-                let handles = table
-                    .handles
-                    .iter()
-                    .flatten()
-                    .filter(|h| h.object == id)
-                    .count();
-                let maps = table
-                    .mappings
-                    .iter()
-                    .flatten()
-                    .filter(|m| m.object == id)
-                    .count();
-                usage.memory_handles += handles;
-                usage.memory_maps += maps;
-                if handles + maps != 0 {
-                    owners += 1;
+            for owner in 0..OWNERS {
+                if owners[slot] & (1 << owner) != 0 {
                     usage.owner_attribution[owner] += bytes;
                 }
             }
             // Object.handles includes queue-owned references. Ordinary handle
             // count above excludes those committed transfer holds.
-            let queued = self.queued_references(id);
-            usage.queued_references += queued;
-            match owners {
+            usage.queued_references += queued[slot];
+            match owners[slot].count_ones() {
                 0 => {
-                    assert!(queued > 0);
+                    assert!(queued[slot] > 0);
                     usage.queued_only_bytes += bytes;
                 }
                 1 => usage.private_bytes += bytes,

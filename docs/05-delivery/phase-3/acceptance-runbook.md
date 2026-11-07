@@ -1,8 +1,13 @@
 # Phase 3 aggregate acceptance
 
-P3-14 passes the strict full gate at its original limits; see the result below.
-The earlier owner-accepted host exception remains historical evidence.
-The default command below retains every original check and deadline. Keep the host awake. Run serially in the existing
+P3-14's historical strict full gate passes at its original limits; see below.
+The current P4-01 recheck uses the explicitly owner-authorized
+[revision-2 scoped TCG stress profile](stress-deadline-profile-v2.md): only the two
+long stress flavors use 60000 ms. Ordinary/SDK/public-supervision guests retain
+30000 ms; all counts, guest-local bounds and negative deadlines remain unchanged.
+Current passes must not be called original-limit acceptance. The earlier
+owner-accepted host exception also remains historical evidence.
+Keep the host awake. Run serially in the existing
 approved Windows development signer/xorriso context; do not change power/security
 settings. Full generated files remain local under `build/m3/P3-14/` and `work/`.
 
@@ -13,8 +18,8 @@ python tools/p3_acceptance.py review --acceptance <local-acceptance.json>
 python tools/p3_acceptance.py review --acceptance <local-acceptance.json> --destination evidence/phase-3/P3-14/<date>
 ```
 
-[Fixed inputs](../../../config/p3-14-acceptance.json) lock the commands, original
-30,000-ms positive guest deadline, deliberate 1-ms negative deadline and 23 matrix
+[Fixed inputs](../../../config/p3-14-acceptance.json) lock the commands, ordinary
+30000-ms and scoped long-stress 60000-ms deadlines, deliberate 1-ms negative deadline and 23 matrix
 rows. The runner fingerprints all implementation/tool/config/contract/fixture
 inputs, including untracked files, before execution and rejects any added, missing
 or changed input afterward. It records the base commit, dirty patch, exact

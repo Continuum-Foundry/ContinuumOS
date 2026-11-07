@@ -481,6 +481,22 @@ impl Registry {
 
 #[cfg(any(test, feature = "stress-test"))]
 impl Registry {
+    pub(super) fn visit_queued_references(&self, mut visit: impl FnMut(Id)) {
+        for pair in &self.channels {
+            for queue in &pair.queues {
+                for offset in 0..queue.count {
+                    for held in queue.messages[(queue.head + offset) % MESSAGES]
+                        .held
+                        .iter()
+                        .flatten()
+                    {
+                        visit(held.object);
+                    }
+                }
+            }
+        }
+    }
+    #[cfg(test)]
     pub(super) fn queued_references(&self, id: Id) -> usize {
         self.channels
             .iter()

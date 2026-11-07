@@ -342,6 +342,7 @@ def run_gate():
     require(config['required_matrix'] == list(MATRIX), 'missing/unknown/reordered matrix scenario')
     require(config['regression_command'] == ['pwsh', '-NoProfile', '-File', 'tools/Test-P3-13.ps1'], 'unexpected regression command')
     require(config['guest_deadline_ms'] == 30000 and config['negative_timeout_ms'] == 1, 'changed deadlines')
+    require(config['stress_guest_deadline_ms'] == 60000 and config['stress_deadline_profile'] == 'm3-stress-tcg-v2', 'unsupported scoped stress deadline')
     run = ROOT / 'build/m3/P3-14' / ('acceptance-' + str(time.time_ns()))
     run.mkdir(parents=True)
     locked = source_lock()
@@ -402,6 +403,8 @@ def review(path, destination=None):
     acceptance = read(path)
     require(acceptance['story'] == 'P3-14' and acceptance['status'] == 'passed', 'incomplete P3-14 gate')
     require(acceptance['config'] == read(CONFIG), 'changed acceptance configuration')
+    require(acceptance['config']['guest_deadline_ms'] == 30000 and acceptance['config']['stress_guest_deadline_ms'] == 60000
+            and acceptance['config']['stress_deadline_profile'] == 'm3-stress-tcg-v2', 'deadline scope changed')
     require(read(CONFIG)['required_matrix'] == list(MATRIX), 'missing/unknown matrix scenario')
     locked = read(path.parent / 'source-lock.json')
     require(digest(path.parent / 'source-lock.json') == acceptance['source_lock_sha256'] and locked == source_lock(), 'stale acceptance source')
@@ -448,6 +451,8 @@ def review(path, destination=None):
     # features. Detailed prior reviewers retain their exact per-case oracles.
     matrix = [dict(scenario=name, status='passed', evidence=MATRIX[name]) for name in read(CONFIG)['required_matrix']]
     report = dict(story='P3-14', status='passed', review='local Codex self-review; not independent human/security approval',
+                  deadline_profile='m3-stress-tcg-v2', original_limit_acceptance=False,
+                  ordinary_guest_deadline_ms=30000, stress_guest_deadline_ms=60000,
                   source_commit=acceptance['source_commit'], acceptance_sha256=digest(path),
                   reviewer_sha256=digest(__file__), source_lock_sha256=digest(path.parent / 'source-lock.json'),
                   sdk_contract_sha256=digest(ROOT / 'contracts/sdk-v1.json'), matrix=matrix,

@@ -207,8 +207,21 @@ def elf_audit(path):
 
 def lifecycle(folder, expected_pass=True):
     result, launch, case = (read(folder / n) for n in ("run-result.json", "launch-manifest.json", "case-result.json"))
-    require(result["cleanup_reaped"] and result["iso_unchanged_after_run"] and result["deadline_ms"] == 30000, "VM cleanup/deadline")
-    require(launch["vm"]["vcpus"] == 1 and launch["vm"]["ram_mib"] == 2048 and launch["vm"]["deadline_ms"] == 30000, "VM capacity/profile")
+    deadline = 30000
+    flavor = case['package']['build_flavor']
+    if flavor in ('stress-test', 'stress-trace'):
+        profile = read(ROOT / 'config/p3-13-stress.json')
+        require(profile['schema_version'] == 2 and profile['deadline_profile'] == 'm3-stress-tcg-v2'
+                and profile['original_guest_deadline_ms'] == 30000 and profile['guest_deadline_ms'] == 60000, 'unsupported stress deadline profile')
+        manifest, inputs = read(folder.parent / 'build-manifest.json'), read(folder.parent / 'build-inputs.json')
+        require(manifest['flavor'] == inputs['flavor'] == flavor and manifest['kernel_sha256'] == case['package']['kernel_sha256'], 'stress deadline retargeted')
+        require(launch['deadline_profile'] == 'm3-stress-tcg-v2' and launch['original_guest_deadline_ms'] == 30000
+                and launch['stress_profile_sha256'] == digest(ROOT / 'config/p3-13-stress.json') == inputs['sources']['config/p3-13-stress.json'], 'stale stress deadline identity')
+        deadline = 60000
+    else:
+        require('deadline_profile' not in launch and 'stress_profile_sha256' not in launch, 'stress deadline on ordinary guest')
+    require(result["cleanup_reaped"] and result["iso_unchanged_after_run"] and result["deadline_ms"] == deadline, "VM cleanup/deadline")
+    require(launch["vm"]["vcpus"] == 1 and launch["vm"]["ram_mib"] == 2048 and launch["vm"]["deadline_ms"] == deadline, "VM capacity/profile")
     args = launch["arguments"]
     require("-no-reboot" in args and "-nic" in args and args[args.index("-nic") + 1] == "none"
             and sum(a == "-drive" for a in args) == 3, "VM offline/disk policy")

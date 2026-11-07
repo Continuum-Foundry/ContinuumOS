@@ -2,6 +2,18 @@
 
 Status: Proposed. Date: 2026-10-17. Added in the user-approved reconciliation.
 
+## Scope amendment — 2026-11-07
+
+The owner-requested [AI amendment](../05-delivery/ai-roadmap.md) and
+[ADR-0030](0030-native-provider-neutral-ai.md) supersede the small-model/Burn-only
+product scope recorded below. Gemma is the local default; private endpoints and
+qualified flagship public APIs, editable memory, policy budgets, cooperation and
+enterprise federation have separate gates in ADR-0030–0033. B39/M21 now requires
+B67/B68 as well as the first M5 reload prerequisite. Isolation, typed effects,
+user off, unchanged core-release exits and the 256 MiB model-unloaded target remain.
+The original decision below is retained as dated rationale, not a competing active
+runtime recommendation. Technical status remains Proposed.
+
 ## Context and decision
 
 The external plan adds AI beyond the original desktop/live-update scope. Preserve

@@ -1,6 +1,6 @@
 # Desktop feature and release matrix
 
-Status: approved roadmap scope, 2026-10-21, display amendment 2026-11-01; future acceptance, not shipped features.
+Status: approved roadmap scope, 2026-10-21, display amendment 2026-11-01 and owner-requested AI amendment 2026-11-07; future acceptance, not shipped features.
 See [milestones](milestones.md), [backlog](backlog.md) and [validation](validation.md).
 Every owner is a responsibility, not a person assignment. Bxx owners carry the
 work; P-level stories are created only on the owner's milestone decomposition request.
@@ -16,7 +16,8 @@ current implementation. The baseline cold-idle target remains 256 MiB.
 ## Coverage and acceptance
 
 The column structure is checked by the documentation audit. Classifications are
-`M8 required`, `M14 required`, `named-PC profile`, `M22 required`, `optional research`, or `deferred`.
+`M8 required`, `M14 required`, `named-PC profile`, `M22 required`, `AI profile`,
+`optional research`, or `deferred`. AI profile requirements are independently gated.
 
 | ID | Feature | Owner | Milestones | Backlog | Classification | Acceptance outcome |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -49,7 +50,7 @@ The column structure is checked by the documentation audit. Classifications are
 | F27 | GPU acceleration | Graphics | M18 | B29 | optional research | Exact backend shows measured benefit, fault/resource correctness and a maintained software fallback. |
 | F28 | SMP | Kernel | M19 | B30 | optional research | Multicore context/TLB/ordering/update tests and optimized workload comparisons pass on the named profile. |
 | F29 | Bounded Wasm | Runtime | M20 | B27 | optional research | Exact interpreter/import path enforces fuel/memory/stack/cancel limits with native cost comparison. |
-| F30 | Optional local AI | Runtime/Actions | M21 | B39 | optional research | Named model/backend uses scoped typed actions, bounded memory and safe worker crash/unload without breaking desktop/reload. |
+| F30 | Gemma local qualification | Runtime/Actions | M21 | B39,B67,B68 | AI profile | Exact Gemma/native runtime uses scoped typed proposals and policy/budget admission; off/crash/unload, 100 compatible cycles and fully counted profiles preserve desktop/reload and 256 MiB model-unloaded target. |
 | F31 | General Windows/managed/driver compatibility | Compatibility | M16 | B59 | deferred | Initial x64 user-app probes confer no Windows-driver, WOW64, managed-runtime, DRM or broad application support. |
 | F32 | Broader PCs, wireless, Bluetooth, printing and laptop sleep | Platform | M15 | B57,B58 | deferred | Named-PC qualification records exact devices and explicitly excludes untested profiles/device families or power states. |
 | F33 | Encryption and Secure Boot | Security/Platform | M7,M15 | B41,B57,B58 | deferred | Require separate key/trust/recovery and actual platform evidence; account login and installation do not establish these features. |
@@ -60,6 +61,13 @@ The column structure is checked by the documentation audit. Classifications are
 | F38 | Extended desktop and per-output scaling | Graphics/Desktop | M22 | B63,B64 | M22 required | Dual 1080p, mixed 1080p/4K and fractional scaling preserve text, window/input/semantic coordinates and independent output ownership. |
 | F39 | Display topology, pacing and recovery | Graphics/Lifecycle | M22 | B65 | M22 required | Hot-plug/primary loss, stale output denial, safe window relocation and independent declared refresh pacing recover without losing unsaved work or breaking session security. |
 | F40 | Display aggregate qualification | Graphics/Release | M22 | B66 | M22 required | Exact ISO/installed dual-4K and mixed matrix, 100 reconfiguration/recovery cycles, reload continuity and reviewed resource/latency/idle limits pass before M15. |
+| F41 | Durable personal assistance and model destinations | AI/Data/Desktop | M23 | B69,B70,B71,B72,B73,B74,B81,B82 | AI profile | Route-independent tasks/preferences and persistent native controls; durable dispatch/issuer reconciliation and endpoint/credential gates; base PLUS every enabled route/tool qualification; remote profiles do not require Gemma; full program coverage remains explicit. |
+| F42 | Cooperating models | AI/Orchestration | M24 | B75,B76 | AI profile | Scoped role graph and ancestor budgets pass peer/partition/cancel/duplicate cases with independently verified outcomes and measured single-model comparison. |
+| F43 | Enterprise/consortium federation | Enterprise/Security | M25 | B77,B78,B79 | AI profile | Independent trust/tenants/data/ledgers, selected service sharing, handling rules and revoke/offboard/partition/settlement acceptance pass. |
+| F44 | Native data-center AI feasibility | Platform/Research | M26 | B80 | optional research | Exact-target runtime/driver/fleet/availability gap study yields bounded evidence and a separate server-program proposal or stop; no server delivery implied. |
+
+AI profile rows are conditional requirements R20–R27, not M8/M14/M22/M15 blockers.
+See [AI roadmap](ai-roadmap.md) for all 21 decisions and start prerequisites.
 
 ## Release dependency boundaries
 

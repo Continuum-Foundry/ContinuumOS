@@ -117,7 +117,7 @@ P4-02 runtime admission/reclamation is next. P4-02–19 remain Not started.
 | B36 | UI: Slint/custom comparison | B02 | Comparable scenes/metrics; guest compile/reload/text/semantics/license record; confirm at M4 | R04,R08,R09,R15 |
 | B37 | SDK: typed actions and scoped context | B08,B13 | UI/automation parity; trusted principal/session provenance and provider-side scoped grants; cross-owner, revoked-role, rights/revision/expiry/dedupe/reload tests | R10,R14,R19 |
 | B38 | Boot: compare loader and ISO paths | B01,B02 | Viable pinned loader and actual ISO recipe; image types distinguished | R01,R02,R16 |
-| B39 | Optional AI: small-model CPU service (M21) | B06,B21,B37 | Isolated named model/backend, typed scoped proposals, quota/escalation/crash/unload tests, cold/warm/active memory and unaffected desktop/reload path | Optional; R09,R10,R19 if enabled |
+| B39 | AI: Gemma local qualification (M21) | B06,B21,B37,B67,B68 | Exact isolated native runtime/model; prove bounded large-artifact guest loader/mappings and needed separately accepted contract extension; exact-hash authorized development fixture and parser before load; no dynamic download/remote code; selected context/effect/session-off policy, crash/unload and 100 compatible cycles; all profiles and unaffected desktop/reload; ephemeral only | R09,R10,R19,R20,R21,R23,R24,R25 if enabled |
 | B40 | Recovery: boot attempts and known-good health | B23,B24 | Durable retry/health/fallback tests; current data preserved; distinguish an incomplete first initialization with no known-good generation from recoverable later activation | R02,R11,R12 |
 | B41 | Security: local accounts, credentials, sessions and scoped RBAC | B02,B13,B16,B23,B24,B37 | Reviewed exact-target entropy/credential design; durable account lifecycle, authorized scoped roles, secure login/logout/lock and recovery; cross-user isolation and interrupted first-account setup tests | R10,R11,R14,R15,R19 |
 | B42 | Installation: offline backend and installed boot | B22,B23,B24,B33,B38,B40 | Narrowly authorized service validates target-bound plans/confirmation; implements offline fresh install, boot/system repair and preserving reinstall through coherent generations; progress/cancellation/durable outcomes; independent installed VM boot | R02,R10,R11,R12,R14,R17 |
@@ -139,13 +139,29 @@ P4-02 runtime admission/reclamation is next. P4-02–19 remain Not started.
 | B58 | Release: named-PC installed lifecycle (M15) | B57,B42,B43,B44,B50,B52,B54,B55 | Profile-specific install/boot/accounts, preserving repair/reinstall, independent backup/rescue and poweroff evidence; VM evidence cannot substitute | R02,R08,R10,R11,R12,R15,R16,R17 |
 | B59 | Research: Windows compatibility and probes (M16) | B02,B11,B12,B13,B16,B23,B41 | Sourced native-service versus Wine adaptation study and bounded x64 console/DLL/runtime/GUI probes; costs, denial/cleanup and supported-subset or stop/replan outcome | R03,R09,R10,R14,R17 |
 | B60 | Research: browser feasibility and route decision (M17) | B53,B59,B16,B09,B41 | Native-port versus Windows route, dependency/render/network/isolation/update/memory audit and bounded probe findings; explicit later decision, no sandbox bypass | R08,R09,R10,R14,R15,R17 |
-
 | B61 | Graphics: display contract foundations (M4) | B16 | Logical/pixel coordinates, output generations, checked geometry/stride and buffer lifetime; single-output guest input/semantic fixtures; explicit versioned contract seeds | R08,R09,R10,R14,R15 |
 | B62 | Display: single-output 4K and safe modes (M22) | B56,B61 | Declared VM backend discovers/selects 3840×2160; 100/150/200% scale, mode preview/confirmation/revert, malformed-mode and admission-failure tests | R08,R09,R10,R14,R15,R17 |
 | B63 | Display: two equal-scale outputs (M22) | B62 | Dual 1080p extended desktop, independent buffers/damage/presentation, layout/primary selection, negative coordinates, crossing/spanning windows and correct focus/drag/fullscreen/popups | R08,R09,R10,R14,R15 |
 | B64 | Display: mixed resolutions and per-output scaling (M22) | B63 | 1080p/100% plus 4K/200% and 150%; rerasterization/cache invalidation, text/caret/cursor/semantic transforms and preserved logical app state across seams | R07,R08,R09,R14,R15 |
 | B65 | Display: hot-plug, pacing and recovery (M22) | B64,B47,B52 | Disconnect/reconnect/primary loss, safe topology publication, independent 60/75 Hz pacing on the declared backend, stale-output denial, failed-mode/service-loss recovery and reachable windows/login/lock | R07,R08,R09,R10,R12,R14,R15,R17 |
 | B66 | QA: display milestone acceptance (M22) | B62,B63,B64,B65,B21,B32 | Exact ISO/installed image passes single/mixed/dual-4K matrix and 100 reconfiguration/recovery cycles; unsaved work/reload continuity, buffer/resource/idle/latency evidence and M15 hardware handoff | R04,R05,R07,R08,R09,R10,R12,R14,R15,R16,R17,R18 |
+| B67 | AI/SDK: bounded task, route, context and effect contracts | Docs,B37 | Independent host codecs/fixtures; bounded large-model shards/streaming, aggregate quotas and versioned resource/mapping extension proposal before B39; authenticated issuer assumptions, typed effect review/standing rules, context-use lineage, untrusted-content and outcome cases; no ABI freeze | R20,R21,R23,R24,R25,R26,R27 |
+| B68 | Security/Accounting: bounded ephemeral AI policy admission | B13,B67 | Deterministic mandatory rules and multi-issuer meters/payers; atomic holds, parent ceilings, use-time recheck, duplicate/unknown/expiry/quote-overrun cases; bounded guest subset before B39; no persistent ledger claim (B81 owns durability) | R21,R24 |
+| B69 | Data/Lifecycle: durable AI tasks and editable preference learning | B21,B23,B25,B41,B52,B67,B68 | Route-independent logical tasks and scoped automatic learning; correction/deletion/retention/derived lineage, checkpoint/rebind, lock/logout and power-loss/restore; no authority/credential/ledger rollback through data backup | R21,R22,R23 |
+| B70 | Packages/Runtime: qualified model/adapter lifecycle | B49,B67 | Verified exact model or remote-adapter configuration manifests; bounded shard/resume/cleanup and versioned resource profiles from B67; malformed/revoked/incompatible package rejection and admitted update/recovery peaks; local runtime qualification separately B39; no unsigned or remote-code bypass | R23,R25 |
+| B71 | Desktop: native assistant controls and review/memory UX | B21,B46,B51,B67,B68 | Route-independent keyboard/semantic do/guide/explain, progress, final review and editable memory; persistent off/local-inference/public-cloud-off/strict-offline controls; no auto-resume; human usability and conventional recovery | R20,R21,R22,R23 |
+| B72 | AI/Networking: private model route and governed tools | B69,B70,B81,B82,B53,B54 | Qualified endpoint/capability/data profile and bounded tools/search; accepted credential and durable intent/reservation/reconciliation gates before remote dispatch; TLS/time/trust, outcome/cancel/retry/cost and unknown-effect cases; no local Gemma prerequisite | R20,R21,R23,R24,R25 |
+| B73 | AI/Networking: flagship public-provider adapters | B69,B70,B81,B82,B53,B54 | Independently qualified GPT/Claude/Grok/Gemini configurations, feature-specific handling/terms and sponsor entitlement; no local/private-model prerequisite; no silent disclosure/payer switch; receipt/price/provider failure and late charges | R20,R21,R22,R24,R25 |
+| B74 | QA: named personal AI profile acceptance (M23) | B69,B70,B71,B81,B32 | Base journey/critical/resource/cost/offline-off acceptance PLUS every enabled local/private/public gate B39/B72/B73 and external-tool gate from the qualification matrix; at least one route; full M23 coverage requires all planned classes; 100 compatible cycles | R20–R25 |
+| B75 | AI: bounded cooperating-model coordinator | B67,B68,B69,B81 | Route-independent role/task graph, scoped context/subdelegation and parent budgets; owner verification, malicious peer, cancel/duplicate/partial/unknown cases; each enabled worker/tool needs its route qualification | R21,R23,R24,R27 |
+| B76 | QA: model cooperation acceptance (M24) | B74,B75,B32 | Declared local/private/public combinations need every selected route gate; partition/exhaustion/peer failure and duplicates; independently verified benefits/cost against single-model baseline; no compulsory private route | R20,R21,R23,R24,R27 |
+| B77 | Identity/Policy: federation contract and host probes | Docs,B67 | Independent trust/audience/tenant mapping, selected service/artifact exchange, retention/disclosure/derived-data lineage, sponsor attribution and offboarding fixtures; versioned interoperability proposal | R21,R22,R24,R26 |
+| B78 | Enterprise: federated AI service integration | B69,B72,B75,B77,B81,B82 | Two independent trust domains: explicit enrollment, authenticated issuer/policy and audience/tenant mapping, key rotation/revoke/offboard, separate data/memory/ledgers, partitions and remaining obligations; no implicit network identity from M7 accounts | R21,R22,R23,R24,R26,R27 |
+| B79 | QA: enterprise federation acceptance (M25) | B76,B78,B32 | Cross-tenant denial, handling/retention/region constraints, compromised peer, distributed settlement/leader failure and revocation/offboarding acceptance; no training/data-pool implication | R20–R27 |
+| B80 | Platform/Research: original-OS data-center AI feasibility (M26) | Docs,B67,B77 | Runtime/driver/GPU/SMP/storage/network/fleet/HA gap and license/cost study with bounded target probes; separate server-program proposal or evidenced stop, not server delivery | R01,R03,R09,R10,R14,R16,R26 |
+
+| B81 | Accounting: durable AI intent, reservations and reconciliation | B23,B25,B41,B52,B68 | Crash-safe pre-dispatch journal, idempotent late/partial settlement, period attribution and unresolved liabilities; fail closed on restart/old-snapshot restore until issuer epoch reconciles; authoritative sponsorship integration and failure cases before remote spend | R21,R23,R24 |
+| B82 | Security: AI endpoint and credential brokerage | B41,B49,B53,B67 | Exact-target entropy/key/secret design; authenticated endpoints/audience, session-only or protected persistent credentials, reauthentication/rotation/revoke/logout and service-identity boundaries; no secrets in model/checkpoints/ordinary backup; no inferred encrypted-home or credential-vault support | R21,R22,R23,R26 |
 
 ## Task working format
 
@@ -172,7 +188,7 @@ tasks) and M22, required after M14 and before M15 qualification. See the [featur
 and future acceptance. B56 is the M14 release root and B58 the named-PC root;
 B27/B29/B30/B39/B59/B60 are optional research tracks excluded from B35 and B56.
 Networking B28/B53 and assistive/audio B31/B55 are required for M14, not M8.
-Detailed P9–P21 stories also wait for the owner's request before each milestone.
+Detailed later stories through P26 also wait for the owner's request before each milestone.
 
 Each implementation issue records the relevant ADR/spec, exact inputs, output paths,
 bounded scope, negative cases, evidence needed, and which contract/version it changes.
@@ -217,3 +233,16 @@ durability, real accounts and desktop efficiency targets remain open.
 See the [strict acceptance and runner repair evidence](../../evidence/phase-3/P3-14/2026-11-06/README.md). The earlier
 failed/interrupted runs and owner exception remain recorded as history; only
 the existing exact SDK subset is frozen. This is not human/security certification.
+
+## AI planning amendment — 2026-11-07
+
+The [AI roadmap](ai-roadmap.md) adds B67–B82: **82 total broad tasks**. These new
+entries are Not started. B39's scope changes from a small-model-only experiment
+to Gemma local qualification after M5. Contract/host preparation B67/B77 may begin
+now; B68 requires independent guest admission before B39. M23 personal routes,
+M24 cooperation, M25 federation and M26 server feasibility remain separate gates.
+The 28-case host budget oracle is retained preparation, not B68 acceptance.
+No B39/B67–B82 task blocks B35/M8, B56/M14, B66/M22 or B58/M15. Core R01–R19,
+256 MiB model-unloaded baseline, current P4-02, accepted evidence and milestone
+decomposition policy remain unchanged. No calendar estimate or native server
+implementation commitment is made.

@@ -1,10 +1,10 @@
 # Requirements and feature matrix
 
 Status: user intent plus proposed engineering acceptance criteria. Metrics are
-targets, not measurements. M0–M22 are defined in [milestones](../05-delivery/milestones.md).
+targets, not measurements. M0–M26 are defined in [milestones](../05-delivery/milestones.md).
 The [desktop feature matrix](../05-delivery/desktop-feature-matrix.md) distinguishes
 M8 installation, M14 desktop delivery, M22 display delivery before one M15 PC
-profile, and optional/deferred work.
+profile, conditional AI profiles, and optional/deferred work.
 
 ## Core requirements
 
@@ -29,6 +29,26 @@ profile, and optional/deferred work.
 | R17 | Honest diagnostics | Update status, precise rejection reason, crash logs, no false success | M4 onward |
 | R18 | Agent-ready maintainability | Traceable tasks, ADRs, contracts, tests, dependency inventory | This library; continuous |
 | R19 | Shared typed actions and scoped context | UI/automation parity; rights, revision, expiry and reload checks | M2 design, M5 evidence |
+
+## Conditional AI-profile requirements
+
+Owner-requested amendment, 2026-11-07. R01–R19 remain core requirements. R20–R27
+apply to the declared AI profile and its supported destinations, not the unchanged
+M8/M14/M22/M15 release exits. Product direction is authorized; designs, ports and
+performance remain unverified. The [AI roadmap](../05-delivery/ai-roadmap.md)
+traces all 21 concerns to work and acceptance. AI availability does not mean
+continuous inference or observation, and every conventional workflow remains usable.
+
+| ID | Requirement | Observable acceptance | Gate |
+| --- | --- | --- | --- |
+| R20 | Native available-by-default assistance with persistent user off | Native keyboard/semantic do/guide/explain, progress/stop; global/workspace/route off stops admission/observation/learning/warming; conventional offline/off operation; provider-independent route interface | M21 ephemeral subset,M23 persistent profile |
+| R21 | Task-scoped context, authority and verifiable effect review | Semantic selected context, no protected-surface capture; separate identities/credentials, tested remote endpoint/secret broker B82, use-time policy/revisions; final external send/publish review or exact standing rule; adversarial tools/content cannot grant authority | M21,M23–M25 |
+| R22 | Automatic editable preferences and governed retention | Structured ordinary preference learning with provenance/scope/corrections/exclusions; separate personal/work/tenant, task/history/index stores; source-aware use/deletion/retention; no learned permission/payer/policy | M23,M25 |
+| R23 | Portable task continuity and honest outcomes | Logical checkpoints, current reauthorization, 100 compatible replacements without lost accepted work; separate durable recovery; lock/logout controls, owner receipts, deduplication and uncertain-effect reconciliation | M23–M25 |
+| R24 | Deterministic policy and multi-source budget admission | Every applicable mandatory cap, authenticated scope/payer/meter/period, atomic worst-case holds, ancestor quotas, use-time recheck and idempotent actual settlement; durable dispatch/period/restore reconciliation before remote spend; OS allowance foundation without silent personal billing | M21 bounded subset,M23–M25 |
+| R25 | Qualified Gemma local default and flagship/private options within measured profiles | Exact artifact/runtime/license/capability qualification for every enabled route; local B39, private B72 and public B73 independently qualify without forced local/private dependencies; no unauthorized fallback; verified model updates; preserve 256 MiB model-unloaded target and account resident/active/default/load/replacement costs | M21,M23 |
+| R26 | Enterprise/consortium federation without pooled authority or data | Two independent trust domains, tenant isolation, selected service/artifact sharing, disclosure/retention/residency rules, revocation/offboarding and separate ledgers; native server execution separately studied | M25,M26 study |
+| R27 | Bounded cooperating models with measurable value | Scoped role/task graph and subdelegation, prepaid parent budgets, independent effect checks, compromised-peer/partition/cancel tests and comparison with a single-model baseline; no authority by voting | M24,M25 |
 
 ## Platform and product coverage
 
@@ -59,7 +79,7 @@ profile, and optional/deferred work.
 | Distribution | Offline coherent package set; M10 verified bundle lifecycle | M12 verified online client; hosting/publication independently authorized |
 | Privacy | Local logs; explicit diagnostic export | No background telemetry by default |
 | Typed actions | Versioned operations shared by UI, shortcuts and automation | Optional model proposals through identical authorization |
-| AI | Optional extension; absent from required boot/desktop path | Small-model CPU experiment after M5; no assumed NPU/LLM stack |
+| AI | Native optional-to-use capability; assistant available by default in qualified AI profiles, user can turn off | Gemma local default, private organization/consortium endpoints and qualified GPT/Claude/Grok/Gemini cloud; conditional R20–R27; no assumed runtime/accelerator |
 | Licensing | Inventory and attribution for every dependency/font | Original project material is all rights reserved; upstream terms remain separate; distribution needs rights review |
 
 The [identity and authorization plan](../02-architecture/identity-and-authorization.md)
@@ -91,8 +111,13 @@ two vCPUs after SMP exists, 1080p, proven GPU path. Host memory is reported sepa
   including kernel, services, app shells, framebuffers and bounded reclaimable caches.
   Account separately for genuinely free RAM; caches cannot disappear from total usage.
 - The 2 GiB VM configuration is capacity, not a 2 GiB idle allowance. If inference is
-  enabled, report cold idle (model absent), warm idle (model resident), and active
-  desktop+inference with weights, scratch/attention caches and shared/device bytes.
+  enabled, cold idle means model unloaded and includes dormant AI broker/UI/policy,
+  queues and caches. Separately report warm idle (model resident), active combined
+  desktop+inference, actual default-boot behavior and loading/replacement peaks,
+  including weights, scratch/attention caches, indexes and shared/device bytes.
+  A local-capable profile receives a separate measured resident/active ceiling;
+  it does not enlarge the model-unloaded target. Local execution stays off the
+  compositor/input path with a desktop reserve and bounded admission/backpressure.
 - Record replacement peaks including old/new instances, checkpoint and queued work;
   reject staging when safe headroom is unavailable. Targets remain unmeasured.
 - At least 100 consecutive compatible reloads without unexplained monotonic

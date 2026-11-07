@@ -65,3 +65,16 @@ the user's original-kernel/no-hidden-reboot requirements silently.
 [ADR-0028: bounded independent SDK and portable runtime subset](0028-bounded-independent-sdk-and-portable-runtime-subset.md) remains Proposed; P3-12 owns its independent byte/guest/runtime gate.
 
 [ADR-0029: bounded runtime stress observation](0029-bounded-runtime-stress-observation.md) remains Proposed; P3-13 owns its sustained accounting and measurement gate.
+
+## AI platform amendment — 2026-11-07
+
+| Decision | Status and gate |
+| --- | --- |
+| [0030 Native provider-neutral AI](0030-native-provider-neutral-ai.md) | Proposed; Gemma local, qualified private/flagship cloud; M21/M23 |
+| [0031 Deterministic policy and funding](0031-ai-policy-and-funding.md) | Proposed; owner final-send/standing-rule and allowance policies; B67/B68/B72/B73 |
+| [0032 Memory and task continuity](0032-ai-memory-and-task-continuity.md) | Proposed; automatic editable preferences, portable verifiable tasks; B69/B74 |
+| [0033 Federation and cooperation](0033-ai-federation-and-cooperation.md) | Proposed; independent domains, bounded models and separate server study; M24–M26 |
+
+These amend ADR-0016's historical small-model-only scope. Approval of product
+direction does not accept a runtime port, budget engine, security/performance
+result or new frozen interface. See the [AI roadmap](../05-delivery/ai-roadmap.md).

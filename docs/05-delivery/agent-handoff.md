@@ -33,6 +33,20 @@ The user approved the [revision-2 reconciled direction](../00-overview/reconcile
 Use it without reopening settled scope; toolkit/inference/loader integrations still
 require technical evidence gates.
 
+## AI planning amendment — 2026-11-07
+
+Read [AI roadmap](ai-roadmap.md), [architecture](../02-architecture/ai-platform.md)
+and ADR-0030–0033 before AI changes. Owner choices: Gemma local default; flagship
+cloud and private routes; both enterprise federation and cooperating models;
+final external send/publish review with scoped standing rules; automatic editable
+ordinary preference learning; OS allowance foundation governed by all applicable
+budgets. R20–R27 are conditional; B67–B82/M23–M26 are new independent planning
+entries, Not started. B39/M21 follows M5 and B67/B68, with an ephemeral first subset.
+No funded amount, native runtime/server port or AI guest acceptance is established.
+Preserve P4-02, existing release exits/evidence, 256 MiB model-unloaded target
+(dormant AI included), separate resident/active/default/peak profiles and handling
+hold. Detailed P5–P26 stories await milestone-decomposition requests.
+
 ## Required reading order
 
 1. [Documentation index](../README.md) and [vision](../00-overview/vision-and-scope.md).
@@ -325,7 +339,8 @@ P3-12 passes local Codex self-review for the bounded independent SDK 0.1.0 subse
 The owner requested staged 4K/multi-monitor delivery. See the [display roadmap](display-roadmap.md). M4/B61 seeds contracts;
 M9–M13 prepare integration; M22/B62–B66 follows M14 and precedes M15 hardware
 qualification. Existing milestone IDs, M8/M14 exits and accepted evidence remain
-unchanged. The backlog now has 66 broad tasks. That amendment created no stories;
+unchanged. That display amendment brought the backlog to 66 broad tasks;
+the later [AI amendment](ai-roadmap.md) brings it to 82. The display amendment created no stories;
 M4 now has a separate [P4 decomposition](phase-4/README.md), including B61.
 
 

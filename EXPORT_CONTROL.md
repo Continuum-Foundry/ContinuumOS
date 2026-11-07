@@ -1601,3 +1601,48 @@ No force push, merge, release, other destination or standing exemption is grante
 Geographic containment remains unverified. This administrative exception is not
 legal clearance or a finding of U.S.-only handling and does not waive applicable
 law.
+
+## One-time owner exemption — audited AI plan, 2026-11-07
+
+The owner requested an audit of the updated AI requirements, architecture, ADRs
+and roadmap, authorized fixes while preserving baselines, and stated: "if
+everything passes I give you exemption to make PR". This authorizes one push
+and one pull request only after the relevant documentation, graph/qualification,
+host-reference, governance, whitespace and staged-index hygiene checks pass.
+The ordinary commit must retain and pass the installed pre-commit check.
+
+Exact payload before this authorization record: the 37-file AI planning, audit
+and host-reference delta represented by Git tree
+`4d22f8cdf20ab03d73b090e4ad88e07cccc22426`, based on
+`f7c78b5533465d15129671dd8bc7de6a1556bfde`, plus this record.
+It includes R20–R27; ADR-0030–0033 and the ADR-0016 scope amendment; source-backed
+architecture/model survey; M21/M23–M26 and B67–B82; unfrozen task/policy and route
+qualification drafts; all 21 concern traces; audit findings, dependency/baseline
+checks and the 28-case host budget reference. No model weights, new dependency,
+kernel/guest runtime change or historical acceptance bundle is included.
+
+Destination: the existing public GitHub repository
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/ai-platform-audit`, followed by one PR against `main`
+titled "Plan native AI with independent routes and durable policy gates".
+The exact prepared PR body has SHA-256
+`2d583ee2bdefe2d4efc720a516d8fc67d5c934cc9b4d62886e366e5e61ef5e72`; this authorization includes that
+description and its PR metadata.
+
+Excluded: the unrelated `docs/05-delivery/windows-development-signing.md`,
+`tools/windows/New-DevPolicy.ps1` and
+`tools/windows/Set-DevMachinePolicy.ps1` edits; all full/generated runs,
+initial failing test output, logs, binaries, ISOs, caches, credentials and keys.
+The original kernel/ISO intent, 256 MiB model-unloaded target and independent
+resident/active/default/peak accounting, R01–R19, existing release exits,
+P4-02 next and accepted evidence remain unchanged. Planning or host tests do
+not establish native AI, credential protection, funded allowance or security.
+
+The push authorization is exhausted by the first successful push containing this
+record; PR authorization is exhausted by creation of that one PR. For that push
+only, command-local `core.hooksPath=work/ai-pr/hooks` may select an exact copy
+of the original pre-commit hook with no pre-push hook. The installed
+`.githooks/pre-push` and configured `.githooks` path remain afterward.
+No force push, merge, release, other destination, new remote build or standing
+exemption is granted. Geographic containment remains unverified; this is an
+administrative exception, not legal clearance or a finding of U.S.-only handling.

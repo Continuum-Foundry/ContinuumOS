@@ -1,6 +1,8 @@
-# Typed platform actions and optional AI
+# Typed platform actions and native AI
 
-Status: proposed platform design. R19 is core; inference is an optional extension.
+Status: proposed platform design. R19 is core; R20–R27 are conditional AI-profile
+requirements. The 2026-11-07 [AI platform architecture](ai-platform.md) and
+[roadmap](../05-delivery/ai-roadmap.md) supersede the earlier small-model-only scope.
 Decisions: [ADR-0015](../04-decisions/0015-typed-actions.md),
 [ADR-0016](../04-decisions/0016-optional-inference.md).
 
@@ -48,18 +50,20 @@ stop on failed preconditions; invoke compensation only when the provider adverti
 and current versions permit it. Cancellation does not erase an already committed effect.
 The [action contract](../06-contracts/actions-and-context.md) specifies MVP fields/errors.
 
-## Optional inference service
+## Isolated inference service
 
 Inference runs in a separately protected, quota-limited process. It receives scoped
 context and produces proposals; it cannot directly gain kernel, filesystem or network
 authority. The ordinary desktop must boot, render, save and live-update without it.
 A crashed inference worker must leave the editor and update/recovery paths usable.
 
-After M5, a Burn CPU/no-OS spike may evaluate a small supported classification or
-structured prediction task. Official embedded inference examples establish a candidate
-path, not compatibility with a large language model or a particular quantized format.
-Validate the exact backend, operators, allocator, CPU features, model converter and
-license. [S80](../01-research/sources.md#s80)
+After M5, B39/M21 qualifies the Gemma local default on an exact native guest
+runtime/backend. Burn's earlier small CPU example remains historical feasibility
+research [S80](../01-research/sources.md#s80), not the selected product tier.
+Compare exact model/operator/allocator/tokenizer/CPU/converter/license closure;
+LiteRT-LM/llama.cpp or another runtime are unported candidates, not dependencies
+already available. Private endpoints and GPT/Claude/Grok/Gemini adapters follow
+network/time/trust/credential gates, through the same typed proposal boundary.
 
 Correct FP/SIMD enablement/save/restore, scheduling isolation and memory quotas precede
 inference. No assumed CUDA/Vulkan/NPU stack. No mandatory guest network connection or
@@ -84,3 +88,9 @@ wrong revisions and oversized inputs; preserve idempotency through supported rel
 Optional AI tests add adversarial context, unauthorized proposals, model process crash,
 unload/reload, time/memory pressure and desktop responsiveness. They do not block the
 AI-free core release unless the user explicitly changes scope later.
+
+The full [AI decision review](ai-platform.md) specifies default presence, user off,
+final send/publish review with scoped standing rules, automatic editable preference
+learning, portable tasks, multiple budget issuers, enterprise federation and model
+cooperation. The [AI task/policy contract](../06-contracts/ai-tasks-and-policy.md)
+is unfrozen; no wider AI authority is conferred by existing SDK support.

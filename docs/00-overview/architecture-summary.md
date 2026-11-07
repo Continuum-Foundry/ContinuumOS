@@ -22,7 +22,10 @@ flowchart TB
     A[Native apps / optional sandboxed Wasm apps] --> F[UI framework and app SDK]
     F --> C[Compositor and window/session services]
     A --> S[File, network, audio and settings services]
+    I[AI coordinator, policy brokers and isolated model routes] -->|scoped typed actions| A
+    I -->|authorized service operations| S
     U[Update coordinator and lifecycle supervisor] --> A
+    U --> I
     U --> C
     U --> S
     C --> K[Original Rust kernel: objects, IPC, VM, threads, interrupts]
@@ -37,9 +40,17 @@ resource brokers, loaders, renderer, and kernel have different authorities.
 The stable development core remains nonreloadable initially; reloading the
 supervisor that performs reloads creates a separate recovery problem.
 
-Revision 2 adds a shared typed-action/context contract, with optional isolated inference
-after M5. The ordinary desktop and first no-reboot editor demonstration must work
-without a model. Compare Slint/custom UI prototypes before committing to an app toolkit.
+Revision 2 adds shared typed actions/context. The [AI amendment](../05-delivery/ai-roadmap.md)
+adds a native assistant above separately bounded coordinator, context/credential,
+policy/accounting, executor and model/adapter services. Gemma is the local default;
+private endpoints and flagship GPT/Claude/Grok/Gemini routes qualify independently.
+Durable preferences/tasks, model cooperation and enterprise federation have named
+gates; no runtime/driver port is assumed. Inference stays outside the kernel and
+compositor/input/recovery dependencies. Keep 256 MiB model-unloaded cold idle with
+dormant AI counted and separate measured resident/active/default/peak profiles.
+The ordinary desktop and first no-reboot editor demo work without a model; users
+can turn AI off. See [AI architecture](../02-architecture/ai-platform.md).
+Compare Slint/custom UI prototypes before committing to an app toolkit.
 
 ## Language placement
 

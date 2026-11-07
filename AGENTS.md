@@ -104,3 +104,17 @@ MSYS2 named-object restriction. Do not attempt the entire backlog at once.
 
 Linux host tooling and serial ISO/guest acceptance use `docs/05-delivery/linux-iso-validation.md`.
 Windows signing remains Windows-specific; Linux uses native execution preflights.
+
+## AI planning amendment — 2026-11-07
+
+The owner requested [the AI amendment](docs/05-delivery/ai-roadmap.md): Gemma local
+default, qualified flagship cloud/private endpoints, automatic editable preferences,
+review final send/publish with scoped standing rules, OS allowance policy foundation,
+enterprise federation and cooperating models. Read R20–R27,
+[AI architecture](docs/02-architecture/ai-platform.md), ADR-0030–0033 and the
+unfrozen AI task/policy contract before AI work. B39/M21 follows M5 plus B67/B68;
+B67–B82 and M23–M26 are separately gated broad planning tasks, Not started.
+Keep P4-02 next, all existing release exits/evidence, 256 MiB model-unloaded cold
+idle including dormant AI, and fully counted resident/active/default/peak profiles.
+No native model/server port, funded allowance or production policy engine is accepted.
+Decompose later milestone stories only at the owner's request.

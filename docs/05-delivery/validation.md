@@ -255,9 +255,64 @@ existing, and source citations for externally derived claims.
 operation; reject fabricated context, stale revision/preview, extra authority and
 unsupported versions. Test duplicate requests and action-provider replacement.
 
-**T15 — Optional inference:** exact supported model/operators/backend, FP/SIMD,
-quotas, invalid proposals, malicious context, worker crash and unload/reload. Measure
-editor responsiveness and all memory profiles. This is not a core-release gate.
+**T15 — Gemma local qualification:** exact weights/quantization/tokenizer/runtime,
+operators/backend/FP-SIMD closure, typed proposals, policy/quotas, malicious context,
+worker crash, off and unload/reload. Measure desktop responsiveness, 100 compatible
+cycles and all model-unloaded/resident/active/default/load/replacement profiles.
+The 256 MiB model-unloaded target includes dormant AI. This is not a core-release gate.
+
+## AI-profile acceptance
+
+The 2026-11-07 [AI amendment](ai-roadmap.md) adds conditional requirements below.
+Every row is future acceptance, not an implemented feature or accepted guest test.
+T15 becomes local-model qualification; T16–T19 add AI-specific families while
+reusing T06–T14 for native authority, continuity, security and efficiency.
+
+| Requirement | Test families | Required future evidence |
+| --- | --- | --- |
+| R20 native available/off | T05,T09,T10,T15,T16,T18 | Keyboard/semantic controls, persistent off, quiet idle, no AI dependency in install/save/recovery; eligible destination handling. |
+| R21 scoped effects/context | T06,T11,T14,T16,T18,T19 | Final payload/destination/revision review or exact standing rule; forged grants, untrusted context, protected surfaces, credentials and tool disclosure denied. |
+| R22 preference/privacy | T08,T11,T17,T19 | Automatic ordinary learning with editable/excludable provenance; poisoning/correction/source-revoke/deletion/backup/tenant/retention cases. |
+| R23 task continuity/outcomes | T07,T08,T16,T17,T18,T19 | 100 compatible cycles, separate power-loss recovery, lock/logout/regrant; owner artifacts/receipts, duplicates and uncertain remote effects reconciled. |
+| R24 budget/policy | T11,T16,T18,T19 | All mandatory scoped caps, sponsored/personal distinction, bounded atomic holds, ancestor budgets, expiry/revoke/use-time checks, delayed/duplicate/unknown/overrun and durable/distributed recovery. |
+| R25 qualified models/profiles | T02,T09,T12,T15,T18 | Exact model/runtime/tokenizer/tool/policy/eval manifest; license/trust and malformed/update gates; 256 MiB model-unloaded target plus all resident/active/default/load/replacement costs. |
+| R26 federation | T11,T18,T19 | Independent trust domains/tenants/ledgers, disclosure/residency/retention, revoke/offboard/partition/leader failure and separately scoped M26 study. |
+| R27 cooperation | T06,T09,T16,T18,T19 | Bounded roles/context/grants/parent quotas, peer compromise, independent effect verification and single-model value comparison. |
+
+**T16 — AI task, policy and effect admission:** independent codecs and negative
+semantic cases for the draft contract; changed final payload/recipient/policy,
+standing-rule expiry, untrusted tool descriptions, SSRF, all budget meters/sources,
+clock/period rollover, concurrency and dispatch/settlement races. Retained host
+budget reference: 28 tests, in-memory trusted-input research only; no production
+authority, persistence, distributed finance or guest result.
+
+**T17 — Memory and task durability:** separate preference/task/history/index stores,
+poisoning and correction, derived-data deletion, expired source rights, backup
+resurrection prevention and disclosed holds. Inject migration/rebind failures,
+power loss, lock/logout/suspend and missing grants. Live replacement and reboot
+durability have distinct outcomes; unresolved effect holds cannot age out silently.
+
+**T18 — Whole personal AI system and provider conformance:** qualify each exact
+local/private/public configuration, tool/API semantics, trust/credential handling,
+feature-specific terms, no-silent-route/payer change and provider failure. Run
+cross-app completion, supported diagnosis/recovery and interrupted/replaced work
+against conventional controls. Record task success, time/corrections/approvals,
+latency, resource and total cost per completed task. Include local inference with
+remote tools; local model selection is not an offline guarantee.
+
+Proposed preregistered qualification: at least three trials per ordinary task and
+configuration, at least 95% successful ordinary trials, no lost accepted work and
+zero observed unauthorized committed effects or unexplained disclosures in the
+required matrix. Every critical deterministic boundary/failure case must pass;
+it cannot be averaged into 95%. Human review covers content quality/usability.
+These are proposed starting thresholds, not observed reliability or a security
+guarantee. Narrow declared tasks/profiles if a configuration fails.
+
+**T19 — Cooperation/federation:** independent trust domains, bounded role graph,
+attenuated context/grants and parent spending; malicious peers, partitions, late
+results/charges, duplicate actions, revoked trust, tenant isolation, member
+departure and retention/deletion obligations. Compare cooperation with one model;
+verify effects from owners, never votes. M26's server study is separate evidence.
 
 ## Later desktop and research acceptance
 
@@ -412,3 +467,39 @@ ordinary 30000-ms limits, unchanged sample counts and 320-ms guest checks;
 unchanged. Failed/interrupted runs and unresolved timing variation remain findings.
 No guest desktop, driver, authenticated transport, reload, new ABI freeze or desktop
 efficiency target is accepted. P4-02 admission/reclamation is next.
+
+### Conditional profile and durable-dispatch cases
+
+B74 requires the [planning gate matrix](../06-contracts/examples/ai-qualification-gates.json)
+for every enabled route/tool. Test remote-only profiles without a native Gemma port,
+public without private inference, and local strict-offline without network secrets;
+deny empty AI-enabled or partially qualified profiles. Full M23 coverage still
+requires all planned route classes/provider configurations. M21 is an ephemeral
+development subset: fixed authorized digest/parser checks and session-off without
+auto-warming/reactivation, not accepted persistent personal controls.
+
+T16/T18 add B81 pre-dispatch intent/journal recovery, crash before/after send marker,
+late/partial/duplicate charges, quote-bound violation below caps, period attribution,
+old-snapshot restore and authoritative issuer reconciliation. T11/T18 add B82
+entropy/endpoint/audience/secret/key/rotation/logout/recovery cases for declared
+session-only or protected persistent credentials; no inferred credential vault.
+T17/T19 add intersected derived-data restrictions, source revoke during preparation,
+backup tombstones and no restored funding/authority. Receipts distinguish provider
+acceptance from confirmed delivery. Strict offline blocks even outbound status
+queries and preserves unknown results/holds. Remote requests cannot be retried from
+a restored checkpoint merely because the dispatch acknowledgement was lost.
+
+T16/T18 also reject one-shot approval replay with a new request/effect ID and
+inject crashes around durable consumption; standing rules retain explicit repeat
+limits. T19 tests partial reservations across independent issuers: no dispatch
+until all mandatory holds exist, no assumed cross-member ACID and no refund from
+lease expiry alone after an uncertain remote commitment.
+
+T02/T12/T15 add the B67/B39/B70 large-artifact/resource gate: preserve legacy
+64 MiB file/object and 2 GiB package-memory limits; specify bounded sharding,
+streaming digests, aggregate quotas and any versioned mapping/resource extension.
+Test insufficient capacity, overflow, unsupported old receivers, interrupted/
+duplicate/reordered shards and partial cleanup before claiming native model load.
+No guest filesystem, large mapping API or new SIMD state is inferred. The host
+documentation auditor guards the unchanged v1 limits; the existing PowerShell
+schema validator covers its nine positive and sixteen negative synthetic cases.

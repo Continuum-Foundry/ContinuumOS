@@ -122,3 +122,37 @@ for toolkit internals until the comparison chooses the integration path.
 [backlog](../05-delivery/backlog.md) contain the operative details. New ADRs and
 revised existing ADRs remain Proposed until their technical gates pass. No new
 implementation result is implied by this reconciliation.
+
+## AI platform amendment — 2026-11-07
+
+The owner requested incorporation of the AI review and selected Gemma as the
+default local family, flagship GPT/Claude/Grok/Gemini public options, enterprise
+federation and cooperating models. This amends the historical small-model-only
+scope above; isolation, native typed actions and independent core exits remain.
+The assistant is available by default in qualified AI profiles and can be turned
+off. It need not continuously infer, observe or keep a model resident.
+
+Owner choices: final external send/publish review with scoped standing rules;
+automatic ordinary preference learning with editable memory; a foundation for
+OS-sponsored allowance and a deterministic policy engine enforcing applicable
+organization/device/workspace/user/task/sponsor budgets. No allowance amount,
+personal-charge fallback or funded service is promised.
+
+[R20–R27](requirements.md#conditional-ai-profile-requirements),
+[ADRs 0030–0033](../04-decisions/README.md),
+[AI architecture](../02-architecture/ai-platform.md) and
+[the AI roadmap](../05-delivery/ai-roadmap.md) retain all 21 concerns and acceptance
+gates. B39/M21 now qualifies local Gemma after M5; B67–B82 add contracts, policy,
+durable personal work, verified packages, UX, private/public routes, cooperation,
+federation and native-server feasibility. M23–M26 name the new independent gates.
+All new broad tasks are Not started; the host budget oracle is preparation only.
+
+Keep 256 MiB model-unloaded cold idle including dormant AI, and separately report
+fully counted resident/active/actual-default/loading/replacement profiles. Preserve
+R01–R19, M8/M14/M22/M15 exits, P4-02 as the next implementation step, accepted
+evidence and all existing deadline/security/remote-handling rules. No new runtime,
+GPU, guest network/credential stack or native server capability is assumed.
+Native data-center execution needs a separately approved program after M26 study.
+Dates remain unestimated pending exact-target feasibility; early contract work may
+start now, and M21 cannot start before the first M5 reload prerequisite. No P5–P26
+stories are generated until the owner's milestone-decomposition request.

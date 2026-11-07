@@ -54,3 +54,13 @@ P3-12 [passes local self-review](../../evidence/phase-3/P3-12/2026-11-01/README.
 [bounded independent SDK subset](sdk-v1.md), [contract source](../../contracts/sdk-v1.json),
 generated constants and public byte fixtures. Only the exact reviewed contract hash
 is frozen. The remaining runtime-v0 families and desktop interfaces stay experimental.
+
+The [AI task/route/effect/memory/policy contract](ai-tasks-and-policy.md) is an
+unfrozen semantic draft under B67. It assigns no SDK/syscall IDs. The
+[host budget reference](../../experiments/ai-policy/README.md) covers only selected
+trusted-input reservation semantics, not a guest authority or financial service.
+
+The [AI qualification prerequisite fixture](examples/ai-qualification-gates.json)
+is a planning matrix for B74 plus every enabled route/tool, not a runtime policy,
+completion record or frozen wire schema. The [AI audit](../05-delivery/ai-plan-audit.md)
+adds durable dispatch B81 and endpoint/credential brokerage B82 prerequisites.

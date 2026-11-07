@@ -58,9 +58,15 @@ clear diagnostics. Distribution builds need reproducibility, integrity checking,
 disabled development authority, predictable recovery, and explicit hardware support.
 Neither build is described as production-secure until its assurance gates pass.
 
-Typed actions and scoped context are core platform interfaces. Local AI is an optional
-isolated service after the live-reload baseline, not a boot/desktop/release dependency.
-See [the reconciliation](reconciled-plan.md).
+Typed actions and scoped context are core platform interfaces. The
+[2026-11-07 AI amendment](../05-delivery/ai-roadmap.md) makes assistance a native
+capability available by default in qualified AI profiles, with persistent user off
+controls. Gemma is the local default; flagship public APIs and private
+organization/consortium infrastructure use the same policy-governed interface.
+Automatic editable preferences, portable tasks, cooperating models and enterprise
+federation have separate gates. Inference follows the first M5 reload demo and
+remains outside existing boot/desktop/release dependencies and the 256 MiB
+model-unloaded baseline. Presence does not require a loaded model or surveillance.
 
 ## First release scope
 

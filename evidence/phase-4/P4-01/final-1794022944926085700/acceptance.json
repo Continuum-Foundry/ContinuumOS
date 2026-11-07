@@ -1,0 +1,64 @@
+{
+  "story": "P4-01",
+  "status": "passed",
+  "source_commit": "15e5113b112c179ac9dbe7ad1426a67a2be9f301",
+  "source_lock_sha256": "92a9e353abd5a36dcd1345e276a544633f6c4c33460dd0534518a7b0ea5ca78e",
+  "profile_sha256": "6f84940b67303ec9668561a42cf5cea8d7db9fb396b771a3f6f71be82f7a1a36",
+  "commands": [
+    {
+      "name": "m3",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Test-P3-14.ps1"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T03:42:26.164419+00:00",
+      "finished_utc": "2026-11-07T05:21:26.064444+00:00",
+      "timed_out": false,
+      "deadline_seconds": 10800,
+      "cleanup_reaped": true,
+      "elapsed_ms": 5939890
+    },
+    {
+      "name": "host-plan",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-P4-01.py",
+        "--image",
+        "${WORKSPACE}\\build\\m0\\verification-1794024158049737900\\clean-a\\userland-link.elf",
+        "--sha256",
+        "ea7fa8d8fbba046061344774c041f22d41b91f5f4b679acdd1e9f0df7b974522",
+        "--stress-run",
+        "${WORKSPACE}\\build\\m1\\sdk-stress-1794023091948072000-29548"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T05:21:26.090323+00:00",
+      "finished_utc": "2026-11-07T05:21:30.519619+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 4437
+    },
+    {
+      "name": "m2",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Test-P2-13.ps1"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T05:21:30.539439+00:00",
+      "finished_utc": "2026-11-07T05:47:21.021739+00:00",
+      "timed_out": false,
+      "deadline_seconds": 10800,
+      "cleanup_reaped": true,
+      "elapsed_ms": 1550484
+    }
+  ],
+  "m3": "${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1794022946966120500\\acceptance.json",
+  "host_plan": "${WORKSPACE}\\build\\m4\\P4-01\\host-1794028886353440200-49d9a3386d1248e3a22f392b1225225e\\result.json",
+  "m2": "${WORKSPACE}\\build\\m2\\P2-13\\acceptance-1794028891945824600\\acceptance.json"
+}

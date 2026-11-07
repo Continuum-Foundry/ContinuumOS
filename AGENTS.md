@@ -30,6 +30,12 @@ see `evidence/phase-3/P3-06/2026-10-29/README.md`. P3-07's bounded channels and 
 is frozen. P3-13's bounded SDK stress and resource accounting pass local self-review; see
 `evidence/phase-3/P3-13/2026-11-01/README.md`. P3-14 and the strict M3 isolated-runtime/interface exit pass local self-review at the original deadlines; see `evidence/phase-3/P3-14/2026-11-06/README.md`. The earlier owner-accepted exception and failed runs remain historical evidence. M4 guest UI/reload and desktop efficiency targets remain open. No standing test waiver is granted.
 
+P4-01 passes local prerequisite/profile self-review; see
+`evidence/phase-4/P4-01/final-1794022944926085700/README.md`. Its two long M3 stress flavors use the explicit
+revision-2 60000-ms bound; ordinary 30000-ms limits, counts and 320-ms guest-local
+bounds remain. This is not an original-limit pass. P4-02 runtime admission is next;
+P4-02 through P4-19 remain Not started. Host codecs/plans accept no guest desktop.
+
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other
 coding agents should use the same documents. `CLAUDE.md` points to this entry point.

@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "story": "P3-13",
+  "status": "failed",
+  "source_commit": "15e5113b112c179ac9dbe7ad1426a67a2be9f301",
+  "native_observer_profile": "release",
+  "commands": [
+    {
+      "elapsed_ms": 128830,
+      "started_utc": "2026-11-06T23:52:02.3334777+00:00",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-supervisor"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "name": "public-supervision",
+      "finished_utc": "2026-11-06T23:54:11.1790413+00:00"
+    },
+    {
+      "elapsed_ms": 1951,
+      "started_utc": "2026-11-06T23:54:11.2255676+00:00",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--supervisor",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-supervisor-1794009165957274900-30624",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794009102965\\public-supervision-review"
+      ],
+      "program": "python",
+      "exit_code": 0,
+      "name": "public-supervision-review",
+      "finished_utc": "2026-11-06T23:54:13.1819657+00:00"
+    },
+    {
+      "elapsed_ms": 65802,
+      "started_utc": "2026-11-06T23:54:13.1934388+00:00",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ],
+      "program": "cargo",
+      "exit_code": 0,
+      "name": "stress-off-0",
+      "finished_utc": "2026-11-06T23:55:18.9967388+00:00"
+    },
+    {
+      "elapsed_ms": 7284,
+      "started_utc": "2026-11-06T23:55:19.0141681+00:00",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-1794009255242213600-30168",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794009102965\\stress-off-0-review"
+      ],
+      "program": "python",
+      "exit_code": 0,
+      "name": "stress-off-0-review",
+      "finished_utc": "2026-11-06T23:55:26.2993556+00:00"
+    },
+    {
+      "elapsed_ms": 21985,
+      "started_utc": "2026-11-06T23:55:26.3047136+00:00",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Check-P3-13Flavors.ps1",
+        "-Descriptors",
+        "${WORKSPACE}\\build/m1\\sdk-stress-1794009255242213600-30168",
+        "-Output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794009102965\\flavors"
+      ],
+      "program": "pwsh",
+      "exit_code": 0,
+      "name": "stress-flavors",
+      "finished_utc": "2026-11-06T23:55:48.2903002+00:00"
+    },
+    {
+      "elapsed_ms": 71120,
+      "started_utc": "2026-11-06T23:55:48.2919611+00:00",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ],
+      "program": "cargo",
+      "exit_code": 1,
+      "name": "stress-on-0",
+      "finished_utc": "2026-11-06T23:56:59.4127986+00:00"
+    }
+  ],
+  "runs": {
+    "public_supervision": "${WORKSPACE}\\build/m1\\sdk-stress-supervisor-1794009165957274900-30624",
+    "flavors": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794009102965\\flavors"
+  },
+  "stress": [
+    {
+      "status": "passed",
+      "artifacts": "${WORKSPACE}\\build/m1\\sdk-stress-1794009255242213600-30168",
+      "review": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794009102965\\stress-off-0-review",
+      "repetition": 0,
+      "trace": "off"
+    }
+  ],
+  "diagnostic_only": false,
+  "native_observer": {
+    "sha256": "ffa846f890d921687d038c272a7ad01eb4a177492b41612c606965aea1f139c9",
+    "path": "${WORKSPACE}\\build\\cargo\\signed\\release\\xtask.exe"
+  },
+  "error": "Failed stress-on-0; see ${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794009102965"
+}

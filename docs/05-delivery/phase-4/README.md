@@ -1,8 +1,10 @@
 # P4 epic — Guest desktop and live assets
 
-Issue type: Epic. Status: Not started. Owner: Graphics/Platform/Security/Quality.
+Issue type: Epic. Status: In progress. Owner: Graphics/Platform/Security/Quality.
 Created: 2026-11-06. Milestone: M4. Labels: `phase-4`, `milestone-m4`.
 These are repository-local, Jira-ready stories; no Jira issues have been created.
+P4-01 passes [local prerequisite/profile acceptance](../../../evidence/phase-4/P4-01/final-1794022944926085700/README.md);
+P4-02 through P4-19 remain Not started.
 
 ## Outcome and starting point
 
@@ -15,7 +17,8 @@ updates without losing the working generation. Keep serial recovery independent.
 Planning baseline: `main` at `1d934f1`, pulled with `git pull --ff-only` on
 2026-11-06. Existing uncommitted display-roadmap and Windows-policy edits were
 preserved. This plan incorporates M4/B61 from that display amendment without
-claiming M22 implementation. All P4 stories start Not started.
+claiming M22 implementation. All P4 stories initially started Not started;
+the table below records current status.
 
 Read the [strict M3 review](../../../evidence/phase-3/P3-14/2026-11-06/README.md),
 [M2 review](../../../evidence/phase-2/P2-13/2026-10-24/README.md) and
@@ -31,7 +34,7 @@ or evidence of the 256 MiB whole-desktop target.
 
 | ID | Story | Depends on | Backlog coverage | Status |
 | --- | --- | --- | --- | --- |
-| P4-01 | [Recheck prerequisites and lock the guest desktop plan](01-prerequisites-profiles-and-contract-plan.md) | P3-14 and P2-13 Done; Phase 0 recheck | B01/B02 follow-up, B32 setup | Not started |
+| P4-01 | [Recheck prerequisites and lock the guest desktop plan](01-prerequisites-profiles-and-contract-plan.md) | P3-14 and P2-13 Done; Phase 0 recheck | B01/B02 follow-up, B32 setup | Done |
 | P4-02 | [Admit long-lived UI services and reclaiming heaps](02-desktop-runtime-capacity-and-lifecycle.md) | P4-01 | B13/B16 runtime follow-up | Not started |
 | P4-03 | [Mediate device resources, IRQs and DMA lifetimes](03-device-authority-irqs-and-dma.md) | P4-02 | B14/B16 device foundation | Not started |
 | P4-04 | [Present a checked guest framebuffer](04-framebuffer-mapping-and-presentation.md) | P4-03 | B16 display backend | Not started |
@@ -100,6 +103,10 @@ unresolved finding, and a next bounded task; they are not performance passes.
 Do not silently narrow rich effects, enlarge budgets, extend inherited deadlines
 or label all R08/R09/R15 complete. This preserves the existing M4 exit of guest
 rendering metrics without claiming every later desktop quality target is achieved.
+P4-01's follow-up has one explicit owner-authorized [versioned stress deadline
+decision](../phase-3/stress-deadline-profile-v2.md): 60000 ms for the two long M3
+stress flavors, with ordinary/SDK/public-supervision 30000-ms and guest-local/
+negative limits unchanged. This is not a standing waiver or an original-limit pass.
 
 ## Evidence and story completion
 

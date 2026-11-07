@@ -216,7 +216,13 @@ def aggregate(path):
     if 'user_image::tests::verified_plan_reuse_preserves_ceiling_failure_atomicity_and_generations ... ok' in host:
         require(host_count==94,'missing physical backing host test')
         host_count=95
-    require(f'{host_count} passed; 0 failed' in host and host.count('wait::tests::')==9 and host.count('objects::tests::waiting::')==7 and host.count('objects::tests::channels::')==10,'host wait/atomicity coverage')
+    if 'objects::tests::accounting::backing_accounting_matches_object_oracle_through_queue_wrap_maps_and_slot_reuse ... ok' in host:
+        require(host_count==95,'missing prior host-test coverage')
+        host_count=96
+    if 'wait::tests::dispatch_latency_starts_at_wait_completion_and_keeps_real_ready_delays ... ok' in host:
+        require(host_count==96,'missing accounting oracle coverage')
+        host_count=97
+    require(f'{host_count} passed; 0 failed' in host and host.count('wait::tests::')==(10 if host_count==97 else 9) and host.count('objects::tests::waiting::')==7 and host.count('objects::tests::channels::')==10,'host wait/atomicity coverage')
     wait_observed,_=waits.focused(runs['waits'])
     supervisor_observed,_=supervision.focused(runs['supervisor'])
     supervisor_folder=runs['supervisor'];smf=read(supervisor_folder/'build-manifest.json');sr=read(supervisor_folder/'supervisor-run/run-result.json')

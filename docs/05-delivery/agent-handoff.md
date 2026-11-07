@@ -46,13 +46,22 @@ require technical evidence gates.
 ## Next action
 
 M3's [strict original-limit acceptance](../../evidence/phase-3/P3-14/2026-11-06/README.md)
-passes. At the owner's request, M4 now has [nineteen ordered local stories](phase-4/README.md),
-all Not started. Begin with [P4-01](phase-4/01-prerequisites-profiles-and-contract-plan.md):
-reinspect actual source and current prerequisite/guest baselines before implementation.
-Follow the P4 order through runtime/device foundations, guest UI/input/semantics,
-protected input and B61, authenticated transport, resource validation/publication,
-faults, metrics and 100-cycle stability, then final aggregate review. No Jira issues
-were created. This plan does not implement M4 or accept open desktop efficiency targets.
+remains historical. P4-01 now passes [local prerequisite/profile acceptance](../../evidence/phase-4/P4-01/final-1794022944926085700/README.md)
+on final source: ten fresh prerequisites, M1's 33 rows/42 launches, 97 kernel host
+tests, all ten stress guests and 23 M3 rows/five negatives, independent host
+profile/codec/lifecycle failures, and all sixteen hosted M2 rows. The
+[scoped revision-2 profile](phase-3/stress-deadline-profile-v2.md) permits 60000 ms
+only for the two long stress flavors; ordinary/SDK/public-supervision guests
+remain 30000 ms, counts and 320-ms guest bounds stay fixed, and this is explicitly
+not original-limit acceptance. Failed/interrupted runs remain findings.
+
+Continue with [P4-02](phase-4/02-desktop-runtime-capacity-and-lifecycle.md).
+P4-02 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
+through runtime/device foundations, guest UI/input/semantics, protected input and
+B61, authenticated transport, resource publication, faults, metrics and sustained
+reloads before final M4 review. Runtime ceilings are proposed, host codecs remain
+draft and only the existing exact SDK subset is frozen. No Jira issues were
+created. Guest UI/reload and desktop efficiency targets remain open.
 
 Repository rights and governance are defined in [LEGAL.md](../../LEGAL.md),
 [CONTRIBUTING.md](../../CONTRIBUTING.md), and [SECURITY.md](../../SECURITY.md).

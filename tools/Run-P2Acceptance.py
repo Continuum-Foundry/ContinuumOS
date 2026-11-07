@@ -8,8 +8,10 @@ import re
 import subprocess
 import sys
 import time
+import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
+FROZEN_CONTEXT_REVISION = '420cf61da7b2200ec426e88bbfb19bec5f491a78'
 
 
 def read(path):
@@ -27,6 +29,48 @@ def digest(path):
 def require(ok, why):
     if not ok:
         raise ValueError(why)
+
+
+def shared_context_equivalent(path, current_raw, frozen_raw):
+    """Only two shared build files may evolve without rebinding UI freeze pins."""
+    require(path in ('.cargo/config.toml', 'Cargo.toml'), 'not an admitted shared context')
+    original = tomllib.loads(frozen_raw.decode('utf-8'))
+    current = tomllib.loads(current_raw.decode('utf-8'))
+    if path == 'Cargo.toml':
+        require('kernel-stress' not in original['profile'], 'unexpected historical stress profile')
+        added = current['profile'].pop('kernel-stress', None)
+        require(json.dumps(added, sort_keys=True) == json.dumps({'inherits':'kernel-dev','opt-level':3}, sort_keys=True),
+                'unreviewed kernel-only profile')
+    # JSON canonical comparison preserves TOML types (True != 1, 3 != 3.0),
+    # unlike Python's recursive equality. No old field or array order may change.
+    require(json.dumps(current, sort_keys=True, separators=(',', ':')) ==
+            json.dumps(original, sort_keys=True, separators=(',', ':')), 'shared build semantics changed')
+
+
+def archived_shared_context(row, raw):
+    require(row['path'] in ('.cargo/config.toml', 'Cargo.toml'), 'frozen input changed: ' + row['path'])
+    try:
+        original = subprocess.check_output(['git','-c','protocol.allow=never','show',FROZEN_CONTEXT_REVISION+':'+row['path']],
+                                           cwd=ROOT, stderr=subprocess.PIPE, timeout=10,
+                                           env={**os.environ,'GIT_NO_LAZY_FETCH':'1'})
+    except subprocess.CalledProcessError as error:
+        raise ValueError('required historical build context unavailable locally') from error
+    require(hashlib.sha256(original).hexdigest() == row['sha256'], 'historical context pin mismatch')
+    shared_context_equivalent(row['path'], raw, original)
+    return {'path':row['path'],'historical_revision':FROZEN_CONTEXT_REVISION,'historical_sha256':row['sha256'],
+            'current_sha256':hashlib.sha256(raw).hexdigest(),
+            'proof':'identical parsed old fields/types; only comments and the exact additional kernel-stress profile admitted'}
+
+
+def review_pinned_inputs(selection):
+    context=[]
+    for row in selection['frozen_comparison'] + selection['input_pins'] + selection['additional_notices']:
+        raw = (ROOT / row['path']).read_bytes()
+        if row.get('normalization') == 'lf':
+            raw = raw.replace(b'\r\n', b'\n')
+        if hashlib.sha256(raw).hexdigest() != row['sha256']:
+            context.append(archived_shared_context(row, raw))
+    return context
 
 
 def snapshot():
@@ -101,11 +145,7 @@ def review_selection(inputs):
             require(old[key] == current[name].get(key), 'changed dependency: ' + name + '/' + key)
         for notice in old['notices']:
             require(digest(ROOT / notice['path']) == notice['sha256'], 'notice changed')
-    for row in selection['frozen_comparison'] + selection['input_pins'] + selection['additional_notices']:
-        raw = (ROOT / row['path']).read_bytes()
-        if row.get('normalization') == 'lf':
-            raw = raw.replace(b'\r\n', b'\n')
-        require(hashlib.sha256(raw).hexdigest() == row['sha256'], 'frozen input changed: ' + row['path'])
+    context = review_pinned_inputs(selection)
     manifests = []
     for story, day in [('P2-06', '2026-10-21'), ('P2-07', '2026-10-22'), ('P2-08', '2026-10-22'), ('P2-09', '2026-10-23')]:
         directory = ROOT / 'evidence/phase-2' / story / day
@@ -117,6 +157,7 @@ def review_selection(inputs):
     # hashed and linked here; never rewrite the old decision's evidence.
     return dict(status='passed', packages=len(current), preserved_evidence=manifests,
                 chosen_source='P2-09 historical; final source separately rebuilt', distribution_cleared=False,
+                shared_host_context=context,
                 axes=['integration', 'quality', 'text-accessibility', 'reload', 'efficiency', 'authoring', 'evolution', 'distribution'])
 
 
@@ -131,6 +172,8 @@ def main():
     runner = Runner(run, protocol)
     ps = ['pwsh', '-NoProfile', '-File']
     try:
+        review_pinned_inputs(read(ROOT / 'legal/ui-selection.json'))
+        runner.step('shared-context-tests', [sys.executable, 'tools/Test-M2SharedContext.py'])
         negative_run = run / 'negative-processes'
         negative_run.mkdir()
         negative_runner = Runner(negative_run, protocol)

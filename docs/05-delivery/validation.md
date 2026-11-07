@@ -394,3 +394,21 @@ durability, real accounts and desktop efficiency targets remain open.
 See the [strict acceptance and runner repair evidence](../../evidence/phase-3/P3-14/2026-11-06/README.md). The earlier
 failed/interrupted runs and owner exception remain recorded as history; only
 the existing exact SDK subset is frozen. This is not human/security certification.
+
+
+## P4-01 current prerequisite and host planning acceptance
+
+P4-01 passes [local Codex self-review](../../evidence/phase-4/P4-01/final-1794022944926085700/README.md): ten fresh
+prerequisites, full M1 (33 rows/42 launches), 97 kernel host tests, ten long stress
+guests and 23 M3 rows/five aggregate negatives, separate required flavors,
+runtime/SDK/portable regressions and all sixteen hosted M2 rows. Host-only checks
+cover 163 profile mutations, 1345 paired codec cases (541 mandatory negatives),
+ten independent deadline rejections, four real child outcomes and eight prelaunch
+rejections. M2's historical context proof has fourteen negative cases.
+
+This uses the explicit `m3-stress-tcg-v2` 60000-ms bound for two long flavors,
+ordinary 30000-ms limits, unchanged sample counts and 320-ms guest checks;
+`original_limit_acceptance` is false. The strict historical M3 result stays
+unchanged. Failed/interrupted runs and unresolved timing variation remain findings.
+No guest desktop, driver, authenticated transport, reload, new ABI freeze or desktop
+efficiency target is accepted. P4-02 admission/reclamation is next.

@@ -1,8 +1,31 @@
 //! Validate packaged inputs and prepare an isolated QEMU invocation.
-use super::{inputs::preflight, observe::observe, records::Expected, support::digest};
+use super::{
+    inputs::preflight,
+    observe::observe,
+    records::Expected,
+    support::{digest, json_read},
+};
 use crate::{Result, sanitize, write_json};
 use serde_json::{Value, json};
 use std::{fs, path::Path, process::Command, time::Duration};
+
+fn deadline_ms(flavor: &str, baseline: u64, profile: &Value) -> Result<u64> {
+    if baseline != 30000 {
+        return Err("Ordinary M1 deadline must remain 30000 ms".into());
+    }
+    if matches!(flavor, "stress-test" | "stress-trace") {
+        if profile["schema_version"] != 2
+            || profile["deadline_profile"] != "m3-stress-tcg-v2"
+            || profile["original_guest_deadline_ms"] != 30000
+            || profile["guest_deadline_ms"] != 60000
+        {
+            return Err("Unsupported scoped M3 stress deadline profile".into());
+        }
+        Ok(60000)
+    } else {
+        Ok(baseline)
+    }
+}
 
 pub(super) fn launch(
     dir: &Path,
@@ -12,12 +35,37 @@ pub(super) fn launch(
     rejection: Option<(&str, &str)>,
 ) -> Result<Value> {
     let pins = preflight(dir, "run-preflight")?;
-    let deadline = Duration::from_millis(
+    let flavor = image["build_flavor"]
+        .as_str()
+        .ok_or("Missing packaged build flavor")?;
+    let stress = matches!(flavor, "stress-test" | "stress-trace");
+    let profile_path = crate::root().join("config/p3-13-stress.json");
+    let profile = if stress {
+        json_read(&profile_path)?
+    } else {
+        Value::Null
+    };
+    let deadline = Duration::from_millis(deadline_ms(
+        flavor,
         pins.lock["vm"]["deadline_ms"]
             .as_u64()
-            .filter(|v| *v > 0 && *v <= 30000)
             .ok_or("Invalid locked VM deadline")?,
-    );
+        &profile,
+    )?);
+    let stress_profile_hash = if stress {
+        let hash = digest(&profile_path)?;
+        let inputs = json_read(
+            &dir.parent()
+                .ok_or("Missing artifact parent")?
+                .join("build-inputs.json"),
+        )?;
+        if inputs["flavor"] != flavor || inputs["sources"]["config/p3-13-stress.json"] != hash {
+            return Err("Stress profile changed after kernel build".into());
+        }
+        Some(hash)
+    } else {
+        None
+    };
     if digest(&crate::input_lock_path())? != image["input_lock_sha256"]
         || digest(pins.file("firmware_code")?)? != image["firmware_code_sha256"]
         || digest(pins.file("firmware_vars")?)? != image["firmware_vars_template_sha256"]
@@ -71,6 +119,7 @@ pub(super) fn launch(
         .as_str()
         .ok_or("Missing packaged fixture")?;
     let mut vm = pins.lock["vm"].clone();
+    vm["deadline_ms"] = json!(deadline.as_millis());
     if fixture == "scheduler-cpu" {
         let cpu = args
             .iter()
@@ -103,10 +152,13 @@ pub(super) fn launch(
                 .ok_or("Missing fault symbol")
         })
         .transpose()?;
-    write_json(
-        &dir.join("launch-manifest.json"),
-        &json!({"schema_version":2,"build_id":id,"iso_sha256":image["iso_sha256"],"configuration_sha256":image["configuration_sha256"],"fixture":fixture,"host_session_id":session,"session_origin":"host; correlation only, not a security credential or reset detector","firmware_code_sha256":digest(pins.file("firmware_code")?)?,"vars_template_sha256":before,"vars_copy_before_sha256":before,"vm":vm,"test_device":test,"arguments":args.iter().map(|a|sanitize(a)).collect::<Vec<_>>()}),
-    )?;
+    let mut launch_manifest = json!({"schema_version":2,"build_id":id,"iso_sha256":image["iso_sha256"],"configuration_sha256":image["configuration_sha256"],"fixture":fixture,"host_session_id":session,"session_origin":"host; correlation only, not a security credential or reset detector","firmware_code_sha256":digest(pins.file("firmware_code")?)?,"vars_template_sha256":before,"vars_copy_before_sha256":before,"vm":vm,"test_device":test,"arguments":args.iter().map(|a|sanitize(a)).collect::<Vec<_>>()});
+    if let Some(hash) = stress_profile_hash {
+        launch_manifest["deadline_profile"] = json!("m3-stress-tcg-v2");
+        launch_manifest["stress_profile_sha256"] = json!(hash);
+        launch_manifest["original_guest_deadline_ms"] = json!(30000);
+    }
+    write_json(&dir.join("launch-manifest.json"), &launch_manifest)?;
     let mut c = Command::new(pins.file("qemu")?);
     c.args(&args);
     let mut report = observe(
@@ -131,4 +183,38 @@ pub(super) fn launch(
     }
     write_json(&dir.join("run-result.json"), &report)?;
     Ok(report)
+}
+
+#[cfg(test)]
+mod deadline_tests {
+    use super::*;
+
+    #[test]
+    fn slower_host_deadline_is_scoped_to_two_fixed_stress_flavors() {
+        let profile = json!({"schema_version":2,"deadline_profile":"m3-stress-tcg-v2","original_guest_deadline_ms":30000,"guest_deadline_ms":60000});
+        for flavor in [
+            "normal",
+            "sdk-runtime-test",
+            "route-test",
+            "stress-supervisor-test",
+        ] {
+            assert_eq!(deadline_ms(flavor, 30000, &Value::Null).unwrap(), 30000);
+            assert_eq!(deadline_ms(flavor, 30000, &profile).unwrap(), 30000);
+            assert!(deadline_ms(flavor, 60000, &profile).is_err());
+        }
+        for flavor in ["stress-test", "stress-trace"] {
+            assert_eq!(deadline_ms(flavor, 30000, &profile).unwrap(), 60000);
+            for (field, bad) in [
+                ("schema_version", json!(1)),
+                ("deadline_profile", json!("unbounded")),
+                ("original_guest_deadline_ms", json!(60000)),
+                ("guest_deadline_ms", json!(60001)),
+                ("guest_deadline_ms", json!(true)),
+            ] {
+                let mut altered = profile.clone();
+                altered[field] = bad;
+                assert!(deadline_ms(flavor, 30000, &altered).is_err());
+            }
+        }
+    }
 }

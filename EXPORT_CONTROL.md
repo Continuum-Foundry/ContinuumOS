@@ -1568,3 +1568,36 @@ The installed push guard remains afterward. Windows signing-policy documentation
 and scripts, local artifacts, credentials, binaries and full logs are excluded.
 No standing exemption, merge, release, geographic certification or legal clearance
 is granted.
+
+## One-time owner exemption — P4-01 and M3 stress follow-up, 2026-11-07
+
+After completion of the staged M3 stress follow-up and P4-01 prerequisite/profile
+work, the owner instructed: "i give you exemption to make PR". This authorizes
+one push of the exact 108-file task payload represented by Git tree
+`d8d794c53210ec3b9924e746b02e712a0e1fb06f`, based on
+`15e5113b112c179ac9dbe7ad1426a67a2be9f301`, plus this authorization record.
+It includes the read-only accounting and dispatch-observer repairs, explicitly
+versioned long-stress deadline, scoped M2 shared-context reviewer, P4-01 host
+profiles/codecs/fixtures/runners, documentation/handoff and compact reviewed
+success/failure evidence. The three unrelated Windows signing/policy edits and
+all full generated runs, binaries, ISOs, source copies, caches, credentials and
+private keys are excluded.
+
+Destination: the existing public GitHub repository
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/p4-01-prerequisites`, followed by one pull request against `main` titled
+"Complete P4-01 prerequisites and repair M3 stress acceptance". The prepared PR
+body has SHA-256
+`ff2e8a624a3abe2b5125cba99551401a86f9da1437f2e8ba99af9c90f1e02da1`;
+this authorization covers that description and its PR metadata.
+
+The push authorization is exhausted by the first successful push containing this
+record; the PR authorization is exhausted by creation of that one PR. For that
+push only, command-local `core.hooksPath=work/p4-01-pr/hooks` may select a local
+directory containing an exact copy of the original pre-commit hook and no
+pre-push hook. The ordinary commit retains the installed pre-commit check;
+`.githooks/pre-push` and the configured hooks path remain installed afterward.
+No force push, merge, release, other destination or standing exemption is granted.
+Geographic containment remains unverified. This administrative exception is not
+legal clearance or a finding of U.S.-only handling and does not waive applicable
+law.

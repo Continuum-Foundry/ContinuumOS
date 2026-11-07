@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "control": {
+    "name": "control",
+    "status": "passed",
+    "error": null,
+    "timed_out": false,
+    "cleanup_reaped": true,
+    "launched": true,
+    "exit_code": 33,
+    "deadline_ms": 30000,
+    "elapsed_ms": 6016,
+    "serial_sha256": "05965d24f2051d9f3b541705a77c1d092c4897e39ff0a45a0ae3031119551a6f"
+  },
+  "cases": [
+    {
+      "name": "broken-user-image",
+      "status": "rejected",
+      "error": "user ELF identity/size",
+      "launched": false,
+      "cleanup_reaped": true
+    },
+    {
+      "name": "artifact-hash",
+      "status": "rejected",
+      "error": "user artifact hash mismatch",
+      "launched": false,
+      "cleanup_reaped": true
+    },
+    {
+      "name": "expected-process-outcome",
+      "status": "rejected",
+      "error": "deliberately wrong process outcome: expected panic code 97",
+      "timed_out": false,
+      "cleanup_reaped": true,
+      "launched": true,
+      "exit_code": 33,
+      "deadline_ms": 30000,
+      "elapsed_ms": 6297,
+      "serial_sha256": "46c5a5aebabdbbb8b82d71b56291a512b4c19eff89340aca15784d07df5af949"
+    },
+    {
+      "name": "missing-completion-record",
+      "status": "rejected",
+      "error": "runtime completion",
+      "timed_out": false,
+      "cleanup_reaped": true,
+      "launched": true,
+      "exit_code": 33,
+      "deadline_ms": 30000,
+      "elapsed_ms": 5953,
+      "serial_sha256": "33e1a65200a0003c5bbca328b1663d67dc3ec020d6e7975729159fe931060087"
+    },
+    {
+      "name": "runner-timeout",
+      "status": "rejected",
+      "error": "runner deadline exceeded",
+      "timed_out": true,
+      "cleanup_reaped": true,
+      "launched": true,
+      "exit_code": 1,
+      "deadline_ms": 1,
+      "elapsed_ms": 62
+    }
+  ],
+  "adapter": "wrong expected panic code / dropped completion apply to independent consumer after real ISO replay; prelaunch ELF/hash faults launch no VM; timeout kills/reaps real QEMU"
+}

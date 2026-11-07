@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "story": "P4-01",
+  "status": "candidate-only; not independently validated or locked; no measurement acceptance",
+  "vm": {"machine": "pc-q35-11.1", "cpu": "qemu64-v1,+apic", "accelerator": "tcg", "vcpus": 1, "ram_mib": 2048, "hpet": true, "nic": "none", "serial": "diagnostics-only"},
+  "geometry": [[1280, 720, 100], [1280, 720, 150], [1280, 720, 200], [1920, 1080, 100], [1920, 1080, 150], [1920, 1080, 200]],
+  "effects": ["rich", "reduced"],
+  "text_fixture_lock": "fixtures/m2/text-v1/lock.json",
+  "workloads": ["focus", "complex-script-type-search", "10000-row-scroll", "move-resize-overlap", "effects-and-motion", "token-layout-publication"],
+  "measurement": {
+    "seed": 20261106, "repetitions": 5, "warmup_frames": 50, "warmup_ms": 5000, "frames_per_cell_per_repetition": 200,
+    "trace_modes": ["off", "on"], "quantiles": "nearest-rank", "raw_samples_required": true,
+    "idle_ms": 30000, "idle_phases_ms": [10000, 10000, 5000, 5000], "observer_ms": 100, "caret_ms": 500, "clock_ms": 1000,
+    "warmup_reloads": 5, "compatible_reloads_per_class_per_baseline": 100, "reload_classes": ["L0", "L1"], "fault_repetitions": 5,
+    "host_clock": "perf_counter_ns", "guest_clock": "elapsed-hpet-ns", "cross_domain_subtraction": false,
+    "cpu_clock_gate": "P4-17-validated-owner-cpu-accounting", "visible_observer_required": true
+  },
+  "targets": {"cold_idle_bytes": 268435456, "render_composition_p95_ns": 8000000, "render_composition_p99_ns": 16000000, "input_submit_p95_ns": 25000000, "build_visible_ns": 500000000, "refresh_hz": 60},
+  "settlement": {"quantum_ns": 5000000, "quanta": 64, "fairness_ns": 320000000, "cleanup_ns": 320000000, "unexplained_bytes": 0, "frames": 0, "objects": 0, "handles": 0, "maps": 0, "leases": 0, "retired_roots": 0, "hidden_launches": 0, "pixel_tolerance": 0},
+  "idle": {"static_paints": 0, "hidden_paints": 0, "minimized_paints": 0, "timer_wakes_per_10s_max": 30, "observer_samples_per_30s": 300, "unscheduled_ui_wakes": 0},
+  "proposed_runtime": {
+    "implemented": false, "processes": 16, "threads_per_process": 1, "lifetime_units": 24, "steady_roles": 7, "retries_per_child": 2,
+    "heap_caps_mib": {"supervisor": 2, "compositor": 48, "input": 2, "shell": 16, "editor": 64, "update": 32, "policy": 4},
+    "process_commit_bytes": 134217728, "active_staging_commit_bytes": 402653184, "recovery_reserve_bytes": 16777216,
+    "refund_lifetime_credits": false, "reload_process_launches": 0
+  },
+  "bounds": {
+    "surface_width": 1920, "surface_height": 1080, "surface_stride": 8192, "surface_bytes": 8847360,
+    "surfaces": 8, "leases_per_surface": 3, "retained_generations": 2, "input_events": 256,
+    "semantic_nodes": 4096, "semantic_depth": 32, "semantic_label_bytes": 256,
+    "desktop_message_bytes": 4096, "dev_frame_bytes": 1048576, "dev_chunk_bytes": 65536,
+    "blob_bytes": 67108864, "transaction_bytes": 100663296, "blobs": 64, "transactions": 1, "metadata_bytes": 65536, "parser_depth": 16,
+    "glyph_cache_bytes": 1048576, "glyph_cache_entries": 128, "layout_cache_bytes": 2097152, "layout_cache_entries": 128, "scratch_bytes": 4194304,
+    "dma_quarantine_bytes": 16777216, "dma_quarantine_devices": 3
+  },
+  "devices": {
+    "display": "VGA", "input": ["virtio-keyboard-pci", "virtio-tablet-pci"], "dev_controller": "virtio-serial-pci", "dev_port": "virtserialport", "port_name": "org.continuum.dev",
+    "legacy_virtio": false, "iommu_claim": false, "backend": "loopback-socket", "dev_disabled_omits": ["controller", "port", "chardev", "mutation-grant"], "diagnostic_serial_separate": true,
+    "guest_delivery_status": "P4-03/P4-04/P4-06/P4-12-required"
+  },
+  "runner": {"host_fixture_ms": 1000, "host_timeout_negative_ms": 100, "inherited_guest_ms": 30000, "guest_timeout_negative_ms": 1, "profile_bytes": 65536, "output_bytes": 65536, "tool_help_ms": 5000, "transaction_ms": 5000, "m3_outer_seconds": 10800, "m2_outer_seconds": 10800, "future_frame_cell_seconds": 120, "future_reload_stress_seconds": 1800}
+}

@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "packages": 32,
+  "preserved_evidence": [
+    {
+      "story": "P2-06",
+      "files": 46,
+      "sha256": "c96c8c0bacb95a0ad7a57988603245fc77411ec04445be6f518d4d6c54748e4b"
+    },
+    {
+      "story": "P2-07",
+      "files": 27,
+      "sha256": "b5437813eaaa4d681679a03fc98f31cfc229efdc1e7f4368fd071d647cce9ac0"
+    },
+    {
+      "story": "P2-08",
+      "files": 93,
+      "sha256": "34439b0b54d4e165aa8ed4fafdb6e476efdae6de311ba82b3f2d2455b8a89a51"
+    },
+    {
+      "story": "P2-09",
+      "files": 5,
+      "sha256": "06c81bbb46d31ca137b2fe13c1c45fec178ba629c8756caeb4f9d62aa2613907"
+    }
+  ],
+  "chosen_source": "P2-09 historical; final source separately rebuilt",
+  "distribution_cleared": false,
+  "shared_host_context": [
+    {
+      "path": ".cargo/config.toml",
+      "historical_revision": "420cf61da7b2200ec426e88bbfb19bec5f491a78",
+      "historical_sha256": "edca149321ded860b2cb2ff4b0c05268fa25a8f3b5138d4915737c1f622c208b",
+      "current_sha256": "615925406ea95fe70525db9f7f46fd305198d3f26b9c7cab9fb15cd99ff09e8d",
+      "proof": "identical parsed old fields/types; only comments and the exact additional kernel-stress profile admitted"
+    },
+    {
+      "path": "Cargo.toml",
+      "historical_revision": "420cf61da7b2200ec426e88bbfb19bec5f491a78",
+      "historical_sha256": "40c91f4a3829e0e5fff178aa466ebf544e833cdd508b2d503b6d3a6924e34521",
+      "current_sha256": "5cc6f16526273265c362bc8cda9d50eb1171a27cd26023a8063ed41368f2b9ec",
+      "proof": "identical parsed old fields/types; only comments and the exact additional kernel-stress profile admitted"
+    }
+  ],
+  "axes": [
+    "integration",
+    "quality",
+    "text-accessibility",
+    "reload",
+    "efficiency",
+    "authoring",
+    "evolution",
+    "distribution"
+  ]
+}

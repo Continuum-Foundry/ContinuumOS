@@ -43,6 +43,13 @@ hashed and rebuilt, never silently substituted into the old record. All eight
 comparison axes, Slint failures and provisional distribution choices remain
 visible. Actual release clearance stays false.
 
+P4-01 adds a [reviewed shared-context proof](shared-build-context-review.md) for
+the later Linux-host comment and exact kernel-only stress profile. The original
+P2-09 pins and all frozen Slint/notice bytes remain unchanged. Local archived
+blobs must match those pins; current TOML must preserve every old field/type.
+Fourteen negative cases run before expensive hosted checks. Reports name both
+historical/current hashes; this is not silent rebinding of frozen evidence.
+
 Each subprocess has a fixed deadline and retained command/result/log identity.
 Timeout kills only that owned process tree and waits for reaping. Deliberate
 early-exit/timeout processes exercise failure handling; the exact final executable

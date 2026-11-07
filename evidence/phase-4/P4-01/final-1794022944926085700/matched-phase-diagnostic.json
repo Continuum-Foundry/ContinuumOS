@@ -1,0 +1,35 @@
+[
+  {
+    "run": "build/m1/sdk-stress-trace-1794009349738308300-29224/sdk-stress-trace-run",
+    "completed_waves": 82,
+    "matched_first_waves": 82,
+    "phase_medians_ms": {
+      "admission_ns": 35.206599999999995,
+      "dispatch_ns": 187.41795000000002,
+      "reap_ns": 6.4322,
+      "inventory_ns": 9.6896
+    }
+  },
+  {
+    "run": "build/m1/sdk-stress-trace-1794013043178314400-27332/sdk-stress-trace-run",
+    "completed_waves": 88,
+    "matched_first_waves": 82,
+    "phase_medians_ms": {
+      "admission_ns": 26.76525,
+      "dispatch_ns": 146.16475000000003,
+      "reap_ns": 5.39545,
+      "inventory_ns": 6.93755
+    }
+  },
+  {
+    "run": "work/p4-01-accounting-fix/cpu-replay-1794013212764439700",
+    "completed_waves": 100,
+    "matched_first_waves": 82,
+    "phase_medians_ms": {
+      "admission_ns": 15.7595,
+      "dispatch_ns": 89.69185,
+      "reap_ns": 2.99115,
+      "inventory_ns": 5.11115
+    }
+  }
+]

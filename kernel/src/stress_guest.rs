@@ -66,7 +66,19 @@ impl Samples {
         observed: 0,
         maximum: 0,
     };
-    fn push(&mut self, ns: u64) {
+    fn push(&mut self, ns: u64, kind: &str, actor: usize) {
+        if ns > BOUND {
+            record(
+                "m1.stress_bound_violation",
+                "routes",
+                "ok",
+                format_args!(
+                    "kind={kind} actor={actor} wave={} value_ns={ns} bound_ns={BOUND} observed={}",
+                    unsafe { *WAVE.0.get() },
+                    self.observed
+                ),
+            );
+        }
         assert!(ns <= BOUND);
         self.observed += 1;
         self.maximum = self.maximum.max(ns);
@@ -106,8 +118,8 @@ impl Samples {
 }
 static DISPATCH: Local<Samples> = Local(UnsafeCell::new(Samples::EMPTY));
 static WAKE: Local<Samples> = Local(UnsafeCell::new(Samples::EMPTY));
-pub(crate) fn wake_sample(ns: u64) {
-    unsafe { (&mut *WAKE.0.get()).push(ns) }
+pub(crate) fn wake_sample(ns: u64, actor: usize) {
+    unsafe { (&mut *WAKE.0.get()).push(ns, "wake", actor) }
 }
 pub(crate) fn entry(op: u64, argument: u64, entered: u64) {
     begin_syscall(entered);
@@ -472,7 +484,12 @@ fn step(slot: usize) -> Result<bool> {
     let at = now();
     if t.ready_ns != 0 {
         unsafe {
-            (&mut *DISPATCH.0.get()).push(at - t.ready_ns);
+            let delay = continuum_kernel::wait::runnable_delay(
+                t.ready_ns,
+                waiting::ready_time(thread),
+                at,
+            )?;
+            (&mut *DISPATCH.0.get()).push(delay, "dispatch", slot);
         }
     }
     unsafe {

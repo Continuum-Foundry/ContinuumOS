@@ -1,0 +1,82 @@
+[
+  {
+    "scope": "planned argv delta only; no VM/device delivery acceptance",
+    "arguments": [
+      "-vga",
+      "none",
+      "-device",
+      "VGA,xres=1280,yres=720,vgamem_mb=16",
+      "-device",
+      "virtio-keyboard-pci,disable-legacy=on",
+      "-device",
+      "virtio-tablet-pci,disable-legacy=on"
+    ],
+    "bootstrap_development_authority": false,
+    "diagnostic_serial": "preserve independent baseline COM1",
+    "device_grants": []
+  },
+  {
+    "scope": "planned argv delta only; no VM/device delivery acceptance",
+    "arguments": [
+      "-vga",
+      "none",
+      "-device",
+      "VGA,xres=1280,yres=720,vgamem_mb=16",
+      "-device",
+      "virtio-keyboard-pci,disable-legacy=on",
+      "-device",
+      "virtio-tablet-pci,disable-legacy=on",
+      "-chardev",
+      "socket,id=continuumdev,host=127.0.0.1,port=49152,server=on,wait=off,nodelay=on",
+      "-device",
+      "virtio-serial-pci,id=devctl,disable-legacy=on,max_ports=2",
+      "-device",
+      "virtserialport,bus=devctl.0,nr=1,chardev=continuumdev,name=org.continuum.dev"
+    ],
+    "bootstrap_development_authority": true,
+    "diagnostic_serial": "preserve independent baseline COM1",
+    "device_grants": [
+      "dev-mutator"
+    ]
+  },
+  {
+    "scope": "planned argv delta only; no VM/device delivery acceptance",
+    "arguments": [
+      "-vga",
+      "none",
+      "-device",
+      "VGA,xres=1920,yres=1080,vgamem_mb=16",
+      "-device",
+      "virtio-keyboard-pci,disable-legacy=on",
+      "-device",
+      "virtio-tablet-pci,disable-legacy=on"
+    ],
+    "bootstrap_development_authority": false,
+    "diagnostic_serial": "preserve independent baseline COM1",
+    "device_grants": []
+  },
+  {
+    "scope": "planned argv delta only; no VM/device delivery acceptance",
+    "arguments": [
+      "-vga",
+      "none",
+      "-device",
+      "VGA,xres=1920,yres=1080,vgamem_mb=16",
+      "-device",
+      "virtio-keyboard-pci,disable-legacy=on",
+      "-device",
+      "virtio-tablet-pci,disable-legacy=on",
+      "-chardev",
+      "socket,id=continuumdev,host=127.0.0.1,port=49152,server=on,wait=off,nodelay=on",
+      "-device",
+      "virtio-serial-pci,id=devctl,disable-legacy=on,max_ports=2",
+      "-device",
+      "virtserialport,bus=devctl.0,nr=1,chardev=continuumdev,name=org.continuum.dev"
+    ],
+    "bootstrap_development_authority": true,
+    "diagnostic_serial": "preserve independent baseline COM1",
+    "device_grants": [
+      "dev-mutator"
+    ]
+  }
+]

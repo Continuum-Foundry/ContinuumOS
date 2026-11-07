@@ -1,0 +1,61 @@
+{
+  "scope": "preserved failures/interruption; no failed row relabeled passed",
+  "attempts": [
+    {
+      "name": "initial-failed-30s",
+      "local_path": "build/m3/P3-14/acceptance-1794009093298631100/acceptance.json",
+      "sha256": "2b61b1fd9c99f193a3990ac8fc0d5f6e047f9239923d48341dc40afa412b8a54",
+      "status": "failed",
+      "reason": "runtime-stress failed; see ${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1794009093298631100"
+    },
+    {
+      "name": "optimized-full-failed-30s",
+      "local_path": "build/m4/P4-01/acceptance-1794013637127735200/acceptance.json",
+      "sha256": "a13f5c5ec7fb29a561da2374439b03ca619ceb2b9c472d8fb3aff6a26a07940d",
+      "status": "failed",
+      "reason": "m3 failed; see ${WORKSPACE}\\build\\m4\\P4-01\\acceptance-1794013637127735200"
+    },
+    {
+      "name": "intentional-reviewer-repair-interruption",
+      "local_path": "build/m4/P4-01/acceptance-1794014287257484600/interruption.json",
+      "sha256": "31166b7cfe01bb9c86a47ce65f582c0a82f610bb4b46959084fa8f1db399667c",
+      "status": "interrupted-for-reviewer-repair",
+      "reason": "Detected stale 95-test expectation; new required accounting oracle makes 96. Stopped before the full regression phase; no acceptance claimed."
+    },
+    {
+      "name": "unexpected-guest-panic",
+      "local_path": "build/m4/P4-01/acceptance-1794014604436182600/acceptance.json",
+      "sha256": "a19a9b962f9e874d0538ed97627ba43381e1a37c896a90d09172101cae3670d4",
+      "status": "failed",
+      "reason": "m3 failed; see ${WORKSPACE}\\build\\m4\\P4-01\\acceptance-1794014604436182600"
+    },
+    {
+      "name": "m3-passed-m2-context-failed",
+      "local_path": "build/m4/P4-01/acceptance-1794015577151154600-bc182cbb6831495a9761ba1058884c4e/acceptance.json",
+      "sha256": "4d97dfd4aa0d312dbf68a4f09114981fa086b2752a003305ca6ff8ac374ebf1d",
+      "status": "failed",
+      "reason": "m2 failed; see ${WORKSPACE}\\build\\m4\\P4-01\\acceptance-1794015577151154600-bc182cbb6831495a9761ba1058884c4e"
+    },
+    {
+      "name": "bad-invocation-image-hash",
+      "local_path": "build/m4/P4-01/host-1794013571184328400/result.json",
+      "sha256": "4965c77fabd39a2bce17df5d2f855862b9a046359130d50a1174670f5e92bbed",
+      "status": "failed",
+      "reason": "real-host-child-success"
+    },
+    {
+      "name": "timestamp-directory-collision",
+      "local_path": "build/m4/P4-01/host-1794015441302544900/result.json",
+      "sha256": "eda10bd834cd912ec1bcd5edffe376320e7827b2c10ecd573e0b31e0d9d23411",
+      "status": "failed",
+      "reason": "[WinError 183] Cannot create a file when that file already exists: 'C:\\\\Users\\\\archi\\\\Documents\\\\ContinuumOS\\\\build\\\\m4\\\\P4-01\\\\fixture-1794015442372333200'"
+    }
+  ],
+  "limits": [
+    "host timing cause unresolved; owner reported mostly idle",
+    "CPU replay was diagnostic only",
+    "320ms ceiling unchanged; dispatch timestamp origin corrected after blocking",
+    "no host power/security changes",
+    "historical legal/UI pins unchanged"
+  ]
+}

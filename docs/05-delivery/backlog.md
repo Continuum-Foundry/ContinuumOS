@@ -60,15 +60,22 @@ P3-13 stresses lifecycle/resource bounds and P3-14 reviews final guest acceptanc
 B15/B37 receive authority/interface handoffs only; M4 guest UI and M5 behavior
 replacement remain separate. Existing Bxx IDs, dependencies and exits are preserved.
 
-M4 is decomposed into [nineteen local Phase 4 stories](phase-4/README.md), all
-Not started. P4-02/P4-03 explicitly close runtime-capacity/device-authority gaps;
+M4 is decomposed into [nineteen local Phase 4 stories](phase-4/README.md).
+P4-01 is Done for its prerequisite/profile subset; the remaining stories are Not started.
+P4-02/P4-03 explicitly close runtime-capacity/device-authority gaps;
 P4-04–P4-11 cover B16 and B61, with B07–B09/B36 guest confirmation and M4 B37
 seeds. P4-12 owns B14, P4-13/P4-14 own B15, and P4-14–P4-16/P4-18 own B17.
 P4-01/P4-16–P4-19 own M4 B32 profiles, faults, metrics, stress and final review.
 Use the [epic mapping](phase-4/README.md#traceability-and-handoff) and
 [final matrix](phase-4/19-phase-4-acceptance.md#required-acceptance-matrix).
 Existing Bxx dependencies/exits remain intact; M5 behavior replacement and M22
-4K/multi-output delivery are not added to M4. Begin with P4-01 before implementation.
+4K/multi-output delivery are not added to M4. P4-01's
+[reviewed prerequisite/profile acceptance](../../evidence/phase-4/P4-01/final-1794022944926085700/README.md) includes fresh
+M1/M3 and affected hosted M2 on final source, fixed independently checked host
+profiles/codecs and bounded runner negatives. Its versioned long-stress bound is
+60000 ms; ordinary/SDK limits, counts and guest-local bounds remain unchanged.
+Earlier failures/interruption stay retained; this is not original-limit acceptance.
+P4-02 runtime admission/reclamation is next. P4-02–19 remain Not started.
 
 | ID | Owner / task | Depends on | Definition of done | Requirements |
 | --- | --- | --- | --- | --- |

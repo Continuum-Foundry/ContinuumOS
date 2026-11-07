@@ -9,6 +9,19 @@ use crate::{
 
 pub const ITEMS: usize = 8;
 
+/// Diagnostic ready-to-dispatch duration. A completed wait's ready timestamp
+/// supersedes the earlier return at which that owner became blocked.
+#[cfg(any(test, feature = "stress-test"))]
+pub fn runnable_delay(
+    last_return_ns: u64,
+    completed_wait_ns: Option<u64>,
+    now_ns: u64,
+) -> Result<u64> {
+    now_ns
+        .checked_sub(completed_wait_ns.unwrap_or(last_return_ns))
+        .ok_or(error("clock", "backward"))
+}
+
 /// Elapsed HPET epoch, independent of delivered timer interrupts. Counter deltas
 /// must be observed at least once per half wrap. Exhaustion fails closed rather
 /// than wrapping a deadline into the past. Failed observations leave state intact.

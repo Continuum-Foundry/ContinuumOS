@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "historical_pins_unchanged": true,
+  "negative_cases": 14,
+  "rows": [
+    {
+      "name": "reviewed-current-.cargo/config.toml",
+      "status": "passed"
+    },
+    {
+      "name": "reviewed-current-Cargo.toml",
+      "status": "passed"
+    },
+    {
+      "name": "alias",
+      "status": "rejected"
+    },
+    {
+      "name": "offline-false",
+      "status": "rejected"
+    },
+    {
+      "name": "offline-type",
+      "status": "rejected"
+    },
+    {
+      "name": "global-target",
+      "status": "rejected"
+    },
+    {
+      "name": "extra-alias",
+      "status": "rejected"
+    },
+    {
+      "name": "m2-profile",
+      "status": "rejected"
+    },
+    {
+      "name": "workspace",
+      "status": "rejected"
+    },
+    {
+      "name": "edition",
+      "status": "rejected"
+    },
+    {
+      "name": "kernel-profile",
+      "status": "rejected"
+    },
+    {
+      "name": "kernel-profile-type",
+      "status": "rejected"
+    },
+    {
+      "name": "extra-profile",
+      "status": "rejected"
+    },
+    {
+      "name": "malformed",
+      "status": "rejected"
+    },
+    {
+      "name": "unrelated-source",
+      "status": "rejected"
+    },
+    {
+      "name": "wrong-archive-pin",
+      "status": "rejected"
+    }
+  ],
+  "shared_context": [
+    {
+      "path": ".cargo/config.toml",
+      "historical_revision": "420cf61da7b2200ec426e88bbfb19bec5f491a78",
+      "historical_sha256": "edca149321ded860b2cb2ff4b0c05268fa25a8f3b5138d4915737c1f622c208b",
+      "current_sha256": "615925406ea95fe70525db9f7f46fd305198d3f26b9c7cab9fb15cd99ff09e8d",
+      "proof": "identical parsed old fields/types; only comments and the exact additional kernel-stress profile admitted"
+    },
+    {
+      "path": "Cargo.toml",
+      "historical_revision": "420cf61da7b2200ec426e88bbfb19bec5f491a78",
+      "historical_sha256": "40c91f4a3829e0e5fff178aa466ebf544e833cdd508b2d503b6d3a6924e34521",
+      "current_sha256": "5cc6f16526273265c362bc8cda9d50eb1171a27cd26023a8063ed41368f2b9ec",
+      "proof": "identical parsed old fields/types; only comments and the exact additional kernel-stress profile admitted"
+    }
+  ]
+}

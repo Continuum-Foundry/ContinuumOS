@@ -104,3 +104,17 @@ Rust allocations are separate counters. Host load and paired tracing deltas rema
 visible. Frame/resource-latency targets miss; no guest efficiency result follows.
 The [runbook](../05-delivery/phase-2/performance-stability-runbook.md) defines the
 fixed protocol, scope, accounting, failure retention and bounded follow-ups.
+
+## Conditional AI profiles
+
+The [AI amendment](../05-delivery/ai-roadmap.md) keeps 256 MiB model-unloaded
+cold idle with dormant broker/UI/policy/index/queue costs included. Record actual
+default boot separately if automatic loading/warming is enabled; never call a
+forced-unloaded run the default footprint. Qualify local-resident and combined
+active profiles with explicit hardware/context/concurrency ceilings. Count all
+loading/replacement overlaps, weights/tokenizer/runtime, KV/scratch/index caches,
+shared/device allocations and private/cloud client TLS/context/tool costs.
+Keep model work off compositor/input critical paths, bound queues and use desktop
+reserve/admission/backpressure. No unapproved cloud fallback on memory pressure.
+Measure cost/time/corrections per completed journey against conventional and
+single-model workflows; report provider uncertainty/overrun honestly.

@@ -416,6 +416,120 @@ Lists maintained platform build/documentation routes. Use: investigate a new bac
 [ReactOS upstream README](https://github.com/reactos/reactos/blob/master/README.md) — O.
 States Windows-oriented architecture and Wine cooperation. Use: architectural comparison only; adopting another kernel is outside project scope.
 
+## AI platform review — 2026-11-07
+
+These sources informed the AI review and incorporation. They are not artifact
+pins or independent ContinuumOS measurements. Versioned upstream interfaces still
+require exact adapter conformance; publication/license changes need re-review.
+
+### S98
+[Gemma overview](https://ai.google.dev/gemma/docs/core),
+[Gemma 4 E2B card](https://huggingface.co/google/gemma-4-E2B-it),
+[published Apache terms](https://ai.google.dev/gemma/apache_2) — O.
+Documents model configurations and memory considerations. Use: initial local
+family; publisher estimates are not whole-OS footprint and licenses are artifact-specific.
+
+### S99
+[Qwen3.5-4B card](https://huggingface.co/Qwen/Qwen3.5-4B),
+[Ministral 3 announcement](https://mistral.ai/news/mistral-3/),
+[Granite 4.0](https://www.ibm.com/granite/docs/models/granite4-0),
+[Phi-4-mini card](https://huggingface.co/microsoft/Phi-4-mini-instruct) — O/I.
+Primary candidate models/releases for local/private alternatives. Use: preserve
+enterprise choice; qualify exact model/runtime/tool/license rather than family labels.
+
+### S100
+[gpt-oss-20b card](https://huggingface.co/openai/gpt-oss-20b),
+[Olmo documentation](https://docs.allenai.org/models/olmo/index.html),
+[Cohere private deployments](https://docs.cohere.com/docs/private-deployments) — O/I.
+Examples of larger/private and inspectable model options. Use: retain BYO-model
+and procurement paths; not a native-server support or blanket license finding.
+
+### S101
+[LiteRT-LM](https://github.com/google-ai-edge/LiteRT-LM),
+[llama.cpp](https://github.com/ggml-org/llama.cpp),
+[vLLM security](https://docs.vllm.ai/en/latest/usage/security/),
+[SGLang](https://docs.sglang.ai/), [llm-d architecture](https://llm-d.ai/docs/architecture),
+[NVIDIA Dynamo](https://docs.nvidia.com/dynamo/) — O/I.
+Separates edge execution, serving engines and cluster infrastructure. vLLM
+documents private-network assumptions for internal interfaces. Use: native-port
+and trust-boundary experiments; no Linux/GPU/container stack is assumed to exist.
+
+### S102
+[OAuth security BCP, RFC 9700](https://www.rfc-editor.org/rfc/rfc9700.html),
+[OAuth token exchange, RFC 8693](https://www.rfc-editor.org/rfc/rfc8693.html) — O.
+Audience/resource-limited credentials and delegation patterns. Use: brokered
+credentials and narrowed task identities, not credentials in model context.
+
+### S103
+[MCP authorization](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization),
+[MCP security practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices),
+[MCP Tasks draft](https://tasks.extensions.modelcontextprotocol.io/specification/draft/tasks) — O.
+Tool authentication/security and evolving task lifecycle guidance. Use: pin
+adapter versions, reject token passthrough/confused deputies; cancellation is
+cooperative and the task draft is not a frozen native ABI.
+
+### S104
+[A2A specification](https://a2a-protocol.org/latest/specification/) — O.
+Agent/task exchange and cancellation semantics. Use: possible interoperability
+adapter; local authorization, cancellation certainty and effect policy remain separate.
+
+### S105
+[SPIFFE Federation](https://spiffe.io/docs/latest/spiffe-specs/spiffe_federation/) — O.
+Workload authentication across independently administered trust domains. Use:
+federated identity pattern; authentication does not pool member data or authority.
+
+### S106
+[TUF specification](https://theupdateframework.github.io/specification/v1.0.36/),
+[Safetensors](https://huggingface.co/docs/safetensors/index),
+[Sigstore security model](https://docs.sigstore.dev/about/security/) — O.
+Update metadata, data serialization and artifact identity/integrity mechanisms.
+Use: model/tokenizer/runtime/tool supply chain; signatures do not prove harmlessness.
+
+### S107
+[Agent evaluations](https://www.anthropic.com/research/demystifying-evals-for-ai-agents),
+[Multi-agent research system](https://www.anthropic.com/research/multi-agent-research-system) — O.
+Vendor engineering reports on outcome-based evaluation and cooperation costs.
+Use: whole-harness repeated trials and single-model comparison; not independent
+evidence for this OS or the proposed 95% ordinary-task threshold.
+
+### S108
+[OpenAI guardrails/approvals](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals),
+[computer-use integration](https://developers.openai.com/api/docs/guides/tools-computer-use-integration),
+[data controls](https://developers.openai.com/api/docs/guides/your-data) — O.
+Action-boundary review, scoped prior approval and feature-specific data handling.
+Use: no blanket retention/residency claim for tools/third parties or all endpoints.
+
+### S109
+[OWASP excessive agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) — O.
+Distinguishes excess functionality, permission and autonomy. Use: task-bounded
+delegation and deterministic effect checks outside the model.
+
+### S110
+[OWASP memory attack surface](https://genai.owasp.org/2026/05/13/memory-is-a-feature-it-is-also-an-attack-surface/) — O.
+Persistent untrusted context can influence later behavior. Use: provenance,
+scope, corrections/deletion and no conversion of learned text into trusted policy.
+
+### S111
+[HTTP semantics, RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html) — O.
+Conditional requests, method idempotency and retry constraints. Use: expected
+revisions and reconciliation before retrying uncertain non-idempotent effects.
+
+### S112
+[IAB AI-CONTROL workshop report, RFC 9969](https://www.rfc-editor.org/rfc/rfc9969.html) — O.
+Informational account of fragmented publisher-control mechanisms. Use: retain
+source/use provenance and reviewed rules; no universal automated legal interpreter.
+
+### S113
+[LiteLLM architecture](https://docs.litellm.ai/docs/proxy/architecture),
+[virtual keys](https://docs.litellm.ai/docs/proxy/virtual_keys) — O.
+Gateway/provider translation and multiple budget scopes. Use: implementation
+comparison; our atomic reservations, policy issuers and privacy need independent tests.
+
+### S114
+[WCAG 2.2](https://www.w3.org/TR/WCAG22/) — O.
+Keyboard, focus and understandable-control principles for web content. Use:
+inform native AI controls alongside existing OS semantics; not native certification.
+
 ## Access limitations
 
 Redox book direct access returned 403. A TinyGo runtime URL and a Linux DMA guide

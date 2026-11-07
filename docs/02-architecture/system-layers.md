@@ -17,6 +17,7 @@ Status: proposed architecture. Requirement links: R01, R05, R06, R10, R14.
 | Shell/session policy | Workspaces, launcher, window placement | Compositor, app lifecycle | Arbitrary hardware access |
 | UI framework | Layout, semantics, event dispatch, paint description | App SDK and scene protocol | Kernel privilege |
 | Apps | Domain behavior and logical state | Granted service handles | Other app memory and ambient devices |
+| AI coordinator, brokers and workers | Scoped tasks, model proposals, policy/budget decisions and receipts | Granted native actions/context, qualified model routes and accepted persistence | Ambient admin authority, compositor/input critical path, blanket user/tenant memory or credentials in prompts |
 | Host developer tools | Build, packaging, update initiation, test orchestration | Local tools and authorized guest endpoint | Implicit authority from guest-supplied commands |
 
 ## Initial stable core

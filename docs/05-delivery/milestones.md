@@ -444,13 +444,31 @@ restricted imports, fuel/memory/stack quotas, cancellation and state export/impo
 Exit with adversarial tests and native-runtime cost comparison. Neither WASI,
 general POSIX nor a guest compiler is assumed.
 
-## M21 — Optional local AI service
+## M21 — Gemma local AI qualification
 
-Expand B39 after B06/B21/B37, hence after the first M5 product reload demo. Use an
-isolated service, existing typed actions, scoped context, quotas, unload/crash tests
-and separate cold/warm/active model-memory accounting. Exit with named model/backend
-evidence, denied escalation and an unaffected desktop/reload path on worker failure.
-It is never a core-release dependency and does not require M20 Wasm.
+The 2026-11-07 [AI amendment](ai-roadmap.md) expands B39 beyond the historical
+small-model experiment. Prerequisites B06/B21/B37/B67/B68 put native inference
+after the first M5 state-preserving product reload and bounded contract/policy
+admission. Host contract work can precede M5. Qualify exact Gemma weights,
+quantization, tokenizer, runtime/backend and supported tasks on the original guest;
+no existing Linux/runtime/GPU port is assumed. Earlier progress/memory is explicitly
+ephemeral until B69's durability/accounts/session gates pass. Session off is
+ephemeral too; no automatic reactivation or model warming is permitted. Before
+loading, B39 must verify the authorized exact-hash fixed development fixture and
+bound its parsing; B67 must define bounded model/shard transfer and any versioned
+resource/mapping extension, and B39 must prove the guest subset without assuming
+large-file APIs. Existing 64 MiB object and 2 GiB package-memory bounds remain.
+No dynamic download/remote code. B70 later qualifies ordinary
+package delivery. M21 is not the persistent personal-assistant product profile.
+
+Exit: native typed proposals with selected semantic context, use-time effect and
+budget policy, off/stop controls, denied escalation/injection, worker crash/unload,
+100 compatible replacement cycles, preserved accepted work/boot identity and an
+unaffected desktop/reload path. Preserve 256 MiB model-unloaded cold idle including
+dormant AI; separately measure resident/active/actual-default/loading/replacement
+profiles and desktop responsiveness. Failure narrows the supported profile or
+triggers replan. This does not require M20 Wasm or block any existing release.
+Supports conditional R20/R21/R23/R24/R25 and existing R09/R10/R19.
 
 M16–M21 are separately gated tracks, not a universal serial chain: their declared
 prerequisites permit work without completing M15 first. None blocks M8 or M14.
@@ -475,6 +493,64 @@ profile budgets before performance runs; preserve and separately report the
 256 MiB baseline target. No implicit GPU acceleration, HDR, VRR, mirroring, rotation
 or arbitrary hardware support. M18 remains independent; M15 repeats required cases
 on actual named hardware. Supports R04/R05/R07/R08/R09/R10/R12/R14/R15/R17/R18.
+
+## M23 — Personal AI, durable work and qualified model destinations
+
+B69–B74 and B81/B82 add route-independent tasks/preferences, model/adapter package
+lifecycle, native persistent controls, durable reservations and credential brokerage.
+Common B74 profile acceptance needs M6 persistence, M7 accounts, M9 exchange,
+M10 packages and M11 session/resource foundations. Remote inference/tools additionally
+need B53/B54 networking/time/trust, B81 durable dispatch accounting and B82 endpoint/
+credential handling. M7 account-password handling is not a remote credential vault.
+
+Use [conditional route qualification](ai-roadmap.md#conditional-route-qualification):
+local profiles require B39; private B72; public B73; every enabled external tool
+needs its own qualified adapter and B53/B54/B81/B82. Public/private thin-client
+delivery does not wait for a native Gemma port, and public delivery does not wait
+for private inference implementation. Each declared configuration must pass the
+whole profile; an AI-enabled profile needs at least one model route. Full M23
+program completion still requires all planned route classes and declared flagship
+provider configurations; narrower accepted profiles retain their exact scope.
+
+Exit: [three user journeys and all critical checks](validation.md#ai-profile-acceptance),
+offline/off conventional workflows, persistent personal off, final review/standing
+rules, editable ordinary preferences, derived-data use/deletion and 100 compatible
+changes. B81 tests crash/late/duplicate/unknown/period/old-backup liabilities before
+remote dispatch; B82 tests key/secret/endpoint/reauthentication lifecycles. OS allowance
+support does not promise funding or personal billing fallback. Recheck every named
+resource profile. R20–R25; no existing release exit changes.
+
+## M24 — Bounded cooperating models
+
+B75/B76 use an accepted personal profile and its independently qualified local,
+private or public routes; no compulsory private endpoint.
+Decompose roles/subtasks with narrowed context/grants and prepaid ancestor quotas;
+never treat model agreement as permission or outcome proof. Exit with partition,
+peer compromise, cancel/unknown/duplicate effects and exhausted-child-budget cases,
+plus measured success/time/corrections/cost against a single-model baseline.
+R20/R21/R23/R24/R27; independent from existing release roots.
+
+## M25 — Enterprise and consortium federation
+
+B77–B79 add independent trust/tenant mapping, selected service/artifact sharing,
+source and derived-data handling, separate memory/keys/policy/ledgers and offboarding.
+Host identity/policy contract probes can begin before guest networking. Integration
+needs B69/B72/B75/B81/B82 and explicit federated enrollment/issuer trust;
+aggregate exit B79 also requires M24 acceptance. Test two
+independently administered domains, cross-tenant denial, revoked trust/compromised
+peer, partition/leader failure, late effects/charges, residency/retention obligations
+and member departure. Federation does not imply pooled data or federated training.
+R20–R27; no native data-center runtime is established.
+
+## M26 — Native data-center AI feasibility
+
+B80 surveys exact original-OS runtime, driver/accelerator, SMP, storage/network,
+fleet trust/updates, availability, licensing and resource gaps after B67/B77 contract
+work. It is an independent research track that can precede M25 delivery. Exit with
+bounded probes and a separately scoped server-program proposal or evidenced stop.
+Private endpoint support is useful without this port. No existing server kernel,
+container, CUDA/Vulkan or serving runtime is assumed, and no server delivery date
+is promised. R26 study plus original platform constraints apply.
 
 ## Stop/replan criteria
 

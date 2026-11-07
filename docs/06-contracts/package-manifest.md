@@ -3,6 +3,24 @@
 Status: design draft, version 0.1. Schema: [package manifest](schemas/package-manifest.schema.json).
 Fixture: [package example](examples/package-manifest.json).
 
+## AI artifact and memory-profile gate
+
+The current version-1 draft limits each file/object to 64 MiB and a package's
+declared memory to 2 GiB. It does not already describe a multi-GiB model or grant
+larger native mappings. B67 must specify bounded model shards/manifest identity,
+streaming verification, aggregate disk/transaction limits and a versioned resource/
+mapping profile before B39 can load its exact authorized fixture. B39 must prove
+the necessary guest parser/loading/mapping subset; no guest filesystem, large-file
+API or extended SIMD state is assumed. A larger model is not permission to silently
+raise these version-1 limits or alter frozen SDK IDs.
+
+B70 later qualifies ordinary signed distribution, resume/failure cleanup, quota and
+replacement-peak admission through the common verifier. New versions/profiles
+need independent positive/negative codecs and capability checks before use; old
+receivers reject them. Keep the 256 MiB model-unloaded desktop target and report
+all resident/active/default/load/replacement costs separately. This is a required
+design/integration gate, not an implemented large-model package extension.
+
 ## Package
 
 A package is immutable content plus a strict versioned manifest. It declares package

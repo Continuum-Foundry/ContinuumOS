@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "planning-only; task dependencies are not evidence of completion",
+  "base_gate": "B74",
+  "route_gates": {
+    "local": ["B39"],
+    "private": ["B72"],
+    "public": ["B73"]
+  },
+  "external_tool_prerequisites": ["B53", "B54", "B81", "B82"],
+  "large_model_contract_gate": "B67",
+  "existing_object_max_bytes": 67108864,
+  "existing_package_memory_max_bytes": 2147483648,
+  "full_program_routes": ["local", "private", "public"]
+}

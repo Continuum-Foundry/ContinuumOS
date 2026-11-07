@@ -38,6 +38,14 @@ an original OS with a beautiful, efficient desktop, modern systems code, and a
 development loop that updates supported components inside a running VM. A bootable
 ISO packages a known system generation; an ISO is not the live update transport.
 
+The [2026-11-07 AI amendment](05-delivery/ai-roadmap.md) adds conditional R20–R27,
+ADRs 0030–0033 and B67–B82 (82 broad tasks total), expands M21 to Gemma local
+qualification, and adds M23 personal AI, M24 cooperating models, M25 enterprise
+federation and M26 native-server feasibility. Full [AI architecture](02-architecture/ai-platform.md)
+retains all 21 reviewed concerns; [the model/runtime survey](01-research/ai-model-and-runtime-survey.md)
+preserves enterprise alternatives. This is planning, not accepted AI implementation.
+P4-02, existing release exits and 256 MiB model-unloaded cold idle are unchanged.
+
 ## Start here
 
 Repository policies: [rights](../LEGAL.md), [governance](../GOVERNANCE.md),
@@ -76,7 +84,7 @@ is approved.
 | Phase 2 stories | [Hosted UI epic and thirteen ordered stories](05-delivery/phase-2/README.md): P2-01 through P2-13 accepted locally; M2 hosted subset passes; custom direction remains provisional until guest confirmation |
 | Phase 3 stories | [Isolated runtime epic and fourteen ordered stories](05-delivery/phase-3/README.md): P3-01/P3-02/P3-03/P3-04/P3-05/P3-06/P3-07 Done; P3-08 Done; P3-09 Done; P3-10 Done; P3-11 Done; P3-12 Done; P3-13 Done; P3-14 Done; strict original-limit M3 acceptance passes locally |
 | Phase 4 stories | [Guest desktop/live-assets epic and nineteen ordered stories](05-delivery/phase-4/README.md): P4-01 [passes prerequisite/profile acceptance](../evidence/phase-4/P4-01/final-1794022944926085700/README.md), including fresh M1/M3/M2 under the scoped stress profile v2; P4-02–19 Not started |
-| Later desktop | [Feature/release matrix](05-delivery/desktop-feature-matrix.md), [service responsibilities](06-contracts/desktop-services.md), [Windows study](01-research/windows-compatibility-feasibility.md), [browser study](01-research/browser-feasibility.md); no P5–P22 decomposition yet |
+| Later desktop | [Feature/release matrix](05-delivery/desktop-feature-matrix.md), [service responsibilities](06-contracts/desktop-services.md), [Windows study](01-research/windows-compatibility-feasibility.md), [browser study](01-research/browser-feasibility.md); no P5–P26 decomposition yet |
 
 ## Status and interpretation
 
@@ -184,7 +192,8 @@ P3-12 passes local Codex self-review for the bounded independent SDK 0.1.0 subse
 The owner requested staged 4K/multi-monitor delivery. See the [display roadmap](05-delivery/display-roadmap.md). M4/B61 seeds contracts;
 M9–M13 prepare integration; M22/B62–B66 follows M14 and precedes M15 hardware
 qualification. Existing milestone IDs, M8/M14 exits and accepted evidence remain
-unchanged. The backlog now has 66 broad tasks. That amendment created no stories;
+unchanged. That display amendment brought the backlog to 66 broad tasks;
+the later [AI amendment](05-delivery/ai-roadmap.md) brings it to 82. The display amendment created no stories;
 M4 is now separately decomposed into [nineteen P4 stories](05-delivery/phase-4/README.md).
 
 

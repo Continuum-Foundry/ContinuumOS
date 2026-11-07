@@ -74,3 +74,21 @@ OS binaries (there are none). The output overview explains how to start.
 Treat the accompanying machine-readable inventory as the exact file/word/link count
 for the packaged snapshot. Counts exclude future implementation and do not indicate
 that any proposed feature exists yet.
+
+## AI amendment inventory — 2026-11-07
+
+The owner's incorporation request retains the 21-concern research in
+[AI architecture](../02-architecture/ai-platform.md), the
+[model/runtime survey](../01-research/ai-model-and-runtime-survey.md), conditional
+R20–R27, ADR-0030–0033, draft task/policy contracts and
+[AI roadmap](ai-roadmap.md). Current planning inventory: 27 requirements (19 core,
+8 conditional AI), 33 Proposed ADRs, 82 broad tasks, 27 milestones M0–M26 and
+44 feature rows. B39 becomes Gemma local qualification; existing release exits
+and accepted evidence do not change. The retained host budget oracle (28 cases after audit) is
+preparation only. Current check results belong to the execution report, not the
+historical audit counts above.
+
+The [AI plan audit](ai-plan-audit.md) adds B81/B82 (82 broad tasks total), fixes
+conditional route dependencies and retains 28 host budget cases. It adds a checked
+planning gate fixture and negative documentation-audit regressions. Core requirements,
+milestone/feature counts, baselines and accepted guest evidence are unchanged.

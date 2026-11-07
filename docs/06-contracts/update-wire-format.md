@@ -50,6 +50,15 @@ previous bytes; reject overlapping inconsistent data. Seal only after complete s
 and digest verification. No archive extraction paths from untrusted payloads escape
 the staging namespace. Compression is optional and initially disabled.
 
+AI artifacts do not relax these framing/chunk/object bounds. B67 must choose and
+test an aggregate model/shard manifest, bounded streaming verification and any
+versioned resource/mapping extension; B39 proves its exact development-fixture
+guest subset before model load, and B70 qualifies ordinary delivery later. A
+multi-GiB model cannot be sent as an oversized version-1 blob or buffered in full
+outside declared quotas. Interrupted/resumed/duplicate/reordered shard transfer,
+digest mismatch, exhaustion and partial-stage cleanup need explicit acceptance.
+See the [AI package gate](package-manifest.md#ai-artifact-and-memory-profile-gate).
+
 ## Plan semantics
 
 A plan includes base/target generation, transaction ID, authenticated session/boot

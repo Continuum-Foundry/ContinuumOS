@@ -35,16 +35,18 @@ if(new Set(sourceIds).size!==sourceIds.length) errors.push('Duplicate source IDs
 const req=fs.readFileSync(path.join(root,'docs/00-overview/requirements.md'),'utf8');
 const val=fs.readFileSync(path.join(root,'docs/05-delivery/validation.md'),'utf8');
 const requirementIds=[...req.matchAll(/^\| (R\d{2}) \|/gm)].map(m=>m[1]);
-if(requirementIds.length!==19)errors.push(`Expected 19 requirements, got ${requirementIds.length}`);
+if(requirementIds.length!==27||new Set(requirementIds).size!==27)errors.push(`Expected 27 distinct requirements, got ${requirementIds.length}`);
+for(let n=1;n<=27;n++)if(!requirementIds.includes(`R${String(n).padStart(2,'0')}`))errors.push(`Missing requirement R${String(n).padStart(2,'0')}`);
 for(const id of requirementIds)if(!val.includes(id))errors.push(`Missing requirement trace ${id}`);
+if(!/\*\*cold-idle\*\* desktop budget:\s*256 MiB resident\/committed guest memory/.test(req))errors.push('The 256 MiB model-unloaded desktop baseline changed or disappeared');
 const adrs=docs.filter(p=>/04-decisions[\\/]\d{4}-.*\.md$/.test(p));
-if(adrs.length!==29)errors.push(`Expected 29 ADRs, got ${adrs.length}`);
+if(adrs.length!==33)errors.push(`Expected 33 ADRs, got ${adrs.length}`);
 for(const f of adrs)if(!fs.readFileSync(f,'utf8').includes('Status: Proposed.'))errors.push(`Unexpected ADR status: ${f}`);
 const backlog=fs.readFileSync(path.join(root,'docs/05-delivery/backlog.md'),'utf8');
 const tasks=[...backlog.matchAll(/^\| (B\d{2}) \| (.*?) \| (.*?) \|/gm)].map(m=>({id:m[1],dependencies:[...m[3].matchAll(/\bB\d{2}\b/g)].map(m=>m[0])}));
 const taskMap=new Map(tasks.map(t=>[t.id,t]));
-if(tasks.length!==66||taskMap.size!==66)errors.push('Expected 66 distinct backlog tasks');
-for(let n=1;n<=66;n++){const id=`B${String(n).padStart(2,'0')}`;if(!taskMap.has(id))errors.push(`Missing backlog ID ${id}`);}
+if(tasks.length!==82||taskMap.size!==82)errors.push('Expected 82 distinct backlog tasks');
+for(let n=1;n<=82;n++){const id=`B${String(n).padStart(2,'0')}`;if(!taskMap.has(id))errors.push(`Missing backlog ID ${id}`);}
 for(const t of tasks)for(const dep of t.dependencies)if(!taskMap.has(dep))errors.push(`Unknown dependency ${t.id}->${dep}`);
 function visit(id,stack=[],seen=new Set()){
  if(stack.includes(id)){errors.push(`Dependency cycle: ${[...stack,id].join(' -> ')}`);return;}
@@ -65,6 +67,46 @@ function dependencyClosure(rootId){
 const desktopDependencies=dependencyClosure('B56');
 const pcDependencies=dependencyClosure('B58');
 const displayDependencies=dependencyClosure('B66');
+const aiTasks=['B39',...Array.from({length:16},(_,i)=>`B${67+i}`)];
+for(const [release,closure] of [['M8',releaseDependencies],['M14',desktopDependencies],['M22',displayDependencies],['M15',pcDependencies]]){
+ for(const id of aiTasks)if(closure.has(id))errors.push(`Conditional AI task ${id} blocks ${release}`);
+}
+const aiGatePrerequisites={
+ B39:['B06','B21','B37','B67','B68'],
+ B69:['B21','B23','B25','B41','B52','B67','B68'],
+ B70:['B49','B67'],
+ B72:['B21','B69','B70','B81','B82','B53','B54'],
+ B73:['B21','B69','B70','B81','B82','B53','B54'],
+ B74:['B69','B70','B71','B81'], B75:['B69','B81'],
+ B76:['B74','B75'], B78:['B72','B75','B77','B81','B82'],
+ B79:['B76','B77','B78'], B80:['B67','B77'],
+ B81:['B23','B25','B41','B52','B68'], B82:['B41','B49','B53','B67']
+};
+for(const [gate,prerequisites] of Object.entries(aiGatePrerequisites)){
+ const closure=dependencyClosure(gate);
+ for(const id of prerequisites)if(!closure.has(id))errors.push(`Missing AI gate prerequisite ${gate}->${id}`);
+}
+const localAiDependencies=dependencyClosure('B39');
+for(const id of ['B69','B70','B71','B72','B73','B74','B75','B76','B78','B79','B80','B81','B82'])if(localAiDependencies.has(id))errors.push(`Early local gate unexpectedly requires later AI task ${id}`);
+for(const gate of ['B69','B70','B71','B72','B73','B74','B75','B76','B81','B82'])if(dependencyClosure(gate).has('B39'))errors.push(`Route-independent AI gate ${gate} requires native Gemma qualification`);
+if(dependencyClosure('B73').has('B72'))errors.push('Public inference unnecessarily requires private inference implementation');
+for(const id of ['B39','B53','B54','B72','B73','B82'])if(dependencyClosure('B74').has(id))errors.push(`Common personal profile forces optional route prerequisite ${id}`);
+for(const gate of ['B75','B76'])for(const id of ['B39','B72','B73'])if(dependencyClosure(gate).has(id))errors.push(`Common cooperation gate ${gate} forces route ${id}`);
+const aiQualification=JSON.parse(fs.readFileSync(path.join(root,'docs/06-contracts/examples/ai-qualification-gates.json'),'utf8'));
+if(aiQualification.schema_version!==1||!aiQualification.status?.startsWith('planning-only')||aiQualification.base_gate!=='B74')errors.push('AI qualification fixture is not the declared planning-only base gate');
+const routeGates={local:'B39',private:'B72',public:'B73'};
+if(Object.keys(aiQualification.route_gates||{}).sort().join(',')!==Object.keys(routeGates).sort().join(','))errors.push('AI qualification route classes changed or disappeared');
+for(const [route,gate] of Object.entries(routeGates)){
+ const actual=aiQualification.route_gates?.[route];
+ if(!Array.isArray(actual)||actual.length!==1||actual[0]!==gate)errors.push(`Missing conditional AI qualification ${route}->${gate}`);
+}
+const externalPrerequisites=['B53','B54','B81','B82'];
+const legacyPackage=JSON.parse(fs.readFileSync(path.join(root,'docs/06-contracts/schemas/package-manifest.schema.json'),'utf8'));
+if(legacyPackage.properties?.files?.items?.properties?.bytes?.maximum!==67108864)errors.push('Legacy v1 package object bound changed or disappeared');
+if(legacyPackage.properties?.limits?.properties?.memory_bytes?.maximum!==2147483648)errors.push('Legacy v1 package memory bound changed or disappeared');
+if(aiQualification.large_model_contract_gate!=='B67'||aiQualification.existing_object_max_bytes!==67108864||aiQualification.existing_package_memory_max_bytes!==2147483648)errors.push('Missing bounded large-model contract gate or unchanged legacy limits');
+if(!Array.isArray(aiQualification.external_tool_prerequisites)||aiQualification.external_tool_prerequisites.length!==externalPrerequisites.length||!externalPrerequisites.every(id=>aiQualification.external_tool_prerequisites.includes(id)))errors.push('External AI tools lack network, durable-accounting or credential prerequisites');
+if(!Array.isArray(aiQualification.full_program_routes)||aiQualification.full_program_routes.length!==3||!Object.keys(routeGates).every(route=>aiQualification.full_program_routes.includes(route)))errors.push('Full AI program omits a planned route class');
 for(const id of ['B56','B61','B62','B63','B64','B65'])if(!displayDependencies.has(id))errors.push(`Missing display gate prerequisite ${id}`);
 for(let n=61;n<=66;n++)if(releaseDependencies.has(`B${n}`)||desktopDependencies.has(`B${n}`))errors.push(`Display expansion B${n} unexpectedly blocks M8/M14`);
 for(const id of ['B27','B29','B30','B39','B59','B60'])if(displayDependencies.has(id))errors.push(`Optional research ${id} blocks M22`);
@@ -80,12 +122,12 @@ for(let n=45;n<=60;n++)if(releaseDependencies.has(`B${n}`))errors.push(`Later ro
 const milestoneText=fs.readFileSync(path.join(root,'docs/05-delivery/milestones.md'),'utf8');
 const milestoneIds=[...milestoneText.matchAll(/^## (M\d+) — /gm)].map(m=>m[1]);
 const milestoneSet=new Set(milestoneIds);
-if(milestoneIds.length!==23||milestoneSet.size!==23)errors.push('Expected 23 distinct milestones M0 through M22');
-for(let n=0;n<=22;n++)if(!milestoneSet.has(`M${n}`))errors.push(`Missing milestone M${n}`);
+if(milestoneIds.length!==27||milestoneSet.size!==27)errors.push('Expected 27 distinct milestones M0 through M26');
+for(let n=0;n<=26;n++)if(!milestoneSet.has(`M${n}`))errors.push(`Missing milestone M${n}`);
 const matrixText=fs.readFileSync(path.join(root,'docs/05-delivery/desktop-feature-matrix.md'),'utf8');
 const featureRows=matrixText.split(/\r?\n/).filter(line=>/^\| F\d+ \|/.test(line)).map(line=>line.split('|').slice(1,-1).map(value=>value.trim()));
 const featureIds=new Set();
-const classifications=new Set(['M8 required','M14 required','named-PC profile','M22 required','optional research','deferred']);
+const classifications=new Set(['M8 required','M14 required','named-PC profile','M22 required','AI profile','optional research','deferred']);
 const matrixTasks=new Set();
 for(const row of featureRows){
  if(row.length!==7){errors.push(`Feature matrix row needs seven columns: ${row[0]}`);continue;}
@@ -106,10 +148,23 @@ for(const row of featureRows){
   for(const ref of refsB)if(!closure.has(ref))errors.push(`Feature ${id} task ${ref} is outside ${release} release dependencies`);
  }
  if(classification==='optional research')for(const ref of refsB)if(releaseDependencies.has(ref)||desktopDependencies.has(ref))errors.push(`Optional feature ${id} task ${ref} blocks a VM release`);
+ if(classification==='AI profile')for(const ref of refsB)if(releaseDependencies.has(ref)||desktopDependencies.has(ref)||displayDependencies.has(ref)||pcDependencies.has(ref))errors.push(`AI feature ${id} task ${ref} blocks an existing release`);
 }
-if(featureRows.length!==40||featureIds.size!==40)errors.push('Expected 40 distinct desktop features');
-for(let n=1;n<=40;n++){const id=`F${String(n).padStart(2,'0')}`;if(!featureIds.has(id))errors.push(`Missing desktop feature ${id}`);}
-for(const id of ['B27','B29','B30','B31','B39',...Array.from({length:22},(_,i)=>`B${45+i}`)])if(!matrixTasks.has(id))errors.push(`Feature matrix omits roadmap task ${id}`);
+if(featureRows.length!==44||featureIds.size!==44)errors.push('Expected 44 distinct desktop features');
+for(let n=1;n<=44;n++){const id=`F${String(n).padStart(2,'0')}`;if(!featureIds.has(id))errors.push(`Missing desktop feature ${id}`);}
+for(const id of ['B27','B29','B30','B31','B39',...Array.from({length:38},(_,i)=>`B${45+i}`)])if(!matrixTasks.has(id))errors.push(`Feature matrix omits roadmap task ${id}`);
+const aiRoadmap=fs.readFileSync(path.join(root,'docs/05-delivery/ai-roadmap.md'),'utf8');
+const concernRows=aiRoadmap.split(/\r?\n/).filter(line=>/^\| \d+ /.test(line)).map(line=>line.split('|').slice(1,-1).map(value=>value.trim()));
+const concerns=new Set();
+for(const row of concernRows){
+ if(row.length!==4){errors.push(`AI concern row needs four columns: ${row[0]}`);continue;}
+ const id=Number.parseInt(row[0],10);if(concerns.has(id))errors.push(`Duplicate AI concern ${id}`);concerns.add(id);
+ if(!/\bR\d{2}\b/.test(row[1])||!/\bB\d{2}\b/.test(row[2])||!row[3])errors.push(`Incomplete AI concern trace ${id}`);
+ for(const match of row[1].matchAll(/\bR\d{2}\b/g))if(!requirementIds.includes(match[0]))errors.push(`Unknown AI requirement ${match[0]}`);
+ for(const match of row[2].matchAll(/\bB\d{2}\b/g))if(!taskMap.has(match[0]))errors.push(`Unknown AI task ${match[0]}`);
+}
+if(concernRows.length!==21||concerns.size!==21)errors.push('Expected 21 distinct traced AI concerns');
+for(let n=1;n<=21;n++)if(!concerns.has(n))errors.push(`Missing AI concern ${n}`);
 const report={docFiles:docs.length,markdownFiles:docs.filter(p=>p.endsWith('.md')).length,jsonFiles:json.length,
  words:[...texts.values()].join('\n').split(/\s+/).filter(Boolean).length,sources:sourceIds.length,
  adrs:adrs.length,requirements:requirementIds.length,backlogTasks:tasks.length,
@@ -118,6 +173,8 @@ const report={docFiles:docs.length,markdownFiles:docs.filter(p=>p.endsWith('.md'
  desktopReleaseRequiresDeclaredWork:requiredDesktopTasks.every(id=>desktopDependencies.has(id)),
  namedPcRequiresVmReleaseAndQualification:requiredPcTasks.every(id=>pcDependencies.has(id)),
  optionalResearchExcludedFromVmReleases:optionalResearchTasks.every(id=>!releaseDependencies.has(id)&&!desktopDependencies.has(id)),
+ conditionalAiExcludedFromExistingReleases:aiTasks.every(id=>![releaseDependencies,desktopDependencies,displayDependencies,pcDependencies].some(closure=>closure.has(id))),
+ aiConcerns:concernRows.length,
  milestones:milestoneIds.length,featureRows:featureRows.length,localLinksChecked:links,errors};
 fs.mkdirSync(path.join(root,'work'),{recursive:true});
 fs.writeFileSync(path.join(root,'work/doc-audit-results.json'),JSON.stringify(report,null,2)+'\n');

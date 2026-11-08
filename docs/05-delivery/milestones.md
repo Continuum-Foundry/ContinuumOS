@@ -552,6 +552,39 @@ Private endpoint support is useful without this port. No existing server kernel,
 container, CUDA/Vulkan or serving runtime is assumed, and no server delivery date
 is promised. R26 study plus original platform constraints apply.
 
+## M27 — Enterprise identity and scoped fleet authorization
+
+Status: Not started; owner-requested 2026-11-08 authorization profile. B83 evaluates
+Cedar and alternatives; B84 qualifies richer local presets/roles/elevation and
+permissions UX independently. B85/B86 qualify explicit enrollment, exact directory/
+identity mapping and scoped remote management/policy distribution after their
+local account, network/time/trust, update and administration prerequisites.
+B87 aggregate acceptance needs B32/B84/B85/B86. No AI gate is a prerequisite.
+
+Exit: two independently administered tenants pass authenticated identity/group/
+audience mapping, scoped role assignment/elevation, mandatory policy ceilings,
+isolation, signed policy lifecycle, offline lease/rollback/partition handling,
+rotation/revocation/offboarding and authorized emergency recovery on the original
+guest. Include accessible local controls and predeclared resource/audit/continuity
+limits. See the [authorization roadmap](authorization-roadmap.md) and its acceptance
+trace. This adds no dependency to M7/M8/M14/M22/M15 or Phase 4.
+
+## M28 — Workload and data-center authorization profile
+
+Status: Not started. B88 defines exact workload bootstrap/rotation, controller
+trust and fleet/cluster/project/resource scopes, short-lived credentials,
+separation of deployment/operator/audit duties and headless typed administration.
+Its declared prerequisites include B49/B53/B83/B85/B86; aggregate B89 also needs
+B87 enterprise acceptance and B32. B80/M26 AI serving feasibility is independent.
+
+Exit: original-guest enforcement with named identity/controller peers passes
+cross-tenant denial, compromised workload/controller, partition, replay/expired
+grants, stale leader, rollback, rotation/offboarding and resource/recovery cases.
+Simulated peers are identified explicitly. Accept only the tested authorization
+profile; do not claim native server runtime, HA, attestation, fleet infrastructure
+or production data-center readiness. Those need a separate approved server
+program. Existing releases, performance budgets and Phase 4 remain unchanged.
+
 ## Stop/replan criteria
 
 A gate failure creates a bounded issue and evidence, not silent scope substitution.

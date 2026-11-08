@@ -1,6 +1,8 @@
 # Desktop feature and release matrix
 
-Status: approved roadmap scope, 2026-10-21, display amendment 2026-11-01 and owner-requested AI amendment 2026-11-07; future acceptance, not shipped features.
+Status: approved roadmap scope, 2026-10-21; display amendment 2026-11-01,
+AI amendment 2026-11-07 and authorization amendment 2026-11-08.
+Future acceptance, not shipped features.
 See [milestones](milestones.md), [backlog](backlog.md) and [validation](validation.md).
 Every owner is a responsibility, not a person assignment. Bxx owners carry the
 work; P-level stories are created only on the owner's milestone decomposition request.
@@ -17,7 +19,8 @@ current implementation. The baseline cold-idle target remains 256 MiB.
 
 The column structure is checked by the documentation audit. Classifications are
 `M8 required`, `M14 required`, `named-PC profile`, `M22 required`, `AI profile`,
-`optional research`, or `deferred`. AI profile requirements are independently gated.
+`authorization profile`, `optional research`, or `deferred`. AI and authorization
+profile requirements are independently gated.
 
 | ID | Feature | Owner | Milestones | Backlog | Classification | Acceptance outcome |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -65,6 +68,13 @@ The column structure is checked by the documentation audit. Classifications are
 | F42 | Cooperating models | AI/Orchestration | M24 | B75,B76 | AI profile | Scoped role graph and ancestor budgets pass peer/partition/cancel/duplicate cases with independently verified outcomes and measured single-model comparison. |
 | F43 | Enterprise/consortium federation | Enterprise/Security | M25 | B77,B78,B79 | AI profile | Independent trust/tenants/data/ledgers, selected service sharing, handling rules and revoke/offboard/partition/settlement acceptance pass. |
 | F44 | Native data-center AI feasibility | Platform/Research | M26 | B80 | optional research | Exact-target runtime/driver/fleet/availability gap study yields bounded evidence and a separate server-program proposal or stop; no server delivery implied. |
+| F45 | Cedar evaluation and rich local authorization | Security/Accounts/Desktop | M27 | B83,B84 | authorization profile | Exact engine guest feasibility and local Administrator/Standard/Guest presets, scoped elevation/roles, permissions inspector and policy lifecycle qualify separately from existing M7 accounts. |
+| F46 | Enterprise OS identity and fleet policy | Enterprise/Identity | M27 | B85,B86,B87 | authorization profile | Two tenants pass named identity/enrollment/role mapping, scoped remote policy, offline/partition/rollback/revoke/offboard and resource tests without AI dependencies. |
+| F47 | Workload and data-center authorization | Data-center/Security | M28 | B88,B89 | authorization profile | Exact original-guest workload/controller authorization passes tenant/isolation/compromise/partition/rotation cases; no native server runtime or HA delivery claim. |
+
+Authorization profile rows are owner-requested 2026-11-08 additions, Not started.
+See the [authorization roadmap](authorization-roadmap.md); existing M7 scope and
+M8/M14/M22/M15 release dependencies remain unchanged.
 
 AI profile rows are conditional requirements R20–R27, not M8/M14/M22/M15 blockers.
 See [AI roadmap](ai-roadmap.md) for all 21 decisions and start prerequisites.

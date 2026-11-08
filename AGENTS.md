@@ -140,3 +140,14 @@ Keep the current ordered Phase 4 gate, all existing release exits/evidence, 256 
 idle including dormant AI, and fully counted resident/active/default/peak profiles.
 No native model/server port, funded allowance or production policy engine is accepted.
 Decompose later milestone stories only at the owner's request.
+
+## Authorization planning amendment — 2026-11-08
+
+Read [authorization roadmap](docs/05-delivery/authorization-roadmap.md),
+[identity architecture](docs/02-architecture/identity-and-authorization.md) and
+ADR-0034 before account/policy work. Cedar is an evaluation candidate; account
+presets, scoped roles/elevation and richer controls have separate qualification.
+B83–B89/M27/M28 are Not started; enterprise OS identity and data-center workload
+authorization are independent of AI federation/server feasibility. Keep current
+Phase 4 order, B01–B82 dependencies, existing M7 scope and all release requirements
+unchanged. No engine port, native server capability or security result is accepted.

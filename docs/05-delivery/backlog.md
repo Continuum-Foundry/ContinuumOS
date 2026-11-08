@@ -159,9 +159,25 @@ P4-02 runtime admission/reclamation is next. P4-02–19 remain Not started.
 | B78 | Enterprise: federated AI service integration | B69,B72,B75,B77,B81,B82 | Two independent trust domains: explicit enrollment, authenticated issuer/policy and audience/tenant mapping, key rotation/revoke/offboard, separate data/memory/ledgers, partitions and remaining obligations; no implicit network identity from M7 accounts | R21,R22,R23,R24,R26,R27 |
 | B79 | QA: enterprise federation acceptance (M25) | B76,B78,B32 | Cross-tenant denial, handling/retention/region constraints, compromised peer, distributed settlement/leader failure and revocation/offboarding acceptance; no training/data-pool implication | R20–R27 |
 | B80 | Platform/Research: original-OS data-center AI feasibility (M26) | Docs,B67,B77 | Runtime/driver/GPU/SMP/storage/network/fleet/HA gap and license/cost study with bounded target probes; separate server-program proposal or evidenced stop, not server delivery | R01,R03,R09,R10,R14,R16,R26 |
-
 | B81 | Accounting: durable AI intent, reservations and reconciliation | B23,B25,B41,B52,B68 | Crash-safe pre-dispatch journal, idempotent late/partial settlement, period attribution and unresolved liabilities; fail closed on restart/old-snapshot restore until issuer epoch reconciles; authoritative sponsorship integration and failure cases before remote spend | R21,R23,R24 |
 | B82 | Security: AI endpoint and credential brokerage | B41,B49,B53,B67 | Exact-target entropy/key/secret design; authenticated endpoints/audience, session-only or protected persistent credentials, reauthentication/rotation/revoke/logout and service-identity boundaries; no secrets in model/checkpoints/ordinary backup; no inferred encrypted-home or credential-vault support | R21,R22,R23,R26 |
+| B83 | Security/Research: native authorization engine evaluation | Docs,B13,B37 | Pinned Cedar-first comparison with Casbin/OpenFGA; independent semantic/error fixtures, license/runtime audit and original-guest linking/execution probes; predeclared bounded memory/latency/complexity profiles, selection or evidenced stop; no dependency added to B41 or existing releases | R09,R10,R14,R16,R17,R19 |
+| B84 | Accounts/Desktop: rich presets and scoped authorization | B41,B51,B83 | Administrator/Standard/Guest presets, service identity separation, bounded role inheritance/delegation, authenticated scoped elevation, effective-permissions inspector, accessible preview/audit and crash-safe policy lifecycle; standalone local subset review | R10,R11,R12,R14,R15,R17,R19 |
+| B85 | Enterprise/Identity: enrollment and directory integration | B41,B53,B83 | Exact named identity adapter; authenticated issuer/audience/tenant/group mapping, enrollment/key rotation, bounded offline leases/time rollback, session disable and offboarding; no unverified claim-to-admin mapping | R10,R13,R14,R17 |
+| B86 | Enterprise/Policy: scoped fleet administration | B49,B51,B84,B85 | Authenticated typed remote controls, signed/versioned policy distribution, mandatory ceilings/delegated role assignment, rollback/stale-controller defense and bounded audit; partition/recovery and emergency-access rules | R10,R12,R14,R17,R19 |
+| B87 | QA: enterprise authorization acceptance (M27) | B32,B84,B85,B86 | Two independently administered tenants; identity/role/elevation/remote-policy journeys, isolation, partition/revoke/offboard/recovery and predeclared resource matrix on original guest; AI-independent | R09,R10,R11,R12,R13,R14,R15,R17,R19 |
+| B88 | Data-center/Identity: workload and management authorization | B49,B53,B83,B85,B86 | Exact workload bootstrap/rotation and controller trust; short-lived scoped grants, fleet/cluster/project/resource roles, operator/deployer/auditor separation and headless typed actions; explicit infrastructure gaps, no assumed runtime/HA | R09,R10,R12,R13,R14,R17,R19 |
+| B89 | QA: data-center authorization profile acceptance (M28) | B32,B87,B88 | Original-guest workload/management enforcement with named peers; cross-tenant, compromised controller/workload, stale leader, partition/replay/expiry/offboarding and resource/recovery matrix; accepts no native server runtime or production data-center OS | R09,R10,R12,R13,R14,R17,R19 |
+
+## Authorization amendment — 2026-11-08
+
+The [authorization roadmap](authorization-roadmap.md) adds B83–B89: **89 total
+broad tasks**, all new entries Not started. M27 qualifies enterprise identity and
+fleet authorization; M28 qualifies only the named workload/data-center
+authorization profile. B84 can accept its local subset independently. These gates
+are independent of AI M25/M26. B01–B82 dependencies, M7's existing account scope,
+M8/M14/M22/M15 release requirements and current P4-03–P4-19 order are unchanged.
+No later P-level stories, Cedar dependency or guest capability is accepted here.
 
 ## Task working format
 

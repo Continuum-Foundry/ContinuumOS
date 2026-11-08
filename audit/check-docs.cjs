@@ -40,13 +40,13 @@ for(let n=1;n<=27;n++)if(!requirementIds.includes(`R${String(n).padStart(2,'0')}
 for(const id of requirementIds)if(!val.includes(id))errors.push(`Missing requirement trace ${id}`);
 if(!/\*\*cold-idle\*\* desktop budget:\s*256 MiB resident\/committed guest memory/.test(req))errors.push('The 256 MiB model-unloaded desktop baseline changed or disappeared');
 const adrs=docs.filter(p=>/04-decisions[\\/]\d{4}-.*\.md$/.test(p));
-if(adrs.length!==33)errors.push(`Expected 33 ADRs, got ${adrs.length}`);
+if(adrs.length!==34)errors.push(`Expected 34 ADRs, got ${adrs.length}`);
 for(const f of adrs)if(!fs.readFileSync(f,'utf8').includes('Status: Proposed.'))errors.push(`Unexpected ADR status: ${f}`);
 const backlog=fs.readFileSync(path.join(root,'docs/05-delivery/backlog.md'),'utf8');
 const tasks=[...backlog.matchAll(/^\| (B\d{2}) \| (.*?) \| (.*?) \|/gm)].map(m=>({id:m[1],dependencies:[...m[3].matchAll(/\bB\d{2}\b/g)].map(m=>m[0])}));
 const taskMap=new Map(tasks.map(t=>[t.id,t]));
-if(tasks.length!==82||taskMap.size!==82)errors.push('Expected 82 distinct backlog tasks');
-for(let n=1;n<=82;n++){const id=`B${String(n).padStart(2,'0')}`;if(!taskMap.has(id))errors.push(`Missing backlog ID ${id}`);}
+if(tasks.length!==89||taskMap.size!==89)errors.push('Expected 89 distinct backlog tasks');
+for(let n=1;n<=89;n++){const id=`B${String(n).padStart(2,'0')}`;if(!taskMap.has(id))errors.push(`Missing backlog ID ${id}`);}
 for(const t of tasks)for(const dep of t.dependencies)if(!taskMap.has(dep))errors.push(`Unknown dependency ${t.id}->${dep}`);
 function visit(id,stack=[],seen=new Set()){
  if(stack.includes(id)){errors.push(`Dependency cycle: ${[...stack,id].join(' -> ')}`);return;}
@@ -68,6 +68,26 @@ const desktopDependencies=dependencyClosure('B56');
 const pcDependencies=dependencyClosure('B58');
 const displayDependencies=dependencyClosure('B66');
 const aiTasks=['B39',...Array.from({length:16},(_,i)=>`B${67+i}`)];
+const authorizationTasks=Array.from({length:7},(_,i)=>`B${83+i}`);
+for(const [release,closure] of [['M8',releaseDependencies],['M14',desktopDependencies],['M22',displayDependencies],['M15',pcDependencies]]){
+ for(const id of authorizationTasks)if(closure.has(id))errors.push(`Authorization profile task ${id} blocks ${release}`);
+}
+// New authorization work must not become an implicit prerequisite of any
+// existing B01-B82 gate, including M7 accounts and the current Phase 4 work.
+for(let n=1;n<=82;n++){
+ const gate=`B${String(n).padStart(2,'0')}`;
+ for(const id of authorizationTasks)if(dependencyClosure(gate).has(id))errors.push(`Authorization amendment changes existing gate ${gate}->${id}`);
+}
+const authorizationPrerequisites={
+ B83:['B13','B37'],B84:['B41','B51','B83'],B85:['B41','B53','B83'],
+ B86:['B49','B51','B84','B85'],B87:['B32','B84','B85','B86'],
+ B88:['B49','B53','B83','B85','B86'],B89:['B32','B87','B88']
+};
+for(const [gate,prerequisites] of Object.entries(authorizationPrerequisites)){
+ const closure=dependencyClosure(gate);
+ for(const id of prerequisites)if(!closure.has(id))errors.push(`Missing authorization gate prerequisite ${gate}->${id}`);
+ for(const id of aiTasks)if(closure.has(id))errors.push(`Authorization gate ${gate} requires AI task ${id}`);
+}
 for(const [release,closure] of [['M8',releaseDependencies],['M14',desktopDependencies],['M22',displayDependencies],['M15',pcDependencies]]){
  for(const id of aiTasks)if(closure.has(id))errors.push(`Conditional AI task ${id} blocks ${release}`);
 }
@@ -122,12 +142,12 @@ for(let n=45;n<=60;n++)if(releaseDependencies.has(`B${n}`))errors.push(`Later ro
 const milestoneText=fs.readFileSync(path.join(root,'docs/05-delivery/milestones.md'),'utf8');
 const milestoneIds=[...milestoneText.matchAll(/^## (M\d+) — /gm)].map(m=>m[1]);
 const milestoneSet=new Set(milestoneIds);
-if(milestoneIds.length!==27||milestoneSet.size!==27)errors.push('Expected 27 distinct milestones M0 through M26');
-for(let n=0;n<=26;n++)if(!milestoneSet.has(`M${n}`))errors.push(`Missing milestone M${n}`);
+if(milestoneIds.length!==29||milestoneSet.size!==29)errors.push('Expected 29 distinct milestones M0 through M28');
+for(let n=0;n<=28;n++)if(!milestoneSet.has(`M${n}`))errors.push(`Missing milestone M${n}`);
 const matrixText=fs.readFileSync(path.join(root,'docs/05-delivery/desktop-feature-matrix.md'),'utf8');
 const featureRows=matrixText.split(/\r?\n/).filter(line=>/^\| F\d+ \|/.test(line)).map(line=>line.split('|').slice(1,-1).map(value=>value.trim()));
 const featureIds=new Set();
-const classifications=new Set(['M8 required','M14 required','named-PC profile','M22 required','AI profile','optional research','deferred']);
+const classifications=new Set(['M8 required','M14 required','named-PC profile','M22 required','AI profile','authorization profile','optional research','deferred']);
 const matrixTasks=new Set();
 for(const row of featureRows){
  if(row.length!==7){errors.push(`Feature matrix row needs seven columns: ${row[0]}`);continue;}
@@ -149,10 +169,11 @@ for(const row of featureRows){
  }
  if(classification==='optional research')for(const ref of refsB)if(releaseDependencies.has(ref)||desktopDependencies.has(ref))errors.push(`Optional feature ${id} task ${ref} blocks a VM release`);
  if(classification==='AI profile')for(const ref of refsB)if(releaseDependencies.has(ref)||desktopDependencies.has(ref)||displayDependencies.has(ref)||pcDependencies.has(ref))errors.push(`AI feature ${id} task ${ref} blocks an existing release`);
+ if(classification==='authorization profile')for(const ref of refsB)if(releaseDependencies.has(ref)||desktopDependencies.has(ref)||displayDependencies.has(ref)||pcDependencies.has(ref))errors.push(`Authorization feature ${id} task ${ref} blocks an existing release`);
 }
-if(featureRows.length!==44||featureIds.size!==44)errors.push('Expected 44 distinct desktop features');
-for(let n=1;n<=44;n++){const id=`F${String(n).padStart(2,'0')}`;if(!featureIds.has(id))errors.push(`Missing desktop feature ${id}`);}
-for(const id of ['B27','B29','B30','B31','B39',...Array.from({length:38},(_,i)=>`B${45+i}`)])if(!matrixTasks.has(id))errors.push(`Feature matrix omits roadmap task ${id}`);
+if(featureRows.length!==47||featureIds.size!==47)errors.push('Expected 47 distinct desktop features');
+for(let n=1;n<=47;n++){const id=`F${String(n).padStart(2,'0')}`;if(!featureIds.has(id))errors.push(`Missing desktop feature ${id}`);}
+for(const id of ['B27','B29','B30','B31','B39',...Array.from({length:45},(_,i)=>`B${45+i}`)])if(!matrixTasks.has(id))errors.push(`Feature matrix omits roadmap task ${id}`);
 const aiRoadmap=fs.readFileSync(path.join(root,'docs/05-delivery/ai-roadmap.md'),'utf8');
 const concernRows=aiRoadmap.split(/\r?\n/).filter(line=>/^\| \d+ /.test(line)).map(line=>line.split('|').slice(1,-1).map(value=>value.trim()));
 const concerns=new Set();
@@ -174,6 +195,7 @@ const report={docFiles:docs.length,markdownFiles:docs.filter(p=>p.endsWith('.md'
  namedPcRequiresVmReleaseAndQualification:requiredPcTasks.every(id=>pcDependencies.has(id)),
  optionalResearchExcludedFromVmReleases:optionalResearchTasks.every(id=>!releaseDependencies.has(id)&&!desktopDependencies.has(id)),
  conditionalAiExcludedFromExistingReleases:aiTasks.every(id=>![releaseDependencies,desktopDependencies,displayDependencies,pcDependencies].some(closure=>closure.has(id))),
+ authorizationExcludedFromExistingReleases:authorizationTasks.every(id=>![releaseDependencies,desktopDependencies,displayDependencies,pcDependencies].some(closure=>closure.has(id))),
  aiConcerns:concernRows.length,
  milestones:milestoneIds.length,featureRows:featureRows.length,localLinksChecked:links,errors};
 fs.mkdirSync(path.join(root,'work'),{recursive:true});

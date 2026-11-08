@@ -156,3 +156,23 @@ Native data-center execution needs a separately approved program after M26 study
 Dates remain unestimated pending exact-target feasibility; early contract work may
 start now, and M21 cannot start before the first M5 reload prerequisite. No P5–P26
 stories are generated until the owner's milestone-decomposition request.
+
+## Accounts and authorization amendment — 2026-11-08
+
+The owner requested the [authorization plan](../05-delivery/authorization-roadmap.md):
+Cedar-first evaluation, Administrator/Standard/Guest presets, distinct workload
+identities, scoped roles and inheritance/delegation ceilings, explicit elevation,
+permissions explanations and separate enterprise/data-center authorization gates.
+[ADR-0034](../04-decisions/0034-native-authorization-and-scoped-roles.md) remains
+Proposed; no engine port, credential mechanism or security result is accepted.
+
+B83–B89 bring the backlog to 89 broad tasks, all new tasks Not started. M27 owns
+enterprise OS identity/fleet authorization; M28 owns only the named workload and
+data-center authorization profile. They are independent of AI M25/M26 and do not
+establish a native server runtime or production data-center platform.
+
+Preserve current P4-03–P4-19 order, B01–B82 dependencies, M7's existing local-account
+scope, M8/M14/M22/M15 exits, accepted evidence, deadlines and the 256 MiB cold-idle
+target including dormant policy services. Expanded presets/UX and engine selection
+are separately gated additions, not new requirements for those releases. Detailed
+later stories await an owner decomposition request.

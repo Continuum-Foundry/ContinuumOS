@@ -23,11 +23,19 @@ function Get-Policies { return (Invoke-Ci @('-lp')).Policies }
 function Test-ActivePolicy($Policies, [string]$PolicyId) {
     return @($Policies | Where-Object { $_.PolicyID.Trim('{}') -eq $PolicyId.Trim('{}') -and $_.IsEnforced -and $_.IsAuthorized }).Count -gt 0
 }
+function Get-PreparedVersion([string]$Mode) {
+    [xml]$doc = Get-Content -LiteralPath (Join-Path $directory ($Mode + '.xml'))
+    $ns = New-Object Xml.XmlNamespaceManager($doc.NameTable)
+    $ns.AddNamespace('ci','urn:schemas-microsoft-com:sipolicy')
+    $node = $doc.SelectSingleNode('/ci:SiPolicy/ci:VersionEx', $ns)
+    if (-not $node) { throw "Prepared $Mode policy has no version." }
+    return $node.InnerText
+}
 function Assert-DevelopmentPolicyMode($Policies, [bool]$Audit) {
     $policy = @($Policies | Where-Object { $_.PolicyID.Trim('{}') -eq $state.policy_id.Trim('{}') })
     if ($policy.Count -ne 1 -or -not (Test-ActivePolicy $Policies $state.policy_id)) { throw 'Expected development policy is not active/authorized.' }
     $isAudit = $policy[0].PolicyOptions -contains 'Enabled:Audit Mode'
-    $version = if ($Audit) { '1.0.0.0' } else { '1.0.0.1' }
+    $version = if ($Audit) { Get-PreparedVersion 'audit' } else { Get-PreparedVersion 'enforced' }
     if ($isAudit -ne $Audit -or $policy[0].VersionString -ne $version) { throw 'Live development policy mode/version does not match the requested deployment; SAC retained where possible.' }
 }
 

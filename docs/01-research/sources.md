@@ -530,6 +530,30 @@ comparison; our atomic reservations, policy issuers and privacy need independent
 Keyboard, focus and understandable-control principles for web content. Use:
 inform native AI controls alongside existing OS semantics; not native certification.
 
+## Authorization engines — reviewed 2026-11-08
+
+### S115
+[Cedar upstream Rust implementation](https://github.com/cedar-policy/cedar),
+[authorization semantics](https://docs.cedarpolicy.com/auth/authorization.html),
+[role patterns](https://docs.cedarpolicy.com/bestpractices/bp-implementing-roles.html) — O.
+Rust policy implementation with an Apache-2.0 license; roles/conditions and
+principal/action/resource/context evaluation. Default deny and matching forbids
+override permits; policies with evaluation errors are skipped and diagnostics
+returned. Use: preferred evaluation candidate; a stricter deny-on-error OS wrapper
+is our proposal, not upstream behavior. No guest port or measured cost established.
+
+### S116
+[Casbin overview](https://casbin.apache.org/docs/overview/) — O.
+Configurable access-control models, including role, attribute and domain patterns,
+with language implementations. Use: alternative engine comparison; exact Rust
+implementation, features, licenses and guest costs require independent review.
+
+### S117
+[OpenFGA roles and permissions](https://openfga.dev/docs/modeling/roles-and-permissions) — O.
+Roles and permissions modeled through relationships and users/groups; checks can
+target fine-grained permissions. Use: later shared-resource graph comparison;
+not evidence for an embedded original-OS engine or an offline account service.
+
 ## Access limitations
 
 Redox book direct access returned 403. A TinyGo runtime URL and a Linux DMA guide

@@ -24,6 +24,10 @@ $conditional = $xml.SelectSingleNode('//ci:Rule[ci:Option="Enabled:Conditional W
 if (-not $conditional) { throw 'Installed SAC template changed; review before adapting.' }
 $null = $conditional.ParentNode.RemoveChild($conditional)
 $xml.Save($audit)
+# Option 20 treats an expired, timestamped leaf as unsigned. Protected services
+# such as McAfee Framework Host then fail signing-level checks. Keep timestamped
+# expired signatures valid; do not inherit that Smart App Control rule.
+Set-RuleOption -FilePath $audit -Option 20 -Delete
 Add-SignerRule -FilePath $audit -CertificatePath $publicPath -User
 foreach ($option in 3,6,9,10,16) { Set-RuleOption -FilePath $audit -Option $option }
 ConvertFrom-CIPolicy -XmlFilePath $audit -BinaryFilePath (Join-Path $directory 'audit.cip') | Out-Null

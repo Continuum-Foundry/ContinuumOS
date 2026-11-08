@@ -221,3 +221,13 @@ durability, real accounts and desktop efficiency targets remain open.
 See the [strict acceptance and runner repair evidence](../evidence/phase-3/P3-14/2026-11-06/README.md). The earlier
 failed/interrupted runs and owner exception remain recorded as history; only
 the existing exact SDK subset is frozen. This is not human/security certification.
+
+## Accounts and authorization amendment — 2026-11-08
+
+The owner-requested [authorization roadmap](05-delivery/authorization-roadmap.md)
+and updated [identity architecture](02-architecture/identity-and-authorization.md)
+add Cedar evaluation, account presets, scoped roles/elevation and enterprise/
+data-center authorization. [ADR-0034](04-decisions/0034-native-authorization-and-scoped-roles.md)
+is Proposed. B83–B89/M27/M28 are Not started (89 broad tasks total). M7's existing
+scope, current Phase 4 order, all existing release exits and 256 MiB cold idle
+remain unchanged. AI federation and native-server feasibility are separate gates.

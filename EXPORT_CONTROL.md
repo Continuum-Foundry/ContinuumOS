@@ -1647,6 +1647,49 @@ No force push, merge, release, other destination, new remote build or standing
 exemption is granted. Geographic containment remains unverified; this is an
 administrative exception, not legal clearance or a finding of U.S.-only handling.
 
+## One-time owner exemption — authorization plan and Windows signing, 2026-11-08
+
+The owner instructed: "commit all including the windows signing edits and I give
+you exemption to make PR". This authorizes one push and one PR for the complete
+reviewed 20-file local delta represented, before this record, by Git tree
+`a6b05e0f1371eed531c0502b15e914f5181149dd`, based on
+`9f317cfdbd20fea2a90d8a11ba99239f9c8baf5b`, plus this record.
+
+Payload: the account/scoped-authorization architecture and roadmap, Proposed
+ADR-0034, Cedar/Casbin/OpenFGA research references, B83–B89/M27/M28 and feature/
+validation/dependency-audit updates, agent handoff/navigation, and all three
+previously pending Windows signing files: `docs/05-delivery/windows-development-signing.md`,
+`tools/windows/New-DevPolicy.ps1`, `tools/windows/Set-DevMachinePolicy.ps1`.
+The signing delta removes rule option 20 during preparation, checks versions from
+prepared XML and documents the historical local McAfee compatibility rollout.
+It does not deploy a policy or change host security settings as part of this PR.
+
+Destination: the existing GitHub repository
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/scoped-authorization-plan`, followed by one PR against `main` titled
+"Plan scoped OS authorization and update Windows signing helpers". The exact
+prepared PR body's SHA-256 is
+`112f81d99c7e5c5100a3d6ed5c595dd9415d3d54d019e32a0b95811a26582959`.
+This exemption includes that description and PR metadata. No merge is authorized.
+
+Excluded: ignored/generated runs, logs, source copies, binaries, ISOs, caches,
+certificates, credentials and private keys. No historical evidence is rewritten.
+Relevant documentation/auditor tests, isolated Windows helper checks, governance,
+whitespace and staged-index hygiene must pass before upload. The ordinary commit
+retains and must pass the installed pre-commit check. Existing requirement rows,
+B01–B82 dependencies, Phase 4 order, release exits and 256 MiB target are unchanged.
+Planning and isolated host checks establish no Cedar port, new guest feature or
+fresh host-policy deployment acceptance.
+
+The push exemption is exhausted by the first successful push containing this
+record; the PR exemption is exhausted by creation of that one PR. For that push
+only, command-local `core.hooksPath=work/authorization-pr/hooks` may select a local
+directory containing an exact copy of the installed pre-commit hook and no
+pre-push hook. The installed `.githooks/pre-push` and configured `.githooks` path
+remain afterward. No force push, release, other destination, new remote build or
+standing exemption is granted. Geographic containment remains unverified; this
+administrative exception is not legal clearance or a finding of U.S.-only handling.
+
 ## One-time owner exemption — change-based validation PR, 2026-11-08
 
 After implementation of change-based story validation, the owner instructed:

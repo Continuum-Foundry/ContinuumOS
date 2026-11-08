@@ -27,10 +27,21 @@ function rejects(name,file,mutate,expected){test(name,()=>{
 });}
 test('current plan has complete traces and unchanged release separation',()=>{
  const result=audit();assert.equal(result.exitCode,0);assert.deepEqual(result.report.errors,[]);
- assert.equal(result.report.aiConcerns,21);assert.equal(result.report.backlogTasks,82);
+ assert.equal(result.report.aiConcerns,21);assert.equal(result.report.backlogTasks,89);
  assert.equal(result.report.conditionalAiExcludedFromExistingReleases,true);
+ assert.equal(result.report.authorizationExcludedFromExistingReleases,true);
 });
 const backlog='docs/05-delivery/backlog.md';
+for(const [root,release] of [['B35','M8'],['B56','M14'],['B66','M22'],['B58','M15']]){
+ rejects(`Authorization cannot become a hidden ${release} prerequisite`,backlog,
+  text=>changeRow(text,root,' | B',' | B83,B'),`Authorization profile task B83 blocks ${release}`);
+}
+rejects('M7 accounts cannot require Cedar evaluation',backlog,
+ text=>changeRow(text,'B41',' | B02,',' | B83,B02,'),'Authorization amendment changes existing gate B41->B83');
+rejects('enterprise authorization cannot require AI federation',backlog,
+ text=>changeRow(text,'B85',' | B41,',' | B78,B41,'),'Authorization gate B85 requires AI task B78');
+rejects('data-center authorization requires workload enforcement',backlog,
+ text=>changeRow(text,'B89','B87,B88','B87'),'Missing authorization gate prerequisite B89->B88');
 for(const [root,release] of [['B35','M8'],['B56','M14'],['B66','M22'],['B58','M15']]){
  rejects(`AI cannot become a hidden ${release} prerequisite`,backlog,
   text=>changeRow(text,root,' | B',' | B67,B'),`Conditional AI task B67 blocks ${release}`);

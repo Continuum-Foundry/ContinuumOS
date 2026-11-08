@@ -8,11 +8,21 @@ immutable. A development setup is not a passing M1 acceptance result.
 ## Current local rollout
 
 The local RSA key and public-user trust are installed. The replacement base policy
-`{3898A096-AC42-483C-AA0C-8CE5F2898A7F}` version `1.0.0.1` is active and enforcing;
+`{3898A096-AC42-483C-AA0C-8CE5F2898A7F}` version `1.0.0.3` is active and enforcing;
 consumer SAC enforcement is inactive. Defender antivirus, real-time protection and
 behavior monitoring remained enabled. An already-compiled signed probe executes
 with arguments and exit code 23, outside-path rejection passes, and changing a
 signed PE section produces Authenticode `HashMismatch`.
+
+On 2026-10-25 the owner asked to loosen enforcement after the first boot under
+version `1.0.0.1`. McAfee Framework Host carries a self-signed `McAfee PPL`
+signature that reaches antimalware signing level 7, and Code Integrity rejected
+it with verification error 21 because that signer was not in this policy.
+Version `1.0.0.3` keeps the same policy ID, the development signer, supplemental
+tool hashes and user-mode enforcement. It adds the McAfee PPL certificate as a
+user-mode signer only, and removes rule option 20 so an expired timestamped leaf
+is not treated as unsigned. The previous binaries remain at
+`work/windows-dev-signing/before-1.0.0.2/` and `before-1.0.0.3/`.
 
 The owner approved retrying Windows elevation. The pinned-tool supplement
 `{BB917328-EB62-4C2E-9A0C-69F9545EA0DC}` is now active and authorizes the exact
@@ -53,8 +63,9 @@ works. No certificate, PFX, credential or private key belongs in Git.
 
 The App Control base derives from this installation's `SmartAppControl.xml`.
 It preserves its Microsoft/signed/reputable baseline, removes the conditional
-lockdown option reserved for SAC, and adds the exact development certificate as
-a **user-mode** signer. It does not add kernel, policy-update or policy-signing
+lockdown option reserved for SAC, removes rule option 20 so an expired
+timestamped leaf is not treated as unsigned, and adds the exact development
+certificate as a **user-mode** signer. It does not add kernel, policy-update or policy-signing
 trust for that certificate. No writable-directory allow rule or antivirus exclusion
 is added. Antivirus stays enabled. Policy binaries stay unsigned for manageable
 removal; advanced boot options and boot-audit-on-failure remain enabled.

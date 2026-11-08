@@ -630,3 +630,32 @@ schema validator covers its nine positive and sixteen negative synthetic cases.
 ## P4-02 runtime admission acceptance
 
 P4-02 [passes local Codex self-review](../../evidence/phase-4/P4-02/final-1794169067563019600/README.md): both 101-test host suites, five desktop guests with 248 criterion mutations each, sixteen separate metadata build flavors, ordinary seven-role CPL3 boot without acceptance observers, and selected boundary/scheduler/capability/wait/SDK-runtime regressions. Each desktop guest executes 900 heap cycles and image/grant/heap partial failures, prepared-graph abort, normal exit, panic, handled OOM, CPU-hog containment, two replacements and quarantine. Physical inventories return exactly to zero while 12 prepaid lifetime units remain spent. Ready/cleanup bounds remain 320 ms and ordinary/desktop guest deadlines remain 30000 ms. Only the two previously authorized M3 stress flavors use revision-2 60000 ms; this is not an original-limit M3 pass. Failed, timed-out and agent-superseded attempts remain retained findings. No actual UI, input, reload or desktop efficiency acceptance follows.
+
+## Authorization profile acceptance
+
+Future acceptance only; no guest authorization-engine/account result is claimed.
+The [authorization roadmap acceptance trace](authorization-roadmap.md#acceptance-trace)
+records existing requirement IDs, B83–B89 owners and positive/negative outcomes.
+Apply change-based selection and preview a counted VM budget before guest work;
+no new story decomposition or VM run is authorized by this documentation update.
+
+B83 compares pinned engine semantics, licenses and exact guest dependencies with
+independent fixtures, including Cedar evaluation errors, then measures numeric
+policy/entity/cache/latency/memory bounds declared before runs. B84 qualifies
+presets, guest teardown, scoped inheritance/delegation, elevation, permissions
+explanations and durable policy/restart/replacement behavior. Recheck resource
+owner decisions at effect time and document surviving direct authority.
+
+B87/M27 requires two independent tenants and named enterprise identity/controller
+adapters, original-guest enforcement, trusted issuer/audience/group mapping,
+remote-policy ceilings and audit, offline leases/time rollback, partition,
+rotation/revocation/offboarding and authorized emergency recovery. B89/M28 adds
+named workload bootstrap/rotation, duty separation, headless actions and compromised
+workload/controller, stale-leader, replay and cross-tenant cases. Host simulators
+prove only their declared peer behavior; no production identity/HA/server claim.
+
+Record exact build/dependency/policy versions, peer configuration, declared numeric
+limits, denied and successful actions, revocation delays/in-flight outcomes,
+idle/default/active/peak resource use and supported continuity results. Gate on
+missing prerequisites rather than relaxing checks. Existing M7 and all release
+exits, Phase 4 order, counts/deadlines and 256 MiB cold idle remain unchanged.

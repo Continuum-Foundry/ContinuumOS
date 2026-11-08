@@ -115,3 +115,16 @@ M17/B60 requires a credible browser sandbox and maintenance path; disabling the
 sandbox or merely launching an EXE is not security evidence. Both are optional
 research outside M8/M14, as are M18–M21. M15 needs actual profile-specific driver/
 DMA/trust review; selecting one PC does not establish universal hardware isolation.
+
+## Scoped authorization planning — 2026-11-08
+
+The [identity architecture](identity-and-authorization.md) and
+[ADR-0034](../04-decisions/0034-native-authorization-and-scoped-roles.md) extend the
+proposed broker/capability model. Cedar is evaluated outside the kernel; no guest
+port is assumed. Account presets never convey ambient app authority. Require
+scoped role-assignment ceilings, authenticated action-bound elevation, current
+provider checks and explicit direct-handle revocation limits. Enterprise identity
+claims and remote controllers cross explicit tenant/issuer/audience boundaries;
+workload credentials and headless administration are separately qualified.
+M27/M28 acceptance cannot imply native server, HA or hardware-attestation support.
+Existing release security requirements and Phase 4 order are unchanged.

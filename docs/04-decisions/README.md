@@ -78,3 +78,12 @@ the user's original-kernel/no-hidden-reboot requirements silently.
 These amend ADR-0016's historical small-model-only scope. Approval of product
 direction does not accept a runtime port, budget engine, security/performance
 result or new frozen interface. See the [AI roadmap](../05-delivery/ai-roadmap.md).
+
+## Authorization amendment — 2026-11-08
+
+[ADR-0034: Native authorization broker and scoped roles](0034-native-authorization-and-scoped-roles.md)
+is Proposed. B83 evaluates Cedar and alternatives; B84 qualifies presets and
+rich local controls. M27/B85–B87 qualify enterprise identity/fleet authorization;
+M28/B88/B89 qualify workload/data-center authorization separately from server
+execution and AI federation. Existing release requirements and Phase 4 order stay
+unchanged. See the [authorization roadmap](../05-delivery/authorization-roadmap.md).

@@ -380,3 +380,18 @@ durability, real accounts and desktop efficiency targets remain open.
 See the [strict acceptance and runner repair evidence](../../evidence/phase-3/P3-14/2026-11-06/README.md). The earlier
 failed/interrupted runs and owner exception remain recorded as history; only
 the existing exact SDK subset is frozen. This is not human/security certification.
+
+## Authorization planning amendment — 2026-11-08
+
+Read the [authorization roadmap](authorization-roadmap.md),
+[identity architecture](../02-architecture/identity-and-authorization.md) and
+[ADR-0034](../04-decisions/0034-native-authorization-and-scoped-roles.md) before
+account/policy work. Owner direction: Cedar-first evaluation; Administrator,
+Standard and Guest presets; distinct service/workload identities; scoped roles,
+bounded inheritance/delegation, authenticated elevation and permission explanations.
+B83–B89/M27/M28 are Not started; 89 broad tasks now. Enterprise OS identity/fleet
+policy and workload/data-center authorization are separate from AI M25/M26 and
+from a future native server program. Keep P4-03 next and P4-03–P4-19 ordered,
+B01–B82 dependencies and M7/M8/M14/M22/M15 requirements unchanged. Rich presets/UX
+and engine qualification are additions outside existing release roots; no port or
+new ABI is accepted. Decompose later stories only at the owner's request.

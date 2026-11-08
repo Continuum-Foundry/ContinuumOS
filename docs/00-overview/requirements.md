@@ -1,10 +1,10 @@
 # Requirements and feature matrix
 
 Status: user intent plus proposed engineering acceptance criteria. Metrics are
-targets, not measurements. M0–M26 are defined in [milestones](../05-delivery/milestones.md).
+targets, not measurements. M0–M28 are defined in [milestones](../05-delivery/milestones.md).
 The [desktop feature matrix](../05-delivery/desktop-feature-matrix.md) distinguishes
 M8 installation, M14 desktop delivery, M22 display delivery before one M15 PC
-profile, conditional AI profiles, and optional/deferred work.
+profile, conditional AI and authorization profiles, and optional/deferred work.
 
 ## Core requirements
 
@@ -281,3 +281,14 @@ See the [evidence, failed fixture and explicit owner exception](../../evidence/p
 ## P4-02 runtime admission subset
 
 P4-02 [passes local self-review](../../evidence/phase-4/P4-02/final-1794169067563019600/README.md) for bounded R03/R10/R14/R18 runtime foundations and R09 preparation: a trusted seven-role CPL3 graph, 168 MiB of reclaiming private heaps, explicit recovery reserve, attenuated self/timer handles, prepaid bounded retries and exact physical settlement. Five guests each execute 900 synthetic heap cycles; ordinary boot installs no acceptance observers. Separate feature builds and selected boundary/scheduler/capability/wait/SDK-runtime regressions pass. These UI-sized allocations accept no toolkit/font rendering, device/input path, live reload, general desktop service manager, universal revocation or 256 MiB cold-idle result. P4-03 is next.
+
+## Authorization profile planning — 2026-11-08
+
+The [authorization amendment](../05-delivery/authorization-roadmap.md) elaborates
+existing R09/R10/R11/R12/R13/R14/R15/R16/R17/R19 for independently qualified
+account/enterprise/workload profiles. R01–R27 and their existing release
+obligations are unchanged. M7/B41 remains mandatory local accounts and scoped RBAC;
+Cedar evaluation, expanded presets/administration and enterprise/data-center gates
+B83–B89/M27/M28 add no dependency to existing releases or Phase 4. Generic
+enterprise identity is independent of conditional AI R20–R27. Native-server
+readiness remains separately gated.

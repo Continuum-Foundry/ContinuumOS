@@ -1,5 +1,101 @@
 # Validation strategy and requirement traceability
 
+## Change-based story validation
+
+Owner-approved policy, 2026-11-07; applies prospectively to P4-02 and later stories.
+Routine story closeout requires fresh new-behavior acceptance, negative cases and
+affected regressions. It does **not** require every earlier milestone suite. This
+supersedes blanket per-story full M1/M3 rerun wording in older runbooks, without
+changing historical reviews, milestone/release exits, limits or sample counts.
+
+Before executing tests, the agent records changed subsystems, affected consumers,
+selected commands and reasons for omitted adjacent suites. Include staged,
+unstaged, untracked, renamed and deleted implementation inputs. Select by engineering
+judgment using this checklist; file changes alone are not a dependency oracle:
+
+| Change/impact | Fresh coverage |
+| --- | --- |
+| Prose only | Relevant documentation/governance/hygiene audits; no guest launches |
+| Boot, loader, ISO/package tooling | Affected M1 positive/negative cases; complete M1 for broad boot changes |
+| Memory/paging, CPU entry, interrupts, scheduler | Affected kernel host tests, M1 diagnostics and M3 consumers; complete M1 for broad memory/interrupt changes |
+| IPC, rights, identity, waits, supervision, routes, SDK | Affected producer/consumer and failure/settlement tests; complete M3 for broad runtime enforcement changes |
+| UI, text, actions, assets | Affected hosted and implemented guest workflows, corpus/link checks; complete M2 for broad shared hosted-UI changes |
+| Compiler, host execution/signing, build configuration | Relevant Phase 0/tooling preflights and consumers; broaden suites when compatibility is uncertain |
+| Uncertain impact | Complete suite for the uncertain subsystem, with rationale |
+
+Shared boundary/scheduler changes still require separate ordinary, boundary,
+scheduler and capability builds plus affected later flavors and guest regressions.
+An all-features build is insufficient. Existing xtask case commands build, package
+and execute; the descriptor-dependent flavor scripts perform metadata checks only.
+Phase 0 must be rechecked before extending Phase 0/tooling or when its inputs change;
+this is not a demand to rerun it for every unrelated feature.
+
+Milestone exits retain their complete current gate and required prerequisite
+milestone suites. Existing full M1/M2/M3 entry points remain unchanged. A story
+report cannot satisfy a milestone gate. Required new-feature stress/repetition
+counts remain mandatory even when unrelated historical suites are omitted.
+
+### Commands and evidence
+
+`tools/story_validation.py` uses a manually authored JSON selection. The manifest
+contains `schema_version: 1`, `story`, `scope: "story"`, `impact` (subsystems,
+consumers, rationale, explicit broad M1/M2/M3 and shared-boundary flags, uncertain
+families), `selected` check IDs with reasons, `not_selected` family reasons and
+optional `historical_references`. Use `config/p4-02-validation.json` as the current
+impact assessment, not a template requiring full M3 for every subsequent story.
+The catalog in the runner is an explicit command registry, not automatic selection.
+Add a focused command/reviewer adapter when a new subsystem needs one.
+
+```powershell
+# Read-only selection preview; no compiler, signer or guest is launched.
+python tools/story_validation.py plan --manifest <selection.json>
+# General story checks; use Enter-Dev for build/guest commands.
+. tools/Enter-Dev.ps1
+python tools/story_validation.py run --manifest <selection.json>
+python tools/story_validation.py review --manifest <selection.json> --acceptance <acceptance.json>
+# This tooling change has its own host-only selection, including runner/audit tests.
+python tools/story_validation.py run --manifest config/story-validation-policy.json
+# P4-02 additionally enforces its five new guests, ordinary graph and flavor matrix.
+python tools/p4_runtime_acceptance.py plan
+pwsh -NoProfile -File tools/Test-P4-02.ps1 -Manifest config/p4-02-validation.json
+python tools/p4_runtime_acceptance.py review --acceptance <acceptance.json>
+```
+
+The runner snapshots the complete current Git input set and actual tool/config
+context, executes selected leaf checks serially, and uses existing independent
+artifact oracles. Full M3 can explicitly cover M1, prerequisites and its required
+runtime checks once; coverage is recorded as `covered_by`, not another execution.
+Host index audits must still be repeated after staging when the index changes.
+
+Reports distinguish `fresh-pass`, `not_selected` with rationale and historical
+references, which confer no current pass. Full raw logs/artifacts stay local;
+compact reports include per-check times and exact hashes. Policy/sample/deadline
+changes require their own explicit decision, not a manifest omission.
+
+`--resume <failed-or-interrupted-acceptance.json>` creates a separate attempt and
+can retain successful checks only with identical manifest, entire source set,
+tool/config/environment context and retained artifact hashes, followed by focused
+re-review. Missing/changed inputs require a new run; this conservative initial
+implementation invalidates all prior checks rather than guessing dependencies.
+Output-directory-dependent metadata/portable checks run again. Failed/interrupted
+attempts remain local and never count as passes. No automatic retries are added.
+
+The current P4-02 diff changes memory, paging, exception/CPU entry, scheduling,
+timers and packaging; its assessment deliberately selects full M1/M3, with M1
+and ordinary kernel-host checks covered by M3. M2 remains omitted with rationale;
+the affected portable-link check still runs inside M3. Later narrow changes must
+receive their own smaller assessment. Runtime savings are reported only after
+measured runs, never estimated as an acceptance result.
+
+The policy/tooling change can land independently of the in-progress P4-02 kernel
+implementation. Its P4-02 selection and orchestration adapter are included, but
+execution requires that separate story's runtime profile, kernel/user payload,
+guest oracle and flavor script. Missing prerequisites fail before any command or
+guest launch; selection preview and synthetic tests remain available. This policy
+PR neither uploads that unfinished implementation nor closes P4-02.
+
+## Existing evidence and requirement traceability
+
 Status: acceptance plan with [Phase 0 compile/tooling evidence](phase-0.md).
 Host validator/doctor checks, clean freestanding links and dependency compilation
 have run. P1-02 adds minimal original-kernel entry from the actual UEFI ISO, bounded

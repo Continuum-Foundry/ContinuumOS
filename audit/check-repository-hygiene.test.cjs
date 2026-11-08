@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const cp=require('node:child_process');
 const crypto=require('node:crypto');
-const {audit,snapshot,fingerprint}=require('./check-repository-hygiene.cjs');
+const {audit,snapshot,fingerprint,readBlobs}=require('./check-repository-hygiene.cjs');
 const work=path.resolve('work/hygiene-tests');
 fs.mkdirSync(work,{recursive:true});
 function repository() {
@@ -24,6 +24,22 @@ function manifest(repo,bundle,names) {
   })}));
   repo.stage(`${bundle}/SHA256SUMS.json`);
 }
+
+test('batch reads preserve binary bytes and audit identical staged blobs once',()=>{
+  const r=repository(),bytes=Buffer.from([0,255,10,13,0,65]);
+  r.write('first.bin',bytes);r.write('second.bin',bytes);r.stage('first.bin','second.bin');
+  const entries=snapshot(r.root).filter(e=>e.path.endsWith('.bin')),seen=[];
+  assert.equal(entries.length,2);
+  readBlobs(r.root,entries,(entry,raw)=>seen.push({blob:entry.blob,bytes:Buffer.from(raw)}));
+  assert.equal(seen.length,1);
+  assert.deepEqual(seen[0].bytes,bytes);
+});
+
+test('batch reads reject a mismatched staged object size',()=>{
+  const r=repository();r.write('member.txt','member');r.stage('member.txt');
+  const entry=snapshot(r.root).find(e=>e.path==='member.txt');
+  assert.throws(()=>readBlobs(r.root,[{...entry,bytes:entry.bytes+1}],()=>{}),/identity\/size mismatch/);
+});
 test('an ignored local log cannot satisfy a staged evidence manifest',()=>{
   const r=repository(),b='evidence/phase-1/P1-07/fixture';
   r.write(`${b}/serial.log`,'m1.example\r\n');manifest(r,b,['serial.log']);

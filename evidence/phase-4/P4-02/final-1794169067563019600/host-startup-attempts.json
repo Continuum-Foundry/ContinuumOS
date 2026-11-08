@@ -1,0 +1,27 @@
+{
+  "attempts": [
+    {
+      "retained": "host-startup-attempt-0.json",
+      "source": "${WORKSPACE}\\build\\m3\\P3-14\\host-preflight-1794119005870688200\\results.json",
+      "status": "incomplete-failed"
+    },
+    {
+      "retained": "host-startup-attempt-1.json",
+      "source": "${WORKSPACE}\\build\\m3\\P3-14\\host-preflight-1794119133637158800\\results.json",
+      "status": "incomplete-failed"
+    },
+    {
+      "retained": "host-startup-attempt-2.json",
+      "source": "${WORKSPACE}\\build\\m3\\P3-14\\host-preflight-1794119280074609500\\results.json",
+      "status": "incomplete-failed"
+    },
+    {
+      "retained": "host-startup-attempt-3.json",
+      "source": "${WORKSPACE}\\build\\m3\\P3-14\\host-preflight-1794119414492541300\\results.json",
+      "status": "complete"
+    }
+  ],
+  "scope": "host-only fixtures; dummy image never executed",
+  "bounds": "1000ms normal /100ms deliberate timeout unchanged",
+  "cause": "unproven; import reduction did not eliminate variation; diagnostics are not acceptance"
+}

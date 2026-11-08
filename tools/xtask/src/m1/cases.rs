@@ -53,7 +53,9 @@ pub(super) fn boot_run(
             .find(|r| r["event"] == "m1.boot_info_validated")
             .ok_or("Missing checked summary")?;
         let fields = &summary["fields"];
-        let want_modules = if fixture == "static-loader"
+        let want_modules = if manifest["flavor"] == "normal"
+            || manifest["flavor"] == "desktop-test"
+            || fixture == "static-loader"
             || fixture.starts_with("user-boundary-")
             || fixture.starts_with("scheduler-")
             || fixture == "capabilities"
@@ -114,6 +116,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "routes" => Flavor::Routes,
         "sdk" => Flavor::Sdk,
         "sdk-runtime" => Flavor::SdkRuntime,
+        "desktop-runtime" => Flavor::Desktop,
         "sdk-stress" => Flavor::Stress,
         "sdk-stress-trace" => Flavor::StressTrace,
         "sdk-stress-supervisor" => Flavor::StressSupervision,
@@ -138,7 +141,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         return Ok(json!({"compile":"passed","package":"not_run","boot":"not_run"}));
     }
     if action == "iso" {
-        let image = package(dir, dir, &manifest, false, "normal", false)?;
+        let image = package(dir, dir, &manifest, false, "desktop-ordinary", false)?;
         return Ok(json!({"compile":"passed","package":"passed","boot":"not_run","image":image}));
     }
     if matches!(
@@ -190,6 +193,20 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         return Ok(
             json!({"compile":"passed","package":"passed","capabilities":"passed","run":run}),
         );
+    }
+    if flavor == Flavor::Desktop {
+        let run = boot_run(
+            dir,
+            action,
+            dir,
+            &manifest,
+            "desktop-runtime",
+            false,
+            true,
+            false,
+        )?;
+        accepted(&run)?;
+        return Ok(json!({"compile":"passed","package":"passed","desktop":"passed","run":run}));
     }
     if flavor == Flavor::Scheduler {
         let mut runs = Vec::new();
@@ -331,7 +348,11 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "cold-boot-a",
         dir,
         &manifest,
-        "normal",
+        if action == "run" {
+            "desktop-ordinary"
+        } else {
+            "normal"
+        },
         false,
         action != "run",
         false,

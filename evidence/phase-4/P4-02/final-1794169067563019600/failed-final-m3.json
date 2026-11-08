@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "story": "P3-14",
+  "status": "failed",
+  "source_commit": "7959d1a6230cee72842b802a6f3afad5b39aa673",
+  "source_lock_sha256": "7af9b3ffbc1bb0d18ca1aa125c65662a577ede6e100ab1cf9ff8eed7cc1747c2",
+  "config": {
+    "schema_version": 1,
+    "story": "P3-14",
+    "regression_command": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "tools/Test-P3-13.ps1"
+    ],
+    "regression_deadline_seconds": 10800,
+    "prerequisite_review_deadline_seconds": 180,
+    "guest_deadline_ms": 30000,
+    "stress_guest_deadline_ms": 60000,
+    "stress_deadline_profile": "m3-stress-tcg-v2",
+    "negative_timeout_ms": 1,
+    "sdk_contract_sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b",
+    "required_matrix": [
+      "current-prerequisites-clean-optical-iso",
+      "memory-ownership-allocation",
+      "static-elf-admission",
+      "trusted-launch-child-ceiling",
+      "user-entry-syscall-boundary",
+      "user-fault-containment",
+      "preemption-cpu-isolation",
+      "handles-memory-objects",
+      "ipc-bytes-transfer",
+      "caller-provenance-after-delegation",
+      "waits-deadlines-cancellation",
+      "deadlock-backpressure-exhaustion",
+      "supervision-teardown",
+      "cross-owner-same-user-authority",
+      "scoped-policy-confused-deputy",
+      "reserved-privileged-operations",
+      "brokered-invalidation-restart",
+      "proxy-route-writer-fence",
+      "route-transition-faults",
+      "independent-sdk-version-conformance",
+      "selected-runtime-hooks",
+      "sustained-lifecycle-accounting",
+      "regression-evidence-integrity"
+    ],
+    "required_negative_cases": [
+      "broken-user-image",
+      "artifact-hash",
+      "expected-process-outcome",
+      "missing-completion-record",
+      "runner-timeout"
+    ]
+  },
+  "commands": [
+    {
+      "name": "runner-tests",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-P3-14Runner.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:26:02.934399+00:00",
+      "finished_utc": "2026-11-07T20:26:07.564700+00:00",
+      "timed_out": false,
+      "deadline_seconds": 30,
+      "cleanup_reaped": true,
+      "elapsed_ms": 4640
+    },
+    {
+      "name": "host-lifecycle-preflight",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-M3HostLifecycle.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:26:07.564700+00:00",
+      "finished_utc": "2026-11-07T20:26:09.202042+00:00",
+      "timed_out": false,
+      "deadline_seconds": 30,
+      "cleanup_reaped": true,
+      "elapsed_ms": 1625
+    },
+    {
+      "name": "runtime-stress",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Test-P3-13.ps1"
+      ],
+      "exit_code": 1,
+      "started_utc": "2026-11-07T20:26:09.244665+00:00",
+      "finished_utc": "2026-11-07T20:40:53.119948+00:00",
+      "timed_out": false,
+      "deadline_seconds": 10800,
+      "cleanup_reaped": true,
+      "elapsed_ms": 883875
+    }
+  ],
+  "runs": {},
+  "fresh_stress_cache": true,
+  "error": "runtime-stress failed; see ${WORKSPACE}\\build\\m3\\P3-14\\acceptance-1794083161260708000"
+}

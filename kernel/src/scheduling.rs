@@ -3,6 +3,9 @@
 use super::*;
 use continuum_kernel::scheduler::{FxState, Queue, ThreadId, cpu_supported};
 const N: usize = 32;
+#[cfg(feature = "desktop-runtime")]
+#[path = "desktop_guest.rs"]
+pub(crate) mod desktop;
 #[cfg(feature = "policy-test")]
 #[path = "policy_guest.rs"]
 pub(crate) mod policy;
@@ -62,7 +65,7 @@ unsafe extern "C" {
 pub(crate) fn active() -> bool {
     unsafe { ENABLED.0.get().read() }
 }
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 pub(super) fn current_thread() -> ThreadId {
     unsafe {
         let slot = *INDEX.0.get();
@@ -77,7 +80,7 @@ pub(super) fn current_thread() -> ThreadId {
         }
     }
 }
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 pub(super) fn observed_progress(id: ThreadId) -> Option<u64> {
     unsafe {
         (&*TASKS.0.get())
@@ -87,7 +90,7 @@ pub(super) fn observed_progress(id: ThreadId) -> Option<u64> {
             .map(|t| t.progress)
     }
 }
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 pub(super) fn complete_wait(id: ThreadId, status: u64, value: u64) -> Result<()> {
     let t = unsafe { (&mut *TASKS.0.get())[id.slot].as_mut() }.ok_or(error("wait", "thread"))?;
     need(t.current.id.generation == id.generation && t.result.is_none())?;
@@ -95,7 +98,7 @@ pub(super) fn complete_wait(id: ThreadId, status: u64, value: u64) -> Result<()>
     t.frame.rdx = value;
     Ok(())
 }
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 pub(super) fn kill_waiting(id: ThreadId, queue: &mut Queue) -> Result<()> {
     need(waiting::blocked(id))?;
     waiting::terminate(id);
@@ -163,7 +166,7 @@ pub(crate) fn tick(cs: u64, raw: *mut u8) {
 }
 fn capture(f: &Frame, timer: bool) -> ! {
     assert!(runtime_memory::quiescent());
-    #[cfg(feature = "capability-test")]
+    #[cfg(any(feature = "capability-test", feature = "desktop-runtime"))]
     assert!(capabilities::quiescent());
     // IF clear; no memory/registry borrow, pin or lock held here. FXSAVE writes
     // only a trusted aligned supervisor buffer, never user-supplied bytes.
@@ -233,7 +236,7 @@ fn spawn(queue: &mut Queue, mode: u64, module: usize, required: u64) -> Result<T
     let slot = unsafe { (&*TASKS.0.get()).iter().position(Option::is_none) }
         .ok_or(error("scheduler", "quota"))?;
     let binding = [Binding::UserA, Binding::UserB, Binding::Service][module];
-    #[cfg(feature = "capability-test")]
+    #[cfg(any(feature = "capability-test", feature = "desktop-runtime"))]
     let binding = if capabilities::enabled() && module == 2 {
         Binding::UserA
     } else {
@@ -256,7 +259,7 @@ fn spawn(queue: &mut Queue, mode: u64, module: usize, required: u64) -> Result<T
         let p = (&*LAUNCHER.0.get()).get(id)?;
         (p.space, p.context, p.entry, p.stack)
     };
-    #[cfg(feature = "capability-test")]
+    #[cfg(any(feature = "capability-test", feature = "desktop-runtime"))]
     let grants = if capabilities::enabled() {
         Some(capabilities::admit(space, module, id, context)?)
     } else {
@@ -266,7 +269,7 @@ fn spawn(queue: &mut Queue, mode: u64, module: usize, required: u64) -> Result<T
         let a = r.allocate(b, space, PAGE, PAGE)?.unwrap();
         r.write_staging(b, space, a, 0, &mode.to_le_bytes())?;
         r.write_staging(b, space, a, 16, &(module as u64 + 1).to_le_bytes())?;
-        #[cfg(feature = "capability-test")]
+        #[cfg(any(feature = "capability-test", feature = "desktop-runtime"))]
         if let Some(grants) = grants {
             for (i, v) in grants.into_iter().enumerate() {
                 r.write_staging(b, space, a, 24 + i as u64 * 8, &v.to_le_bytes())?;
@@ -598,7 +601,7 @@ pub(crate) fn run(trace: bool) -> Result<()> {
     Ok(())
 }
 
-#[cfg(feature = "capability-test")]
+#[cfg(any(feature = "capability-test", feature = "desktop-runtime"))]
 pub(crate) fn run_objects(channels: bool) -> Result<()> {
     if channels {
         capabilities::enable_channels();
@@ -620,7 +623,7 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
         asm!("mov cr4, {}",in(reg) cr4 & !((1<<18)|(1<<16)|(1<<22)|(1<<23)));
     }
     capabilities::enable();
-    #[cfg(feature = "wait-test")]
+    #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
     if waiting::enabled() {
         waiting::clock_probe()?;
     }
@@ -635,7 +638,7 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
         + core::mem::size_of::<Launcher<16>>()
         + core::mem::size_of::<Queue>()
         + 8192;
-    #[cfg(feature = "wait-test")]
+    #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
     let fixed = fixed + waiting::fixed_bytes();
     need(fixed <= 16 * 1024 * 1024)?;
     let mut count = 0;
@@ -663,10 +666,10 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
         );
         loop {
             (fixture::hooks().supervise)(&mut queue, wave)?;
-            #[cfg(feature = "wait-test")]
+            #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
             waiting::poll(&mut queue)?;
             let Some(id) = queue.pop() else {
-                #[cfg(feature = "wait-test")]
+                #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
                 if waiting::enabled() && waiting::pending() {
                     waiting::idle()?;
                     continue;
@@ -700,7 +703,7 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
             }
             crate::exceptions::user_stack(stack);
             need(valid_return(unsafe { &*frame }))?;
-            #[cfg(feature = "wait-test")]
+            #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
             if waiting::enabled() {
                 waiting::resume(id)?;
             }
@@ -721,7 +724,7 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
                 (t.result, t.preemptions, t.dispatches)
             };
             if let Some(value) = result {
-                #[cfg(feature = "wait-test")]
+                #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
                 waiting::terminate(id);
                 let expected = if !channels && id.slot == 1 && wave > 0 {
                     0x10e
@@ -773,7 +776,7 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
                     ),
                 );
             } else {
-                #[cfg(feature = "wait-test")]
+                #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
                 if waiting::blocked(id) {
                     continue;
                 }
@@ -783,7 +786,7 @@ pub(crate) fn run_objects(channels: bool) -> Result<()> {
         let m = runtime_memory::with(|r, _| r.inventory());
         let i = capabilities::inventory();
         need(m == empty && i == objects && crate::paging::runtime_frames() == frames)?;
-        #[cfg(feature = "wait-test")]
+        #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
         if waiting::enabled() {
             waiting::settled()?;
         }

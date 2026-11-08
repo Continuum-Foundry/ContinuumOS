@@ -12,6 +12,29 @@ supervision=previous.supervision
 waits,channel,cap,memory=previous.waits,previous.channel,previous.cap,previous.memory
 require,read,save,digest,local=previous.require,previous.read,previous.save,previous.digest,previous.local
 
+def host_coverage(host):
+    host_count=94 if 'objects::tests::accounting::physical_backing_is_partitioned_once_across_duplicate_transfer_and_orphan_lifetimes ... ok' in host else 93
+    if 'user_image::tests::verified_plan_reuse_preserves_ceiling_failure_atomicity_and_generations ... ok' in host:
+        require(host_count==94,'missing physical backing host test')
+        host_count=95
+    if 'objects::tests::accounting::backing_accounting_matches_object_oracle_through_queue_wrap_maps_and_slot_reuse ... ok' in host:
+        require(host_count==95,'missing prior host-test coverage')
+        host_count=96
+    if 'wait::tests::dispatch_latency_starts_at_wait_completion_and_keeps_real_ready_delays ... ok' in host:
+        require(host_count==96,'missing accounting oracle coverage')
+        host_count=97
+    desktop_tests=(
+        'desktop::tests::every_role_has_two_restarts_with_no_refund_and_recovery_is_unspendable',
+        'desktop::tests::reserved_capacity_and_failed_start_do_not_spend_credits',
+        'reclaiming_heap::tests::failed_allocation_is_atomic_and_slots_reuse',
+        'reclaiming_heap::tests::fragmentation_coalesces_and_alignment_padding_is_reusable')
+    admitted=[host.count(f'test {name} ... ok') for name in desktop_tests]
+    if any(admitted):
+        require(host_count==97 and all(count==1 for count in admitted),'incomplete desktop graph/heap host coverage')
+        host_count+=len(desktop_tests)
+    require(f'{host_count} passed; 0 failed' in host and host.count('wait::tests::')==(10 if host_count>=97 else 9) and host.count('objects::tests::waiting::')==7 and host.count('objects::tests::channels::')==10,'host wait/atomicity coverage')
+    return host_count
+
 # Independently enumerated case expectations: status, authoritative revision,
 # counter value, queue occupancy. Never generated from the Rust state machine.
 MATRIX={
@@ -212,17 +235,7 @@ def aggregate(path):
     require(m1['status']=='passed' and len(m1['launches'])==42 and len(read(runs['m1']/'result.json')['stages']['rows'])==33 and m1['review_tool_sha256']==digest(ROOT/'tools/Review-P1-07.ps1'),'incomplete M1')
     for launch in m1['launches']:memory.lifecycle(channel.local(launch['directory']),launch['outcome']!='broken-before-entry')
     host=(runs['m1']/'kernel-host/check.stdout.log').read_text(encoding='utf-8-sig')
-    host_count=94 if 'objects::tests::accounting::physical_backing_is_partitioned_once_across_duplicate_transfer_and_orphan_lifetimes ... ok' in host else 93
-    if 'user_image::tests::verified_plan_reuse_preserves_ceiling_failure_atomicity_and_generations ... ok' in host:
-        require(host_count==94,'missing physical backing host test')
-        host_count=95
-    if 'objects::tests::accounting::backing_accounting_matches_object_oracle_through_queue_wrap_maps_and_slot_reuse ... ok' in host:
-        require(host_count==95,'missing prior host-test coverage')
-        host_count=96
-    if 'wait::tests::dispatch_latency_starts_at_wait_completion_and_keeps_real_ready_delays ... ok' in host:
-        require(host_count==96,'missing accounting oracle coverage')
-        host_count=97
-    require(f'{host_count} passed; 0 failed' in host and host.count('wait::tests::')==(10 if host_count==97 else 9) and host.count('objects::tests::waiting::')==7 and host.count('objects::tests::channels::')==10,'host wait/atomicity coverage')
+    host_count=host_coverage(host)
     wait_observed,_=waits.focused(runs['waits'])
     supervisor_observed,_=supervision.focused(runs['supervisor'])
     supervisor_folder=runs['supervisor'];smf=read(supervisor_folder/'build-manifest.json');sr=read(supervisor_folder/'supervisor-run/run-result.json')

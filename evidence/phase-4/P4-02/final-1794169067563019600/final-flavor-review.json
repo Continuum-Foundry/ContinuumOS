@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "source": "build/m4/P4-02/acceptance-1794167304568750800/flavors/flavors.json",
+  "source_sha256": "0f6b200efc6c386be7026a3e21a5e78dd8691ead184a7f86e8d9bd52ca90cfd4",
+  "metadata_only": true,
+  "distinct_flavors": [
+    "ordinary-minimal",
+    "desktop-runtime",
+    "desktop-test",
+    "user-boundary-test",
+    "scheduler-test",
+    "capability-test",
+    "channel-test",
+    "wait-test",
+    "supervisor-test",
+    "policy-test",
+    "route-test",
+    "sdk-test",
+    "sdk-runtime-test",
+    "stress-test",
+    "stress-trace",
+    "stress-supervisor-test"
+  ],
+  "scope": "Actual separate cargo-check rows and arguments; guest execution is reviewed separately by full gate."
+}

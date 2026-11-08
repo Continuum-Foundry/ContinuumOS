@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "reason": "Focused adapter called obsolete P3-04 20/15 layout; exact later 21/16 balanced RAX/CR0 guard is required explicitly. No guest code or old default changed.",
+  "guest_directory": "build\\m1\\user-boundary-1794168602253084900-58940",
+  "kernel_sha256": "fa5575874ef27c0e55a001c50875eed8b5f701fc3a1ed61347991989a42ca13e",
+  "valid_current_artifact": "passed",
+  "negative_cases": [
+    {
+      "case": "missing_scratch_push",
+      "rejected": true,
+      "reason": "syscall assembly layout"
+    },
+    {
+      "case": "missing_scratch_pop",
+      "rejected": true,
+      "reason": "syscall assembly layout"
+    },
+    {
+      "case": "surplus_push",
+      "rejected": true,
+      "reason": "syscall assembly layout"
+    },
+    {
+      "case": "missing_cr0_guard",
+      "rejected": true,
+      "reason": "missing syscall TS guard"
+    },
+    {
+      "case": "current_layout_does_not_silently_change_historical_default",
+      "rejected": true
+    }
+  ]
+}

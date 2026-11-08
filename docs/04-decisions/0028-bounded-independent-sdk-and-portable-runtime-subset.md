@@ -3,6 +3,11 @@
 Status: Proposed. Date: 2026-10-31. Gate: P3-12 local interoperability and runtime
 review, followed by the separately required M3 and project reviews.
 
+P4-02's [desktop runtime experiment](../05-delivery/phase-4/runtime-admission-runbook.md)
+keeps this SDK subset unchanged and adds a separate trusted, pre-mapped extent
+heap for UI-sized allocation. It admits no new public operation or desktop ABI
+freeze. Real font/toolkit rendering still requires P4-07.
+
 ## Context
 
 Earlier user fixtures compile private kernel policy and route modules directly.

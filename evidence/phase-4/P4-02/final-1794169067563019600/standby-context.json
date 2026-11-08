@@ -1,0 +1,36 @@
+{
+  "status": "failed-host-interrupted",
+  "source_unchanged": true,
+  "m1_completed_rows": 32,
+  "timer_calibration_guest_launched": false,
+  "kernel_build_command_written_utc": "2026-11-08T08:18:39Z",
+  "kernel_build_output_last_written_utc": "2026-11-08T08:18:42Z",
+  "selected_system_events": [
+    {
+      "TimeCreated": "2026-11-08T12:07:15.641726-05:00",
+      "Id": 507,
+      "Message": "The system is exiting Modern Standby \r\n\r\nReason: Sleep, Hibernate, or Shutdown."
+    },
+    {
+      "TimeCreated": "2026-11-08T03:18:49.7127638-05:00",
+      "Id": 506,
+      "Message": "The system is entering Modern Standby \r\n\r\nReason: Lid."
+    },
+    {
+      "TimeCreated": "2026-11-08T12:07:25.8067017-05:00",
+      "Id": 107,
+      "ProviderName": "Microsoft-Windows-Kernel-Power",
+      "Message": "The system has resumed from sleep."
+    },
+    {
+      "TimeCreated": "2026-11-08T12:07:23.0570616-05:00",
+      "Id": 42,
+      "ProviderName": "Microsoft-Windows-Kernel-Power",
+      "Message": "The system is entering sleep.\r\n\r\nSleep Reason: Hibernate from Sleep - Standby Battery Budget Exceeded"
+    }
+  ],
+  "observation": "Lid-triggered Modern Standby entry was recorded10seconds after the compile command. Outer deadline failure was reported after resume. These events apply only to this attempt; no earlier timeout cause is inferred.",
+  "settings_changed": false,
+  "full_acceptance_sha256": "8bb4c620e0bea8fa46779604037d1e3ab0051cd279bcfbb26b7ff3aafe31016a",
+  "m3_acceptance_missing": "outer deadline killed the child tree before its final report; cannot count incomplete M3 acceptance"
+}

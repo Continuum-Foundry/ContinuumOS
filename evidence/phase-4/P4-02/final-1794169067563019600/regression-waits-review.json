@@ -1,0 +1,156 @@
+{
+  "status": "passed",
+  "scope": "focused regression only",
+  "audit": {
+    "audit": {
+      "tasks": 18,
+      "parks": 64,
+      "wakes": 63,
+      "kills": 1,
+      "calls": 584,
+      "fixed_bytes": 10582040,
+      "clock": {
+        "version": "5",
+        "build": "5736f933489ab6a7d3628c5c6b89791bf9729b3509c63393ee6d6e0c5f2f280c",
+        "session": "1d0659b94b8ed7da89ee3a6f80509dd61845c9d84e7d8c4afdc10d62e1f26783",
+        "session_origin": "host",
+        "seq": "189",
+        "stage": "waits",
+        "outcome": "ok",
+        "emergency": "false",
+        "source": "hpet",
+        "resolution_ns": "10",
+        "before_ns": "1376736100",
+        "after_ns": "1406903500",
+        "ticks_before": "100",
+        "ticks_after": "100",
+        "observer_samples": "100",
+        "observer_total_ns": "535300",
+        "irq_off": "true"
+      },
+      "wake_dispatch_max_ns": 43664700,
+      "errors": [
+        [
+          17,
+          0
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          19,
+          0
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          20,
+          3
+        ],
+        [
+          20,
+          4
+        ],
+        [
+          21,
+          0
+        ],
+        [
+          22,
+          0
+        ],
+        [
+          23,
+          0
+        ],
+        [
+          24,
+          0
+        ],
+        [
+          24,
+          1
+        ],
+        [
+          24,
+          2
+        ],
+        [
+          24,
+          4
+        ],
+        [
+          24,
+          7
+        ],
+        [
+          24,
+          8
+        ],
+        [
+          24,
+          9
+        ],
+        [
+          25,
+          0
+        ],
+        [
+          25,
+          6
+        ],
+        [
+          25,
+          8
+        ],
+        [
+          26,
+          0
+        ],
+        [
+          26,
+          6
+        ]
+      ]
+    },
+    "mutations": [
+      "missing m1.wait_park",
+      "missing m1.wait_complete",
+      "missing m1.wait_wake",
+      "missing m1.wait_settled",
+      "missing m1.wait_clock",
+      "missing m1.wait_kill",
+      "missing m1.wait_resume",
+      "missing m1.wait_boundary",
+      "missing m1.wait_delay",
+      "missing m1.ipc_admit",
+      "missing m1.cap_ready",
+      "missing m1.cap_reap",
+      "missing m1.user_log",
+      "m1.wait_wake.generation",
+      "m1.wait_wake.status",
+      "m1.wait_wake.since_ns",
+      "m1.wait_settled.records",
+      "m1.wait_clock.source",
+      "m1.wait_clock.ticks_after",
+      "m1.cap_ready.fixed_bytes",
+      "m1.cap_reap.result"
+    ],
+    "build_id": "5736f933489ab6a7d3628c5c6b89791bf9729b3509c63393ee6d6e0c5f2f280c",
+    "kernel_sha256": "d5fb8e5d728d899b0ac36fe5bc36488396936cc36f0c63631a44258d0a737b56",
+    "iso_sha256": "af8cb804692a9a69a4933f9245425e68ba22fea2297fe7f507251bacdd27d326",
+    "serial_sha256": "113389f8ee8eda7853c64d8104c14b411ff9e2bfe117c871fa1f40c9eb9416b0"
+  },
+  "codegen": {
+    "task_resume": "<task_resume>:\nffffffff8000264b:      \tcli\nffffffff8000264c:      \tcld\nffffffff8000264d:      \tpushq\t%rbp\nffffffff8000264e:      \tpushq\t%rbx\nffffffff8000264f:      \tpushq\t%r12\nffffffff80002651:      \tpushq\t%r13\nffffffff80002653:      \tpushq\t%r14\nffffffff80002655:      \tpushq\t%r15\nffffffff80002657:      \tmovq\t%rsp, 0x9b29b2(%rip) # 0xffffffff809b5010 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry12CONTINUATION>\nffffffff8000265e:      \tmovq\t%cr3, %rax\nffffffff80002661:      \tmovq\t%rax, 0x9b29a0(%rip) # 0xffffffff809b5008 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff80002668:      \tmovq\t%rdi, %cr3\nffffffff8000266b:      \tmovq\t0x9b2ede(%rip), %rsp # 0xffffffff809b5550 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff80002672:      \tsubq\t$0xa0, %rsp\nffffffff80002679:      \tmovq\t%rdx, %r8\nffffffff8000267c:      \tmovq\t%rsp, %rdi\nffffffff8000267f:      \tmovl\t$0x14, %ecx\nffffffff80002684:      \trep\t\tmovsq\t(%rsi), %es:(%rdi)\nffffffff80002687:      \txorl\t%eax, %eax\nffffffff80002689:      \tmovw\t%ax, %ds\nffffffff8000268c:      \tmovw\t%ax, %es\nffffffff8000268f:      \tmovw\t%ax, %fs\nffffffff80002692:      \tmovw\t%ax, %gs\nffffffff80002695:      \tmovb\t$0x1, 0x9b2964(%rip) # 0xffffffff809b5000 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff8000269c:      \tclts\nffffffff8000269e:      \tfxrstor64\t(%r8)\nffffffff800026a2:      \tpopq\t%r15\nffffffff800026a4:      \tpopq\t%r14\nffffffff800026a6:      \tpopq\t%r13\nffffffff800026a8:      \tpopq\t%r12\nffffffff800026aa:      \tpopq\t%r11\nffffffff800026ac:      \tpopq\t%r10\nffffffff800026ae:      \tpopq\t%r9\nffffffff800026b0:      \tpopq\t%r8\nffffffff800026b2:      \tpopq\t%rdi\nffffffff800026b3:      \tpopq\t%rsi\nffffffff800026b4:      \tpopq\t%rbp\nffffffff800026b5:      \tpopq\t%rbx\nffffffff800026b6:      \tpopq\t%rdx\nffffffff800026b7:      \tpopq\t%rcx\nffffffff800026b8:      \tpopq\t%rax\nffffffff800026b9:      \tiretq\nffffffff800026bb:      \tint3\nffffffff800026bc:      \tint3\nffffffff800026bd:      \tint3\nffffffff800026be:      \tint3\nffffffff800026bf:      \tint3\n",
+    "task_save_fp": "<task_save_fp>:\nffffffff8000263a:      \tclts\nffffffff8000263c:      \tfxsave64\t(%rdi)\nffffffff80002640:      \tmovq\t%cr0, %rax\nffffffff80002643:      \torq\t$0x8, %rax\nffffffff80002647:      \tmovq\t%rax, %cr0\nffffffff8000264a:      \tretq\n",
+    "user_syscall": "<user_syscall>:\nffffffff800023da:      \tmovq\t%rsp, 0x9b3167(%rip) # 0xffffffff809b5548 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry7USER_SP>\nffffffff800023e1:      \tmovq\t0x9b3168(%rip), %rsp # 0xffffffff809b5550 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800023e8:      \tpushq\t%rax\nffffffff800023e9:      \tcmpb\t$0x0, 0x9b2c10(%rip) # 0xffffffff809b5000 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800023f0:      \tje\t0xffffffff800023f9 <user_syscall+0x1f>\nffffffff800023f2:      \tstmxcsr\t0x9b2c1f(%rip)  # 0xffffffff809b5018 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff800023f9:      \tmovq\t%cr0, %rax\nffffffff800023fc:      \torq\t$0x8, %rax\nffffffff80002400:      \tmovq\t%rax, %cr0\nffffffff80002403:      \tpopq\t%rax\nffffffff80002404:      \tpushq\t$0x3b\nffffffff80002406:      \tpushq\t0x9b313c(%rip)  # 0xffffffff809b5548 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry7USER_SP>\nffffffff8000240c:      \tpushq\t%r11\nffffffff8000240e:      \tpushq\t$0x33\nffffffff80002410:      \tpushq\t%rcx\nffffffff80002411:      \tpushq\t%rax\nffffffff80002412:      \tpushq\t%rcx\nffffffff80002413:      \tpushq\t%rdx\nffffffff80002414:      \tpushq\t%rbx\nffffffff80002415:      \tpushq\t%rbp\nffffffff80002416:      \tpushq\t%rsi\nffffffff80002417:      \tpushq\t%rdi\nffffffff80002418:      \tpushq\t%r8\nffffffff8000241a:      \tpushq\t%r9\nffffffff8000241c:      \tpushq\t%r10\nffffffff8000241e:      \tpushq\t%r11\nffffffff80002420:      \tpushq\t%r12\nffffffff80002422:      \tpushq\t%r13\nffffffff80002424:      \tpushq\t%r14\nffffffff80002426:      \tpushq\t%r15\nffffffff80002428:      \tcld\nffffffff80002429:      \tmovq\t%rsp, %rdi\nffffffff8000242c:      \tcallq\t0xffffffff800196b0 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry8dispatch>\nffffffff80002431:      \tpopq\t%r15\nffffffff80002433:      \tpopq\t%r14\nffffffff80002435:      \tpopq\t%r13\nffffffff80002437:      \tpopq\t%r12\nffffffff80002439:      \tpopq\t%r11\nffffffff8000243b:      \tpopq\t%r10\nffffffff8000243d:      \tpopq\t%r9\nffffffff8000243f:      \tpopq\t%r8\nffffffff80002441:      \tpopq\t%rdi\nffffffff80002442:      \tpopq\t%rsi\nffffffff80002443:      \tpopq\t%rbp\nffffffff80002444:      \tpopq\t%rbx\nffffffff80002445:      \tpopq\t%rdx\nffffffff80002446:      \tpopq\t%rcx\nffffffff80002447:      \tpopq\t%rax\nffffffff80002448:      \tiretq\n",
+    "user_leave": "<user_leave>:\nffffffff800023b5:      \tcli\nffffffff800023b6:      \tmovb\t$0x0, 0x9b2c43(%rip) # 0xffffffff809b5000 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800023bd:      \tcld\nffffffff800023be:      \tmovq\t0x9b2c43(%rip), %rax # 0xffffffff809b5008 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff800023c5:      \tmovq\t%rax, %cr3\nffffffff800023c8:      \tmovq\t0x9b2c41(%rip), %rsp # 0xffffffff809b5010 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry12CONTINUATION>\nffffffff800023cf:      \tpopq\t%r15\nffffffff800023d1:      \tpopq\t%r14\nffffffff800023d3:      \tpopq\t%r13\nffffffff800023d5:      \tpopq\t%r12\nffffffff800023d7:      \tpopq\t%rbx\nffffffff800023d8:      \tpopq\t%rbp\nffffffff800023d9:      \tretq\n",
+    "timer_vector": "<timer_vector>:\nffffffff80002467:      \tpushq\t%rax\nffffffff80002468:      \tpushq\t%rcx\nffffffff80002469:      \tpushq\t%rdx\nffffffff8000246a:      \tpushq\t%rbx\nffffffff8000246b:      \tpushq\t%rbp\nffffffff8000246c:      \tpushq\t%rsi\nffffffff8000246d:      \tpushq\t%rdi\nffffffff8000246e:      \tpushq\t%r8\nffffffff80002470:      \tpushq\t%r9\nffffffff80002472:      \tpushq\t%r10\nffffffff80002474:      \tpushq\t%r11\nffffffff80002476:      \tpushq\t%r12\nffffffff80002478:      \tpushq\t%r13\nffffffff8000247a:      \tpushq\t%r14\nffffffff8000247c:      \tpushq\t%r15\nffffffff8000247e:      \tcld\nffffffff8000247f:      \tmovq\t%cr0, %rax\nffffffff80002482:      \tpushq\t%rax\nffffffff80002483:      \torq\t$0x8, %rax\nffffffff80002487:      \tmovq\t%rax, %cr0\nffffffff8000248a:      \tleaq\t0x8(%rsp), %rbx\nffffffff8000248f:      \tandq\t$-0x10, %rsp\nffffffff80002493:      \tmovl\t$0x40, %edi\nffffffff80002498:      \tmovq\t0x80(%rbx), %rsi\nffffffff8000249f:      \tmovq\t%rbx, %rdx\nffffffff800024a2:      \tcallq\t0xffffffff8001ace0 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel5timer9interrupt>\nffffffff800024a7:      \tmovq\t-0x8(%rbx), %rax\nffffffff800024ab:      \tmovq\t%rax, %cr0\nffffffff800024ae:      \tmovq\t%rbx, %rsp\nffffffff800024b1:      \tpopq\t%r15\nffffffff800024b3:      \tpopq\t%r14\nffffffff800024b5:      \tpopq\t%r13\nffffffff800024b7:      \tpopq\t%r12\nffffffff800024b9:      \tpopq\t%r11\nffffffff800024bb:      \tpopq\t%r10\nffffffff800024bd:      \tpopq\t%r9\nffffffff800024bf:      \tpopq\t%r8\nffffffff800024c1:      \tpopq\t%rdi\nffffffff800024c2:      \tpopq\t%rsi\nffffffff800024c3:      \tpopq\t%rbp\nffffffff800024c4:      \tpopq\t%rbx\nffffffff800024c5:      \tpopq\t%rdx\nffffffff800024c6:      \tpopq\t%rcx\nffffffff800024c7:      \tpopq\t%rax\nffffffff800024c8:      \tiretq\n",
+    "exception_common": "<exception_common>:\nffffffff800022c6:      \tcli\nffffffff800022c7:      \tcld\nffffffff800022c8:      \tpushq\t%rax\nffffffff800022c9:      \tpushq\t%rcx\nffffffff800022ca:      \tpushq\t%rdx\nffffffff800022cb:      \tpushq\t%rbx\nffffffff800022cc:      \tpushq\t%rbp\nffffffff800022cd:      \tpushq\t%rsi\nffffffff800022ce:      \tpushq\t%rdi\nffffffff800022cf:      \tpushq\t%r8\nffffffff800022d1:      \tpushq\t%r9\nffffffff800022d3:      \tpushq\t%r10\nffffffff800022d5:      \tpushq\t%r11\nffffffff800022d7:      \tpushq\t%r12\nffffffff800022d9:      \tpushq\t%r13\nffffffff800022db:      \tpushq\t%r14\nffffffff800022dd:      \tpushq\t%r15\nffffffff800022df:      \tleaq\t0x78(%rsp), %rdi\nffffffff800022e4:      \tmovq\t%cr2, %rsi\nffffffff800022e7:      \tmovq\t%cr0, %rax\nffffffff800022ea:      \tpushq\t%rax\nffffffff800022eb:      \torq\t$0x8, %rax\nffffffff800022ef:      \tmovq\t%rax, %cr0\nffffffff800022f2:      \tleaq\t0x8(%rsp), %rbx\nffffffff800022f7:      \tandq\t$-0x10, %rsp\nffffffff800022fb:      \tcallq\t0xffffffff80018590 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10exceptions8dispatch>\nffffffff80002300:      \tmovq\t-0x8(%rbx), %rax\nffffffff80002304:      \tmovq\t%rax, %cr0\nffffffff80002307:      \tmovq\t%rbx, %rsp\nffffffff8000230a:      \tpopq\t%r15\nffffffff8000230c:      \tpopq\t%r14\nffffffff8000230e:      \tpopq\t%r13\nffffffff80002310:      \tpopq\t%r12\nffffffff80002312:      \tpopq\t%r11\nffffffff80002314:      \tpopq\t%r10\nffffffff80002316:      \tpopq\t%r9\nffffffff80002318:      \tpopq\t%r8\nffffffff8000231a:      \tpopq\t%rdi\nffffffff8000231b:      \tpopq\t%rsi\nffffffff8000231c:      \tpopq\t%rbp\nffffffff8000231d:      \tpopq\t%rbx\nffffffff8000231e:      \tpopq\t%rdx\nffffffff8000231f:      \tpopq\t%rcx\nffffffff80002320:      \tpopq\t%rax\nffffffff80002321:      \taddq\t$0x10, %rsp\nffffffff80002325:      \tiretq\n",
+    "syscall_mxcsr_snapshot": "<user_syscall>:\nffffffff800023da:      \tmovq\t%rsp, 0x9b3167(%rip) # 0xffffffff809b5548 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry7USER_SP>\nffffffff800023e1:      \tmovq\t0x9b3168(%rip), %rsp # 0xffffffff809b5550 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800023e8:      \tpushq\t%rax\nffffffff800023e9:      \tcmpb\t$0x0, 0x9b2c10(%rip) # 0xffffffff809b5000 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800023f0:      \tje\t0xffffffff800023f9 <user_syscall+0x1f>\nffffffff800023f2:      \tstmxcsr\t0x9b2c1f(%rip)  # 0xffffffff809b5018 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff800023f9:      \tmovq\t%cr0, %rax\nffffffff800023fc:      \torq\t$0x8, %rax\nffffffff80002400:      \tmovq\t%rax, %cr0\nffffffff80002403:      \tpopq\t%rax\nffffffff80002404:      \tpushq\t$0x3b\nffffffff80002406:      \tpushq\t0x9b313c(%rip)  # 0xffffffff809b5548 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry7USER_SP>\nffffffff8000240c:      \tpushq\t%r11\nffffffff8000240e:      \tpushq\t$0x33\nffffffff80002410:      \tpushq\t%rcx\nffffffff80002411:      \tpushq\t%rax\nffffffff80002412:      \tpushq\t%rcx\nffffffff80002413:      \tpushq\t%rdx\nffffffff80002414:      \tpushq\t%rbx\nffffffff80002415:      \tpushq\t%rbp\nffffffff80002416:      \tpushq\t%rsi\nffffffff80002417:      \tpushq\t%rdi\nffffffff80002418:      \tpushq\t%r8\nffffffff8000241a:      \tpushq\t%r9\nffffffff8000241c:      \tpushq\t%r10\nffffffff8000241e:      \tpushq\t%r11\nffffffff80002420:      \tpushq\t%r12\nffffffff80002422:      \tpushq\t%r13\nffffffff80002424:      \tpushq\t%r14\nffffffff80002426:      \tpushq\t%r15\nffffffff80002428:      \tcld\nffffffff80002429:      \tmovq\t%rsp, %rdi\nffffffff8000242c:      \tcallq\t0xffffffff800196b0 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry8dispatch>\nffffffff80002431:      \tpopq\t%r15\nffffffff80002433:      \tpopq\t%r14\nffffffff80002435:      \tpopq\t%r13\nffffffff80002437:      \tpopq\t%r12\nffffffff80002439:      \tpopq\t%r11\nffffffff8000243b:      \tpopq\t%r10\nffffffff8000243d:      \tpopq\t%r9\nffffffff8000243f:      \tpopq\t%r8\nffffffff80002441:      \tpopq\t%rdi\nffffffff80002442:      \tpopq\t%rsi\nffffffff80002443:      \tpopq\t%rbp\nffffffff80002444:      \tpopq\t%rbx\nffffffff80002445:      \tpopq\t%rdx\nffffffff80002446:      \tpopq\t%rcx\nffffffff80002447:      \tpopq\t%rax\nffffffff80002448:      \tiretq\n"
+  }
+}

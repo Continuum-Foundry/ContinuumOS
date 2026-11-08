@@ -8,7 +8,10 @@ use crate::{
 pub const USER_END: u64 = 0x8000_0000;
 pub const STACK_BASE: u64 = 0x7ffe_0000;
 pub const STACK_BYTES: u64 = 65536;
+#[cfg(not(feature = "desktop-runtime"))]
 pub const PROCESS_LIMIT: u64 = 64 * 1024 * 1024;
+#[cfg(feature = "desktop-runtime")]
+pub const PROCESS_LIMIT: u64 = 128 * 1024 * 1024;
 
 /// Implementations supply zeroed, aligned exclusive runs and infallible release
 /// of admitted runs. read/write operate only on those runs, never arbitrary RAM.

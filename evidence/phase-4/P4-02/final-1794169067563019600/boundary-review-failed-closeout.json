@@ -1,0 +1,1078 @@
+{
+  "schema_version": 2,
+  "story": "P4-02",
+  "scope": "story",
+  "status": "failed",
+  "source_commit": "7959d1a6230cee72842b802a6f3afad5b39aa673",
+  "selection": {
+    "schema_version": 1,
+    "story": "P4-02",
+    "scope": "story",
+    "impact": {
+      "subsystems": [
+        "owned memory and paging",
+        "user entry and exceptions",
+        "scheduler and timers",
+        "trusted desktop bootstrap",
+        "ISO packaging and launch"
+      ],
+      "consumers": [
+        "ordinary desktop graph",
+        "all existing M3 runtime fixtures",
+        "M1 fatal and timer diagnostics"
+      ],
+      "rationale": "Owner requested slimmer current-story validation on 2026-11-08, superseding the earlier NEXT-time direction. The core diff extends desktop-specific feature gates and profiles while preserving narrower legacy semantics. Five already-completed desktop cases, ordinary graph boot, both host suites and 16 separate builds are re-reviewed against unchanged implementation/tool inputs. Fresh focused boundary, scheduler, capabilities, waits and SDK-runtime guests exercise shared consumers. This is bounded story closeout, not fresh M1/M3 milestone acceptance; failed and interrupted full attempts remain non-passes.",
+      "broad_m1": false,
+      "broad_m2": false,
+      "broad_m3": false,
+      "shared_boundary_scheduler": true,
+      "uncertain_families": []
+    },
+    "selected": [
+      {
+        "id": "kernel-host",
+        "reason": "Completed 101-test ordinary host suite on the same implementation; recheck exact log coverage."
+      },
+      {
+        "id": "desktop-host",
+        "reason": "Completed 101-test desktop host suite on the same implementation; recheck exact log coverage."
+      },
+      {
+        "id": "boundary",
+        "reason": "Checked syscall return, pointer, fault and isolation paths share extended feature gates."
+      },
+      {
+        "id": "scheduler",
+        "reason": "Shared preemption, CPU state and return paths require narrow execution, including unsupported CPU denial."
+      },
+      {
+        "id": "capabilities",
+        "reason": "Self/timer authority and capability dispatch must preserve legacy rights enforcement."
+      },
+      {
+        "id": "waits",
+        "reason": "Desktop uses wait resume/notification contracts; verify existing timeout/cancel/wakeup consumers."
+      },
+      {
+        "id": "sdk-runtime",
+        "reason": "Shared user-memory and scheduling gates must preserve independent SDK allocation, CPU and teardown behavior."
+      },
+      {
+        "id": "docs",
+        "reason": "Check revised current-story scope and handoff."
+      },
+      {
+        "id": "governance",
+        "reason": "Preserve historical evidence and contract rules."
+      },
+      {
+        "id": "hygiene",
+        "reason": "Check final staged compact evidence and retention budgets."
+      }
+    ],
+    "not_selected": {
+      "M2": "No hosted UI implementation, renderer/text pipeline, corpus or UI freeze input changed. The selected portable-link regression required by full M3 still runs. Reassess if shared UI build semantics change.",
+      "M1": "No broad boot/interrupt implementation rewrite: shared edits add desktop feature gates, leaving existing cases semantically intact. Separate ordinary boot, 16 metadata flavors and selected boundary/scheduler guests exercise the affected paths; unchanged-source full M1 already reached 32/33 rows, but that interrupted/failed aggregate is not a new full pass.",
+      "M3": "The owner requested current-story selection instead of another complete milestone rerun. Retain existing complete historical M3 acceptance and all failed attempts. Focus current enforcement regressions on boundary/scheduler/capabilities/waits/SDK runtime; policy, route, IPC protocols and public SDK contract are unchanged. Five desktop repetitions retain all new lifecycle/negative/count criteria.",
+      "prerequisites": "Pinned compiler/QEMU/ISO tools, signer and host execution policy are unchanged; prior prerequisite reports are context. Each selected fresh case still performs its native build/package/launch preflights. No new prerequisite aggregate pass is claimed."
+    },
+    "historical_references": [
+      {
+        "path": "evidence/phase-4/P4-01/final-1794022944926085700/README.md",
+        "reason": "Accepted prerequisite/profile context only; does not substitute for current selected regression execution."
+      }
+    ]
+  },
+  "owner_direction": "2026-11-08: slim down current story; supersedes earlier NEXT-time-only instruction",
+  "reused_from": "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794167304568750800",
+  "reused_origin_status": "interrupted, not accepted as a complete gate",
+  "reuse_source_delta": [
+    "config/p4-02-validation.json"
+  ],
+  "commands": [
+    {
+      "name": "boundary",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T20:09:57.302037+00:00",
+      "finished_utc": "2026-11-08T20:14:59.348232+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 302047
+    }
+  ],
+  "checks": [
+    {
+      "id": "kernel-host",
+      "status": "passed",
+      "execution": "reused completed component; current inputs rechecked",
+      "stdout": "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794167304568750800\\kernel-host.stdout.log",
+      "stdout_sha256": "dc2657acfcb5b784cdd62c0eb5c248ed111b288aa24a0cb87ee1dfb8d97ccf2d",
+      "tests": 101
+    },
+    {
+      "id": "desktop-host",
+      "status": "passed",
+      "execution": "reused completed component; current inputs rechecked",
+      "stdout": "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794167304568750800\\desktop-host.stdout.log",
+      "stdout_sha256": "ca01f8d02de145608ce395f1c4c835431cad1144a4722933462e94f93412c336",
+      "tests": 101
+    }
+  ],
+  "guests": [
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167319991641900-9972",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+        "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+        "iso_sha256": "3d162dc72ef6fcd797d7c18487bdf6d727cb3bce715b3498cbcca80c5e10a439",
+        "serial_sha256": "7f6e03eb163e9a1ca18cdc8d1da5c06936204e7a8d7d2b12810440c172bc3a47",
+        "images": [
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+          "session": "6c8426d8083c4fd1e6a3f659885ee4e3e62f8b0c05434542766816dd88d6b1e1",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177508352",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43337",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+            "session": "6c8426d8083c4fd1e6a3f659885ee4e3e62f8b0c05434542766816dd88d6b1e1",
+            "session_origin": "host",
+            "seq": "449",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "219",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "102961600",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "4406796400"
+          }
+        ],
+        "reviewer_negatives": 248,
+        "source_hashes_verified": true
+      },
+      "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167471623849200-57440",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+        "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+        "iso_sha256": "3d3fc4ba184562c8f41d98a4699fb79d74fc9356dd3a1bf96ee9da8e70b9b4a6",
+        "serial_sha256": "879d9eb9571a6cc2f7c8c4ff65c41532ed4bc2c9b1a1b10b719079d94d8336ce",
+        "images": [
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+          "session": "339988f87c95ea9848702fa07a0eff9760feb7dc36a8872cfdb79719ec9e37db",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177508352",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43337",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+            "session": "339988f87c95ea9848702fa07a0eff9760feb7dc36a8872cfdb79719ec9e37db",
+            "session_origin": "host",
+            "seq": "545",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "281",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "61639300",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "4077060400"
+          }
+        ],
+        "reviewer_negatives": 248,
+        "source_hashes_verified": true
+      },
+      "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167571834635400-51988",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+        "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+        "iso_sha256": "78960ad512b12a13aca340e0c5b55e054af5b809fe7b099c5cb951c1577eaf1a",
+        "serial_sha256": "9a2fbc7afa3921f9fd48a7c16dcddc7c79c1bf9964ce5e04bd4a8f06ba5baf8c",
+        "images": [
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+          "session": "55a6509d43cb90aa99a725e0edee9dc5d44b7a6d7e97f5641b10508f4dc1d716",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177508352",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43337",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+            "session": "55a6509d43cb90aa99a725e0edee9dc5d44b7a6d7e97f5641b10508f4dc1d716",
+            "session_origin": "host",
+            "seq": "420",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "199",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "83979200",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "3583619300"
+          }
+        ],
+        "reviewer_negatives": 248,
+        "source_hashes_verified": true
+      },
+      "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167657733848300-63692",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+        "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+        "iso_sha256": "e2882323febe4031fbb1abe81d86179ea011ce5906a6cdaca94c864dbc25cf3b",
+        "serial_sha256": "021825907149e94e68d4ba6053868132100792e52d7b0b3f6306e01847129517",
+        "images": [
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+          "session": "a34755db60c4badcd21a3ec7e112cf036bc010d99043293fe756f9653f5e2d88",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177508352",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43337",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+            "session": "a34755db60c4badcd21a3ec7e112cf036bc010d99043293fe756f9653f5e2d88",
+            "session_origin": "host",
+            "seq": "463",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "233",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "104405900",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "4909232900"
+          }
+        ],
+        "reviewer_negatives": 248,
+        "source_hashes_verified": true
+      },
+      "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167773909303200-64960",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+        "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+        "iso_sha256": "47678f2d17aad35c0fe46fb4a5e8e51fda8e179326bb18ca008972054e0936da",
+        "serial_sha256": "5d3f591feaaad4a7c76d72dd33bcd8230f040d8c6b5d0fcb7e21596710d6983e",
+        "images": [
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+          "session": "5d6a880fe1c262b737ad057b146db798d4e7d8cd7cf16aaacfe25776fb541865",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177508352",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43337",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+            "session": "5d6a880fe1c262b737ad057b146db798d4e7d8cd7cf16aaacfe25776fb541865",
+            "session_origin": "host",
+            "seq": "408",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "192",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "71948700",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "3374365000"
+          }
+        ],
+        "reviewer_negatives": 248,
+        "source_hashes_verified": true
+      },
+      "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+    }
+  ],
+  "reused_commands": [
+    {
+      "name": "kernel-host",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:48:25.880927+00:00",
+      "finished_utc": "2026-11-08T19:48:30.425307+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 4547
+    },
+    {
+      "name": "desktop-host",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib",
+        "--features",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:48:31.117598+00:00",
+      "finished_utc": "2026-11-08T19:48:35.362741+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 4250
+    },
+    {
+      "name": "desktop-0",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:48:35.992002+00:00",
+      "finished_utc": "2026-11-08T19:50:28.916547+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 112922
+    },
+    {
+      "name": "flavors",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Check-P4-02Flavors.ps1",
+        "-Descriptors",
+        "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167319991641900-9972",
+        "-Output",
+        "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794167304568750800\\flavors"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:50:34.053926+00:00",
+      "finished_utc": "2026-11-08T19:51:08.375679+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 34312
+    },
+    {
+      "name": "desktop-1",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:51:09.085781+00:00",
+      "finished_utc": "2026-11-08T19:52:43.588159+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 94500
+    },
+    {
+      "name": "desktop-2",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:52:48.549863+00:00",
+      "finished_utc": "2026-11-08T19:54:11.365647+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 82812
+    },
+    {
+      "name": "desktop-3",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:54:14.548998+00:00",
+      "finished_utc": "2026-11-08T19:56:04.907965+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 110359
+    },
+    {
+      "name": "desktop-4",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:56:10.350526+00:00",
+      "finished_utc": "2026-11-08T19:58:20.562723+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 130203
+    },
+    {
+      "name": "ordinary",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:58:24.414140+00:00",
+      "finished_utc": "2026-11-08T19:59:48.699381+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 84281
+    }
+  ],
+  "origin_source_lock_sha256": "515db9db48ce9ffff9829bee26fcf4b329279a96097aea046d51239ec4885d19",
+  "ordinary": {
+    "directory": "${WORKSPACE}\\build\\m1\\run-1794167907172813200-61496",
+    "review": {
+      "schema_version": 1,
+      "story": "P4-02",
+      "status": "passed",
+      "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+      "test": false,
+      "build_id": "7d475104a50f5c40ba9325a75ecaffbe3e85198212f28d4e78c7a367866d7481",
+      "kernel_sha256": "0d62513d2cdbd67d3f671e2dcd37b4a841859fb4d61971d29ae4c136cdd90b3b",
+      "iso_sha256": "e126c9acee66708d8bf91c12251c2d50893a3d95d401c1675a9ddb91fa36d605",
+      "serial_sha256": "e646431f5db45ab88dd89867d069679cdbe3a62225894fc55d7684407a153855",
+      "images": [
+        {
+          "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+          "load_pages": 28,
+          "load_segments": 3
+        },
+        {
+          "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+          "load_pages": 28,
+          "load_segments": 3
+        },
+        {
+          "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+          "load_pages": 28,
+          "load_segments": 3
+        }
+      ],
+      "inventory": {
+        "version": "5",
+        "build": "7d475104a50f5c40ba9325a75ecaffbe3e85198212f28d4e78c7a367866d7481",
+        "session": "e28164e1e8c67a213215e05624080c1e7d70c2963a26bc8a94bf0db9062eb55d",
+        "session_origin": "host",
+        "seq": "204",
+        "stage": "desktop",
+        "outcome": "ok",
+        "emergency": "false",
+        "phase": "admitted",
+        "spaces": "7",
+        "allocations": "56",
+        "committed": "177508352",
+        "tables": "133",
+        "fixed_tables": "16908288",
+        "kernel_stacks": "458752",
+        "frames": "43337",
+        "reserve": "16777216",
+        "units": "7"
+      },
+      "settled": [],
+      "reviewer_negatives": 0,
+      "source_hashes_verified": true
+    },
+    "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+  },
+  "flavors": {
+    "path": "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794167304568750800\\flavors\\flavors.json",
+    "sha256": "0f6b200efc6c386be7026a3e21a5e78dd8691ead184a7f86e8d9bd52ca90cfd4",
+    "rows": [
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev"
+        ],
+        "flavor": "ordinary-minimal",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "desktop-runtime"
+        ],
+        "flavor": "desktop-runtime",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "desktop-test"
+        ],
+        "flavor": "desktop-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "user-boundary-test"
+        ],
+        "flavor": "user-boundary-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "scheduler-test"
+        ],
+        "flavor": "scheduler-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "capability-test"
+        ],
+        "flavor": "capability-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "channel-test"
+        ],
+        "flavor": "channel-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "wait-test"
+        ],
+        "flavor": "wait-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "supervisor-test"
+        ],
+        "flavor": "supervisor-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "policy-test"
+        ],
+        "flavor": "policy-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "route-test"
+        ],
+        "flavor": "route-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "sdk-test"
+        ],
+        "flavor": "sdk-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "sdk-runtime-test"
+        ],
+        "flavor": "sdk-runtime-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "stress-test"
+        ],
+        "flavor": "stress-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "stress-trace"
+        ],
+        "flavor": "stress-trace",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "stress-supervisor-test"
+        ],
+        "flavor": "stress-supervisor-test",
+        "exit_code": 0
+      }
+    ],
+    "execution": "reused completed components; exact arguments/source rechecked"
+  },
+  "error": "syscall assembly layout"
+}

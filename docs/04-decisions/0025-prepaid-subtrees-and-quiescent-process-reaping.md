@@ -2,6 +2,11 @@
 
 Status: Proposed. Date: 2026-10-30. Experiment: P3-09.
 
+P4-02 adds an independently bounded [trusted desktop bootstrap envelope](../05-delivery/phase-4/runtime-admission-runbook.md)
+without modifying the public eight-unit subtree or refund semantics. Its local
+[acceptance](../../evidence/phase-4/P4-02/final-1794169067563019600/README.md) passes for the exact finite subset. Finite kernel-owned role launch/watchdog scaffolding
+does not claim a general user-mode desktop service manager or persistent recovery.
+
 ## Decision
 
 Admit a deliberately small single-CPU supervision profile. A trusted static Rust

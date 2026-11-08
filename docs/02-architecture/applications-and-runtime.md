@@ -40,6 +40,13 @@ no foreign app is assumed to export M5-compatible state or typed actions.
 
 ## Application lifecycle
 
+P4-02's [runtime admission experiment](../05-delivery/phase-4/runtime-admission-runbook.md)
+passes local runtime acceptance: seven trusted role processes, private reclaiming heaps,
+bounded retries/watchdog and a withheld recovery reserve. These are nonrendering
+allocation/health scaffolds, not the actual shell/editor/compositor or a general
+service manager. The independent SDK remains unchanged. Guest toolkit/font work
+is still P4-07; behavior replacement and retirement remain M5.
+
 States: installed → starting → ready → running → quiescing → checkpointed → retiring
 → stopped, with failed/recovering branches. Ready means the app can serve declared
 interfaces, not merely that its process exists. A hung app is constrained by deadlines

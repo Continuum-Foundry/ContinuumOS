@@ -2,7 +2,11 @@
 
 ## Change-based story validation
 
-Owner-approved policy, 2026-11-07; applies prospectively to P4-02 and later stories.
+Owner-approved policy, 2026-11-07. On 2026-11-08 the owner first deferred it to
+P4-03, then explicitly requested slimmer current P4-02 validation. That later
+direction supersedes the earlier timing: P4-02 now uses its reviewed affected-check
+selection. Completed new-behavior components are re-reviewed on unchanged
+implementation; failed/interrupted full attempts remain non-passes.
 Routine story closeout requires fresh new-behavior acceptance, negative cases and
 affected regressions. It does **not** require every earlier milestone suite. This
 supersedes blanket per-story full M1/M3 rerun wording in older runbooks, without
@@ -35,13 +39,22 @@ milestone suites. Existing full M1/M2/M3 entry points remain unchanged. A story
 report cannot satisfy a milestone gate. Required new-feature stress/repetition
 counts remain mandatory even when unrelated historical suites are omitted.
 
+See [bounded execution and failure recovery](validation-run-control.md) for the
+P4-02 findings, preflight plan, first-failure procedure and single-writer rule.
+
 ### Commands and evidence
 
 `tools/story_validation.py` uses a manually authored JSON selection. The manifest
 contains `schema_version: 1`, `story`, `scope: "story"`, `impact` (subsystems,
 consumers, rationale, explicit broad M1/M2/M3 and shared-boundary flags, uncertain
 families), `selected` check IDs with reasons, `not_selected` family reasons and
-optional `historical_references`. Use `config/p4-02-validation.json` as the current
+optional `historical_references`. Guest-bearing runs also require an
+`execution_budget` with a VM launch ceiling and explicit full-suite opt-in. The
+preview and runner count nested launches in focused cases, include mandatory
+P4-02 repetitions, reject unclassified commands and enforce that ceiling before
+execution. Complete M3 internals are reported as unknown rather than an invented
+launch total; an explicit reason and unbounded full-suite opt-in are required.
+Use `config/p4-02-validation.json` as the current
 impact assessment, not a template requiring full M3 for every subsequent story.
 The catalog in the runner is an explicit command registry, not automatic selection.
 Add a focused command/reviewer adapter when a new subsystem needs one.
@@ -61,9 +74,11 @@ pwsh -NoProfile -File tools/Test-P4-02.ps1 -Manifest config/p4-02-validation.jso
 python tools/p4_runtime_acceptance.py review --acceptance <acceptance.json>
 ```
 
-The runner snapshots the complete current Git input set and actual tool/config
-context, executes selected leaf checks serially, and uses existing independent
-artifact oracles. Full M3 can explicitly cover M1, prerequisites and its required
+The runner records the complete Git input set and tool/config context, then
+separates implementation inputs from prose/evidence/index inputs for host audits.
+Code, schemas, config, assets, tools and new/deleted implementation files remain
+strict. It executes selected leaf checks serially with the persisted bounded plan
+and existing independent artifact oracles. Full M3 can explicitly cover M1, prerequisites and its required
 runtime checks once; coverage is recorded as `covered_by`, not another execution.
 Host index audits must still be repeated after staging when the index changes.
 
@@ -72,27 +87,39 @@ references, which confer no current pass. Full raw logs/artifacts stay local;
 compact reports include per-check times and exact hashes. Policy/sample/deadline
 changes require their own explicit decision, not a manifest omission.
 
-`--resume <failed-or-interrupted-acceptance.json>` creates a separate attempt and
-can retain successful checks only with identical manifest, entire source set,
-tool/config/environment context and retained artifact hashes, followed by focused
-re-review. Missing/changed inputs require a new run; this conservative initial
-implementation invalidates all prior checks rather than guessing dependencies.
-Output-directory-dependent metadata/portable checks run again. Failed/interrupted
-attempts remain local and never count as passes. No automatic retries are added.
+`--resume <acceptance.json>` creates a separate attempt from a failed,
+interrupted or passed record. Completed commands can be carried forward only
+with identical manifest, implementation inputs, tool/config context and artifact
+hashes, followed by focused re-review. Prose, retained evidence, commit metadata
+and staging do not force another unchanged guest run; selected documentation,
+governance and hygiene audits rerun against their complete current snapshot.
+Implementation/reviewer/config/asset changes still invalidate automatic reuse.
+Output-dependent metadata/portable checks run again. The original failed or
+interrupted attempt remains unchanged; no automatic retries are added.
 
-The current P4-02 diff changes memory, paging, exception/CPU entry, scheduling,
-timers and packaging; its assessment deliberately selects full M1/M3, with M1
-and ordinary kernel-host checks covered by M3. M2 remains omitted with rationale;
-the affected portable-link check still runs inside M3. Later narrow changes must
-receive their own smaller assessment. Runtime savings are reported only after
-measured runs, never estimated as an acceptance result.
+The reviewed P4-02 assessment retains both 101-test host suites, all five new
+desktop repetitions, ordinary graph boot and sixteen separate metadata flavors.
+The current closeout reopens those completed component artifacts, verifies their
+source/ELF/ISO bytes, and runs focused boundary, scheduler, capabilities, waits and
+SDK-runtime guests. Shared legacy changes extend desktop feature gates and preserve
+the narrower profiles; no broad boot or enforcement rewrite is accepted. Unchanged
+IPC/policy/route protocols and hosted UI are omitted with reasons in the selection.
+This bounded story result does not claim a fresh M1/M3 milestone exit. The owner
+requested this revised selection after stopping the full rerun; original failures
+and the interrupted aggregate remain retained. The source-lock deltas when carrying completed components forward are the selection
+JSON and two host-reviewer files correcting an obsolete boundary layout expectation.
+The current exact 21/16 syscall scratch/frame balance is checked explicitly; the
+historical P3-04 20/15 default remains unchanged. Measured guest implementation,
+profile, compiler and per-artifact checks still apply. Future
+changes need their own assessment; runtime savings require measurement.
 
-The policy/tooling change can land independently of the in-progress P4-02 kernel
+The policy/tooling change originally landed independently of the P4-02 kernel
 implementation. Its P4-02 selection and orchestration adapter are included, but
 execution requires that separate story's runtime profile, kernel/user payload,
 guest oracle and flavor script. Missing prerequisites fail before any command or
 guest launch; selection preview and synthetic tests remain available. This policy
-PR neither uploads that unfinished implementation nor closes P4-02.
+PR did not upload that implementation or close P4-02. The later P4-02 story
+acceptance is recorded separately below.
 
 ## Existing evidence and requirement traceability
 
@@ -215,7 +242,7 @@ R10/R14 or guest UI, live updating, accounts, durability or desktop efficiency.
 
 ## Requirement matrix
 
-M4 is planned in [nineteen Phase 4 stories](phase-4/README.md), all Not started.
+M4 is planned in [nineteen Phase 4 stories](phase-4/README.md); P4-01/P4-02 are Done and P4-03–P4-19 are Not started.
 Its [required acceptance matrix](phase-4/19-phase-4-acceptance.md#required-acceptance-matrix)
 maps B14–B17/B61 and the M4 B32 subset to actual guest evidence. P4-02–P4-06
 own T02/T03/T04/T06 runtime/device/surface/input boundaries; P4-07–P4-11 own
@@ -562,7 +589,7 @@ ordinary 30000-ms limits, unchanged sample counts and 320-ms guest checks;
 `original_limit_acceptance` is false. The strict historical M3 result stays
 unchanged. Failed/interrupted runs and unresolved timing variation remain findings.
 No guest desktop, driver, authenticated transport, reload, new ABI freeze or desktop
-efficiency target is accepted. P4-02 admission/reclamation is next.
+efficiency target is accepted. P4-02 now adds its bounded runtime admission subset below.
 
 ### Conditional profile and durable-dispatch cases
 
@@ -599,3 +626,7 @@ duplicate/reordered shards and partial cleanup before claiming native model load
 No guest filesystem, large mapping API or new SIMD state is inferred. The host
 documentation auditor guards the unchanged v1 limits; the existing PowerShell
 schema validator covers its nine positive and sixteen negative synthetic cases.
+
+## P4-02 runtime admission acceptance
+
+P4-02 [passes local Codex self-review](../../evidence/phase-4/P4-02/final-1794169067563019600/README.md): both 101-test host suites, five desktop guests with 248 criterion mutations each, sixteen separate metadata build flavors, ordinary seven-role CPL3 boot without acceptance observers, and selected boundary/scheduler/capability/wait/SDK-runtime regressions. Each desktop guest executes 900 heap cycles and image/grant/heap partial failures, prepared-graph abort, normal exit, panic, handled OOM, CPU-hog containment, two replacements and quarantine. Physical inventories return exactly to zero while 12 prepaid lifetime units remain spent. Ready/cleanup bounds remain 320 ms and ordinary/desktop guest deadlines remain 30000 ms. Only the two previously authorized M3 stress flavors use revision-2 60000 ms; this is not an original-limit M3 pass. Failed, timed-out and agent-superseded attempts remain retained findings. No actual UI, input, reload or desktop efficiency acceptance follows.

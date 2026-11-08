@@ -24,7 +24,7 @@ frames, owned page tables, guarded runtime/IST stacks and enforced WP/NX; check 
 [memory runbook and story review](phase-1/memory-ownership-runbook.md) before continuing.
 P1-06 adds [ACPI/xAPIC/HPET interrupts and delivered-tick uptime](phase-1/interrupts-timekeeping-runbook.md);
 its [local acceptance passes](../../evidence/phase-1/P1-06/2026-10-20/README.md).
-The current serial contract is version 5. No general heap or scheduler exists yet.
+The current serial contract is version 5. Later M3/P4 sections below record the bounded user-memory, scheduler and service runtimes.
 M1's complete experimental VM gate now passes local acceptance. There is no usable
 desktop, general driver stack or measured guest performance result. All ADRs are Proposed. Example
 contracts are drafts; sample IDs/digests are synthetic. Do not report implementation
@@ -43,7 +43,7 @@ ordinary preference learning; OS allowance foundation governed by all applicable
 budgets. R20–R27 are conditional; B67–B82/M23–M26 are new independent planning
 entries, Not started. B39/M21 follows M5 and B67/B68, with an ephemeral first subset.
 No funded amount, native runtime/server port or AI guest acceptance is established.
-Preserve P4-02, existing release exits/evidence, 256 MiB model-unloaded target
+Preserve the ordered Phase 4 gates, existing release exits/evidence, 256 MiB model-unloaded target
 (dormant AI included), separate resident/active/default/peak profiles and handling
 hold. Detailed P5–P26 stories await milestone-decomposition requests.
 
@@ -59,14 +59,15 @@ hold. Detailed P5–P26 stories await milestone-decomposition requests.
 
 ## Next action
 
+Use the [bounded run and failure-recovery procedure](validation-run-control.md) before guest execution: preview a counted plan, keep one checkout writer, stop/diagnose the first failure, and resume proven unaffected work. Prose/evidence/staging revisions rerun host audits.
+
 Use [change-based story validation](validation.md#change-based-story-validation)
 for P4-02 onward: record impact/consumers and selected tests before execution;
 run new-behavior acceptance and affected regressions rather than recursively
 rerunning all earlier milestone gates. Complete suites remain mandatory at
 milestone exits and for relevant broad/uncertain impact. Keep separate build
 flavors, negative cases, original counts/deadlines and serial execution. Current
-P4-02 has an explicit broad-impact selection in `config/p4-02-validation.json`;
-it is not a standing full-suite requirement for later stories.
+P4-02 uses the owner-requested focused selection in `config/p4-02-validation.json`: completed new-behavior components are independently re-reviewed, then boundary, scheduler, capabilities, waits and SDK-runtime regressions execute. Full interrupted/failed attempts remain non-passes; no new milestone exit is claimed.
 
 M3's [strict original-limit acceptance](../../evidence/phase-3/P3-14/2026-11-06/README.md)
 remains historical. P4-01 now passes [local prerequisite/profile acceptance](../../evidence/phase-4/P4-01/final-1794022944926085700/README.md)
@@ -78,12 +79,14 @@ only for the two long stress flavors; ordinary/SDK/public-supervision guests
 remain 30000 ms, counts and 320-ms guest bounds stay fixed, and this is explicitly
 not original-limit acceptance. Failed/interrupted runs remain findings.
 
-Continue with [P4-02](phase-4/02-desktop-runtime-capacity-and-lifecycle.md).
-P4-02 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
+P4-02 passes [local runtime-admission self-review](../../evidence/phase-4/P4-02/final-1794169067563019600/README.md) on frozen source: two 101-test host suites, five desktop guests, sixteen separate metadata flavors, ordinary seven-role CPL3 boot without acceptance observers, and selected boundary/scheduler/capability/wait/SDK-runtime regressions. The admitted graph has 168 MiB of fixed private heaps, attenuated self/timer authority, two bounded retries, prepaid nonrefundable credits and exact teardown. Real rendering, input, transport and reload remain open.
+
+Continue with [P4-03](phase-4/03-device-authority-irqs-and-dma.md).
+P4-03 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
 through runtime/device foundations, guest UI/input/semantics, protected input and
 B61, authenticated transport, resource publication, faults, metrics and sustained
-reloads before final M4 review. Runtime ceilings are proposed, host codecs remain
-draft and only the existing exact SDK subset is frozen. No Jira issues were
+reloads before final M4 review. The tested finite runtime profile remains experimental; broader desktop capacities
+and host codecs remain proposed/draft, and only the existing exact SDK subset is frozen. No Jira issues were
 created. Guest UI/reload and desktop efficiency targets remain open.
 
 Repository rights and governance are defined in [LEGAL.md](../../LEGAL.md),

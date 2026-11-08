@@ -1680,3 +1680,41 @@ copy of the original pre-commit hook with no pre-push hook. The installed
 merge, release, other destination, new remote build or standing exemption is
 granted. Geographic containment remains unverified; this administrative exception
 is not legal clearance or a finding of U.S.-only handling.
+
+## One-time owner exemption — P4-02 and bounded validation, 2026-11-08
+
+After P4-02 local story acceptance, the owner instructed: "I give you exemption
+to make PR and figure out how we don't go through this hell in the future?".
+This authorizes one push and one PR for the exact reviewed task payload represented,
+before this record, by Git tree `3298aacaeafc19371ff2f8857a40bf388b1443a1`,
+based on `a7fd7cedb37932a701db98dbf6f57cab23053e8e`, plus this record.
+
+The 243-file delta contains P4-02 trusted runtime admission, reclaiming heaps,
+bounded lifecycle/authority implementation and xtask integration; scoped reviewer
+repairs; documentation/experimental contract and proposed ADR updates; compact
+reviewed success/failure evidence; and the host-only bounded validation plan,
+launch-ceiling and audit-only resume safeguards with their tests and runbook.
+Accepted guest inputs are unchanged by the host-only follow-up. The already merged
+validation-policy PR #39 is part of the base, not another new upload request.
+
+Destination: `https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/p4-02-runtime-admission`, followed by one PR against `main` titled
+"Complete P4-02 runtime admission and bound story validation". The exact prepared PR body's SHA-256 is
+`825f0277766bfc6b20240b98ccf68fc9d5b9b864ced39681389ceaebb75b4329`. This exemption includes that description and PR metadata.
+
+Excluded: `docs/05-delivery/windows-development-signing.md`,
+`tools/windows/New-DevPolicy.ps1`, `tools/windows/Set-DevMachinePolicy.ps1`;
+full generated runs/logs, source copies, binaries, ISOs, caches, credentials and
+private keys. Historical acceptance snapshots are not rewritten. No fresh full
+M1/M3 milestone pass, guest rendering/reload or desktop efficiency claim is granted.
+Final relevant host audits and the exact staged snapshot must pass before upload.
+The ordinary commit retains the installed pre-commit check.
+
+The push exemption is exhausted by the first successful push containing this
+record; the PR exemption is exhausted by creation of that one PR. For that push
+only, command-local `core.hooksPath=work/p4-02-pr/hooks` may select a directory
+containing an exact copy of the installed pre-commit hook and no pre-push hook.
+The installed `.githooks/pre-push` and configured `.githooks` path remain afterward.
+No force push, merge, release, other destination, new remote build or standing
+exemption is granted. Geographic containment remains unverified; this is an
+administrative exception, not legal clearance or a finding of U.S.-only handling.

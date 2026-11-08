@@ -22,7 +22,8 @@ def selection(story='policy-update', checks=('docs',)):
                        'shared_boundary_scheduler': False, 'uncertain_families': []},
             'selected': [{'id': key, 'reason': 'Affected behavior.'} for key in checks],
             'not_selected': {f: 'Unchanged unrelated subsystem.' for f in validation.FAMILIES},
-            'historical_references': []}
+            'historical_references': [],
+            'execution_budget': {'max_vm_launches': 16, 'allow_full_suites': False}}
 
 
 class SelectionTests(unittest.TestCase):
@@ -84,9 +85,10 @@ class SelectionTests(unittest.TestCase):
                          ['desktop-' + str(i) for i in range(5)])
         self.assertIn('ordinary', checks)
         self.assertIn('flavors', checks)
-        self.assertIn('full-m3', checks)
+        self.assertNotIn('full-m3', checks)
         self.assertNotIn('full-m1', checks)
-        self.assertNotIn('kernel-host', checks)
+        self.assertIn('kernel-host', checks)
+        self.assertTrue({'boundary', 'scheduler', 'capabilities', 'waits', 'sdk-runtime'} <= set(checks))
 
     def test_p402_adapter_requires_separate_implementation_before_execution(self):
         with tempfile.TemporaryDirectory() as folder, patch.object(p4, 'ROOT', Path(folder)), \
@@ -94,6 +96,64 @@ class SelectionTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'implementation prerequisites missing'):
                 p4.run_gate(p4.DEFAULT_MANIFEST)
             session.assert_not_called()
+
+
+class BudgetTests(unittest.TestCase):
+    def test_actual_plan_counts_every_nested_guest_before_execution(self):
+        manifest = base.read(p4.DEFAULT_MANIFEST)
+        plan = validation.execution_plan(manifest, p4.expected_checks(manifest))
+        self.assertEqual(plan['vm_launches'], 16)
+        self.assertEqual(plan['vm_launches_by_check']['boundary'], 4)
+        self.assertEqual(plan['vm_launches_by_check']['scheduler'], 3)
+        self.assertEqual(plan['separate_metadata_builds'], 16)
+        self.assertEqual(plan['full_suites'], [])
+
+    def test_ceiling_blocks_adapter_before_any_session_or_guest(self):
+        manifest = base.read(p4.DEFAULT_MANIFEST)
+        manifest['execution_budget']['max_vm_launches'] = 15
+        with tempfile.TemporaryDirectory(dir=base.ROOT/'work') as folder:
+            path = Path(folder)/'selection.json'
+            base.save(path, manifest)
+            with patch.object(p4, 'require_implementation'), patch.object(validation, 'Session') as session:
+                with self.assertRaisesRegex(ValueError, 'budget exceeded'):
+                    p4.run_gate(path)
+                session.assert_not_called()
+
+    def test_full_suite_cannot_sneak_into_bounded_story(self):
+        for key in ('full-m1', 'full-m2', 'full-m3'):
+            manifest = selection(checks=(key,))
+            with self.assertRaisesRegex(ValueError, 'explicit budget opt-in'):
+                validation.execution_plan(manifest)
+
+    def test_unknown_full_count_must_be_explicit_and_unbounded(self):
+        manifest = selection(checks=('full-m3',))
+        manifest['execution_budget']['allow_full_suites'] = True
+        with self.assertRaisesRegex(ValueError, 'unknown full-suite count'):
+            validation.execution_plan(manifest)
+        manifest['execution_budget'].update(max_vm_launches=None, full_suite_reason='Explicit broad enforcement change.')
+        self.assertIsNone(validation.execution_plan(manifest)['vm_launches'])
+
+    def test_guest_selection_requires_budget_but_prose_does_not(self):
+        manifest = selection(checks=('boundary',))
+        manifest.pop('execution_budget')
+        with self.assertRaisesRegex(ValueError, 'explicit execution_budget'):
+            validation.execution_plan(manifest)
+        manifest['selected'] = [{'id': 'docs', 'reason': 'Prose only.'}]
+        self.assertEqual(validation.execution_plan(manifest)['vm_launches'], 0)
+
+    def test_new_unclassified_catalog_command_cannot_hide_launches(self):
+        manifest = selection()
+        with patch.object(validation, 'catalog', return_value={'docs': (['tool'], 1), 'future': (['guest-runner'], 1)}):
+            manifest['selected'] = [{'id': 'future', 'reason': 'New command.'}]
+            with self.assertRaisesRegex(ValueError, 'launch classification'):
+                validation.execution_plan(manifest)
+
+    def test_invalid_or_unexplained_unbounded_budget_rejects(self):
+        for maximum in (-1, True, '16', None):
+            manifest = selection()
+            manifest['execution_budget']['max_vm_launches'] = maximum
+            with self.assertRaises(ValueError):
+                validation.execution_plan(manifest)
 
 
 class JournalTests(unittest.TestCase):
@@ -210,6 +270,52 @@ class JournalTests(unittest.TestCase):
         self.context['compiler'] = 'changed'
         with self.assertRaisesRegex(ValueError, 'context changed'):
             other.finish(['docs'])
+
+    def test_prose_evidence_and_index_changes_rerun_audits_not_guest_checks(self):
+        manifest = selection(checks=('kernel-host', 'docs'))
+        def make(name, resume=None):
+            return validation.Session(manifest, self.root/name, resume,
+                                      snapshot=lambda: copy.deepcopy(self.sources),
+                                      context=lambda: copy.deepcopy(self.context))
+        original = make('initial')
+        for key in ('kernel-host', 'docs'):
+            args, limit = validation.catalog()[key]
+            original.check(key, args, limit, execute=self.execute)
+        original.report['covered_by'] = {}
+        original.finish(['kernel-host', 'docs'])
+        path = original.folder/'acceptance.json'
+        before = path.read_bytes()
+        self.sources.update({'docs/story.md': 'new prose', 'evidence/final/report.json': 'new evidence', '@git-index': 'new staging'})
+        resumed = make('host-audits-only', path)
+        for key in ('kernel-host', 'docs'):
+            args, limit = validation.catalog()[key]
+            resumed.check(key, args, limit, execute=self.execute)
+        resumed.report['covered_by'] = {}
+        resumed.finish(['kernel-host', 'docs'])
+        self.assertEqual(self.calls, ['kernel-host', 'docs', 'docs'])
+        self.assertTrue(resumed.report['checks'][0]['resumed'])
+        self.assertFalse(resumed.report['checks'][1]['resumed'])
+        self.assertEqual(path.read_bytes(), before)
+        with patch.object(validation, 'source_snapshot', return_value=self.sources), \
+             patch.object(validation, 'context_snapshot', return_value=self.context):
+            validation.review_report(resumed.folder/'acceptance.json', ['kernel-host', 'docs'])
+            with self.assertRaisesRegex(ValueError, 'stale host audits'):
+                validation.review_report(path, ['kernel-host', 'docs'])
+
+    def test_contract_config_and_assets_remain_implementation_inputs(self):
+        for name in ('docs/profile.json', 'contracts/protocol.md', 'fixtures/font.ttf', 'config/profile.json', 'tools/reviewer.py'):
+            self.assertIn(name, validation.implementation_inputs({name: 'hash'}))
+
+    def test_audit_change_mid_check_and_unplanned_check_reject(self):
+        session = self.session('audit-change')
+        def mutate(folder, key, args, limit):
+            result = self.execute(folder, key, args, limit)
+            self.sources['docs/story.md'] = 'changed during audit'
+            return result
+        with self.assertRaisesRegex(ValueError, 'audit inputs changed'):
+            self.check(session, execute=mutate)
+        with self.assertRaisesRegex(ValueError, 'bounded plan'):
+            session.check('boundary', ['guest'], 1, execute=self.execute)
 
     def test_timeout_or_failed_oracle_never_passes(self):
         for index, change in enumerate(({'exit_code': 7}, {'timed_out': True}, {'cleanup_reaped': False})):

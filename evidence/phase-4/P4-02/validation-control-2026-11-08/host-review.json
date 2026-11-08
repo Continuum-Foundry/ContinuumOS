@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "story": "P4-02 validation-control follow-up",
+  "status": "passed",
+  "scope": "host-only PR preparation after accepted guest snapshot",
+  "new_vm_launches": 0,
+  "original_full_acceptance_sha256": "74b5535f941cd5bb590f7dffb483b2af3ec5d7c9507c6054479edbd43aa3bd5a",
+  "full_report_local_path": "${WORKSPACE}\\build\\story-validation\\validation-policy\\1794173796766630100\\acceptance.json",
+  "plan": {
+    "scope": "story",
+    "execute": [
+      "runner-tests",
+      "child-runner-tests",
+      "hygiene-tests",
+      "docs",
+      "governance",
+      "hygiene"
+    ],
+    "covered_by": {},
+    "command_groups": 6,
+    "vm_launches": 0,
+    "vm_launches_by_check": {
+      "runner-tests": 0,
+      "child-runner-tests": 0,
+      "hygiene-tests": 0,
+      "docs": 0,
+      "governance": 0,
+      "hygiene": 0
+    },
+    "unknown_launch_counts": [],
+    "full_suites": [],
+    "separate_metadata_builds": 0,
+    "execution_budget": {
+      "max_vm_launches": 0,
+      "allow_full_suites": false
+    }
+  },
+  "tests": {
+    "orchestration_budget_resume": 25,
+    "bounded_child_runner": 7,
+    "repository_hygiene": 8
+  },
+  "commands": [
+    {
+      "name": "runner-tests",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-StoryValidation.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T21:37:01.658307+00:00",
+      "finished_utc": "2026-11-08T21:37:03.471793+00:00",
+      "timed_out": false,
+      "deadline_seconds": 60,
+      "cleanup_reaped": true,
+      "elapsed_ms": 1813
+    },
+    {
+      "name": "child-runner-tests",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-P3-14Runner.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T21:37:16.113188+00:00",
+      "finished_utc": "2026-11-08T21:37:23.511300+00:00",
+      "timed_out": false,
+      "deadline_seconds": 60,
+      "cleanup_reaped": true,
+      "elapsed_ms": 7391
+    },
+    {
+      "name": "hygiene-tests",
+      "arguments": [
+        "node",
+        "--test",
+        "audit/check-repository-hygiene.test.cjs"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T21:37:36.612598+00:00",
+      "finished_utc": "2026-11-08T21:39:15.228644+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 98610
+    },
+    {
+      "name": "docs",
+      "arguments": [
+        "node",
+        "audit/check-docs.cjs"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T21:39:27.450592+00:00",
+      "finished_utc": "2026-11-08T21:39:28.217345+00:00",
+      "timed_out": false,
+      "deadline_seconds": 120,
+      "cleanup_reaped": true,
+      "elapsed_ms": 766
+    },
+    {
+      "name": "governance",
+      "arguments": [
+        "node",
+        "audit/check-governance.cjs"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T21:39:40.432067+00:00",
+      "finished_utc": "2026-11-08T21:39:43.557973+00:00",
+      "timed_out": false,
+      "deadline_seconds": 120,
+      "cleanup_reaped": true,
+      "elapsed_ms": 3125
+    },
+    {
+      "name": "hygiene",
+      "arguments": [
+        "node",
+        "audit/check-repository-hygiene.cjs"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T21:39:56.793926+00:00",
+      "finished_utc": "2026-11-08T21:40:10.103732+00:00",
+      "timed_out": false,
+      "deadline_seconds": 1800,
+      "cleanup_reaped": true,
+      "elapsed_ms": 13313
+    }
+  ],
+  "checks": [
+    {
+      "id": "runner-tests",
+      "status": "fresh-pass",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "elapsed_ms": 1813
+    },
+    {
+      "id": "child-runner-tests",
+      "status": "fresh-pass",
+      "stdout_sha256": "9399fb4d3af03271b35f6d631f2ffdf6dbceda93d5d12319096d15b3ed402fee",
+      "elapsed_ms": 7391
+    },
+    {
+      "id": "hygiene-tests",
+      "status": "fresh-pass",
+      "stdout_sha256": "8d9676b0a2aaf77d18015aaa665d985f395d4b27a6d1e7556bebe3ac8300231b",
+      "elapsed_ms": 98610
+    },
+    {
+      "id": "docs",
+      "status": "fresh-pass",
+      "stdout_sha256": "74f7140f5bbccaa099522600804b972a9e28ddc15770aaf0b9b760897c25f0cb",
+      "elapsed_ms": 766
+    },
+    {
+      "id": "governance",
+      "status": "fresh-pass",
+      "stdout_sha256": "e60f3da537452cbca0116a14e6a4dbf744f2e0a4051914ca5e07d0f23877a89f",
+      "elapsed_ms": 3125
+    },
+    {
+      "id": "hygiene",
+      "status": "fresh-pass",
+      "stdout_sha256": "6604a837efb92af235ca8f082f131b8368e561ea21a74c2ea434bf2679b152b3",
+      "elapsed_ms": 13313
+    }
+  ],
+  "review": "Existing story reviewer reopened the full local report successfully; local agent self-review, not external approval",
+  "projection": "Compact complete command/check outcomes; full source/context/artifact maps and complete logs stay local"
+}

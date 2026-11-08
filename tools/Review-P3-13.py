@@ -413,8 +413,10 @@ def aggregate(path, destination=None):
     require(all('--release' in c['arguments'] and '--locked' in c['arguments'] and '--offline' in c['arguments'] for c in acceptance['commands'] if c['program']=='cargo'),'unoptimized/unlocked stress observer')
     require(digest(ROOT/'contracts/sdk-v1.json')=='debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b','changed frozen SDK contract')
     prior=Path(acceptance['runs']['prior_acceptance']);previous=read(prior.parent/'review.json')
-    require(previous['story']=='P3-12' and previous['scope']=='final-source local acceptance' and previous['acceptance_sha256']==digest(prior) and previous['regression']['kernel_host_tests']==97,'missing final runtime regression review')
     prior_runs=read(prior)['runs'];sources=read(Path(prior_runs['sdk'])/'build-inputs.json')['sources']
+    host=(Path(prior_runs['m1'])/'kernel-host/check.stdout.log').read_text(encoding='utf-8-sig')
+    host_count=prior_reviewer().routes.host_coverage(host)
+    require(previous['story']=='P3-12' and previous['scope']=='final-source local acceptance' and previous['acceptance_sha256']==digest(prior) and host_count in (97,101) and previous['regression']['kernel_host_tests']==host_count,'missing final runtime regression review')
     if 'regression_reuse' in acceptance:
         reuse=acceptance['regression_reuse'];manifest=Path(reuse['source_manifest'])
         require(reuse['acceptance_sha256']==digest(prior) and reuse['source_manifest_sha256']==digest(manifest) and read(manifest)==sources and reuse['validated_files']==len(sources),'invalid regression source reuse proof')

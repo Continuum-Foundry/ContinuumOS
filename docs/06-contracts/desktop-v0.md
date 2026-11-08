@@ -19,6 +19,23 @@ leases/focus/authority, physical input and authenticated sessions remain the
 owning later stories' tests. The dev decoder's Boolean authentication result is
 a trusted session-layer model for host tests, never a wire credential or crypto.
 
+## P4-02 private trusted launch record
+
+P4-02's runtime experiment adds a private read-only page at `0x70000000`, with
+six little-endian 64-bit fields: role index at byte 0, admitted heap bytes at 8,
+self-process handle at 16, self-thread handle at 24, timer handle at 32 and trusted
+workload mode at 40. The rest is zeroed. Heap backing starts at `0x40000000` in
+that owner's private address space. Fields are written individually; no Rust
+struct layout is transmitted. The kernel assigns the actual identity separately.
+Changing a private role word cannot change current-caller provenance or authority.
+
+This record has no public operation ID, negotiation or ABI freeze. The build binds
+its exact static payload hashes and profile; record and consumer must change
+together and pass P4-02 review. Ordinary mode is zero; acceptance modes are selected
+only by registered test policy in the explicitly built desktop test flavor.
+The surface/input/semantic/output families below still require their later guest
+consumers. See the [runtime runbook](../05-delivery/phase-4/runtime-admission-runbook.md).
+
 ## Common desktop message envelope
 
 Propose a 64-byte little-endian envelope for the surface, input, semantic and

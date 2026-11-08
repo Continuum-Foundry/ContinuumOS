@@ -1,0 +1,12 @@
+{
+  "scope": "owner-directed selected current-campaign closeout; exact command records are in acceptance.json; full source remains local",
+  "driver": {
+    "local_path": "work/p4-02-selected-closeout.py",
+    "sha256": "4f88a48d8c8c80d2d2699333aaa4d6a9db1f15046afad91c295d760f2a7ee333"
+  },
+  "reviewer": {
+    "local_path": "work/p4-02-selected-review.py",
+    "sha256": "2e19a130804ae9b9e1a3665866348e6c8c688410ad0354c0a79fc3022622f834"
+  },
+  "source_delta": "selection JSON plus two host-reviewer compatibility edits; guest/compiler/profile bytes rechecked by existing artifact oracles"
+}

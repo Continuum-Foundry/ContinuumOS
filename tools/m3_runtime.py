@@ -3,14 +3,33 @@
 No guest code is executed here. Actual baseline VMs use Test-P1-07.ps1.
 Only this script's fixed child can be launched; no arbitrary executable option.
 """
+# The fixed child needs no parent admission or process-management imports.
+# Its original deadline still starts before Popen and includes interpreter startup.
+import sys
+import json
+import time
+
+def child(case, run_id, image_sha256):
+    if case == "timeout":
+        time.sleep(60)
+    elif case == "nonzero":
+        return 7
+    elif case == "missing-final":
+        print(json.dumps({"version": 1, "event": "started", "run_id": run_id}))
+    else:
+        print(json.dumps({"version": 1, "event": "complete", "run_id": run_id,
+                          "image_sha256": image_sha256}))
+    return 0
+
+
+if __name__ == "__main__" and len(sys.argv) == 5 and sys.argv[1] == "child":
+    raise SystemExit(child(*sys.argv[2:]))
+
 import argparse
 import hashlib
-import json
 import os
 from pathlib import Path
 import subprocess
-import sys
-import time
 import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -110,19 +129,6 @@ def image_check(path, expected, maximum):
             header[16:20] == b"\x02\x00\x3e\x00", "not a static x86-64 ELF64 LE image")
     # This is identity/header admission only. The P3-03 loader owns segment validation.
     return path
-
-
-def child(case, run_id, image_sha256):
-    if case == "timeout":
-        time.sleep(60)
-    elif case == "nonzero":
-        return 7
-    elif case == "missing-final":
-        print(json.dumps({"version": 1, "event": "started", "run_id": run_id}))
-    else:
-        print(json.dumps({"version": 1, "event": "complete", "run_id": run_id,
-                          "image_sha256": image_sha256}))
-    return 0
 
 
 def run(profile_path, image, image_sha256, case, interpreter=None):

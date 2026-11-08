@@ -1,0 +1,494 @@
+{
+  "schema_version": 1,
+  "story": "P3-13",
+  "status": "failed",
+  "source_commit": "7959d1a6230cee72842b802a6f3afad5b39aa673",
+  "native_observer_profile": "release",
+  "commands": [
+    {
+      "name": "public-supervision",
+      "finished_utc": "2026-11-07T20:28:22.4872234+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 60847,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-supervisor"
+      ],
+      "started_utc": "2026-11-07T20:27:21.6330470+00:00"
+    },
+    {
+      "name": "public-supervision-review",
+      "finished_utc": "2026-11-07T20:28:23.6689426+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 1139,
+      "program": "python",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--supervisor",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-supervisor-1794083260341796400-17312",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\public-supervision-review"
+      ],
+      "started_utc": "2026-11-07T20:28:22.5290851+00:00"
+    },
+    {
+      "name": "stress-off-0",
+      "finished_utc": "2026-11-07T20:29:27.0878141+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 63372,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ],
+      "started_utc": "2026-11-07T20:28:23.7146927+00:00"
+    },
+    {
+      "name": "stress-off-0-review",
+      "finished_utc": "2026-11-07T20:29:31.3902606+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 4279,
+      "program": "python",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-1794083305294650600-10744",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-off-0-review"
+      ],
+      "started_utc": "2026-11-07T20:29:27.1103995+00:00"
+    },
+    {
+      "name": "stress-flavors",
+      "finished_utc": "2026-11-07T20:29:51.9355991+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 20541,
+      "program": "pwsh",
+      "arguments": [
+        "-NoProfile",
+        "-File",
+        "tools/Check-P3-13Flavors.ps1",
+        "-Descriptors",
+        "${WORKSPACE}\\build/m1\\sdk-stress-1794083305294650600-10744",
+        "-Output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\flavors"
+      ],
+      "started_utc": "2026-11-07T20:29:31.3941314+00:00"
+    },
+    {
+      "name": "stress-on-0",
+      "finished_utc": "2026-11-07T20:30:43.3205699+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 51382,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ],
+      "started_utc": "2026-11-07T20:29:51.9373621+00:00"
+    },
+    {
+      "name": "stress-on-0-review",
+      "finished_utc": "2026-11-07T20:30:47.2456017+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 3907,
+      "program": "python",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-trace-1794083393298933400-11324",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-on-0-review"
+      ],
+      "started_utc": "2026-11-07T20:30:43.3382060+00:00"
+    },
+    {
+      "name": "stress-off-1",
+      "finished_utc": "2026-11-07T20:31:38.1656546+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 50918,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ],
+      "started_utc": "2026-11-07T20:30:47.2465069+00:00"
+    },
+    {
+      "name": "stress-off-1-review",
+      "finished_utc": "2026-11-07T20:31:42.5419585+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 4351,
+      "program": "python",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-1794083448901550500-15784",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-off-1-review"
+      ],
+      "started_utc": "2026-11-07T20:31:38.1900662+00:00"
+    },
+    {
+      "name": "stress-on-1",
+      "finished_utc": "2026-11-07T20:32:36.3937954+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 53850,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ],
+      "started_utc": "2026-11-07T20:31:42.5428695+00:00"
+    },
+    {
+      "name": "stress-on-1-review",
+      "finished_utc": "2026-11-07T20:32:40.8905442+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 4477,
+      "program": "python",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-trace-1794083504156717000-15588",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-on-1-review"
+      ],
+      "started_utc": "2026-11-07T20:32:36.4126669+00:00"
+    },
+    {
+      "name": "stress-off-2",
+      "finished_utc": "2026-11-07T20:33:34.7938476+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 53902,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ],
+      "started_utc": "2026-11-07T20:32:40.8914815+00:00"
+    },
+    {
+      "name": "stress-off-2-review",
+      "finished_utc": "2026-11-07T20:33:39.2324282+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 4417,
+      "program": "python",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-1794083562790351200-16748",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-off-2-review"
+      ],
+      "started_utc": "2026-11-07T20:33:34.8144971+00:00"
+    },
+    {
+      "name": "stress-on-2",
+      "finished_utc": "2026-11-07T20:34:41.3462443+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 62112,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ],
+      "started_utc": "2026-11-07T20:33:39.2332702+00:00"
+    },
+    {
+      "name": "stress-on-2-review",
+      "finished_utc": "2026-11-07T20:34:45.7540600+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 4392,
+      "program": "python",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-trace-1794083621229780500-10720",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-on-2-review"
+      ],
+      "started_utc": "2026-11-07T20:34:41.3597082+00:00"
+    },
+    {
+      "name": "stress-off-3",
+      "finished_utc": "2026-11-07T20:35:38.2438162+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 52488,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ],
+      "started_utc": "2026-11-07T20:34:45.7551918+00:00"
+    },
+    {
+      "name": "stress-off-3-review",
+      "finished_utc": "2026-11-07T20:35:42.6551217+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 4392,
+      "program": "python",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-1794083687533564200-19868",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-off-3-review"
+      ],
+      "started_utc": "2026-11-07T20:35:38.2623659+00:00"
+    },
+    {
+      "name": "stress-on-3",
+      "finished_utc": "2026-11-07T20:36:35.9149664+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 53259,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ],
+      "started_utc": "2026-11-07T20:35:42.6557852+00:00"
+    },
+    {
+      "name": "stress-on-3-review",
+      "finished_utc": "2026-11-07T20:36:40.3762745+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 4444,
+      "program": "python",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-trace-1794083744200340800-16784",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-on-3-review"
+      ],
+      "started_utc": "2026-11-07T20:36:35.9310091+00:00"
+    },
+    {
+      "name": "stress-off-4",
+      "finished_utc": "2026-11-07T20:37:34.9650300+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 54586,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress"
+      ],
+      "started_utc": "2026-11-07T20:36:40.3776491+00:00"
+    },
+    {
+      "name": "stress-off-4-review",
+      "finished_utc": "2026-11-07T20:37:39.4819698+00:00",
+      "exit_code": 0,
+      "elapsed_ms": 4495,
+      "program": "python",
+      "arguments": [
+        "tools/Review-P3-13.py",
+        "--run",
+        "${WORKSPACE}\\build/m1\\sdk-stress-1794083802114944000-21480",
+        "--output",
+        "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-off-4-review"
+      ],
+      "started_utc": "2026-11-07T20:37:34.9864410+00:00"
+    },
+    {
+      "name": "stress-on-4",
+      "finished_utc": "2026-11-07T20:40:52.6253240+00:00",
+      "exit_code": 1,
+      "elapsed_ms": 193142,
+      "program": "cargo",
+      "arguments": [
+        "run",
+        "--release",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-stress-trace"
+      ],
+      "started_utc": "2026-11-07T20:37:39.4827412+00:00"
+    }
+  ],
+  "runs": {
+    "public_supervision": "${WORKSPACE}\\build/m1\\sdk-stress-supervisor-1794083260341796400-17312",
+    "flavors": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\flavors"
+  },
+  "stress": [
+    {
+      "artifacts": "${WORKSPACE}\\build/m1\\sdk-stress-1794083305294650600-10744",
+      "review": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-off-0-review",
+      "trace": "off",
+      "repetition": 0,
+      "status": "passed"
+    },
+    {
+      "artifacts": "${WORKSPACE}\\build/m1\\sdk-stress-trace-1794083393298933400-11324",
+      "review": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-on-0-review",
+      "trace": "on",
+      "repetition": 0,
+      "status": "passed"
+    },
+    {
+      "artifacts": "${WORKSPACE}\\build/m1\\sdk-stress-1794083448901550500-15784",
+      "review": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-off-1-review",
+      "trace": "off",
+      "repetition": 1,
+      "status": "passed"
+    },
+    {
+      "artifacts": "${WORKSPACE}\\build/m1\\sdk-stress-trace-1794083504156717000-15588",
+      "review": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-on-1-review",
+      "trace": "on",
+      "repetition": 1,
+      "status": "passed"
+    },
+    {
+      "artifacts": "${WORKSPACE}\\build/m1\\sdk-stress-1794083562790351200-16748",
+      "review": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-off-2-review",
+      "trace": "off",
+      "repetition": 2,
+      "status": "passed"
+    },
+    {
+      "artifacts": "${WORKSPACE}\\build/m1\\sdk-stress-trace-1794083621229780500-10720",
+      "review": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-on-2-review",
+      "trace": "on",
+      "repetition": 2,
+      "status": "passed"
+    },
+    {
+      "artifacts": "${WORKSPACE}\\build/m1\\sdk-stress-1794083687533564200-19868",
+      "review": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-off-3-review",
+      "trace": "off",
+      "repetition": 3,
+      "status": "passed"
+    },
+    {
+      "artifacts": "${WORKSPACE}\\build/m1\\sdk-stress-trace-1794083744200340800-16784",
+      "review": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-on-3-review",
+      "trace": "on",
+      "repetition": 3,
+      "status": "passed"
+    },
+    {
+      "artifacts": "${WORKSPACE}\\build/m1\\sdk-stress-1794083802114944000-21480",
+      "review": "${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031\\stress-off-4-review",
+      "trace": "off",
+      "repetition": 4,
+      "status": "passed"
+    }
+  ],
+  "diagnostic_only": false,
+  "native_observer": {
+    "sha256": "92056d56e5443ffecd3f4e2b7138f3957d1066bc82538ee48bcc2c4dd9d6dc32",
+    "path": "${WORKSPACE}\\build\\cargo\\signed\\release\\xtask.exe"
+  },
+  "error": "Failed stress-on-4; see ${WORKSPACE}\\build\\m3\\P3-13\\acceptance-1794083170031"
+}

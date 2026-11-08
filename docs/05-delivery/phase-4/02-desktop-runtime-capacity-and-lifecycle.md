@@ -1,6 +1,6 @@
 # P4-02 — Admit long-lived UI services and reclaiming heaps
 
-Issue type: Story. Epic: P4. Status: Not started. Owner: Kernel/Runtime.
+Issue type: Story. Epic: P4. Status: Done. Owner: Kernel/Runtime.
 Depends on: P4-01. Backlog: B13/B16 runtime follow-up.
 Requirements: R03/R09/R10/R14/R18. Test families: T02/T03/T06/T09/T11.
 Labels: `phase-4`, `runtime`, `allocation`.
@@ -28,15 +28,15 @@ lifecycle to render repeatedly without exhausting a test arena or launch credits
 
 ## Acceptance criteria
 
-- [ ] Real admitted UI-sized allocation/reallocation/free workloads execute in
+- [x] Real admitted UI-sized allocation/reallocation/free workloads execute in
   guest processes and settle exactly; no bump-only probe allocator is reused.
-- [ ] Capacity denial and partial-start failure unwind without consuming recovery
+- [x] Capacity denial and partial-start failure unwind without consuming recovery
   reserves or granting authority; source/profile changes have independent review.
-- [ ] Service exit, panic, OOM, hung worker and exhausted restart/lifetime budget
+- [x] Service exit, panic, OOM, hung worker and exhausted restart/lifetime budget
   have bounded outcomes while a healthy control task and serial diagnostics progress.
-- [ ] Ordinary image boots its trusted service graph without test hooks; separate
+- [x] Ordinary image boots its trusted service graph without test hooks; separate
   boundary/scheduler/capability and affected later build flavors pass regressions.
-- [ ] Resource ownership and remaining direct-mapping authority are explicit;
+- [x] Resource ownership and remaining direct-mapping authority are explicit;
   no shared-process threads, universal revocation or unsafe retirement is assumed.
 
 ## Tests and evidence
@@ -52,3 +52,5 @@ No desktop rendering or behavior replacement yet. P4-03 receives bounded role
 resources; P4-07 receives a reclaiming runtime proven at its declared capacities.
 Read [supervision](../phase-3/09-supervision-quotas-and-process-lifecycle.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+Passes [local Codex self-review](../../../evidence/phase-4/P4-02/final-1794169067563019600/README.md) on final source, not external approval. See the [runtime runbook](runtime-admission-runbook.md). Five guest repetitions settle all physical inventories after 900 heap cycles each; 12 lifetime units remain spent, including three prepared owners from a graph abort. The independent reviewer checks actual ISO/ELF/raw records and rejects 248 criterion mutations per test. Both 101-test host suites, sixteen separate metadata flavors, ordinary trusted CPL3 boot and selected boundary/scheduler/capability/wait/SDK-runtime regressions pass. The synthetic buffer cycles provide runtime preparation; actual live resource reload stays P4-15. P4-03 is next.

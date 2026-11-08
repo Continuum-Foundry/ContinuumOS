@@ -93,7 +93,7 @@ def review(key, folder):
                         == case['package']['payload']['boot/' + name + '.elf'], 'boundary ISO/image mismatch')
         require(len(sessions) == 4, 'reused boundary session')
         return dict(status='passed', scope='focused boundary regression only', audit=audits,
-                    mutations=mutations, codegen=module.codegen(folder))
+                    mutations=mutations, codegen=module.codegen(folder, syscall_scratch_guard=True))
     if key == 'scheduler':
         require(manifest['flavor'] == 'scheduler-test', 'wrong scheduler flavor')
         audits, mutations, sessions = [], [], set()

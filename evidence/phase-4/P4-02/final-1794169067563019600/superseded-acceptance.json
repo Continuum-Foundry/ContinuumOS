@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "story": "P4-02",
+  "status": "running",
+  "commands": [
+    {
+      "name": "kernel-host",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T23:50:00.014219+00:00",
+      "finished_utc": "2026-11-07T23:50:08.500958+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 8500
+    },
+    {
+      "name": "desktop-host",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib",
+        "--features",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T23:50:08.533718+00:00",
+      "finished_utc": "2026-11-07T23:50:15.476462+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 6938
+    },
+    {
+      "name": "desktop-0",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T23:50:15.495378+00:00",
+      "finished_utc": "2026-11-07T23:52:14.234640+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 118735
+    },
+    {
+      "name": "flavors",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Check-P4-02Flavors.ps1",
+        "-Descriptors",
+        "${WORKSPACE}\\build\\m1\\desktop-runtime-1794095418015091200-26276",
+        "-Output",
+        "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794095395098168700\\flavors"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T23:52:18.769403+00:00",
+      "finished_utc": "2026-11-07T23:52:56.717001+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 37937
+    },
+    {
+      "name": "desktop-1",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T23:52:56.717001+00:00",
+      "finished_utc": "2026-11-07T23:54:37.433771+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 100719
+    }
+  ],
+  "guests": [
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794095418015091200-26276",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "fdc1d71c44d4cd2c0a3c664f18284118af899383b2930133e66e7daaaa8037f1",
+        "kernel_sha256": "b49a872cdf3144a035d6fb2d15e37e44568cfc3d83d11804f518b3bb5b23c9d3",
+        "iso_sha256": "9bad977765ccce4ed475e8cc0d7d45654f89861ea6c94c27aaa5d66fbadbdca4",
+        "serial_sha256": "1dd0992b3a2d532c8a74e00acb7a4aae1d1cd033c20d183f1b52416b1c022220",
+        "images": [
+          {
+            "sha256": "157b5f3ec96c37240d7e756bff9684e1c7daa870c4b82ac8fef081e497d48fef",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "157b5f3ec96c37240d7e756bff9684e1c7daa870c4b82ac8fef081e497d48fef",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "157b5f3ec96c37240d7e756bff9684e1c7daa870c4b82ac8fef081e497d48fef",
+            "load_pages": 27,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "fdc1d71c44d4cd2c0a3c664f18284118af899383b2930133e66e7daaaa8037f1",
+          "session": "ddf31c88b5f2f3301c3d9ff0a7212165426cc01c38bdcba9a4a8425be1c520a2",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177479680",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43330",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "fdc1d71c44d4cd2c0a3c664f18284118af899383b2930133e66e7daaaa8037f1",
+            "session": "ddf31c88b5f2f3301c3d9ff0a7212165426cc01c38bdcba9a4a8425be1c520a2",
+            "session_origin": "host",
+            "seq": "483",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "239",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "111580900",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "5709690900"
+          }
+        ],
+        "reviewer_negatives": 246,
+        "source_hashes_verified": true
+      }
+    }
+  ],
+  "source_commit": "7959d1a6230cee72842b802a6f3afad5b39aa673"
+}

@@ -1,0 +1,373 @@
+{
+  "status": "passed",
+  "scope": "focused boundary regression only",
+  "audit": [
+    {
+      "group": 0,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 68,
+      "nested_irqs": 5,
+      "user_irqs": 56,
+      "settled_frames": 0
+    },
+    {
+      "group": 1,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 71,
+      "nested_irqs": 5,
+      "user_irqs": 48,
+      "settled_frames": 0
+    },
+    {
+      "group": 2,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 68,
+      "nested_irqs": 5,
+      "user_irqs": 51,
+      "settled_frames": 0
+    },
+    {
+      "group": 3,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 71,
+      "nested_irqs": 5,
+      "user_irqs": 69,
+      "settled_frames": 0
+    }
+  ],
+  "mutations": [
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    }
+  ],
+  "codegen": [
+    {
+      "user_enter": "<user_enter>:\nffffffff8000225b:      \tcli\nffffffff8000225c:      \tmovb\t$0x0, 0x8ebd9d(%rip) # 0xffffffff808ee000 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002263:      \tpushq\t%rbp\nffffffff80002264:      \tpushq\t%rbx\nffffffff80002265:      \tpushq\t%r12\nffffffff80002267:      \tpushq\t%r13\nffffffff80002269:      \tpushq\t%r14\nffffffff8000226b:      \tpushq\t%r15\nffffffff8000226d:      \tmovq\t%rsp, 0x8ebd9c(%rip) # 0xffffffff808ee010 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry12CONTINUATION>\nffffffff80002274:      \tmovq\t%cr3, %rax\nffffffff80002277:      \tmovq\t%rax, 0x8ebd8a(%rip) # 0xffffffff808ee008 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff8000227e:      \tmovq\t%rdi, %cr3\nffffffff80002281:      \txorl\t%eax, %eax\nffffffff80002283:      \tmovw\t%ax, %ds\nffffffff80002286:      \tmovw\t%ax, %es\nffffffff80002289:      \tmovw\t%ax, %fs\nffffffff8000228c:      \tmovw\t%ax, %gs\nffffffff8000228f:      \tpushq\t$0x3b\nffffffff80002291:      \tpushq\t%rdx\nffffffff80002292:      \tpushq\t$0x202          # imm = 0x202\nffffffff80002297:      \tpushq\t$0x33\nffffffff80002299:      \tpushq\t%rsi\nffffffff8000229a:      \tmovl\t$0x7ffd0000, %edi # imm = 0x7FFD0000\nffffffff8000229f:      \txorl\t%eax, %eax\nffffffff800022a1:      \txorl\t%ebx, %ebx\nffffffff800022a3:      \txorl\t%ecx, %ecx\nffffffff800022a5:      \txorl\t%edx, %edx\nffffffff800022a7:      \txorl\t%ebp, %ebp\nffffffff800022a9:      \txorl\t%esi, %esi\nffffffff800022ab:      \txorl\t%r8d, %r8d\nffffffff800022ae:      \txorl\t%r9d, %r9d\nffffffff800022b1:      \txorl\t%r10d, %r10d\nffffffff800022b4:      \txorl\t%r11d, %r11d\nffffffff800022b7:      \txorl\t%r12d, %r12d\nffffffff800022ba:      \txorl\t%r13d, %r13d\nffffffff800022bd:      \txorl\t%r14d, %r14d\nffffffff800022c0:      \txorl\t%r15d, %r15d\nffffffff800022c3:      \tiretq\n",
+      "user_leave": "<user_leave>:\nffffffff800022c5:      \tcli\nffffffff800022c6:      \tmovb\t$0x0, 0x8ebd33(%rip) # 0xffffffff808ee000 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800022cd:      \tcld\nffffffff800022ce:      \tmovq\t0x8ebd33(%rip), %rax # 0xffffffff808ee008 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff800022d5:      \tmovq\t%rax, %cr3\nffffffff800022d8:      \tmovq\t0x8ebd31(%rip), %rsp # 0xffffffff808ee010 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry12CONTINUATION>\nffffffff800022df:      \tpopq\t%r15\nffffffff800022e1:      \tpopq\t%r14\nffffffff800022e3:      \tpopq\t%r13\nffffffff800022e5:      \tpopq\t%r12\nffffffff800022e7:      \tpopq\t%rbx\nffffffff800022e8:      \tpopq\t%rbp\nffffffff800022e9:      \tretq\n",
+      "user_syscall": "<user_syscall>:\nffffffff800022ea:      \tmovq\t%rsp, 0x8ec24f(%rip) # 0xffffffff808ee540 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry7USER_SP>\nffffffff800022f1:      \tmovq\t0x8ec250(%rip), %rsp # 0xffffffff808ee548 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800022f8:      \tpushq\t%rax\nffffffff800022f9:      \tmovq\t%cr0, %rax\nffffffff800022fc:      \torq\t$0x8, %rax\nffffffff80002300:      \tmovq\t%rax, %cr0\nffffffff80002303:      \tpopq\t%rax\nffffffff80002304:      \tpushq\t$0x3b\nffffffff80002306:      \tpushq\t0x8ec234(%rip)  # 0xffffffff808ee540 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry7USER_SP>\nffffffff8000230c:      \tpushq\t%r11\nffffffff8000230e:      \tpushq\t$0x33\nffffffff80002310:      \tpushq\t%rcx\nffffffff80002311:      \tpushq\t%rax\nffffffff80002312:      \tpushq\t%rcx\nffffffff80002313:      \tpushq\t%rdx\nffffffff80002314:      \tpushq\t%rbx\nffffffff80002315:      \tpushq\t%rbp\nffffffff80002316:      \tpushq\t%rsi\nffffffff80002317:      \tpushq\t%rdi\nffffffff80002318:      \tpushq\t%r8\nffffffff8000231a:      \tpushq\t%r9\nffffffff8000231c:      \tpushq\t%r10\nffffffff8000231e:      \tpushq\t%r11\nffffffff80002320:      \tpushq\t%r12\nffffffff80002322:      \tpushq\t%r13\nffffffff80002324:      \tpushq\t%r14\nffffffff80002326:      \tpushq\t%r15\nffffffff80002328:      \tcld\nffffffff80002329:      \tmovq\t%rsp, %rdi\nffffffff8000232c:      \tcallq\t0xffffffff80013fc0 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry8dispatch>\nffffffff80002331:      \tpopq\t%r15\nffffffff80002333:      \tpopq\t%r14\nffffffff80002335:      \tpopq\t%r13\nffffffff80002337:      \tpopq\t%r12\nffffffff80002339:      \tpopq\t%r11\nffffffff8000233b:      \tpopq\t%r10\nffffffff8000233d:      \tpopq\t%r9\nffffffff8000233f:      \tpopq\t%r8\nffffffff80002341:      \tpopq\t%rdi\nffffffff80002342:      \tpopq\t%rsi\nffffffff80002343:      \tpopq\t%rbp\nffffffff80002344:      \tpopq\t%rbx\nffffffff80002345:      \tpopq\t%rdx\nffffffff80002346:      \tpopq\t%rcx\nffffffff80002347:      \tpopq\t%rax\nffffffff80002348:      \tiretq\n",
+      "user_copy": "<user_copy>:\nffffffff8000234a:      \ttestq\t%rdx, %rdx\nffffffff8000234d:      \tje\t0xffffffff8000235e <user_copy_write+0xd>\n",
+      "user_copy_read": "<user_copy_read>:\nffffffff8000234f:      \tmovb\t(%rsi), %al\n",
+      "user_copy_write": "<user_copy_write>:\nffffffff80002351:      \tmovb\t%al, (%rdi)\nffffffff80002353:      \tincq\t%rsi\nffffffff80002356:      \tincq\t%rdi\nffffffff80002359:      \tdecq\t%rdx\nffffffff8000235c:      \tjne\t0xffffffff8000234f <user_copy_read>\nffffffff8000235e:      \txorl\t%eax, %eax\nffffffff80002360:      \tretq\n",
+      "user_copy_failed": "<user_copy_failed>:\nffffffff80002361:      \tmovl\t$0x1, %eax\nffffffff80002366:      \tretq\n"
+    },
+    {
+      "user_a": {
+        "representation": "large code-generation text remains local-only",
+        "utf8_bytes": 658149,
+        "sha256": "b9ae3f1b9cd08fcb91bd6456b982e61f4d7ddb8a672a4a63e92a8c6f85b15257"
+      },
+      "user_b": {
+        "representation": "large code-generation text remains local-only",
+        "utf8_bytes": 658149,
+        "sha256": "dd62ba7ef50689bba13b3aa5a1ef17ec3af90a83db6a83fbcc443cf5b66093c2"
+      },
+      "service": {
+        "representation": "large code-generation text remains local-only",
+        "utf8_bytes": 658150,
+        "sha256": "ffadac0220d0b7acc6a7b686030027503eed8c39211cc072b5f54d857ac7689f"
+      }
+    }
+  ],
+  "retention_projection": {
+    "rule": "full generated disassembly/source text remains local; reviewed criteria and original field hashes retained",
+    "fields": [
+      "/codegen/1/user_a",
+      "/codegen/1/user_b",
+      "/codegen/1/service"
+    ],
+    "original_full_report_sha256": "65b697d3be8cf3798bfae75b8d2124a86a85e4578f9faba5d9a69f8205f0f5a5"
+  }
+}

@@ -113,6 +113,55 @@ def schedule(manifest):
     return [key for key in ids if not covered[key]], {key: value for key, value in covered.items() if value}
 
 
+
+# Counts are actual launches inside each focused xtask case, not command counts.
+# Full M3 remains deliberately unknown here: it owns nested suites and negatives.
+HOST_CHECKS = {'docs', 'governance', 'hygiene', 'runner-tests', 'child-runner-tests',
+               'hygiene-tests', 'prerequisites', 'kernel-host', 'desktop-host',
+               'portable', 'ui-host', 'text-host', 'editor-host'}
+AUDIT_CHECKS = {'docs', 'governance', 'hygiene'}
+VM_LAUNCHES = {key: 1 for key in RUNTIME}
+VM_LAUNCHES.update(boundary=4, scheduler=3, **{'full-m1': 42, 'full-m2': 0, 'full-m3': None,
+                                             'ordinary': 1, 'flavors': 0})
+
+
+def execution_plan(manifest, checks=None):
+    selected, covered = schedule(manifest)
+    checks = list(selected if checks is None else checks)
+    require(len(checks) == len(set(checks)), 'duplicate planned check')
+    counts = {}
+    for key in checks:
+        if re.fullmatch(r'desktop-[0-4]', key):
+            counts[key] = 1
+        elif key in VM_LAUNCHES:
+            counts[key] = VM_LAUNCHES[key]
+        else:
+            require(key in HOST_CHECKS and key in catalog(), 'missing launch classification: ' + key)
+            counts[key] = 0
+    full = [key for key in checks if key.startswith('full-')]
+    unknown = [key for key, count in counts.items() if count is None]
+    total = None if unknown else sum(counts.values())
+    budget = manifest.get('execution_budget')
+    if budget is None:
+        require(not full and total == 0, 'guest/full checks require an explicit execution_budget')
+        budget = {'max_vm_launches': 0, 'allow_full_suites': False}
+    maximum = budget['max_vm_launches']
+    require(type(budget['allow_full_suites']) is bool, 'invalid full-suite budget flag')
+    require(maximum is None or type(maximum) is int and maximum >= 0, 'invalid VM launch ceiling')
+    require(not full or budget['allow_full_suites'], 'full suites require explicit budget opt-in')
+    if maximum is None:
+        require(full and budget['allow_full_suites'] and bool(budget.get('full_suite_reason', '').strip()),
+                'unbounded count requires a reason for the explicit full suite')
+    else:
+        require(not unknown, 'unknown full-suite count cannot fit a bounded VM budget')
+        require(total <= maximum, f'VM launch budget exceeded: {total} > {maximum}')
+    return {'scope': 'story', 'execute': checks, 'covered_by': covered,
+            'command_groups': len(checks), 'vm_launches': total, 'vm_launches_by_check': counts,
+            'unknown_launch_counts': unknown, 'full_suites': full,
+            'separate_metadata_builds': 16 if 'flavors' in checks else 0,
+            'execution_budget': copy.deepcopy(budget)}
+
+
 def source_snapshot():
     # Full file set captures staged, unstaged, new, deleted and renamed inputs.
     names = subprocess.check_output(['git', 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], cwd=ROOT).decode().split('\0')
@@ -124,6 +173,25 @@ def source_snapshot():
         ['git', 'ls-files', '--stage', '-z'], cwd=ROOT)).hexdigest()
     result['@source-commit'] = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     return result
+
+
+
+def implementation_inputs(snapshot):
+    """Code/config/assets stay strict; prose/evidence/index are rechecked by audits.
+
+    Build inputs must not be stored in docs prose or retained evidence. This is
+    not a per-check dependency guess: any implementation/tool/schema change still
+    invalidates reuse, including new and deleted files.
+    """
+    governance = {'AGENTS.md', 'CLAUDE.md', 'README.md', 'EXPORT_CONTROL.md'}
+    return {name: sha for name, sha in snapshot.items() if
+            name not in governance and name not in ('@git-index', '@source-commit')
+            and not name.startswith('evidence/')
+            and not (name.startswith('docs/') and name.endswith('.md'))}
+
+
+def snapshot_digest(snapshot):
+    return hashlib.sha256(json.dumps(snapshot, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
 
 
 def context_snapshot(manifest=None):
@@ -237,24 +305,27 @@ class Session:
     def __init__(self, manifest, folder, resume=None, snapshot=None, context=None):
         self.started = time.monotonic()
         self.manifest = copy.deepcopy(validate_manifest(manifest))
+        plan = execution_plan(self.manifest)
         self.folder = Path(folder)
         self.folder.mkdir(parents=True, exist_ok=False)
         self.snapshot_fn = snapshot or source_snapshot
         self.context_fn = context or (lambda: context_snapshot(self.manifest))
         self.sources = self.snapshot_fn()
+        self.implementation = implementation_inputs(self.sources)
         self.context = self.context_fn()
         self.report = {'schema_version': 1, 'story': manifest['story'], 'scope': 'story',
                        'status': 'running', 'manifest': self.manifest, 'source_snapshot': self.sources,
-                       'context': self.context, 'checks': [], 'commands': [],
+                       'implementation_inputs': self.implementation,
+                       'context': self.context, 'checks': [], 'commands': [], 'plan': plan,
                        'source_commit': self.sources.get('@source-commit'),
                        'not_selected': manifest['not_selected'],
                        'historical_references': manifest.get('historical_references', [])}
         self.previous = {}
         if resume:
             previous = read(resume)
-            require(previous['manifest'] == self.manifest and previous['source_snapshot'] == self.sources
+            require(previous['manifest'] == self.manifest and implementation_inputs(previous['source_snapshot']) == self.implementation
                     and previous['context'] == self.context, 'resume inputs changed; start a fresh run')
-            require(previous['status'] in ('failed', 'interrupted'), 'resume requires failed/interrupted attempt')
+            require(previous['status'] in ('failed', 'interrupted', 'passed'), 'resume requires a finished or interrupted attempt')
             self.previous = {c['id']: c for c in previous['checks'] if c['status'] == 'fresh-pass'}
             self.report['resumed_from'] = str(Path(resume).resolve())
         self.persist()
@@ -263,9 +334,13 @@ class Session:
         save(self.folder / 'acceptance.json', self.report)
 
     def check(self, key, args, limit, reviewer=None, execute=None):
-        require(self.snapshot_fn() == self.sources, 'source changed during story validation')
+        current = self.snapshot_fn()
+        require(implementation_inputs(current) == self.implementation, 'source changed during story validation')
+        require(key in self.report['plan']['execute'], 'check was not in the bounded plan')
         require(key not in {r['id'] for r in self.report['checks']}, 'duplicate check id')
         prior = self.previous.get(key)
+        if key in AUDIT_CHECKS and prior and prior.get('audit_snapshot_sha256') != snapshot_digest(current):
+            prior = None
         # Output-directory-dependent metadata/portable commands are cheap and
         # deliberately rerun in the new attempt rather than repointing old files.
         if any(str(self.folder) in a for a in args):
@@ -293,7 +368,11 @@ class Session:
             record = {'id': key, 'status': 'fresh-pass', 'arguments': args, 'deadline_seconds': limit,
                       'elapsed_ms': result['elapsed_ms'], 'stdout': str(stdout_path.resolve()),
                       'command': result, 'review': review, 'artifact_hashes': hashes, 'resumed': False}
-        require(self.snapshot_fn() == self.sources, 'source changed during story validation')
+        after = self.snapshot_fn()
+        require(implementation_inputs(after) == self.implementation, 'source changed during story validation')
+        if key in AUDIT_CHECKS:
+            require(current == after, 'audit inputs changed during check')
+            record['audit_snapshot_sha256'] = snapshot_digest(current)
         self.report['checks'].append(record)
         self.persist()
         print(f"Story check {key}: fresh-pass elapsed_ms={record['elapsed_ms']} resumed={record['resumed']}", flush=True)
@@ -311,7 +390,10 @@ class Session:
 
     def finish(self, expected):
         require([c['id'] for c in self.report['checks']] == expected, 'missing/reordered selected checks')
-        require(self.snapshot_fn() == self.sources and self.context_fn() == self.context, 'source/tool context changed')
+        require(self.report['plan'] == execution_plan(self.manifest, expected), 'execution plan changed')
+        current = self.snapshot_fn()
+        require(implementation_inputs(current) == self.implementation and self.context_fn() == self.context, 'source/tool context changed')
+        require(all(c.get('audit_snapshot_sha256') == snapshot_digest(current) for c in self.report['checks'] if c['id'] in AUDIT_CHECKS), 'audit inputs changed; resume to rerun host audits')
         self.report['status'] = 'passed'
         self.report['command_elapsed_ms'] = sum(c['elapsed_ms'] for c in self.report['checks'] if not c['resumed'])
         self.report['elapsed_ms'] = round((time.monotonic() - self.started) * 1000)
@@ -321,8 +403,12 @@ class Session:
 def review_report(path, expected):
     report = read(path)
     validate_manifest(report['manifest'])
+    require(report.get('plan') == execution_plan(report['manifest'], expected), 'changed/missing execution plan')
     require(report['status'] == 'passed' and report['scope'] == 'story', 'incomplete/wrong validation scope')
-    require(report['source_snapshot'] == source_snapshot() and report['context'] == context_snapshot(report['manifest']), 'stale story validation')
+    current = source_snapshot()
+    require(report.get('implementation_inputs') == implementation_inputs(report['source_snapshot']) == implementation_inputs(current)
+            and report['context'] == context_snapshot(report['manifest']), 'stale story validation')
+    require(all(c.get('audit_snapshot_sha256') == snapshot_digest(current) for c in report['checks'] if c['id'] in AUDIT_CHECKS), 'stale host audits')
     require(report['story'] == report['manifest']['story'], 'story identity mismatch')
     require(report['not_selected'] == report['manifest']['not_selected']
             and report['historical_references'] == report['manifest'].get('historical_references', []),
@@ -359,7 +445,7 @@ def main():
         print(json.dumps({'scope': 'story', 'execute': ids, 'covered_by': covered,
                           'commands': {k: catalog()[k][0] for k in ids},
                           'not_selected': manifest['not_selected'],
-                          'impact': manifest['impact']}, indent=2))
+                          'impact': manifest['impact'], 'plan': execution_plan(manifest)}, indent=2))
         return
     require(manifest['story'] != 'P4-02', 'use Test-P4-02.ps1 for mandatory P4-02 checks')
     if args.action == 'review':
@@ -369,6 +455,7 @@ def main():
             review_check(c['id'], Path(c['stdout']).read_text(encoding='utf-8-sig'), Path(args.acceptance).parent)
         print('Story validation reviewed; no milestone acceptance claimed')
         return
+    print(json.dumps(execution_plan(manifest), indent=2), flush=True)
     folder = ROOT / 'build/story-validation' / manifest['story'] / str(time.time_ns())
     session = Session(manifest, folder, args.resume)
     try:

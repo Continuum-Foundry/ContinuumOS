@@ -1,0 +1,43 @@
+{
+  "failures": [
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\build-1794081266541202200-17256",
+      "reason": "ordinary eager-FP audit scope was missing",
+      "status": "failed",
+      "full_artifacts": "local-only"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794081368819338900-3012",
+      "reason": "new boot fixture was disabled",
+      "status": "failed",
+      "full_artifacts": "local-only"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794081485984234700-16196",
+      "reason": "role session duplicated common session field",
+      "status": "failed",
+      "full_artifacts": "local-only"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794081671481774300-16632",
+      "reason": "shell realloc workload exceeded unchanged16MiB capacity",
+      "status": "failed",
+      "full_artifacts": "local-only"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794081833740729800-17988",
+      "reason": "30s guest timeout; adapter omitted wait-resume settlement",
+      "status": "failed",
+      "full_artifacts": "local-only"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794082163604595900-20984",
+      "reason": "control treated actualTimedOut7 as success-only;100ms deadline kept",
+      "status": "failed",
+      "full_artifacts": "local-only"
+    }
+  ],
+  "sandbox_host_test": "initial sandboxed native test could not access the existing user certificate; original stderr is in the tool transcript; final approved-context tests pass",
+  "diagnostic_pass": "build/m1/desktop-runtime-1794082308157274100-3340 is earlier diagnostic source, not final acceptance",
+  "root_cause_limit": "timeout alone is not causal evidence; source/observed wake sequence identified the omitted adapter resume contract; explicitTimedOut remains distinct"
+}

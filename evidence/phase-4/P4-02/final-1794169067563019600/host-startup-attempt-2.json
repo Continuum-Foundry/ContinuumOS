@@ -1,0 +1,38 @@
+[
+  {
+    "path": "${WORKSPACE}\\build\\m3\\P3-01\\run-1794119280079239400-41732-00bb9e6c526040ddb779d8941918ec10",
+    "result": {
+      "schema_version": 1,
+      "scope": "host-lifecycle-only; image never executed",
+      "case": "success",
+      "launched": true,
+      "cleanup": "reaped",
+      "exit_code": 1,
+      "outcome": "timeout",
+      "parent_pid": 41732,
+      "run_id": "run-1794119280079239400-41732-00bb9e6c526040ddb779d8941918ec10",
+      "runner_sha256": "324fa1f896617673d03d57152a3f6965a7f7da2a5a3ead8d658acd9da6b94144",
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "host_platform": "win32",
+      "profile_sha256": "2d066c1cfdc6b832dbc7d5d382724ffd40e577bf9a07ad799eb76010a34cf301",
+      "contract_sha256": "c9aea7b3b42531657f8367fac97bcd0cbf864620f9cdf6d6a1f6a08decda7808",
+      "image_sha256": "fac1ecd4990500ce3d68a41947d21e042f592eb9007dddd2d636e8f514605ca0",
+      "image_bytes": 64,
+      "interpreter_sha256": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "${WORKSPACE}\\tools\\m3_runtime.py",
+        "child",
+        "success",
+        "run-1794119280079239400-41732-00bb9e6c526040ddb779d8941918ec10",
+        "fac1ecd4990500ce3d68a41947d21e042f592eb9007dddd2d636e8f514605ca0"
+      ],
+      "deadline_ms": 1000,
+      "process_creation_ns": 601000700,
+      "child_pid": 11200,
+      "elapsed_ns": 1013144100,
+      "post_creation_ns": 412143400,
+      "error": "timeout"
+    }
+  }
+]

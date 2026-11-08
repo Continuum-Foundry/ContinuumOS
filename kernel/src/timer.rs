@@ -11,10 +11,10 @@ static TICKS: AtomicU64 = AtomicU64::new(0);
 static OVERFLOW: AtomicBool = AtomicBool::new(false);
 static RESOLUTION: AtomicU64 = AtomicU64::new(0);
 static SPURIOUS: AtomicU64 = AtomicU64::new(0);
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 static ELAPSED: Local<Option<continuum_kernel::wait::Clock>> =
     Local(core::cell::UnsafeCell::new(None));
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 pub(crate) fn elapsed() -> Result<u64> {
     let flags: u64;
     unsafe {
@@ -26,24 +26,24 @@ pub(crate) fn elapsed() -> Result<u64> {
         .ok_or(error("clock", "uninitialized"))?
         .observe(reference(base))
 }
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 pub(crate) fn elapsed_resolution() -> u64 {
     unsafe { (&*ELAPSED.0.get()).as_ref() }
         .expect("clock initialized")
         .resolution_ns()
 }
-#[cfg(feature = "scheduler-test")]
+#[cfg(any(feature = "scheduler-test", feature = "desktop-runtime"))]
 static OBSERVER: Local<(u64, u64)> = Local(core::cell::UnsafeCell::new((0, 0)));
 /// Diagnostic HPET elapsed observation; not the P3-08 public deadline clock.
-#[cfg(feature = "scheduler-test")]
+#[cfg(any(feature = "scheduler-test", feature = "desktop-runtime"))]
 pub(crate) fn sample_ns() -> u64 {
     let (base, fs) = unsafe { OBSERVER.0.get().read() };
     assert!(base != 0);
     ((reference(base) as u128 * fs as u128) / 1_000_000) as u64
 }
-#[cfg(feature = "user-boundary-test")]
+#[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
 static USER_INTERRUPTS: AtomicU64 = AtomicU64::new(0);
-#[cfg(feature = "user-boundary-test")]
+#[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
 pub(crate) fn user_interrupts() -> u64 {
     USER_INTERRUPTS.load(Ordering::Relaxed)
 }
@@ -102,7 +102,7 @@ extern "C" fn interrupt(vector: u64, _cs: u64, _frame: *mut u8) {
     }
     // Only this non-nested handler writes the counter. Readers use one atomic
     // load; no retry loop, lock or allocation occurs in interrupt context.
-    #[cfg(feature = "user-boundary-test")]
+    #[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
     if _cs == continuum_kernel::user_boundary::USER_CS {
         USER_INTERRUPTS.store(
             USER_INTERRUPTS.load(Ordering::Relaxed).saturating_add(1),
@@ -118,7 +118,7 @@ extern "C" fn interrupt(vector: u64, _cs: u64, _frame: *mut u8) {
     unsafe {
         write32(APIC.load(Ordering::Relaxed), 0xb0, 0);
     }
-    #[cfg(feature = "scheduler-test")]
+    #[cfg(any(feature = "scheduler-test", feature = "desktop-runtime"))]
     crate::user_entry::scheduling::tick(_cs, _frame);
 }
 fn table(base: u64, b: &mut [u8; p::MAX_TABLE]) -> Result<&mut [u8]> {
@@ -253,7 +253,7 @@ pub fn establish(mode: u64) -> Result<()> {
         write32(a, 0x3e0, 3); // divide by 16
         let cap = read64(h, 0);
         let fs = p::period(cap)?;
-        #[cfg(feature = "scheduler-test")]
+        #[cfg(any(feature = "scheduler-test", feature = "desktop-runtime"))]
         OBSERVER.0.get().write((h, fs));
         need(cap as u32 == id, "hpet_id")?;
         write64(h, 0x10, 0);
@@ -263,7 +263,7 @@ pub fn establish(mode: u64) -> Result<()> {
         }
         write64(h, 0xf0, 0);
         write64(h, 0x10, 1); // main counter only, legacy replacement disabled
-        #[cfg(feature = "wait-test")]
+        #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
         ELAPSED
             .0
             .get()
@@ -279,7 +279,7 @@ pub fn establish(mode: u64) -> Result<()> {
         let (initial, resolution) = p::calibration(elapsed, reference_ticks, fs)?;
         // P3-05's locked nominal quantum is 5 ms. Choose it before the one-time
         // delivered-tick epoch; M1's 10-ms calibration/regressions stay unchanged.
-        let (initial, resolution) = if (36..=44).contains(&mode) {
+        let (initial, resolution) = if (36..=45).contains(&mode) {
             let half = initial / 2;
             need(half != 0, "scheduler_calibration")?;
             (half, resolution * u64::from(half) / u64::from(initial))

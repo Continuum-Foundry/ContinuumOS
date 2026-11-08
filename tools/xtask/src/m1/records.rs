@@ -580,7 +580,14 @@ fn parse_chunk(
                 let (initial, resolution) = if expected.fixture.starts_with("scheduler-")
                     || matches!(
                         expected.fixture,
-                        "capabilities" | "channels" | "waits" | "supervisor" | "policy" | "routes"
+                        "capabilities"
+                            | "channels"
+                            | "waits"
+                            | "supervisor"
+                            | "policy"
+                            | "routes"
+                            | "desktop-runtime"
+                            | "desktop-ordinary"
                     ) {
                     (initial / 2, resolution * (initial / 2) / initial)
                 } else {
@@ -869,7 +876,13 @@ fn parse_chunk(
                     || outcome != "ok"
                     || !matches!(
                         expected.fixture,
-                        "channels" | "waits" | "supervisor" | "policy" | "routes"
+                        "channels"
+                            | "waits"
+                            | "supervisor"
+                            | "policy"
+                            | "routes"
+                            | "desktop-runtime"
+                            | "desktop-ordinary"
                     )
                 {
                     return Err("Unexpected channel record".into());
@@ -879,12 +892,17 @@ fn parse_chunk(
             | "m1.wait_clock" | "m1.wait_resume" | "m1.wait_boundary" | "m1.wait_kill"
             | "m1.wait_delay" | "m1.wait_complete" => {
                 if !p.memory
-                    || p.boot_complete
+                    || (p.boot_complete && expected.fixture != "desktop-ordinary")
                     || stage != "waits"
                     || outcome != "ok"
                     || !matches!(
                         expected.fixture,
-                        "waits" | "supervisor" | "policy" | "routes"
+                        "waits"
+                            | "supervisor"
+                            | "policy"
+                            | "routes"
+                            | "desktop-runtime"
+                            | "desktop-ordinary"
                     )
                 {
                     return Err("Unexpected wait record".into());
@@ -893,12 +911,19 @@ fn parse_chunk(
             "m1.cap_map" | "m1.cap_call" | "m1.cap_inventory" | "m1.cap_ready" | "m1.cap_admit"
             | "m1.cap_reap" | "m1.cap_pin" => {
                 if !p.memory
-                    || p.boot_complete
+                    || (p.boot_complete && expected.fixture != "desktop-ordinary")
                     || stage != "capabilities"
                     || outcome != "ok"
                     || !matches!(
                         expected.fixture,
-                        "capabilities" | "channels" | "waits" | "supervisor" | "policy" | "routes"
+                        "capabilities"
+                            | "channels"
+                            | "waits"
+                            | "supervisor"
+                            | "policy"
+                            | "routes"
+                            | "desktop-runtime"
+                            | "desktop-ordinary"
                     )
                 {
                     return Err("Unexpected capability record".into());
@@ -925,9 +950,32 @@ fn parse_chunk(
                                 | "supervisor"
                                 | "policy"
                                 | "routes"
+                                | "desktop-runtime"
+                                | "desktop-ordinary"
                         ))
                 {
                     return Err("Unexpected scheduler record".into());
+                }
+            }
+            "m1.desktop_cap_inventory"
+            | "m1.desktop_bound"
+            | "m1.desktop_prepare"
+            | "m1.desktop_cleanup"
+            | "m1.desktop_enter"
+            | "m1.desktop_start_denied"
+            | "m1.desktop_abort"
+            | "m1.desktop_watchdog"
+            | "m1.desktop_launch"
+            | "m1.desktop_reap"
+            | "m1.desktop_inventory"
+            | "m1.desktop_unwind"
+            | "m1.desktop_settled" => {
+                if !p.memory
+                    || stage != "desktop"
+                    || outcome != "ok"
+                    || !matches!(expected.fixture, "desktop-ordinary" | "desktop-runtime")
+                {
+                    return Err("Unexpected desktop record".into());
                 }
             }
             "m1.user_oom_injection"
@@ -943,7 +991,7 @@ fn parse_chunk(
             | "m1.user_settlement"
             | "m1.user_ready" => {
                 if !p.memory
-                    || p.boot_complete
+                    || (p.boot_complete && expected.fixture != "desktop-ordinary")
                     || stage != "user-boundary"
                     || outcome != "ok"
                     || !(expected.fixture.starts_with("user-boundary-")
@@ -956,6 +1004,8 @@ fn parse_chunk(
                                 | "supervisor"
                                 | "policy"
                                 | "routes"
+                                | "desktop-runtime"
+                                | "desktop-ordinary"
                         ))
                 {
                     return Err("Unexpected user-boundary record".into());

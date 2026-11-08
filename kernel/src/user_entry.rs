@@ -17,7 +17,7 @@ mod ids {
     include!(env!("CONTINUUM_RUNTIME_IDS"));
 }
 use ids::*;
-#[cfg(feature = "capability-test")]
+#[cfg(any(feature = "capability-test", feature = "desktop-runtime"))]
 #[path = "capability_guest.rs"]
 pub(crate) mod capabilities;
 #[path = "user_fixture.rs"]
@@ -25,10 +25,10 @@ mod fixture;
 pub(crate) fn record_event(event: &str) -> bool {
     (fixture::hooks().record_event)(event)
 }
-#[cfg(feature = "scheduler-test")]
+#[cfg(any(feature = "scheduler-test", feature = "desktop-runtime"))]
 #[path = "scheduling.rs"]
 pub(crate) mod scheduling;
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 #[path = "waiting_guest.rs"]
 pub(crate) mod waiting;
 static CONTINUATION: Local<u64> = Local(UnsafeCell::new(0));
@@ -63,7 +63,7 @@ static PEAK: Local<u64> = Local(UnsafeCell::new(0));
 global_asm!(include_str!("user-entry.S"), continuation=sym CONTINUATION,
     kernel_root=sym KERNEL_ROOT, kernel_sp=sym KERNEL_SP, user_sp=sym USER_SP,
     dispatch=sym dispatch, fp_mode=sym SYSCALL_FP, mxcsr=sym SYSCALL_MXCSR,
-    eager_fp=const (cfg!(feature="scheduler-test") as u8));
+    eager_fp=const (cfg!(any(feature="scheduler-test", feature="desktop-runtime")) as u8));
 unsafe extern "C" {
     fn user_enter(root: u64, ip: u64, sp: u64);
     fn user_leave() -> !;
@@ -147,7 +147,7 @@ pub(crate) struct Frame {
 const _: () =
     assert!(core::mem::size_of::<Frame>() == 160 && core::mem::offset_of!(Frame, ip) == 120);
 fn finish(reason: &'static str, result: u64, vector: u64, ip: u64, address: u64) -> ! {
-    #[cfg(feature = "scheduler-test")]
+    #[cfg(any(feature = "scheduler-test", feature = "desktop-runtime"))]
     if scheduling::active() {
         scheduling::finish(reason, result, vector);
     }
@@ -232,7 +232,7 @@ fn copy(address: u64, bytes: &mut [u8], output: bool) -> core::result::Result<()
                 .write(Some((address, address + bytes.len() as u64)));
         }
         let kernel = bytes.as_mut_ptr() as u64;
-        #[cfg(feature = "scheduler-test")]
+        #[cfg(any(feature = "scheduler-test", feature = "desktop-runtime"))]
         {
             assert!(r.active_pin_count() > 0);
             (fixture::hooks().copy_observer)(true);

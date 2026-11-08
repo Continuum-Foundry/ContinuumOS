@@ -1,0 +1,100 @@
+[
+  {
+    "ProcessId": 58676,
+    "ParentProcessId": 62784,
+    "Name": "python.exe",
+    "CreationDate": "2026-11-08T14:48:24.173874-05:00",
+    "CommandLine": "\"${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" tools/p4_runtime_full_acceptance.py run"
+  },
+  {
+    "ProcessId": 50104,
+    "ParentProcessId": 58676,
+    "Name": "pwsh.exe",
+    "CreationDate": "2026-11-08T14:59:50.53061-05:00",
+    "CommandLine": "pwsh -NoProfile -File tools/Test-P3-14.ps1"
+  },
+  {
+    "ProcessId": 61284,
+    "ParentProcessId": 50104,
+    "Name": "conhost.exe",
+    "CreationDate": "2026-11-08T14:59:50.701566-05:00",
+    "CommandLine": "\\??\\C:\\WINDOWS\\system32\\conhost.exe 0x4"
+  },
+  {
+    "ProcessId": 55624,
+    "ParentProcessId": 50104,
+    "Name": "python.exe",
+    "CreationDate": "2026-11-08T14:59:51.704835-05:00",
+    "CommandLine": "\"${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" tools/p3_acceptance.py run"
+  },
+  {
+    "ProcessId": 44900,
+    "ParentProcessId": 55624,
+    "Name": "pwsh.exe",
+    "CreationDate": "2026-11-08T15:00:04.901464-05:00",
+    "CommandLine": "pwsh -NoProfile -File tools/Test-P3-13.ps1"
+  },
+  {
+    "ProcessId": 58400,
+    "ParentProcessId": 44900,
+    "Name": "conhost.exe",
+    "CreationDate": "2026-11-08T15:00:05.124694-05:00",
+    "CommandLine": "\\??\\C:\\WINDOWS\\system32\\conhost.exe 0x4"
+  },
+  {
+    "ProcessId": 67520,
+    "ParentProcessId": 44900,
+    "Name": "cargo.exe",
+    "CreationDate": "2026-11-08T15:05:17.252308-05:00",
+    "CommandLine": "\"${WORKSPACE}\\work\\toolchains\\cargo\\bin\\cargo.exe\" run --release --locked --offline -p xtask -- test --suite m1 --case sdk-stress"
+  },
+  {
+    "ProcessId": 21400,
+    "ParentProcessId": 67520,
+    "Name": "cargo.exe",
+    "CreationDate": "2026-11-08T15:05:17.470613-05:00",
+    "CommandLine": "\"${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc\\bin\\cargo.exe\" run --release --locked --offline -p xtask -- test --suite m1 --case sdk-stress"
+  },
+  {
+    "ProcessId": 67116,
+    "ParentProcessId": 21400,
+    "Name": "pwsh.exe",
+    "CreationDate": "2026-11-08T15:05:18.367081-05:00",
+    "CommandLine": "\"pwsh\" -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\release\\xtask.exe test --suite m1 --case sdk-stress"
+  },
+  {
+    "ProcessId": 59672,
+    "ParentProcessId": 67116,
+    "Name": "xtask.exe",
+    "CreationDate": "2026-11-08T15:05:20.038346-05:00",
+    "CommandLine": "\"${WORKSPACE}\\build\\cargo\\signed\\release\\xtask.exe\" test --suite m1 --case sdk-stress"
+  },
+  {
+    "ProcessId": 53252,
+    "ParentProcessId": 59672,
+    "Name": "cargo.exe",
+    "CreationDate": "2026-11-08T15:05:35.92419-05:00",
+    "CommandLine": "\"${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc\\bin\\cargo.exe\" rustc --locked -p continuum-kernel --bin continuum-kernel --target x86_64-unknown-none --profile kernel-stress --target-dir ${WORKSPACE}\\build/m1\\sdk-stress-1794168320283419100-59672\\cargo --features stress-test -- -C code-model=kernel -C relocation-model=static -C link-arg=--build-id=none -C link-arg=-T${WORKSPACE}\\kernel/link.ld --remap-path-prefix=${WORKSPACE}=/continuum"
+  },
+  {
+    "ProcessId": 3220,
+    "ParentProcessId": 53252,
+    "Name": "conhost.exe",
+    "CreationDate": "2026-11-08T15:05:36.103063-05:00",
+    "CommandLine": "\\??\\C:\\WINDOWS\\system32\\conhost.exe 0x4"
+  },
+  {
+    "ProcessId": 67284,
+    "ParentProcessId": 53252,
+    "Name": "rustc.exe",
+    "CreationDate": "2026-11-08T15:05:39.591387-05:00",
+    "CommandLine": "\"rustc\" --crate-name continuum_kernel --edition=2024 kernel\\src\\lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C opt-level=3 -C panic=abort -C embed-bitcode=no -C codegen-units=1 -C debuginfo=2 --cfg feature=\\\"capability-test\\\" --cfg feature=\\\"channel-test\\\" --cfg feature=\\\"default\\\" --cfg feature=\\\"emulator-test\\\" --cfg feature=\\\"policy-test\\\" --cfg feature=\\\"route-test\\\" --cfg feature=\\\"scheduler-test\\\" --cfg feature=\\\"sdk-test\\\" --cfg feature=\\\"stress-test\\\" --cfg feature=\\\"supervisor-test\\\" --cfg feature=\\\"user-boundary-test\\\" --cfg feature=\\\"wait-test\\\" --check-cfg cfg(docsrs,test) --check-cfg \"cfg(feature, values(\\\"boot-inject\\\", \\\"capability-test\\\", \\\"channel-test\\\", \\\"default\\\", \\\"desktop-runtime\\\", \\\"desktop-test\\\", \\\"emulator-test\\\", \\\"exception-test\\\", \\\"fault-before-entry\\\", \\\"memory-test\\\", \\\"policy-test\\\", \\\"route-test\\\", \\\"runtime-memory-test\\\", \\\"scheduler-test\\\", \\\"sdk-runtime-test\\\", \\\"sdk-test\\\", \\\"static-loader-test\\\", \\\"stress-supervisor-test\\\", \\\"stress-test\\\", \\\"stress-trace\\\", \\\"supervisor-test\\\", \\\"timer-test\\\", \\\"user-boundary-test\\\", \\\"wait-test\\\"))\" -C metadata=999a237098d72d5e -C extra-filename=-a9190f45c380bccd --out-dir ${WORKSPACE}\\build/m1\\sdk-stress-1794168320283419100-59672\\cargo\\x86_64-unknown-none\\kernel-stress\\deps --target x86_64-unknown-none -L dependency=${WORKSPACE}\\build/m1\\sdk-stress-1794168320283419100-59672\\cargo\\x86_64-unknown-none\\kernel-stress\\deps -L dependency=${WORKSPACE}\\build/m1\\sdk-stress-1794168320283419100-59672\\cargo\\kernel-stress\\deps --extern limine=${WORKSPACE}\\build/m1\\sdk-stress-1794168320283419100-59672\\cargo\\x86_64-unknown-none\\kernel-stress\\deps\\liblimine-cd1dbcf9e0b8bdbc.rmeta"
+  },
+  {
+    "ProcessId": 63728,
+    "ParentProcessId": 67284,
+    "Name": "rustc.exe",
+    "CreationDate": "2026-11-08T15:05:39.804882-05:00",
+    "CommandLine": "\"${WORKSPACE}\\work\\toolchains\\rustup\\toolchains\\1.99.1-x86_64-pc-windows-msvc\\bin\\rustc.exe\" --crate-name continuum_kernel --edition=2024 kernel\\src\\lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C opt-level=3 -C panic=abort -C embed-bitcode=no -C codegen-units=1 -C debuginfo=2 --cfg feature=\\\"capability-test\\\" --cfg feature=\\\"channel-test\\\" --cfg feature=\\\"default\\\" --cfg feature=\\\"emulator-test\\\" --cfg feature=\\\"policy-test\\\" --cfg feature=\\\"route-test\\\" --cfg feature=\\\"scheduler-test\\\" --cfg feature=\\\"sdk-test\\\" --cfg feature=\\\"stress-test\\\" --cfg feature=\\\"supervisor-test\\\" --cfg feature=\\\"user-boundary-test\\\" --cfg feature=\\\"wait-test\\\" --check-cfg cfg(docsrs,test) --check-cfg \"cfg(feature, values(\\\"boot-inject\\\", \\\"capability-test\\\", \\\"channel-test\\\", \\\"default\\\", \\\"desktop-runtime\\\", \\\"desktop-test\\\", \\\"emulator-test\\\", \\\"exception-test\\\", \\\"fault-before-entry\\\", \\\"memory-test\\\", \\\"policy-test\\\", \\\"route-test\\\", \\\"runtime-memory-test\\\", \\\"scheduler-test\\\", \\\"sdk-runtime-test\\\", \\\"sdk-test\\\", \\\"static-loader-test\\\", \\\"stress-supervisor-test\\\", \\\"stress-test\\\", \\\"stress-trace\\\", \\\"supervisor-test\\\", \\\"timer-test\\\", \\\"user-boundary-test\\\", \\\"wait-test\\\"))\" -C metadata=999a237098d72d5e -C extra-filename=-a9190f45c380bccd --out-dir ${WORKSPACE}\\build/m1\\sdk-stress-1794168320283419100-59672\\cargo\\x86_64-unknown-none\\kernel-stress\\deps --target x86_64-unknown-none -L dependency=${WORKSPACE}\\build/m1\\sdk-stress-1794168320283419100-59672\\cargo\\x86_64-unknown-none\\kernel-stress\\deps -L dependency=${WORKSPACE}\\build/m1\\sdk-stress-1794168320283419100-59672\\cargo\\kernel-stress\\deps --extern limine=${WORKSPACE}\\build/m1\\sdk-stress-1794168320283419100-59672\\cargo\\x86_64-unknown-none\\kernel-stress\\deps\\liblimine-cd1dbcf9e0b8bdbc.rmeta"
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "input_sha256": "9abce69fca55eb9fe042e47d78ea93fd72349142ff739abe14df33e115bc6c95",
+  "accepted_host_counts": [
+    97,
+    101
+  ],
+  "rejected_mutations": [
+    "missing:desktop::tests::every_role_has_two_restarts_with_no_refund_and_recovery_is_unspendable",
+    "duplicate:desktop::tests::every_role_has_two_restarts_with_no_refund_and_recovery_is_unspendable",
+    "failed:desktop::tests::every_role_has_two_restarts_with_no_refund_and_recovery_is_unspendable",
+    "missing:desktop::tests::reserved_capacity_and_failed_start_do_not_spend_credits",
+    "duplicate:desktop::tests::reserved_capacity_and_failed_start_do_not_spend_credits",
+    "failed:desktop::tests::reserved_capacity_and_failed_start_do_not_spend_credits",
+    "missing:reclaiming_heap::tests::failed_allocation_is_atomic_and_slots_reuse",
+    "duplicate:reclaiming_heap::tests::failed_allocation_is_atomic_and_slots_reuse",
+    "failed:reclaiming_heap::tests::failed_allocation_is_atomic_and_slots_reuse",
+    "missing:reclaiming_heap::tests::fragmentation_coalesces_and_alignment_padding_is_reusable",
+    "duplicate:reclaiming_heap::tests::fragmentation_coalesces_and_alignment_padding_is_reusable",
+    "failed:reclaiming_heap::tests::fragmentation_coalesces_and_alignment_padding_is_reusable",
+    "inflated-without-names",
+    "wrong-summary",
+    "missing-wait-oracle"
+  ],
+  "reviewer_sha256": "69958ba8fa79bf0f37e79958d7e1ed0cc4dc22b5becb4d70e46da56c99fc62f5"
+}

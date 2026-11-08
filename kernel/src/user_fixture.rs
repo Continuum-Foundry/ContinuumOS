@@ -17,6 +17,8 @@ pub(super) struct Hooks {
     pub expected_result: fn(u64, usize) -> Option<u64>,
     pub object_waves: Option<u64>,
     pub process_state: fn(u64, u64) -> u64,
+    pub desktop_mode: fn(usize, u64) -> u64,
+    pub desktop_stop_control: fn(u64, u64) -> bool,
 }
 const BOUNDARY: Hooks = Hooks {
     record_event: |_| true,
@@ -32,8 +34,12 @@ const BOUNDARY: Hooks = Hooks {
     expected_result: |_, _| None,
     object_waves: None,
     process_state: |_, state| state,
+    desktop_mode: |_, _| 0,
+    desktop_stop_control: |_, _| false,
 };
 static HOOKS: Local<Hooks> = Local(UnsafeCell::new(BOUNDARY));
+#[cfg(feature = "desktop-test")]
+static DESKTOP_OPERATION: Local<u64> = Local(UnsafeCell::new(0));
 pub(super) fn hooks() -> Hooks {
     // Single CPU; registration precedes user entry and never overlaps dispatch.
     unsafe { HOOKS.0.get().read() }
@@ -41,6 +47,86 @@ pub(super) fn hooks() -> Hooks {
 pub(super) fn install_boundary() {
     unsafe {
         HOOKS.0.get().write(BOUNDARY);
+    }
+}
+#[cfg(feature = "desktop-runtime")]
+pub(super) fn install_desktop() {
+    // Runtime dispatch only. No progress observer, injected returns, IRQ probe,
+    // process-state override or acceptance callback is installed.
+    let hooks = Hooks {
+        // Ordinary steady-state waits are quiet; faults, lifecycle failures and
+        // serial recovery remain observable after the readiness checkpoint.
+        record_event: |event| {
+            !scheduling::desktop::ready()
+                || !matches!(
+                    event,
+                    "m1.wait_call"
+                        | "m1.wait_park"
+                        | "m1.wait_wake"
+                        | "m1.wait_resume"
+                        | "m1.wait_complete"
+                        | "m1.user_log"
+                        | "m1.cap_call"
+                )
+        },
+        entry_time: crate::timer::sample_ns,
+        entry: |_, entered| scheduling::begin_syscall(entered),
+        before_operation: scheduling::check_fp_policy,
+        scheduled: scheduling::active,
+        operation: |op, f| match op {
+            ABI_QUERY | DIAGNOSTIC_LOG => None,
+            PROCESS_EXIT | THREAD_YIELD => capabilities::dispatch(op, f).or_else(|| {
+                if op == THREAD_YIELD {
+                    Some(Ok(0))
+                } else {
+                    None
+                }
+            }),
+            CLOCK_NOW | CLOCK_RESOLUTION | TIMER_ARM | WAIT_MANY => waiting::dispatch(op, f),
+            MEMORY_ALLOCATE | MEMORY_FREE => Some(Err(UNSUPPORTED)),
+            OBJECT_INFO..=CONTEXT_LIVE => Some(Err(ACCESSDENIED)),
+            _ => Some(Err(UNSUPPORTED)),
+        },
+        return_to_user: |f, operation| {
+            waiting::notify().expect("desktop wait boundary");
+            if operation == THREAD_YIELD || waiting::pending_current() {
+                scheduling::desktop::cooperated();
+            }
+            scheduling::syscall_return(f, operation == THREAD_YIELD || waiting::pending_current());
+        },
+        ..BOUNDARY
+    };
+    #[cfg(feature = "desktop-test")]
+    let hooks = Hooks {
+        entry: |f, entered| {
+            unsafe {
+                *DESKTOP_OPERATION.0.get() = f.rax;
+            }
+            scheduling::begin_syscall(entered);
+        },
+        // Preserve each wait result (including TimedOut), actual resume/latency,
+        // lifecycle, authority and heap outcome. Do not format redundant copies
+        // of the same wait transition or routine clock/arm confirmations.
+        record_event: |event| {
+            !matches!(event, "m1.wait_park" | "m1.wait_complete" | "m1.wait_wake")
+                && !(event == "m1.wait_call"
+                    && matches!(unsafe { *DESKTOP_OPERATION.0.get() }, CLOCK_NOW | TIMER_ARM))
+        },
+        desktop_mode: |_, attempt| 1 + attempt,
+        desktop_stop_control: |control, ends| control > 10 && ends == 3,
+        expected_result: |attempt, role| {
+            Some(if role == 4 {
+                [42, 90, 0x300][attempt as usize]
+            } else if role == 5 {
+                91
+            } else {
+                0
+            })
+        },
+        ..hooks
+    };
+    unsafe {
+        HOOKS.0.get().write(hooks);
     }
 }
 fn inject_bad_return(f: &mut Frame) {
@@ -52,7 +138,7 @@ fn inject_bad_return(f: &mut Frame) {
         _ => {}
     }
 }
-#[cfg(feature = "scheduler-test")]
+#[cfg(any(feature = "scheduler-test", feature = "desktop-runtime"))]
 mod scheduled {
     use super::*;
     // Fixture control page is mapped RW before entry and survives until reap.
@@ -76,14 +162,16 @@ mod scheduled {
         expected_result: |_, _| None,
         object_waves: None,
         process_state: |_, state| state,
+        desktop_mode: |_, _| 0,
+        desktop_stop_control: |_, _| false,
         operation,
         scheduled: scheduling::active,
         return_to_user: |f, operation| {
             if scheduling::active() {
-                #[cfg(feature = "wait-test")]
+                #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
                 waiting::notify().expect("wait notification boundary");
                 let voluntary = operation == THREAD_YIELD && f.rax == 0;
-                #[cfg(feature = "wait-test")]
+                #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
                 let voluntary = voluntary || waiting::pending_current();
                 scheduling::syscall_return(f, voluntary);
             }
@@ -110,16 +198,16 @@ mod scheduled {
         }
     }
 }
-#[cfg(feature = "scheduler-test")]
+#[cfg(any(feature = "scheduler-test", feature = "desktop-runtime"))]
 pub(super) fn install_scheduler() {
     scheduled::install(scheduled::HOOKS);
 }
-#[cfg(feature = "capability-test")]
+#[cfg(any(feature = "capability-test", feature = "desktop-runtime"))]
 pub(super) fn install_capabilities() {
     // Rights checking precedes scheduler policy, including yield/exit control.
     let hooks = Hooks {
         operation: |op, f| {
-            #[cfg(feature = "wait-test")]
+            #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
             if let Some(value) = waiting::dispatch(op, f) {
                 return Some(value);
             }
@@ -127,7 +215,7 @@ pub(super) fn install_capabilities() {
         },
         ..scheduled::HOOKS
     };
-    #[cfg(feature = "wait-test")]
+    #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
     let hooks = if waiting::enabled() {
         Hooks {
             copy_observer: |_| {},
@@ -163,7 +251,7 @@ pub(super) fn install_supervisor() {
         ..scheduled::HOOKS
     });
 }
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 fn wait_supervision_probe(queue: &mut continuum_kernel::scheduler::Queue, wave: u64) -> Result<()> {
     if wave == 4 {
         if let Some(id) = waiting::blocked_thread(1) {
@@ -174,7 +262,7 @@ fn wait_supervision_probe(queue: &mut continuum_kernel::scheduler::Queue, wave: 
     }
     Ok(())
 }
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 fn wait_boundary_probe(phase: u64, watched: u64) {
     const CONTROL: u64 = 0x70000008;
     let selector = unsafe { (CONTROL as *const u64).read_volatile() };

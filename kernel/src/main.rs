@@ -8,7 +8,7 @@ mod paging;
 mod runtime_loader;
 mod runtime_memory;
 mod timer;
-#[cfg(feature = "user-boundary-test")]
+#[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
 mod user_entry;
 use continuum_kernel::{BootInfoV1, Error, Text, identity};
 use core::{
@@ -130,7 +130,7 @@ fn failure_exit() -> ! {
     halt()
 }
 fn record(event: &str, stage: &str, outcome: &str, detail: fmt::Arguments<'_>) {
-    #[cfg(feature = "user-boundary-test")]
+    #[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
     if outcome == "ok" && !user_entry::record_event(event) {
         return;
     }
@@ -238,6 +238,8 @@ pub extern "C" fn kernel_entry() -> ! {
     #[cfg(not(feature = "boot-inject"))]
     if fixture != "normal"
         && fixture != "acceptance-exit"
+        && !(cfg!(feature = "desktop-runtime") && fixture == "desktop-ordinary")
+        && !(cfg!(feature = "desktop-test") && fixture == "desktop-runtime")
         && !(cfg!(feature = "exception-test") && exceptions::mode(fixture).is_some())
         && !(cfg!(feature = "memory-test") && paging::mode(fixture).is_some())
         && !(cfg!(feature = "timer-test") && timer::mode(fixture).is_some())
@@ -359,6 +361,11 @@ pub extern "C" fn kernel_entry() -> ! {
             .or_else(|| paging::mode(fixture))
             .or_else(|| timer::mode(fixture))
             .or_else(|| {
+                if cfg!(feature = "desktop-runtime")
+                    && matches!(fixture, "normal" | "desktop-ordinary" | "desktop-runtime")
+                {
+                    return Some(45);
+                }
                 if cfg!(feature = "route-test") && fixture == "routes" {
                     return Some(44);
                 }

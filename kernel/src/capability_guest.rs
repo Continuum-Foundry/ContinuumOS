@@ -31,7 +31,7 @@ impl Drop for RegistryEntry {
 pub(super) fn quiescent() -> bool {
     !unsafe { *ENTERED.0.get() }
 }
-#[cfg(feature = "wait-test")]
+#[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
 pub(super) fn registry<R>(f: impl FnOnce(&mut Registry) -> R) -> R {
     let _entry = RegistryEntry::acquire();
     let flags: u64;
@@ -261,7 +261,7 @@ fn channel_dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>
                         },
                     };
                 }
-                #[cfg(feature = "wait-test")]
+                #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
                 super::waiting::check_attempt_deadline()?;
                 unsafe {
                     (&mut *REGISTRY.0.get()).channel_send_checked(
@@ -270,7 +270,7 @@ fn channel_dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>
                         &bytes[..w[1] as usize],
                         &attachments[..w[3] as usize],
                         || {
-                            #[cfg(feature = "wait-test")]
+                            #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
                             super::waiting::check_attempt_deadline()
                                 .map_err(|_| o::Error::WouldBlock)?;
                             Ok(())
@@ -331,7 +331,7 @@ fn channel_dispatch(op: u64, f: &Frame) -> Option<core::result::Result<u64, u64>
                             .map_err(|_| o::Error::InvalidArgument)?;
                         copy(w[4], &mut meta, true).map_err(|_| o::Error::InvalidArgument)?;
                         delivered = Some((sender, bytes.len(), handles.len()));
-                        #[cfg(feature = "wait-test")]
+                        #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
                         super::waiting::check_attempt_deadline()
                             .map_err(|_| o::Error::WouldBlock)?;
                         Ok(())

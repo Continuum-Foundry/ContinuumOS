@@ -8,17 +8,20 @@ use continuum_kernel::{
     owned_memory::{Access, Runtime, STACK_BASE, STACK_BYTES, Store},
 };
 use core::{arch::asm, cell::UnsafeCell};
+#[cfg(not(feature = "desktop-runtime"))]
 pub(crate) type Memory = Runtime<16, 256, 128, 64>;
+#[cfg(feature = "desktop-runtime")]
+pub(crate) type Memory = Runtime<16, 256, 128, 128>;
 static MEMORY: Local<Memory> = Local(UnsafeCell::new(Memory::EMPTY));
-#[cfg(feature = "user-boundary-test")]
+#[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
 static BORROWED: Local<bool> = Local(UnsafeCell::new(false));
-#[cfg(feature = "user-boundary-test")]
+#[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
 pub(crate) fn quiescent() -> bool {
     !unsafe { *BORROWED.0.get() }
 }
 // No borrow may survive entry to CPL3. IRQ/NMI never acquire this state. The
 // P3-04 caller masks IRQs and has no preemption; pins reject mapping mutations.
-#[cfg(feature = "user-boundary-test")]
+#[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
 pub(crate) fn with<R>(f: impl FnOnce(&mut Memory, &mut GuestStore) -> R) -> R {
     let flags: u64;
     unsafe {
@@ -125,7 +128,15 @@ pub fn establish(mode: u64) -> Result<()> {
     let image = crate::paging::image_bounds();
     let r = unsafe { &mut *MEMORY.0.get() };
     let stack_storage = 16 * 73728;
-    need(core::mem::size_of::<Memory>() + stack_storage <= 16 * 1024 * 1024)?;
+    need(
+        core::mem::size_of::<Memory>() + stack_storage
+            <= if cfg!(feature = "desktop-runtime") {
+                32
+            } else {
+                16
+            } * 1024
+                * 1024,
+    )?;
     r.initialize(crate::paging::kernel_entries(), |p| {
         let v = p as u64;
         need(v >= image.0 && v < image.1)?;
@@ -137,8 +148,21 @@ pub fn establish(mode: u64) -> Result<()> {
         "runtime-memory",
         "ok",
         format_args!(
-            "metadata_bytes={} table_storage_bytes={} kernel_stack_storage={} kernel_guard_bytes=131072 dynamic_ceiling=16777216 user_ceiling=67108864 spaces=16 allocation_slots=256 mappings_per_space=128 tables_per_bank=64 banks=2 initialized=true",
-            inventory.metadata_bytes, inventory.table_storage_bytes, stack_storage
+            "metadata_bytes={} table_storage_bytes={} kernel_stack_storage={} kernel_guard_bytes=131072 dynamic_ceiling={} user_ceiling={} spaces=16 allocation_slots=256 mappings_per_space=128 tables_per_bank={} banks=2 initialized=true",
+            inventory.metadata_bytes,
+            inventory.table_storage_bytes,
+            stack_storage,
+            if cfg!(feature = "desktop-runtime") {
+                continuum_kernel::desktop::Graph::required()
+            } else {
+                16777216
+            },
+            continuum_kernel::owned_memory::PROCESS_LIMIT,
+            if cfg!(feature = "desktop-runtime") {
+                128
+            } else {
+                64
+            }
         ),
     );
     if mode != 30 {

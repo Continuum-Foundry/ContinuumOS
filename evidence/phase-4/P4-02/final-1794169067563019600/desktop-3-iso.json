@@ -1,0 +1,42 @@
+{
+  "bios_tested": false,
+  "boot_tested": false,
+  "build_flavor": "desktop-test",
+  "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+  "configuration_sha256": "d7da361c063ff4d33bda8b839be194cfd1caf63fbe8a4455e764df7f59051985",
+  "diagnostic_sites": {
+    "diagnostic_double_site": 18446744071562077817,
+    "diagnostic_guard_site": 18446744071562077792,
+    "diagnostic_invalid_opcode": 18446744071562077035,
+    "diagnostic_nx_page": 18446744071562342400,
+    "diagnostic_page_fault_site": 18446744071562077047,
+    "diagnostic_panic_report": 18446744071562077052,
+    "diagnostic_write_site": 18446744071562077797
+  },
+  "fault": "desktop-runtime",
+  "firmware_code_sha256": "33090cc07675baa5190d9f1e84bf5176b33bcbfa9bacac522961150cdb6dbb2a",
+  "firmware_vars_template_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+  "fixture": "desktop-runtime",
+  "host_session_id": "a34755db60c4badcd21a3ec7e112cf036bc010d99043293fe756f9653f5e2d88",
+  "input_lock_sha256": "5d8ecae5ae201abc0b8d848134b5357378152de08fac8f64603b01d9be9fb22e",
+  "iso_sha256": "e2882323febe4031fbb1abe81d86179ea011ce5906a6cdaca94c864dbc25cf3b",
+  "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+  "module_fixture": false,
+  "payload": {
+    "EFI/BOOT/BOOTX64.EFI": "94308b4e9ee1783a65cfd60570240a80595baf125c5b18e729d3dd977194ad51",
+    "boot/kernel.elf": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+    "boot/limine/limine-uefi-cd.bin": "55d02f44d25c8df0a1334133bc1a485a8de52eaf3a2c96ba84ed0e6d1436e974",
+    "boot/limine/limine.conf": "d7da361c063ff4d33bda8b839be194cfd1caf63fbe8a4455e764df7f59051985",
+    "boot/service.elf": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+    "boot/user_a.elf": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+    "boot/user_b.elf": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+    "notices/limine-3RDPARTY.md": "292659d622cddafe3ddab7506e9c501d4a2f7af395090767d9357203e30029a8",
+    "notices/limine-LICENSE": "f174b8ff78f6f8982a1fc992668f8486eb8cf598f6938923c22e9bb50f8338a8",
+    "notices/limine-rs-LICENSE-APACHE": "669c5fbea6709886d8e33d3375b028923bfb91672814096a31f37d919eb6de59",
+    "notices/limine-rs-LICENSE-MIT": "1847c7d91474b783123f354c32d3ac6cc34d8379af3eaddb13326367ea91b5ff"
+  },
+  "payload_extraction_verified": true,
+  "schema_version": 2,
+  "session_origin": "host; correlation only, not a security credential or reset detector",
+  "uefi_optical_catalog": true
+}

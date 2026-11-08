@@ -300,7 +300,7 @@ pub(super) fn settled() -> Result<()> {
 }
 // Trusted stress observer only; termination clears the slot before generation
 // reuse. No state is consumed until resume and no reference escapes.
-#[cfg(feature = "stress-test")]
+#[cfg(any(feature = "stress-test", feature = "desktop-runtime"))]
 pub(super) fn ready_time(id: ThreadId) -> Option<u64> {
     unsafe { (&*READY_AT.0.get())[id.slot] }
 }

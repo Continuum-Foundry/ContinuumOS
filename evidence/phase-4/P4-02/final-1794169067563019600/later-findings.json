@@ -1,0 +1,34 @@
+{
+  "failures": [
+    {
+      "label": "third",
+      "directory": "build/m1/desktop-runtime-1794093045765862900-25372",
+      "reason": "guest self-check rejected; no named failing bound in this source",
+      "status": "failed"
+    },
+    {
+      "label": "ready-delay",
+      "directory": "build/m1/desktop-runtime-1794093651805543800-22108",
+      "reason": "ready delay414333000ns exceeded unchanged320000000ns; sequential restart stall repaired",
+      "status": "failed"
+    },
+    {
+      "label": "admission",
+      "directory": "build/m1/desktop-runtime-1794094324175943300-27616",
+      "reason": "30s guest deadline; empty-run-queue admission starved restart; ready-owner round repaired",
+      "status": "failed"
+    },
+    {
+      "label": "verbose",
+      "directory": "build/m1/desktop-runtime-1794094794294959900-1808",
+      "reason": "30s guest deadline with verbose wait diagnostics; versioned summary retains results and bound checks",
+      "status": "failed"
+    }
+  ],
+  "superseded": {
+    "directory": "build/m4/P4-02/acceptance-1794095395098168700",
+    "reason": "Agent interrupted to preserve frozen unknown/legacy Unsupported semantics; mixed-source partial run cannot pass"
+  },
+  "repairs": "restart cleanup/backoff/admission scheduler steps; fair ready-owner round; immutable verified boot plans; explicit bounded diagnostic policy; frozen SDK error semantics",
+  "limits": "30000ms ordinary/desktop guests,320ms ready/cleanup and100cycles per executed owner unchanged; no timeout-only causal inference"
+}

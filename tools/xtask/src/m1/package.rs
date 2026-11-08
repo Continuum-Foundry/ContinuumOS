@@ -111,7 +111,9 @@ pub(super) fn package(
         .as_bytes(),
     );
     let mut configuration = config(missing, &session, fixture, module);
-    if fixture == "static-loader"
+    if manifest["flavor"] == "normal"
+        || manifest["flavor"] == "desktop-test"
+        || fixture == "static-loader"
         || fixture.starts_with("user-boundary-")
         || fixture.starts_with("scheduler-")
         || fixture == "capabilities"

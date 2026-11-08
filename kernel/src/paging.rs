@@ -13,9 +13,17 @@ const TABLE_CAPACITY: usize = 2304;
 static FRAMES: Local<Frames> = Local(core::cell::UnsafeCell::new(Frames::EMPTY));
 static TABLES: Local<Tables<TABLE_CAPACITY>> = Local(core::cell::UnsafeCell::new(Tables::EMPTY));
 const SCRATCH: u64 = 0xffff_c000_0000_0000;
-#[cfg(any(feature = "static-loader-test", feature = "user-boundary-test"))]
+#[cfg(any(
+    feature = "static-loader-test",
+    feature = "user-boundary-test",
+    feature = "desktop-runtime"
+))]
 const MODULE_BASE: u64 = 0xffff_c200_0000_0000;
-#[cfg(any(feature = "static-loader-test", feature = "user-boundary-test"))]
+#[cfg(any(
+    feature = "static-loader-test",
+    feature = "user-boundary-test",
+    feature = "desktop-runtime"
+))]
 pub fn module(index: usize) -> Result<&'static [u8]> {
     let info = unsafe { &*crate::BOOT_INFO.0.get() };
     let m = info
@@ -146,6 +154,11 @@ pub(crate) fn kernel_leaf(v: u64) -> Result<u64> {
 }
 pub(crate) fn runtime_frames() -> usize {
     unsafe { (&*FRAMES.0.get()).allocated }
+}
+#[cfg(feature = "desktop-runtime")]
+pub(crate) fn runtime_available_bytes() -> u64 {
+    let f = unsafe { &*FRAMES.0.get() };
+    (f.total - f.allocated) as u64 * PAGE
 }
 pub(crate) fn runtime_quota(quota: usize) -> Result<()> {
     unsafe { (&mut *FRAMES.0.get()).set_test_quota(quota) }
@@ -279,8 +292,12 @@ pub fn establish(mode: u64) -> Result<()> {
             Permission::ReadWrite,
         )
     })?;
-    #[cfg(any(feature = "static-loader-test", feature = "user-boundary-test"))]
-    if mode == 31 || (32..=44).contains(&mode) {
+    #[cfg(any(
+        feature = "static-loader-test",
+        feature = "user-boundary-test",
+        feature = "desktop-runtime"
+    ))]
+    if mode == 31 || (32..=45).contains(&mode) || cfg!(feature = "desktop-runtime") {
         need(info.module_count == 3)?;
         for (i, m) in info.modules[..info.module_count].iter().enumerate() {
             need(m.range.len > 0 && m.range.len <= continuum_kernel::user_image::MAX_IMAGE as u64)?;

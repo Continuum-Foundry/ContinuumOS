@@ -214,23 +214,23 @@ extern "C" fn run(mode: u64) -> ! {
         );
         crate::failure_exit()
     });
-    #[cfg(feature = "user-boundary-test")]
+    #[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
     if (32..=35).contains(&mode) {
         crate::user_entry::run(mode - 32).unwrap_or_else(|e| crate::reject(e));
     }
-    #[cfg(feature = "scheduler-test")]
+    #[cfg(any(feature = "scheduler-test", feature = "desktop-runtime"))]
     if (36..=38).contains(&mode) {
         crate::user_entry::scheduling::run(mode == 36).unwrap_or_else(|e| crate::reject(e));
     }
-    #[cfg(feature = "capability-test")]
+    #[cfg(any(feature = "capability-test", feature = "desktop-runtime"))]
     if mode == 39 {
         crate::user_entry::scheduling::run_objects(false).unwrap_or_else(|e| crate::reject(e));
     }
-    #[cfg(feature = "channel-test")]
+    #[cfg(any(feature = "channel-test", feature = "desktop-runtime"))]
     if mode == 40 {
         crate::user_entry::scheduling::run_objects(true).unwrap_or_else(|e| crate::reject(e));
     }
-    #[cfg(feature = "wait-test")]
+    #[cfg(any(feature = "wait-test", feature = "desktop-runtime"))]
     if mode == 41 {
         crate::user_entry::waiting::enable();
         crate::user_entry::scheduling::run_objects(true).unwrap_or_else(|e| crate::reject(e));
@@ -246,6 +246,10 @@ extern "C" fn run(mode: u64) -> ! {
     #[cfg(feature = "policy-test")]
     if mode == 43 {
         crate::user_entry::scheduling::policy::run().unwrap_or_else(|e| crate::reject(e));
+    }
+    #[cfg(feature = "desktop-runtime")]
+    if mode == 45 {
+        crate::user_entry::scheduling::desktop::run().unwrap_or_else(|e| crate::reject(e));
     }
     record(
         "m1.boot_complete",
@@ -283,7 +287,7 @@ pub(crate) struct Frame {
 }
 const _: () = assert!(size_of::<Frame>() == 56);
 extern "C" fn dispatch(frame: *mut Frame, cr2: u64) {
-    #[cfg(feature = "user-boundary-test")]
+    #[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
     if crate::user_entry::exception(unsafe { &mut *frame }, cr2) {
         return;
     }
@@ -307,7 +311,7 @@ extern "C" fn dispatch(frame: *mut Frame, cr2: u64) {
     )
 }
 
-#[cfg(feature = "user-boundary-test")]
+#[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
 pub(crate) fn user_stack(top: u64) {
     unsafe {
         addr_of_mut!((*TSS.0.get()).rsp).write_unaligned([top, 0, 0]);

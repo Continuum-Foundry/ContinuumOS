@@ -1,0 +1,23 @@
+runner-tests:
+Ran 25 tests in 0.751s
+OK
+child-runner-tests:
+Ran 7 tests in 6.603s
+OK
+hygiene-tests:
+✔ batch reads preserve binary bytes and audit identical staged blobs once (6510.5007ms)
+✔ batch reads reject a mismatched staged object size (4899.0924ms)
+✔ an ignored local log cannot satisfy a staged evidence manifest (17485.6007ms)
+✔ large legacy evidence is allowed only while its exact tracked snapshot survives (15906.7177ms)
+✔ new full tool dumps exceed the file and bundle budgets (9237.2694ms)
+✔ too many tiny reports still exceed the file-count budget (9685.6182ms)
+✔ a force-added stray log is rejected outside evidence (6564.2106ms)
+✔ the declared historical untracking exception never applies to new bundles (27122.1946ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 97814.2657

@@ -1,0 +1,35 @@
+{
+  "schema_version": 2,
+  "story": "P4-02",
+  "scope": "story",
+  "status": "passed",
+  "review": "local Codex self-review with existing independent raw/ELF/mutation oracles; not external approval",
+  "acceptance_sha256": "8a9ff25c6c9d801b706e5708eefa094af01819df5e89e699ac3ac612023aad5e",
+  "guest_repetitions": 5,
+  "metadata_flavors": 16,
+  "selected_regressions": [
+    "boundary",
+    "scheduler",
+    "capabilities",
+    "waits",
+    "sdk-runtime"
+  ],
+  "reused_component_checks": [
+    "kernel-host",
+    "desktop-host",
+    "desktop-0",
+    "desktop-1",
+    "desktop-2",
+    "desktop-3",
+    "desktop-4",
+    "ordinary",
+    "flavors"
+  ],
+  "new_m1_m3_milestone_acceptance": false,
+  "origin_complete_gate_status": "interrupted; never a pass",
+  "reuse_source_delta": [
+    "config/p4-02-validation.json",
+    "tools/Review-P3-04.py",
+    "tools/runtime_focus_review.py"
+  ]
+}

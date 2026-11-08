@@ -1,0 +1,745 @@
+{
+  "rule": "workspace paths sanitized; embedded hashes refer to complete original local artifacts; selected text is labeled and not a full log",
+  "files": [
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/acceptance.json",
+      "original_sha256": "8a9ff25c6c9d801b706e5708eefa094af01819df5e89e699ac3ac612023aad5e",
+      "retained": "acceptance.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/review.json",
+      "original_sha256": "d53ff62809f42af2c9a2f3508ab68a0e280b7099675e5396ee12db288755e1c7",
+      "retained": "review.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/source-lock.json",
+      "original_sha256": "93cd9bc1bc4cabfa777e38fc15fc87c9b22fd8ded4892109a7cdb82f8a534175",
+      "retained": "source-lock.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/ordinary-review.json",
+      "original_sha256": "aa5d3834ea5a050c077306758af0aea964aac2999c59c5c2aae3a5ee3df1651f",
+      "retained": "ordinary-review.json"
+    },
+    {
+      "local_path": "config/p4-02-runtime.json",
+      "original_sha256": "3307a8e604cd8edb1bde2b107a173b8f479440bfd976ae806268b9a864c766bb",
+      "retained": "runtime-profile.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794167304568750800/flavors/flavors.json",
+      "original_sha256": "0f6b200efc6c386be7026a3e21a5e78dd8691ead184a7f86e8d9bd52ca90cfd4",
+      "retained": "flavors.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794167304568750800/kernel-host.stdout.log",
+      "original_sha256": "dc2657acfcb5b784cdd62c0eb5c248ed111b288aa24a0cb87ee1dfb8d97ccf2d",
+      "retained": "kernel-host-tests.txt"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794167304568750800/desktop-host.stdout.log",
+      "original_sha256": "ca01f8d02de145608ce395f1c4c835431cad1144a4722933462e94f93412c336",
+      "retained": "desktop-host-tests.txt"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/desktop-0-review.json",
+      "original_sha256": "4f496aa2ac3fc0ec2e0db2b45e5b6e9cd428544847b28bd5341a46f810e70164",
+      "retained": "desktop-0-review.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167319991641900-9972/desktop-runtime-run/case-result.json",
+      "original_sha256": "b1a4e9b8b1208c964642919db4e0765a18a1e6488c83d81a1b7e4b7808e174ca",
+      "retained": "desktop-0-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167319991641900-9972/desktop-runtime-run/launch-manifest.json",
+      "original_sha256": "d5ba32541b3430c8581e5ce46a37f4a89bc7372b612565c429a04084ad2d28c3",
+      "retained": "desktop-0-launch.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167319991641900-9972/desktop-runtime-package/iso-manifest.json",
+      "original_sha256": "fcdcc0513551df2dd22e3ac8ab92137e09fc56d8cffc28016cb1405c7c392e1c",
+      "retained": "desktop-0-iso.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167319991641900-9972/build-inputs.json",
+      "original_sha256": "21518df3ee4f605cd4c9f73801c23e92255aa06c6c25aaaef9e23bd1a89b82b8",
+      "retained": "desktop-build-inputs.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167319991641900-9972/build-manifest.json",
+      "original_sha256": "3ad336d064b3acbdff7b1926c399258b4989c754c1471e58bfc591cae6fd8c69",
+      "retained": "desktop-build-manifest.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167319991641900-9972/user-images.json",
+      "original_sha256": "2b919d88a90c956c1512fb09b02cc016a916c68f3d6a271711208321f707d59f",
+      "retained": "desktop-user-images.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167319991641900-9972/kernel-build.command.json",
+      "original_sha256": "fb147b384d04fda3a100f0644f0ec7d35d3d4d15ab5a9d2e1ca2bdc27b5af49b",
+      "retained": "desktop-kernel-build.command.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167319991641900-9972/user_a-build.command.json",
+      "original_sha256": "3e5d1026f003516fe58127edc1226418091105158dbe3e4ac22bb57857c34eeb",
+      "retained": "desktop-user_a-build.command.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167319991641900-9972/user_b-build.command.json",
+      "original_sha256": "f47d17e65468abd13dea56c23f178b79153da00a43f1f239f9e1cde3aaf30e92",
+      "retained": "desktop-user_b-build.command.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167319991641900-9972/service-build.command.json",
+      "original_sha256": "d3bf35440ff8fef99e2693a406e84cb05f950c9524acfd907c264fd02d1880ad",
+      "retained": "desktop-service-build.command.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/desktop-1-review.json",
+      "original_sha256": "7dcf638d2aee9c0663f634da337d9af89b3fec799fa9171c1177204cdbaede13",
+      "retained": "desktop-1-review.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167471623849200-57440/desktop-runtime-run/case-result.json",
+      "original_sha256": "42737e40d29c84420c8f31adae9234e05eb5b6e522f9c618ed2012d8a8bccb26",
+      "retained": "desktop-1-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167471623849200-57440/desktop-runtime-run/launch-manifest.json",
+      "original_sha256": "357d5094bdb7960d977df5856947cbd42ea3964217b04b305438c7e900b240a4",
+      "retained": "desktop-1-launch.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167471623849200-57440/desktop-runtime-package/iso-manifest.json",
+      "original_sha256": "2be5d05d7e687f62f5a41a2bb5252dd45f81cb010c1174adeff2ac479bbc28fd",
+      "retained": "desktop-1-iso.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/desktop-2-review.json",
+      "original_sha256": "9cb53467a78b225ddfee53c576793c3f18d0ff68b568c80451fc257d3218e303",
+      "retained": "desktop-2-review.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167571834635400-51988/desktop-runtime-run/case-result.json",
+      "original_sha256": "c309c66dee56154355df2571366d1621aaeb91511c4dc6aeec5b8fadff42355e",
+      "retained": "desktop-2-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167571834635400-51988/desktop-runtime-run/launch-manifest.json",
+      "original_sha256": "6a116277bb64809405142a370aa609c30cf148b597a8eee3532a4a551e6fa38e",
+      "retained": "desktop-2-launch.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167571834635400-51988/desktop-runtime-package/iso-manifest.json",
+      "original_sha256": "49e1f8a3271ab749efadc2fbda857202518014d06d9eafbdbad9a9bcf3994217",
+      "retained": "desktop-2-iso.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/desktop-3-review.json",
+      "original_sha256": "c73efc25048ed4fe87f68741fee16266450f6084e2d8ec48481bd1590862364f",
+      "retained": "desktop-3-review.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167657733848300-63692/desktop-runtime-run/case-result.json",
+      "original_sha256": "d70117203de9e311b789dc834f8428bb0db89df4a9bb2d0e7e1d126b6c015cf9",
+      "retained": "desktop-3-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167657733848300-63692/desktop-runtime-run/launch-manifest.json",
+      "original_sha256": "aaeab7f7a9cb8feaff69d36c4c5bf2f38439ec0fab43a96e5a99c46a1484584b",
+      "retained": "desktop-3-launch.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167657733848300-63692/desktop-runtime-package/iso-manifest.json",
+      "original_sha256": "1fdbc294d2fb750718ecc1f8181fd82f875f437d16a79a900d4ae86d07c5b5db",
+      "retained": "desktop-3-iso.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/desktop-4-review.json",
+      "original_sha256": "229e7c7350dd342d9a866abc9a1e7452a2a2512f98da76d86ab963e01fd1c635",
+      "retained": "desktop-4-review.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167773909303200-64960/desktop-runtime-run/case-result.json",
+      "original_sha256": "07959483d1820f889e2d87fdd56978d7a979c580aaf952d0e0cd88d24d4c11d5",
+      "retained": "desktop-4-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167773909303200-64960/desktop-runtime-run/launch-manifest.json",
+      "original_sha256": "94487d4dfa8fd36213da93189ac0b25be6d6661155bbfe45ff207be2ef549965",
+      "retained": "desktop-4-launch.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794167773909303200-64960/desktop-runtime-package/iso-manifest.json",
+      "original_sha256": "d361b47aa0a6c25b6cbbccefdd646f594f350c8d5fdf19fd5052b49f400949d9",
+      "retained": "desktop-4-iso.json"
+    },
+    {
+      "local_path": "build/m1/run-1794167907172813200-61496/build-inputs.json",
+      "original_sha256": "c434911d1ede4ca80b01bdded696ff241803494f58a6c8cb09ba4d37f016ec95",
+      "retained": "ordinary-build-inputs.json"
+    },
+    {
+      "local_path": "build/m1/run-1794167907172813200-61496/build-manifest.json",
+      "original_sha256": "61ce2b2bd051317595789ad032d50a94dda37174e0898cd70ac50b5f5ea4ec2e",
+      "retained": "ordinary-build-manifest.json"
+    },
+    {
+      "local_path": "build/m1/run-1794167907172813200-61496/user-images.json",
+      "original_sha256": "2b919d88a90c956c1512fb09b02cc016a916c68f3d6a271711208321f707d59f",
+      "retained": "ordinary-user-images.json"
+    },
+    {
+      "local_path": "build/m1/run-1794167907172813200-61496/kernel-build.command.json",
+      "original_sha256": "f1cbeb155b9007fa037180673bea7b835896719bc63ed02d074becbbe59f26cf",
+      "retained": "ordinary-kernel-build.command.json"
+    },
+    {
+      "local_path": "build/m1/run-1794167907172813200-61496/user_a-build.command.json",
+      "original_sha256": "c9d52d9f39fd9a2bf04c917f117cac335a7eb1a3d66657dae6057fc7e4990379",
+      "retained": "ordinary-user_a-build.command.json"
+    },
+    {
+      "local_path": "build/m1/run-1794167907172813200-61496/user_b-build.command.json",
+      "original_sha256": "52f2447de3a4e8ce36089220ed0acd8a6775436abd47834cb6285c4e8a58f364",
+      "retained": "ordinary-user_b-build.command.json"
+    },
+    {
+      "local_path": "build/m1/run-1794167907172813200-61496/service-build.command.json",
+      "original_sha256": "73322e3c4bf71adbb089b59f58f22bb46d94c56b007752964b56eb3d64e8fe8e",
+      "retained": "ordinary-service-build.command.json"
+    },
+    {
+      "local_path": "build/m1/run-1794167907172813200-61496/cold-boot-a-run/case-result.json",
+      "original_sha256": "bee5e54415af601cb6ea15aa4963d101f6d536a608d1693c3aabcc2f3d843f4c",
+      "retained": "ordinary-case.json"
+    },
+    {
+      "local_path": "build/m1/run-1794167907172813200-61496/cold-boot-a-run/launch-manifest.json",
+      "original_sha256": "fb75373089625258418f80d88e7b9f1a32bd150a78362da486f852e0208af913",
+      "retained": "ordinary-launch.json"
+    },
+    {
+      "local_path": "build/m1/run-1794167907172813200-61496/cold-boot-a-package/iso-manifest.json",
+      "original_sha256": "2a8c5c076ca49db6ff1e488de1d26b25da71e95865a1c43169c96a89417c63d4",
+      "retained": "ordinary-iso.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/selection.json",
+      "original_sha256": "7970939a5a7d6c47ba6af8b22e5d55d21edf50f147c5509808fa2bfb3ade6931",
+      "retained": "selection.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794167304568750800/acceptance.json",
+      "original_sha256": "3b7aabb86ce0c15ef4c21c90abb06b8b55c5e84ca11cefaaca4576cef32286c5",
+      "retained": "component-origin.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794167304568750800/source-lock.json",
+      "original_sha256": "515db9db48ce9ffff9829bee26fcf4b329279a96097aea046d51239ec4885d19",
+      "retained": "component-origin-source-lock.json"
+    },
+    {
+      "local_path": "work/p4-02-user-stop-processes.json",
+      "original_sha256": "91bf7c3461be6df5bc2e830bc87f61902ca277287993df95e6632756dc6133dc",
+      "retained": "owner-stop-processes.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/boundary-review.json",
+      "original_sha256": "65b697d3be8cf3798bfae75b8d2124a86a85e4578f9faba5d9a69f8205f0f5a5",
+      "retained": "regression-boundary-review.json"
+    },
+    {
+      "local_path": "build/m1/user-boundary-1794168602253084900-58940/result.json",
+      "original_sha256": "28c2ca4f158e6423c63ff650515a01e3b1c557174b05df8065ced43f1e35fbd3",
+      "retained": "regression-boundary-result.json"
+    },
+    {
+      "local_path": "build/m1/user-boundary-1794168602253084900-58940/build-inputs.json",
+      "original_sha256": "431f1ea73a47583dcb3452cad30d542fd467ad0b9b8259708e36117c329ec282",
+      "retained": "regression-boundary-inputs.json"
+    },
+    {
+      "local_path": "build/m1/user-boundary-1794168602253084900-58940/build-manifest.json",
+      "original_sha256": "cec651478705a60b5e3d06f93528461f8e7e6eddfb92621bb35ec5a369cbc113",
+      "retained": "regression-boundary-manifest.json"
+    },
+    {
+      "local_path": "build/m1/user-boundary-1794168602253084900-58940/user-boundary-a-run/case-result.json",
+      "original_sha256": "dc484d100c92ba67df4b27ea327d7fc15e5cec08cd16d44bd359b296ceac6852",
+      "retained": "regression-boundary-user-boundary-a-run-case.json"
+    },
+    {
+      "local_path": "build/m1/user-boundary-1794168602253084900-58940/user-boundary-b-run/case-result.json",
+      "original_sha256": "b3ef0fc40423e3c08eed7b9f8d6bc3bfba81315d218f34bfc6c14ece416afd9b",
+      "retained": "regression-boundary-user-boundary-b-run-case.json"
+    },
+    {
+      "local_path": "build/m1/user-boundary-1794168602253084900-58940/user-boundary-c-run/case-result.json",
+      "original_sha256": "2d0af1ae77b90cc392e4a682589c8c437243cbe53e3e3b06074f8cae67dced5d",
+      "retained": "regression-boundary-user-boundary-c-run-case.json"
+    },
+    {
+      "local_path": "build/m1/user-boundary-1794168602253084900-58940/user-boundary-d-run/case-result.json",
+      "original_sha256": "10c0665e5936074ff1c619bfd563e555f11796ce66b4b2b5f04d372eed9ec426",
+      "retained": "regression-boundary-user-boundary-d-run-case.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/scheduler-review.json",
+      "original_sha256": "6ce29e56f9decd86fb84efdd93926266b21baa2eb185520199c4e90921b8b42c",
+      "retained": "regression-scheduler-review.json"
+    },
+    {
+      "local_path": "build/m1/scheduler-1794169104018921300-53568/result.json",
+      "original_sha256": "8397a7cd8d5fb63e3a08f5d28e26aa6e4fe9a4afe8f3226db651552754573a5a",
+      "retained": "regression-scheduler-result.json"
+    },
+    {
+      "local_path": "build/m1/scheduler-1794169104018921300-53568/build-inputs.json",
+      "original_sha256": "086a987d059d2d14ddee20802c27f66cfc84e4e828136181d0e169da23fa0d2a",
+      "retained": "regression-scheduler-inputs.json"
+    },
+    {
+      "local_path": "build/m1/scheduler-1794169104018921300-53568/build-manifest.json",
+      "original_sha256": "e3f2c3359e86fcd7e4228782b3cc84f7138a2e579d0f7aa7263e983ea4bba35a",
+      "retained": "regression-scheduler-manifest.json"
+    },
+    {
+      "local_path": "build/m1/scheduler-1794169104018921300-53568/scheduler-cpu-run/case-result.json",
+      "original_sha256": "c2e86241fe6df813e08b3e40891ffa93f12aba3f12af46f6d43655dba7ec5e24",
+      "retained": "regression-scheduler-scheduler-cpu-run-case.json"
+    },
+    {
+      "local_path": "build/m1/scheduler-1794169104018921300-53568/scheduler-off-run/case-result.json",
+      "original_sha256": "b3a692b0af0f75728300a553c30133bdd7edfe2a8b0d00a4f05f52ef5c4cb984",
+      "retained": "regression-scheduler-scheduler-off-run-case.json"
+    },
+    {
+      "local_path": "build/m1/scheduler-1794169104018921300-53568/scheduler-on-run/case-result.json",
+      "original_sha256": "f33cbf81b3767fd48e125e1266ecdd3be1beb739057a349499fa524d05854478",
+      "retained": "regression-scheduler-scheduler-on-run-case.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/capabilities-review.json",
+      "original_sha256": "ba5f1690679f46a5e261cdcd70e0e88088dd5b555a785e5ead80a2f06d6d76da",
+      "retained": "regression-capabilities-review.json"
+    },
+    {
+      "local_path": "build/m1/capabilities-1794169274407841600-64540/result.json",
+      "original_sha256": "fbb87c76b46ac583f9f7ddb55f06d3ad7ae3f225d08acab160c998282b1f4e71",
+      "retained": "regression-capabilities-result.json"
+    },
+    {
+      "local_path": "build/m1/capabilities-1794169274407841600-64540/build-inputs.json",
+      "original_sha256": "5d5fdd8ae2a3bec97a6ae6c846d8938ec08498470792370e1e28ed3c1170cebb",
+      "retained": "regression-capabilities-inputs.json"
+    },
+    {
+      "local_path": "build/m1/capabilities-1794169274407841600-64540/build-manifest.json",
+      "original_sha256": "f52dbbf0a1dcb0a9d194ab009dd91aaf57822c5b5be25f6a4b2266089c32c5b8",
+      "retained": "regression-capabilities-manifest.json"
+    },
+    {
+      "local_path": "build/m1/capabilities-1794169274407841600-64540/capabilities-run/case-result.json",
+      "original_sha256": "c97a83e6502a4a7130721e94fc731c2ad08ddee606a2d34ecb8a1e184e716ab8",
+      "retained": "regression-capabilities-capabilities-run-case.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/waits-review.json",
+      "original_sha256": "a6004e56db5d671748aab0f345fe4174238a6b702935485899b40f650c2c3f71",
+      "retained": "regression-waits-review.json"
+    },
+    {
+      "local_path": "build/m1/waits-1794169354543533900-16696/result.json",
+      "original_sha256": "9a861541c890773e6993f6cdda6c1b8c90483f4166567d1886e0be0c7e1c61b6",
+      "retained": "regression-waits-result.json"
+    },
+    {
+      "local_path": "build/m1/waits-1794169354543533900-16696/build-inputs.json",
+      "original_sha256": "41b99e83ee41babf4976e2d6d3dc6b6d0232c576f661e91564478d2b2d149ca9",
+      "retained": "regression-waits-inputs.json"
+    },
+    {
+      "local_path": "build/m1/waits-1794169354543533900-16696/build-manifest.json",
+      "original_sha256": "8f8da67da5b002c2c9f61fe268d69c05a69a1c9927524abb76d1fb9ec6d78b2f",
+      "retained": "regression-waits-manifest.json"
+    },
+    {
+      "local_path": "build/m1/waits-1794169354543533900-16696/waits-run/case-result.json",
+      "original_sha256": "d55337c09eeb6ae4d02de498326fea08db5af2848ed912218f7e53079b4d65fc",
+      "retained": "regression-waits-waits-run-case.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794169067563019600/sdk-runtime-review.json",
+      "original_sha256": "9094f88011849cec41de9f0a82f984ba6fd357ecf765b9bb77fe28eb2e1b7e38",
+      "retained": "regression-sdk-runtime-review.json"
+    },
+    {
+      "local_path": "build/m1/sdk-runtime-1794169451208888600-43848/result.json",
+      "original_sha256": "02e93476f15bd07cb07370c0c905e3f4e1290993962db41cab117937f504ddb3",
+      "retained": "regression-sdk-runtime-result.json"
+    },
+    {
+      "local_path": "build/m1/sdk-runtime-1794169451208888600-43848/build-inputs.json",
+      "original_sha256": "56d65a3c8ce19629b9f913bd0915c6a6b3db88d01d62bffdbd18a406c3b48c1c",
+      "retained": "regression-sdk-runtime-inputs.json"
+    },
+    {
+      "local_path": "build/m1/sdk-runtime-1794169451208888600-43848/build-manifest.json",
+      "original_sha256": "aa227d8a1b3a1f9a743bb682e3b5b5deb2cba9adb4498b334c3e9c6a0c22595c",
+      "retained": "regression-sdk-runtime-manifest.json"
+    },
+    {
+      "local_path": "build/m1/sdk-runtime-1794169451208888600-43848/sdk-runtime-run/case-result.json",
+      "original_sha256": "03cd2365c75186178fce829258984728d3814a4ed5b2dbf608256687144b3f21",
+      "retained": "regression-sdk-runtime-sdk-runtime-run-case.json"
+    },
+    {
+      "local_path": "build/m1/build-1794081266541202200-17256/result.json",
+      "original_sha256": "63196c15ba61ce1325143da7cae2e28dc3d6ccdb73edf2f5f60aad614379f2c1",
+      "retained": "failed-0-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794081368819338900-3012/result.json",
+      "original_sha256": "4f77b6b98a57c6115612c5471080a2815bf48e27c8e5a605cc654aeb61b0d18f",
+      "retained": "failed-1-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794081368819338900-3012/desktop-runtime-run/case-result.json",
+      "original_sha256": "bc11f4f4228cebff422692b578cb5427a9723926c1b6faadc9a90c708a8397f2",
+      "retained": "failed-1-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794081485984234700-16196/result.json",
+      "original_sha256": "bb7d4905c52fc37b9b276be266739cf386320b38f4eeced34a451af58b7ae2eb",
+      "retained": "failed-2-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794081485984234700-16196/desktop-runtime-run/case-result.json",
+      "original_sha256": "3b59bbb069bc45ca805069e8faab61e44956355799a6984dcab02742c3ad5cbd",
+      "retained": "failed-2-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794081671481774300-16632/result.json",
+      "original_sha256": "4f77b6b98a57c6115612c5471080a2815bf48e27c8e5a605cc654aeb61b0d18f",
+      "retained": "failed-3-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794081671481774300-16632/desktop-runtime-run/case-result.json",
+      "original_sha256": "a234b1be702bc46ba66817880f40158e8a3c9d2350672a1eec43bcd41143a1f9",
+      "retained": "failed-3-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794081833740729800-17988/result.json",
+      "original_sha256": "7f0bb9e7b67b5e6de90b2200915f0214491dece88621ab5e539ca13288f685d7",
+      "retained": "failed-4-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794081833740729800-17988/desktop-runtime-run/case-result.json",
+      "original_sha256": "eb9dc3b1780aec3ce41a12e6f379cd7fff4fda1460dd1941054023df083c06fb",
+      "retained": "failed-4-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794082163604595900-20984/result.json",
+      "original_sha256": "4f77b6b98a57c6115612c5471080a2815bf48e27c8e5a605cc654aeb61b0d18f",
+      "retained": "failed-5-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794082163604595900-20984/desktop-runtime-run/case-result.json",
+      "original_sha256": "109617a938b42280dc83918b7e088a8f01208d087546927fe4560d7ad449c359",
+      "retained": "failed-5-case.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794085150642453500/acceptance.json",
+      "original_sha256": "61682726316059c03819b356fd46dedfa1528e03d6cf2dd14d405db942dbd905",
+      "retained": "failed-second-acceptance.json"
+    },
+    {
+      "local_path": "work/p4-02-second-final-failure.json",
+      "original_sha256": "8afac473a3bf23c0b3c539680c3365e23f4404cd66ae1dc22d03499afc1cb25f",
+      "retained": "failed-second-context.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794085158341170400-15664/result.json",
+      "original_sha256": "ff1b045d7a8bb60db0b47bf8cc7c84c8b4c4ea7c402e3f287cb8d856e924d673",
+      "retained": "failed-second-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794085158341170400-15664/kernel-build.command.json",
+      "original_sha256": "4f85ab496bee9a4bdfc39b57f02af343304b7713e2b6e58d1d54950da93d6517",
+      "retained": "failed-second-build-command.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794085158341170400-15664/kernel-build.stderr.log",
+      "original_sha256": "22f57ddaccf780cb6e9ff6a4ed658c5fcfd365c450c8a9b09262307debadc768",
+      "retained": "failed-second-build-stderr.txt"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794082668020635900/acceptance.json",
+      "original_sha256": "b95d0be145aaf7edb359270e0db70179a647f7e4d5f79eb5dc5baf86409ab14a",
+      "retained": "failed-final-acceptance.json"
+    },
+    {
+      "local_path": "build/m3/P3-14/acceptance-1794083161260708000/acceptance.json",
+      "original_sha256": "65bf38421d93827107047c96171c1099244c096964d21b04abec4bc6f9a5c670",
+      "retained": "failed-final-m3.json"
+    },
+    {
+      "local_path": "build/m3/P3-13/acceptance-1794083170031/acceptance.json",
+      "original_sha256": "0464f96c08cb5717067cdd51ba5ada1fd464ffb5bbee73358b499ba1ac9ea842",
+      "retained": "failed-final-stress.json"
+    },
+    {
+      "local_path": "work/p4-02-first-final-failure.json",
+      "original_sha256": "ccf60233529c57cc55bb3545acd9cad4851522c398444630bf94d5f6e5c026ad",
+      "retained": "failed-final-context.json"
+    },
+    {
+      "local_path": "build/m1/sdk-stress-trace-1794083861176278400-14012/sdk-stress-trace-run/case-result.json",
+      "original_sha256": "983fb35a860522fb0b9e871f67ef37c1522b2721e17d075788e7fd2a056ce987",
+      "retained": "failed-final-guest-case.json"
+    },
+    {
+      "local_path": "build/m1/sdk-stress-trace-1794083861176278400-14012/sdk-stress-trace-run/launch-manifest.json",
+      "original_sha256": "68ab605ecd49736fdd4179e27f04c6b98f0c09b02f9827846a294e25a005b659",
+      "retained": "failed-final-guest-launch.json"
+    },
+    {
+      "local_path": "build/m1/sdk-stress-trace-1794083861176278400-14012/build-manifest.json",
+      "original_sha256": "c821bf95ba00cc7c9e70cf0e4b31ef65010cdbe1d651aa7032b1482a627f263a",
+      "retained": "failed-final-guest-build.json"
+    },
+    {
+      "local_path": "build/m1/sdk-stress-trace-1794083861176278400-14012/sdk-stress-trace-run/serial.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "retained": "failed-final-guest-serial.txt"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794093036902088100/acceptance.json",
+      "original_sha256": "ca3bda5e6039ed9a4fc06c3e8581e377d7af5d70eb744e58309a39333bffed8e",
+      "retained": "third-acceptance.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794095395098168700/acceptance.json",
+      "original_sha256": "eceeafd3e5ac74aec8feda2ed11594bf60a5ad2fc2cf09d5efd5ac0c1b408627",
+      "retained": "superseded-acceptance.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794095395098168700/superseded.json",
+      "original_sha256": "a6a6b7e2569bcc56bed1042ba8d857f58a614aa8e11dc05d9527bc6eddcafca8",
+      "retained": "superseded-disposition.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794093045765862900-25372/result.json",
+      "original_sha256": "4f77b6b98a57c6115612c5471080a2815bf48e27c8e5a605cc654aeb61b0d18f",
+      "retained": "third-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794093045765862900-25372/desktop-runtime-run/case-result.json",
+      "original_sha256": "b40ef507e4e32f23111a3ed5f7dbb50406f43b20fe0b2a447f0e0bf53dc4c5c8",
+      "retained": "third-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794093651805543800-22108/result.json",
+      "original_sha256": "4f77b6b98a57c6115612c5471080a2815bf48e27c8e5a605cc654aeb61b0d18f",
+      "retained": "ready-delay-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794093651805543800-22108/desktop-runtime-run/case-result.json",
+      "original_sha256": "e413a93e9ce79417e5abddcd1776987028da11aa4568bf4729c0f660c56e14a8",
+      "retained": "ready-delay-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794094324175943300-27616/result.json",
+      "original_sha256": "7f0bb9e7b67b5e6de90b2200915f0214491dece88621ab5e539ca13288f685d7",
+      "retained": "admission-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794094324175943300-27616/desktop-runtime-run/case-result.json",
+      "original_sha256": "d6bbaa229da1f709b8d1e972d3efd182ce0e681668472013043ef9b9db5c7eb0",
+      "retained": "admission-case.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794094794294959900-1808/result.json",
+      "original_sha256": "7f0bb9e7b67b5e6de90b2200915f0214491dece88621ab5e539ca13288f685d7",
+      "retained": "verbose-result.json"
+    },
+    {
+      "local_path": "build/m1/desktop-runtime-1794094794294959900-1808/desktop-runtime-run/case-result.json",
+      "original_sha256": "8244348933439b25732c88b346fe4b18c34bdf5a9a683a15d09c21454df17ad9",
+      "retained": "verbose-case.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794095736477661800/acceptance.json",
+      "original_sha256": "7fa45a26c12c35388eadb11b14d99ad1b48a5740010dba85e9d748ac3d6dbac5",
+      "retained": "host-count-failed-full-acceptance.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794095736477661800/review-failure-disposition.json",
+      "original_sha256": "be4e9863c13e8572858b90a0244049a639e17a1fd039687d9998d2a9f98a6695",
+      "retained": "host-count-failure-disposition.json"
+    },
+    {
+      "local_path": "build/m3/P3-13/acceptance-1794096447510/acceptance.json",
+      "original_sha256": "ea774693b3d9ba5a0b04801ea974df9acdba0135598c7bc1c1b476f488836373",
+      "retained": "host-count-failed-stress.json"
+    },
+    {
+      "local_path": "build/m3/P3-14/acceptance-1794096439595706900/acceptance.json",
+      "original_sha256": "3f7fa5f5ea52ecd4e13e102c118d5d161b8b8d3ae238d395f06fa4710d4b29eb",
+      "retained": "host-count-failed-m3.json"
+    },
+    {
+      "local_path": "work/p4-02-host-coverage-review.json",
+      "original_sha256": "59770180c0c34c91ddcb0c19c14664bb2e3b17f3b90c04e6221b48cd17432f8c",
+      "retained": "host-count-review-negatives.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794115211055097100/acceptance.json",
+      "original_sha256": "aef08c3177f4c77d435ff01381516291ee2b274ac775bfb0d6bf97b2e94a9919",
+      "retained": "source-drift-before-guests.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794116625589326000/acceptance.json",
+      "original_sha256": "8db1c0a3a0a4f8628b78b3c96ad896c8213221a317b71f9c681ef25fee201e6c",
+      "retained": "control-stop-interrupted-acceptance.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794116625589326000/agent-interruption.json",
+      "original_sha256": "825c42cf891182272a64afb99859dd45143dad370c62ec1a70786568c4c07b0d",
+      "retained": "control-stop-interruption.json"
+    },
+    {
+      "local_path": "work/p4-02-control-failure-review-before.json",
+      "original_sha256": "ac7a9accc24cd98c7b5f3d67b99e13b6445578a64749616b4851017ff0bc16a6",
+      "retained": "control-stop-oracle-before.json"
+    },
+    {
+      "local_path": "work/p4-02-control-failure-review-after.json",
+      "original_sha256": "3da07742e7aa2ddae16d2bd509bfbda35c65c95abf4408550b61794fcb65e9b3",
+      "retained": "control-stop-oracle-after.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794118245956219000/acceptance.json",
+      "original_sha256": "5dd775508653a762bd4881e0767c5eb5630c852944ac4229b767a9b04e18d195",
+      "retained": "host-startup-failed-acceptance.json"
+    },
+    {
+      "local_path": "build/m3/P3-14/acceptance-1794118996232229000/acceptance.json",
+      "original_sha256": "46c3fe915319c60bbc9aa87e0356c0392d6e586c3818f9677e0566b4b2b09126",
+      "retained": "host-startup-failed-m3.json"
+    },
+    {
+      "local_path": "work/p4-02-host-startup-repair.json",
+      "original_sha256": "3d988ecd5e8559909edb2164a2649d89b8bd5bc26f64197375ab578e4e0c2abf",
+      "retained": "host-startup-repair.json"
+    },
+    {
+      "local_path": "work/p4-02-python-startup/results.json",
+      "original_sha256": "e320033c2a20185ecfd4f601dfaa87dabb534e926714dd2c3081e6ec9d5ab591",
+      "retained": "host-startup-diagnostic.json"
+    },
+    {
+      "local_path": "build/m3/P3-14/host-preflight-1794119005870688200/results.json",
+      "original_sha256": "bf6873fc701e47d7006a6c244819a8fdac77d6fbf2cb487d83127cb81d9cbabb",
+      "retained": "host-startup-attempt-0.json"
+    },
+    {
+      "local_path": "build/m3/P3-14/host-preflight-1794119133637158800/results.json",
+      "original_sha256": "bd1fb75d936c6bdab829f3242ca40f559e5eeb74da539ad74faa06bb42409994",
+      "retained": "host-startup-attempt-1.json"
+    },
+    {
+      "local_path": "build/m3/P3-14/host-preflight-1794119280074609500/results.json",
+      "original_sha256": "6d50ddbe6a4d532adf4b64a14c24ef6acafd8f757633490a0f9f3e2485db8f95",
+      "retained": "host-startup-attempt-2.json"
+    },
+    {
+      "local_path": "build/m3/P3-14/host-preflight-1794119414492541300/results.json",
+      "original_sha256": "f959998decf8b85cd0e8c116e0c6a7a670cd0ce1e801eecd2547ef12d160b577",
+      "retained": "host-startup-attempt-3.json"
+    },
+    {
+      "local_path": "work/p4-02-final-flavor-review.json",
+      "original_sha256": "4acead9a5abbcba1b9707d3181f728d59f6bb5065d16de9150afc88bbc9a905f",
+      "retained": "final-flavor-review.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794119418230435300/acceptance.json",
+      "original_sha256": "8bb4c620e0bea8fa46779604037d1e3ab0051cd279bcfbb26b7ff3aafe31016a",
+      "retained": "standby-failed-acceptance.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794119418230435300/m3-command.json",
+      "original_sha256": "9c42e2aa5ad581ecf6e78e13982de987f1303f3a0f6ba52e5a558082760d265f",
+      "retained": "standby-outer-command.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794119418230435300/host-interruption-context.json",
+      "original_sha256": "35747cdd938a22390096e0ab491406545029dfa3dfaba01a75e0e9a41994f157",
+      "retained": "standby-context.json"
+    },
+    {
+      "local_path": "build/m1/suite-1794121967500032700-55304/suite-progress.json",
+      "original_sha256": "44cd9586b5cde317dcfec0a02526011cffd0cd1f149fdfff642689c3613ce83b",
+      "retained": "standby-m1-progress.json"
+    },
+    {
+      "local_path": "build/m1/suite-1794121967500032700-55304/result.json",
+      "original_sha256": "b1e3d15eb6aa686d0b43171adbba5ade57a278e73b4423c61aefbe4283bb337e",
+      "retained": "standby-m1-failure.json"
+    },
+    {
+      "local_path": "build/m1/suite-1794121967500032700-55304/timer-calibration/kernel-build.command.json",
+      "original_sha256": "188cbc39959b91a7fae61ab870f7a47ff1ad730b3929d6d680881500e0de78c0",
+      "retained": "standby-compile-command.json"
+    },
+    {
+      "local_path": "build/m1/suite-1794121967500032700-55304/timer-calibration/kernel-build.stderr.log",
+      "original_sha256": "46101fc6d883e10a58259411c36bbd23ac82b4b7d2a004057565489b058399d8",
+      "retained": "standby-compile-stderr.txt"
+    },
+    {
+      "local_path": "build/m1/timer-calibration-1794165232121140800-59496/result.json",
+      "original_sha256": "1f8c50b2cce599803fb99ae80abad1ce44315c1b5d26710c9d2120a3cce76bfb",
+      "retained": "timer-calibration-diagnostic-result.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794165373236848900/acceptance.json",
+      "original_sha256": "83eee14e85f406ae684d64ac33fca8d90eecc43037bf02f04c0027fb36840138",
+      "retained": "wave91-failed-acceptance.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/acceptance-1794165373236848900/stress-deadline-context.json",
+      "original_sha256": "68f3f8d693d04bb3ab2e8f1d2cf112fafda15fb7153872a907050aecc0c91041",
+      "retained": "wave91-context.json"
+    },
+    {
+      "local_path": "build/m1/sdk-stress-trace-1794166852026008000-64276/sdk-stress-trace-run/case-result.json",
+      "original_sha256": "6a8d39aa7876842fd58e3fea7788153fbf9a2513f57195f78a774e1b49e23957",
+      "retained": "wave91-failed-case.json"
+    },
+    {
+      "local_path": "build/m1/sdk-stress-trace-1794167153846859900-65136/sdk-stress-trace-run/case-result.json",
+      "original_sha256": "d1423d716c38ea83345939d86a7d2a963871f8dfd0f1500009b04aa1122ccd6b",
+      "retained": "wave91-diagnostic-case.json"
+    },
+    {
+      "local_path": "work/p4-02-stress-deadline-diag-review/review.json",
+      "original_sha256": "8ccc134986ba4a00a9c770704783f698e8285138467922e9d6debf5f2de4100d",
+      "retained": "wave91-diagnostic-review.json"
+    },
+    {
+      "local_path": "build/m4/P4-02/story-1794168563098861700/acceptance.json",
+      "original_sha256": "28c8e740325fef9345d0c51f8e3dfedc6ab8b74142d5025c06083e8d6891a6d9",
+      "retained": "boundary-review-failed-closeout.json"
+    },
+    {
+      "local_path": "work/p4-02-boundary-review-repair.json",
+      "original_sha256": "57758438408012e3c6cdfd80abb8f53f0434e5c17e0d4aeb6106db8e4ec93c25",
+      "retained": "boundary-review-repair.json"
+    }
+  ]
+}

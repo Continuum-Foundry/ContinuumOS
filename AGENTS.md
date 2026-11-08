@@ -33,14 +33,23 @@ is frozen. P3-13's bounded SDK stress and resource accounting pass local self-re
 P4-01 passes local prerequisite/profile self-review; see
 `evidence/phase-4/P4-01/final-1794022944926085700/README.md`. Its two long M3 stress flavors use the explicit
 revision-2 60000-ms bound; ordinary 30000-ms limits, counts and 320-ms guest-local
-bounds remain. This is not an original-limit pass. P4-02 runtime admission is next;
-P4-02 through P4-19 remain Not started. Host codecs/plans accept no guest desktop.
+bounds remain. This is not an original-limit pass. P4-02 passes local runtime-admission self-review; see
+`evidence/phase-4/P4-02/final-1794169067563019600/README.md`. Its finite seven-role graph,
+reclaiming private heaps and bounded teardown/restarts accept no rendering or reload.
+P4-03 is next; P4-03 through P4-19 remain Not started. Host codecs/plans accept no guest desktop.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other
 coding agents should use the same documents. `CLAUDE.md` points to this entry point.
 
 ## Development safeguards
+
+Owner direction, 2026-11-08: the later request to slim down current P4-02
+validation supersedes the earlier NEXT-time-only direction. Use the reviewed
+selection in `config/p4-02-validation.json`: retain and re-review completed
+new-behavior components on unchanged implementation, then execute focused affected
+regressions. Interrupted/failed full gates remain non-passes. Milestone exits,
+new-feature counts and deadlines are unchanged; this is not a standing test waiver.
 
 - Story closeout uses new-behavior tests plus affected regressions selected by
   agent judgment under `docs/05-delivery/validation.md#change-based-story-validation`.
@@ -49,6 +58,12 @@ coding agents should use the same documents. `CLAUDE.md` points to this entry po
   by default. Full suites remain required at milestone exits and for relevant broad
   foundation changes or uncertain impact. This supersedes blanket per-story full
   M1/M3 rerun wording; it changes selection, never deadlines, counts or release exits.
+- Before guest validation, preview the selected plan with an explicit VM-launch
+  budget and full-suite opt-in; see `docs/05-delivery/validation-run-control.md`.
+  Keep one active writer per checkout. Stop at the first failure, diagnose it and
+  rerun affected work instead of restarting earlier milestone cascades. Reuse
+  completed commands only with the required input/context/artifact proof; final
+  prose/evidence/staging changes rerun host audits, not unchanged guest tests.
 - When instructed to work on `main`, inspect the working tree, switch safely and
   run `git pull --ff-only` before assuming it is current. Preserve unrelated edits;
   do not discard changes or force a divergent branch to match the remote.
@@ -121,7 +136,7 @@ enterprise federation and cooperating models. Read R20–R27,
 [AI architecture](docs/02-architecture/ai-platform.md), ADR-0030–0033 and the
 unfrozen AI task/policy contract before AI work. B39/M21 follows M5 plus B67/B68;
 B67–B82 and M23–M26 are separately gated broad planning tasks, Not started.
-Keep P4-02 next, all existing release exits/evidence, 256 MiB model-unloaded cold
+Keep the current ordered Phase 4 gate, all existing release exits/evidence, 256 MiB model-unloaded cold
 idle including dormant AI, and fully counted resident/active/default/peak profiles.
 No native model/server port, funded allowance or production policy engine is accepted.
 Decompose later milestone stories only at the owner's request.

@@ -1,0 +1,2317 @@
+{
+  "schema_version": 2,
+  "story": "P4-02",
+  "scope": "story",
+  "status": "passed",
+  "source_commit": "7959d1a6230cee72842b802a6f3afad5b39aa673",
+  "selection": {
+    "schema_version": 1,
+    "story": "P4-02",
+    "scope": "story",
+    "impact": {
+      "subsystems": [
+        "owned memory and paging",
+        "user entry and exceptions",
+        "scheduler and timers",
+        "trusted desktop bootstrap",
+        "ISO packaging and launch"
+      ],
+      "consumers": [
+        "ordinary desktop graph",
+        "all existing M3 runtime fixtures",
+        "M1 fatal and timer diagnostics"
+      ],
+      "rationale": "Owner requested slimmer current-story validation on 2026-11-08, superseding the earlier NEXT-time direction. The core diff extends desktop-specific feature gates and profiles while preserving narrower legacy semantics. Five already-completed desktop cases, ordinary graph boot, both host suites and 16 separate builds are re-reviewed against unchanged implementation/tool inputs. Fresh focused boundary, scheduler, capabilities, waits and SDK-runtime guests exercise shared consumers. This is bounded story closeout, not fresh M1/M3 milestone acceptance; failed and interrupted full attempts remain non-passes.",
+      "broad_m1": false,
+      "broad_m2": false,
+      "broad_m3": false,
+      "shared_boundary_scheduler": true,
+      "uncertain_families": []
+    },
+    "selected": [
+      {
+        "id": "kernel-host",
+        "reason": "Completed 101-test ordinary host suite on the same implementation; recheck exact log coverage."
+      },
+      {
+        "id": "desktop-host",
+        "reason": "Completed 101-test desktop host suite on the same implementation; recheck exact log coverage."
+      },
+      {
+        "id": "boundary",
+        "reason": "Checked syscall return, pointer, fault and isolation paths share extended feature gates."
+      },
+      {
+        "id": "scheduler",
+        "reason": "Shared preemption, CPU state and return paths require narrow execution, including unsupported CPU denial."
+      },
+      {
+        "id": "capabilities",
+        "reason": "Self/timer authority and capability dispatch must preserve legacy rights enforcement."
+      },
+      {
+        "id": "waits",
+        "reason": "Desktop uses wait resume/notification contracts; verify existing timeout/cancel/wakeup consumers."
+      },
+      {
+        "id": "sdk-runtime",
+        "reason": "Shared user-memory and scheduling gates must preserve independent SDK allocation, CPU and teardown behavior."
+      },
+      {
+        "id": "docs",
+        "reason": "Check revised current-story scope and handoff."
+      },
+      {
+        "id": "governance",
+        "reason": "Preserve historical evidence and contract rules."
+      },
+      {
+        "id": "hygiene",
+        "reason": "Check final staged compact evidence and retention budgets."
+      }
+    ],
+    "not_selected": {
+      "M2": "No hosted UI implementation, renderer/text pipeline, corpus or UI freeze input changed. The selected portable-link regression required by full M3 still runs. Reassess if shared UI build semantics change.",
+      "M1": "No broad boot/interrupt implementation rewrite: shared edits add desktop feature gates, leaving existing cases semantically intact. Separate ordinary boot, 16 metadata flavors and selected boundary/scheduler guests exercise the affected paths; unchanged-source full M1 already reached 32/33 rows, but that interrupted/failed aggregate is not a new full pass.",
+      "M3": "The owner requested current-story selection instead of another complete milestone rerun. Retain existing complete historical M3 acceptance and all failed attempts. Focus current enforcement regressions on boundary/scheduler/capabilities/waits/SDK runtime; policy, route, IPC protocols and public SDK contract are unchanged. Five desktop repetitions retain all new lifecycle/negative/count criteria.",
+      "prerequisites": "Pinned compiler/QEMU/ISO tools, signer and host execution policy are unchanged; prior prerequisite reports are context. Each selected fresh case still performs its native build/package/launch preflights. No new prerequisite aggregate pass is claimed."
+    },
+    "historical_references": [
+      {
+        "path": "evidence/phase-4/P4-01/final-1794022944926085700/README.md",
+        "reason": "Accepted prerequisite/profile context only; does not substitute for current selected regression execution."
+      }
+    ]
+  },
+  "owner_direction": "2026-11-08: slim down current story; supersedes earlier NEXT-time-only instruction",
+  "reused_from": "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794167304568750800",
+  "reused_origin_status": "interrupted, not accepted as a complete gate",
+  "reuse_source_delta": [
+    "config/p4-02-validation.json",
+    "tools/Review-P3-04.py",
+    "tools/runtime_focus_review.py"
+  ],
+  "commands": [
+    {
+      "name": "boundary",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T20:09:57.302037+00:00",
+      "finished_utc": "2026-11-08T20:14:59.348232+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 302047
+    },
+    {
+      "name": "scheduler",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "scheduler"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T20:18:12.038639+00:00",
+      "finished_utc": "2026-11-08T20:21:10.396059+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 178360
+    },
+    {
+      "name": "capabilities",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "capabilities"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T20:21:12.166787+00:00",
+      "finished_utc": "2026-11-08T20:22:30.546903+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 78375
+    },
+    {
+      "name": "waits",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "waits"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T20:22:32.126334+00:00",
+      "finished_utc": "2026-11-08T20:24:06.781389+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 94657
+    },
+    {
+      "name": "sdk-runtime",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T20:24:08.537314+00:00",
+      "finished_utc": "2026-11-08T20:25:52.872738+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 104328
+    }
+  ],
+  "checks": [
+    {
+      "id": "kernel-host",
+      "status": "passed",
+      "execution": "reused completed component; current inputs rechecked",
+      "stdout": "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794167304568750800\\kernel-host.stdout.log",
+      "stdout_sha256": "dc2657acfcb5b784cdd62c0eb5c248ed111b288aa24a0cb87ee1dfb8d97ccf2d",
+      "tests": 101
+    },
+    {
+      "id": "desktop-host",
+      "status": "passed",
+      "execution": "reused completed component; current inputs rechecked",
+      "stdout": "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794167304568750800\\desktop-host.stdout.log",
+      "stdout_sha256": "ca01f8d02de145608ce395f1c4c835431cad1144a4722933462e94f93412c336",
+      "tests": 101
+    },
+    {
+      "id": "boundary",
+      "status": "passed",
+      "execution": "reused completed guest execution after exact reviewer-layout compatibility correction",
+      "artifacts": [
+        "${WORKSPACE}\\build\\m1\\user-boundary-1794168602253084900-58940"
+      ],
+      "review": {
+        "status": "passed",
+        "scope": "focused boundary regression only",
+        "audit": [
+          {
+            "group": 0,
+            "runs": 9,
+            "healthy_runs": 5,
+            "healthy_replacements": 4,
+            "offenders": 4,
+            "calls": 68,
+            "nested_irqs": 5,
+            "user_irqs": 56,
+            "settled_frames": 0
+          },
+          {
+            "group": 1,
+            "runs": 9,
+            "healthy_runs": 5,
+            "healthy_replacements": 4,
+            "offenders": 4,
+            "calls": 71,
+            "nested_irqs": 5,
+            "user_irqs": 48,
+            "settled_frames": 0
+          },
+          {
+            "group": 2,
+            "runs": 9,
+            "healthy_runs": 5,
+            "healthy_replacements": 4,
+            "offenders": 4,
+            "calls": 68,
+            "nested_irqs": 5,
+            "user_irqs": 51,
+            "settled_frames": 0
+          },
+          {
+            "group": 3,
+            "runs": 9,
+            "healthy_runs": 5,
+            "healthy_replacements": 4,
+            "offenders": 4,
+            "calls": 71,
+            "nested_irqs": 5,
+            "user_irqs": 69,
+            "settled_frames": 0
+          }
+        ],
+        "mutations": [
+          {
+            "case": "m1.user_end/reason",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_end/principal",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_settlement/frames",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_ready/user_irqs",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_ready/copy_recovery",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_call/entry_flags",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_fault/cs",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_start/generation",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_start",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_end",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_settlement",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_call",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_fault",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_irq",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_ready",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_inventory",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_runtime",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_end/reason",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_end/principal",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_settlement/frames",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_ready/user_irqs",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_ready/copy_recovery",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_call/entry_flags",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_fault/cs",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_start/generation",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_start",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_end",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_settlement",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_call",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_fault",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_bad_return",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_irq",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_ready",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_inventory",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_runtime",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_end/reason",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_end/principal",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_settlement/frames",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_ready/user_irqs",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_ready/copy_recovery",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_call/entry_flags",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_fault/cs",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_start/generation",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_start",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_end",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_settlement",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_call",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_fault",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_bad_return",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_irq",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_ready",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_inventory",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_runtime",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_end/reason",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_end/principal",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_settlement/frames",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_ready/user_irqs",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_ready/copy_recovery",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_call/entry_flags",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_fault/cs",
+            "status": "rejected"
+          },
+          {
+            "case": "m1.user_start/generation",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_start",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_end",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_settlement",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_call",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_fault",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_bad_return",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_irq",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_ready",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_inventory",
+            "status": "rejected"
+          },
+          {
+            "case": "missing m1.user_runtime",
+            "status": "rejected"
+          }
+        ],
+        "codegen": [
+          {
+            "user_enter": "<user_enter>:\nffffffff8000225b:      \tcli\nffffffff8000225c:      \tmovb\t$0x0, 0x8ebd9d(%rip) # 0xffffffff808ee000 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002263:      \tpushq\t%rbp\nffffffff80002264:      \tpushq\t%rbx\nffffffff80002265:      \tpushq\t%r12\nffffffff80002267:      \tpushq\t%r13\nffffffff80002269:      \tpushq\t%r14\nffffffff8000226b:      \tpushq\t%r15\nffffffff8000226d:      \tmovq\t%rsp, 0x8ebd9c(%rip) # 0xffffffff808ee010 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry12CONTINUATION>\nffffffff80002274:      \tmovq\t%cr3, %rax\nffffffff80002277:      \tmovq\t%rax, 0x8ebd8a(%rip) # 0xffffffff808ee008 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff8000227e:      \tmovq\t%rdi, %cr3\nffffffff80002281:      \txorl\t%eax, %eax\nffffffff80002283:      \tmovw\t%ax, %ds\nffffffff80002286:      \tmovw\t%ax, %es\nffffffff80002289:      \tmovw\t%ax, %fs\nffffffff8000228c:      \tmovw\t%ax, %gs\nffffffff8000228f:      \tpushq\t$0x3b\nffffffff80002291:      \tpushq\t%rdx\nffffffff80002292:      \tpushq\t$0x202          # imm = 0x202\nffffffff80002297:      \tpushq\t$0x33\nffffffff80002299:      \tpushq\t%rsi\nffffffff8000229a:      \tmovl\t$0x7ffd0000, %edi # imm = 0x7FFD0000\nffffffff8000229f:      \txorl\t%eax, %eax\nffffffff800022a1:      \txorl\t%ebx, %ebx\nffffffff800022a3:      \txorl\t%ecx, %ecx\nffffffff800022a5:      \txorl\t%edx, %edx\nffffffff800022a7:      \txorl\t%ebp, %ebp\nffffffff800022a9:      \txorl\t%esi, %esi\nffffffff800022ab:      \txorl\t%r8d, %r8d\nffffffff800022ae:      \txorl\t%r9d, %r9d\nffffffff800022b1:      \txorl\t%r10d, %r10d\nffffffff800022b4:      \txorl\t%r11d, %r11d\nffffffff800022b7:      \txorl\t%r12d, %r12d\nffffffff800022ba:      \txorl\t%r13d, %r13d\nffffffff800022bd:      \txorl\t%r14d, %r14d\nffffffff800022c0:      \txorl\t%r15d, %r15d\nffffffff800022c3:      \tiretq\n",
+            "user_leave": "<user_leave>:\nffffffff800022c5:      \tcli\nffffffff800022c6:      \tmovb\t$0x0, 0x8ebd33(%rip) # 0xffffffff808ee000 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800022cd:      \tcld\nffffffff800022ce:      \tmovq\t0x8ebd33(%rip), %rax # 0xffffffff808ee008 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff800022d5:      \tmovq\t%rax, %cr3\nffffffff800022d8:      \tmovq\t0x8ebd31(%rip), %rsp # 0xffffffff808ee010 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry12CONTINUATION>\nffffffff800022df:      \tpopq\t%r15\nffffffff800022e1:      \tpopq\t%r14\nffffffff800022e3:      \tpopq\t%r13\nffffffff800022e5:      \tpopq\t%r12\nffffffff800022e7:      \tpopq\t%rbx\nffffffff800022e8:      \tpopq\t%rbp\nffffffff800022e9:      \tretq\n",
+            "user_syscall": "<user_syscall>:\nffffffff800022ea:      \tmovq\t%rsp, 0x8ec24f(%rip) # 0xffffffff808ee540 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry7USER_SP>\nffffffff800022f1:      \tmovq\t0x8ec250(%rip), %rsp # 0xffffffff808ee548 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800022f8:      \tpushq\t%rax\nffffffff800022f9:      \tmovq\t%cr0, %rax\nffffffff800022fc:      \torq\t$0x8, %rax\nffffffff80002300:      \tmovq\t%rax, %cr0\nffffffff80002303:      \tpopq\t%rax\nffffffff80002304:      \tpushq\t$0x3b\nffffffff80002306:      \tpushq\t0x8ec234(%rip)  # 0xffffffff808ee540 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry7USER_SP>\nffffffff8000230c:      \tpushq\t%r11\nffffffff8000230e:      \tpushq\t$0x33\nffffffff80002310:      \tpushq\t%rcx\nffffffff80002311:      \tpushq\t%rax\nffffffff80002312:      \tpushq\t%rcx\nffffffff80002313:      \tpushq\t%rdx\nffffffff80002314:      \tpushq\t%rbx\nffffffff80002315:      \tpushq\t%rbp\nffffffff80002316:      \tpushq\t%rsi\nffffffff80002317:      \tpushq\t%rdi\nffffffff80002318:      \tpushq\t%r8\nffffffff8000231a:      \tpushq\t%r9\nffffffff8000231c:      \tpushq\t%r10\nffffffff8000231e:      \tpushq\t%r11\nffffffff80002320:      \tpushq\t%r12\nffffffff80002322:      \tpushq\t%r13\nffffffff80002324:      \tpushq\t%r14\nffffffff80002326:      \tpushq\t%r15\nffffffff80002328:      \tcld\nffffffff80002329:      \tmovq\t%rsp, %rdi\nffffffff8000232c:      \tcallq\t0xffffffff80013fc0 <_RNvNtCs7OpE72P1Uuf_16continuum_kernel10user_entry8dispatch>\nffffffff80002331:      \tpopq\t%r15\nffffffff80002333:      \tpopq\t%r14\nffffffff80002335:      \tpopq\t%r13\nffffffff80002337:      \tpopq\t%r12\nffffffff80002339:      \tpopq\t%r11\nffffffff8000233b:      \tpopq\t%r10\nffffffff8000233d:      \tpopq\t%r9\nffffffff8000233f:      \tpopq\t%r8\nffffffff80002341:      \tpopq\t%rdi\nffffffff80002342:      \tpopq\t%rsi\nffffffff80002343:      \tpopq\t%rbp\nffffffff80002344:      \tpopq\t%rbx\nffffffff80002345:      \tpopq\t%rdx\nffffffff80002346:      \tpopq\t%rcx\nffffffff80002347:      \tpopq\t%rax\nffffffff80002348:      \tiretq\n",
+            "user_copy": "<user_copy>:\nffffffff8000234a:      \ttestq\t%rdx, %rdx\nffffffff8000234d:      \tje\t0xffffffff8000235e <user_copy_write+0xd>\n",
+            "user_copy_read": "<user_copy_read>:\nffffffff8000234f:      \tmovb\t(%rsi), %al\n",
+            "user_copy_write": "<user_copy_write>:\nffffffff80002351:      \tmovb\t%al, (%rdi)\nffffffff80002353:      \tincq\t%rsi\nffffffff80002356:      \tincq\t%rdi\nffffffff80002359:      \tdecq\t%rdx\nffffffff8000235c:      \tjne\t0xffffffff8000234f <user_copy_read>\nffffffff8000235e:      \txorl\t%eax, %eax\nffffffff80002360:      \tretq\n",
+            "user_copy_failed": "<user_copy_failed>:\nffffffff80002361:      \tmovl\t$0x1, %eax\nffffffff80002366:      \tretq\n"
+          },
+          {
+            "user_a": {
+              "representation": "large code-generation text remains local-only",
+              "utf8_bytes": 658149,
+              "sha256": "b9ae3f1b9cd08fcb91bd6456b982e61f4d7ddb8a672a4a63e92a8c6f85b15257"
+            },
+            "user_b": {
+              "representation": "large code-generation text remains local-only",
+              "utf8_bytes": 658149,
+              "sha256": "dd62ba7ef50689bba13b3aa5a1ef17ec3af90a83db6a83fbcc443cf5b66093c2"
+            },
+            "service": {
+              "representation": "large code-generation text remains local-only",
+              "utf8_bytes": 658150,
+              "sha256": "ffadac0220d0b7acc6a7b686030027503eed8c39211cc072b5f54d857ac7689f"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "scheduler",
+      "status": "passed",
+      "execution": "fresh",
+      "artifacts": [
+        "${WORKSPACE}\\build\\m1\\scheduler-1794169104018921300-53568"
+      ],
+      "review": {
+        "status": "passed",
+        "scope": "focused scheduler regression only",
+        "audit": [
+          {
+            "tasks": 30,
+            "waves": 10,
+            "switches": 381,
+            "non_yielding_hogs": 20,
+            "max_masked_upper_ns": 16663000,
+            "max_body_ns": 15635900,
+            "max_wait_ns": 43461000,
+            "nested_irqs": 29,
+            "pin_irqs": 25,
+            "observer_total_ns": 412300
+          },
+          {
+            "tasks": 30,
+            "waves": 10,
+            "switches": 379,
+            "non_yielding_hogs": 20,
+            "max_masked_upper_ns": 18969600,
+            "max_body_ns": 18105700,
+            "max_wait_ns": 41899800,
+            "nested_irqs": 29,
+            "pin_irqs": 25,
+            "observer_total_ns": 237800
+          }
+        ],
+        "mutations": [
+          "missing m1.scheduler_policy",
+          "missing m1.scheduler_ready",
+          "missing m1.task_start",
+          "missing m1.task_end",
+          "missing m1.task_settlement",
+          "missing m1.user_fault",
+          "missing m1.task_switch",
+          "m1.task_start/principal",
+          "m1.task_end/result",
+          "m1.task_end/preemptions",
+          "m1.task_end/progress",
+          "m1.task_settlement/frames",
+          "m1.scheduler_ready/max_wait_ns",
+          "m1.scheduler_ready/pin_irqs",
+          "m1.scheduler_policy/priority",
+          "missing m1.scheduler_policy",
+          "missing m1.scheduler_ready",
+          "missing m1.task_start",
+          "missing m1.task_end",
+          "missing m1.task_settlement",
+          "missing m1.user_fault",
+          "m1.task_start/principal",
+          "m1.task_end/result",
+          "m1.task_end/preemptions",
+          "m1.task_end/progress",
+          "m1.task_settlement/frames",
+          "m1.scheduler_ready/max_wait_ns",
+          "m1.scheduler_ready/pin_irqs",
+          "m1.scheduler_policy/priority"
+        ],
+        "codegen": {
+          "task_save_fp": "<task_save_fp>:\nffffffff800025be:      \tclts\nffffffff800025c0:      \tfxsave64\t(%rdi)\nffffffff800025c4:      \tmovq\t%cr0, %rax\nffffffff800025c7:      \torq\t$0x8, %rax\nffffffff800025cb:      \tmovq\t%rax, %cr0\nffffffff800025ce:      \tretq\n",
+          "task_resume": "<task_resume>:\nffffffff800025cf:      \tcli\nffffffff800025d0:      \tcld\nffffffff800025d1:      \tpushq\t%rbp\nffffffff800025d2:      \tpushq\t%rbx\nffffffff800025d3:      \tpushq\t%r12\nffffffff800025d5:      \tpushq\t%r13\nffffffff800025d7:      \tpushq\t%r14\nffffffff800025d9:      \tpushq\t%r15\nffffffff800025db:      \tmovq\t%rsp, 0x900a2e(%rip) # 0xffffffff80903010 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry12CONTINUATION>\nffffffff800025e2:      \tmovq\t%cr3, %rax\nffffffff800025e5:      \tmovq\t%rax, 0x900a1c(%rip) # 0xffffffff80903008 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff800025ec:      \tmovq\t%rdi, %cr3\nffffffff800025ef:      \tmovq\t0x900f5a(%rip), %rsp # 0xffffffff80903550 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800025f6:      \tsubq\t$0xa0, %rsp\nffffffff800025fd:      \tmovq\t%rdx, %r8\nffffffff80002600:      \tmovq\t%rsp, %rdi\nffffffff80002603:      \tmovl\t$0x14, %ecx\nffffffff80002608:      \trep\t\tmovsq\t(%rsi), %es:(%rdi)\nffffffff8000260b:      \txorl\t%eax, %eax\nffffffff8000260d:      \tmovw\t%ax, %ds\nffffffff80002610:      \tmovw\t%ax, %es\nffffffff80002613:      \tmovw\t%ax, %fs\nffffffff80002616:      \tmovw\t%ax, %gs\nffffffff80002619:      \tmovb\t$0x1, 0x9009e0(%rip) # 0xffffffff80903000 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002620:      \tclts\nffffffff80002622:      \tfxrstor64\t(%r8)\nffffffff80002626:      \tpopq\t%r15\nffffffff80002628:      \tpopq\t%r14\nffffffff8000262a:      \tpopq\t%r13\nffffffff8000262c:      \tpopq\t%r12\nffffffff8000262e:      \tpopq\t%r11\nffffffff80002630:      \tpopq\t%r10\nffffffff80002632:      \tpopq\t%r9\nffffffff80002634:      \tpopq\t%r8\nffffffff80002636:      \tpopq\t%rdi\nffffffff80002637:      \tpopq\t%rsi\nffffffff80002638:      \tpopq\t%rbp\nffffffff80002639:      \tpopq\t%rbx\nffffffff8000263a:      \tpopq\t%rdx\nffffffff8000263b:      \tpopq\t%rcx\nffffffff8000263c:      \tpopq\t%rax\nffffffff8000263d:      \tiretq\nffffffff8000263f:      \tint3\n",
+          "user_leave": "<user_leave>:\nffffffff80002339:      \tcli\nffffffff8000233a:      \tmovb\t$0x0, 0x900cbf(%rip) # 0xffffffff80903000 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002341:      \tcld\nffffffff80002342:      \tmovq\t0x900cbf(%rip), %rax # 0xffffffff80903008 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff80002349:      \tmovq\t%rax, %cr3\nffffffff8000234c:      \tmovq\t0x900cbd(%rip), %rsp # 0xffffffff80903010 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry12CONTINUATION>\nffffffff80002353:      \tpopq\t%r15\nffffffff80002355:      \tpopq\t%r14\nffffffff80002357:      \tpopq\t%r13\nffffffff80002359:      \tpopq\t%r12\nffffffff8000235b:      \tpopq\t%rbx\nffffffff8000235c:      \tpopq\t%rbp\nffffffff8000235d:      \tretq\n",
+          "user_syscall": "<user_syscall>:\nffffffff8000235e:      \tmovq\t%rsp, 0x9011e3(%rip) # 0xffffffff80903548 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry7USER_SP>\nffffffff80002365:      \tmovq\t0x9011e4(%rip), %rsp # 0xffffffff80903550 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff8000236c:      \tpushq\t%rax\nffffffff8000236d:      \tcmpb\t$0x0, 0x900c8c(%rip) # 0xffffffff80903000 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002374:      \tje\t0xffffffff8000237d <user_syscall+0x1f>\nffffffff80002376:      \tstmxcsr\t0x900c9b(%rip)  # 0xffffffff80903018 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff8000237d:      \tmovq\t%cr0, %rax\nffffffff80002380:      \torq\t$0x8, %rax\nffffffff80002384:      \tmovq\t%rax, %cr0\nffffffff80002387:      \tpopq\t%rax\nffffffff80002388:      \tpushq\t$0x3b\nffffffff8000238a:      \tpushq\t0x9011b8(%rip)  # 0xffffffff80903548 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry7USER_SP>\nffffffff80002390:      \tpushq\t%r11\nffffffff80002392:      \tpushq\t$0x33\nffffffff80002394:      \tpushq\t%rcx\nffffffff80002395:      \tpushq\t%rax\nffffffff80002396:      \tpushq\t%rcx\nffffffff80002397:      \tpushq\t%rdx\nffffffff80002398:      \tpushq\t%rbx\nffffffff80002399:      \tpushq\t%rbp\nffffffff8000239a:      \tpushq\t%rsi\nffffffff8000239b:      \tpushq\t%rdi\nffffffff8000239c:      \tpushq\t%r8\nffffffff8000239e:      \tpushq\t%r9\nffffffff800023a0:      \tpushq\t%r10\nffffffff800023a2:      \tpushq\t%r11\nffffffff800023a4:      \tpushq\t%r12\nffffffff800023a6:      \tpushq\t%r13\nffffffff800023a8:      \tpushq\t%r14\nffffffff800023aa:      \tpushq\t%r15\nffffffff800023ac:      \tcld\nffffffff800023ad:      \tmovq\t%rsp, %rdi\nffffffff800023b0:      \tcallq\t0xffffffff80016130 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry8dispatch>\nffffffff800023b5:      \tpopq\t%r15\nffffffff800023b7:      \tpopq\t%r14\nffffffff800023b9:      \tpopq\t%r13\nffffffff800023bb:      \tpopq\t%r12\nffffffff800023bd:      \tpopq\t%r11\nffffffff800023bf:      \tpopq\t%r10\nffffffff800023c1:      \tpopq\t%r9\nffffffff800023c3:      \tpopq\t%r8\nffffffff800023c5:      \tpopq\t%rdi\nffffffff800023c6:      \tpopq\t%rsi\nffffffff800023c7:      \tpopq\t%rbp\nffffffff800023c8:      \tpopq\t%rbx\nffffffff800023c9:      \tpopq\t%rdx\nffffffff800023ca:      \tpopq\t%rcx\nffffffff800023cb:      \tpopq\t%rax\nffffffff800023cc:      \tiretq\n",
+          "timer_vector": "<timer_vector>:\nffffffff800023eb:      \tpushq\t%rax\nffffffff800023ec:      \tpushq\t%rcx\nffffffff800023ed:      \tpushq\t%rdx\nffffffff800023ee:      \tpushq\t%rbx\nffffffff800023ef:      \tpushq\t%rbp\nffffffff800023f0:      \tpushq\t%rsi\nffffffff800023f1:      \tpushq\t%rdi\nffffffff800023f2:      \tpushq\t%r8\nffffffff800023f4:      \tpushq\t%r9\nffffffff800023f6:      \tpushq\t%r10\nffffffff800023f8:      \tpushq\t%r11\nffffffff800023fa:      \tpushq\t%r12\nffffffff800023fc:      \tpushq\t%r13\nffffffff800023fe:      \tpushq\t%r14\nffffffff80002400:      \tpushq\t%r15\nffffffff80002402:      \tcld\nffffffff80002403:      \tmovq\t%cr0, %rax\nffffffff80002406:      \tpushq\t%rax\nffffffff80002407:      \torq\t$0x8, %rax\nffffffff8000240b:      \tmovq\t%rax, %cr0\nffffffff8000240e:      \tleaq\t0x8(%rsp), %rbx\nffffffff80002413:      \tandq\t$-0x10, %rsp\nffffffff80002417:      \tmovl\t$0x40, %edi\nffffffff8000241c:      \tmovq\t0x80(%rbx), %rsi\nffffffff80002423:      \tmovq\t%rbx, %rdx\nffffffff80002426:      \tcallq\t0xffffffff800176b0 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel5timer9interrupt>\nffffffff8000242b:      \tmovq\t-0x8(%rbx), %rax\nffffffff8000242f:      \tmovq\t%rax, %cr0\nffffffff80002432:      \tmovq\t%rbx, %rsp\nffffffff80002435:      \tpopq\t%r15\nffffffff80002437:      \tpopq\t%r14\nffffffff80002439:      \tpopq\t%r13\nffffffff8000243b:      \tpopq\t%r12\nffffffff8000243d:      \tpopq\t%r11\nffffffff8000243f:      \tpopq\t%r10\nffffffff80002441:      \tpopq\t%r9\nffffffff80002443:      \tpopq\t%r8\nffffffff80002445:      \tpopq\t%rdi\nffffffff80002446:      \tpopq\t%rsi\nffffffff80002447:      \tpopq\t%rbp\nffffffff80002448:      \tpopq\t%rbx\nffffffff80002449:      \tpopq\t%rdx\nffffffff8000244a:      \tpopq\t%rcx\nffffffff8000244b:      \tpopq\t%rax\nffffffff8000244c:      \tiretq\n",
+          "exception_common": "<exception_common>:\nffffffff8000224a:      \tcli\nffffffff8000224b:      \tcld\nffffffff8000224c:      \tpushq\t%rax\nffffffff8000224d:      \tpushq\t%rcx\nffffffff8000224e:      \tpushq\t%rdx\nffffffff8000224f:      \tpushq\t%rbx\nffffffff80002250:      \tpushq\t%rbp\nffffffff80002251:      \tpushq\t%rsi\nffffffff80002252:      \tpushq\t%rdi\nffffffff80002253:      \tpushq\t%r8\nffffffff80002255:      \tpushq\t%r9\nffffffff80002257:      \tpushq\t%r10\nffffffff80002259:      \tpushq\t%r11\nffffffff8000225b:      \tpushq\t%r12\nffffffff8000225d:      \tpushq\t%r13\nffffffff8000225f:      \tpushq\t%r14\nffffffff80002261:      \tpushq\t%r15\nffffffff80002263:      \tleaq\t0x78(%rsp), %rdi\nffffffff80002268:      \tmovq\t%cr2, %rsi\nffffffff8000226b:      \tmovq\t%cr0, %rax\nffffffff8000226e:      \tpushq\t%rax\nffffffff8000226f:      \torq\t$0x8, %rax\nffffffff80002273:      \tmovq\t%rax, %cr0\nffffffff80002276:      \tleaq\t0x8(%rsp), %rbx\nffffffff8000227b:      \tandq\t$-0x10, %rsp\nffffffff8000227f:      \tcallq\t0xffffffff80015010 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10exceptions8dispatch>\nffffffff80002284:      \tmovq\t-0x8(%rbx), %rax\nffffffff80002288:      \tmovq\t%rax, %cr0\nffffffff8000228b:      \tmovq\t%rbx, %rsp\nffffffff8000228e:      \tpopq\t%r15\nffffffff80002290:      \tpopq\t%r14\nffffffff80002292:      \tpopq\t%r13\nffffffff80002294:      \tpopq\t%r12\nffffffff80002296:      \tpopq\t%r11\nffffffff80002298:      \tpopq\t%r10\nffffffff8000229a:      \tpopq\t%r9\nffffffff8000229c:      \tpopq\t%r8\nffffffff8000229e:      \tpopq\t%rdi\nffffffff8000229f:      \tpopq\t%rsi\nffffffff800022a0:      \tpopq\t%rbp\nffffffff800022a1:      \tpopq\t%rbx\nffffffff800022a2:      \tpopq\t%rdx\nffffffff800022a3:      \tpopq\t%rcx\nffffffff800022a4:      \tpopq\t%rax\nffffffff800022a5:      \taddq\t$0x10, %rsp\nffffffff800022a9:      \tiretq\n",
+          "syscall_mxcsr_snapshot": "<user_syscall>:\nffffffff8000235e:      \tmovq\t%rsp, 0x9011e3(%rip) # 0xffffffff80903548 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry7USER_SP>\nffffffff80002365:      \tmovq\t0x9011e4(%rip), %rsp # 0xffffffff80903550 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff8000236c:      \tpushq\t%rax\nffffffff8000236d:      \tcmpb\t$0x0, 0x900c8c(%rip) # 0xffffffff80903000 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002374:      \tje\t0xffffffff8000237d <user_syscall+0x1f>\nffffffff80002376:      \tstmxcsr\t0x900c9b(%rip)  # 0xffffffff80903018 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff8000237d:      \tmovq\t%cr0, %rax\nffffffff80002380:      \torq\t$0x8, %rax\nffffffff80002384:      \tmovq\t%rax, %cr0\nffffffff80002387:      \tpopq\t%rax\nffffffff80002388:      \tpushq\t$0x3b\nffffffff8000238a:      \tpushq\t0x9011b8(%rip)  # 0xffffffff80903548 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry7USER_SP>\nffffffff80002390:      \tpushq\t%r11\nffffffff80002392:      \tpushq\t$0x33\nffffffff80002394:      \tpushq\t%rcx\nffffffff80002395:      \tpushq\t%rax\nffffffff80002396:      \tpushq\t%rcx\nffffffff80002397:      \tpushq\t%rdx\nffffffff80002398:      \tpushq\t%rbx\nffffffff80002399:      \tpushq\t%rbp\nffffffff8000239a:      \tpushq\t%rsi\nffffffff8000239b:      \tpushq\t%rdi\nffffffff8000239c:      \tpushq\t%r8\nffffffff8000239e:      \tpushq\t%r9\nffffffff800023a0:      \tpushq\t%r10\nffffffff800023a2:      \tpushq\t%r11\nffffffff800023a4:      \tpushq\t%r12\nffffffff800023a6:      \tpushq\t%r13\nffffffff800023a8:      \tpushq\t%r14\nffffffff800023aa:      \tpushq\t%r15\nffffffff800023ac:      \tcld\nffffffff800023ad:      \tmovq\t%rsp, %rdi\nffffffff800023b0:      \tcallq\t0xffffffff80016130 <_RNvNtCsjcHyoKKPwjQ_16continuum_kernel10user_entry8dispatch>\nffffffff800023b5:      \tpopq\t%r15\nffffffff800023b7:      \tpopq\t%r14\nffffffff800023b9:      \tpopq\t%r13\nffffffff800023bb:      \tpopq\t%r12\nffffffff800023bd:      \tpopq\t%r11\nffffffff800023bf:      \tpopq\t%r10\nffffffff800023c1:      \tpopq\t%r9\nffffffff800023c3:      \tpopq\t%r8\nffffffff800023c5:      \tpopq\t%rdi\nffffffff800023c6:      \tpopq\t%rsi\nffffffff800023c7:      \tpopq\t%rbp\nffffffff800023c8:      \tpopq\t%rbx\nffffffff800023c9:      \tpopq\t%rdx\nffffffff800023ca:      \tpopq\t%rcx\nffffffff800023cb:      \tpopq\t%rax\nffffffff800023cc:      \tiretq\n",
+          "user_a-spinner": "<spinner>:\n  400010:      \tmovl\t$0x1, %eax\n  400015:      \tmovl\t$0x2, %ecx\n  40001a:      \tmovl\t$0x3, %edx\n  40001f:      \tmovl\t$0x4, %ebx\n  400024:      \tmovl\t$0x5, %ebp\n  400029:      \tmovl\t$0x6, %esi\n  40002e:      \tmovl\t$0x7, %edi\n  400033:      \tmovl\t$0x8, %r8d\n  400039:      \tmovl\t$0x9, %r9d\n  40003f:      \tmovl\t$0xa, %r10d\n  400045:      \tmovl\t$0xb, %r11d\n  40004b:      \tmovl\t$0xc, %r12d\n  400051:      \tmovl\t$0xd, %r13d\n  400057:      \tmovl\t$0xe, %r14d\n  40005d:      \tmovl\t$0xf, %r15d\n  400063:      \tpushq\t$0xed7                  # imm = 0xED7\n  400068:      \tpopfq\n  400069:      \tpushfq\n  40006a:      \tpopq\t0x1f90(%rip)            # 0x402000 <_RNvCsfrQyukhG1Wi_9scheduler11SAVED_FLAGS>\n  400070:      \tcmpq\t$0xed7, 0x1f85(%rip)    # imm = 0xED7\n                                                # 0x402000 <_RNvCsfrQyukhG1Wi_9scheduler11SAVED_FLAGS>\n  40007b:      \tjne\t0x40015b <spinner+0x14b>\n  400081:      \tcmpq\t$0x1, %rax\n  400085:      \tjne\t0x40015b <spinner+0x14b>\n  40008b:      \tcmpq\t$0x2, %rcx\n  40008f:      \tjne\t0x40015b <spinner+0x14b>\n  400095:      \tcmpq\t$0x3, %rdx\n  400099:      \tjne\t0x40015b <spinner+0x14b>\n  40009f:      \tcmpq\t$0x4, %rbx\n  4000a3:      \tjne\t0x40015b <spinner+0x14b>\n  4000a9:      \tcmpq\t$0x5, %rbp\n  4000ad:      \tjne\t0x40015b <spinner+0x14b>\n  4000b3:      \tcmpq\t$0x6, %rsi\n  4000b7:      \tjne\t0x40015b <spinner+0x14b>\n  4000bd:      \tcmpq\t$0x7, %rdi\n  4000c1:      \tjne\t0x40015b <spinner+0x14b>\n  4000c7:      \tcmpq\t$0x8, %r8\n  4000cb:      \tjne\t0x40015b <spinner+0x14b>\n  4000d1:      \tcmpq\t$0x9, %r9\n  4000d5:      \tjne\t0x40015b <spinner+0x14b>\n  4000db:      \tcmpq\t$0xa, %r10\n  4000df:      \tjne\t0x40015b <spinner+0x14b>\n  4000e1:      \tcmpq\t$0xb, %r11\n  4000e5:      \tjne\t0x40015b <spinner+0x14b>\n  4000e7:      \tcmpq\t$0xc, %r12\n  4000eb:      \tjne\t0x40015b <spinner+0x14b>\n  4000ed:      \tcmpq\t$0xd, %r13\n  4000f1:      \tjne\t0x40015b <spinner+0x14b>\n  4000f3:      \tcmpq\t$0xe, %r14\n  4000f7:      \tjne\t0x40015b <spinner+0x14b>\n  4000f9:      \tcmpq\t$0xf, %r15\n  4000fd:      \tjne\t0x40015b <spinner+0x14b>\n  4000ff:      \tfxsave64\t0x2109(%rip)            # 0x402210 <_RNvCsfrQyukhG1Wi_9scheduler8OBSERVED>\n  400107:      \txorl\t%eax, %eax\n  400109:      \tleaq\t0x1f00(%rip), %rcx      # 0x402010 <_RNvCsfrQyukhG1Wi_9scheduler8EXPECTED>\n  400110:      \tmovb\t(%rcx,%rax), %cl\n  400113:      \tleaq\t0x1(%rax), %rax\n  400117:      \tpushq\t%rdx\n  400118:      \tleaq\t0x20f1(%rip), %rdx      # 0x402210 <_RNvCsfrQyukhG1Wi_9scheduler8OBSERVED>\n  40011f:      \tcmpb\t-0x1(%rdx,%rax), %cl\n  400123:      \tpopq\t%rdx\n  400124:      \tjne\t0x400154 <spinner+0x144>\n  400126:      \tcmpl\t$0x1c, %eax\n  400129:      \tjne\t0x400130 <spinner+0x120>\n  40012b:      \tmovl\t$0x20, %eax\n  400130:      \tcmpl\t$0x1a0, %eax            # imm = 0x1A0\n  400135:      \tjb\t0x400109 <spinner+0xf9>\n  400137:      \tincq\t0x70000008\n  40013f:      \tmovl\t$0x1, %eax\n  400144:      \tmovl\t$0x2, %ecx\n  400149:      \tpushq\t$0xed7                  # imm = 0xED7\n  40014e:      \tpopfq\n  40014f:      \tjmp\t0x400069 <spinner+0x59>\n  400154:      \tmovl\t$0x5e, %edi\n  400159:      \tjmp\t0x400160 <spinner+0x150>\n  40015b:      \tmovl\t$0x63, %edi\n  400160:      \tcld\n  400161:      \tmovl\t$0x5, %eax\n  400166:      \txorl\t%r8d, %r8d\n  400169:      \txorl\t%r9d, %r9d\n  40016c:      \tsyscall\n  40016e:      \tud2\n",
+          "user_b-spinner": "<spinner>:\n  400010:      \tmovl\t$0x1, %eax\n  400015:      \tmovl\t$0x2, %ecx\n  40001a:      \tmovl\t$0x3, %edx\n  40001f:      \tmovl\t$0x4, %ebx\n  400024:      \tmovl\t$0x5, %ebp\n  400029:      \tmovl\t$0x6, %esi\n  40002e:      \tmovl\t$0x7, %edi\n  400033:      \tmovl\t$0x8, %r8d\n  400039:      \tmovl\t$0x9, %r9d\n  40003f:      \tmovl\t$0xa, %r10d\n  400045:      \tmovl\t$0xb, %r11d\n  40004b:      \tmovl\t$0xc, %r12d\n  400051:      \tmovl\t$0xd, %r13d\n  400057:      \tmovl\t$0xe, %r14d\n  40005d:      \tmovl\t$0xf, %r15d\n  400063:      \tpushq\t$0xed7                  # imm = 0xED7\n  400068:      \tpopfq\n  400069:      \tpushfq\n  40006a:      \tpopq\t0x1f90(%rip)            # 0x402000 <_RNvCsfrQyukhG1Wi_9scheduler11SAVED_FLAGS>\n  400070:      \tcmpq\t$0xed7, 0x1f85(%rip)    # imm = 0xED7\n                                                # 0x402000 <_RNvCsfrQyukhG1Wi_9scheduler11SAVED_FLAGS>\n  40007b:      \tjne\t0x40015b <spinner+0x14b>\n  400081:      \tcmpq\t$0x1, %rax\n  400085:      \tjne\t0x40015b <spinner+0x14b>\n  40008b:      \tcmpq\t$0x2, %rcx\n  40008f:      \tjne\t0x40015b <spinner+0x14b>\n  400095:      \tcmpq\t$0x3, %rdx\n  400099:      \tjne\t0x40015b <spinner+0x14b>\n  40009f:      \tcmpq\t$0x4, %rbx\n  4000a3:      \tjne\t0x40015b <spinner+0x14b>\n  4000a9:      \tcmpq\t$0x5, %rbp\n  4000ad:      \tjne\t0x40015b <spinner+0x14b>\n  4000b3:      \tcmpq\t$0x6, %rsi\n  4000b7:      \tjne\t0x40015b <spinner+0x14b>\n  4000bd:      \tcmpq\t$0x7, %rdi\n  4000c1:      \tjne\t0x40015b <spinner+0x14b>\n  4000c7:      \tcmpq\t$0x8, %r8\n  4000cb:      \tjne\t0x40015b <spinner+0x14b>\n  4000d1:      \tcmpq\t$0x9, %r9\n  4000d5:      \tjne\t0x40015b <spinner+0x14b>\n  4000db:      \tcmpq\t$0xa, %r10\n  4000df:      \tjne\t0x40015b <spinner+0x14b>\n  4000e1:      \tcmpq\t$0xb, %r11\n  4000e5:      \tjne\t0x40015b <spinner+0x14b>\n  4000e7:      \tcmpq\t$0xc, %r12\n  4000eb:      \tjne\t0x40015b <spinner+0x14b>\n  4000ed:      \tcmpq\t$0xd, %r13\n  4000f1:      \tjne\t0x40015b <spinner+0x14b>\n  4000f3:      \tcmpq\t$0xe, %r14\n  4000f7:      \tjne\t0x40015b <spinner+0x14b>\n  4000f9:      \tcmpq\t$0xf, %r15\n  4000fd:      \tjne\t0x40015b <spinner+0x14b>\n  4000ff:      \tfxsave64\t0x2109(%rip)            # 0x402210 <_RNvCsfrQyukhG1Wi_9scheduler8OBSERVED>\n  400107:      \txorl\t%eax, %eax\n  400109:      \tleaq\t0x1f00(%rip), %rcx      # 0x402010 <_RNvCsfrQyukhG1Wi_9scheduler8EXPECTED>\n  400110:      \tmovb\t(%rcx,%rax), %cl\n  400113:      \tleaq\t0x1(%rax), %rax\n  400117:      \tpushq\t%rdx\n  400118:      \tleaq\t0x20f1(%rip), %rdx      # 0x402210 <_RNvCsfrQyukhG1Wi_9scheduler8OBSERVED>\n  40011f:      \tcmpb\t-0x1(%rdx,%rax), %cl\n  400123:      \tpopq\t%rdx\n  400124:      \tjne\t0x400154 <spinner+0x144>\n  400126:      \tcmpl\t$0x1c, %eax\n  400129:      \tjne\t0x400130 <spinner+0x120>\n  40012b:      \tmovl\t$0x20, %eax\n  400130:      \tcmpl\t$0x1a0, %eax            # imm = 0x1A0\n  400135:      \tjb\t0x400109 <spinner+0xf9>\n  400137:      \tincq\t0x70000008\n  40013f:      \tmovl\t$0x1, %eax\n  400144:      \tmovl\t$0x2, %ecx\n  400149:      \tpushq\t$0xed7                  # imm = 0xED7\n  40014e:      \tpopfq\n  40014f:      \tjmp\t0x400069 <spinner+0x59>\n  400154:      \tmovl\t$0x5e, %edi\n  400159:      \tjmp\t0x400160 <spinner+0x150>\n  40015b:      \tmovl\t$0x63, %edi\n  400160:      \tcld\n  400161:      \tmovl\t$0x5, %eax\n  400166:      \txorl\t%r8d, %r8d\n  400169:      \txorl\t%r9d, %r9d\n  40016c:      \tsyscall\n  40016e:      \tud2\n",
+          "service-spinner": "<spinner>:\n  400010:      \tmovl\t$0x1, %eax\n  400015:      \tmovl\t$0x2, %ecx\n  40001a:      \tmovl\t$0x3, %edx\n  40001f:      \tmovl\t$0x4, %ebx\n  400024:      \tmovl\t$0x5, %ebp\n  400029:      \tmovl\t$0x6, %esi\n  40002e:      \tmovl\t$0x7, %edi\n  400033:      \tmovl\t$0x8, %r8d\n  400039:      \tmovl\t$0x9, %r9d\n  40003f:      \tmovl\t$0xa, %r10d\n  400045:      \tmovl\t$0xb, %r11d\n  40004b:      \tmovl\t$0xc, %r12d\n  400051:      \tmovl\t$0xd, %r13d\n  400057:      \tmovl\t$0xe, %r14d\n  40005d:      \tmovl\t$0xf, %r15d\n  400063:      \tpushq\t$0xed7                  # imm = 0xED7\n  400068:      \tpopfq\n  400069:      \tpushfq\n  40006a:      \tpopq\t0x1f90(%rip)            # 0x402000 <_RNvCsfrQyukhG1Wi_9scheduler11SAVED_FLAGS>\n  400070:      \tcmpq\t$0xed7, 0x1f85(%rip)    # imm = 0xED7\n                                                # 0x402000 <_RNvCsfrQyukhG1Wi_9scheduler11SAVED_FLAGS>\n  40007b:      \tjne\t0x40015b <spinner+0x14b>\n  400081:      \tcmpq\t$0x1, %rax\n  400085:      \tjne\t0x40015b <spinner+0x14b>\n  40008b:      \tcmpq\t$0x2, %rcx\n  40008f:      \tjne\t0x40015b <spinner+0x14b>\n  400095:      \tcmpq\t$0x3, %rdx\n  400099:      \tjne\t0x40015b <spinner+0x14b>\n  40009f:      \tcmpq\t$0x4, %rbx\n  4000a3:      \tjne\t0x40015b <spinner+0x14b>\n  4000a9:      \tcmpq\t$0x5, %rbp\n  4000ad:      \tjne\t0x40015b <spinner+0x14b>\n  4000b3:      \tcmpq\t$0x6, %rsi\n  4000b7:      \tjne\t0x40015b <spinner+0x14b>\n  4000bd:      \tcmpq\t$0x7, %rdi\n  4000c1:      \tjne\t0x40015b <spinner+0x14b>\n  4000c7:      \tcmpq\t$0x8, %r8\n  4000cb:      \tjne\t0x40015b <spinner+0x14b>\n  4000d1:      \tcmpq\t$0x9, %r9\n  4000d5:      \tjne\t0x40015b <spinner+0x14b>\n  4000db:      \tcmpq\t$0xa, %r10\n  4000df:      \tjne\t0x40015b <spinner+0x14b>\n  4000e1:      \tcmpq\t$0xb, %r11\n  4000e5:      \tjne\t0x40015b <spinner+0x14b>\n  4000e7:      \tcmpq\t$0xc, %r12\n  4000eb:      \tjne\t0x40015b <spinner+0x14b>\n  4000ed:      \tcmpq\t$0xd, %r13\n  4000f1:      \tjne\t0x40015b <spinner+0x14b>\n  4000f3:      \tcmpq\t$0xe, %r14\n  4000f7:      \tjne\t0x40015b <spinner+0x14b>\n  4000f9:      \tcmpq\t$0xf, %r15\n  4000fd:      \tjne\t0x40015b <spinner+0x14b>\n  4000ff:      \tfxsave64\t0x2109(%rip)            # 0x402210 <_RNvCsfrQyukhG1Wi_9scheduler8OBSERVED>\n  400107:      \txorl\t%eax, %eax\n  400109:      \tleaq\t0x1f00(%rip), %rcx      # 0x402010 <_RNvCsfrQyukhG1Wi_9scheduler8EXPECTED>\n  400110:      \tmovb\t(%rcx,%rax), %cl\n  400113:      \tleaq\t0x1(%rax), %rax\n  400117:      \tpushq\t%rdx\n  400118:      \tleaq\t0x20f1(%rip), %rdx      # 0x402210 <_RNvCsfrQyukhG1Wi_9scheduler8OBSERVED>\n  40011f:      \tcmpb\t-0x1(%rdx,%rax), %cl\n  400123:      \tpopq\t%rdx\n  400124:      \tjne\t0x400154 <spinner+0x144>\n  400126:      \tcmpl\t$0x1c, %eax\n  400129:      \tjne\t0x400130 <spinner+0x120>\n  40012b:      \tmovl\t$0x20, %eax\n  400130:      \tcmpl\t$0x1a0, %eax            # imm = 0x1A0\n  400135:      \tjb\t0x400109 <spinner+0xf9>\n  400137:      \tincq\t0x70000008\n  40013f:      \tmovl\t$0x1, %eax\n  400144:      \tmovl\t$0x2, %ecx\n  400149:      \tpushq\t$0xed7                  # imm = 0xED7\n  40014e:      \tpopfq\n  40014f:      \tjmp\t0x400069 <spinner+0x59>\n  400154:      \tmovl\t$0x5e, %edi\n  400159:      \tjmp\t0x400160 <spinner+0x150>\n  40015b:      \tmovl\t$0x63, %edi\n  400160:      \tcld\n  400161:      \tmovl\t$0x5, %eax\n  400166:      \txorl\t%r8d, %r8d\n  400169:      \txorl\t%r9d, %r9d\n  40016c:      \tsyscall\n  40016e:      \tud2\n"
+        },
+        "instructions": {
+          "user_a": {
+            "divss": 1,
+            "fdivrp": 1,
+            "fldcw": 1,
+            "fldz": 2,
+            "fninit": 1,
+            "fxrstor64": 1,
+            "fxsave64": 5,
+            "ldmxcsr": 1,
+            "pxor": 1,
+            "vxorps": 1
+          },
+          "user_b": {
+            "divss": 1,
+            "fdivrp": 1,
+            "fldcw": 1,
+            "fldz": 2,
+            "fninit": 1,
+            "fxrstor64": 1,
+            "fxsave64": 5,
+            "ldmxcsr": 1,
+            "pxor": 1,
+            "vxorps": 1
+          },
+          "service": {
+            "divss": 1,
+            "fdivrp": 1,
+            "fldcw": 1,
+            "fldz": 2,
+            "fninit": 1,
+            "fxrstor64": 1,
+            "fxsave64": 5,
+            "ldmxcsr": 1,
+            "pxor": 1,
+            "vxorps": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "capabilities",
+      "status": "passed",
+      "execution": "fresh",
+      "artifacts": [
+        "${WORKSPACE}\\build\\m1\\capabilities-1794169274407841600-64540"
+      ],
+      "review": {
+        "status": "passed",
+        "scope": "focused regression only",
+        "audit": {
+          "audit": {
+            "tasks": 18,
+            "waves": 6,
+            "hardware_faults": 5,
+            "unique_handle_installations": 91,
+            "syscalls": 402,
+            "pin_interleavings": 6,
+            "denials": {
+              "(2, 12)": 18,
+              "(3, 12)": 18,
+              "(5, 2)": 18,
+              "(4, 2)": 18,
+              "(6, 1)": 21,
+              "(10, 1)": 6,
+              "(8, 3)": 7,
+              "(10, 3)": 13,
+              "(9, 1)": 6,
+              "(7, 1)": 6,
+              "(12, 3)": 14,
+              "(11, 4)": 1,
+              "(9, 2)": 1,
+              "(9, 3)": 1,
+              "(6, 3)": 1,
+              "(7, 3)": 1,
+              "(9, 4)": 5,
+              "(10, 4)": 11,
+              "(10, 2)": 1,
+              "(8, 11)": 1,
+              "(9, 11)": 1,
+              "(10, 11)": 1
+            },
+            "fixed_bytes": 10560280,
+            "switches": 262
+          },
+          "mutations": [
+            "missing m1.cap_ready",
+            "missing m1.cap_admit",
+            "missing m1.cap_reap",
+            "missing m1.cap_inventory",
+            "missing m1.cap_call",
+            "missing m1.cap_pin",
+            "missing m1.cap_map",
+            "missing m1.user_fault",
+            "missing m1.user_log",
+            "m1.cap_call.status",
+            "m1.cap_reap.principal",
+            "m1.cap_reap.result",
+            "m1.cap_inventory.objects",
+            "m1.cap_inventory.backing",
+            "m1.cap_map.e3",
+            "m1.cap_pin.close",
+            "m1.user_fault.error",
+            "m1.cap_ready.fixed_bytes",
+            "successful operation 10.x",
+            "successful operation 10.c",
+            "successful operation 10.d",
+            "successful operation 10.n",
+            "successful operation 8.b"
+          ],
+          "build_id": "40208d993c8efeab7846483d142ad8398f4d3edfb2eeeb1461d3f57892ef7c2f",
+          "kernel_sha256": "577f022a8f4db073105a9b240573ef4d83cb948b25054a8bfa435835a4deb931",
+          "iso_sha256": "b3407d22e47eeb7cd93dc6868797494effeab3f4794a495b05f28f5063c0ae7d",
+          "serial_sha256": "7523b1b35f6c33f47422887c2e7bf3aafcb5dc3ff6ce44fbd124025285205642"
+        },
+        "codegen": {
+          "task_resume": "<task_resume>:\nffffffff800025f7:      \tcli\nffffffff800025f8:      \tcld\nffffffff800025f9:      \tpushq\t%rbp\nffffffff800025fa:      \tpushq\t%rbx\nffffffff800025fb:      \tpushq\t%r12\nffffffff800025fd:      \tpushq\t%r13\nffffffff800025ff:      \tpushq\t%r14\nffffffff80002601:      \tpushq\t%r15\nffffffff80002603:      \tmovq\t%rsp, 0x99fa06(%rip) # 0xffffffff809a2010 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry12CONTINUATION>\nffffffff8000260a:      \tmovq\t%cr3, %rax\nffffffff8000260d:      \tmovq\t%rax, 0x99f9f4(%rip) # 0xffffffff809a2008 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff80002614:      \tmovq\t%rdi, %cr3\nffffffff80002617:      \tmovq\t0x99ff32(%rip), %rsp # 0xffffffff809a2550 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff8000261e:      \tsubq\t$0xa0, %rsp\nffffffff80002625:      \tmovq\t%rdx, %r8\nffffffff80002628:      \tmovq\t%rsp, %rdi\nffffffff8000262b:      \tmovl\t$0x14, %ecx\nffffffff80002630:      \trep\t\tmovsq\t(%rsi), %es:(%rdi)\nffffffff80002633:      \txorl\t%eax, %eax\nffffffff80002635:      \tmovw\t%ax, %ds\nffffffff80002638:      \tmovw\t%ax, %es\nffffffff8000263b:      \tmovw\t%ax, %fs\nffffffff8000263e:      \tmovw\t%ax, %gs\nffffffff80002641:      \tmovb\t$0x1, 0x99f9b8(%rip) # 0xffffffff809a2000 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002648:      \tclts\nffffffff8000264a:      \tfxrstor64\t(%r8)\nffffffff8000264e:      \tpopq\t%r15\nffffffff80002650:      \tpopq\t%r14\nffffffff80002652:      \tpopq\t%r13\nffffffff80002654:      \tpopq\t%r12\nffffffff80002656:      \tpopq\t%r11\nffffffff80002658:      \tpopq\t%r10\nffffffff8000265a:      \tpopq\t%r9\nffffffff8000265c:      \tpopq\t%r8\nffffffff8000265e:      \tpopq\t%rdi\nffffffff8000265f:      \tpopq\t%rsi\nffffffff80002660:      \tpopq\t%rbp\nffffffff80002661:      \tpopq\t%rbx\nffffffff80002662:      \tpopq\t%rdx\nffffffff80002663:      \tpopq\t%rcx\nffffffff80002664:      \tpopq\t%rax\nffffffff80002665:      \tiretq\nffffffff80002667:      \tint3\nffffffff80002668:      \tint3\nffffffff80002669:      \tint3\nffffffff8000266a:      \tint3\nffffffff8000266b:      \tint3\nffffffff8000266c:      \tint3\nffffffff8000266d:      \tint3\nffffffff8000266e:      \tint3\nffffffff8000266f:      \tint3\n",
+          "task_save_fp": "<task_save_fp>:\nffffffff800025e6:      \tclts\nffffffff800025e8:      \tfxsave64\t(%rdi)\nffffffff800025ec:      \tmovq\t%cr0, %rax\nffffffff800025ef:      \torq\t$0x8, %rax\nffffffff800025f3:      \tmovq\t%rax, %cr0\nffffffff800025f6:      \tretq\n",
+          "user_syscall": "<user_syscall>:\nffffffff80002386:      \tmovq\t%rsp, 0x9a01bb(%rip) # 0xffffffff809a2548 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry7USER_SP>\nffffffff8000238d:      \tmovq\t0x9a01bc(%rip), %rsp # 0xffffffff809a2550 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff80002394:      \tpushq\t%rax\nffffffff80002395:      \tcmpb\t$0x0, 0x99fc64(%rip) # 0xffffffff809a2000 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff8000239c:      \tje\t0xffffffff800023a5 <user_syscall+0x1f>\nffffffff8000239e:      \tstmxcsr\t0x99fc73(%rip)  # 0xffffffff809a2018 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff800023a5:      \tmovq\t%cr0, %rax\nffffffff800023a8:      \torq\t$0x8, %rax\nffffffff800023ac:      \tmovq\t%rax, %cr0\nffffffff800023af:      \tpopq\t%rax\nffffffff800023b0:      \tpushq\t$0x3b\nffffffff800023b2:      \tpushq\t0x9a0190(%rip)  # 0xffffffff809a2548 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry7USER_SP>\nffffffff800023b8:      \tpushq\t%r11\nffffffff800023ba:      \tpushq\t$0x33\nffffffff800023bc:      \tpushq\t%rcx\nffffffff800023bd:      \tpushq\t%rax\nffffffff800023be:      \tpushq\t%rcx\nffffffff800023bf:      \tpushq\t%rdx\nffffffff800023c0:      \tpushq\t%rbx\nffffffff800023c1:      \tpushq\t%rbp\nffffffff800023c2:      \tpushq\t%rsi\nffffffff800023c3:      \tpushq\t%rdi\nffffffff800023c4:      \tpushq\t%r8\nffffffff800023c6:      \tpushq\t%r9\nffffffff800023c8:      \tpushq\t%r10\nffffffff800023ca:      \tpushq\t%r11\nffffffff800023cc:      \tpushq\t%r12\nffffffff800023ce:      \tpushq\t%r13\nffffffff800023d0:      \tpushq\t%r14\nffffffff800023d2:      \tpushq\t%r15\nffffffff800023d4:      \tcld\nffffffff800023d5:      \tmovq\t%rsp, %rdi\nffffffff800023d8:      \tcallq\t0xffffffff800191e0 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry8dispatch>\nffffffff800023dd:      \tpopq\t%r15\nffffffff800023df:      \tpopq\t%r14\nffffffff800023e1:      \tpopq\t%r13\nffffffff800023e3:      \tpopq\t%r12\nffffffff800023e5:      \tpopq\t%r11\nffffffff800023e7:      \tpopq\t%r10\nffffffff800023e9:      \tpopq\t%r9\nffffffff800023eb:      \tpopq\t%r8\nffffffff800023ed:      \tpopq\t%rdi\nffffffff800023ee:      \tpopq\t%rsi\nffffffff800023ef:      \tpopq\t%rbp\nffffffff800023f0:      \tpopq\t%rbx\nffffffff800023f1:      \tpopq\t%rdx\nffffffff800023f2:      \tpopq\t%rcx\nffffffff800023f3:      \tpopq\t%rax\nffffffff800023f4:      \tiretq\n",
+          "user_leave": "<user_leave>:\nffffffff80002361:      \tcli\nffffffff80002362:      \tmovb\t$0x0, 0x99fc97(%rip) # 0xffffffff809a2000 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002369:      \tcld\nffffffff8000236a:      \tmovq\t0x99fc97(%rip), %rax # 0xffffffff809a2008 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff80002371:      \tmovq\t%rax, %cr3\nffffffff80002374:      \tmovq\t0x99fc95(%rip), %rsp # 0xffffffff809a2010 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry12CONTINUATION>\nffffffff8000237b:      \tpopq\t%r15\nffffffff8000237d:      \tpopq\t%r14\nffffffff8000237f:      \tpopq\t%r13\nffffffff80002381:      \tpopq\t%r12\nffffffff80002383:      \tpopq\t%rbx\nffffffff80002384:      \tpopq\t%rbp\nffffffff80002385:      \tretq\n",
+          "timer_vector": "<timer_vector>:\nffffffff80002413:      \tpushq\t%rax\nffffffff80002414:      \tpushq\t%rcx\nffffffff80002415:      \tpushq\t%rdx\nffffffff80002416:      \tpushq\t%rbx\nffffffff80002417:      \tpushq\t%rbp\nffffffff80002418:      \tpushq\t%rsi\nffffffff80002419:      \tpushq\t%rdi\nffffffff8000241a:      \tpushq\t%r8\nffffffff8000241c:      \tpushq\t%r9\nffffffff8000241e:      \tpushq\t%r10\nffffffff80002420:      \tpushq\t%r11\nffffffff80002422:      \tpushq\t%r12\nffffffff80002424:      \tpushq\t%r13\nffffffff80002426:      \tpushq\t%r14\nffffffff80002428:      \tpushq\t%r15\nffffffff8000242a:      \tcld\nffffffff8000242b:      \tmovq\t%cr0, %rax\nffffffff8000242e:      \tpushq\t%rax\nffffffff8000242f:      \torq\t$0x8, %rax\nffffffff80002433:      \tmovq\t%rax, %cr0\nffffffff80002436:      \tleaq\t0x8(%rsp), %rbx\nffffffff8000243b:      \tandq\t$-0x10, %rsp\nffffffff8000243f:      \tmovl\t$0x40, %edi\nffffffff80002444:      \tmovq\t0x80(%rbx), %rsi\nffffffff8000244b:      \tmovq\t%rbx, %rdx\nffffffff8000244e:      \tcallq\t0xffffffff8001a760 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel5timer9interrupt>\nffffffff80002453:      \tmovq\t-0x8(%rbx), %rax\nffffffff80002457:      \tmovq\t%rax, %cr0\nffffffff8000245a:      \tmovq\t%rbx, %rsp\nffffffff8000245d:      \tpopq\t%r15\nffffffff8000245f:      \tpopq\t%r14\nffffffff80002461:      \tpopq\t%r13\nffffffff80002463:      \tpopq\t%r12\nffffffff80002465:      \tpopq\t%r11\nffffffff80002467:      \tpopq\t%r10\nffffffff80002469:      \tpopq\t%r9\nffffffff8000246b:      \tpopq\t%r8\nffffffff8000246d:      \tpopq\t%rdi\nffffffff8000246e:      \tpopq\t%rsi\nffffffff8000246f:      \tpopq\t%rbp\nffffffff80002470:      \tpopq\t%rbx\nffffffff80002471:      \tpopq\t%rdx\nffffffff80002472:      \tpopq\t%rcx\nffffffff80002473:      \tpopq\t%rax\nffffffff80002474:      \tiretq\n",
+          "exception_common": "<exception_common>:\nffffffff80002272:      \tcli\nffffffff80002273:      \tcld\nffffffff80002274:      \tpushq\t%rax\nffffffff80002275:      \tpushq\t%rcx\nffffffff80002276:      \tpushq\t%rdx\nffffffff80002277:      \tpushq\t%rbx\nffffffff80002278:      \tpushq\t%rbp\nffffffff80002279:      \tpushq\t%rsi\nffffffff8000227a:      \tpushq\t%rdi\nffffffff8000227b:      \tpushq\t%r8\nffffffff8000227d:      \tpushq\t%r9\nffffffff8000227f:      \tpushq\t%r10\nffffffff80002281:      \tpushq\t%r11\nffffffff80002283:      \tpushq\t%r12\nffffffff80002285:      \tpushq\t%r13\nffffffff80002287:      \tpushq\t%r14\nffffffff80002289:      \tpushq\t%r15\nffffffff8000228b:      \tleaq\t0x78(%rsp), %rdi\nffffffff80002290:      \tmovq\t%cr2, %rsi\nffffffff80002293:      \tmovq\t%cr0, %rax\nffffffff80002296:      \tpushq\t%rax\nffffffff80002297:      \torq\t$0x8, %rax\nffffffff8000229b:      \tmovq\t%rax, %cr0\nffffffff8000229e:      \tleaq\t0x8(%rsp), %rbx\nffffffff800022a3:      \tandq\t$-0x10, %rsp\nffffffff800022a7:      \tcallq\t0xffffffff800180c0 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10exceptions8dispatch>\nffffffff800022ac:      \tmovq\t-0x8(%rbx), %rax\nffffffff800022b0:      \tmovq\t%rax, %cr0\nffffffff800022b3:      \tmovq\t%rbx, %rsp\nffffffff800022b6:      \tpopq\t%r15\nffffffff800022b8:      \tpopq\t%r14\nffffffff800022ba:      \tpopq\t%r13\nffffffff800022bc:      \tpopq\t%r12\nffffffff800022be:      \tpopq\t%r11\nffffffff800022c0:      \tpopq\t%r10\nffffffff800022c2:      \tpopq\t%r9\nffffffff800022c4:      \tpopq\t%r8\nffffffff800022c6:      \tpopq\t%rdi\nffffffff800022c7:      \tpopq\t%rsi\nffffffff800022c8:      \tpopq\t%rbp\nffffffff800022c9:      \tpopq\t%rbx\nffffffff800022ca:      \tpopq\t%rdx\nffffffff800022cb:      \tpopq\t%rcx\nffffffff800022cc:      \tpopq\t%rax\nffffffff800022cd:      \taddq\t$0x10, %rsp\nffffffff800022d1:      \tiretq\n",
+          "syscall_mxcsr_snapshot": "<user_syscall>:\nffffffff80002386:      \tmovq\t%rsp, 0x9a01bb(%rip) # 0xffffffff809a2548 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry7USER_SP>\nffffffff8000238d:      \tmovq\t0x9a01bc(%rip), %rsp # 0xffffffff809a2550 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff80002394:      \tpushq\t%rax\nffffffff80002395:      \tcmpb\t$0x0, 0x99fc64(%rip) # 0xffffffff809a2000 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff8000239c:      \tje\t0xffffffff800023a5 <user_syscall+0x1f>\nffffffff8000239e:      \tstmxcsr\t0x99fc73(%rip)  # 0xffffffff809a2018 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff800023a5:      \tmovq\t%cr0, %rax\nffffffff800023a8:      \torq\t$0x8, %rax\nffffffff800023ac:      \tmovq\t%rax, %cr0\nffffffff800023af:      \tpopq\t%rax\nffffffff800023b0:      \tpushq\t$0x3b\nffffffff800023b2:      \tpushq\t0x9a0190(%rip)  # 0xffffffff809a2548 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry7USER_SP>\nffffffff800023b8:      \tpushq\t%r11\nffffffff800023ba:      \tpushq\t$0x33\nffffffff800023bc:      \tpushq\t%rcx\nffffffff800023bd:      \tpushq\t%rax\nffffffff800023be:      \tpushq\t%rcx\nffffffff800023bf:      \tpushq\t%rdx\nffffffff800023c0:      \tpushq\t%rbx\nffffffff800023c1:      \tpushq\t%rbp\nffffffff800023c2:      \tpushq\t%rsi\nffffffff800023c3:      \tpushq\t%rdi\nffffffff800023c4:      \tpushq\t%r8\nffffffff800023c6:      \tpushq\t%r9\nffffffff800023c8:      \tpushq\t%r10\nffffffff800023ca:      \tpushq\t%r11\nffffffff800023cc:      \tpushq\t%r12\nffffffff800023ce:      \tpushq\t%r13\nffffffff800023d0:      \tpushq\t%r14\nffffffff800023d2:      \tpushq\t%r15\nffffffff800023d4:      \tcld\nffffffff800023d5:      \tmovq\t%rsp, %rdi\nffffffff800023d8:      \tcallq\t0xffffffff800191e0 <_RNvNtCsdWdp5pCYyNI_16continuum_kernel10user_entry8dispatch>\nffffffff800023dd:      \tpopq\t%r15\nffffffff800023df:      \tpopq\t%r14\nffffffff800023e1:      \tpopq\t%r13\nffffffff800023e3:      \tpopq\t%r12\nffffffff800023e5:      \tpopq\t%r11\nffffffff800023e7:      \tpopq\t%r10\nffffffff800023e9:      \tpopq\t%r9\nffffffff800023eb:      \tpopq\t%r8\nffffffff800023ed:      \tpopq\t%rdi\nffffffff800023ee:      \tpopq\t%rsi\nffffffff800023ef:      \tpopq\t%rbp\nffffffff800023f0:      \tpopq\t%rbx\nffffffff800023f1:      \tpopq\t%rdx\nffffffff800023f2:      \tpopq\t%rcx\nffffffff800023f3:      \tpopq\t%rax\nffffffff800023f4:      \tiretq\n"
+        }
+      }
+    },
+    {
+      "id": "waits",
+      "status": "passed",
+      "execution": "fresh",
+      "artifacts": [
+        "${WORKSPACE}\\build\\m1\\waits-1794169354543533900-16696"
+      ],
+      "review": {
+        "status": "passed",
+        "scope": "focused regression only",
+        "audit": {
+          "audit": {
+            "tasks": 18,
+            "parks": 64,
+            "wakes": 63,
+            "kills": 1,
+            "calls": 584,
+            "fixed_bytes": 10582040,
+            "clock": {
+              "version": "5",
+              "build": "5736f933489ab6a7d3628c5c6b89791bf9729b3509c63393ee6d6e0c5f2f280c",
+              "session": "1d0659b94b8ed7da89ee3a6f80509dd61845c9d84e7d8c4afdc10d62e1f26783",
+              "session_origin": "host",
+              "seq": "189",
+              "stage": "waits",
+              "outcome": "ok",
+              "emergency": "false",
+              "source": "hpet",
+              "resolution_ns": "10",
+              "before_ns": "1376736100",
+              "after_ns": "1406903500",
+              "ticks_before": "100",
+              "ticks_after": "100",
+              "observer_samples": "100",
+              "observer_total_ns": "535300",
+              "irq_off": "true"
+            },
+            "wake_dispatch_max_ns": 43664700,
+            "errors": [
+              [
+                17,
+                0
+              ],
+              [
+                18,
+                0
+              ],
+              [
+                19,
+                0
+              ],
+              [
+                20,
+                0
+              ],
+              [
+                20,
+                3
+              ],
+              [
+                20,
+                4
+              ],
+              [
+                21,
+                0
+              ],
+              [
+                22,
+                0
+              ],
+              [
+                23,
+                0
+              ],
+              [
+                24,
+                0
+              ],
+              [
+                24,
+                1
+              ],
+              [
+                24,
+                2
+              ],
+              [
+                24,
+                4
+              ],
+              [
+                24,
+                7
+              ],
+              [
+                24,
+                8
+              ],
+              [
+                24,
+                9
+              ],
+              [
+                25,
+                0
+              ],
+              [
+                25,
+                6
+              ],
+              [
+                25,
+                8
+              ],
+              [
+                26,
+                0
+              ],
+              [
+                26,
+                6
+              ]
+            ]
+          },
+          "mutations": [
+            "missing m1.wait_park",
+            "missing m1.wait_complete",
+            "missing m1.wait_wake",
+            "missing m1.wait_settled",
+            "missing m1.wait_clock",
+            "missing m1.wait_kill",
+            "missing m1.wait_resume",
+            "missing m1.wait_boundary",
+            "missing m1.wait_delay",
+            "missing m1.ipc_admit",
+            "missing m1.cap_ready",
+            "missing m1.cap_reap",
+            "missing m1.user_log",
+            "m1.wait_wake.generation",
+            "m1.wait_wake.status",
+            "m1.wait_wake.since_ns",
+            "m1.wait_settled.records",
+            "m1.wait_clock.source",
+            "m1.wait_clock.ticks_after",
+            "m1.cap_ready.fixed_bytes",
+            "m1.cap_reap.result"
+          ],
+          "build_id": "5736f933489ab6a7d3628c5c6b89791bf9729b3509c63393ee6d6e0c5f2f280c",
+          "kernel_sha256": "d5fb8e5d728d899b0ac36fe5bc36488396936cc36f0c63631a44258d0a737b56",
+          "iso_sha256": "af8cb804692a9a69a4933f9245425e68ba22fea2297fe7f507251bacdd27d326",
+          "serial_sha256": "113389f8ee8eda7853c64d8104c14b411ff9e2bfe117c871fa1f40c9eb9416b0"
+        },
+        "codegen": {
+          "task_resume": "<task_resume>:\nffffffff8000264b:      \tcli\nffffffff8000264c:      \tcld\nffffffff8000264d:      \tpushq\t%rbp\nffffffff8000264e:      \tpushq\t%rbx\nffffffff8000264f:      \tpushq\t%r12\nffffffff80002651:      \tpushq\t%r13\nffffffff80002653:      \tpushq\t%r14\nffffffff80002655:      \tpushq\t%r15\nffffffff80002657:      \tmovq\t%rsp, 0x9b29b2(%rip) # 0xffffffff809b5010 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry12CONTINUATION>\nffffffff8000265e:      \tmovq\t%cr3, %rax\nffffffff80002661:      \tmovq\t%rax, 0x9b29a0(%rip) # 0xffffffff809b5008 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff80002668:      \tmovq\t%rdi, %cr3\nffffffff8000266b:      \tmovq\t0x9b2ede(%rip), %rsp # 0xffffffff809b5550 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff80002672:      \tsubq\t$0xa0, %rsp\nffffffff80002679:      \tmovq\t%rdx, %r8\nffffffff8000267c:      \tmovq\t%rsp, %rdi\nffffffff8000267f:      \tmovl\t$0x14, %ecx\nffffffff80002684:      \trep\t\tmovsq\t(%rsi), %es:(%rdi)\nffffffff80002687:      \txorl\t%eax, %eax\nffffffff80002689:      \tmovw\t%ax, %ds\nffffffff8000268c:      \tmovw\t%ax, %es\nffffffff8000268f:      \tmovw\t%ax, %fs\nffffffff80002692:      \tmovw\t%ax, %gs\nffffffff80002695:      \tmovb\t$0x1, 0x9b2964(%rip) # 0xffffffff809b5000 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff8000269c:      \tclts\nffffffff8000269e:      \tfxrstor64\t(%r8)\nffffffff800026a2:      \tpopq\t%r15\nffffffff800026a4:      \tpopq\t%r14\nffffffff800026a6:      \tpopq\t%r13\nffffffff800026a8:      \tpopq\t%r12\nffffffff800026aa:      \tpopq\t%r11\nffffffff800026ac:      \tpopq\t%r10\nffffffff800026ae:      \tpopq\t%r9\nffffffff800026b0:      \tpopq\t%r8\nffffffff800026b2:      \tpopq\t%rdi\nffffffff800026b3:      \tpopq\t%rsi\nffffffff800026b4:      \tpopq\t%rbp\nffffffff800026b5:      \tpopq\t%rbx\nffffffff800026b6:      \tpopq\t%rdx\nffffffff800026b7:      \tpopq\t%rcx\nffffffff800026b8:      \tpopq\t%rax\nffffffff800026b9:      \tiretq\nffffffff800026bb:      \tint3\nffffffff800026bc:      \tint3\nffffffff800026bd:      \tint3\nffffffff800026be:      \tint3\nffffffff800026bf:      \tint3\n",
+          "task_save_fp": "<task_save_fp>:\nffffffff8000263a:      \tclts\nffffffff8000263c:      \tfxsave64\t(%rdi)\nffffffff80002640:      \tmovq\t%cr0, %rax\nffffffff80002643:      \torq\t$0x8, %rax\nffffffff80002647:      \tmovq\t%rax, %cr0\nffffffff8000264a:      \tretq\n",
+          "user_syscall": "<user_syscall>:\nffffffff800023da:      \tmovq\t%rsp, 0x9b3167(%rip) # 0xffffffff809b5548 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry7USER_SP>\nffffffff800023e1:      \tmovq\t0x9b3168(%rip), %rsp # 0xffffffff809b5550 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800023e8:      \tpushq\t%rax\nffffffff800023e9:      \tcmpb\t$0x0, 0x9b2c10(%rip) # 0xffffffff809b5000 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800023f0:      \tje\t0xffffffff800023f9 <user_syscall+0x1f>\nffffffff800023f2:      \tstmxcsr\t0x9b2c1f(%rip)  # 0xffffffff809b5018 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff800023f9:      \tmovq\t%cr0, %rax\nffffffff800023fc:      \torq\t$0x8, %rax\nffffffff80002400:      \tmovq\t%rax, %cr0\nffffffff80002403:      \tpopq\t%rax\nffffffff80002404:      \tpushq\t$0x3b\nffffffff80002406:      \tpushq\t0x9b313c(%rip)  # 0xffffffff809b5548 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry7USER_SP>\nffffffff8000240c:      \tpushq\t%r11\nffffffff8000240e:      \tpushq\t$0x33\nffffffff80002410:      \tpushq\t%rcx\nffffffff80002411:      \tpushq\t%rax\nffffffff80002412:      \tpushq\t%rcx\nffffffff80002413:      \tpushq\t%rdx\nffffffff80002414:      \tpushq\t%rbx\nffffffff80002415:      \tpushq\t%rbp\nffffffff80002416:      \tpushq\t%rsi\nffffffff80002417:      \tpushq\t%rdi\nffffffff80002418:      \tpushq\t%r8\nffffffff8000241a:      \tpushq\t%r9\nffffffff8000241c:      \tpushq\t%r10\nffffffff8000241e:      \tpushq\t%r11\nffffffff80002420:      \tpushq\t%r12\nffffffff80002422:      \tpushq\t%r13\nffffffff80002424:      \tpushq\t%r14\nffffffff80002426:      \tpushq\t%r15\nffffffff80002428:      \tcld\nffffffff80002429:      \tmovq\t%rsp, %rdi\nffffffff8000242c:      \tcallq\t0xffffffff800196b0 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry8dispatch>\nffffffff80002431:      \tpopq\t%r15\nffffffff80002433:      \tpopq\t%r14\nffffffff80002435:      \tpopq\t%r13\nffffffff80002437:      \tpopq\t%r12\nffffffff80002439:      \tpopq\t%r11\nffffffff8000243b:      \tpopq\t%r10\nffffffff8000243d:      \tpopq\t%r9\nffffffff8000243f:      \tpopq\t%r8\nffffffff80002441:      \tpopq\t%rdi\nffffffff80002442:      \tpopq\t%rsi\nffffffff80002443:      \tpopq\t%rbp\nffffffff80002444:      \tpopq\t%rbx\nffffffff80002445:      \tpopq\t%rdx\nffffffff80002446:      \tpopq\t%rcx\nffffffff80002447:      \tpopq\t%rax\nffffffff80002448:      \tiretq\n",
+          "user_leave": "<user_leave>:\nffffffff800023b5:      \tcli\nffffffff800023b6:      \tmovb\t$0x0, 0x9b2c43(%rip) # 0xffffffff809b5000 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800023bd:      \tcld\nffffffff800023be:      \tmovq\t0x9b2c43(%rip), %rax # 0xffffffff809b5008 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff800023c5:      \tmovq\t%rax, %cr3\nffffffff800023c8:      \tmovq\t0x9b2c41(%rip), %rsp # 0xffffffff809b5010 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry12CONTINUATION>\nffffffff800023cf:      \tpopq\t%r15\nffffffff800023d1:      \tpopq\t%r14\nffffffff800023d3:      \tpopq\t%r13\nffffffff800023d5:      \tpopq\t%r12\nffffffff800023d7:      \tpopq\t%rbx\nffffffff800023d8:      \tpopq\t%rbp\nffffffff800023d9:      \tretq\n",
+          "timer_vector": "<timer_vector>:\nffffffff80002467:      \tpushq\t%rax\nffffffff80002468:      \tpushq\t%rcx\nffffffff80002469:      \tpushq\t%rdx\nffffffff8000246a:      \tpushq\t%rbx\nffffffff8000246b:      \tpushq\t%rbp\nffffffff8000246c:      \tpushq\t%rsi\nffffffff8000246d:      \tpushq\t%rdi\nffffffff8000246e:      \tpushq\t%r8\nffffffff80002470:      \tpushq\t%r9\nffffffff80002472:      \tpushq\t%r10\nffffffff80002474:      \tpushq\t%r11\nffffffff80002476:      \tpushq\t%r12\nffffffff80002478:      \tpushq\t%r13\nffffffff8000247a:      \tpushq\t%r14\nffffffff8000247c:      \tpushq\t%r15\nffffffff8000247e:      \tcld\nffffffff8000247f:      \tmovq\t%cr0, %rax\nffffffff80002482:      \tpushq\t%rax\nffffffff80002483:      \torq\t$0x8, %rax\nffffffff80002487:      \tmovq\t%rax, %cr0\nffffffff8000248a:      \tleaq\t0x8(%rsp), %rbx\nffffffff8000248f:      \tandq\t$-0x10, %rsp\nffffffff80002493:      \tmovl\t$0x40, %edi\nffffffff80002498:      \tmovq\t0x80(%rbx), %rsi\nffffffff8000249f:      \tmovq\t%rbx, %rdx\nffffffff800024a2:      \tcallq\t0xffffffff8001ace0 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel5timer9interrupt>\nffffffff800024a7:      \tmovq\t-0x8(%rbx), %rax\nffffffff800024ab:      \tmovq\t%rax, %cr0\nffffffff800024ae:      \tmovq\t%rbx, %rsp\nffffffff800024b1:      \tpopq\t%r15\nffffffff800024b3:      \tpopq\t%r14\nffffffff800024b5:      \tpopq\t%r13\nffffffff800024b7:      \tpopq\t%r12\nffffffff800024b9:      \tpopq\t%r11\nffffffff800024bb:      \tpopq\t%r10\nffffffff800024bd:      \tpopq\t%r9\nffffffff800024bf:      \tpopq\t%r8\nffffffff800024c1:      \tpopq\t%rdi\nffffffff800024c2:      \tpopq\t%rsi\nffffffff800024c3:      \tpopq\t%rbp\nffffffff800024c4:      \tpopq\t%rbx\nffffffff800024c5:      \tpopq\t%rdx\nffffffff800024c6:      \tpopq\t%rcx\nffffffff800024c7:      \tpopq\t%rax\nffffffff800024c8:      \tiretq\n",
+          "exception_common": "<exception_common>:\nffffffff800022c6:      \tcli\nffffffff800022c7:      \tcld\nffffffff800022c8:      \tpushq\t%rax\nffffffff800022c9:      \tpushq\t%rcx\nffffffff800022ca:      \tpushq\t%rdx\nffffffff800022cb:      \tpushq\t%rbx\nffffffff800022cc:      \tpushq\t%rbp\nffffffff800022cd:      \tpushq\t%rsi\nffffffff800022ce:      \tpushq\t%rdi\nffffffff800022cf:      \tpushq\t%r8\nffffffff800022d1:      \tpushq\t%r9\nffffffff800022d3:      \tpushq\t%r10\nffffffff800022d5:      \tpushq\t%r11\nffffffff800022d7:      \tpushq\t%r12\nffffffff800022d9:      \tpushq\t%r13\nffffffff800022db:      \tpushq\t%r14\nffffffff800022dd:      \tpushq\t%r15\nffffffff800022df:      \tleaq\t0x78(%rsp), %rdi\nffffffff800022e4:      \tmovq\t%cr2, %rsi\nffffffff800022e7:      \tmovq\t%cr0, %rax\nffffffff800022ea:      \tpushq\t%rax\nffffffff800022eb:      \torq\t$0x8, %rax\nffffffff800022ef:      \tmovq\t%rax, %cr0\nffffffff800022f2:      \tleaq\t0x8(%rsp), %rbx\nffffffff800022f7:      \tandq\t$-0x10, %rsp\nffffffff800022fb:      \tcallq\t0xffffffff80018590 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10exceptions8dispatch>\nffffffff80002300:      \tmovq\t-0x8(%rbx), %rax\nffffffff80002304:      \tmovq\t%rax, %cr0\nffffffff80002307:      \tmovq\t%rbx, %rsp\nffffffff8000230a:      \tpopq\t%r15\nffffffff8000230c:      \tpopq\t%r14\nffffffff8000230e:      \tpopq\t%r13\nffffffff80002310:      \tpopq\t%r12\nffffffff80002312:      \tpopq\t%r11\nffffffff80002314:      \tpopq\t%r10\nffffffff80002316:      \tpopq\t%r9\nffffffff80002318:      \tpopq\t%r8\nffffffff8000231a:      \tpopq\t%rdi\nffffffff8000231b:      \tpopq\t%rsi\nffffffff8000231c:      \tpopq\t%rbp\nffffffff8000231d:      \tpopq\t%rbx\nffffffff8000231e:      \tpopq\t%rdx\nffffffff8000231f:      \tpopq\t%rcx\nffffffff80002320:      \tpopq\t%rax\nffffffff80002321:      \taddq\t$0x10, %rsp\nffffffff80002325:      \tiretq\n",
+          "syscall_mxcsr_snapshot": "<user_syscall>:\nffffffff800023da:      \tmovq\t%rsp, 0x9b3167(%rip) # 0xffffffff809b5548 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry7USER_SP>\nffffffff800023e1:      \tmovq\t0x9b3168(%rip), %rsp # 0xffffffff809b5550 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800023e8:      \tpushq\t%rax\nffffffff800023e9:      \tcmpb\t$0x0, 0x9b2c10(%rip) # 0xffffffff809b5000 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff800023f0:      \tje\t0xffffffff800023f9 <user_syscall+0x1f>\nffffffff800023f2:      \tstmxcsr\t0x9b2c1f(%rip)  # 0xffffffff809b5018 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff800023f9:      \tmovq\t%cr0, %rax\nffffffff800023fc:      \torq\t$0x8, %rax\nffffffff80002400:      \tmovq\t%rax, %cr0\nffffffff80002403:      \tpopq\t%rax\nffffffff80002404:      \tpushq\t$0x3b\nffffffff80002406:      \tpushq\t0x9b313c(%rip)  # 0xffffffff809b5548 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry7USER_SP>\nffffffff8000240c:      \tpushq\t%r11\nffffffff8000240e:      \tpushq\t$0x33\nffffffff80002410:      \tpushq\t%rcx\nffffffff80002411:      \tpushq\t%rax\nffffffff80002412:      \tpushq\t%rcx\nffffffff80002413:      \tpushq\t%rdx\nffffffff80002414:      \tpushq\t%rbx\nffffffff80002415:      \tpushq\t%rbp\nffffffff80002416:      \tpushq\t%rsi\nffffffff80002417:      \tpushq\t%rdi\nffffffff80002418:      \tpushq\t%r8\nffffffff8000241a:      \tpushq\t%r9\nffffffff8000241c:      \tpushq\t%r10\nffffffff8000241e:      \tpushq\t%r11\nffffffff80002420:      \tpushq\t%r12\nffffffff80002422:      \tpushq\t%r13\nffffffff80002424:      \tpushq\t%r14\nffffffff80002426:      \tpushq\t%r15\nffffffff80002428:      \tcld\nffffffff80002429:      \tmovq\t%rsp, %rdi\nffffffff8000242c:      \tcallq\t0xffffffff800196b0 <_RNvNtCsgXs41w0H7Z0_16continuum_kernel10user_entry8dispatch>\nffffffff80002431:      \tpopq\t%r15\nffffffff80002433:      \tpopq\t%r14\nffffffff80002435:      \tpopq\t%r13\nffffffff80002437:      \tpopq\t%r12\nffffffff80002439:      \tpopq\t%r11\nffffffff8000243b:      \tpopq\t%r10\nffffffff8000243d:      \tpopq\t%r9\nffffffff8000243f:      \tpopq\t%r8\nffffffff80002441:      \tpopq\t%rdi\nffffffff80002442:      \tpopq\t%rsi\nffffffff80002443:      \tpopq\t%rbp\nffffffff80002444:      \tpopq\t%rbx\nffffffff80002445:      \tpopq\t%rdx\nffffffff80002446:      \tpopq\t%rcx\nffffffff80002447:      \tpopq\t%rax\nffffffff80002448:      \tiretq\n"
+        }
+      }
+    },
+    {
+      "id": "sdk-runtime",
+      "status": "passed",
+      "execution": "fresh",
+      "artifacts": [
+        "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848"
+      ],
+      "review": {
+        "status": "passed",
+        "scope": "focused only; final regression gate separate",
+        "audit": {
+          "process_runs": 6,
+          "exact_settlements": 1,
+          "preemptions": [
+            10,
+            6
+          ],
+          "runtime_hooks": "nonrendering selected model, segmentation, libm, reclaim/zero/realloc/return/panic/OOM"
+        },
+        "mutations": [
+          "missing m1.route_admit",
+          "missing m1.route_end",
+          "missing m1.route_settled",
+          "missing m1.route_ready",
+          "missing m1.wait_settled",
+          "missing sdk-runtime-0-",
+          "missing sdk-runtime-1-",
+          "missing sdk-runtime-5-",
+          "missing sdk-syscalls-",
+          "missing sdk-panic-contained",
+          "missing sdk-oom-contained",
+          "missing sdk-startup-return",
+          "missing sdk-heap-capacity-reused",
+          "missing sdk-heap-unmapped",
+          "m1.route_end.preemptions",
+          "m1.route_end.code",
+          "m1.route_settled.frames",
+          "m1.wait_settled.records",
+          "m1.wait_settled.watches"
+        ],
+        "codegen": {
+          "helpers": {
+            "task_resume": "<task_resume>:\nffffffff800026bb:      \tcli\nffffffff800026bc:      \tcld\nffffffff800026bd:      \tpushq\t%rbp\nffffffff800026be:      \tpushq\t%rbx\nffffffff800026bf:      \tpushq\t%r12\nffffffff800026c1:      \tpushq\t%r13\nffffffff800026c3:      \tpushq\t%r14\nffffffff800026c5:      \tpushq\t%r15\nffffffff800026c7:      \tmovq\t%rsp, 0x9bd942(%rip) # 0xffffffff809c0010 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry12CONTINUATION>\nffffffff800026ce:      \tmovq\t%cr3, %rax\nffffffff800026d1:      \tmovq\t%rax, 0x9bd930(%rip) # 0xffffffff809c0008 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff800026d8:      \tmovq\t%rdi, %cr3\nffffffff800026db:      \tmovq\t0x9bde6e(%rip), %rsp # 0xffffffff809c0550 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800026e2:      \tsubq\t$0xa0, %rsp\nffffffff800026e9:      \tmovq\t%rdx, %r8\nffffffff800026ec:      \tmovq\t%rsp, %rdi\nffffffff800026ef:      \tmovl\t$0x14, %ecx\nffffffff800026f4:      \trep\t\tmovsq\t(%rsi), %es:(%rdi)\nffffffff800026f7:      \txorl\t%eax, %eax\nffffffff800026f9:      \tmovw\t%ax, %ds\nffffffff800026fc:      \tmovw\t%ax, %es\nffffffff800026ff:      \tmovw\t%ax, %fs\nffffffff80002702:      \tmovw\t%ax, %gs\nffffffff80002705:      \tmovb\t$0x1, 0x9bd8f4(%rip) # 0xffffffff809c0000 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff8000270c:      \tclts\nffffffff8000270e:      \tfxrstor64\t(%r8)\nffffffff80002712:      \tpopq\t%r15\nffffffff80002714:      \tpopq\t%r14\nffffffff80002716:      \tpopq\t%r13\nffffffff80002718:      \tpopq\t%r12\nffffffff8000271a:      \tpopq\t%r11\nffffffff8000271c:      \tpopq\t%r10\nffffffff8000271e:      \tpopq\t%r9\nffffffff80002720:      \tpopq\t%r8\nffffffff80002722:      \tpopq\t%rdi\nffffffff80002723:      \tpopq\t%rsi\nffffffff80002724:      \tpopq\t%rbp\nffffffff80002725:      \tpopq\t%rbx\nffffffff80002726:      \tpopq\t%rdx\nffffffff80002727:      \tpopq\t%rcx\nffffffff80002728:      \tpopq\t%rax\nffffffff80002729:      \tiretq\nffffffff8000272b:      \tint3\nffffffff8000272c:      \tint3\nffffffff8000272d:      \tint3\nffffffff8000272e:      \tint3\nffffffff8000272f:      \tint3\n",
+            "task_save_fp": "<task_save_fp>:\nffffffff800026aa:      \tclts\nffffffff800026ac:      \tfxsave64\t(%rdi)\nffffffff800026b0:      \tmovq\t%cr0, %rax\nffffffff800026b3:      \torq\t$0x8, %rax\nffffffff800026b7:      \tmovq\t%rax, %cr0\nffffffff800026ba:      \tretq\n",
+            "user_syscall": "<user_syscall>:\nffffffff8000244a:      \tmovq\t%rsp, 0x9be0f7(%rip) # 0xffffffff809c0548 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry7USER_SP>\nffffffff80002451:      \tmovq\t0x9be0f8(%rip), %rsp # 0xffffffff809c0550 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff80002458:      \tpushq\t%rax\nffffffff80002459:      \tcmpb\t$0x0, 0x9bdba0(%rip) # 0xffffffff809c0000 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002460:      \tje\t0xffffffff80002469 <user_syscall+0x1f>\nffffffff80002462:      \tstmxcsr\t0x9bdbaf(%rip)  # 0xffffffff809c0018 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff80002469:      \tmovq\t%cr0, %rax\nffffffff8000246c:      \torq\t$0x8, %rax\nffffffff80002470:      \tmovq\t%rax, %cr0\nffffffff80002473:      \tpopq\t%rax\nffffffff80002474:      \tpushq\t$0x3b\nffffffff80002476:      \tpushq\t0x9be0cc(%rip)  # 0xffffffff809c0548 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry7USER_SP>\nffffffff8000247c:      \tpushq\t%r11\nffffffff8000247e:      \tpushq\t$0x33\nffffffff80002480:      \tpushq\t%rcx\nffffffff80002481:      \tpushq\t%rax\nffffffff80002482:      \tpushq\t%rcx\nffffffff80002483:      \tpushq\t%rdx\nffffffff80002484:      \tpushq\t%rbx\nffffffff80002485:      \tpushq\t%rbp\nffffffff80002486:      \tpushq\t%rsi\nffffffff80002487:      \tpushq\t%rdi\nffffffff80002488:      \tpushq\t%r8\nffffffff8000248a:      \tpushq\t%r9\nffffffff8000248c:      \tpushq\t%r10\nffffffff8000248e:      \tpushq\t%r11\nffffffff80002490:      \tpushq\t%r12\nffffffff80002492:      \tpushq\t%r13\nffffffff80002494:      \tpushq\t%r14\nffffffff80002496:      \tpushq\t%r15\nffffffff80002498:      \tcld\nffffffff80002499:      \tmovq\t%rsp, %rdi\nffffffff8000249c:      \tcallq\t0xffffffff8001b660 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry8dispatch>\nffffffff800024a1:      \tpopq\t%r15\nffffffff800024a3:      \tpopq\t%r14\nffffffff800024a5:      \tpopq\t%r13\nffffffff800024a7:      \tpopq\t%r12\nffffffff800024a9:      \tpopq\t%r11\nffffffff800024ab:      \tpopq\t%r10\nffffffff800024ad:      \tpopq\t%r9\nffffffff800024af:      \tpopq\t%r8\nffffffff800024b1:      \tpopq\t%rdi\nffffffff800024b2:      \tpopq\t%rsi\nffffffff800024b3:      \tpopq\t%rbp\nffffffff800024b4:      \tpopq\t%rbx\nffffffff800024b5:      \tpopq\t%rdx\nffffffff800024b6:      \tpopq\t%rcx\nffffffff800024b7:      \tpopq\t%rax\nffffffff800024b8:      \tiretq\n",
+            "timer_vector": "<timer_vector>:\nffffffff800024d7:      \tpushq\t%rax\nffffffff800024d8:      \tpushq\t%rcx\nffffffff800024d9:      \tpushq\t%rdx\nffffffff800024da:      \tpushq\t%rbx\nffffffff800024db:      \tpushq\t%rbp\nffffffff800024dc:      \tpushq\t%rsi\nffffffff800024dd:      \tpushq\t%rdi\nffffffff800024de:      \tpushq\t%r8\nffffffff800024e0:      \tpushq\t%r9\nffffffff800024e2:      \tpushq\t%r10\nffffffff800024e4:      \tpushq\t%r11\nffffffff800024e6:      \tpushq\t%r12\nffffffff800024e8:      \tpushq\t%r13\nffffffff800024ea:      \tpushq\t%r14\nffffffff800024ec:      \tpushq\t%r15\nffffffff800024ee:      \tcld\nffffffff800024ef:      \tmovq\t%cr0, %rax\nffffffff800024f2:      \tpushq\t%rax\nffffffff800024f3:      \torq\t$0x8, %rax\nffffffff800024f7:      \tmovq\t%rax, %cr0\nffffffff800024fa:      \tleaq\t0x8(%rsp), %rbx\nffffffff800024ff:      \tandq\t$-0x10, %rsp\nffffffff80002503:      \tmovl\t$0x40, %edi\nffffffff80002508:      \tmovq\t0x80(%rbx), %rsi\nffffffff8000250f:      \tmovq\t%rbx, %rdx\nffffffff80002512:      \tcallq\t0xffffffff8001cc90 <_RNvNtCs39pDQjBFXuf_16continuum_kernel5timer9interrupt>\nffffffff80002517:      \tmovq\t-0x8(%rbx), %rax\nffffffff8000251b:      \tmovq\t%rax, %cr0\nffffffff8000251e:      \tmovq\t%rbx, %rsp\nffffffff80002521:      \tpopq\t%r15\nffffffff80002523:      \tpopq\t%r14\nffffffff80002525:      \tpopq\t%r13\nffffffff80002527:      \tpopq\t%r12\nffffffff80002529:      \tpopq\t%r11\nffffffff8000252b:      \tpopq\t%r10\nffffffff8000252d:      \tpopq\t%r9\nffffffff8000252f:      \tpopq\t%r8\nffffffff80002531:      \tpopq\t%rdi\nffffffff80002532:      \tpopq\t%rsi\nffffffff80002533:      \tpopq\t%rbp\nffffffff80002534:      \tpopq\t%rbx\nffffffff80002535:      \tpopq\t%rdx\nffffffff80002536:      \tpopq\t%rcx\nffffffff80002537:      \tpopq\t%rax\nffffffff80002538:      \tiretq\n",
+            "syscall_mxcsr_snapshot": "<user_syscall>:\nffffffff8000244a:      \tmovq\t%rsp, 0x9be0f7(%rip) # 0xffffffff809c0548 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry7USER_SP>\nffffffff80002451:      \tmovq\t0x9be0f8(%rip), %rsp # 0xffffffff809c0550 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff80002458:      \tpushq\t%rax\nffffffff80002459:      \tcmpb\t$0x0, 0x9bdba0(%rip) # 0xffffffff809c0000 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002460:      \tje\t0xffffffff80002469 <user_syscall+0x1f>\nffffffff80002462:      \tstmxcsr\t0x9bdbaf(%rip)  # 0xffffffff809c0018 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff80002469:      \tmovq\t%cr0, %rax\nffffffff8000246c:      \torq\t$0x8, %rax\nffffffff80002470:      \tmovq\t%rax, %cr0\nffffffff80002473:      \tpopq\t%rax\nffffffff80002474:      \tpushq\t$0x3b\nffffffff80002476:      \tpushq\t0x9be0cc(%rip)  # 0xffffffff809c0548 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry7USER_SP>\nffffffff8000247c:      \tpushq\t%r11\nffffffff8000247e:      \tpushq\t$0x33\nffffffff80002480:      \tpushq\t%rcx\nffffffff80002481:      \tpushq\t%rax\nffffffff80002482:      \tpushq\t%rcx\nffffffff80002483:      \tpushq\t%rdx\nffffffff80002484:      \tpushq\t%rbx\nffffffff80002485:      \tpushq\t%rbp\nffffffff80002486:      \tpushq\t%rsi\nffffffff80002487:      \tpushq\t%rdi\nffffffff80002488:      \tpushq\t%r8\nffffffff8000248a:      \tpushq\t%r9\nffffffff8000248c:      \tpushq\t%r10\nffffffff8000248e:      \tpushq\t%r11\nffffffff80002490:      \tpushq\t%r12\nffffffff80002492:      \tpushq\t%r13\nffffffff80002494:      \tpushq\t%r14\nffffffff80002496:      \tpushq\t%r15\nffffffff80002498:      \tcld\nffffffff80002499:      \tmovq\t%rsp, %rdi\nffffffff8000249c:      \tcallq\t0xffffffff8001b660 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry8dispatch>\nffffffff800024a1:      \tpopq\t%r15\nffffffff800024a3:      \tpopq\t%r14\nffffffff800024a5:      \tpopq\t%r13\nffffffff800024a7:      \tpopq\t%r12\nffffffff800024a9:      \tpopq\t%r11\nffffffff800024ab:      \tpopq\t%r10\nffffffff800024ad:      \tpopq\t%r9\nffffffff800024af:      \tpopq\t%r8\nffffffff800024b1:      \tpopq\t%rdi\nffffffff800024b2:      \tpopq\t%rsi\nffffffff800024b3:      \tpopq\t%rbp\nffffffff800024b4:      \tpopq\t%rbx\nffffffff800024b5:      \tpopq\t%rdx\nffffffff800024b6:      \tpopq\t%rcx\nffffffff800024b7:      \tpopq\t%rax\nffffffff800024b8:      \tiretq\n"
+          },
+          "simd_instruction_counts": {
+            "user_a": {
+              "addsd": 1,
+              "movq": 2,
+              "xorpd": 1
+            },
+            "user_b": {},
+            "service": {}
+          }
+        },
+        "build_id": "43553848efe44f4c96a6a0afd144089542253c2fd62d77ace63abc644d5ab2b8",
+        "kernel_sha256": "4ff0187121f48abc45825a7b85b86bb1b8e73865657c773560113ba973189755",
+        "iso_sha256": "a1e135c69d1177824673bf26f7f18c96f0aae0098ee7ba8a1ceb20e2cdbdf1d9",
+        "serial_sha256": "6d20411cfbf9734e5bf586114b8e580e033ccc7edf00712bde5bb57a34f8e083",
+        "builds": {
+          "schema_version": 1,
+          "runtime": true,
+          "unchanged_client_sha256": "99f70f3d37c6017ec53b37a2f9103ef917b35300ebfd2302ad40a92a53dac374",
+          "offline": true,
+          "images": [
+            {
+              "arguments": [
+                "build",
+                "--locked",
+                "--offline",
+                "--release",
+                "--target",
+                "x86_64-unknown-none",
+                "--manifest-path",
+                "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\client\\experiments\\sdk-client\\Cargo.toml",
+                "--features",
+                "runtime-smoke"
+              ],
+              "inputs": [
+                {
+                  "path": "Cargo.toml",
+                  "sha256": "c32e41e050f24c0dbc7b6fcc9927878a456de38b1466561f5a4dc54f82932f7d"
+                },
+                {
+                  "path": "LICENSE",
+                  "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20"
+                },
+                {
+                  "path": "crates/editor-model/Cargo.toml",
+                  "sha256": "3c2e2a2762ccaea3283333dcb7b2f771f1a1fa5de03673917ac5f2d561ec5ffe"
+                },
+                {
+                  "path": "crates/editor-model/src/lib.rs",
+                  "sha256": "457aaab085d11f4ecc9fefd3c8594ad2aa239843eec302a1730a5a58fc4e324b"
+                },
+                {
+                  "path": "crates/editor-model/src/snapshot.rs",
+                  "sha256": "097035262cd12ec1ee83cc5322b280fbb69a2ef9f7a4d358d766683a32b05045"
+                },
+                {
+                  "path": "crates/editor-model/src/tests.rs",
+                  "sha256": "1c630f81aa46eefe1602599539ddbc34777bfb7db8f673da9b331344f10ad0a2"
+                },
+                {
+                  "path": "experiments/sdk-client/Cargo.lock",
+                  "sha256": "a0f83061d5bd29044faac86b196f9fe6b8621fbf0066b90dd46c7f2b00fbe8ee"
+                },
+                {
+                  "path": "experiments/sdk-client/Cargo.toml",
+                  "sha256": "5373a1e6caba446ef1625c7b89ac98287611cbb15b94f94e8e152be2d83169de"
+                },
+                {
+                  "path": "experiments/sdk-client/src/handshake.rs",
+                  "sha256": "8d8fcad8a48fae05f262b4b79aec764ff6d19354556bc3739d1c76bb71bbc62e"
+                },
+                {
+                  "path": "experiments/sdk-client/src/main.rs",
+                  "sha256": "27367f41984751bb0d09a92858806b42fa751abc4b76516b6cd549ae65137a8d"
+                },
+                {
+                  "path": "experiments/sdk-client/src/probe.rs",
+                  "sha256": "a0c89f31adbf1fc5b46b991e7c805c217ee6fbf43c95c0d4002c4673d3ccc354"
+                },
+                {
+                  "path": "experiments/sdk-client/src/runtime.rs",
+                  "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c"
+                },
+                {
+                  "path": "experiments/sdk-client/src/smoke.rs",
+                  "sha256": "858cb95fa236caf2358b8fcbc9222fd2a8880ce93a0bcba12551af30aebf5a23"
+                },
+                {
+                  "path": "sdk/continuum-rt/Cargo.lock",
+                  "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd"
+                },
+                {
+                  "path": "sdk/continuum-rt/Cargo.toml",
+                  "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc"
+                },
+                {
+                  "path": "sdk/continuum-rt/contract.json",
+                  "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b"
+                },
+                {
+                  "path": "sdk/continuum-rt/fixtures.json",
+                  "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09"
+                },
+                {
+                  "path": "sdk/continuum-rt/README.md",
+                  "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457"
+                },
+                {
+                  "path": "sdk/continuum-rt/user.ld",
+                  "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/allocator.rs",
+                  "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/generated.rs",
+                  "sha256": "cd1b6cef110d2d074ca0432c8a8a707cbae156fd4c0082672bb9674a89911eb4"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/guest.rs",
+                  "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/lib.rs",
+                  "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/wire.rs",
+                  "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/bin/conformance.rs",
+                  "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634"
+                }
+              ],
+              "wire_minor": 0,
+              "file": "user_a.elf",
+              "variant": "client",
+              "bytes": 308296,
+              "sha256": "99f70f3d37c6017ec53b37a2f9103ef917b35300ebfd2302ad40a92a53dac374",
+              "sdk_version": "0.1.0",
+              "metadata_sha256": "322bdec51a03c3a4e74687198180b499060c3d92271f6745c605645579b62a13",
+              "root": "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\client"
+            },
+            {
+              "arguments": [
+                "build",
+                "--locked",
+                "--offline",
+                "--release",
+                "--target",
+                "x86_64-unknown-none",
+                "--manifest-path",
+                "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\service-old\\experiments\\sdk-service\\Cargo.toml"
+              ],
+              "inputs": [
+                {
+                  "path": "Cargo.toml",
+                  "sha256": "c32e41e050f24c0dbc7b6fcc9927878a456de38b1466561f5a4dc54f82932f7d"
+                },
+                {
+                  "path": "LICENSE",
+                  "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20"
+                },
+                {
+                  "path": "experiments/sdk-service/Cargo.lock",
+                  "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2"
+                },
+                {
+                  "path": "experiments/sdk-service/Cargo.toml",
+                  "sha256": "2771c3cd723647095b0030a6a5125db33951d24de29e322e7f5b1a45f4cdcbac"
+                },
+                {
+                  "path": "experiments/sdk-service/src/handshake.rs",
+                  "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a"
+                },
+                {
+                  "path": "experiments/sdk-service/src/main.rs",
+                  "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea"
+                },
+                {
+                  "path": "experiments/sdk-service/src/policy.rs",
+                  "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7"
+                },
+                {
+                  "path": "experiments/sdk-service/src/routes.rs",
+                  "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e"
+                },
+                {
+                  "path": "experiments/sdk-service/src/runtime.rs",
+                  "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c"
+                },
+                {
+                  "path": "sdk/continuum-rt/Cargo.lock",
+                  "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd"
+                },
+                {
+                  "path": "sdk/continuum-rt/Cargo.toml",
+                  "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc"
+                },
+                {
+                  "path": "sdk/continuum-rt/contract.json",
+                  "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b"
+                },
+                {
+                  "path": "sdk/continuum-rt/fixtures.json",
+                  "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09"
+                },
+                {
+                  "path": "sdk/continuum-rt/README.md",
+                  "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457"
+                },
+                {
+                  "path": "sdk/continuum-rt/user.ld",
+                  "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/allocator.rs",
+                  "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/generated.rs",
+                  "sha256": "cd1b6cef110d2d074ca0432c8a8a707cbae156fd4c0082672bb9674a89911eb4"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/guest.rs",
+                  "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/lib.rs",
+                  "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/wire.rs",
+                  "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/bin/conformance.rs",
+                  "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634"
+                }
+              ],
+              "wire_minor": 0,
+              "file": "service.elf",
+              "variant": "service-old",
+              "bytes": 158944,
+              "sha256": "35d59d3237767df3dafd1fe1147e0559fd7416103c0ba0384e410d795bd70a21",
+              "sdk_version": "0.1.0",
+              "metadata_sha256": "ce800f4761c64bb8ee64d29bce6f41132a0a66a5d3c88a7ab9e466f64c022571",
+              "root": "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\service-old"
+            },
+            {
+              "arguments": [
+                "build",
+                "--locked",
+                "--offline",
+                "--release",
+                "--target",
+                "x86_64-unknown-none",
+                "--manifest-path",
+                "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\service-new\\experiments\\sdk-service\\Cargo.toml",
+                "--features",
+                "minor-1"
+              ],
+              "inputs": [
+                {
+                  "path": "Cargo.toml",
+                  "sha256": "c32e41e050f24c0dbc7b6fcc9927878a456de38b1466561f5a4dc54f82932f7d"
+                },
+                {
+                  "path": "LICENSE",
+                  "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20"
+                },
+                {
+                  "path": "experiments/sdk-service/Cargo.lock",
+                  "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2"
+                },
+                {
+                  "path": "experiments/sdk-service/Cargo.toml",
+                  "sha256": "2771c3cd723647095b0030a6a5125db33951d24de29e322e7f5b1a45f4cdcbac"
+                },
+                {
+                  "path": "experiments/sdk-service/src/handshake.rs",
+                  "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a"
+                },
+                {
+                  "path": "experiments/sdk-service/src/main.rs",
+                  "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea"
+                },
+                {
+                  "path": "experiments/sdk-service/src/policy.rs",
+                  "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7"
+                },
+                {
+                  "path": "experiments/sdk-service/src/routes.rs",
+                  "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e"
+                },
+                {
+                  "path": "experiments/sdk-service/src/runtime.rs",
+                  "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c"
+                },
+                {
+                  "path": "sdk/continuum-rt/Cargo.lock",
+                  "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd"
+                },
+                {
+                  "path": "sdk/continuum-rt/Cargo.toml",
+                  "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc"
+                },
+                {
+                  "path": "sdk/continuum-rt/contract.json",
+                  "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b"
+                },
+                {
+                  "path": "sdk/continuum-rt/fixtures.json",
+                  "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09"
+                },
+                {
+                  "path": "sdk/continuum-rt/README.md",
+                  "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457"
+                },
+                {
+                  "path": "sdk/continuum-rt/user.ld",
+                  "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/allocator.rs",
+                  "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/generated.rs",
+                  "sha256": "cd1b6cef110d2d074ca0432c8a8a707cbae156fd4c0082672bb9674a89911eb4"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/guest.rs",
+                  "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/lib.rs",
+                  "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/wire.rs",
+                  "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec"
+                },
+                {
+                  "path": "sdk/continuum-rt/src/bin/conformance.rs",
+                  "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634"
+                }
+              ],
+              "wire_minor": 1,
+              "file": "user_b.elf",
+              "variant": "service-new",
+              "bytes": 158944,
+              "sha256": "086643147d09f506b894998d6873fe08ee7d8daefa484affc16a282abd3b0585",
+              "sdk_version": "0.1.0",
+              "metadata_sha256": "27c5b43d14e1a2a2fc96f9216470e2115c99f79ace66caaec8992d19534cb224",
+              "root": "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\service-new"
+            }
+          ],
+          "status": "passed"
+        }
+      }
+    }
+  ],
+  "guests": [
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167319991641900-9972",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+        "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+        "iso_sha256": "3d162dc72ef6fcd797d7c18487bdf6d727cb3bce715b3498cbcca80c5e10a439",
+        "serial_sha256": "7f6e03eb163e9a1ca18cdc8d1da5c06936204e7a8d7d2b12810440c172bc3a47",
+        "images": [
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+          "session": "6c8426d8083c4fd1e6a3f659885ee4e3e62f8b0c05434542766816dd88d6b1e1",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177508352",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43337",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+            "session": "6c8426d8083c4fd1e6a3f659885ee4e3e62f8b0c05434542766816dd88d6b1e1",
+            "session_origin": "host",
+            "seq": "449",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "219",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "102961600",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "4406796400"
+          }
+        ],
+        "reviewer_negatives": 248,
+        "source_hashes_verified": true
+      },
+      "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167471623849200-57440",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+        "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+        "iso_sha256": "3d3fc4ba184562c8f41d98a4699fb79d74fc9356dd3a1bf96ee9da8e70b9b4a6",
+        "serial_sha256": "879d9eb9571a6cc2f7c8c4ff65c41532ed4bc2c9b1a1b10b719079d94d8336ce",
+        "images": [
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+          "session": "339988f87c95ea9848702fa07a0eff9760feb7dc36a8872cfdb79719ec9e37db",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177508352",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43337",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+            "session": "339988f87c95ea9848702fa07a0eff9760feb7dc36a8872cfdb79719ec9e37db",
+            "session_origin": "host",
+            "seq": "545",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "281",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "61639300",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "4077060400"
+          }
+        ],
+        "reviewer_negatives": 248,
+        "source_hashes_verified": true
+      },
+      "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167571834635400-51988",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+        "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+        "iso_sha256": "78960ad512b12a13aca340e0c5b55e054af5b809fe7b099c5cb951c1577eaf1a",
+        "serial_sha256": "9a2fbc7afa3921f9fd48a7c16dcddc7c79c1bf9964ce5e04bd4a8f06ba5baf8c",
+        "images": [
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+          "session": "55a6509d43cb90aa99a725e0edee9dc5d44b7a6d7e97f5641b10508f4dc1d716",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177508352",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43337",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+            "session": "55a6509d43cb90aa99a725e0edee9dc5d44b7a6d7e97f5641b10508f4dc1d716",
+            "session_origin": "host",
+            "seq": "420",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "199",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "83979200",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "3583619300"
+          }
+        ],
+        "reviewer_negatives": 248,
+        "source_hashes_verified": true
+      },
+      "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167657733848300-63692",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+        "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+        "iso_sha256": "e2882323febe4031fbb1abe81d86179ea011ce5906a6cdaca94c864dbc25cf3b",
+        "serial_sha256": "021825907149e94e68d4ba6053868132100792e52d7b0b3f6306e01847129517",
+        "images": [
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+          "session": "a34755db60c4badcd21a3ec7e112cf036bc010d99043293fe756f9653f5e2d88",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177508352",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43337",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+            "session": "a34755db60c4badcd21a3ec7e112cf036bc010d99043293fe756f9653f5e2d88",
+            "session_origin": "host",
+            "seq": "463",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "233",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "104405900",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "4909232900"
+          }
+        ],
+        "reviewer_negatives": 248,
+        "source_hashes_verified": true
+      },
+      "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167773909303200-64960",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+        "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+        "iso_sha256": "47678f2d17aad35c0fe46fb4a5e8e51fda8e179326bb18ca008972054e0936da",
+        "serial_sha256": "5d3f591feaaad4a7c76d72dd33bcd8230f040d8c6b5d0fcb7e21596710d6983e",
+        "images": [
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          },
+          {
+            "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+            "load_pages": 28,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+          "session": "5d6a880fe1c262b737ad057b146db798d4e7d8cd7cf16aaacfe25776fb541865",
+          "session_origin": "host",
+          "seq": "220",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177508352",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43337",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+            "session": "5d6a880fe1c262b737ad057b146db798d4e7d8cd7cf16aaacfe25776fb541865",
+            "session_origin": "host",
+            "seq": "408",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "192",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "71948700",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "3374365000"
+          }
+        ],
+        "reviewer_negatives": 248,
+        "source_hashes_verified": true
+      },
+      "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+    }
+  ],
+  "reused_commands": [
+    {
+      "name": "kernel-host",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:48:25.880927+00:00",
+      "finished_utc": "2026-11-08T19:48:30.425307+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 4547
+    },
+    {
+      "name": "desktop-host",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib",
+        "--features",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:48:31.117598+00:00",
+      "finished_utc": "2026-11-08T19:48:35.362741+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 4250
+    },
+    {
+      "name": "desktop-0",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:48:35.992002+00:00",
+      "finished_utc": "2026-11-08T19:50:28.916547+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 112922
+    },
+    {
+      "name": "flavors",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Check-P4-02Flavors.ps1",
+        "-Descriptors",
+        "${WORKSPACE}\\build\\m1\\desktop-runtime-1794167319991641900-9972",
+        "-Output",
+        "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794167304568750800\\flavors"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:50:34.053926+00:00",
+      "finished_utc": "2026-11-08T19:51:08.375679+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 34312
+    },
+    {
+      "name": "desktop-1",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:51:09.085781+00:00",
+      "finished_utc": "2026-11-08T19:52:43.588159+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 94500
+    },
+    {
+      "name": "desktop-2",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:52:48.549863+00:00",
+      "finished_utc": "2026-11-08T19:54:11.365647+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 82812
+    },
+    {
+      "name": "desktop-3",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:54:14.548998+00:00",
+      "finished_utc": "2026-11-08T19:56:04.907965+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 110359
+    },
+    {
+      "name": "desktop-4",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:56:10.350526+00:00",
+      "finished_utc": "2026-11-08T19:58:20.562723+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 130203
+    },
+    {
+      "name": "ordinary",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-08T19:58:24.414140+00:00",
+      "finished_utc": "2026-11-08T19:59:48.699381+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 84281
+    }
+  ],
+  "origin_source_lock_sha256": "515db9db48ce9ffff9829bee26fcf4b329279a96097aea046d51239ec4885d19",
+  "ordinary": {
+    "directory": "${WORKSPACE}\\build\\m1\\run-1794167907172813200-61496",
+    "review": {
+      "schema_version": 1,
+      "story": "P4-02",
+      "status": "passed",
+      "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+      "test": false,
+      "build_id": "7d475104a50f5c40ba9325a75ecaffbe3e85198212f28d4e78c7a367866d7481",
+      "kernel_sha256": "0d62513d2cdbd67d3f671e2dcd37b4a841859fb4d61971d29ae4c136cdd90b3b",
+      "iso_sha256": "e126c9acee66708d8bf91c12251c2d50893a3d95d401c1675a9ddb91fa36d605",
+      "serial_sha256": "e646431f5db45ab88dd89867d069679cdbe3a62225894fc55d7684407a153855",
+      "images": [
+        {
+          "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+          "load_pages": 28,
+          "load_segments": 3
+        },
+        {
+          "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+          "load_pages": 28,
+          "load_segments": 3
+        },
+        {
+          "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+          "load_pages": 28,
+          "load_segments": 3
+        }
+      ],
+      "inventory": {
+        "version": "5",
+        "build": "7d475104a50f5c40ba9325a75ecaffbe3e85198212f28d4e78c7a367866d7481",
+        "session": "e28164e1e8c67a213215e05624080c1e7d70c2963a26bc8a94bf0db9062eb55d",
+        "session_origin": "host",
+        "seq": "204",
+        "stage": "desktop",
+        "outcome": "ok",
+        "emergency": "false",
+        "phase": "admitted",
+        "spaces": "7",
+        "allocations": "56",
+        "committed": "177508352",
+        "tables": "133",
+        "fixed_tables": "16908288",
+        "kernel_stacks": "458752",
+        "frames": "43337",
+        "reserve": "16777216",
+        "units": "7"
+      },
+      "settled": [],
+      "reviewer_negatives": 0,
+      "source_hashes_verified": true
+    },
+    "execution": "reused completed component; raw ISO/ELF/source re-reviewed"
+  },
+  "flavors": {
+    "path": "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794167304568750800\\flavors\\flavors.json",
+    "sha256": "0f6b200efc6c386be7026a3e21a5e78dd8691ead184a7f86e8d9bd52ca90cfd4",
+    "rows": [
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev"
+        ],
+        "flavor": "ordinary-minimal",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "desktop-runtime"
+        ],
+        "flavor": "desktop-runtime",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "desktop-test"
+        ],
+        "flavor": "desktop-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "user-boundary-test"
+        ],
+        "flavor": "user-boundary-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "scheduler-test"
+        ],
+        "flavor": "scheduler-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "capability-test"
+        ],
+        "flavor": "capability-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "channel-test"
+        ],
+        "flavor": "channel-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "wait-test"
+        ],
+        "flavor": "wait-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "supervisor-test"
+        ],
+        "flavor": "supervisor-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "policy-test"
+        ],
+        "flavor": "policy-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "route-test"
+        ],
+        "flavor": "route-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "sdk-test"
+        ],
+        "flavor": "sdk-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "sdk-runtime-test"
+        ],
+        "flavor": "sdk-runtime-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "stress-test"
+        ],
+        "flavor": "stress-test",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "stress-trace"
+        ],
+        "flavor": "stress-trace",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "check",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--bin",
+          "continuum-kernel",
+          "--target",
+          "x86_64-unknown-none",
+          "--profile",
+          "kernel-dev",
+          "--features",
+          "stress-supervisor-test"
+        ],
+        "flavor": "stress-supervisor-test",
+        "exit_code": 0
+      }
+    ],
+    "execution": "reused completed components; exact arguments/source rechecked"
+  },
+  "boundary_execution_origin": "${WORKSPACE}\\build\\m4\\P4-02\\story-1794168563098861700",
+  "retention_projection": {
+    "rule": "full generated disassembly/source text remains local; reviewed criteria and original field hashes retained",
+    "fields": [
+      "/checks/2/review/codegen/1/user_a",
+      "/checks/2/review/codegen/1/user_b",
+      "/checks/2/review/codegen/1/service"
+    ],
+    "original_full_report_sha256": "8a9ff25c6c9d801b706e5708eefa094af01819df5e89e699ac3ac612023aad5e"
+  }
+}

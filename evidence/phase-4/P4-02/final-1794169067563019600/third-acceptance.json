@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "story": "P4-02",
+  "status": "failed",
+  "commands": [
+    {
+      "name": "kernel-host",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T23:10:37.741569+00:00",
+      "finished_utc": "2026-11-07T23:10:41.570240+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 3828
+    },
+    {
+      "name": "desktop-host",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib",
+        "--features",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T23:10:41.594484+00:00",
+      "finished_utc": "2026-11-07T23:10:44.004662+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 2422
+    },
+    {
+      "name": "desktop-0",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 1,
+      "started_utc": "2026-11-07T23:10:44.028889+00:00",
+      "finished_utc": "2026-11-07T23:12:44.041141+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 120015
+    }
+  ],
+  "guests": [],
+  "source_commit": "7959d1a6230cee72842b802a6f3afad5b39aa673",
+  "error": "desktop-0 failed; see ${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794093036902088100"
+}

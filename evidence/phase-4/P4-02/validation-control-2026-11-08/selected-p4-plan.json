@@ -1,0 +1,51 @@
+{
+  "scope": "story",
+  "execute": [
+    "kernel-host",
+    "desktop-host",
+    "desktop-0",
+    "flavors",
+    "desktop-1",
+    "desktop-2",
+    "desktop-3",
+    "desktop-4",
+    "ordinary",
+    "boundary",
+    "scheduler",
+    "capabilities",
+    "waits",
+    "sdk-runtime",
+    "docs",
+    "governance",
+    "hygiene"
+  ],
+  "covered_by": {},
+  "command_groups": 17,
+  "vm_launches": 16,
+  "vm_launches_by_check": {
+    "kernel-host": 0,
+    "desktop-host": 0,
+    "desktop-0": 1,
+    "flavors": 0,
+    "desktop-1": 1,
+    "desktop-2": 1,
+    "desktop-3": 1,
+    "desktop-4": 1,
+    "ordinary": 1,
+    "boundary": 4,
+    "scheduler": 3,
+    "capabilities": 1,
+    "waits": 1,
+    "sdk-runtime": 1,
+    "docs": 0,
+    "governance": 0,
+    "hygiene": 0
+  },
+  "unknown_launch_counts": [],
+  "full_suites": [],
+  "separate_metadata_builds": 16,
+  "execution_budget": {
+    "max_vm_launches": 16,
+    "allow_full_suites": false
+  }
+}

@@ -32,6 +32,7 @@ fn collect(dir: &Path, result: &mut BTreeMap<String, String>) -> Result<()> {
 #[derive(Clone, Copy, PartialEq)]
 pub(super) enum Flavor {
     Normal,
+    Desktop,
     Smoke,
     NoEntry,
     Inject,
@@ -58,6 +59,7 @@ impl Flavor {
     fn name(self) -> &'static str {
         match self {
             Self::Normal => "normal",
+            Self::Desktop => "desktop-test",
             Self::Smoke => "iso-smoke",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
@@ -83,7 +85,8 @@ impl Flavor {
     }
     fn features(self) -> &'static str {
         match self {
-            Self::Normal => "",
+            Self::Normal => "desktop-runtime",
+            Self::Desktop => "desktop-test",
             Self::Smoke => "emulator-test",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
@@ -326,6 +329,7 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
         "config/m1-inputs.lock.json",
         "config/m2-profiles.json",
         "config/m3-profiles.json",
+        "config/p4-02-runtime.json",
         "fixtures/m2/runner-input.txt",
         "tools/Enter-Dev.ps1",
         "tools/Host.ps1",
@@ -363,7 +367,9 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         )?)
     } else if matches!(
         flavor,
-        Flavor::StaticLoader
+        Flavor::Normal
+            | Flavor::Desktop
+            | Flavor::StaticLoader
             | Flavor::UserBoundary
             | Flavor::Scheduler
             | Flavor::Capabilities
@@ -383,7 +389,9 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             flavor == Flavor::UserBoundary,
             matches!(
                 flavor,
-                Flavor::Scheduler
+                Flavor::Normal
+                    | Flavor::Desktop
+                    | Flavor::Scheduler
                     | Flavor::Capabilities
                     | Flavor::Channels
                     | Flavor::Waits
@@ -402,6 +410,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             flavor == Flavor::Supervisor,
             flavor == Flavor::Policy,
             flavor == Flavor::Routes,
+            matches!(flavor, Flavor::Normal | Flavor::Desktop),
         )?)
     } else {
         None
@@ -424,7 +433,11 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     ];
     let profile = if matches!(
         flavor,
-        Flavor::Stress | Flavor::StressTrace | Flavor::StressSupervision
+        Flavor::Stress
+            | Flavor::StressTrace
+            | Flavor::StressSupervision
+            | Flavor::Normal
+            | Flavor::Desktop
     ) {
         "kernel-stress"
     } else {
@@ -553,7 +566,9 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         if name == "llvm-objdump" {
             if matches!(
                 flavor,
-                Flavor::Scheduler
+                Flavor::Normal
+                    | Flavor::Desktop
+                    | Flavor::Scheduler
                     | Flavor::Capabilities
                     | Flavor::Channels
                     | Flavor::Waits

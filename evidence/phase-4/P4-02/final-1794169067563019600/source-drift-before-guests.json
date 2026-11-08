@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "story": "P4-02",
+  "scope": "story",
+  "status": "failed",
+  "manifest": {
+    "schema_version": 1,
+    "story": "P4-02",
+    "scope": "story",
+    "impact": {
+      "subsystems": [
+        "owned memory and paging",
+        "user entry and exceptions",
+        "scheduler and timers",
+        "trusted desktop bootstrap",
+        "ISO packaging and launch"
+      ],
+      "consumers": [
+        "ordinary desktop graph",
+        "all existing M3 runtime fixtures",
+        "M1 fatal and timer diagnostics"
+      ],
+      "rationale": "The current P4-02 working tree changes shared memory, CPU entry, timer and scheduling foundations as well as image packaging. Full M1/M3 is warranted for this particular closeout. This is an impact decision, not the default for later stories. Five desktop guests, ordinary graph boot and sixteen separate metadata builds remain mandatory. The inherited aggregate host-test oracle now requires all four named P4-02 tests in addition to its original 97-test coverage; missing, duplicate, failed and inflated summaries reject.",
+      "broad_m1": true,
+      "broad_m2": false,
+      "broad_m3": true,
+      "shared_boundary_scheduler": true,
+      "uncertain_families": []
+    },
+    "selected": [
+      {
+        "id": "runner-tests",
+        "reason": "Verify current story selection, artifact/source integrity, resume rejection and P4 orchestration before using the owner-approved runner."
+      },
+      {
+        "id": "kernel-host",
+        "reason": "Changed shared kernel memory, scheduling, user-entry and teardown code; full M3 includes this check once via M1."
+      },
+      {
+        "id": "desktop-host",
+        "reason": "Fresh desktop allocation, graph admission, lifecycle and failure-path host tests."
+      },
+      {
+        "id": "full-m1",
+        "reason": "Broad paging/interrupt/exception and packaging edits; full M3 already requires the complete M1 gate."
+      },
+      {
+        "id": "full-m3",
+        "reason": "Broad shared runtime enforcement changes affect legacy boundary, memory, scheduling, authority, lifecycle, SDK and stress consumers."
+      },
+      {
+        "id": "docs",
+        "reason": "Runbook, profile, contract and validation-policy consistency."
+      },
+      {
+        "id": "governance",
+        "reason": "Preserve governance and immutable historical evidence checks."
+      },
+      {
+        "id": "hygiene",
+        "reason": "Check staged evidence budgets and generated-artifact exclusions; staging still requires a final index check."
+      }
+    ],
+    "not_selected": {
+      "M2": "No hosted UI implementation, renderer/text pipeline, corpus or UI freeze input changed. The selected portable-link regression required by full M3 still runs. Reassess if shared UI build semantics change."
+    },
+    "historical_references": [
+      {
+        "path": "evidence/phase-4/P4-01/final-1794022944926085700/README.md",
+        "reason": "Accepted prerequisite/profile context only; does not substitute for current selected regression execution."
+      }
+    ]
+  },
+  "checks": [],
+  "commands": [],
+  "source_commit": "7959d1a6230cee72842b802a6f3afad5b39aa673",
+  "not_selected": {
+    "M2": "No hosted UI implementation, renderer/text pipeline, corpus or UI freeze input changed. The selected portable-link regression required by full M3 still runs. Reassess if shared UI build semantics change."
+  },
+  "historical_references": [
+    {
+      "path": "evidence/phase-4/P4-01/final-1794022944926085700/README.md",
+      "reason": "Accepted prerequisite/profile context only; does not substitute for current selected regression execution."
+    }
+  ],
+  "error": "source changed during story validation",
+  "retention": {
+    "representation": "explicit compact projection; full input/tool maps remain local with original report hash",
+    "source_input_count": 5187,
+    "source_snapshot_sha256": "25afe28095aaf4e9839857d45a017c59f2126d1fc424944a4468634febd6132e",
+    "tool_context_sha256": "f77ba7e72e9568b49f00e2ae8e3b530c126d45c444a492895eafb278d9cafe78",
+    "original_report_sha256": "aef08c3177f4c77d435ff01381516291ee2b274ac775bfb0d6bf97b2e94a9919"
+  }
+}

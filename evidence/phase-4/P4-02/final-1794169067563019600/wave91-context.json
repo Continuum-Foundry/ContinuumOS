@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "full_acceptance": "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794165373236848900\\acceptance.json",
+  "source_unchanged": true,
+  "observations": [
+    {
+      "case": "stress-off-0.log",
+      "directory": "${WORKSPACE}\\build\\m1\\sdk-stress-1794166355341101900-62968",
+      "status": "passed",
+      "host_elapsed_ms": 32734,
+      "completed_cycles": 100,
+      "last_cycle": 99,
+      "phase_seconds": {
+        "admission_ns": 3.0623652,
+        "work_ns": 18.4195333,
+        "dispatch_ns": 16.3085685,
+        "reap_ns": 0.5906033,
+        "inventory_ns": 0.9793283
+      },
+      "median_work_ns": 171475200.0,
+      "maximum_work_ns": 951866300,
+      "serial_sha256": "996468193333b1f025b07b0d7b63d9ae13125a88d2775a808985589a003e832b"
+    },
+    {
+      "case": "stress-on-0.log",
+      "directory": "${WORKSPACE}\\build\\m1\\sdk-stress-trace-1794166485216388600-57068",
+      "status": "passed",
+      "host_elapsed_ms": 24235,
+      "completed_cycles": 100,
+      "last_cycle": 99,
+      "phase_seconds": {
+        "admission_ns": 2.2554869,
+        "work_ns": 13.7102377,
+        "dispatch_ns": 12.109065,
+        "reap_ns": 0.4304765,
+        "inventory_ns": 0.7226968
+      },
+      "median_work_ns": 120967900.0,
+      "maximum_work_ns": 772211400,
+      "serial_sha256": "5101b31ff18442ac3599f74008c4890e4cdd324a9d671bf8bf3b92d0bd5dbe7f"
+    },
+    {
+      "case": "stress-on-1.log",
+      "directory": "${WORKSPACE}\\build\\m1\\sdk-stress-trace-1794166676917705100-58984",
+      "status": "passed",
+      "host_elapsed_ms": 27146,
+      "completed_cycles": 100,
+      "last_cycle": 99,
+      "phase_seconds": {
+        "admission_ns": 2.6044455,
+        "work_ns": 15.4322867,
+        "dispatch_ns": 13.6156411,
+        "reap_ns": 0.4969488,
+        "inventory_ns": 0.8162321
+      },
+      "median_work_ns": 138900950.0,
+      "maximum_work_ns": 789460600,
+      "serial_sha256": "8acebafcf591155bba811c6bf3e227e80aaffc8230d3a900092904f958ca8d83"
+    },
+    {
+      "case": "stress-on-2.log",
+      "directory": "${WORKSPACE}\\build\\m1\\sdk-stress-trace-1794166852026008000-64276",
+      "status": "failed",
+      "host_elapsed_ms": 60152,
+      "completed_cycles": 91,
+      "last_cycle": 90,
+      "phase_seconds": {
+        "admission_ns": 4.9596717,
+        "work_ns": 33.8741326,
+        "dispatch_ns": 30.0931172,
+        "reap_ns": 1.0138029,
+        "inventory_ns": 1.6773521
+      },
+      "median_work_ns": 342118800,
+      "maximum_work_ns": 2504695200,
+      "serial_sha256": "210bea83280f1fca479d7ab7271d52c6353189d7f4e7e0a18b91285e03330ea8"
+    }
+  ],
+  "failed_guest": "sdk-stress-trace-1794166852026008000-64276",
+  "failed_guest_facts": {
+    "deadline_ms": 60000,
+    "elapsed_host_ms": 60152,
+    "kernel_entry_observed": true,
+    "cleanup_reaped": true,
+    "completed_waves": 91,
+    "incomplete_wave": 91
+  },
+  "cause": "unproven; per-phase variation is observed, not a causal diagnosis",
+  "disposition": "Preserved as failed. One unchanged-source diagnostic is separate; no deadline, count, power or security setting changed.",
+  "diagnostic": {
+    "directory": "${WORKSPACE}\\build\\m1\\sdk-stress-trace-1794167153846859900-65136",
+    "status": "passed",
+    "elapsed_host_ms": 34940,
+    "deadline_ms": 60000,
+    "completed_waves": 100,
+    "kernel_identical_to_failed_case": true,
+    "kernel_sha256": "14a6bceeeddd0f722bfca442e9d9250eb21c842198d97cc5b53e4a65e747f5ba",
+    "independent_review": "${WORKSPACE}\\work\\p4-02-stress-deadline-diag-review\\review.json",
+    "independent_review_sha256": "8ccc134986ba4a00a9c770704783f698e8285138467922e9d6debf5f2de4100d",
+    "scope": "one separate diagnostic, not aggregate acceptance or a replacement for the failed run"
+  }
+}

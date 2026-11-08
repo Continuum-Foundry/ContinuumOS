@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "story": "P4-02",
+  "status": "passed",
+  "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+  "test": true,
+  "build_id": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+  "kernel_sha256": "342d6252d42206543676786800ddbff42d8ec21ce594d2dc038155762adcd147",
+  "iso_sha256": "e2882323febe4031fbb1abe81d86179ea011ce5906a6cdaca94c864dbc25cf3b",
+  "serial_sha256": "021825907149e94e68d4ba6053868132100792e52d7b0b3f6306e01847129517",
+  "images": [
+    {
+      "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+      "load_pages": 28,
+      "load_segments": 3
+    },
+    {
+      "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+      "load_pages": 28,
+      "load_segments": 3
+    },
+    {
+      "sha256": "696cd0e4c6a2637a7d42510a8bbad4e55de3b688df9bda5c730d6b443654419f",
+      "load_pages": 28,
+      "load_segments": 3
+    }
+  ],
+  "inventory": {
+    "version": "5",
+    "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+    "session": "a34755db60c4badcd21a3ec7e112cf036bc010d99043293fe756f9653f5e2d88",
+    "session_origin": "host",
+    "seq": "220",
+    "stage": "desktop",
+    "outcome": "ok",
+    "emergency": "false",
+    "phase": "admitted",
+    "spaces": "7",
+    "allocations": "56",
+    "committed": "177508352",
+    "tables": "133",
+    "fixed_tables": "16908288",
+    "kernel_stacks": "458752",
+    "frames": "43337",
+    "reserve": "16777216",
+    "units": "10"
+  },
+  "settled": [
+    {
+      "version": "5",
+      "build": "a5fdc1cdd316da8f4e7a44e43b6ffafc8e35d557ff0087dae7e9935ecadf1f9d",
+      "session": "a34755db60c4badcd21a3ec7e112cf036bc010d99043293fe756f9653f5e2d88",
+      "session_origin": "host",
+      "seq": "463",
+      "stage": "desktop",
+      "outcome": "ok",
+      "emergency": "false",
+      "spaces": "0",
+      "allocations": "0",
+      "objects": "0",
+      "handles": "0",
+      "frames": "0",
+      "units": "12",
+      "control": "233",
+      "editor_ends": "3",
+      "heap_cycles_per_owner": "100",
+      "hidden_launches": "0",
+      "reserve": "16777216",
+      "observers": "false",
+      "ready_max_ns": "104405900",
+      "ready_limit_ns": "320000000",
+      "elapsed_ns": "4909232900"
+    }
+  ],
+  "reviewer_negatives": 248,
+  "source_hashes_verified": true
+}

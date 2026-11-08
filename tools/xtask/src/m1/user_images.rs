@@ -20,9 +20,12 @@ pub(super) fn build(
     supervisor: bool,
     policy: bool,
     routes: bool,
+    desktop: bool,
 ) -> Result<PathBuf> {
     let runtime_ids = runtime_ids(dir)?;
-    let source = if routes {
+    let source = if desktop {
+        "experiments/user-images/desktop.rs"
+    } else if routes {
         "experiments/user-images/routes.rs"
     } else if policy {
         "experiments/user-images/policy.rs"

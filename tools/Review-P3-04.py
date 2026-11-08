@@ -135,7 +135,7 @@ def excerpt(text,name):
     return marker+text.split(marker,1)[1].split('\n\n',1)[0]+'\n'
 
 
-def codegen(folder):
+def codegen(folder, syscall_scratch_guard=False):
     texts={}
     for name in ('user_a','user_b','service'):
         loader.expected_pages(folder/(name+'.elf')) # independent static ELF obligations
@@ -151,8 +151,13 @@ def codegen(folder):
     kernel=(folder/'llvm-objdump.stdout.log').read_text()
     asm={name:excerpt(kernel,name) for name in ('user_enter','user_leave','user_syscall','user_copy','user_copy_read','user_copy_write','user_copy_failed')}
     require('sysret' not in kernel,'unsafe SYSRET path')
-    require(asm['user_syscall'].count('pushq') == 20 and asm['user_syscall'].count('popq') == 15
+    # P3-05 added one balanced RAX save around the CR0.TS guard. Historical
+    # P3-04 keeps its original exact layout; current focused callers opt in.
+    pushes, pops = (21, 16) if syscall_scratch_guard else (20, 15)
+    require(asm['user_syscall'].count('pushq') == pushes and asm['user_syscall'].count('popq') == pops
             and 'iretq' in asm['user_syscall'] and 'cld' in asm['user_syscall'], 'syscall assembly layout')
+    if syscall_scratch_guard:
+        require('%cr0' in asm['user_syscall'], 'missing syscall TS guard')
     require(asm['user_enter'].count('pushq') == 11 and 'iretq' in asm['user_enter'], 'entry layout')
     require('movq\t%rax, %cr3' in asm['user_leave'] and 'retq' in asm['user_leave'], 'surviving stack/root return')
     return asm,texts

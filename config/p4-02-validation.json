@@ -3,28 +3,81 @@
   "story": "P4-02",
   "scope": "story",
   "impact": {
-    "subsystems": ["owned memory and paging", "user entry and exceptions", "scheduler and timers", "trusted desktop bootstrap", "ISO packaging and launch"],
-    "consumers": ["ordinary desktop graph", "all existing M3 runtime fixtures", "M1 fatal and timer diagnostics"],
-    "rationale": "The current P4-02 working tree changes shared memory, CPU entry, timer and scheduling foundations as well as image packaging. Full M1/M3 is warranted for this particular closeout. This is an impact decision, not the default for later stories. Five desktop guests, ordinary graph boot and sixteen separate metadata builds remain mandatory.",
-    "broad_m1": true,
+    "subsystems": [
+      "owned memory and paging",
+      "user entry and exceptions",
+      "scheduler and timers",
+      "trusted desktop bootstrap",
+      "ISO packaging and launch"
+    ],
+    "consumers": [
+      "ordinary desktop graph",
+      "all existing M3 runtime fixtures",
+      "M1 fatal and timer diagnostics"
+    ],
+    "rationale": "Owner requested slimmer current-story validation on 2026-11-08, superseding the earlier NEXT-time direction. The core diff extends desktop-specific feature gates and profiles while preserving narrower legacy semantics. Five already-completed desktop cases, ordinary graph boot, both host suites and 16 separate builds are re-reviewed against unchanged implementation/tool inputs. Fresh focused boundary, scheduler, capabilities, waits and SDK-runtime guests exercise shared consumers. This is bounded story closeout, not fresh M1/M3 milestone acceptance; failed and interrupted full attempts remain non-passes.",
+    "broad_m1": false,
     "broad_m2": false,
-    "broad_m3": true,
+    "broad_m3": false,
     "shared_boundary_scheduler": true,
     "uncertain_families": []
   },
   "selected": [
-    {"id": "kernel-host", "reason": "Changed shared kernel memory, scheduling, user-entry and teardown code; full M3 includes this check once via M1."},
-    {"id": "desktop-host", "reason": "Fresh desktop allocation, graph admission, lifecycle and failure-path host tests."},
-    {"id": "full-m1", "reason": "Broad paging/interrupt/exception and packaging edits; full M3 already requires the complete M1 gate."},
-    {"id": "full-m3", "reason": "Broad shared runtime enforcement changes affect legacy boundary, memory, scheduling, authority, lifecycle, SDK and stress consumers."},
-    {"id": "docs", "reason": "Runbook, profile, contract and validation-policy consistency."},
-    {"id": "governance", "reason": "Preserve governance and immutable historical evidence checks."},
-    {"id": "hygiene", "reason": "Check staged evidence budgets and generated-artifact exclusions; staging still requires a final index check."}
+    {
+      "id": "kernel-host",
+      "reason": "Completed 101-test ordinary host suite on the same implementation; recheck exact log coverage."
+    },
+    {
+      "id": "desktop-host",
+      "reason": "Completed 101-test desktop host suite on the same implementation; recheck exact log coverage."
+    },
+    {
+      "id": "boundary",
+      "reason": "Checked syscall return, pointer, fault and isolation paths share extended feature gates."
+    },
+    {
+      "id": "scheduler",
+      "reason": "Shared preemption, CPU state and return paths require narrow execution, including unsupported CPU denial."
+    },
+    {
+      "id": "capabilities",
+      "reason": "Self/timer authority and capability dispatch must preserve legacy rights enforcement."
+    },
+    {
+      "id": "waits",
+      "reason": "Desktop uses wait resume/notification contracts; verify existing timeout/cancel/wakeup consumers."
+    },
+    {
+      "id": "sdk-runtime",
+      "reason": "Shared user-memory and scheduling gates must preserve independent SDK allocation, CPU and teardown behavior."
+    },
+    {
+      "id": "docs",
+      "reason": "Check revised current-story scope and handoff."
+    },
+    {
+      "id": "governance",
+      "reason": "Preserve historical evidence and contract rules."
+    },
+    {
+      "id": "hygiene",
+      "reason": "Check final staged compact evidence and retention budgets."
+    }
   ],
   "not_selected": {
-    "M2": "No hosted UI implementation, renderer/text pipeline, corpus or UI freeze input changed. The selected portable-link regression required by full M3 still runs. Reassess if shared UI build semantics change."
+    "M2": "No hosted UI, renderer/text pipeline, corpus or UI link input changed. No full M2 or portable-link rerun is selected for this bounded runtime story.",
+    "M1": "No broad boot/interrupt implementation rewrite: shared edits add desktop feature gates, leaving existing cases semantically intact. Separate ordinary boot, 16 metadata flavors and selected boundary/scheduler guests exercise the affected paths; unchanged-source full M1 already reached 32/33 rows, but that interrupted/failed aggregate is not a new full pass.",
+    "M3": "The owner requested current-story selection instead of another complete milestone rerun. Retain existing complete historical M3 acceptance and all failed attempts. Focus current enforcement regressions on boundary/scheduler/capabilities/waits/SDK runtime; policy, route, IPC protocols and public SDK contract are unchanged. Five desktop repetitions retain all new lifecycle/negative/count criteria.",
+    "prerequisites": "Pinned compiler/QEMU/ISO tools, signer and host execution policy are unchanged; prior prerequisite reports are context. Each selected fresh case still performs its native build/package/launch preflights. No new prerequisite aggregate pass is claimed."
   },
   "historical_references": [
-    {"path": "evidence/phase-4/P4-01/final-1794022944926085700/README.md", "reason": "Accepted prerequisite/profile context only; does not substitute for current selected regression execution."}
-  ]
+    {
+      "path": "evidence/phase-4/P4-01/final-1794022944926085700/README.md",
+      "reason": "Accepted prerequisite/profile context only; does not substitute for current selected regression execution."
+    }
+  ],
+  "execution_budget": {
+    "max_vm_launches": 16,
+    "allow_full_suites": false
+  }
 }

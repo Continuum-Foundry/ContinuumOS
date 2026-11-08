@@ -62,8 +62,12 @@ def run_gate(manifest_path=DEFAULT_MANIFEST, resume=None):
     manifest = validation.validate_manifest(base.read(manifest_path))
     base.require(manifest['story'] == 'P4-02', 'wrong story selection')
     require_implementation()
+    plan = validation.execution_plan(manifest, expected_checks(manifest))
+    print(json.dumps(plan, indent=2), flush=True)
     run = ROOT / 'build/m4/P4-02' / ('acceptance-' + str(time.time_ns()))
     session = validation.Session(manifest, run, resume)
+    session.report['plan'] = plan
+    session.persist()
     selected, _ = validation.schedule(manifest)
     try:
         for key in ('kernel-host', 'desktop-host'):
@@ -143,7 +147,8 @@ if __name__ == '__main__':
     elif args.action == 'plan':
         manifest = validation.validate_manifest(base.read(args.manifest))
         print(json.dumps({'scope': 'story', 'checks': expected_checks(manifest),
-                          'covered_by': validation.schedule(manifest)[1], 'impact': manifest['impact']}, indent=2))
+                          'covered_by': validation.schedule(manifest)[1], 'impact': manifest['impact'],
+                          'plan': validation.execution_plan(manifest, expected_checks(manifest))}, indent=2))
     else:
         base.require(args.acceptance, 'review requires acceptance path')
         review(args.acceptance)

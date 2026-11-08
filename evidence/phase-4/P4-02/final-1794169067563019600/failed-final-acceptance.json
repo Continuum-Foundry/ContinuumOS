@@ -1,0 +1,653 @@
+{
+  "schema_version": 1,
+  "story": "P4-02",
+  "status": "failed",
+  "commands": [
+    {
+      "name": "kernel-host",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:17:53.122316+00:00",
+      "finished_utc": "2026-11-07T20:18:03.434422+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 10313
+    },
+    {
+      "name": "desktop-host",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib",
+        "--features",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:18:03.453961+00:00",
+      "finished_utc": "2026-11-07T20:18:14.056175+00:00",
+      "timed_out": false,
+      "deadline_seconds": 180,
+      "cleanup_reaped": true,
+      "elapsed_ms": 10610
+    },
+    {
+      "name": "desktop-0",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:18:14.074407+00:00",
+      "finished_utc": "2026-11-07T20:19:35.486908+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 81422
+    },
+    {
+      "name": "flavors",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Check-P4-02Flavors.ps1",
+        "-Descriptors",
+        "${WORKSPACE}\\build\\m1\\desktop-runtime-1794082704884486000-15464",
+        "-Output",
+        "${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794082668020635900\\flavors"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:19:40.102851+00:00",
+      "finished_utc": "2026-11-07T20:20:11.230421+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 31125
+    },
+    {
+      "name": "desktop-1",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:20:11.234944+00:00",
+      "finished_utc": "2026-11-07T20:21:14.301142+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 63078
+    },
+    {
+      "name": "desktop-2",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:21:18.964134+00:00",
+      "finished_utc": "2026-11-07T20:22:20.248321+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 61281
+    },
+    {
+      "name": "desktop-3",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:22:25.300631+00:00",
+      "finished_utc": "2026-11-07T20:23:27.906970+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 62594
+    },
+    {
+      "name": "desktop-4",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "desktop-runtime"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:23:33.034472+00:00",
+      "finished_utc": "2026-11-07T20:24:42.108339+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 69063
+    },
+    {
+      "name": "ordinary",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-07T20:24:49.660307+00:00",
+      "finished_utc": "2026-11-07T20:25:59.962470+00:00",
+      "timed_out": false,
+      "deadline_seconds": 600,
+      "cleanup_reaped": true,
+      "elapsed_ms": 70297
+    },
+    {
+      "name": "m3",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Test-P3-14.ps1"
+      ],
+      "exit_code": 1,
+      "started_utc": "2026-11-07T20:26:00.191599+00:00",
+      "finished_utc": "2026-11-07T20:40:53.643564+00:00",
+      "timed_out": false,
+      "deadline_seconds": 10800,
+      "cleanup_reaped": true,
+      "elapsed_ms": 893454
+    }
+  ],
+  "guests": [
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794082704884486000-15464",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+        "kernel_sha256": "fa11be142cd2ea84b02af7341d9d7e8969932344251526b4051bbfe8c8c9fc53",
+        "iso_sha256": "3fbf36c804924719476eda821c3518177a5442597bdcded727cf1a5fc9576f4a",
+        "serial_sha256": "1fba88463eefa6123ace1cc6411198197591810f676c64e3bc763c106a70575d",
+        "images": [
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+          "session": "60a36bb3751912f7cbd883e70b89a2025be0c9c4b1c209c102bffe3726b49a22",
+          "session_origin": "host",
+          "seq": "206",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177479680",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43330",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+            "session": "60a36bb3751912f7cbd883e70b89a2025be0c9c4b1c209c102bffe3726b49a22",
+            "session_origin": "host",
+            "seq": "1567",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "370",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "134327200",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "4699528000"
+          }
+        ],
+        "reviewer_negatives": 176,
+        "source_hashes_verified": true
+      }
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794082812596809700-19856",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+        "kernel_sha256": "fa11be142cd2ea84b02af7341d9d7e8969932344251526b4051bbfe8c8c9fc53",
+        "iso_sha256": "cef78483a3a84e762db6f62c9139ba013b3f77b7cb9a5f3d677c200333868978",
+        "serial_sha256": "e8d7d422b966b46fb7a1476eea9eb151f2e2e4822d570d2e456e00e87e760304",
+        "images": [
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+          "session": "c424c87aaef9d771231a07e0046d3b40887dad13a0012fb324852570fdd6f7ff",
+          "session_origin": "host",
+          "seq": "206",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177479680",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43330",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+            "session": "c424c87aaef9d771231a07e0046d3b40887dad13a0012fb324852570fdd6f7ff",
+            "session_origin": "host",
+            "seq": "1782",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "454",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "149838800",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "5408137400"
+          }
+        ],
+        "reviewer_negatives": 176,
+        "source_hashes_verified": true
+      }
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794082880493918500-19612",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+        "kernel_sha256": "fa11be142cd2ea84b02af7341d9d7e8969932344251526b4051bbfe8c8c9fc53",
+        "iso_sha256": "f425afc8157135eab5680d2ff877fd04166330492c952f37966281fe9ff3b9b7",
+        "serial_sha256": "e12c1436b25a0a8637806e8b28e42581987b6a8820319bc5b988a01e341ce004",
+        "images": [
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+          "session": "fc3060e3e289befab10fdcaffe9de42682f3b5459144ff55cc20f8a60372b3d2",
+          "session_origin": "host",
+          "seq": "206",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177479680",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43330",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+            "session": "fc3060e3e289befab10fdcaffe9de42682f3b5459144ff55cc20f8a60372b3d2",
+            "session_origin": "host",
+            "seq": "1747",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "440",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "163733800",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "5382178500"
+          }
+        ],
+        "reviewer_negatives": 176,
+        "source_hashes_verified": true
+      }
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794082946747644700-20896",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+        "kernel_sha256": "fa11be142cd2ea84b02af7341d9d7e8969932344251526b4051bbfe8c8c9fc53",
+        "iso_sha256": "667bbbbe1e4cbe8eaf30c786d62086534eb318d1dc4cec135451442ccc9d7470",
+        "serial_sha256": "2bb942a29e844adedf398a9cdbc23e306411129cb1a2603011ff1c4a2e6da464",
+        "images": [
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+          "session": "e71a2c2bbe3b430c34826ff89d109281da605162b4670cae29cc6e24403f1243",
+          "session_origin": "host",
+          "seq": "206",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177479680",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43330",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+            "session": "e71a2c2bbe3b430c34826ff89d109281da605162b4670cae29cc6e24403f1243",
+            "session_origin": "host",
+            "seq": "1878",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "471",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "148057800",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "5732401600"
+          }
+        ],
+        "reviewer_negatives": 176,
+        "source_hashes_verified": true
+      }
+    },
+    {
+      "directory": "${WORKSPACE}\\build\\m1\\desktop-runtime-1794083014592269700-20660",
+      "review": {
+        "schema_version": 1,
+        "story": "P4-02",
+        "status": "passed",
+        "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+        "test": true,
+        "build_id": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+        "kernel_sha256": "fa11be142cd2ea84b02af7341d9d7e8969932344251526b4051bbfe8c8c9fc53",
+        "iso_sha256": "56afbac6d73776e7aee75b7f1befa87b3101423352594740456592964d214ac0",
+        "serial_sha256": "f6b3d9eab34a3b0dd4747b12f84f8b49340cf3ae253d9899d3e40c2e9e9df483",
+        "images": [
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          },
+          {
+            "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+            "load_pages": 27,
+            "load_segments": 3
+          }
+        ],
+        "inventory": {
+          "version": "5",
+          "build": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+          "session": "a0aac552a6bcd65c133abec90998c23157f0e61723d96ac7eb2dfbb0ce82556d",
+          "session_origin": "host",
+          "seq": "206",
+          "stage": "desktop",
+          "outcome": "ok",
+          "emergency": "false",
+          "phase": "admitted",
+          "spaces": "7",
+          "allocations": "56",
+          "committed": "177479680",
+          "tables": "133",
+          "fixed_tables": "16908288",
+          "kernel_stacks": "458752",
+          "frames": "43330",
+          "reserve": "16777216",
+          "units": "10"
+        },
+        "settled": [
+          {
+            "version": "5",
+            "build": "d74c86f99169160b3083e0ed04cfb69ce2148d96379765a7a63919eed80b1177",
+            "session": "a0aac552a6bcd65c133abec90998c23157f0e61723d96ac7eb2dfbb0ce82556d",
+            "session_origin": "host",
+            "seq": "2160",
+            "stage": "desktop",
+            "outcome": "ok",
+            "emergency": "false",
+            "spaces": "0",
+            "allocations": "0",
+            "objects": "0",
+            "handles": "0",
+            "frames": "0",
+            "units": "12",
+            "control": "623",
+            "editor_ends": "3",
+            "heap_cycles_per_owner": "100",
+            "hidden_launches": "0",
+            "reserve": "16777216",
+            "observers": "false",
+            "ready_max_ns": "258270300",
+            "ready_limit_ns": "320000000",
+            "elapsed_ns": "7498340000"
+          }
+        ],
+        "reviewer_negatives": 176,
+        "source_hashes_verified": true
+      }
+    }
+  ],
+  "source_commit": "7959d1a6230cee72842b802a6f3afad5b39aa673",
+  "ordinary": {
+    "directory": "${WORKSPACE}\\build\\m1\\run-1794083091492843700-9484",
+    "review": {
+      "schema_version": 1,
+      "story": "P4-02",
+      "status": "passed",
+      "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+      "test": false,
+      "build_id": "c96fda1eef9ce702df841232a37acea93adfb2f2387f6f4afd9a021d67568714",
+      "kernel_sha256": "051d5d7c02fd658c6932a4756dfd902235c150c72a3a084848db6d4ce9739f3c",
+      "iso_sha256": "5247b7390900f91ddb3f05c8acaa14cddbc028415592b66a7296ad5c80b2c57e",
+      "serial_sha256": "9804282f64a6c29144f9f405bcca0162b20278a88ddeb5c826633caad6beb0aa",
+      "images": [
+        {
+          "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+          "load_pages": 27,
+          "load_segments": 3
+        },
+        {
+          "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+          "load_pages": 27,
+          "load_segments": 3
+        },
+        {
+          "sha256": "5679f0775752fe6d46a00e535718b28f49aaaed5590582db9fac1dbd20c8a598",
+          "load_pages": 27,
+          "load_segments": 3
+        }
+      ],
+      "inventory": {
+        "version": "5",
+        "build": "c96fda1eef9ce702df841232a37acea93adfb2f2387f6f4afd9a021d67568714",
+        "session": "b8dc639c83555375a6f82f994f5803696cf93230f66a5976b60174ec762e5062",
+        "session_origin": "host",
+        "seq": "196",
+        "stage": "desktop",
+        "outcome": "ok",
+        "emergency": "false",
+        "phase": "admitted",
+        "spaces": "7",
+        "allocations": "56",
+        "committed": "177479680",
+        "tables": "133",
+        "fixed_tables": "16908288",
+        "kernel_stacks": "458752",
+        "frames": "43330",
+        "reserve": "16777216",
+        "units": "7"
+      },
+      "settled": [],
+      "reviewer_negatives": 0,
+      "source_hashes_verified": true
+    }
+  },
+  "error": "m3 failed; see ${WORKSPACE}\\build\\m4\\P4-02\\acceptance-1794082668020635900"
+}

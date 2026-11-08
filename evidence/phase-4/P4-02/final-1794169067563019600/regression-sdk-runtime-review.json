@@ -1,0 +1,403 @@
+{
+  "status": "passed",
+  "scope": "focused only; final regression gate separate",
+  "audit": {
+    "process_runs": 6,
+    "exact_settlements": 1,
+    "preemptions": [
+      10,
+      6
+    ],
+    "runtime_hooks": "nonrendering selected model, segmentation, libm, reclaim/zero/realloc/return/panic/OOM"
+  },
+  "mutations": [
+    "missing m1.route_admit",
+    "missing m1.route_end",
+    "missing m1.route_settled",
+    "missing m1.route_ready",
+    "missing m1.wait_settled",
+    "missing sdk-runtime-0-",
+    "missing sdk-runtime-1-",
+    "missing sdk-runtime-5-",
+    "missing sdk-syscalls-",
+    "missing sdk-panic-contained",
+    "missing sdk-oom-contained",
+    "missing sdk-startup-return",
+    "missing sdk-heap-capacity-reused",
+    "missing sdk-heap-unmapped",
+    "m1.route_end.preemptions",
+    "m1.route_end.code",
+    "m1.route_settled.frames",
+    "m1.wait_settled.records",
+    "m1.wait_settled.watches"
+  ],
+  "codegen": {
+    "helpers": {
+      "task_resume": "<task_resume>:\nffffffff800026bb:      \tcli\nffffffff800026bc:      \tcld\nffffffff800026bd:      \tpushq\t%rbp\nffffffff800026be:      \tpushq\t%rbx\nffffffff800026bf:      \tpushq\t%r12\nffffffff800026c1:      \tpushq\t%r13\nffffffff800026c3:      \tpushq\t%r14\nffffffff800026c5:      \tpushq\t%r15\nffffffff800026c7:      \tmovq\t%rsp, 0x9bd942(%rip) # 0xffffffff809c0010 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry12CONTINUATION>\nffffffff800026ce:      \tmovq\t%cr3, %rax\nffffffff800026d1:      \tmovq\t%rax, 0x9bd930(%rip) # 0xffffffff809c0008 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry11KERNEL_ROOT>\nffffffff800026d8:      \tmovq\t%rdi, %cr3\nffffffff800026db:      \tmovq\t0x9bde6e(%rip), %rsp # 0xffffffff809c0550 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff800026e2:      \tsubq\t$0xa0, %rsp\nffffffff800026e9:      \tmovq\t%rdx, %r8\nffffffff800026ec:      \tmovq\t%rsp, %rdi\nffffffff800026ef:      \tmovl\t$0x14, %ecx\nffffffff800026f4:      \trep\t\tmovsq\t(%rsi), %es:(%rdi)\nffffffff800026f7:      \txorl\t%eax, %eax\nffffffff800026f9:      \tmovw\t%ax, %ds\nffffffff800026fc:      \tmovw\t%ax, %es\nffffffff800026ff:      \tmovw\t%ax, %fs\nffffffff80002702:      \tmovw\t%ax, %gs\nffffffff80002705:      \tmovb\t$0x1, 0x9bd8f4(%rip) # 0xffffffff809c0000 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff8000270c:      \tclts\nffffffff8000270e:      \tfxrstor64\t(%r8)\nffffffff80002712:      \tpopq\t%r15\nffffffff80002714:      \tpopq\t%r14\nffffffff80002716:      \tpopq\t%r13\nffffffff80002718:      \tpopq\t%r12\nffffffff8000271a:      \tpopq\t%r11\nffffffff8000271c:      \tpopq\t%r10\nffffffff8000271e:      \tpopq\t%r9\nffffffff80002720:      \tpopq\t%r8\nffffffff80002722:      \tpopq\t%rdi\nffffffff80002723:      \tpopq\t%rsi\nffffffff80002724:      \tpopq\t%rbp\nffffffff80002725:      \tpopq\t%rbx\nffffffff80002726:      \tpopq\t%rdx\nffffffff80002727:      \tpopq\t%rcx\nffffffff80002728:      \tpopq\t%rax\nffffffff80002729:      \tiretq\nffffffff8000272b:      \tint3\nffffffff8000272c:      \tint3\nffffffff8000272d:      \tint3\nffffffff8000272e:      \tint3\nffffffff8000272f:      \tint3\n",
+      "task_save_fp": "<task_save_fp>:\nffffffff800026aa:      \tclts\nffffffff800026ac:      \tfxsave64\t(%rdi)\nffffffff800026b0:      \tmovq\t%cr0, %rax\nffffffff800026b3:      \torq\t$0x8, %rax\nffffffff800026b7:      \tmovq\t%rax, %cr0\nffffffff800026ba:      \tretq\n",
+      "user_syscall": "<user_syscall>:\nffffffff8000244a:      \tmovq\t%rsp, 0x9be0f7(%rip) # 0xffffffff809c0548 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry7USER_SP>\nffffffff80002451:      \tmovq\t0x9be0f8(%rip), %rsp # 0xffffffff809c0550 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff80002458:      \tpushq\t%rax\nffffffff80002459:      \tcmpb\t$0x0, 0x9bdba0(%rip) # 0xffffffff809c0000 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002460:      \tje\t0xffffffff80002469 <user_syscall+0x1f>\nffffffff80002462:      \tstmxcsr\t0x9bdbaf(%rip)  # 0xffffffff809c0018 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff80002469:      \tmovq\t%cr0, %rax\nffffffff8000246c:      \torq\t$0x8, %rax\nffffffff80002470:      \tmovq\t%rax, %cr0\nffffffff80002473:      \tpopq\t%rax\nffffffff80002474:      \tpushq\t$0x3b\nffffffff80002476:      \tpushq\t0x9be0cc(%rip)  # 0xffffffff809c0548 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry7USER_SP>\nffffffff8000247c:      \tpushq\t%r11\nffffffff8000247e:      \tpushq\t$0x33\nffffffff80002480:      \tpushq\t%rcx\nffffffff80002481:      \tpushq\t%rax\nffffffff80002482:      \tpushq\t%rcx\nffffffff80002483:      \tpushq\t%rdx\nffffffff80002484:      \tpushq\t%rbx\nffffffff80002485:      \tpushq\t%rbp\nffffffff80002486:      \tpushq\t%rsi\nffffffff80002487:      \tpushq\t%rdi\nffffffff80002488:      \tpushq\t%r8\nffffffff8000248a:      \tpushq\t%r9\nffffffff8000248c:      \tpushq\t%r10\nffffffff8000248e:      \tpushq\t%r11\nffffffff80002490:      \tpushq\t%r12\nffffffff80002492:      \tpushq\t%r13\nffffffff80002494:      \tpushq\t%r14\nffffffff80002496:      \tpushq\t%r15\nffffffff80002498:      \tcld\nffffffff80002499:      \tmovq\t%rsp, %rdi\nffffffff8000249c:      \tcallq\t0xffffffff8001b660 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry8dispatch>\nffffffff800024a1:      \tpopq\t%r15\nffffffff800024a3:      \tpopq\t%r14\nffffffff800024a5:      \tpopq\t%r13\nffffffff800024a7:      \tpopq\t%r12\nffffffff800024a9:      \tpopq\t%r11\nffffffff800024ab:      \tpopq\t%r10\nffffffff800024ad:      \tpopq\t%r9\nffffffff800024af:      \tpopq\t%r8\nffffffff800024b1:      \tpopq\t%rdi\nffffffff800024b2:      \tpopq\t%rsi\nffffffff800024b3:      \tpopq\t%rbp\nffffffff800024b4:      \tpopq\t%rbx\nffffffff800024b5:      \tpopq\t%rdx\nffffffff800024b6:      \tpopq\t%rcx\nffffffff800024b7:      \tpopq\t%rax\nffffffff800024b8:      \tiretq\n",
+      "timer_vector": "<timer_vector>:\nffffffff800024d7:      \tpushq\t%rax\nffffffff800024d8:      \tpushq\t%rcx\nffffffff800024d9:      \tpushq\t%rdx\nffffffff800024da:      \tpushq\t%rbx\nffffffff800024db:      \tpushq\t%rbp\nffffffff800024dc:      \tpushq\t%rsi\nffffffff800024dd:      \tpushq\t%rdi\nffffffff800024de:      \tpushq\t%r8\nffffffff800024e0:      \tpushq\t%r9\nffffffff800024e2:      \tpushq\t%r10\nffffffff800024e4:      \tpushq\t%r11\nffffffff800024e6:      \tpushq\t%r12\nffffffff800024e8:      \tpushq\t%r13\nffffffff800024ea:      \tpushq\t%r14\nffffffff800024ec:      \tpushq\t%r15\nffffffff800024ee:      \tcld\nffffffff800024ef:      \tmovq\t%cr0, %rax\nffffffff800024f2:      \tpushq\t%rax\nffffffff800024f3:      \torq\t$0x8, %rax\nffffffff800024f7:      \tmovq\t%rax, %cr0\nffffffff800024fa:      \tleaq\t0x8(%rsp), %rbx\nffffffff800024ff:      \tandq\t$-0x10, %rsp\nffffffff80002503:      \tmovl\t$0x40, %edi\nffffffff80002508:      \tmovq\t0x80(%rbx), %rsi\nffffffff8000250f:      \tmovq\t%rbx, %rdx\nffffffff80002512:      \tcallq\t0xffffffff8001cc90 <_RNvNtCs39pDQjBFXuf_16continuum_kernel5timer9interrupt>\nffffffff80002517:      \tmovq\t-0x8(%rbx), %rax\nffffffff8000251b:      \tmovq\t%rax, %cr0\nffffffff8000251e:      \tmovq\t%rbx, %rsp\nffffffff80002521:      \tpopq\t%r15\nffffffff80002523:      \tpopq\t%r14\nffffffff80002525:      \tpopq\t%r13\nffffffff80002527:      \tpopq\t%r12\nffffffff80002529:      \tpopq\t%r11\nffffffff8000252b:      \tpopq\t%r10\nffffffff8000252d:      \tpopq\t%r9\nffffffff8000252f:      \tpopq\t%r8\nffffffff80002531:      \tpopq\t%rdi\nffffffff80002532:      \tpopq\t%rsi\nffffffff80002533:      \tpopq\t%rbp\nffffffff80002534:      \tpopq\t%rbx\nffffffff80002535:      \tpopq\t%rdx\nffffffff80002536:      \tpopq\t%rcx\nffffffff80002537:      \tpopq\t%rax\nffffffff80002538:      \tiretq\n",
+      "syscall_mxcsr_snapshot": "<user_syscall>:\nffffffff8000244a:      \tmovq\t%rsp, 0x9be0f7(%rip) # 0xffffffff809c0548 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry7USER_SP>\nffffffff80002451:      \tmovq\t0x9be0f8(%rip), %rsp # 0xffffffff809c0550 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry9KERNEL_SP>\nffffffff80002458:      \tpushq\t%rax\nffffffff80002459:      \tcmpb\t$0x0, 0x9bdba0(%rip) # 0xffffffff809c0000 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry10SYSCALL_FP>\nffffffff80002460:      \tje\t0xffffffff80002469 <user_syscall+0x1f>\nffffffff80002462:      \tstmxcsr\t0x9bdbaf(%rip)  # 0xffffffff809c0018 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry13SYSCALL_MXCSR>\nffffffff80002469:      \tmovq\t%cr0, %rax\nffffffff8000246c:      \torq\t$0x8, %rax\nffffffff80002470:      \tmovq\t%rax, %cr0\nffffffff80002473:      \tpopq\t%rax\nffffffff80002474:      \tpushq\t$0x3b\nffffffff80002476:      \tpushq\t0x9be0cc(%rip)  # 0xffffffff809c0548 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry7USER_SP>\nffffffff8000247c:      \tpushq\t%r11\nffffffff8000247e:      \tpushq\t$0x33\nffffffff80002480:      \tpushq\t%rcx\nffffffff80002481:      \tpushq\t%rax\nffffffff80002482:      \tpushq\t%rcx\nffffffff80002483:      \tpushq\t%rdx\nffffffff80002484:      \tpushq\t%rbx\nffffffff80002485:      \tpushq\t%rbp\nffffffff80002486:      \tpushq\t%rsi\nffffffff80002487:      \tpushq\t%rdi\nffffffff80002488:      \tpushq\t%r8\nffffffff8000248a:      \tpushq\t%r9\nffffffff8000248c:      \tpushq\t%r10\nffffffff8000248e:      \tpushq\t%r11\nffffffff80002490:      \tpushq\t%r12\nffffffff80002492:      \tpushq\t%r13\nffffffff80002494:      \tpushq\t%r14\nffffffff80002496:      \tpushq\t%r15\nffffffff80002498:      \tcld\nffffffff80002499:      \tmovq\t%rsp, %rdi\nffffffff8000249c:      \tcallq\t0xffffffff8001b660 <_RNvNtCs39pDQjBFXuf_16continuum_kernel10user_entry8dispatch>\nffffffff800024a1:      \tpopq\t%r15\nffffffff800024a3:      \tpopq\t%r14\nffffffff800024a5:      \tpopq\t%r13\nffffffff800024a7:      \tpopq\t%r12\nffffffff800024a9:      \tpopq\t%r11\nffffffff800024ab:      \tpopq\t%r10\nffffffff800024ad:      \tpopq\t%r9\nffffffff800024af:      \tpopq\t%r8\nffffffff800024b1:      \tpopq\t%rdi\nffffffff800024b2:      \tpopq\t%rsi\nffffffff800024b3:      \tpopq\t%rbp\nffffffff800024b4:      \tpopq\t%rbx\nffffffff800024b5:      \tpopq\t%rdx\nffffffff800024b6:      \tpopq\t%rcx\nffffffff800024b7:      \tpopq\t%rax\nffffffff800024b8:      \tiretq\n"
+    },
+    "simd_instruction_counts": {
+      "user_a": {
+        "addsd": 1,
+        "movq": 2,
+        "xorpd": 1
+      },
+      "user_b": {},
+      "service": {}
+    }
+  },
+  "build_id": "43553848efe44f4c96a6a0afd144089542253c2fd62d77ace63abc644d5ab2b8",
+  "kernel_sha256": "4ff0187121f48abc45825a7b85b86bb1b8e73865657c773560113ba973189755",
+  "iso_sha256": "a1e135c69d1177824673bf26f7f18c96f0aae0098ee7ba8a1ceb20e2cdbdf1d9",
+  "serial_sha256": "6d20411cfbf9734e5bf586114b8e580e033ccc7edf00712bde5bb57a34f8e083",
+  "builds": {
+    "schema_version": 1,
+    "runtime": true,
+    "unchanged_client_sha256": "99f70f3d37c6017ec53b37a2f9103ef917b35300ebfd2302ad40a92a53dac374",
+    "offline": true,
+    "images": [
+      {
+        "arguments": [
+          "build",
+          "--locked",
+          "--offline",
+          "--release",
+          "--target",
+          "x86_64-unknown-none",
+          "--manifest-path",
+          "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\client\\experiments\\sdk-client\\Cargo.toml",
+          "--features",
+          "runtime-smoke"
+        ],
+        "inputs": [
+          {
+            "path": "Cargo.toml",
+            "sha256": "c32e41e050f24c0dbc7b6fcc9927878a456de38b1466561f5a4dc54f82932f7d"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20"
+          },
+          {
+            "path": "crates/editor-model/Cargo.toml",
+            "sha256": "3c2e2a2762ccaea3283333dcb7b2f771f1a1fa5de03673917ac5f2d561ec5ffe"
+          },
+          {
+            "path": "crates/editor-model/src/lib.rs",
+            "sha256": "457aaab085d11f4ecc9fefd3c8594ad2aa239843eec302a1730a5a58fc4e324b"
+          },
+          {
+            "path": "crates/editor-model/src/snapshot.rs",
+            "sha256": "097035262cd12ec1ee83cc5322b280fbb69a2ef9f7a4d358d766683a32b05045"
+          },
+          {
+            "path": "crates/editor-model/src/tests.rs",
+            "sha256": "1c630f81aa46eefe1602599539ddbc34777bfb7db8f673da9b331344f10ad0a2"
+          },
+          {
+            "path": "experiments/sdk-client/Cargo.lock",
+            "sha256": "a0f83061d5bd29044faac86b196f9fe6b8621fbf0066b90dd46c7f2b00fbe8ee"
+          },
+          {
+            "path": "experiments/sdk-client/Cargo.toml",
+            "sha256": "5373a1e6caba446ef1625c7b89ac98287611cbb15b94f94e8e152be2d83169de"
+          },
+          {
+            "path": "experiments/sdk-client/src/handshake.rs",
+            "sha256": "8d8fcad8a48fae05f262b4b79aec764ff6d19354556bc3739d1c76bb71bbc62e"
+          },
+          {
+            "path": "experiments/sdk-client/src/main.rs",
+            "sha256": "27367f41984751bb0d09a92858806b42fa751abc4b76516b6cd549ae65137a8d"
+          },
+          {
+            "path": "experiments/sdk-client/src/probe.rs",
+            "sha256": "a0c89f31adbf1fc5b46b991e7c805c217ee6fbf43c95c0d4002c4673d3ccc354"
+          },
+          {
+            "path": "experiments/sdk-client/src/runtime.rs",
+            "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c"
+          },
+          {
+            "path": "experiments/sdk-client/src/smoke.rs",
+            "sha256": "858cb95fa236caf2358b8fcbc9222fd2a8880ce93a0bcba12551af30aebf5a23"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.lock",
+            "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.toml",
+            "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc"
+          },
+          {
+            "path": "sdk/continuum-rt/contract.json",
+            "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b"
+          },
+          {
+            "path": "sdk/continuum-rt/fixtures.json",
+            "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09"
+          },
+          {
+            "path": "sdk/continuum-rt/README.md",
+            "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457"
+          },
+          {
+            "path": "sdk/continuum-rt/user.ld",
+            "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10"
+          },
+          {
+            "path": "sdk/continuum-rt/src/allocator.rs",
+            "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782"
+          },
+          {
+            "path": "sdk/continuum-rt/src/generated.rs",
+            "sha256": "cd1b6cef110d2d074ca0432c8a8a707cbae156fd4c0082672bb9674a89911eb4"
+          },
+          {
+            "path": "sdk/continuum-rt/src/guest.rs",
+            "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d"
+          },
+          {
+            "path": "sdk/continuum-rt/src/lib.rs",
+            "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154"
+          },
+          {
+            "path": "sdk/continuum-rt/src/wire.rs",
+            "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec"
+          },
+          {
+            "path": "sdk/continuum-rt/src/bin/conformance.rs",
+            "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634"
+          }
+        ],
+        "wire_minor": 0,
+        "file": "user_a.elf",
+        "variant": "client",
+        "bytes": 308296,
+        "sha256": "99f70f3d37c6017ec53b37a2f9103ef917b35300ebfd2302ad40a92a53dac374",
+        "sdk_version": "0.1.0",
+        "metadata_sha256": "322bdec51a03c3a4e74687198180b499060c3d92271f6745c605645579b62a13",
+        "root": "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\client"
+      },
+      {
+        "arguments": [
+          "build",
+          "--locked",
+          "--offline",
+          "--release",
+          "--target",
+          "x86_64-unknown-none",
+          "--manifest-path",
+          "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\service-old\\experiments\\sdk-service\\Cargo.toml"
+        ],
+        "inputs": [
+          {
+            "path": "Cargo.toml",
+            "sha256": "c32e41e050f24c0dbc7b6fcc9927878a456de38b1466561f5a4dc54f82932f7d"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20"
+          },
+          {
+            "path": "experiments/sdk-service/Cargo.lock",
+            "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2"
+          },
+          {
+            "path": "experiments/sdk-service/Cargo.toml",
+            "sha256": "2771c3cd723647095b0030a6a5125db33951d24de29e322e7f5b1a45f4cdcbac"
+          },
+          {
+            "path": "experiments/sdk-service/src/handshake.rs",
+            "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a"
+          },
+          {
+            "path": "experiments/sdk-service/src/main.rs",
+            "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea"
+          },
+          {
+            "path": "experiments/sdk-service/src/policy.rs",
+            "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7"
+          },
+          {
+            "path": "experiments/sdk-service/src/routes.rs",
+            "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e"
+          },
+          {
+            "path": "experiments/sdk-service/src/runtime.rs",
+            "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.lock",
+            "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.toml",
+            "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc"
+          },
+          {
+            "path": "sdk/continuum-rt/contract.json",
+            "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b"
+          },
+          {
+            "path": "sdk/continuum-rt/fixtures.json",
+            "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09"
+          },
+          {
+            "path": "sdk/continuum-rt/README.md",
+            "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457"
+          },
+          {
+            "path": "sdk/continuum-rt/user.ld",
+            "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10"
+          },
+          {
+            "path": "sdk/continuum-rt/src/allocator.rs",
+            "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782"
+          },
+          {
+            "path": "sdk/continuum-rt/src/generated.rs",
+            "sha256": "cd1b6cef110d2d074ca0432c8a8a707cbae156fd4c0082672bb9674a89911eb4"
+          },
+          {
+            "path": "sdk/continuum-rt/src/guest.rs",
+            "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d"
+          },
+          {
+            "path": "sdk/continuum-rt/src/lib.rs",
+            "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154"
+          },
+          {
+            "path": "sdk/continuum-rt/src/wire.rs",
+            "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec"
+          },
+          {
+            "path": "sdk/continuum-rt/src/bin/conformance.rs",
+            "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634"
+          }
+        ],
+        "wire_minor": 0,
+        "file": "service.elf",
+        "variant": "service-old",
+        "bytes": 158944,
+        "sha256": "35d59d3237767df3dafd1fe1147e0559fd7416103c0ba0384e410d795bd70a21",
+        "sdk_version": "0.1.0",
+        "metadata_sha256": "ce800f4761c64bb8ee64d29bce6f41132a0a66a5d3c88a7ab9e466f64c022571",
+        "root": "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\service-old"
+      },
+      {
+        "arguments": [
+          "build",
+          "--locked",
+          "--offline",
+          "--release",
+          "--target",
+          "x86_64-unknown-none",
+          "--manifest-path",
+          "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\service-new\\experiments\\sdk-service\\Cargo.toml",
+          "--features",
+          "minor-1"
+        ],
+        "inputs": [
+          {
+            "path": "Cargo.toml",
+            "sha256": "c32e41e050f24c0dbc7b6fcc9927878a456de38b1466561f5a4dc54f82932f7d"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "6b761f4984686a61d41ccd458e6f986e7cf036e0638eca48b2040a7e419ffd20"
+          },
+          {
+            "path": "experiments/sdk-service/Cargo.lock",
+            "sha256": "2b6f14b4d27b995ee2e8649727ff7bcf6e13c258187ed1d780851dfd803c9dd2"
+          },
+          {
+            "path": "experiments/sdk-service/Cargo.toml",
+            "sha256": "2771c3cd723647095b0030a6a5125db33951d24de29e322e7f5b1a45f4cdcbac"
+          },
+          {
+            "path": "experiments/sdk-service/src/handshake.rs",
+            "sha256": "d5aa34f43d523ad044e613f042cf0b398190781680fb328ce7c0002cde86e84a"
+          },
+          {
+            "path": "experiments/sdk-service/src/main.rs",
+            "sha256": "7fb7d5e3e7be511771253f8d5333745d189d3a17cefa4a71493dd0c45c81e2ea"
+          },
+          {
+            "path": "experiments/sdk-service/src/policy.rs",
+            "sha256": "912c0c9f6780a6897d65535517b602f0fabc5136a4b6af356ffc478091f6afe7"
+          },
+          {
+            "path": "experiments/sdk-service/src/routes.rs",
+            "sha256": "ad1cb1185797586eb87213e7bc28dcff77cef268da96c94b659aa408ecfa432e"
+          },
+          {
+            "path": "experiments/sdk-service/src/runtime.rs",
+            "sha256": "4b12e244fabe4b70c11e22f75694177ab99a9347ff483b1caeca93d55a6ebe7c"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.lock",
+            "sha256": "0d8bd22791097c614bdff9a93c5c8608c16770d7f9d5e73f15d773a5ad38edcd"
+          },
+          {
+            "path": "sdk/continuum-rt/Cargo.toml",
+            "sha256": "8c244ac6bb912c415d70a1ddaf8d2ad4c4cc2c9efc8e7d547cffd8ac543664cc"
+          },
+          {
+            "path": "sdk/continuum-rt/contract.json",
+            "sha256": "debe57866ed308f46ff2f48f5065e739c7457d0f28d0e8dccc93d42abd4c891b"
+          },
+          {
+            "path": "sdk/continuum-rt/fixtures.json",
+            "sha256": "5b568ef8ad5a399431b2f49a8f8d6c87e6d69977dae4d7bfb5bcfdd64026db09"
+          },
+          {
+            "path": "sdk/continuum-rt/README.md",
+            "sha256": "a00ff4d2271a0b36f3944453f1ade32e7f499560985dd3e99648a60644e87457"
+          },
+          {
+            "path": "sdk/continuum-rt/user.ld",
+            "sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10"
+          },
+          {
+            "path": "sdk/continuum-rt/src/allocator.rs",
+            "sha256": "e57ac44be158be5d415fb4ffbffaaf1aff56359aa634f7fe27265de996515782"
+          },
+          {
+            "path": "sdk/continuum-rt/src/generated.rs",
+            "sha256": "cd1b6cef110d2d074ca0432c8a8a707cbae156fd4c0082672bb9674a89911eb4"
+          },
+          {
+            "path": "sdk/continuum-rt/src/guest.rs",
+            "sha256": "56ca3210114f9e1dc7bdeb7f9ed0584791c62cdd2a5c00de0057e62f671bd29d"
+          },
+          {
+            "path": "sdk/continuum-rt/src/lib.rs",
+            "sha256": "b6d3018e0a79bed94bbfce61dbcd3ab6a7308ac920d2e59b492a9a2f3183e154"
+          },
+          {
+            "path": "sdk/continuum-rt/src/wire.rs",
+            "sha256": "75dc0a4a9132ca1ed3940ab712424c7855018401b93d00c3659460eb5a3493ec"
+          },
+          {
+            "path": "sdk/continuum-rt/src/bin/conformance.rs",
+            "sha256": "9a8c1d6ad846562b9cbf438dc09cddf05d27980205b33712dd8d3b992357b634"
+          }
+        ],
+        "wire_minor": 1,
+        "file": "user_b.elf",
+        "variant": "service-new",
+        "bytes": 158944,
+        "sha256": "086643147d09f506b894998d6873fe08ee7d8daefa484affc16a282abd3b0585",
+        "sdk_version": "0.1.0",
+        "metadata_sha256": "27c5b43d14e1a2a2fc96f9216470e2115c99f79ace66caaec8992d19534cb224",
+        "root": "${WORKSPACE}\\build\\m1\\sdk-runtime-1794169451208888600-43848\\service-new"
+      }
+    ],
+    "status": "passed"
+  }
+}

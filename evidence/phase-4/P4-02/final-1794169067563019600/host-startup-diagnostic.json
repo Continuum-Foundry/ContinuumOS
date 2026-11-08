@@ -1,0 +1,54 @@
+{
+  "scope": "diagnostic comparison only; not acceptance",
+  "runner_sha256": "324fa1f896617673d03d57152a3f6965a7f7da2a5a3ead8d658acd9da6b94144",
+  "samples": [
+    {
+      "flags": [],
+      "deadline_ms": 1000,
+      "process_creation_ns": 135003600,
+      "elapsed_ns": 463653200,
+      "timed_out": false,
+      "exit_code": 0,
+      "cleanup": "reaped",
+      "output": "{\"version\": 1, \"event\": \"complete\", \"run_id\": \"startup-probe\", \"image_sha256\": \"0000000000000000000000000000000000000000000000000000000000000000\"}\n"
+    },
+    {
+      "flags": [
+        "-S"
+      ],
+      "deadline_ms": 1000,
+      "process_creation_ns": 145718000,
+      "elapsed_ns": 406783500,
+      "timed_out": false,
+      "exit_code": 0,
+      "cleanup": "reaped",
+      "output": "{\"version\": 1, \"event\": \"complete\", \"run_id\": \"startup-probe\", \"image_sha256\": \"0000000000000000000000000000000000000000000000000000000000000000\"}\n"
+    },
+    {
+      "flags": [
+        "-I",
+        "-S"
+      ],
+      "deadline_ms": 1000,
+      "process_creation_ns": 135508400,
+      "elapsed_ns": 596204800,
+      "timed_out": false,
+      "exit_code": 0,
+      "cleanup": "reaped",
+      "output": "{\"version\": 1, \"event\": \"complete\", \"run_id\": \"startup-probe\", \"image_sha256\": \"0000000000000000000000000000000000000000000000000000000000000000\"}\n"
+    },
+    {
+      "flags": [
+        "-I",
+        "-S"
+      ],
+      "deadline_ms": 1000,
+      "process_creation_ns": 217939500,
+      "elapsed_ns": 649970700,
+      "timed_out": false,
+      "exit_code": 0,
+      "cleanup": "reaped",
+      "output": "{\"version\": 1, \"event\": \"complete\", \"run_id\": \"startup-probe\", \"image_sha256\": \"0000000000000000000000000000000000000000000000000000000000000000\"}\n"
+    }
+  ]
+}

@@ -131,11 +131,15 @@ after implementation, following [retention](../evidence-retention.md) and the
 [historical evidence notice](../../../evidence/README.md). Preserve failures.
 Run documentation, governance and repository-hygiene audits before retaining work.
 
-Recheck Phase 0 before extensions. For shared boundary/scheduler changes validate
+Follow [change-based story validation](../validation.md#change-based-story-validation).
+Record impact, consumers, selected checks and adjacent-suite omissions before
+testing. Recheck Phase 0 for tooling extensions/changed inputs. For shared boundary/scheduler changes validate
 ordinary, user-boundary-test, scheduler-test and capability-test separately, plus
 every affected later flavor. Existing xtask case commands build/package/execute;
 do not invent a compile-only matrix command. Run affected M1/M2/M3 regressions
-per change and complete M1/M3 plus affected M2 at final acceptance. Keep fixture
+per change. Story closeout requires fresh story acceptance and affected regressions;
+complete M1/M3 plus affected M2 belong at the M4 milestone exit or relevant
+broad/uncertain-impact changes, not automatically at every story closeout. Keep fixture
 policy in registered user_fixture hooks. Run guest acceptance serially in the
 approved signer/xorriso context, advise the owner to keep the host awake, and
 distinguish host preflight timeouts from guest deadline failures. Interrupted runs

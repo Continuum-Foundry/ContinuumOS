@@ -59,6 +59,15 @@ hold. Detailed P5–P26 stories await milestone-decomposition requests.
 
 ## Next action
 
+Use [change-based story validation](validation.md#change-based-story-validation)
+for P4-02 onward: record impact/consumers and selected tests before execution;
+run new-behavior acceptance and affected regressions rather than recursively
+rerunning all earlier milestone gates. Complete suites remain mandatory at
+milestone exits and for relevant broad/uncertain impact. Keep separate build
+flavors, negative cases, original counts/deadlines and serial execution. Current
+P4-02 has an explicit broad-impact selection in `config/p4-02-validation.json`;
+it is not a standing full-suite requirement for later stories.
+
 M3's [strict original-limit acceptance](../../evidence/phase-3/P3-14/2026-11-06/README.md)
 remains historical. P4-01 now passes [local prerequisite/profile acceptance](../../evidence/phase-4/P4-01/final-1794022944926085700/README.md)
 on final source: ten fresh prerequisites, M1's 33 rows/42 launches, 97 kernel host

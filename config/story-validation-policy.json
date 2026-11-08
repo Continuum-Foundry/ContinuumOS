@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "story": "validation-policy",
+  "scope": "story",
+  "impact": {
+    "subsystems": ["host validation selection, evidence review and resume", "agent closeout instructions"],
+    "consumers": ["P4-02 story runner", "future story agents", "existing bounded child runner"],
+    "rationale": "Validate this host policy/orchestration change using synthetic selection, evidence, source/context and resume probes plus real bounded child execution and repository audits. No kernel or guest behavior is changed by this task. The pre-existing P4-02 implementation diff is separately assessed in p4-02-validation.json and is not closed by this tooling report.",
+    "broad_m1": false,
+    "broad_m2": false,
+    "broad_m3": false,
+    "shared_boundary_scheduler": false,
+    "uncertain_families": []
+  },
+  "selected": [
+    {"id": "runner-tests", "reason": "Synthetic selection, deduplication, source integrity, resume and evidence rejection checks."},
+    {"id": "child-runner-tests", "reason": "Real success/nonzero/timeout, progress and descendant cleanup through the reused bounded child runner."},
+    {"id": "hygiene-tests", "reason": "Batched binary staged-blob reading, deduplication and unchanged checksum/retention rejection behavior."},
+    {"id": "docs", "reason": "Validation policy, agent handoff, Phase 4 completion rules and runbook links."},
+    {"id": "governance", "reason": "Preserve historical evidence and governance rules."},
+    {"id": "hygiene", "reason": "Verify index-sensitive generated-output/evidence retention rules without staging unrelated edits."}
+  ],
+  "not_selected": {
+    "M1": "This task changes host orchestration, not kernel/boot behavior; synthetic runner and real child-lifecycle checks cover its changed behavior. Separate P4-02 kernel closeout still selects full M1.",
+    "M2": "No hosted UI rendering, text, model or shared UI build inputs changed by this task.",
+    "M3": "Existing full M3 entry points and reviewers are unchanged. Focused adapters reuse their oracles; this task verifies orchestration rather than claiming a fresh runtime milestone pass.",
+    "prerequisites": "No compiler, guest tools or signing configuration is changed by this task; real child cleanup tests cover the reused execution primitive. Full prerequisites remain selected by the separate P4-02 M3 assessment."
+  },
+  "historical_references": []
+}

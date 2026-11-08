@@ -42,6 +42,13 @@ coding agents should use the same documents. `CLAUDE.md` points to this entry po
 
 ## Development safeguards
 
+- Story closeout uses new-behavior tests plus affected regressions selected by
+  agent judgment under `docs/05-delivery/validation.md#change-based-story-validation`.
+  Record impact, consumers, selected checks and omissions before testing, including
+  staged/unstaged/untracked inputs. Do not recursively rerun all prior milestones
+  by default. Full suites remain required at milestone exits and for relevant broad
+  foundation changes or uncertain impact. This supersedes blanket per-story full
+  M1/M3 rerun wording; it changes selection, never deadlines, counts or release exits.
 - When instructed to work on `main`, inspect the working tree, switch safely and
   run `git pull --ff-only` before assuming it is current. Preserve unrelated edits;
   do not discard changes or force a divergent branch to match the remote.

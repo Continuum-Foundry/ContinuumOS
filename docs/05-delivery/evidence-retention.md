@@ -60,6 +60,9 @@ and requires each new frozen manifest member to be tracked. The declared histori
 migration is the only exception; an ignored local log cannot satisfy a new bundle's
 manifest. Governance separately reports local-only historical members and verifies
 their bytes when present. The report goes to ignored `work/repository-hygiene-results.json`.
+The auditor batches staged blob reads and checks each identical blob once per run;
+every manifest reference still receives its checksum/length check. No historical
+fingerprint, new-bundle limit or missing-member rejection is waived by batching.
 The `.githooks/pre-commit` hook runs this check automatically where the repository's
 `core.hooksPath=.githooks` is installed. It needs Node on PATH and fails a commit
 when hygiene checks fail. Hooks are local safeguards, not server enforcement;

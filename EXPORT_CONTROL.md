@@ -1646,3 +1646,37 @@ of the original pre-commit hook with no pre-push hook. The installed
 No force push, merge, release, other destination, new remote build or standing
 exemption is granted. Geographic containment remains unverified; this is an
 administrative exception, not legal clearance or a finding of U.S.-only handling.
+
+## One-time owner exemption — change-based validation PR, 2026-11-08
+
+After implementation of change-based story validation, the owner instructed:
+"I give you exemption to make PR". This authorizes one push and one PR for the
+task-only validation-policy/tooling payload represented, before this record, by
+Git tree `77cd73682c3a0fb79de09a1c8b6585ebcbb85723`, based on
+`7959d1a6230cee72842b802a6f3afad5b39aa673`, plus this record. It includes the
+agent policy/handoff, Phase 4 completion-policy hunk, focused host reviewers,
+manual selections, P4-02 orchestration adapter and prerequisite guard, synthetic
+tests, and batched staged-evidence auditing. The adapter does not implement or
+accept P4-02; its kernel/user payload, runtime profile, focused guest oracle and
+flavor script remain separate local work.
+
+Destination: `https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/change-based-story-validation`, followed by one PR against `main` titled
+"Use change-based story validation". The prepared PR body's SHA-256 is
+`8c76d65acad4df45d4fa27c2a0f91b011283be6d404b4536710e777e073a127c`;
+this exemption covers that description and its PR metadata.
+
+Excluded: unfinished P4-02 kernel/runtime/xtask implementation and story-status
+edits, unrelated Windows signing/policy changes, historical evidence changes,
+full generated runs/logs, binaries, ISOs, source copies, caches, credentials and
+keys. Relevant local tests/audits and the task-only snapshot must pass before
+upload. The ordinary commit retains the installed pre-commit check.
+
+The push authorization is exhausted by its first successful push; PR
+authorization is exhausted by creation of that one PR. For that push only,
+command-local `core.hooksPath=work/story-validation-pr/hooks` may select an exact
+copy of the original pre-commit hook with no pre-push hook. The installed
+`.githooks/pre-push` and configured hooks path remain afterward. No force push,
+merge, release, other destination, new remote build or standing exemption is
+granted. Geographic containment remains unverified; this administrative exception
+is not legal clearance or a finding of U.S.-only handling.

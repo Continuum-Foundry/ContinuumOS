@@ -188,3 +188,8 @@ P4-14/15 own resource-plan and publication correctness. P4-17 owns clock/sample
 validity; P4-18 owns whole-guest accounting; P4-19 reviews the exact exercised
 subset before any new freeze. Untested kinds, feature bits and extensions remain
 experimental regardless of a schema or host fixture pass.
+
+
+## P4-03 implementation boundary
+
+[P4-03's reviewed primitives](../../evidence/phase-4/P4-03/final-1794185451085334400/README.md) add an internal trusted device broker and test-flavor CPL3 entitlement/range probes. They do not freeze a public driver/message family or extend the SDK contract. Hardware mappings stay supervisor-only; user roles see checked descriptions, while the temporary kernel mediator owns queues, IRQ and DMA/reset. See the [device runbook](../05-delivery/phase-4/device-authority-runbook.md) for the supported matrix, unsafe review and extraction handoff. Physical input, presentation and serial transport remain later stories.

@@ -245,6 +245,8 @@ fn reap(role: usize, id: ThreadId, result: u64) -> Result<()> {
     let cleanup_begin = time();
     let t = unsafe { (&mut *TASKS.0.get())[id.slot].take() }.ok_or(error("desktop", "reap"))?;
     need(t.current.id.generation == id.generation)?;
+    #[cfg(feature = "device-test")]
+    crate::device_guest::owner_dead(t.current.id.slot as u64 + 1, id.generation)?;
     waiting::terminate(id);
     capabilities::remove(t.current.space)?;
     runtime_memory::with(|r, b| unsafe { (&mut *LAUNCHER.0.get()).destroy(r, b, t.current.id) })?;

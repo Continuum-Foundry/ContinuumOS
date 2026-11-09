@@ -81,8 +81,10 @@ not original-limit acceptance. Failed/interrupted runs remain findings.
 
 P4-02 passes [local runtime-admission self-review](../../evidence/phase-4/P4-02/final-1794169067563019600/README.md) on frozen source: two 101-test host suites, five desktop guests, sixteen separate metadata flavors, ordinary seven-role CPL3 boot without acceptance observers, and selected boundary/scheduler/capability/wait/SDK-runtime regressions. The admitted graph has 168 MiB of fixed private heaps, attenuated self/timer authority, two bounded retries, prepaid nonrefundable credits and exact teardown. Real rendering, input, transport and reload remain open.
 
-Continue with [P4-03](phase-4/03-device-authority-irqs-and-dma.md).
-P4-03 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
+P4-03 passes [local device-authority/IRQ/DMA self-review](../../evidence/phase-4/P4-03/final-1794185451085334400/README.md): 107-test ordinary/device host suites, 104 CPL3 decisions, 16 actual status-queue completions, reset/quarantine and pending-receive owner-death cleanup, 17 separate metadata flavors and 14 selected VM launches. The temporary kernel mediator has no IOMMU confinement; physical input, display, port transport and rendering remain open. Use the [runbook](phase-4/device-authority-runbook.md).
+
+Continue with [P4-04](phase-4/04-framebuffer-mapping-and-presentation.md).
+P4-04 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
 through runtime/device foundations, guest UI/input/semantics, protected input and
 B61, authenticated transport, resource publication, faults, metrics and sustained
 reloads before final M4 review. The tested finite runtime profile remains experimental; broader desktop capacities
@@ -391,7 +393,7 @@ Standard and Guest presets; distinct service/workload identities; scoped roles,
 bounded inheritance/delegation, authenticated elevation and permission explanations.
 B83–B89/M27/M28 are Not started; 89 broad tasks now. Enterprise OS identity/fleet
 policy and workload/data-center authorization are separate from AI M25/M26 and
-from a future native server program. Keep P4-03 next and P4-03–P4-19 ordered,
+from a future native server program. Keep the original P4-03–P4-19 order (current completion is recorded above),
 B01–B82 dependencies and M7/M8/M14/M22/M15 requirements unchanged. Rich presets/UX
 and engine qualification are additions outside existing release roots; no port or
 new ABI is accepted. Decompose later stories only at the owner's request.

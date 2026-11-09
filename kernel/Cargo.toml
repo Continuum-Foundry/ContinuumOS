@@ -18,6 +18,7 @@ limine = { version = "=0.5.0", default-features = false }
 default = []
 desktop-runtime = []
 desktop-test = ["desktop-runtime", "emulator-test"]
+device-test = ["desktop-test"]
 emulator-test = []
 fault-before-entry = ["emulator-test"]
 boot-inject = ["emulator-test"]

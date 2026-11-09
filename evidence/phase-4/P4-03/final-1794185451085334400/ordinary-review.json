@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "story": "P4-02",
+  "status": "passed",
+  "review": "local Codex self-review with separate raw/ELF oracle; not external approval",
+  "test": false,
+  "build_id": "d80e6ba6cd0e6e3f6a432d51d27a66492cc487beef2c91063fd9f2afd09e5a5c",
+  "kernel_sha256": "3284c30a9ec07d6ac97d900b8632e2fe188ab4e241c1a4eb756fd423e431bbf5",
+  "iso_sha256": "35f9c1eaacffaa95a2357dff066aae0630b1b5661edf7ec2a6e3965c96b5c88d",
+  "serial_sha256": "20d53da4e711d975b82a04397b1678060de761b3391587ca7e74cf7f4cf60a28",
+  "images": [
+    {
+      "sha256": "162b8cfdf2b8f4fe46bae2be02b9579d9b0419cfa9b8445b11fa95b732917eb5",
+      "load_pages": 28,
+      "load_segments": 3
+    },
+    {
+      "sha256": "162b8cfdf2b8f4fe46bae2be02b9579d9b0419cfa9b8445b11fa95b732917eb5",
+      "load_pages": 28,
+      "load_segments": 3
+    },
+    {
+      "sha256": "162b8cfdf2b8f4fe46bae2be02b9579d9b0419cfa9b8445b11fa95b732917eb5",
+      "load_pages": 28,
+      "load_segments": 3
+    }
+  ],
+  "inventory": {
+    "version": "5",
+    "build": "d80e6ba6cd0e6e3f6a432d51d27a66492cc487beef2c91063fd9f2afd09e5a5c",
+    "session": "f90315c6d1ba5f2d166fc90e886586d8428d7932b3c38fedb231c9bfc210cb56",
+    "session_origin": "host",
+    "seq": "204",
+    "stage": "desktop",
+    "outcome": "ok",
+    "emergency": "false",
+    "phase": "admitted",
+    "spaces": "7",
+    "allocations": "56",
+    "committed": "177508352",
+    "tables": "133",
+    "fixed_tables": "16908288",
+    "kernel_stacks": "458752",
+    "frames": "43337",
+    "reserve": "16777216",
+    "units": "7"
+  },
+  "settled": [],
+  "reviewer_negatives": 0,
+  "source_hashes_verified": true
+}

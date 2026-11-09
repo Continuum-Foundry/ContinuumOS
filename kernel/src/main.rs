@@ -2,6 +2,8 @@
 #![no_main]
 
 mod boot;
+#[cfg(feature = "device-test")]
+mod device_guest;
 mod exceptions;
 mod paging;
 #[cfg(feature = "static-loader-test")]

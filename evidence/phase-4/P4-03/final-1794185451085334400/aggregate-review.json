@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "story": "P4-03",
+  "status": "passed",
+  "scope": "story",
+  "acceptance_sha256": "fcfca1be1438dccf319979bd59dbad220f3cdf7c2e24b430dbc662724aee7356",
+  "plan": {
+    "scope": "story",
+    "execute": [
+      "kernel-host",
+      "device-host",
+      "xtask-host",
+      "runner-tests",
+      "prerequisites",
+      "device-0",
+      "device-flavors",
+      "ordinary",
+      "memory",
+      "timer",
+      "boundary",
+      "scheduler",
+      "capabilities",
+      "waits",
+      "sdk-runtime",
+      "docs",
+      "governance",
+      "hygiene"
+    ],
+    "covered_by": {},
+    "command_groups": 18,
+    "vm_launches": 14,
+    "vm_launches_by_check": {
+      "kernel-host": 0,
+      "device-host": 0,
+      "xtask-host": 0,
+      "runner-tests": 0,
+      "prerequisites": 0,
+      "device-0": 1,
+      "device-flavors": 0,
+      "ordinary": 1,
+      "memory": 1,
+      "timer": 1,
+      "boundary": 4,
+      "scheduler": 3,
+      "capabilities": 1,
+      "waits": 1,
+      "sdk-runtime": 1,
+      "docs": 0,
+      "governance": 0,
+      "hygiene": 0
+    },
+    "unknown_launch_counts": [],
+    "full_suites": [],
+    "separate_metadata_builds": 17,
+    "execution_budget": {
+      "max_vm_launches": 14,
+      "allow_full_suites": false
+    }
+  }
+}

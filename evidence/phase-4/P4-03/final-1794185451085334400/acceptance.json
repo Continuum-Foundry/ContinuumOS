@@ -1,0 +1,678 @@
+{
+  "schema_version": 1,
+  "story": "P4-03",
+  "status": "passed",
+  "scope": "selected story acceptance; full raw artifacts local-only",
+  "source_commit": "367e046e3a7d035b93c8ddc395188f8cbbbd9225",
+  "plan": {
+    "scope": "story",
+    "execute": [
+      "kernel-host",
+      "device-host",
+      "xtask-host",
+      "runner-tests",
+      "prerequisites",
+      "device-0",
+      "device-flavors",
+      "ordinary",
+      "memory",
+      "timer",
+      "boundary",
+      "scheduler",
+      "capabilities",
+      "waits",
+      "sdk-runtime",
+      "docs",
+      "governance",
+      "hygiene"
+    ],
+    "covered_by": {},
+    "command_groups": 18,
+    "vm_launches": 14,
+    "vm_launches_by_check": {
+      "kernel-host": 0,
+      "device-host": 0,
+      "xtask-host": 0,
+      "runner-tests": 0,
+      "prerequisites": 0,
+      "device-0": 1,
+      "device-flavors": 0,
+      "ordinary": 1,
+      "memory": 1,
+      "timer": 1,
+      "boundary": 4,
+      "scheduler": 3,
+      "capabilities": 1,
+      "waits": 1,
+      "sdk-runtime": 1,
+      "docs": 0,
+      "governance": 0,
+      "hygiene": 0
+    },
+    "unknown_launch_counts": [],
+    "full_suites": [],
+    "separate_metadata_builds": 17,
+    "execution_budget": {
+      "max_vm_launches": 14,
+      "allow_full_suites": false
+    }
+  },
+  "checks": [
+    {
+      "id": "kernel-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "deadline_seconds": 180,
+      "elapsed_ms": 5062,
+      "resumed": false,
+      "command": {
+        "name": "kernel-host",
+        "arguments": [
+          "cargo",
+          "test",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--lib"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T00:51:05.675445+00:00",
+        "finished_utc": "2026-11-09T00:51:10.750389+00:00",
+        "timed_out": false,
+        "deadline_seconds": 180,
+        "cleanup_reaped": true,
+        "elapsed_ms": 5062
+      },
+      "full_stdout_sha256": "9b21992ec419a96804c99b817bfc72d33459d8f824a995bcaabd200d8d1a3c37"
+    },
+    {
+      "id": "device-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib",
+        "--features",
+        "device-test"
+      ],
+      "deadline_seconds": 180,
+      "elapsed_ms": 4563,
+      "resumed": false,
+      "command": {
+        "name": "device-host",
+        "arguments": [
+          "cargo",
+          "test",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--lib",
+          "--features",
+          "device-test"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T00:51:18.076193+00:00",
+        "finished_utc": "2026-11-09T00:51:22.638192+00:00",
+        "timed_out": false,
+        "deadline_seconds": 180,
+        "cleanup_reaped": true,
+        "elapsed_ms": 4563
+      },
+      "full_stdout_sha256": "ca5130d8c3cc51d23bf13ceec71137f7df581addc20148457f2611b3dcf1e97b"
+    },
+    {
+      "id": "xtask-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--bin",
+        "xtask",
+        "m1::"
+      ],
+      "deadline_seconds": 300,
+      "elapsed_ms": 46844,
+      "resumed": false,
+      "command": {
+        "name": "xtask-host",
+        "arguments": [
+          "cargo",
+          "test",
+          "--locked",
+          "--offline",
+          "-p",
+          "xtask",
+          "--bin",
+          "xtask",
+          "m1::"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T00:51:30.055375+00:00",
+        "finished_utc": "2026-11-09T00:52:16.899807+00:00",
+        "timed_out": false,
+        "deadline_seconds": 300,
+        "cleanup_reaped": true,
+        "elapsed_ms": 46844
+      },
+      "full_stdout_sha256": "ae7384177e265d43aa30712f92ee4d3615b5f92178197366b34a9f049ab3ace0"
+    },
+    {
+      "id": "runner-tests",
+      "status": "fresh-pass",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-StoryValidation.py"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_ms": 2469,
+      "resumed": false,
+      "command": {
+        "name": "runner-tests",
+        "arguments": [
+          "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/Test-StoryValidation.py"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T00:52:38.784234+00:00",
+        "finished_utc": "2026-11-09T00:52:41.255392+00:00",
+        "timed_out": false,
+        "deadline_seconds": 60,
+        "cleanup_reaped": true,
+        "elapsed_ms": 2469
+      },
+      "full_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "prerequisites",
+      "status": "fresh-pass",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ],
+      "deadline_seconds": 1800,
+      "elapsed_ms": 403156,
+      "resumed": false,
+      "command": {
+        "name": "prerequisites",
+        "arguments": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "tools/Recheck-P2Prerequisites.ps1"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T00:52:58.719966+00:00",
+        "finished_utc": "2026-11-09T00:59:41.862070+00:00",
+        "timed_out": false,
+        "deadline_seconds": 1800,
+        "cleanup_reaped": true,
+        "elapsed_ms": 403156
+      },
+      "full_stdout_sha256": "7b03c6aabc643f6f3d3b63cf5e0d096ea5d07c4a67822faaa9b57e578a5ac19b"
+    },
+    {
+      "id": "device-0",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "devices"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 97485,
+      "resumed": false,
+      "command": {
+        "name": "device-0",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "devices"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T00:59:50.697541+00:00",
+        "finished_utc": "2026-11-09T01:01:31.637595+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 97485
+      },
+      "full_stdout_sha256": "0ebe5ed937fe4dff826d03b97873184993b76fde56d60e6f6e45584fbac70bf3"
+    },
+    {
+      "id": "device-flavors",
+      "status": "fresh-pass",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Check-P4-03Flavors.ps1",
+        "-Descriptors",
+        "${WORKSPACE}\\build\\m1\\devices-1794185992437363200-33608",
+        "-Output",
+        "${WORKSPACE}\\build\\m4\\P4-03\\acceptance-1794185451085334400\\flavors"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 64157,
+      "resumed": false,
+      "command": {
+        "name": "device-flavors",
+        "arguments": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "tools/Check-P4-03Flavors.ps1",
+          "-Descriptors",
+          "${WORKSPACE}\\build\\m1\\devices-1794185992437363200-33608",
+          "-Output",
+          "${WORKSPACE}\\build\\m4\\P4-03\\acceptance-1794185451085334400\\flavors"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:01:42.702167+00:00",
+        "finished_utc": "2026-11-09T01:02:46.866251+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 64157
+      },
+      "full_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "ordinary",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 86250,
+      "resumed": false,
+      "command": {
+        "name": "ordinary",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "run",
+          "--profile",
+          "vm-baseline"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:02:55.918788+00:00",
+        "finished_utc": "2026-11-09T01:04:22.183304+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 86250
+      },
+      "full_stdout_sha256": "ee554997160ca5887380025e96f81ddbe0947456b1e5a52cb17cfe15613e129e"
+    },
+    {
+      "id": "memory",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 66296,
+      "resumed": false,
+      "command": {
+        "name": "memory",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "owned-memory"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:04:27.867797+00:00",
+        "finished_utc": "2026-11-09T01:05:34.166483+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 66296
+      },
+      "full_stdout_sha256": "dc36e0cee53a25016f4b3ba6e1e4c318ae8894b83aca7838b2aba52144cf9167"
+    },
+    {
+      "id": "timer",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "timer-progress"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 175843,
+      "resumed": false,
+      "command": {
+        "name": "timer",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "timer-progress"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:05:46.492254+00:00",
+        "finished_utc": "2026-11-09T01:08:42.326350+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 175843
+      },
+      "full_stdout_sha256": "1cc9eb07481e482e6dfd2a41ea277b5b8ad4cb45ee92b610f5b5c49a4d7cb595"
+    },
+    {
+      "id": "boundary",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 179156,
+      "resumed": false,
+      "command": {
+        "name": "boundary",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "user-boundary"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:08:48.444263+00:00",
+        "finished_utc": "2026-11-09T01:11:47.596474+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 179156
+      },
+      "full_stdout_sha256": "46cfe6cf80dddc26b5a9906a8bad3c127901099481a20c12aaa310039b3dadc4"
+    },
+    {
+      "id": "scheduler",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "scheduler"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 158937,
+      "resumed": false,
+      "command": {
+        "name": "scheduler",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "scheduler"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:11:57.187284+00:00",
+        "finished_utc": "2026-11-09T01:14:36.126054+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 158937
+      },
+      "full_stdout_sha256": "86699ed69417e99fcc279b15e0d42dfa161970f349a8df5ec92abbb38ddc3be6"
+    },
+    {
+      "id": "capabilities",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "capabilities"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 76109,
+      "resumed": false,
+      "command": {
+        "name": "capabilities",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "capabilities"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:14:46.428656+00:00",
+        "finished_utc": "2026-11-09T01:16:02.542147+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 76109
+      },
+      "full_stdout_sha256": "31a66f9b62b95925296c99f6ae04d3b604a84f41caa15b16017625717fbb3c4c"
+    },
+    {
+      "id": "waits",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "waits"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 96422,
+      "resumed": false,
+      "command": {
+        "name": "waits",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "waits"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:16:13.132888+00:00",
+        "finished_utc": "2026-11-09T01:17:49.554497+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 96422
+      },
+      "full_stdout_sha256": "c52ce8f746604a1ca089e82b1ffd674ac326a7585b8d62e4192de02993fbe68f"
+    },
+    {
+      "id": "sdk-runtime",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-runtime"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 111328,
+      "resumed": false,
+      "command": {
+        "name": "sdk-runtime",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "sdk-runtime"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:17:59.676588+00:00",
+        "finished_utc": "2026-11-09T01:19:50.999953+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 111328
+      },
+      "full_stdout_sha256": "023e4b4920001a4c2ccec71964077396212a1abf699d077ebfb4742578bc1c66"
+    },
+    {
+      "id": "docs",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-docs.cjs"
+      ],
+      "deadline_seconds": 120,
+      "elapsed_ms": 1219,
+      "resumed": false,
+      "command": {
+        "name": "docs",
+        "arguments": [
+          "node",
+          "audit/check-docs.cjs"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:20:01.783520+00:00",
+        "finished_utc": "2026-11-09T01:20:02.997089+00:00",
+        "timed_out": false,
+        "deadline_seconds": 120,
+        "cleanup_reaped": true,
+        "elapsed_ms": 1219
+      },
+      "full_stdout_sha256": "19d78845c4a94239737062915978dfdd468f123f5e837608fd211e750dfdce1c"
+    },
+    {
+      "id": "governance",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-governance.cjs"
+      ],
+      "deadline_seconds": 120,
+      "elapsed_ms": 19281,
+      "resumed": false,
+      "command": {
+        "name": "governance",
+        "arguments": [
+          "node",
+          "audit/check-governance.cjs"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:20:11.969829+00:00",
+        "finished_utc": "2026-11-09T01:20:31.257902+00:00",
+        "timed_out": false,
+        "deadline_seconds": 120,
+        "cleanup_reaped": true,
+        "elapsed_ms": 19281
+      },
+      "full_stdout_sha256": "91d603b535c1376c154ff207f1120fd7f618556bf162f2b287a4e93c9ff42c69"
+    },
+    {
+      "id": "hygiene",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-repository-hygiene.cjs"
+      ],
+      "deadline_seconds": 1800,
+      "elapsed_ms": 12813,
+      "resumed": false,
+      "command": {
+        "name": "hygiene",
+        "arguments": [
+          "node",
+          "audit/check-repository-hygiene.cjs"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-09T01:20:40.749394+00:00",
+        "finished_utc": "2026-11-09T01:20:53.559376+00:00",
+        "timed_out": false,
+        "deadline_seconds": 1800,
+        "cleanup_reaped": true,
+        "elapsed_ms": 12813
+      },
+      "full_stdout_sha256": "2739844adb7ca58c4078e2d3b5496cf63b1504c60f5f5b5003b5cb274c62475f"
+    }
+  ],
+  "not_selected": {
+    "M1": "Selected memory/timer/boundary cases cover changed paths; full 42-launch exit remains at M4.",
+    "M2": "No hosted render/text/model code or assets changed.",
+    "M3": "Selected boundary/scheduler/capability/wait/SDK-runtime and all separate flavors cover affected execution; IPC/policy/route contracts unchanged.",
+    "prerequisites": "Selected fresh ten-check tooling/Phase 0 prerequisite gate."
+  },
+  "full_local_acceptance": "${WORKSPACE}\\build\\m4\\P4-03\\acceptance-1794185451085334400\\acceptance.json",
+  "full_local_acceptance_sha256": "fcfca1be1438dccf319979bd59dbad220f3cdf7c2e24b430dbc662724aee7356"
+}

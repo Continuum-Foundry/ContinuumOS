@@ -957,6 +957,31 @@ fn parse_chunk(
                     return Err("Unexpected scheduler record".into());
                 }
             }
+            "m1.device_bar"
+            | "m1.device_discovered"
+            | "m1.device_features"
+            | "m1.device_reset"
+            | "m1.device_authority"
+            | "m1.device_used"
+            | "m1.device_quarantine"
+            | "m1.device_settled"
+            | "m1.device_ready"
+            | "m1.device_call"
+            | "m1.device_queue"
+            | "m1.device_feedback"
+            | "m1.device_admission"
+            | "m1.device_used_entry"
+            | "m1.device_lease"
+            | "m1.device_owner_dead"
+            | "m1.device_final" => {
+                if !p.memory
+                    || stage != "device"
+                    || outcome != "ok"
+                    || expected.fixture != "desktop-runtime"
+                {
+                    return Err("Unexpected device record".into());
+                }
+            }
             "m1.desktop_cap_inventory"
             | "m1.desktop_bound"
             | "m1.desktop_prepare"

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "story": "P4-03",
+  "scope": "story",
+  "impact": {
+    "subsystems": [
+      "bounded device discovery/grants, split queues, DMA/reset and IRQ mediation",
+      "test-flavor syscall hooks and build/launch observation"
+    ],
+    "consumers": [
+      "P4-04 display",
+      "P4-06 input",
+      "P4-12 dev transport",
+      "ordinary and historical M1/M3 flavors"
+    ],
+    "rationale": "New device probe plus affected leaf checks; unchanged public ABI, IPC/policy and hosted UI do not require milestone cascades.",
+    "broad_m1": false,
+    "broad_m2": false,
+    "broad_m3": false,
+    "shared_boundary_scheduler": true,
+    "uncertain_families": []
+  },
+  "selected": [
+    {
+      "id": "kernel-host",
+      "reason": "Core broker/DMA and all ordinary kernel host checks."
+    },
+    {
+      "id": "device-host",
+      "reason": "New behavior and desktop-sized kernel constants."
+    },
+    {
+      "id": "xtask-host",
+      "reason": "Changed build/package/launch/serial parser and unchanged host oracles."
+    },
+    {
+      "id": "runner-tests",
+      "reason": "Launch budgets, failure/resume and selection rules."
+    },
+    {
+      "id": "prerequisites",
+      "reason": "Recheck tooling/Phase 0 before the new device harness."
+    },
+    {
+      "id": "memory",
+      "reason": "Physical frame runs, protection and exact settlements."
+    },
+    {
+      "id": "timer",
+      "reason": "Returning IRQ entry and timer progress after the new vector."
+    },
+    {
+      "id": "boundary",
+      "reason": "Separate four-guest syscall and process fault regressions."
+    },
+    {
+      "id": "scheduler",
+      "reason": "Traced, untraced and missing-SSE2 scheduling paths."
+    },
+    {
+      "id": "capabilities",
+      "reason": "Unchanged typed memory/handle enforcement."
+    },
+    {
+      "id": "waits",
+      "reason": "IRQ-adjacent wait and timer completion semantics."
+    },
+    {
+      "id": "sdk-runtime",
+      "reason": "Independent public SDK and portable runtime execution."
+    },
+    {
+      "id": "docs",
+      "reason": "Final documentation and contract links."
+    },
+    {
+      "id": "governance",
+      "reason": "Governance and historical evidence preservation."
+    },
+    {
+      "id": "hygiene",
+      "reason": "Final staged compact-evidence and repository policy."
+    }
+  ],
+  "not_selected": {
+    "M1": "Selected memory/timer/boundary cases cover changed paths; full 42-launch exit remains at M4.",
+    "M2": "No hosted render/text/model code or assets changed.",
+    "M3": "Selected boundary/scheduler/capability/wait/SDK-runtime and all separate flavors cover affected execution; IPC/policy/route contracts unchanged.",
+    "prerequisites": "Selected fresh ten-check tooling/Phase 0 prerequisite gate."
+  },
+  "historical_references": [],
+  "execution_budget": {
+    "max_vm_launches": 14,
+    "allow_full_suites": false
+  }
+}

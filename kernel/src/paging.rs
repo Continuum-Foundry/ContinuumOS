@@ -126,6 +126,28 @@ pub fn device(base: u64, slot: u64) -> Result<u64> {
     need(tables.inspect(VirtAddr(v))? & !(0x20 | 0x40) == base | NX | 0x1b)?;
     Ok(v)
 }
+#[cfg(feature = "device-test")]
+pub(crate) fn driver_page(base: u64, slot: u64) -> Result<u64> {
+    let info = unsafe { &*crate::BOOT_INFO.0.get() };
+    continuum_kernel::device::mmio_page(info.regions(), base)?;
+    need(slot < 48)?;
+    let v = SCRATCH + PAGE * (16 + slot);
+    let tables = unsafe { &mut *TABLES.0.get() };
+    tables.map(VirtAddr(v), PhysAddr(base), Permission::Device)?;
+    invalidate(v);
+    need(tables.inspect(VirtAddr(v))? & !(0x20 | 0x40) == base | NX | 0x1b)?;
+    Ok(v)
+}
+#[cfg(feature = "device-test")]
+pub(crate) fn driver_unmap(slot: u64) -> Result<()> {
+    need(slot < 48)?;
+    let v = SCRATCH + PAGE * (16 + slot);
+    unsafe {
+        (&mut *TABLES.0.get()).unmap(VirtAddr(v))?;
+    }
+    invalidate(v);
+    Ok(())
+}
 fn zero(p: PhysAddr, hhdm: u64) -> Result<()> {
     let address = hhdm.checked_add(p.0).ok_or(error("zero", "overflow"))?;
     continuum_kernel::virtual_range(address, PAGE, "zero")?;

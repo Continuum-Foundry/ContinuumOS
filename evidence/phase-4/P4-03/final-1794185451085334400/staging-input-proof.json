@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "checked_implementation_paths": 499,
+  "working_inputs_identical_to_passed_run": true,
+  "non_normalization_deltas": 0,
+  "note": "Source lock records actual tested working bytes. Git stores canonical text blobs; listed normalization differences do not change the working implementation. No claim of release reproducibility from a fresh checkout is made.",
+  "normalization_deltas": [
+    {
+      "path": "audit/contract-validation-results.json",
+      "tested_working_sha256": "7b06deed714812714d377fdecd3b8d605bcb033d0efb90b5f36d6d732172ff17",
+      "staged_blob_sha256": "f9b87dedd9d545b8d09096e7965fc49c8b884a68fdc5b1f9f9b91a08d4bd3cef",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "config/p4-03-validation.json",
+      "tested_working_sha256": "75996bf995a996c32e8b939f244ff4504ac9e736b4bfe04e264abcc5f6c2891e",
+      "staged_blob_sha256": "8a44d04787f181814b83f8d08d8a5edc9ad68101dac305eaae4269abfdd88283",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "docs/assets/continuumos-roadmap.svg",
+      "tested_working_sha256": "258c40bcd99f96250ad7176520f89b432ed49e434a05066af8d0459eee96c3c3",
+      "staged_blob_sha256": "ec31e20792541881bfe1d9e46132703c3a1353196dfbf6e499030821de1ce82c",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "fixtures/m2/slint-v1/README.md",
+      "tested_working_sha256": "959abaf6abf9740118026d519ba8682c223f4f389cc1b9d21a2e608273b77b38",
+      "staged_blob_sha256": "c83259b008ea29ffac5d4522fc0f249e9fc0f9b25494a2a35699ab345629ac35",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "fixtures/m2/slint-v1/goldens.json",
+      "tested_working_sha256": "a1ba206ccaa39b9f37b27f61dd128436131267d099b5068fff15a9fb2125db7a",
+      "staged_blob_sha256": "69b7c90be51e63c2bb3a96d63ff5db50f2982b639fb38dd86de92ab1abce60a4",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "kernel/README.md",
+      "tested_working_sha256": "756885739782bc03c6fbbebe949b0842c3c32c8373c7afc889e5c09dda03152c",
+      "staged_blob_sha256": "6bad4b4fe3ec4df1968144a406f1660e924aebc15b99b6a434cb82850222d928",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "tools/Preview-Slint.ps1",
+      "tested_working_sha256": "2f0e12a5eee040fb6b3282d694eb0a3bca2dcb10ec77424da2bcf6fb0c2af2ec",
+      "staged_blob_sha256": "0b16b25796f168c90a450593649cddf2463e0c7ad9146a52d16522ade160320b",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "tools/Review-Slint.py",
+      "tested_working_sha256": "792ea0617a3f6181c6f07b23cdbe9f76ee9b57ec6689a8c8337ce0b50785b729",
+      "staged_blob_sha256": "d8ba0ba477026634e0496259885f42c43f60ef1dfcb06f172e1b798b8e4099f9",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "tools/Review-SlintInputs.py",
+      "tested_working_sha256": "34adc9d96764536ae8b9df567c46751228aa6be48278f0e7bc35bff9a9a1229d",
+      "staged_blob_sha256": "69cb273dea92ede5683b0222d5ffc3354b8aff4ff73a37da75d3485f0ec700e5",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "tools/Test-P2-06.ps1",
+      "tested_working_sha256": "599f6273775d21ec558dd34c0aa85bf5cea86ec51104f9e8fab616c9b894bf90",
+      "staged_blob_sha256": "1d56cb73c20fe4e7bb27445dae07a74cd6d88d61e4ca1a34f184b15fd48774fe",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "tools/story_validation.py",
+      "tested_working_sha256": "807ef7e9522727663b49dd2106209f9ad5a2c5bd53f15e8a6f07ee134de6708c",
+      "staged_blob_sha256": "3693884166d3c5438015c44bfe2d5b5e60e06a020008308822afd4097027000b",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "tools/xtask/src/m1/cases.rs",
+      "tested_working_sha256": "69bbae3bc6e56374a3968647af0133931b9405a2bc09789fb4d64918c5093099",
+      "staged_blob_sha256": "b067a9f138298e845aee2cf2d95eff40e330f55d7a582057bf69954438c245ce",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "tools/xtask/src/m1/package.rs",
+      "tested_working_sha256": "575186e9418325494a5bf4c36ec74497ffd8e739b5f0f3160f2cfdbb8fcbb8f1",
+      "staged_blob_sha256": "748184c694f1db0c23d70ec10c0a43156eeab7f4abcacacd4ef765d9b0a6a850",
+      "kind": "CRLF/LF normalization only"
+    },
+    {
+      "path": "tools/xtask/src/main.rs",
+      "tested_working_sha256": "5fee8348cd39631cb74946b56f8f39f162d1334bded0c37f916aecdc02b53050",
+      "staged_blob_sha256": "063c12245266ec9a90e0366daa953de01e378518e61b91f372a3dbdaad10d310",
+      "kind": "CRLF/LF normalization only"
+    }
+  ]
+}

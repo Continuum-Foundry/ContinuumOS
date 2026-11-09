@@ -1,0 +1,7 @@
+{
+  "kind": "host-signing-preflight",
+  "command": "cargo test --locked --offline -p continuum-kernel --lib",
+  "reason": "Sandbox could not access enrolled CurrentUser signing certificate C75D30F2DC1D7EBB6D3CD254C0D3377651232C2D",
+  "guest_launched": false,
+  "status": "failed"
+}

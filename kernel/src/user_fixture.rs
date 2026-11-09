@@ -73,19 +73,36 @@ pub(super) fn install_desktop() {
         entry: |_, entered| scheduling::begin_syscall(entered),
         before_operation: scheduling::check_fp_policy,
         scheduled: scheduling::active,
-        operation: |op, f| match op {
-            ABI_QUERY | DIAGNOSTIC_LOG => None,
-            PROCESS_EXIT | THREAD_YIELD => capabilities::dispatch(op, f).or_else(|| {
-                if op == THREAD_YIELD {
-                    Some(Ok(0))
-                } else {
-                    None
+        operation: |op, f| {
+            #[cfg(feature = "device-test")]
+            {
+                let c = current();
+                if let Some(result) = crate::device_guest::call(
+                    op,
+                    c.case - 100,
+                    c.id.slot as u64 + 1,
+                    c.id.generation,
+                    f.rdi,
+                    f.rsi,
+                    f.rdx,
+                ) {
+                    return Some(result.map_err(|_| ACCESSDENIED));
                 }
-            }),
-            CLOCK_NOW | CLOCK_RESOLUTION | TIMER_ARM | WAIT_MANY => waiting::dispatch(op, f),
-            MEMORY_ALLOCATE | MEMORY_FREE => Some(Err(UNSUPPORTED)),
-            OBJECT_INFO..=CONTEXT_LIVE => Some(Err(ACCESSDENIED)),
-            _ => Some(Err(UNSUPPORTED)),
+            }
+            match op {
+                ABI_QUERY | DIAGNOSTIC_LOG => None,
+                PROCESS_EXIT | THREAD_YIELD => capabilities::dispatch(op, f).or_else(|| {
+                    if op == THREAD_YIELD {
+                        Some(Ok(0))
+                    } else {
+                        None
+                    }
+                }),
+                CLOCK_NOW | CLOCK_RESOLUTION | TIMER_ARM | WAIT_MANY => waiting::dispatch(op, f),
+                MEMORY_ALLOCATE | MEMORY_FREE => Some(Err(UNSUPPORTED)),
+                OBJECT_INFO..=CONTEXT_LIVE => Some(Err(ACCESSDENIED)),
+                _ => Some(Err(UNSUPPORTED)),
+            }
         },
         return_to_user: |f, operation| {
             waiting::notify().expect("desktop wait boundary");

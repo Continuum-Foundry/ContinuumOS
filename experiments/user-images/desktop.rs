@@ -104,6 +104,32 @@ extern "C" fn main() {
     let role = word(0);
     let cap = word(1) as usize;
     let mode = word(5);
+    #[cfg(device_probe)]
+    unsafe {
+        for slot in 0..3 {
+            let entitled = role == if slot < 2 { 2 } else { 5 };
+            let (status, bytes) = syscall(0x4000, slot, 0, 0, 0);
+            if entitled {
+                check(status == 0 && bytes >= 4096);
+                check(syscall(0x4001, slot, 0, 4, 0) == (0, 4));
+                check(syscall(0x4001, slot, bytes, 4, 0).0 == ACCESSDENIED);
+                check(syscall(0x4001, slot, 1, 4, 0).0 == ACCESSDENIED);
+                check(syscall(0x4001, slot, u64::MAX, 1, 0).0 == ACCESSDENIED);
+                check(syscall(0x4002, slot, 1, 0, 0).0 == ACCESSDENIED);
+                if slot == 0 {
+                    check(syscall(0x4003, slot, 0, 0, 0).0 == ACCESSDENIED);
+                } else {
+                    check(syscall(0x4003, slot, 0, 0, 0).0 == 0);
+                    check(syscall(0x4001, slot, 0, 4, 0).0 == ACCESSDENIED);
+                }
+            } else {
+                check(status == ACCESSDENIED);
+                check(syscall(0x4001, slot, 0, 4, 0).0 == ACCESSDENIED);
+                check(syscall(0x4002, slot, 1, 0, 0).0 == ACCESSDENIED);
+            }
+        }
+        check(syscall(0x4000, u64::MAX, 0, 0, 0).0 == ACCESSDENIED);
+    }
     unsafe {
         *HEAP.0.get() = reclaiming_heap::Heap::new(cap);
     }

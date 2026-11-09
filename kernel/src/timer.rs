@@ -7,6 +7,28 @@ use core::{
 };
 static BUFFER: Local<[u8; p::MAX_TABLE]> = Local(core::cell::UnsafeCell::new([0; p::MAX_TABLE]));
 static APIC: AtomicU64 = AtomicU64::new(0);
+#[cfg(feature = "device-test")]
+static DEVICE_IOAPIC: AtomicU64 = AtomicU64::new(0);
+#[cfg(feature = "device-test")]
+pub(crate) fn device_route(irq: u8, masked: bool) -> Result<()> {
+    need((1..24).contains(&irq), "device_irq")?;
+    let io = DEVICE_IOAPIC.load(Ordering::Relaxed);
+    need(io != 0, "device_ioapic")?;
+    // Q35 firmware-assigned INTx GSI only, active-low / level-triggered.
+    // No ISA overrides, bridge routing, MSI or arbitrary caller vectors.
+    let id = core::arch::x86_64::__cpuid(1).ebx >> 24;
+    unsafe {
+        write32(io, 0, 0x11 + u32::from(irq) * 2);
+        write32(io, 0x10, id << 24);
+        write32(io, 0, 0x10 + u32::from(irq) * 2);
+        write32(
+            io,
+            0x10,
+            66 | (1 << 13) | (1 << 15) | if masked { 1 << 16 } else { 0 },
+        );
+    }
+    Ok(())
+}
 static TICKS: AtomicU64 = AtomicU64::new(0);
 static OVERFLOW: AtomicBool = AtomicBool::new(false);
 static RESOLUTION: AtomicU64 = AtomicU64::new(0);
@@ -51,6 +73,8 @@ global_asm!(include_str!("timer-entry.S"), interrupt = sym interrupt);
 unsafe extern "C" {
     pub fn timer_vector();
     pub fn spurious_vector();
+    #[cfg(feature = "device-test")]
+    pub fn device_vector();
     fn timer_sentinels() -> u64;
 }
 pub fn mode(s: &str) -> Option<u64> {
@@ -93,6 +117,14 @@ fn msr(id: u32) -> u64 {
     (hi as u64) << 32 | lo as u64
 }
 extern "C" fn interrupt(vector: u64, _cs: u64, _frame: *mut u8) {
+    #[cfg(feature = "device-test")]
+    if vector == 66 {
+        crate::device_guest::interrupt();
+        unsafe {
+            write32(APIC.load(Ordering::Relaxed), 0xb0, 0);
+        }
+        return;
+    }
     if vector == 255 {
         SPURIOUS.store(
             SPURIOUS.load(Ordering::Relaxed).saturating_add(1),
@@ -225,6 +257,8 @@ pub fn establish(mode: u64) -> Result<()> {
     let a = crate::paging::device(ap, 0)?;
     let h = crate::paging::device(hp, 1)?;
     let io = crate::paging::device(io, 2)?;
+    #[cfg(feature = "device-test")]
+    DEVICE_IOAPIC.store(io, Ordering::Relaxed);
     APIC.store(a, Ordering::Relaxed);
     unsafe {
         need(

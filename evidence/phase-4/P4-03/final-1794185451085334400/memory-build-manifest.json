@@ -1,0 +1,78 @@
+{
+  "assembly": "fatal exception/GDT/stack wrappers; see kernel/src/exception-entry.S and exception-diagnostics-runbook.md",
+  "base_revision": 3,
+  "binding": "limine =0.5.0; defaults off",
+  "boot_tested": false,
+  "build_id": "f6df303a0a06a73aa771f8d989f80f8de8e7254ed43c1aa7c792d7158b2a02ea",
+  "entry_boundary": "SysV without FP/SIMD; loader stack >=64 KiB; no return; no memory reclaimed",
+  "flavor": "runtime-memory-test",
+  "inspection": {
+    "diagnostic_sites": {
+      "diagnostic_double_site": 18446744071562077092,
+      "diagnostic_guard_site": 18446744071562077067,
+      "diagnostic_invalid_opcode": 18446744071562076495,
+      "diagnostic_nx_page": 18446744071562182656,
+      "diagnostic_page_fault_site": 18446744071562076507,
+      "diagnostic_panic_report": 18446744071562076512,
+      "diagnostic_write_site": 18446744071562077072
+    },
+    "dynamic_linking": false,
+    "entry": "0xffffffff80000000",
+    "executed": false,
+    "format": "ELF64-LE",
+    "kernel_image_bounds": {
+      "all_load_memory_including_bss": true,
+      "end": "0xffffffff81316000",
+      "load_memory_end": "0xffffffff81316000",
+      "start": "0xffffffff80000000"
+    },
+    "machine": "x86_64",
+    "relocations": 0,
+    "returning_interrupt_entry": {
+      "df_cleared_before_rust": true,
+      "gprs": 15,
+      "return": "iretq",
+      "sysv_alignment": 16,
+      "vectors": [
+        64,
+        255
+      ]
+    },
+    "segments": [
+      {
+        "address": "0xffffffff80000000",
+        "alignment": 4096,
+        "file_size": 94277,
+        "flags": 5,
+        "memory_size": 94277,
+        "offset": 4096
+      },
+      {
+        "address": "0xffffffff80018000",
+        "alignment": 4096,
+        "file_size": 8370,
+        "flags": 4,
+        "memory_size": 8370,
+        "offset": 102400
+      },
+      {
+        "address": "0xffffffff8001b000",
+        "alignment": 4096,
+        "file_size": 8975008,
+        "flags": 6,
+        "memory_size": 19902464,
+        "offset": 114688
+      }
+    ],
+    "type": "ET_EXEC",
+    "unresolved_symbols": 0
+  },
+  "kernel_sha256": "9f9d3526fddfcfd0e867e46cacbafab69d7a01fecd90284f878e23eef7d6065d",
+  "loader": "12.9.3",
+  "protocol_commit": "3a0526b700e356f0eac1b71a77697b3fd1c707a3",
+  "schema_version": 1,
+  "source_commit": "367e046e3a7d035b93c8ddc395188f8cbbbd9225",
+  "source_dirty": true,
+  "source_identity": "build-inputs.json contains hashes of all build source inputs",
+  "source_status": "M docs/05-delivery/phase-4/03-device-authority-irqs-and-dma.md\n M docs/05-delivery/phase-4/README.md\n M experiments/user-images/desktop.rs\n M kernel/Cargo.toml\n M kernel/src/desktop_guest.rs\n M kernel/src/exceptions.rs\n M kernel/src/lib.rs\n M kernel/src/main.rs\n M kernel/src/paging.rs\n M kernel/src/timer-entry.S\n M kernel/src/timer.rs\n M kernel/src/user_fixture.rs\n M tools/Test-StoryValidation.py\n M tools/story_validation.py\n M tools/xtask/src/m1/build.rs\n M tools/xtask/src/m1/cases.rs\n M tools/xtask/src/m1/launch.rs\n M tools/xtask/src/m1/package.rs\n M tools/xtask/src/m1/records.rs\n M tools/xtask/src/m1/user_images.rs\n M tools/xtask/src/main.rs\n?? config/p4-03-validation.json\n?? docs/05-delivery/phase-4/device-authority-runbook.md\n?? kernel/src/device.rs\n?? kernel/src/device_guest.rs\n?? tools/Check-P4-03Flavors.ps1\n?? tools/Review-P4-03.py\n?? tools/Test-P4-03.ps1\n?? tools/p4_device_acceptance.py"
+}

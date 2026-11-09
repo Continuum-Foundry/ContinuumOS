@@ -33,6 +33,7 @@ fn collect(dir: &Path, result: &mut BTreeMap<String, String>) -> Result<()> {
 pub(super) enum Flavor {
     Normal,
     Desktop,
+    Devices,
     Smoke,
     NoEntry,
     Inject,
@@ -60,6 +61,7 @@ impl Flavor {
         match self {
             Self::Normal => "normal",
             Self::Desktop => "desktop-test",
+            Self::Devices => "device-test",
             Self::Smoke => "iso-smoke",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
@@ -87,6 +89,7 @@ impl Flavor {
         match self {
             Self::Normal => "desktop-runtime",
             Self::Desktop => "desktop-test",
+            Self::Devices => "device-test",
             Self::Smoke => "emulator-test",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
@@ -369,6 +372,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         flavor,
         Flavor::Normal
             | Flavor::Desktop
+            | Flavor::Devices
             | Flavor::StaticLoader
             | Flavor::UserBoundary
             | Flavor::Scheduler
@@ -391,6 +395,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                 flavor,
                 Flavor::Normal
                     | Flavor::Desktop
+                    | Flavor::Devices
                     | Flavor::Scheduler
                     | Flavor::Capabilities
                     | Flavor::Channels
@@ -410,7 +415,8 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             flavor == Flavor::Supervisor,
             flavor == Flavor::Policy,
             flavor == Flavor::Routes,
-            matches!(flavor, Flavor::Normal | Flavor::Desktop),
+            matches!(flavor, Flavor::Normal | Flavor::Desktop | Flavor::Devices),
+            flavor == Flavor::Devices,
         )?)
     } else {
         None
@@ -438,6 +444,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             | Flavor::StressSupervision
             | Flavor::Normal
             | Flavor::Desktop
+            | Flavor::Devices
     ) {
         "kernel-stress"
     } else {
@@ -568,6 +575,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                 flavor,
                 Flavor::Normal
                     | Flavor::Desktop
+                    | Flavor::Devices
                     | Flavor::Scheduler
                     | Flavor::Capabilities
                     | Flavor::Channels
@@ -612,7 +620,8 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             } else {
                 audit_disassembly(&text)?;
             }
-            inspection["returning_interrupt_entry"] = audit_interrupt_entry(&text)?;
+            inspection["returning_interrupt_entry"] =
+                audit_interrupt_entry(&text, flavor == Flavor::Devices)?;
         }
     }
     let commit = output(
@@ -630,14 +639,24 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
     Ok(manifest)
 }
 
-fn audit_interrupt_entry(text: &str) -> Result<Value> {
+fn audit_interrupt_entry(text: &str, device: bool) -> Result<Value> {
     let normalized = text.replace("\r\n", "\n");
     let text = normalized.as_str();
     let registers = [
         "rax", "rcx", "rdx", "rbx", "rbp", "rsi", "rdi", "r8", "r9", "r10", "r11", "r12", "r13",
         "r14", "r15",
     ];
-    for name in ["timer_vector", "spurious_vector"] {
+    let names = if device {
+        &['t', 's', 'd'][..]
+    } else {
+        &['t', 's'][..]
+    };
+    for vector in names {
+        let name = match vector {
+            't' => "timer_vector",
+            's' => "spurious_vector",
+            _ => "device_vector",
+        };
         let marker = format!("<{name}>:\n");
         let body = text
             .split_once(&marker)
@@ -683,6 +702,8 @@ fn audit_interrupt_entry(text: &str) -> Result<Value> {
                     "movl ${}, %edi",
                     if name == "timer_vector" {
                         "0x40"
+                    } else if name == "device_vector" {
+                        "0x42"
                     } else {
                         "0xff"
                     }
@@ -692,7 +713,7 @@ fn audit_interrupt_entry(text: &str) -> Result<Value> {
         }
     }
     Ok(
-        json!({"gprs":15,"df_cleared_before_rust":true,"sysv_alignment":16,"return":"iretq","vectors":[64,255]}),
+        json!({"gprs":15,"df_cleared_before_rust":true,"sysv_alignment":16,"return":"iretq","vectors":if device {vec![64,255,66]} else {vec![64,255]}}),
     )
 }
 

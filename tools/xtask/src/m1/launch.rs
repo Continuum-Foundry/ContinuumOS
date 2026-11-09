@@ -98,6 +98,23 @@ pub(super) fn launch(
                 .replace("<exact-iso>", &iso.to_string_lossy()),
         );
     }
+    if flavor == "device-test" {
+        args.extend(
+            [
+                "-device",
+                "virtio-keyboard-pci,disable-legacy=on,addr=4",
+                "-device",
+                "virtio-tablet-pci,disable-legacy=on,addr=5",
+                "-device",
+                "virtio-serial-pci,disable-legacy=on,addr=6",
+                "-chardev",
+                "null,id=p403",
+                "-device",
+                "virtserialport,chardev=p403,name=org.continuum.dev",
+            ]
+            .map(String::from),
+        );
+    }
     if test {
         args.extend([
             "-device".into(),

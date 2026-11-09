@@ -12,6 +12,7 @@ import p3_acceptance as base
 import story_validation as validation
 import p4_runtime_acceptance as p4
 import runtime_focus_review
+import p4_device_acceptance as p403
 
 
 def selection(story='policy-update', checks=('docs',)):
@@ -99,6 +100,16 @@ class SelectionTests(unittest.TestCase):
 
 
 class BudgetTests(unittest.TestCase):
+    def test_p403_actual_budget_and_no_full_suite(self):
+        manifest = base.read(base.ROOT/'config/p4-03-validation.json')
+        plan = validation.execution_plan(manifest, p403.expected_checks(manifest))
+        self.assertEqual(plan['vm_launches'], 14)
+        self.assertEqual(plan['separate_metadata_builds'], 17)
+        self.assertEqual(plan['full_suites'], [])
+        manifest['execution_budget']['max_vm_launches'] = 13
+        with self.assertRaisesRegex(ValueError, 'budget exceeded'):
+            validation.execution_plan(manifest, p403.expected_checks(manifest))
+
     def test_actual_plan_counts_every_nested_guest_before_execution(self):
         manifest = base.read(p4.DEFAULT_MANIFEST)
         plan = validation.execution_plan(manifest, p4.expected_checks(manifest))

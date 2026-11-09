@@ -1761,3 +1761,47 @@ The installed `.githooks/pre-push` and configured `.githooks` path remain afterw
 No force push, merge, release, other destination, new remote build or standing
 exemption is granted. Geographic containment remains unverified; this is an
 administrative exception, not legal clearance or a finding of U.S.-only handling.
+
+
+## One-time owner exemption — P4-03 device authority, 2026-11-08
+
+After P4-03 local story acceptance and staged closeout, the owner instructed:
+"I give you exemption to make PR". This authorizes one push and one PR for the
+exact reviewed 153-file task payload represented, before this record, by Git tree
+`ae7d40134e6c1646a8a327fc01b026ef9e706f17`, based on
+`367e046e3a7d035b93c8ddc395188f8cbbbd9225`, plus this authorization record.
+
+Payload: bounded P4-03 PCI/device grants, supervisor MMIO checks, IRQ and split-queue
+primitives, finite DMA retention/reset and process-owner teardown; test-flavor
+CPL3 probes, selected validation/oracles and metadata builds; current story,
+requirements, runbook and handoff; and the 118-file compact reviewed evidence
+bundle at `evidence/phase-4/P4-03/final-1794185451085334400/`. The final staged
+working implementation is identical to the passed 14-VM/17-flavor run; source/index
+text normalization is separately recorded. No historical evidence is rewritten.
+
+Destination: the existing GitHub repository
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/p4-03-device-authority`, followed by one PR against `main` titled
+"Complete P4-03 device authority, IRQs and DMA lifetimes". The prepared PR body's
+SHA-256 is `2d7fcd087cc39af329742da42b1c4c48c45202f30d3b8b690d854c7ff953ae44`.
+This exemption includes that description and PR metadata. GitHub currently reports
+this existing destination as public; this PR does not change repository visibility.
+
+Excluded: ignored full runs/logs/source copies, binaries, ISOs, firmware state,
+caches, credentials, certificates, private keys, unrelated changes and new hosted
+workflows. Relevant host audits, exact staged-index hygiene and whitespace checks
+must pass after this prose-only authorization update. Existing guest results are
+retained on unchanged implementation; no milestone pass or standing test waiver
+is created. The ordinary commit retains and must pass the installed pre-commit
+check. No IOMMU confinement, driver ABI freeze, physical input/display/transport,
+guest rendering/reload or desktop efficiency result is added by publication.
+
+The push exemption is exhausted by the first successful push containing this
+record; PR authorization is exhausted by creation of that one PR. For that push
+only, command-local `core.hooksPath=work/p4-03-pr/hooks` may select a directory
+containing an exact copy of the installed pre-commit hook and no pre-push hook.
+The installed `.githooks/pre-push` and configured `.githooks` path remain afterward.
+No force push, merge, release, other destination, new remote build, repository
+setting change or standing exemption is granted. Geographic containment remains
+unverified; this administrative exception is not legal clearance or a finding of
+U.S.-only handling and does not waive applicable law.

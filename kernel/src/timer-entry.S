@@ -52,6 +52,7 @@
 .endm
 returning timer_vector, 64
 returning spurious_vector, 255
+returning device_vector, 66
 
 // Exercise every GPR and DF across a real timer interrupt. Preserve the calling
 // ABI and clear DF before returning to Rust. STI/HLT is the idle continuation.

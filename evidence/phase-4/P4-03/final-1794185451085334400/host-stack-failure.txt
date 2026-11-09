@@ -1,0 +1,36 @@
+   Compiling continuum-kernel v0.1.0 (${WORKSPACE}\kernel)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.84s
+     Running unittests src\lib.rs (build\cargo\signed\debug\deps\continuum_kernel-172e592285f33fd1.exe)
+
+running 107 tests
+test desktop::tests::every_role_has_two_restarts_with_no_refund_and_recovery_is_unspendable ... ok
+test desktop::tests::reserved_capacity_and_failed_start_do_not_spend_credits ... ok
+test device::tests::no_reclaim_before_reset_even_after_used_completion ... ok
+test device::tests::irq_latch_mask_duplicate_and_cancel ... ok
+test device::tests::authority_is_incarnation_bound_and_overlap_denied ... ok
+test device::tests::chain_bounds_cycle_flags_and_overlap ... ok
+test device::tests::ranges_features_and_queue_limits ... ok
+test device::tests::quarantine_reserved_before_dma ... ok
+test memory::tests::copy_permissions_include_every_hardware_ancestor ... ok
+test memory::tests::mapping_conflicts_capacity_and_permissions ... ok
+test objects::tests::channels::envelope_independent_literal_and_malformed_inputs ... ok
+test memory::tests::reservations_edges_holes_and_exhaustion ... ok
+test memory::tests::malformed_capacity_and_all_reserved ... ok
+test objects::tests::channels::abandoned_endpoint_cycles_are_collected_and_empty_closed_peer_is_typed ... ok
+test objects::tests::channels::atomic_send_receive_copies_and_attenuation ... ok
+test objects::tests::channels::liveness_does_not_reauthenticate_historical_queued_sender_or_reused_slot ... ok
+test objects::tests::channels::pair_copy_and_admission_failure_install_nothing ... ok
+test objects::tests::accounting::physical_backing_is_partitioned_once_across_duplicate_transfer_and_orphan_lifetimes ... ok
+test objects::tests::channels::final_admission_failure_preserves_bytes_authority_and_nonce ... ok
+test objects::tests::channels::receive_table_and_nonce_exhaustion_retain_entire_message ... ok
+test objects::tests::channels::receiver_death_drops_queued_memory_and_cross_pair_cycles ... ok
+test objects::tests::channels::sender_death_preserves_queued_metadata_and_receiver_death_discards_queued_refs ... ok
+test objects::tests::channels::queue_count_byte_handle_limits_are_independent_and_preserve_sources ... ok
+
+thread 'objects::tests::object_slot_retirement_and_page_table_failure_unwind' (59168) has overflowed its stack
+test objects::tests::closing_self_handles_preserves_admitted_owner_lifecycle ... ok
+error: test failed, to rerun pass `-p continuum-kernel --lib`
+
+Caused by:
+  process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\tools\windows\Invoke-DevExecutable.ps1 ${WORKSPACE}\build\cargo\signed\debug\deps\continuum_kernel-172e592285f33fd1.exe` (exit code: 0xc00000fd, STATUS_STACK_OVERFLOW)
+note: test exited abnormally; to see the full output pass --no-capture to the harness.

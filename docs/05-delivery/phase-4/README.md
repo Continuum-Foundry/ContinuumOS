@@ -4,7 +4,7 @@ Issue type: Epic. Status: In progress. Owner: Graphics/Platform/Security/Quality
 Created: 2026-11-06. Milestone: M4. Labels: `phase-4`, `milestone-m4`.
 These are repository-local, Jira-ready stories; no Jira issues have been created.
 P4-01 passes [local prerequisite/profile acceptance](../../../evidence/phase-4/P4-01/final-1794022944926085700/README.md);
-P4-02 passes [local runtime-admission self-review](../../../evidence/phase-4/P4-02/final-1794169067563019600/README.md); P4-03 through P4-19 remain Not started.
+P4-02 passes [local runtime-admission self-review](../../../evidence/phase-4/P4-02/final-1794169067563019600/README.md); P4-03 passes [bounded device-authority/IRQ/DMA self-review](../../../evidence/phase-4/P4-03/final-1794185451085334400/README.md); P4-04 through P4-19 remain Not started.
 
 ## Outcome and starting point
 
@@ -36,7 +36,7 @@ or evidence of the 256 MiB whole-desktop target.
 | --- | --- | --- | --- | --- |
 | P4-01 | [Recheck prerequisites and lock the guest desktop plan](01-prerequisites-profiles-and-contract-plan.md) | P3-14 and P2-13 Done; Phase 0 recheck | B01/B02 follow-up, B32 setup | Done |
 | P4-02 | [Admit long-lived UI services and reclaiming heaps](02-desktop-runtime-capacity-and-lifecycle.md) | P4-01 | B13/B16 runtime follow-up | Done |
-| P4-03 | [Mediate device resources, IRQs and DMA lifetimes](03-device-authority-irqs-and-dma.md) | P4-02 | B14/B16 device foundation | Not started |
+| P4-03 | [Mediate device resources, IRQs and DMA lifetimes](03-device-authority-irqs-and-dma.md) | P4-02 | B14/B16 device foundation | Done |
 | P4-04 | [Present a checked guest framebuffer](04-framebuffer-mapping-and-presentation.md) | P4-03 | B16 display backend | Not started |
 | P4-05 | [Broker surface leases and compose guest windows](05-surface-leases-and-compositor.md) | P4-04 | B16 compositor | Not started |
 | P4-06 | [Deliver physical keyboard and pointer input](06-input-device-and-event-routing.md) | P4-03,P4-05 | B16 input | Not started |

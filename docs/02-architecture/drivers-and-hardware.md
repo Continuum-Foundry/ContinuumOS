@@ -72,3 +72,8 @@ enabled; timing and memory-order bugs can disappear in debug builds.
 M0 determines which libraries may be reused. Implementing a driver HAL is trusted
 unsafe code, not boilerplate. Track temporary kernel drivers and extraction tasks
 so the architecture cannot quietly become permanently monolithic.
+
+
+## P4-03 measured VM primitive subset
+
+The [local acceptance](../../evidence/phase-4/P4-03/final-1794185451085334400/README.md) qualifies the temporary kernel mediator for the pinned Q35 root-bus modern VirtIO keyboard/tablet and serial discovery/reset subset. The [runbook](../05-delivery/phase-4/device-authority-runbook.md) records full-width BAR checks, UC supervisor mappings, incarnation-bound grants, actual queue/IRQ observations, finite DMA quarantine and reset-before-reclaim. Tablet no-op status sentinels prove queue mechanics, not tablet feedback or pointer delivery; serial port/control delivery is open. Kernel/device DMA remains trusted without IOMMU confinement. No general driver architecture or public ABI is accepted by this result. P4-04/P4-06/P4-12 retain presentation/input/transport and extraction work.

@@ -21,6 +21,7 @@ pub(super) fn build(
     policy: bool,
     routes: bool,
     desktop: bool,
+    devices: bool,
 ) -> Result<PathBuf> {
     let runtime_ids = runtime_ids(dir)?;
     let source = if desktop {
@@ -88,6 +89,9 @@ pub(super) fn build(
             ))
             .arg("-o")
             .arg(&image);
+        if devices {
+            c.args(["--cfg", "device_probe"]);
+        }
         capture(&mut c, dir, &format!("{name}-build"), 60)?;
         let bytes = read(&image)?;
         let inspection = elf::inspect(&bytes, "userland-link")?;

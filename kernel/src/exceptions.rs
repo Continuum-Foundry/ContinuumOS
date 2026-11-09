@@ -161,6 +161,10 @@ unsafe fn install() {
             );
         }
         (*IDT.0.get())[64] = Gate::new(crate::timer::timer_vector as *const () as u64, 0);
+        #[cfg(feature = "device-test")]
+        {
+            (*IDT.0.get())[66] = Gate::new(crate::timer::device_vector as *const () as u64, 0);
+        }
         (*IDT.0.get())[255] = Gate::new(crate::timer::spurious_vector as *const () as u64, 0);
         exception_load_gdt(&TablePointer {
             limit: (size_of::<[u64; 8]>() - 1) as u16,
@@ -249,7 +253,11 @@ extern "C" fn run(mode: u64) -> ! {
     }
     #[cfg(feature = "desktop-runtime")]
     if mode == 45 {
+        #[cfg(feature = "device-test")]
+        crate::device_guest::run().unwrap_or_else(|e| crate::reject(e));
         crate::user_entry::scheduling::desktop::run().unwrap_or_else(|e| crate::reject(e));
+        #[cfg(feature = "device-test")]
+        crate::device_guest::finish().unwrap_or_else(|e| crate::reject(e));
     }
     record(
         "m1.boot_complete",

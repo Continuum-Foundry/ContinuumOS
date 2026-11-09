@@ -280,7 +280,7 @@ See the [evidence, failed fixture and explicit owner exception](../../evidence/p
 
 ## P4-02 runtime admission subset
 
-P4-02 [passes local self-review](../../evidence/phase-4/P4-02/final-1794169067563019600/README.md) for bounded R03/R10/R14/R18 runtime foundations and R09 preparation: a trusted seven-role CPL3 graph, 168 MiB of reclaiming private heaps, explicit recovery reserve, attenuated self/timer handles, prepaid bounded retries and exact physical settlement. Five guests each execute 900 synthetic heap cycles; ordinary boot installs no acceptance observers. Separate feature builds and selected boundary/scheduler/capability/wait/SDK-runtime regressions pass. These UI-sized allocations accept no toolkit/font rendering, device/input path, live reload, general desktop service manager, universal revocation or 256 MiB cold-idle result. P4-03 is next.
+P4-02 [passes local self-review](../../evidence/phase-4/P4-02/final-1794169067563019600/README.md) for bounded R03/R10/R14/R18 runtime foundations and R09 preparation: a trusted seven-role CPL3 graph, 168 MiB of reclaiming private heaps, explicit recovery reserve, attenuated self/timer handles, prepaid bounded retries and exact physical settlement. Five guests each execute 900 synthetic heap cycles; ordinary boot installs no acceptance observers. Separate feature builds and selected boundary/scheduler/capability/wait/SDK-runtime regressions pass. These UI-sized allocations accept no toolkit/font rendering, device/input path, live reload, general desktop service manager, universal revocation or 256 MiB cold-idle result. P4-03 subsequently adds the bounded device primitives below.
 
 ## Authorization profile planning — 2026-11-08
 
@@ -292,3 +292,8 @@ Cedar evaluation, expanded presets/administration and enterprise/data-center gat
 B83–B89/M27/M28 add no dependency to existing releases or Phase 4. Generic
 enterprise identity is independent of conditional AI R20–R27. Native-server
 readiness remains separately gated.
+
+
+## P4-03 device authority and lifetime subset
+
+P4-03 [passes local self-review](../../evidence/phase-4/P4-03/final-1794185451085334400/README.md) for bounded R03/R10/R14/R17/R18 device foundations: checked modern PCI resources and trusted incarnation-bound grants, actual split-queue/IRQ delivery and polling, prepaid DMA retention, observed reset completion and process-owned lease teardown. Two 107-test host suites, 104 actual CPL3 decisions, 16 used entries, 155 missing-record negatives, 17 separate metadata flavors and 14 selected VM launches pass. No IOMMU confinement, public driver ABI freeze, physical input, display, serial port transport, guest UI/reload or desktop efficiency target is accepted. Only the existing SDK subset remains frozen. P4-04 is next.

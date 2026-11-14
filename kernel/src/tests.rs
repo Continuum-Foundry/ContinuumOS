@@ -46,6 +46,37 @@ fn fixture() -> BootInfoV1 {
     b
 }
 #[test]
+fn display_admission_rejects_unsafe_metadata_before_mapping() {
+    assert!(display::Output::checked(&fixture()).is_ok());
+    for case in 0..10 {
+        let mut b = fixture();
+        match case {
+            0 => b.framebuffer_count = 0,
+            1 => b.framebuffers[0].width = u64::MAX,
+            2 => b.framebuffers[0].height = u64::MAX,
+            3 => b.framebuffers[0].pitch = 1,
+            4 => b.framebuffers[0].sizes = [5, 6, 5],
+            5 => b.framebuffers[0].shifts = [0, 0, 16],
+            6 => b.regions[0].range = b.framebuffers[0].range,
+            7 => b.framebuffers[0].range.len -= 1,
+            8 => {
+                b.modules[0].range = {
+                    b.module_count = 1;
+                    b.framebuffers[0].range
+                }
+            }
+            _ => {
+                b.region_count = 5;
+                b.regions[4] = Region {
+                    range: b.framebuffers[0].range,
+                    kind: 2,
+                };
+            }
+        }
+        assert!(display::Output::checked(&b).is_err(), "case {case}");
+    }
+}
+#[test]
 fn required_revision_and_capacities_fail_closed() {
     let mut b = fixture();
     assert_eq!(b.validate(), Ok(()));

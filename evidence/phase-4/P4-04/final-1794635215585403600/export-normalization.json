@@ -1,0 +1,26 @@
+{
+  "scope": "Prose/evidence-only export sanitization after local acceptance; no guest/build inputs changed",
+  "files": [
+    {
+      "path": "display-720-qmp-requests.txt",
+      "before_sha256": "118b81561555efc3d7cde544dcd5fe694fd062c24d508eddc0b8c96377395229",
+      "after_sha256": "99acc2d0e54c59d7aee5aabdac4e73668d737077fc997189799f3fef102fc337",
+      "local_original": "work/p4-04-pr/pre-export/display-720-qmp-requests.txt",
+      "reason": "Replace literal/JSON-escaped workspace paths with ${WORKSPACE}; full original QMP bytes and failure streams remain local."
+    },
+    {
+      "path": "display-1080-qmp-requests.txt",
+      "before_sha256": "1b0ee19b3a7566936bf0e458ac0ce02016e57abdcbd91167bd16c083d5726b04",
+      "after_sha256": "fe06ed22f66370eced8b3fcc0f6d120ad27e099ad39041daf6a21d886f1d025a",
+      "local_original": "work/p4-04-pr/pre-export/display-1080-qmp-requests.txt",
+      "reason": "Replace literal/JSON-escaped workspace paths with ${WORKSPACE}; full original QMP bytes and failure streams remain local."
+    },
+    {
+      "path": "failure-excerpts.json",
+      "before_sha256": "4d635eb72c3c27f5c24286bf7c3a440012ed510e976d3b35a0644664474defa8",
+      "after_sha256": "6f7fabe9eec9d4406f02769287190786b97609d50af79936c650337264af8475",
+      "local_original": "work/p4-04-pr/pre-export/failure-excerpts.json",
+      "reason": "Replace literal/JSON-escaped workspace paths with ${WORKSPACE}; full original QMP bytes and failure streams remain local."
+    }
+  ]
+}

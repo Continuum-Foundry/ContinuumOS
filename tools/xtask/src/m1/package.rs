@@ -114,6 +114,7 @@ pub(super) fn package(
     if manifest["flavor"] == "normal"
         || manifest["flavor"] == "desktop-test"
         || manifest["flavor"] == "device-test"
+        || manifest["flavor"] == "display-test"
         || fixture == "static-loader"
         || fixture.starts_with("user-boundary-")
         || fixture.starts_with("scheduler-")
@@ -133,6 +134,14 @@ pub(super) fn package(
                 "    module_path: boot():/{filename}\n    module_string: p3-03-{name}\n"
             ));
         }
+    }
+    if manifest["flavor"] == "display-test" {
+        let size = if dir.to_string_lossy().contains("display-1080") {
+            "1920x1080x32"
+        } else {
+            "1280x720x32"
+        };
+        configuration.push_str(&format!("    resolution: {size}\n"));
     }
     fs::write(stage.join("boot/limine/limine.conf"), configuration).map_err(|e| e.to_string())?;
     if module {

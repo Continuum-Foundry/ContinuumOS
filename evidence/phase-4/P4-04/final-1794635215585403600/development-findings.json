@@ -1,0 +1,68 @@
+{
+  "scope": "Historical non-passes; full raw artifacts remain local",
+  "findings": [
+    {
+      "local_journal": "build/m4/P4-04/acceptance-1794191416930731700/acceptance.json",
+      "sha256": "cab0d9a1d1a67415d915164c7c4ee42eaa64f6c91a609446cdba4f93ae98043c",
+      "status": "interrupted",
+      "error": "Owner agent interrupted before prerequisites/guests after source review found missing freestanding integration fields; no child remained.",
+      "finding": "interrupted before guests to fix missing freestanding integration"
+    },
+    {
+      "local_journal": "build/m4/P4-04/acceptance-1794192568676643800/acceptance.json",
+      "sha256": "2715abe5dc0f68f474d38fa84269e5f1f15001a11f9bdd038a6efca3968ea50b",
+      "status": "failed",
+      "error": "display-720 failed; see ${WORKSPACE}\\build\\m4\\P4-04\\acceptance-1794192568676643800",
+      "finding": "first 720p kernel PF, mapping installed after runtime PML4 snapshot"
+    },
+    {
+      "local_journal": "build/m4/P4-04/probe-1794267870664911800/acceptance.json",
+      "sha256": "0b22b78e5b7420b26115d642684d804c02c5a321313f2c64aed9a353d4d09f1a",
+      "status": "failed",
+      "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\archi\\\\Documents\\\\ContinuumOS\\\\build\\\\m1\\\\display-720-1794268134620988200-86452\\\\display-720-run\\\\display.ppm'",
+      "finding": "guest passed, QMP burst requests rejected; no captures"
+    },
+    {
+      "expected_journal": "build/m4/P4-04/acceptance-1794269297837168300/acceptance.json",
+      "journal_present": false,
+      "status": "interrupted before journal creation; no acceptance",
+      "finding": "interrupted before checks to fix reviewer field",
+      "local_console": "build\\p4-04-final2-console.log",
+      "console_sha256": "5a80427e82eb7d550e62c2bf80eaea6f13f6aab288dadc775faf86d2097e8612"
+    },
+    {
+      "local_journal": "build/m4/P4-04/acceptance-1794269421438802100/acceptance.json",
+      "sha256": "2b28920d282047cc79c5f325d9e60e3a65848aaa28c146cbe47fbafe633acbab",
+      "status": "failed",
+      "error": "prerequisites failed; see ${WORKSPACE}\\build\\m4\\P4-04\\acceptance-1794269421438802100",
+      "finding": "prerequisite host PowerShell lifecycle fixture missed original 3-second observation bound; replaced shell with native signed child, same assertions/bound"
+    },
+    {
+      "local_journal": "build/m4/P4-04/acceptance-1794270587968712200/acceptance.json",
+      "sha256": "bdcd205ec34591a470badea6d0008574b0fc3632edc84f8af0f75785eb4388bb",
+      "status": "failed",
+      "error": "display-720 failed; see ${WORKSPACE}\\build\\m4\\P4-04\\acceptance-1794270587968712200",
+      "finding": "720p guest ready delay 407859500ns, synchronous editor preparation 394935300ns; config-after-heap duplicated full page-table rebuild"
+    },
+    {
+      "local_journal": "build\\m4\\P4-04\\acceptance-1794272178947339000\\acceptance.json",
+      "sha256": "f37b9036fa512de85c0e22125d5564167e69b7179f43a652b7b28852a8441225",
+      "status": "interrupted",
+      "finding": "Nov9 partial run interrupted; later PowerShell runtime path/PATH and unrelated retention tooling changed. Strict resume rejected context. No relocation bridge or reuse bypass was used; Nov14 selected gate was fresh."
+    },
+    {
+      "local_journal": "build/m4/P4-04/acceptance-1794636713647643800/acceptance.json",
+      "sha256": "e1722a41f5ec1ff2a39d3a0bb205ec7b58268122f2582ba1749f8424c6304602",
+      "status": "failed host closeout; no guest failure",
+      "finding": "New SHA256SUMS.json omitted required algorithm field; governance rejected manifest. Added algorithm SHA-256 without changing any guest/build input.",
+      "local_diagnostic": "build/m4/P4-04/acceptance-1794636713647643800/governance.stdout.log",
+      "diagnostic_sha256": "bcf6e5310cb419f97070921d25d26ad867244b36d7923935f1d4df1bd05920ba",
+      "diagnostic": [
+        "Unexpected evidence checksum algorithm: ${WORKSPACE}\\evidence\\phase-4\\P4-04\\final-1794635215585403600\\SHA256SUMS.json"
+      ]
+    }
+  ],
+  "probe": "build/m4/P4-04/probe-1794271736713556200/acceptance.json",
+  "qmp_diagnostic": "build/p4-04-qmp-rust-sequential.log: passed one no-ISO QEMU test with sequential response-matched requests",
+  "timing": "Host lifecycle bound remains 3 seconds; guest bound remains 30000ms and inherited ready bounds 320ms. No root cause inferred from timeout alone."
+}

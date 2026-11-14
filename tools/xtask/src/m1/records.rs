@@ -957,6 +957,19 @@ fn parse_chunk(
                     return Err("Unexpected scheduler record".into());
                 }
             }
+            "m1.display_output"
+            | "m1.display_map_unwind"
+            | "m1.display_call"
+            | "m1.display_pattern"
+            | "m1.display_release"
+            | "m1.display_unavailable" => {
+                if stage != "display"
+                    || outcome != "ok"
+                    || !matches!(expected.fixture, "desktop-ordinary" | "desktop-runtime")
+                {
+                    return Err("Unexpected display record".into());
+                }
+            }
             "m1.device_bar"
             | "m1.device_discovered"
             | "m1.device_features"
@@ -985,6 +998,7 @@ fn parse_chunk(
             "m1.desktop_cap_inventory"
             | "m1.desktop_bound"
             | "m1.desktop_prepare"
+            | "m1.desktop_prepare_phase"
             | "m1.desktop_cleanup"
             | "m1.desktop_enter"
             | "m1.desktop_start_denied"

@@ -409,5 +409,18 @@ class JournalTests(unittest.TestCase):
                 runtime_focus_review.review('memory', artifact)
 
 
+class DisplaySelectionTests(unittest.TestCase):
+    def test_display_plan_counts_and_mandatory_checks(self):
+        import p4_display_acceptance as display
+        m=base.read(base.ROOT/'config/p4-04-validation.json')
+        plan=validation.execution_plan(m,display.checks(m))
+        self.assertEqual((plan['vm_launches'],plan['separate_metadata_builds']),(20,18))
+        for key in ['boot-metadata','scanout-memory','scanout-guard','display-host','boundary']:
+            changed=copy.deepcopy(m);changed['selected']=[r for r in changed['selected'] if r['id']!=key]
+            with self.assertRaises(ValueError):validation.validate_manifest(changed)
+        m['execution_budget']['max_vm_launches']=19
+        with self.assertRaisesRegex(ValueError,'budget exceeded'):validation.execution_plan(m,display.checks(m))
+
+
 if __name__ == '__main__':
     unittest.main()

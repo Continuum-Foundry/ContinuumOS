@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "scope": "independent focused optical/page/exception review",
+  "cases": [
+    {
+      "fixture": "guard-fault",
+      "session": "350f8d6ee3e2d314eec072339618a39caefd6216551df2e9a6348fa633c1bb6f",
+      "iso_sha256": "036e6547be9c9d30ae3afd9f73111cf66216f9a3d9aac36cdd81396b9e66aa33",
+      "kernel_sha256": "83584384700720c7ea4e8bcb92f6a612bca7f0107c4198e5480507bf8de2b9bd",
+      "raw_records": 80,
+      "memory": [
+        {
+          "version": "5",
+          "build": "f74643bd9a81b6f32a490d76990ebb441af7e679ebb99aac8c6884e1274cbec8",
+          "session": "350f8d6ee3e2d314eec072339618a39caefd6216551df2e9a6348fa633c1bb6f",
+          "session_origin": "host",
+          "seq": "77",
+          "stage": "memory",
+          "outcome": "ok",
+          "emergency": "false",
+          "cr3": "0x78c0b000",
+          "wp": "true",
+          "nx": "true",
+          "supervisor": "true",
+          "image_audited": "true",
+          "direct_audited": "true",
+          "guards": "6",
+          "aliases": "0",
+          "batch": "8",
+          "reuse_zero": "true",
+          "invalid_free": "rejected",
+          "double_free": "rejected",
+          "conflict": "rejected",
+          "invalidation": "passed",
+          "exhaustion": "not-requested",
+          "allocated": "0",
+          "test_quota": "0"
+        }
+      ],
+      "fatal": [
+        {
+          "version": "5",
+          "build": "f74643bd9a81b6f32a490d76990ebb441af7e679ebb99aac8c6884e1274cbec8",
+          "session": "350f8d6ee3e2d314eec072339618a39caefd6216551df2e9a6348fa633c1bb6f",
+          "session_origin": "host",
+          "seq": "79",
+          "stage": "exceptions",
+          "outcome": "fatal",
+          "emergency": "false",
+          "vector": "14",
+          "rip": "0xffffffff8000235b",
+          "error": "0x0",
+          "address": "0xffffffff808be000",
+          "rsp": "0xffffffff808cede8",
+          "cs": "0x8",
+          "flags": "0x10093",
+          "frame": "0xffffffff808ceda8"
+        }
+      ]
+    }
+  ]
+}

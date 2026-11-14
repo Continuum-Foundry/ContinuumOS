@@ -50,6 +50,10 @@ def catalog():
         'prerequisites': (PS + ['tools/Recheck-P2Prerequisites.ps1'], 1800),
         'kernel-host': (['cargo', 'test', '--locked', '--offline', '-p', 'continuum-kernel', '--lib'], 180),
         'desktop-host': (['cargo', 'test', '--locked', '--offline', '-p', 'continuum-kernel', '--lib', '--features', 'desktop-runtime'], 180),
+        'display-host': (['cargo', 'test', '--locked', '--offline', '-p', 'continuum-kernel', '--lib', '--features', 'display-test'], 180),
+        'boot-metadata': (['cargo','xtask','test','--suite','m1','--case','boot-metadata'],600),
+        'scanout-memory': (['cargo','xtask','test','--suite','m1','--case','memory-ownership'],600),
+        'scanout-guard': (['cargo','xtask','test','--suite','m1','--case','guard-fault'],600),
         'device-host': (['cargo', 'test', '--locked', '--offline', '-p', 'continuum-kernel', '--lib', '--features', 'device-test'], 180),
         'xtask-host': (['cargo', 'test', '--locked', '--offline', '-p', 'xtask', '--bin', 'xtask', 'm1::'], 300),
         'timer': (['cargo', 'xtask', 'test', '--suite', 'm1', '--case', 'timer-progress'], 600),
@@ -100,10 +104,13 @@ def validate_manifest(manifest):
     if impact['shared_boundary_scheduler']:
         require({'boundary', 'scheduler', 'capabilities'} <= covered, 'missing shared-boundary guests')
         # The P4 runner always executes ordinary boot and its separate flavor matrix.
-        require(manifest['story'] in ('P4-02', 'P4-03'), 'shared-boundary story needs an ordinary/flavor adapter')
+        require(manifest['story'] in ('P4-02', 'P4-03', 'P4-04'), 'shared-boundary story needs an ordinary/flavor adapter')
     if manifest['story'] == 'P4-03':
         require({'kernel-host', 'device-host', 'xtask-host', 'memory', 'timer', 'boundary', 'scheduler', 'capabilities'} <= covered,
                 'missing P4-03 affected coverage')
+    if manifest['story'] == 'P4-04':
+        require({'kernel-host','display-host','xtask-host','prerequisites','boot-metadata','scanout-memory','scanout-guard','memory','timer','boundary','scheduler','capabilities'} <= covered,
+                'missing P4-04 affected coverage')
     if manifest['story'] == 'P4-02':
         require({'kernel-host', 'desktop-host'} <= covered, 'missing P4-02 host tests')
     for item in manifest.get('historical_references', []):
@@ -124,11 +131,11 @@ def schedule(manifest):
 # Full M3 remains deliberately unknown here: it owns nested suites and negatives.
 HOST_CHECKS = {'docs', 'governance', 'hygiene', 'runner-tests', 'child-runner-tests',
                'hygiene-tests', 'prerequisites', 'kernel-host', 'desktop-host',
-               'portable', 'ui-host', 'text-host', 'editor-host', 'device-host', 'xtask-host'}
+               'portable', 'ui-host', 'text-host', 'editor-host', 'device-host', 'display-host', 'xtask-host'}
 AUDIT_CHECKS = {'docs', 'governance', 'hygiene'}
 VM_LAUNCHES = {key: 1 for key in RUNTIME}
 VM_LAUNCHES.update(boundary=4, scheduler=3, **{'full-m1': 42, 'full-m2': 0, 'full-m3': None,
-                                             'ordinary': 1, 'flavors': 0, 'device-0': 1, 'device-flavors': 0, 'timer': 1})
+                                             'boot-metadata':4,'scanout-memory':1,'scanout-guard':1,'display-720':1,'display-1080':1,'display-flavors':0,'ordinary': 1, 'flavors': 0, 'device-0': 1, 'device-flavors': 0, 'timer': 1})
 
 
 def execution_plan(manifest, checks=None):
@@ -164,7 +171,7 @@ def execution_plan(manifest, checks=None):
     return {'scope': 'story', 'execute': checks, 'covered_by': covered,
             'command_groups': len(checks), 'vm_launches': total, 'vm_launches_by_check': counts,
             'unknown_launch_counts': unknown, 'full_suites': full,
-            'separate_metadata_builds': 17 if 'device-flavors' in checks else 16 if 'flavors' in checks else 0,
+            'separate_metadata_builds': 18 if 'display-flavors' in checks else 17 if 'device-flavors' in checks else 16 if 'flavors' in checks else 0,
             'execution_budget': copy.deepcopy(budget)}
 
 
@@ -205,7 +212,7 @@ def context_snapshot(manifest=None):
     ids = {e['id'] for e in manifest['selected']} if manifest else set(catalog())
     builds = bool(ids & {*RUNTIME, 'full-m1', 'full-m2', 'full-m3', 'kernel-host',
                          'desktop-host', 'device-host', 'xtask-host', 'timer', 'portable', 'ui-host', 'text-host', 'editor-host'})
-    builds |= manifest is not None and manifest['story'] in ('P4-02', 'P4-03')
+    builds |= manifest is not None and manifest['story'] in ('P4-02', 'P4-03', 'P4-04')
     paths = {Path(sys.executable)}
     programs = {'git', *[catalog()[key][0][0] for key in ids]}
     if builds:
@@ -453,7 +460,7 @@ def main():
                           'not_selected': manifest['not_selected'],
                           'impact': manifest['impact'], 'plan': execution_plan(manifest)}, indent=2))
         return
-    require(manifest['story'] not in ('P4-02', 'P4-03'), 'use the story adapter for mandatory device/runtime checks')
+    require(manifest['story'] not in ('P4-02', 'P4-03', 'P4-04'), 'use the story adapter for mandatory device/runtime checks')
     if args.action == 'review':
         report = review_report(args.acceptance, ids)
         require(report['manifest'] == manifest, 'selection differs from requested manifest')

@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "scope": "independent focused optical/page/exception review",
+  "cases": [
+    {
+      "fixture": "memory-ownership",
+      "session": "383e387f93fe430ab65570e088f07c0fb6f532e8998537b574b1d09bcb722dcc",
+      "iso_sha256": "2c918fa97d1448855ce86946daaef5a1aa6c6165071bf2b725fa06357f0a79c3",
+      "kernel_sha256": "83584384700720c7ea4e8bcb92f6a612bca7f0107c4198e5480507bf8de2b9bd",
+      "raw_records": 185,
+      "memory": [
+        {
+          "version": "5",
+          "build": "f74643bd9a81b6f32a490d76990ebb441af7e679ebb99aac8c6884e1274cbec8",
+          "session": "383e387f93fe430ab65570e088f07c0fb6f532e8998537b574b1d09bcb722dcc",
+          "session_origin": "host",
+          "seq": "77",
+          "stage": "memory",
+          "outcome": "ok",
+          "emergency": "false",
+          "cr3": "0x78c0b000",
+          "wp": "true",
+          "nx": "true",
+          "supervisor": "true",
+          "image_audited": "true",
+          "direct_audited": "true",
+          "guards": "6",
+          "aliases": "0",
+          "batch": "8",
+          "reuse_zero": "true",
+          "invalid_free": "rejected",
+          "double_free": "rejected",
+          "conflict": "rejected",
+          "invalidation": "passed",
+          "exhaustion": "not-requested",
+          "allocated": "0",
+          "test_quota": "0"
+        }
+      ],
+      "fatal": []
+    }
+  ]
+}

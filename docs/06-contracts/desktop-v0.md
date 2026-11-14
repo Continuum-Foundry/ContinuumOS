@@ -193,3 +193,15 @@ experimental regardless of a schema or host fixture pass.
 ## P4-03 implementation boundary
 
 [P4-03's reviewed primitives](../../evidence/phase-4/P4-03/final-1794185451085334400/README.md) add an internal trusted device broker and test-flavor CPL3 entitlement/range probes. They do not freeze a public driver/message family or extend the SDK contract. Hardware mappings stay supervisor-only; user roles see checked descriptions, while the temporary kernel mediator owns queues, IRQ and DMA/reset. See the [device runbook](../05-delivery/phase-4/device-authority-runbook.md) for the supported matrix, unsafe review and extraction handoff. Physical input, presentation and serial transport remain later stories.
+
+## P4-04 implementation boundary
+
+[P4-04's checked output](../../evidence/phase-4/P4-04/final-1794635215585403600/README.md) adds experimental internal operations
+0x4100–0x4104 for trusted display acquisition/query and bounded RGBX row copying.
+They carry explicit integer arguments, signed packed placement and an exact owner
+generation through the existing checked syscall boundary; no Rust structure layout
+is exchanged. Scanout/capture remain unavailable to apps. Source-release completion
+is synchronous CPU copy plus MFENCE, with no retained pointer or VSync promise.
+These operations do not freeze a public display/message family or extend the SDK.
+P4-05 must retain authority and copy lifetimes while adding surface leases and
+composition; see the [runbook](../05-delivery/phase-4/framebuffer-runbook.md).

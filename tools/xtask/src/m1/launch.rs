@@ -115,6 +115,9 @@ pub(super) fn launch(
             .map(String::from),
         );
     }
+    if flavor == "display-test" {
+        args.extend(["-qmp".into(), "stdio".into()]);
+    }
     if test {
         args.extend([
             "-device".into(),
@@ -178,6 +181,9 @@ pub(super) fn launch(
     write_json(&dir.join("launch-manifest.json"), &launch_manifest)?;
     let mut c = Command::new(pins.file("qemu")?);
     c.args(&args);
+    if flavor == "display-test" {
+        c.stdin(std::process::Stdio::piped());
+    }
     let mut report = observe(
         &mut c,
         dir,

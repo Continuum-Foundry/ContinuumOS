@@ -103,3 +103,14 @@ Validate both cold boot from ISO and boot without a host shared folder or networ
 Record launch config, serial transcript, screen evidence, generation and explicit
 readiness markers. Secure Boot remains unsupported until a complete signing and
 provisioning/recovery plan is implemented.
+
+## P4-04 checked boot scanout
+
+[Local acceptance](../../evidence/phase-4/P4-04/final-1794635215585403600/README.md) validates one boot-reserved software framebuffer
+through an explicit supervisor-only RW/NX/UC mapping with no WB direct alias.
+Install that mapping before the runtime snapshots upper page-table slots for
+process roots. Whole page-rounded backing must be framebuffer-owned and disjoint
+from kernel, modules and ACPI. Missing/unsupported output reports serial diagnostics;
+no exited firmware API is called. The [runbook](../05-delivery/phase-4/framebuffer-runbook.md)
+defines trusted authority, bounded row copying and teardown. The exact 720p/1080p
+optical captures accept display bytes, not page-flip or monitor timing.

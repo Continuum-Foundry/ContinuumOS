@@ -1,0 +1,149 @@
+{
+  "audit_tools_sha256": {
+    "llvm-nm": "d775010e06ebf4a7436c9f2df0c719d57102b2da32f3d2a6a9ed8dc15a68096e",
+    "llvm-objdump": "2f93abc19ae65237c701f75a7347f724ca7ea34e4e933700cde8df11a6dc0ebe",
+    "llvm-readobj": "3fc1f512f1a1316fd522435beaa09c23d13c8a8c3d70a608d3b985964597fd81"
+  },
+  "code_model": "small",
+  "compiler_sha256": "ba03e3ba03a73d9fef19ab3659140f94b43615ec1d587fe9befc9aed3bd5aa72",
+  "entry": "fixture_entry",
+  "images": [
+    {
+      "bytes": 865264,
+      "inspection": {
+        "dynamic_linking": false,
+        "entry": "0x400000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "machine": "x86_64",
+        "relocations": 0,
+        "segments": [
+          {
+            "address": "0x400000",
+            "alignment": 4096,
+            "file_size": 52563,
+            "flags": 5,
+            "memory_size": 52563,
+            "offset": 4096
+          },
+          {
+            "address": "0x40d000",
+            "alignment": 4096,
+            "file_size": 37196,
+            "flags": 4,
+            "memory_size": 37196,
+            "offset": 57344
+          },
+          {
+            "address": "0x417000",
+            "alignment": 4096,
+            "file_size": 17128,
+            "flags": 6,
+            "memory_size": 17128,
+            "offset": 98304
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "name": "user_a",
+      "sha256": "47c24d3c58ffc60f153b8ffacce912d99f4db1b21f99c1467587f2c3edef3af6"
+    },
+    {
+      "bytes": 865264,
+      "inspection": {
+        "dynamic_linking": false,
+        "entry": "0x400000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "machine": "x86_64",
+        "relocations": 0,
+        "segments": [
+          {
+            "address": "0x400000",
+            "alignment": 4096,
+            "file_size": 52563,
+            "flags": 5,
+            "memory_size": 52563,
+            "offset": 4096
+          },
+          {
+            "address": "0x40d000",
+            "alignment": 4096,
+            "file_size": 37196,
+            "flags": 4,
+            "memory_size": 37196,
+            "offset": 57344
+          },
+          {
+            "address": "0x417000",
+            "alignment": 4096,
+            "file_size": 17128,
+            "flags": 6,
+            "memory_size": 17128,
+            "offset": 98304
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "name": "user_b",
+      "sha256": "47c24d3c58ffc60f153b8ffacce912d99f4db1b21f99c1467587f2c3edef3af6"
+    },
+    {
+      "bytes": 865264,
+      "inspection": {
+        "dynamic_linking": false,
+        "entry": "0x400000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "machine": "x86_64",
+        "relocations": 0,
+        "segments": [
+          {
+            "address": "0x400000",
+            "alignment": 4096,
+            "file_size": 52563,
+            "flags": 5,
+            "memory_size": 52563,
+            "offset": 4096
+          },
+          {
+            "address": "0x40d000",
+            "alignment": 4096,
+            "file_size": 37196,
+            "flags": 4,
+            "memory_size": 37196,
+            "offset": 57344
+          },
+          {
+            "address": "0x417000",
+            "alignment": 4096,
+            "file_size": 17128,
+            "flags": 6,
+            "memory_size": 17128,
+            "offset": 98304
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "name": "service",
+      "sha256": "47c24d3c58ffc60f153b8ffacce912d99f4db1b21f99c1467587f2c3edef3af6"
+    }
+  ],
+  "linker_sha256": "62176e4ec186e3305ffd85f7821122e0372210718848915366f7349e447aab10",
+  "opt_level": 1,
+  "panic": "abort",
+  "red_zone": false,
+  "relocation": "static",
+  "required_cpu_features": 7,
+  "runtime_ids_sha256": "3ead590b9bcca7b902adc1ede57ef6fd2729cd37d2d96b2dc6b307b8295ed6f0",
+  "runtime_source_sha256": "5784eb3c91538851badae2660d36f7cb77ea7a1bbf110036bdf3f96629589aa4",
+  "scheduler": true,
+  "schema_version": 1,
+  "source_sha256": "2d42c38751a5edc890c33be2bcfc51d4fd84a448de40c4f88fa383ca7efa0df8",
+  "target": "x86_64-unknown-none",
+  "trusted_descriptors_sha256": "0c862e2da182e2b4c4bd13783dd2ad5bf8936c6202ab7b20183cf9d95f91c6f9",
+  "user_execution": true
+}

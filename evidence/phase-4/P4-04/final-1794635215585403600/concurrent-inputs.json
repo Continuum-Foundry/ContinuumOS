@@ -1,0 +1,24 @@
+{
+  "scope": "Other owner-authorized chat paused before fresh P4-04 gate. Preserved, not adopted as P4-04 payload.",
+  "chat": "01a1d889-aead-7f21-b98c-5db5037dc837",
+  "unrelated": [
+    "config/retention-policy-validation.json",
+    "tools/evidence_retention.py",
+    "tools/Test-EvidenceRetention.py",
+    "docs/05-delivery/evidence-retention.md",
+    "docs/05-delivery/validation-run-control.md",
+    "docs/05-delivery/validation.md",
+    "evidence/README.md"
+  ],
+  "mixed": [
+    "tools/story_validation.py",
+    "tools/Test-StoryValidation.py",
+    "AGENTS.md",
+    "docs/05-delivery/agent-handoff.md"
+  ],
+  "original_host_tooling": "work/retention-policy-2026-11-14/*.before",
+  "original_tool_unit_log": "build/p4-04-original-selection-tests.log",
+  "original_tool_unit_log_sha256": "8f39f780d43a15e74a7bf3970ae1ff9b469e8ee3ec3598e91b78545d024539ab",
+  "original_tool_result": "27 tests passed",
+  "fresh_working_tool_result": "28 tests passed; P4-04 remains legacy schema 1, no retention migration"
+}

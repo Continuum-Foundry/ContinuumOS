@@ -296,4 +296,17 @@ readiness remains separately gated.
 
 ## P4-03 device authority and lifetime subset
 
-P4-03 [passes local self-review](../../evidence/phase-4/P4-03/final-1794185451085334400/README.md) for bounded R03/R10/R14/R17/R18 device foundations: checked modern PCI resources and trusted incarnation-bound grants, actual split-queue/IRQ delivery and polling, prepaid DMA retention, observed reset completion and process-owned lease teardown. Two 107-test host suites, 104 actual CPL3 decisions, 16 used entries, 155 missing-record negatives, 17 separate metadata flavors and 14 selected VM launches pass. No IOMMU confinement, public driver ABI freeze, physical input, display, serial port transport, guest UI/reload or desktop efficiency target is accepted. Only the existing SDK subset remains frozen. P4-04 is next.
+P4-03 [passes local self-review](../../evidence/phase-4/P4-03/final-1794185451085334400/README.md) for bounded R03/R10/R14/R17/R18 device foundations: checked modern PCI resources and trusted incarnation-bound grants, actual split-queue/IRQ delivery and polling, prepaid DMA retention, observed reset completion and process-owned lease teardown. Two 107-test host suites, 104 actual CPL3 decisions, 16 used entries, 155 missing-record negatives, 17 separate metadata flavors and 14 selected VM launches pass. No IOMMU confinement, public driver ABI freeze, physical input, display, serial port transport, guest UI/reload or desktop efficiency target is accepted. Only the existing SDK subset remains frozen. P4-04 subsequently adds the bounded display backend below.
+
+## P4-04 checked display subset
+
+P4-04 [passes local self-review](../../evidence/phase-4/P4-04/final-1794635215585403600/README.md) for bounded R01/R08/R09/R10/R17
+display foundations and R03/R14/R18 preparation: independently bootable optical
+720p/1080p images, checked boot output reservations/format/pitch, supervisor-only
+RW/NX/UC scanout, trusted incarnation/generation authority, checked RGBX row copies,
+clipping and synchronous source release. Every QEMU-captured pixel matches an
+independent CPU reference; initial background, malformed metadata, padded guards,
+app mapping/capture denial and owner cleanup are covered. Selected boot, memory,
+exception, timer and process-boundary regressions pass. No compositor, selected
+guest toolkit, physical input, live reload, page-flip/VSync, latency or 256 MiB
+cold-idle target is accepted. The internal display operations remain unfrozen.

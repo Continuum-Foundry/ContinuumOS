@@ -124,3 +124,16 @@ export; BMP/WinForms transport and ownership copies remain separate costs.
 
 Primary 1080p/scale-1 trace-off elapsed frame p95 ranges from 0.789 to 18.642 ms across the twelve workload/effect cells (1,000 samples each). Real file-reload completed-build-to-RAM p95 is 129.527 ms at 720p / 128.116 ms at 1080p. Rich typing/search p95 (18.642 ms) and effects/motion p95 (17.424 ms) still exceed the 16.667 ms period; ten other primary trace-off cells are below it. All misses remain recorded; elapsed/RAM results do not accept renderer-thread CPU, guest input or whole-guest memory targets. Guest display, process isolation and whole-system resource accounting
 are later gates; no host Rust layout becomes a wire protocol or guest ABI.
+
+## P4-04 guest software output
+
+[Local acceptance](../../evidence/phase-4/P4-04/final-1794635215585403600/README.md) now verifies a bounded real guest output at
+1280x720 and 1920x1080. The temporary kernel mediator admits one checked framebuffer,
+clears its complete extent and copies checked RGBX rows from the trusted display
+role through a private source snapshot. Broker incarnation/generation checks deny
+apps and stale owners. Completion follows volatile conversion/copy plus MFENCE;
+the caller may immediately reuse its source. Captured output and independent CPU
+references agree exactly. This accepts neither atomic full-frame presentation nor
+VSync, scanout latency, toolkit/compositor integration or whole-desktop efficiency.
+P4-05 receives the [bounded backend](../05-delivery/phase-4/framebuffer-runbook.md);
+the hosted renderer's remaining guest gates are unchanged.

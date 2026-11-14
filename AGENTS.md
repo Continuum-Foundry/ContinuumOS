@@ -38,7 +38,9 @@ bounds remain. This is not an original-limit pass. P4-02 passes local runtime-ad
 reclaiming private heaps and bounded teardown/restarts accept no rendering or reload.
 P4-03 passes local bounded device-authority/IRQ/DMA self-review; see
 `evidence/phase-4/P4-03/final-1794185451085334400/README.md`. Its temporary kernel mediator accepts no input/display/transport workflow or IOMMU confinement.
-P4-04 is next; P4-04 through P4-19 remain Not started. Host codecs/plans accept no guest desktop.
+P4-04 passes local checked software-scanout self-review; see
+`evidence/phase-4/P4-04/final-1794635215585403600/README.md`. Exact 720p/1080p ISO captures pass; synchronous copy accepts no compositor, input, reload, VSync or desktop efficiency result.
+P4-05 is next; P4-05 through P4-19 remain Not started. Host codecs/plans accept no guest desktop.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other

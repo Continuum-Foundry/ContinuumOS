@@ -1895,3 +1895,47 @@ remain unchanged afterward. No force push, other destination or standing bypass
 is granted. Geographic containment remains unverified; this administrative
 exception is not legal clearance or a finding of U.S.-only handling and does not
 waive applicable law.
+
+## One-time owner exemption — P4-05 surfaces and compositor, 2026-11-14
+
+After the completed local P4-05 acceptance and scope discussion, the owner
+instructed: "I give you exemption to make PR". This authorizes one push and one
+PR for the exact reviewed 149-file staged payload represented before this record
+by Git tree `96aee6594974611280792eedc22ee08b01350232`, based on
+`c0f6e0b246d576431ac45c2f6466cd08c142446c`, plus this authorization record.
+
+Payload: bounded copied mailbox transport with trusted caller identity; private
+surface leases and user-mode single-output software composition; two independent
+client fixtures, pixel oracles, selected validation tools and contracts; current
+story, runbook, requirements, proposed ADR and handoff; and the compact reviewed
+111-file bundle at `evidence/phase-4/P4-05/final-1794685886700026500/`.
+Bounded project-workspace paths in test context/QMP metadata are included as
+reviewed; full environment dumps and unrelated personal paths are excluded.
+Implementation inputs remain those accepted by 22 selected VM launches and
+20 separate metadata flavors. Final host audits rerun for this authorization-only
+addition; guest execution is not repeated for prose or branch changes.
+
+Destination: existing public GitHub repository
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/p4-05-surface-compositor`, followed by one PR against `main` titled
+"Complete P4-05 copied surface leases and user-mode composition".
+Prepared PR body SHA-256: `2c9e48f1c627a0011d2ba57e5dada698e9a463e7be211768bb965e23637ed246`.
+This includes that description and PR metadata. Visibility is unchanged.
+
+Excluded: separate unstaged input-related work (including overlapping lib.rs
+edits), full generated runs/logs/source archives, local evidence capsules,
+binaries, ISOs, firmware state, caches, credentials, certificates and private
+keys. Historical evidence remains unchanged. No new hosted workflow, physical
+input, toolkit/font selection, reload, VSync, desktop-efficiency or M4-exit claim
+is introduced. No local evidence deletion is authorized or performed.
+The ordinary commit retains and must pass the installed pre-commit check.
+
+The push exemption is exhausted by the first successful push containing this
+record; PR authorization is exhausted by creation of that one PR. For that push
+only, command-local `core.hooksPath=work/p4-05-pr/hooks` may select a directory
+containing an exact copy of the installed pre-commit hook and no pre-push hook.
+The installed `.githooks/pre-push` and configured `.githooks` path remain afterward.
+No force push, merge, release, other destination, new remote build, repository
+setting change or standing exemption is granted. Geographic containment remains
+unverified; this administrative exception is not legal clearance or a finding of
+U.S.-only handling and does not waive applicable law.

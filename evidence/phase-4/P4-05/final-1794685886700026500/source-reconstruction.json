@@ -1,0 +1,161 @@
+{
+  "base_commit": "c0f6e0b246d576431ac45c2f6466cd08c142446c",
+  "patch": "work/p4-05-tested-implementation.patch",
+  "patch_sha256": "7be6cae221282e1a2ad1250bc9270d9f18d7132baa14b832697bf45dee861fc9",
+  "overrides": [
+    {
+      "path": "config/p4-05-validation.json",
+      "sha256": "e5ed3d502db41be22f43070f5ba915737c2da45c2c14c2630095c353354a47c9"
+    },
+    {
+      "path": "experiments/user-images/desktop.rs",
+      "sha256": "06cc1f7443b668b2a879b392576b0ea4e6a862a6a18fd9dedda1a15f31576d06"
+    },
+    {
+      "path": "experiments/user-images/surface.rs",
+      "sha256": "77b0a40d4c964a01dbf66bcf3af2cee7686a6e5186787ed3d40a0f55e1305862"
+    },
+    {
+      "path": "experiments/user-images/surface_client.rs",
+      "sha256": "b608865173e5242fd87ea90dab93ea9dff69a7336e145f410956fac6b3fdf18e"
+    },
+    {
+      "path": "experiments/user-images/surface_runtime.rs",
+      "sha256": "e1768d55287e015698a0da59f584fac41fb77ad1150a2b34ccd7004723aa7583"
+    },
+    {
+      "path": "kernel/Cargo.toml",
+      "sha256": "8c3f7b76648126f1f0a9628ff29751eb23c4da95e816bf35dcc0f7a7b1579900"
+    },
+    {
+      "path": "kernel/src/desktop_guest.rs",
+      "sha256": "785ae846bd334ef5f949768216ad72258127b0694889a7af7359dd2a1a0ddbe5"
+    },
+    {
+      "path": "kernel/src/lib.rs",
+      "sha256": "520d4700c0815302f15e45d8e069fe3210c1c4b915a2844750a9f7dcbaeffef2"
+    },
+    {
+      "path": "kernel/src/main.rs",
+      "sha256": "c6c19d4d11f1c79fac97f9c094c9c668fee98058b407b217b667411c54216b4d"
+    },
+    {
+      "path": "kernel/src/surface_guest.rs",
+      "sha256": "562b3dd2a956f4a2e4d834256c15802410fa05f759eedbbffb6216318dd3e679"
+    },
+    {
+      "path": "kernel/src/surface_mailbox.rs",
+      "sha256": "aa0901e503442ba588642fd0b9f3423c6967968ce570cc6e41fa4d5f2d8cd93a"
+    },
+    {
+      "path": "kernel/src/user_fixture.rs",
+      "sha256": "5753638671adcff54a9d9669e37400382625de5e3b0dfc1576fdcbf7b27de55c"
+    },
+    {
+      "path": "tools/Check-P4-05Flavors.ps1",
+      "sha256": "b1fe1a5b25d3ad69dd67db966c1accad15b2aba291b2d1f06da72c84cad68cae"
+    },
+    {
+      "path": "tools/Review-P4-02.py",
+      "sha256": "3345bba19eecc212769baf9c08feaa445a20bec08ad41f7c8d52a02b5b6bea68"
+    },
+    {
+      "path": "tools/Review-P4-05.py",
+      "sha256": "e5e25ccac9ade01ef16139a0c43c4cf20ca8628b96aa0dc7bcdc6ef3ece1bacf"
+    },
+    {
+      "path": "tools/Test-P4-05.ps1",
+      "sha256": "0c96bd7e146d59acd4a2634dce41136ea88a1589c3f943a48ea8275d43c3ef7b"
+    },
+    {
+      "path": "tools/Test-P4-05.py",
+      "sha256": "6551a8c90ad23bdb9a7a5840d6d2463515856eaeeffa81b7765fd0352d639516"
+    },
+    {
+      "path": "tools/p4_surface_acceptance.py",
+      "sha256": "b6ab6f70a35518814395fdafc26d536069c1dc7ff058c1e7cc9e5e4b4dfe9708"
+    },
+    {
+      "path": "tools/story_validation.py",
+      "sha256": "51c498619433b7722ba3088f8f9f70a0462fffaa6b20edb035439462b1708780"
+    },
+    {
+      "path": "tools/xtask/src/m1/build.rs",
+      "sha256": "1953993ede75ed4040b3ad366cab285e9d0453c518fa87af967466060d360979"
+    },
+    {
+      "path": "tools/xtask/src/m1/cases.rs",
+      "sha256": "def0bfdf7ab2900e5d2c50082db35b997183605f1a25476417278efdeaf0905b"
+    },
+    {
+      "path": "tools/xtask/src/m1/launch.rs",
+      "sha256": "fe9cb082a5d022eb0664563d2c1fa1a624b7e2096f1edfec1810a232a0b4971a"
+    },
+    {
+      "path": "tools/xtask/src/m1/observe.rs",
+      "sha256": "441f31ed1b62e746a40db2b5919033e27a6494ed956dcab948f65b8063a45f5e"
+    },
+    {
+      "path": "tools/xtask/src/m1/package.rs",
+      "sha256": "2c25d041f391e5cbd80941a02309da2dd9e9604fbf57919a686543ee645eeffd"
+    },
+    {
+      "path": "tools/xtask/src/m1/records.rs",
+      "sha256": "0c5ae2d400c5290504c97ec69e892d7eef23d70c61cfe34447305733131c4913"
+    },
+    {
+      "path": "tools/xtask/src/m1/user_images.rs",
+      "sha256": "d04d975949b891ed03b40ddd8953698c2b9f549d9ab401abb48b339fbd41e83d"
+    },
+    {
+      "path": "tools/xtask/src/main.rs",
+      "sha256": "a88d8cc893e1c056b7bfd62ac6127992a757b8d6b14a52fc28f5d0002f9888a2"
+    },
+    {
+      "path": "audit/contract-validation-results.json",
+      "sha256": "7b06deed714812714d377fdecd3b8d605bcb033d0efb90b5f36d6d732172ff17",
+      "reason": "Unchanged baseline file with tested working CRLF bytes differing from the LF Git blob; retain exact override for full source reconstruction."
+    },
+    {
+      "path": "docs/assets/continuumos-roadmap.svg",
+      "sha256": "258c40bcd99f96250ad7176520f89b432ed49e434a05066af8d0459eee96c3c3",
+      "reason": "Unchanged baseline file with tested working CRLF bytes differing from the LF Git blob; retain exact override for full source reconstruction."
+    },
+    {
+      "path": "fixtures/m2/slint-v1/README.md",
+      "sha256": "959abaf6abf9740118026d519ba8682c223f4f389cc1b9d21a2e608273b77b38",
+      "reason": "Unchanged baseline file with tested working CRLF bytes differing from the LF Git blob; retain exact override for full source reconstruction."
+    },
+    {
+      "path": "fixtures/m2/slint-v1/goldens.json",
+      "sha256": "a1ba206ccaa39b9f37b27f61dd128436131267d099b5068fff15a9fb2125db7a",
+      "reason": "Unchanged baseline file with tested working CRLF bytes differing from the LF Git blob; retain exact override for full source reconstruction."
+    },
+    {
+      "path": "kernel/README.md",
+      "sha256": "756885739782bc03c6fbbebe949b0842c3c32c8373c7afc889e5c09dda03152c",
+      "reason": "Unchanged baseline file with tested working CRLF bytes differing from the LF Git blob; retain exact override for full source reconstruction."
+    },
+    {
+      "path": "tools/Preview-Slint.ps1",
+      "sha256": "2f0e12a5eee040fb6b3282d694eb0a3bca2dcb10ec77424da2bcf6fb0c2af2ec",
+      "reason": "Unchanged baseline file with tested working CRLF bytes differing from the LF Git blob; retain exact override for full source reconstruction."
+    },
+    {
+      "path": "tools/Review-Slint.py",
+      "sha256": "792ea0617a3f6181c6f07b23cdbe9f76ee9b57ec6689a8c8337ce0b50785b729",
+      "reason": "Unchanged baseline file with tested working CRLF bytes differing from the LF Git blob; retain exact override for full source reconstruction."
+    },
+    {
+      "path": "tools/Review-SlintInputs.py",
+      "sha256": "34adc9d96764536ae8b9df567c46751228aa6be48278f0e7bc35bff9a9a1229d",
+      "reason": "Unchanged baseline file with tested working CRLF bytes differing from the LF Git blob; retain exact override for full source reconstruction."
+    },
+    {
+      "path": "tools/Test-P2-06.ps1",
+      "sha256": "599f6273775d21ec558dd34c0aa85bf5cea86ec51104f9e8fab616c9b894bf90",
+      "reason": "Unchanged baseline file with tested working CRLF bytes differing from the LF Git blob; retain exact override for full source reconstruction."
+    }
+  ],
+  "notes": "Apply patch to base, then restore exact changed/new blobs by original relative paths; source-byte overrides preserve tested CRLF/LF exactly. Final prose/evidence is checked separately. Baseline LF/CRLF differences listed by staging proof also have exact byte overrides; this capsule reconstructs every tested implementation hash, not only dirty code."
+}

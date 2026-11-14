@@ -119,3 +119,13 @@ fragmentation and large coverage fall back fully. Text-layout keys include exact
 text and every shaping parameter within one immutable font engine; eviction drops
 owned values. Hidden/minimized native surfaces suspend animation. Internal Rust
 Frame/Damage/cache values are not a broker protocol or frozen guest ABI.
+
+## P4-05 copied guest buffer subset
+
+The [accepted experimental surface implementation](../../evidence/phase-4/P4-05/final-1794685886700026500/README.md) uses
+private compositor-owned copies, incarnation/session-bound leases and explicit
+wire fields, with RGBA8 premultiplied input and full-redraw exposure repair.
+Frame opportunities and lease release remain distinct. Kernel display-grant
+incarnations seed non-reused ID ranges across compositor starts. This accepts
+neither SceneCommit, zero-copy, toolkit selection, safe code replacement nor a new
+ABI freeze. See the [runbook](../05-delivery/phase-4/surfaces-runbook.md).

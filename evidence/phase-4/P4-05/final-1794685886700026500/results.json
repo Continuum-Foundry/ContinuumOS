@@ -1,0 +1,514 @@
+{
+  "status": "passed",
+  "scope": "selected P4-05 story acceptance; not M4 exit",
+  "journal": "build/m4/P4-05/acceptance-1794685886700026500/acceptance.json",
+  "journal_sha256": "82c7801a9597ad82d3f5f90096b5a34e26eed6ec69272dea3a9df30d2a5ea430",
+  "source_commit": "c0f6e0b246d576431ac45c2f6466cd08c142446c",
+  "checks": [
+    {
+      "id": "kernel-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "deadline_seconds": 180,
+      "elapsed_ms": 3609,
+      "resumed": true
+    },
+    {
+      "id": "surface-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib",
+        "--features",
+        "surface-test"
+      ],
+      "deadline_seconds": 180,
+      "elapsed_ms": 3344,
+      "resumed": true
+    },
+    {
+      "id": "surface-oracle-tests",
+      "status": "fresh-pass",
+      "arguments": [
+        "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-P4-05.py"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_ms": 391,
+      "resumed": true
+    },
+    {
+      "id": "xtask-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--bin",
+        "xtask",
+        "m1::"
+      ],
+      "deadline_seconds": 300,
+      "elapsed_ms": 18516,
+      "resumed": true
+    },
+    {
+      "id": "runner-tests",
+      "status": "fresh-pass",
+      "arguments": [
+        "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-StoryValidation.py"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_ms": 1531,
+      "resumed": true
+    },
+    {
+      "id": "retention-tests",
+      "status": "fresh-pass",
+      "arguments": [
+        "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-EvidenceRetention.py"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_ms": 1203,
+      "resumed": true
+    },
+    {
+      "id": "prerequisites",
+      "status": "fresh-pass",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ],
+      "deadline_seconds": 1800,
+      "elapsed_ms": 211672,
+      "resumed": false
+    },
+    {
+      "id": "surface-720",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "surface-720"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 79656,
+      "resumed": true
+    },
+    {
+      "id": "surface-flavors",
+      "status": "fresh-pass",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Check-P4-05Flavors.ps1",
+        "-Descriptors",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-720-1794685715431658600-83488",
+        "-Output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m4\\P4-05\\acceptance-1794685886700026500\\flavors"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 23468,
+      "resumed": false
+    },
+    {
+      "id": "surface-1080",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "surface-1080"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 65515,
+      "resumed": false
+    },
+    {
+      "id": "surface-move",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "surface-move"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 62735,
+      "resumed": false
+    },
+    {
+      "id": "surface-hide",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "surface-hide"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 61844,
+      "resumed": false
+    },
+    {
+      "id": "surface-remove",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "surface-remove"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 63110,
+      "resumed": false
+    },
+    {
+      "id": "surface-denied",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "surface-denied"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 63469,
+      "resumed": false
+    },
+    {
+      "id": "surface-death",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "surface-death"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 62829,
+      "resumed": false
+    },
+    {
+      "id": "surface-failure",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "surface-failure"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 61062,
+      "resumed": false
+    },
+    {
+      "id": "surface-stall",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "surface-stall"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 65265,
+      "resumed": false
+    },
+    {
+      "id": "ordinary",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 57485,
+      "resumed": false
+    },
+    {
+      "id": "display-720",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "display-720"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 58391,
+      "resumed": false
+    },
+    {
+      "id": "memory",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 41234,
+      "resumed": false
+    },
+    {
+      "id": "boundary",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 128391,
+      "resumed": false
+    },
+    {
+      "id": "scheduler",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "scheduler"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 98797,
+      "resumed": false
+    },
+    {
+      "id": "capabilities",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "capabilities"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 49437,
+      "resumed": false
+    },
+    {
+      "id": "channels",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "channels"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 52407,
+      "resumed": false
+    },
+    {
+      "id": "sdk-runtime",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-runtime"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 61969,
+      "resumed": false
+    },
+    {
+      "id": "docs",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-docs.cjs"
+      ],
+      "deadline_seconds": 120,
+      "elapsed_ms": 547,
+      "resumed": false
+    },
+    {
+      "id": "governance",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-governance.cjs"
+      ],
+      "deadline_seconds": 120,
+      "elapsed_ms": 12984,
+      "resumed": false
+    },
+    {
+      "id": "hygiene",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-repository-hygiene.cjs"
+      ],
+      "deadline_seconds": 1800,
+      "elapsed_ms": 1438,
+      "resumed": false
+    }
+  ],
+  "plan": {
+    "scope": "story",
+    "execute": [
+      "kernel-host",
+      "surface-host",
+      "surface-oracle-tests",
+      "xtask-host",
+      "runner-tests",
+      "retention-tests",
+      "prerequisites",
+      "surface-720",
+      "surface-flavors",
+      "surface-1080",
+      "surface-move",
+      "surface-hide",
+      "surface-remove",
+      "surface-denied",
+      "surface-death",
+      "surface-failure",
+      "surface-stall",
+      "ordinary",
+      "display-720",
+      "memory",
+      "boundary",
+      "scheduler",
+      "capabilities",
+      "channels",
+      "sdk-runtime",
+      "docs",
+      "governance",
+      "hygiene"
+    ],
+    "covered_by": {},
+    "command_groups": 28,
+    "vm_launches": 22,
+    "vm_launches_by_check": {
+      "kernel-host": 0,
+      "surface-host": 0,
+      "surface-oracle-tests": 0,
+      "xtask-host": 0,
+      "runner-tests": 0,
+      "retention-tests": 0,
+      "prerequisites": 0,
+      "surface-720": 1,
+      "surface-flavors": 0,
+      "surface-1080": 1,
+      "surface-move": 1,
+      "surface-hide": 1,
+      "surface-remove": 1,
+      "surface-denied": 1,
+      "surface-death": 1,
+      "surface-failure": 1,
+      "surface-stall": 1,
+      "ordinary": 1,
+      "display-720": 1,
+      "memory": 1,
+      "boundary": 4,
+      "scheduler": 3,
+      "capabilities": 1,
+      "channels": 1,
+      "sdk-runtime": 1,
+      "docs": 0,
+      "governance": 0,
+      "hygiene": 0
+    },
+    "unknown_launch_counts": [],
+    "full_suites": [],
+    "separate_metadata_builds": 20,
+    "execution_budget": {
+      "max_vm_launches": 22,
+      "allow_full_suites": false
+    },
+    "retention": {
+      "working_set_budget_bytes": 4294967296,
+      "capsule_budget_bytes": 67108864,
+      "cleanup_after": "Required after PR merge and verified evidence; retain documented release/debug/review/resume exceptions. Owner defers all deletion.",
+      "required_evidence": "Complete selected command stdout/stderr, guest serial/QMP, pixel references/captures, reviews, identities, source reconstruction and meaningful failures.",
+      "source_reconstruction": "main c0f6e0b plus exact staged/unstaged dirty patches and necessary new files; hashes identify actual tested bytes."
+    }
+  },
+  "working_storage": {
+    "files": 3079,
+    "bytes": 2775138393,
+    "budget_bytes": 4294967296,
+    "scope": "journal and referenced check artifacts; shared caches/toolchains excluded"
+  },
+  "resumed_from": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m4\\P4-05\\probe-1794685657643504100\\acceptance.json"
+}

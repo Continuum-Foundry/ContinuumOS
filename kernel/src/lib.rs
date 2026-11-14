@@ -455,3 +455,8 @@ pub fn identity(args: &Text<1024>) -> Result<(&str, &str)> {
 
 #[cfg(test)]
 mod tests;
+
+#[cfg(test)]
+#[path = "../../experiments/user-images/surface.rs"]
+mod surface;
+pub mod surface_mailbox;

@@ -42,3 +42,6 @@ sdk-runtime-test = ["sdk-test"]
 stress-test = ["sdk-test"]
 stress-trace = ["stress-test"]
 stress-supervisor-test = ["sdk-test"]
+
+surface-runtime = ["desktop-runtime"]
+surface-test = ["surface-runtime", "desktop-test"]

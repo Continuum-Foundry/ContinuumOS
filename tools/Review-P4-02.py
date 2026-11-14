@@ -167,7 +167,7 @@ def elf(path):
     need(loads > 0, 'empty ELF')
     return {'sha256':digest(path), 'load_pages':pages, 'load_segments':loads}
 
-def review(directory, test, verify_source=True):
+def review(directory, test, verify_source=True, expected_features=None):
     declared=profile()
     directory = Path(directory)
     prefix = 'desktop-runtime' if test else 'cold-boot-a'
@@ -180,7 +180,8 @@ def review(directory, test, verify_source=True):
     inputs = read(directory/'build-inputs.json')
     build_command=read(directory/'kernel-build.command.json')['arguments']
     need(inputs['profile']==declared['kernel_profile'] and build_command[build_command.index('--profile')+1]==declared['kernel_profile'],'kernel optimization profile')
-    need(build_command[build_command.index('--features')+1]==('desktop-test' if test else 'desktop-runtime'),'actual kernel features')
+    need(expected_features is None or (not test and expected_features=='surface-runtime'),'unsupported explicit runtime adapter')
+    need(build_command[build_command.index('--features')+1]==(expected_features or ('desktop-test' if test else 'desktop-runtime')),'actual kernel features')
     need(result['status'] == case['status'] == 'passed' and case['cleanup_reaped'] and not case['timed_out'], 'guest runner result')
     need(case['deadline_ms'] == 30000 and manifest['flavor'] == ('desktop-test' if test else 'normal'), 'flavor/deadline')
     need(case['emulator_test_exit'] == (33 if test else None), 'exit behavior')

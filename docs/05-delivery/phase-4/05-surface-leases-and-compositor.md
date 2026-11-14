@@ -1,6 +1,6 @@
 # P4-05 — Broker surface leases and compose guest windows
 
-Issue type: Story. Epic: P4. Status: Not started. Owner: Graphics/Services.
+Issue type: Story. Epic: P4. Status: Done. Owner: Graphics/Services.
 Depends on: P4-04. Backlog: B16 compositor.
 Requirements: R08/R09/R10/R14/R17. Test families: T03/T05/T06/T09/T11.
 Labels: `phase-4`, `surfaces`, `compositor`.
@@ -27,15 +27,15 @@ pixels without accessing another window or modifying buffers still in use.
 
 ## Acceptance criteria
 
-- [ ] Two independently built guest clients compose overlapping opaque/translucent
+- [x] Two independently built guest clients compose overlapping opaque/translucent
   surfaces with reference-correct pixels and actual display captures.
-- [ ] Unauthorized/wrong-session/stale-generation commits, malformed stride/damage
+- [x] Unauthorized/wrong-session/stale-generation commits, malformed stride/damage
   and over-budget acquisitions deny without changing the last valid frame.
-- [ ] In-use buffer write/reuse, duplicate release and owner death have enforced,
+- [x] In-use buffer write/reuse, duplicate release and owner death have enforced,
   bounded outcomes; exact reference/page/lease inventories settle after teardown.
-- [ ] Moving, hiding and removing windows repairs exposed regions without stale
+- [x] Moving, hiding and removing windows repairs exposed regions without stale
   private pixels or alpha corruption; submission and release ordering are explicit.
-- [ ] Independent codec/authority oracles and affected memory/IPC/runtime regressions
+- [x] Independent codec/authority oracles and affected memory/IPC/runtime regressions
   pass; no native Rust struct crosses the boundary.
 
 ## Tests and evidence
@@ -50,3 +50,12 @@ No mandatory SceneCommit implementation, zero-copy promise or safe compositor co
 replacement. P4-06 receives surface transforms and P4-07 receives a buffer API.
 Read [surface contract](../../06-contracts/ui-and-scene-protocol.md).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+## Accepted implementation and review
+
+P4-05 passes [local Codex self-review](../../../evidence/phase-4/P4-05/final-1794685886700026500/README.md) for the bounded copied
+lease and user-mode full-redraw subset. Use the [surface runbook](surfaces-runbook.md).
+Nine optical cases, 116-test ordinary/surface host suites, fresh prerequisites,
+20 separate metadata flavors and the 22-launch selected gate pass with original
+limits/counts and exact settlements. Only the existing SDK subset stays frozen;
+P4-06 is next. No toolkit/input/reload or desktop efficiency result is accepted.

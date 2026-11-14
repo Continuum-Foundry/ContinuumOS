@@ -310,3 +310,13 @@ app mapping/capture denial and owner cleanup are covered. Selected boot, memory,
 exception, timer and process-boundary regressions pass. No compositor, selected
 guest toolkit, physical input, live reload, page-flip/VSync, latency or 256 MiB
 cold-idle target is accepted. The internal display operations remain unfrozen.
+
+## P4-05 copied surface/composition subset
+
+P4-05 [passes local self-review](../../evidence/phase-4/P4-05/final-1794685886700026500/README.md) for bounded R08/R10/R14/R17
+and R09 instrumentation: independently linked isolated clients, explicit copied
+leases and current authority, actual 720p/1080p premultiplied overlap/exposure
+captures, bounded pressure/death/failure handling and exact resource settlement.
+Nine optical cases, 22 selected VM launches and 20 metadata flavors pass. No
+physical input, selected guest toolkit, reload, VSync or efficiency-target result
+is accepted; only the prior SDK subset remains frozen.

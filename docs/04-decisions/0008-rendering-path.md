@@ -100,3 +100,10 @@ and synchronous row copies with source release, without GPU or firmware calls.
 This supports continuing the software path into P4-05 composition. Guest toolkit,
 damage/pacing, input, reload and efficiency gates remain open; this broader ADR
 remains **Proposed**. Screenshots establish displayed bytes, not VSync or latency.
+
+## P4-05 copied user-mode composition — 2026-11-14
+
+[Local acceptance](../../evidence/phase-4/P4-05/final-1794685886700026500/README.md) adds independently built guest clients,
+private copied leases, reference-correct overlap/exposure and bounded teardown.
+No renderer/thread CPU or pacing target is accepted. The broader ADR remains
+**Proposed** pending guest toolkit, input, reload and efficiency gates.

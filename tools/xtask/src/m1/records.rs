@@ -995,7 +995,12 @@ fn parse_chunk(
                     return Err("Unexpected device record".into());
                 }
             }
-            "m1.desktop_cap_inventory"
+            "m1.surface_frame"
+            | "m1.surface_request"
+            | "m1.surface_response"
+            | "m1.surface_denied"
+            | "m1.surface_transport_dead"
+            | "m1.desktop_cap_inventory"
             | "m1.desktop_bound"
             | "m1.desktop_prepare"
             | "m1.desktop_prepare_phase"

@@ -1,0 +1,1158 @@
+{
+  "status": "passed",
+  "journal": "build\\m4\\P4-05\\acceptance-1794685886700026500\\acceptance.json",
+  "cases": [
+    {
+      "label": "surface-720",
+      "status": "passed",
+      "raw_serial": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-720-1794685715431658600-83488\\surface-720-run\\serial.log",
+      "clients": [
+        {
+          "client": 0,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 3
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 1
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        },
+        {
+          "client": 1,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 5
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 2
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 4
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "interpretation": "Client 1 separately creates a second large surface, acquires two full buffers and receives a third-byte-budget denial, distinct from the per-surface three-slot denial. Extent constants and compiled input hashes are bound in the original guest journal."
+    },
+    {
+      "label": "surface-1080",
+      "status": "passed",
+      "raw_serial": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-1080-1794686165476079300-94676\\surface-1080-run\\serial.log",
+      "clients": [
+        {
+          "client": 0,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 3
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 1
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        },
+        {
+          "client": 1,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 5
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 2
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 4
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "interpretation": "Client 1 separately creates a second large surface, acquires two full buffers and receives a third-byte-budget denial, distinct from the per-surface three-slot denial. Extent constants and compiled input hashes are bound in the original guest journal."
+    },
+    {
+      "label": "surface-move",
+      "status": "passed",
+      "raw_serial": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-move-1794686234497716600-92216\\surface-move-run\\serial.log",
+      "clients": [
+        {
+          "client": 0,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 3
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 1
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        },
+        {
+          "client": 1,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 5
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 2
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 4
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "interpretation": "Client 1 separately creates a second large surface, acquires two full buffers and receives a third-byte-budget denial, distinct from the per-surface three-slot denial. Extent constants and compiled input hashes are bound in the original guest journal."
+    },
+    {
+      "label": "surface-hide",
+      "status": "passed",
+      "raw_serial": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-hide-1794686301026566700-88880\\surface-hide-run\\serial.log",
+      "clients": [
+        {
+          "client": 0,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 3
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 1
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        },
+        {
+          "client": 1,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 5
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 2
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 4
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "interpretation": "Client 1 separately creates a second large surface, acquires two full buffers and receives a third-byte-budget denial, distinct from the per-surface three-slot denial. Extent constants and compiled input hashes are bound in the original guest journal."
+    },
+    {
+      "label": "surface-remove",
+      "status": "passed",
+      "raw_serial": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-remove-1794686366879878500-87024\\surface-remove-run\\serial.log",
+      "clients": [
+        {
+          "client": 0,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 3
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 1
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        },
+        {
+          "client": 1,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 5
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 2
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 4
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "interpretation": "Client 1 separately creates a second large surface, acquires two full buffers and receives a third-byte-budget denial, distinct from the per-surface three-slot denial. Extent constants and compiled input hashes are bound in the original guest journal."
+    },
+    {
+      "label": "surface-denied",
+      "status": "passed",
+      "raw_serial": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-denied-1794686434551157500-101100\\surface-denied-run\\serial.log",
+      "clients": [
+        {
+          "client": 0,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 3
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 1
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        },
+        {
+          "client": 1,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 5
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 2
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 4
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "interpretation": "Client 1 separately creates a second large surface, acquires two full buffers and receives a third-byte-budget denial, distinct from the per-surface three-slot denial. Extent constants and compiled input hashes are bound in the original guest journal."
+    },
+    {
+      "label": "surface-death",
+      "status": "passed",
+      "raw_serial": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-death-1794686502100115700-102104\\surface-death-run\\serial.log",
+      "clients": [
+        {
+          "client": 0,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 3
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 1
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        },
+        {
+          "client": 1,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 5
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 2
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 4
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "interpretation": "Client 1 separately creates a second large surface, acquires two full buffers and receives a third-byte-budget denial, distinct from the per-surface three-slot denial. Extent constants and compiled input hashes are bound in the original guest journal."
+    },
+    {
+      "label": "surface-failure",
+      "status": "passed",
+      "raw_serial": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-failure-1794686569174329800-96452\\surface-failure-run\\serial.log",
+      "clients": [
+        {
+          "client": 0,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 3
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 1
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        },
+        {
+          "client": 1,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 5
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 2
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 4
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "interpretation": "Client 1 separately creates a second large surface, acquires two full buffers and receives a third-byte-budget denial, distinct from the per-surface three-slot denial. Extent constants and compiled input hashes are bound in the original guest journal."
+    },
+    {
+      "label": "surface-stall",
+      "status": "passed",
+      "raw_serial": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-stall-1794686635374909800-93916\\surface-stall-run\\serial.log",
+      "clients": [
+        {
+          "client": 0,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 3
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 1
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        },
+        {
+          "client": 1,
+          "verified_exact_counts": [
+            {
+              "kind": 1,
+              "status": 0,
+              "count": 2
+            },
+            {
+              "kind": 2,
+              "status": 0,
+              "count": 5
+            },
+            {
+              "kind": 2,
+              "status": 5,
+              "count": 2
+            },
+            {
+              "kind": 3,
+              "status": 0,
+              "count": 20
+            },
+            {
+              "kind": 3,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 0,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 3,
+              "count": 1
+            },
+            {
+              "kind": 4,
+              "status": 4,
+              "count": 1
+            },
+            {
+              "kind": 6,
+              "status": 0,
+              "count": 4
+            },
+            {
+              "kind": 6,
+              "status": 3,
+              "count": 2
+            },
+            {
+              "kind": 6,
+              "status": 4,
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "interpretation": "Client 1 separately creates a second large surface, acquires two full buffers and receives a third-byte-budget denial, distinct from the per-surface three-slot denial. Extent constants and compiled input hashes are bound in the original guest journal."
+    }
+  ]
+}

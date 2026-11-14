@@ -1,0 +1,3150 @@
+{
+  "acceptance": "build/m4/P4-05/acceptance-1794685886700026500/acceptance.json",
+  "failure_disposition": "Original failed and interrupted journals plus relevant complete guest traces and diagnoses are retained. The failed ELF-size and deadline runs are never relabeled passed. No deletion is authorized; exact original binary payload remains local for review/resume.",
+  "files": [
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/kernel-host.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "kernel-host"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/kernel-host.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "kernel-host"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/kernel-host-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "kernel-host"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/surface-host.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-host"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/surface-host.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-host"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/surface-host-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-host"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/surface-oracle-tests.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-oracle-tests"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/surface-oracle-tests.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-oracle-tests"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/surface-oracle-tests-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-oracle-tests"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/xtask-host.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "xtask-host"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/xtask-host.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "xtask-host"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/xtask-host-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "xtask-host"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/runner-tests.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "runner-tests"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/runner-tests.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "runner-tests"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/runner-tests-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "runner-tests"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/retention-tests.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "retention-tests"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/retention-tests.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "retention-tests"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/retention-tests-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "retention-tests"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/prerequisites.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "prerequisites"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/prerequisites.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "prerequisites"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/prerequisites-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "prerequisites"
+      ]
+    },
+    {
+      "source": "build/m2/P2-01/prerequisites-1794685917346/prerequisites.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "prerequisites"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/surface-720.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/surface-720.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/surface-720-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-720"
+      ]
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-720"
+      ]
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-720"
+      ]
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-720-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-720"
+      ]
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-720-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-720"
+      ]
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-720-run/display-blank.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-720-run/display.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-720-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-720"
+      ]
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-720-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-720-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-720-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-720-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-reference.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/surface-review.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-720"
+      ]
+    },
+    {
+      "source": "build/m1/surface-720-1794685715431658600-83488/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-720"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-flavors.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-flavors"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-flavors.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-flavors"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-flavors-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-flavors"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/flavors/flavors.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-flavors"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-1080.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-1080"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-1080.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-1080"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-1080-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-1080"
+      ]
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-1080"
+      ]
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-1080"
+      ]
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-1080-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-1080"
+      ]
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-1080-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-1080"
+      ]
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-1080-run/display-blank.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-1080"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-1080-run/display.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-1080"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-1080-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-1080"
+      ]
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-1080-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-1080"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-1080-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-1080"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-1080-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-1080"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-1080-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-1080"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-reference.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-1080"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/surface-review.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-1080"
+      ]
+    },
+    {
+      "source": "build/m1/surface-1080-1794686165476079300-94676/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-1080"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-move.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-move"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-move.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-move"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-move-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-move"
+      ]
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-move"
+      ]
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-move"
+      ]
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-move-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-move"
+      ]
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-move-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-move"
+      ]
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-move-run/display-blank.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-move"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-move-run/display.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-move"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-move-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-move"
+      ]
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-move-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-move"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-move-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-move"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-move-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-move"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-move-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-move"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-reference.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-move"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/surface-review.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-move"
+      ]
+    },
+    {
+      "source": "build/m1/surface-move-1794686234497716600-92216/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-move"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-hide.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-hide"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-hide.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-hide"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-hide-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-hide"
+      ]
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-hide"
+      ]
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-hide"
+      ]
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-hide-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-hide"
+      ]
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-hide-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-hide"
+      ]
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-hide-run/display-blank.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-hide"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-hide-run/display.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-hide"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-hide-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-hide"
+      ]
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-hide-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-hide"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-hide-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-hide"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-hide-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-hide"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-hide-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-hide"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-reference.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-hide"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/surface-review.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-hide"
+      ]
+    },
+    {
+      "source": "build/m1/surface-hide-1794686301026566700-88880/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-hide"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-remove.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-remove"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-remove.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-remove"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-remove-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-remove"
+      ]
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-remove"
+      ]
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-remove"
+      ]
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-reference.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-remove"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-remove-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-remove"
+      ]
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-remove-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-remove"
+      ]
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-remove-run/display-blank.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-remove"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-remove-run/display.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-remove"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-remove-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-remove"
+      ]
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-remove-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-remove"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-remove-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-remove"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-remove-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-remove"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-remove-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-remove"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/surface-review.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-remove"
+      ]
+    },
+    {
+      "source": "build/m1/surface-remove-1794686366879878500-87024/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-remove"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-denied.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-denied"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-denied.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-denied"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-denied-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-denied"
+      ]
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-denied"
+      ]
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-denied"
+      ]
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-denied-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-denied"
+      ]
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-denied-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-denied"
+      ]
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-denied-run/display-blank.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-denied"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-denied-run/display.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-denied"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-denied-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-denied"
+      ]
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-denied-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-denied"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-denied-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-denied"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-denied-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-denied"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-denied-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-denied"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-reference.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-denied"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/surface-review.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-denied"
+      ]
+    },
+    {
+      "source": "build/m1/surface-denied-1794686434551157500-101100/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-denied"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-death.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-death"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-death.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-death"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-death-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-death"
+      ]
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-death"
+      ]
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-death"
+      ]
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-death-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-death"
+      ]
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-death-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-death"
+      ]
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-death-run/display-blank.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-death"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-death-run/display.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-death"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-death-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-death"
+      ]
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-death-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-death"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-death-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-death"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-death-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-death"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-death-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-death"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-reference.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-death"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/surface-review.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-death"
+      ]
+    },
+    {
+      "source": "build/m1/surface-death-1794686502100115700-102104/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-death"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-failure.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-failure"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-failure.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-failure"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-failure-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-failure"
+      ]
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-failure"
+      ]
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-failure"
+      ]
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-failure-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-failure"
+      ]
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-failure-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-failure"
+      ]
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-failure-run/display-blank.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-failure"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-failure-run/display.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-failure"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-failure-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-failure"
+      ]
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-failure-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-failure"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-failure-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-failure"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-failure-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-failure"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-failure-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-failure"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-reference.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-failure"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/surface-review.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-failure"
+      ]
+    },
+    {
+      "source": "build/m1/surface-failure-1794686569174329800-96452/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-failure"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-stall.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-stall"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-stall.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "surface-stall"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/surface-stall-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "surface-stall"
+      ]
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-stall"
+      ]
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-stall"
+      ]
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-reference.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-stall"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-review.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-stall"
+      ]
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-stall-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-stall"
+      ]
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-stall-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-stall"
+      ]
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-stall-run/display-blank.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-stall"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-stall-run/display.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "surface-stall"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-stall-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-stall"
+      ]
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-stall-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-stall"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-stall-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-stall"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-stall-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-stall"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/surface-stall-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "surface-stall"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/surface-stall-1794686635374909800-93916/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "surface-stall"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/ordinary.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "ordinary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/ordinary.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "ordinary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/ordinary-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "ordinary"
+      ]
+    },
+    {
+      "source": "build/m1/run-1794686705464805600-101432/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "ordinary"
+      ]
+    },
+    {
+      "source": "build/m1/run-1794686705464805600-101432/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "ordinary"
+      ]
+    },
+    {
+      "source": "build/m1/run-1794686705464805600-101432/cold-boot-a-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "ordinary"
+      ]
+    },
+    {
+      "source": "build/m1/run-1794686705464805600-101432/cold-boot-a-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "ordinary"
+      ]
+    },
+    {
+      "source": "build/m1/run-1794686705464805600-101432/cold-boot-a-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "ordinary"
+      ]
+    },
+    {
+      "source": "build/m1/run-1794686705464805600-101432/cold-boot-a-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "ordinary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/run-1794686705464805600-101432/cold-boot-a-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "ordinary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/run-1794686705464805600-101432/cold-boot-a-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "ordinary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/run-1794686705464805600-101432/cold-boot-a-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "ordinary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/run-1794686705464805600-101432/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "ordinary"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/display-720.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "display-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/display-720.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "display-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/display-720-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "display-720"
+      ]
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "display-720"
+      ]
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "display-720"
+      ]
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/cpu-reference.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "display-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/display-720-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "display-720"
+      ]
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/display-720-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "display-720"
+      ]
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/display-720-run/display-blank.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "display-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/display-720-run/display.ppm",
+      "kind": "raw",
+      "reason": "Complete actual displayed or independent CPU-reference pixels, not a thumbnail.",
+      "checks": [
+        "display-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/display-720-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "display-720"
+      ]
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/display-720-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "display-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/display-720-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "display-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/display-720-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "display-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/display-720-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "display-720"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/display-review.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "display-720"
+      ]
+    },
+    {
+      "source": "build/m1/display-720-1794686767044485100-97912/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "display-720"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/memory.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "memory"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/memory.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "memory"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/memory-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "memory"
+      ]
+    },
+    {
+      "source": "build/m1/owned-memory-1794686830418829100-99552/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "memory"
+      ]
+    },
+    {
+      "source": "build/m1/owned-memory-1794686830418829100-99552/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "memory"
+      ]
+    },
+    {
+      "source": "build/m1/owned-memory-1794686830418829100-99552/owned-memory-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "memory"
+      ]
+    },
+    {
+      "source": "build/m1/owned-memory-1794686830418829100-99552/owned-memory-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "memory"
+      ]
+    },
+    {
+      "source": "build/m1/owned-memory-1794686830418829100-99552/owned-memory-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "memory"
+      ]
+    },
+    {
+      "source": "build/m1/owned-memory-1794686830418829100-99552/owned-memory-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "memory"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/owned-memory-1794686830418829100-99552/owned-memory-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "memory"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/owned-memory-1794686830418829100-99552/owned-memory-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "memory"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/owned-memory-1794686830418829100-99552/owned-memory-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "memory"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/boundary.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/boundary.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/boundary-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-a-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-a-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-a-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-a-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-a-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-a-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-a-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-b-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-b-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-b-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-b-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-b-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-b-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-b-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-c-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-c-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-c-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-c-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-c-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-c-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-c-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-d-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-d-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-d-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-d-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-d-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-d-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-boundary-d-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "boundary"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/user-boundary-1794686876048741000-102028/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "boundary"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/scheduler.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/scheduler.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/scheduler-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-cpu-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-cpu-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-cpu-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-cpu-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-cpu-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-cpu-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-cpu-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-off-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-off-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-off-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-off-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-off-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-off-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-off-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-on-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-on-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-on-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-on-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-on-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-on-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/scheduler-on-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "scheduler"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/scheduler-1794687009459729100-97400/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "scheduler"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/capabilities.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "capabilities"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/capabilities.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "capabilities"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/capabilities-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "capabilities"
+      ]
+    },
+    {
+      "source": "build/m1/capabilities-1794687113089127500-100564/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "capabilities"
+      ]
+    },
+    {
+      "source": "build/m1/capabilities-1794687113089127500-100564/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "capabilities"
+      ]
+    },
+    {
+      "source": "build/m1/capabilities-1794687113089127500-100564/capabilities-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "capabilities"
+      ]
+    },
+    {
+      "source": "build/m1/capabilities-1794687113089127500-100564/capabilities-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "capabilities"
+      ]
+    },
+    {
+      "source": "build/m1/capabilities-1794687113089127500-100564/capabilities-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "capabilities"
+      ]
+    },
+    {
+      "source": "build/m1/capabilities-1794687113089127500-100564/capabilities-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "capabilities"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/capabilities-1794687113089127500-100564/capabilities-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "capabilities"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/capabilities-1794687113089127500-100564/capabilities-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "capabilities"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/capabilities-1794687113089127500-100564/capabilities-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "capabilities"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/capabilities-1794687113089127500-100564/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "capabilities"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/channels.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "channels"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/channels.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "channels"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/channels-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "channels"
+      ]
+    },
+    {
+      "source": "build/m1/channels-1794687167507294900-87348/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "channels"
+      ]
+    },
+    {
+      "source": "build/m1/channels-1794687167507294900-87348/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "channels"
+      ]
+    },
+    {
+      "source": "build/m1/channels-1794687167507294900-87348/channels-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "channels"
+      ]
+    },
+    {
+      "source": "build/m1/channels-1794687167507294900-87348/channels-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "channels"
+      ]
+    },
+    {
+      "source": "build/m1/channels-1794687167507294900-87348/channels-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "channels"
+      ]
+    },
+    {
+      "source": "build/m1/channels-1794687167507294900-87348/channels-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "channels"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/channels-1794687167507294900-87348/channels-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "channels"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/channels-1794687167507294900-87348/channels-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "channels"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/channels-1794687167507294900-87348/channels-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "channels"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/channels-1794687167507294900-87348/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "channels"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/sdk-runtime.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "sdk-runtime"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/sdk-runtime.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "sdk-runtime"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/sdk-runtime-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "sdk-runtime"
+      ]
+    },
+    {
+      "source": "build/m1/sdk-runtime-1794687224889123400-101640/build-inputs.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "sdk-runtime"
+      ]
+    },
+    {
+      "source": "build/m1/sdk-runtime-1794687224889123400-101640/build-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "sdk-runtime"
+      ]
+    },
+    {
+      "source": "build/m1/sdk-runtime-1794687224889123400-101640/sdk-runtime-package/iso-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "sdk-runtime"
+      ]
+    },
+    {
+      "source": "build/m1/sdk-runtime-1794687224889123400-101640/sdk-runtime-run/case-result.json",
+      "kind": "review",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "sdk-runtime"
+      ]
+    },
+    {
+      "source": "build/m1/sdk-runtime-1794687224889123400-101640/sdk-runtime-run/launch-manifest.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "sdk-runtime"
+      ]
+    },
+    {
+      "source": "build/m1/sdk-runtime-1794687224889123400-101640/sdk-runtime-run/qemu.stderr.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "sdk-runtime"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/sdk-runtime-1794687224889123400-101640/sdk-runtime-run/qemu.stdout.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "sdk-runtime"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/sdk-runtime-1794687224889123400-101640/sdk-runtime-run/qmp-requests.jsonl",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "sdk-runtime"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/sdk-runtime-1794687224889123400-101640/sdk-runtime-run/serial.log",
+      "kind": "raw",
+      "reason": "Complete correlated guest serial or QMP exchange required for count/order/absence review.",
+      "checks": [
+        "sdk-runtime"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m1/sdk-runtime-1794687224889123400-101640/user-images.json",
+      "kind": "provenance",
+      "reason": "Original artifact identity or independent criterion review.",
+      "checks": [
+        "sdk-runtime"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/docs.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "docs"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/docs.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "docs"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/docs-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "docs"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/governance.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "governance"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/governance.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "governance"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/governance-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "governance"
+      ]
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/hygiene.stdout.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "hygiene"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/hygiene.stderr.log",
+      "kind": "raw",
+      "reason": "Complete selected command output, including empty streams.",
+      "checks": [
+        "hygiene"
+      ],
+      "complete": true
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/hygiene-command.json",
+      "kind": "provenance",
+      "reason": "Exact command, bounds, timestamps and reaping record.",
+      "checks": [
+        "hygiene"
+      ]
+    },
+    {
+      "source": "config/p4-05-validation.json",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "experiments/user-images/desktop.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "experiments/user-images/surface.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "experiments/user-images/surface_client.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "experiments/user-images/surface_runtime.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "kernel/Cargo.toml",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "kernel/src/desktop_guest.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "kernel/src/lib.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "kernel/src/main.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "kernel/src/surface_guest.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "kernel/src/surface_mailbox.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "kernel/src/user_fixture.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/Check-P4-05Flavors.ps1",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/Review-P4-02.py",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/Review-P4-05.py",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/Test-P4-05.ps1",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/Test-P4-05.py",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/p4_surface_acceptance.py",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/story_validation.py",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/xtask/src/m1/build.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/xtask/src/m1/cases.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/xtask/src/m1/launch.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/xtask/src/m1/observe.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/xtask/src/m1/package.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/xtask/src/m1/records.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/xtask/src/m1/user_images.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "tools/xtask/src/main.rs",
+      "kind": "provenance",
+      "reason": "Exact changed/new tested implementation bytes; override Git newline normalization during reconstruction.",
+      "checks": []
+    },
+    {
+      "source": "work/p4-05-tested-implementation.patch",
+      "kind": "provenance",
+      "reason": "Base plus staged/unstaged implementation patch; complete changed/new byte blobs accompany it.",
+      "checks": []
+    },
+    {
+      "source": "work/p4-05-source-reconstruction.json",
+      "kind": "provenance",
+      "reason": "Explicit exact-byte source reconstruction recipe.",
+      "checks": []
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794640495843344000/acceptance.json",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794641188406196800/acceptance.json",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794682995850382400/acceptance.json",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "build/m1/surface-720-1794640980309975500-85864/surface-720-run/serial.log",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "build/m1/surface-720-1794683417082323700-82744/surface-720-run/serial.log",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "work/p4-05-development-findings.json",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "work/p4-05-storage.json",
+      "kind": "provenance",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794684060198338000/acceptance.json",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685171039192000/acceptance.json",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "work/p4-05-reviewer-compatibility-proof.json",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "work/p4-05-reviewer-continuation.json",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "work/p4-05-reviewer-continuation.py",
+      "kind": "failure",
+      "reason": "Material development failure/diagnostic or separate payload/cache/headroom inventory.",
+      "checks": []
+    },
+    {
+      "source": "build/m4/P4-05/probe-1794685657643504100/acceptance.json",
+      "kind": "review",
+      "reason": "Original passed probe journal binds source/tool context for exact artifact reuse.",
+      "checks": []
+    },
+    {
+      "source": "build/m4/P4-05/acceptance-1794685886700026500/review.json",
+      "kind": "review",
+      "reason": "Independent aggregate re-review of all selected final-source criteria.",
+      "checks": []
+    },
+    {
+      "source": "work/p4-05-pressure-review.json",
+      "kind": "review",
+      "reason": "Supplemental exact budget/lease transition count audit.",
+      "checks": []
+    },
+    {
+      "source": "work/p4-05-pressure-review.py",
+      "kind": "provenance",
+      "reason": "Reproducible independent pressure-count consumer.",
+      "checks": []
+    },
+    {
+      "source": "work/p4-05-closeout.py",
+      "kind": "provenance",
+      "reason": "Explicit compact evidence selection and lossless normalization procedure.",
+      "checks": []
+    },
+    {
+      "source": "audit/contract-validation-results.json",
+      "kind": "provenance",
+      "checks": [],
+      "reason": "Necessary baseline line-ending override; reconstruct exact tested implementation bytes from Git base."
+    },
+    {
+      "source": "docs/assets/continuumos-roadmap.svg",
+      "kind": "provenance",
+      "checks": [],
+      "reason": "Necessary baseline line-ending override; reconstruct exact tested implementation bytes from Git base."
+    },
+    {
+      "source": "fixtures/m2/slint-v1/README.md",
+      "kind": "provenance",
+      "checks": [],
+      "reason": "Necessary baseline line-ending override; reconstruct exact tested implementation bytes from Git base."
+    },
+    {
+      "source": "fixtures/m2/slint-v1/goldens.json",
+      "kind": "provenance",
+      "checks": [],
+      "reason": "Necessary baseline line-ending override; reconstruct exact tested implementation bytes from Git base."
+    },
+    {
+      "source": "kernel/README.md",
+      "kind": "provenance",
+      "checks": [],
+      "reason": "Necessary baseline line-ending override; reconstruct exact tested implementation bytes from Git base."
+    },
+    {
+      "source": "tools/Preview-Slint.ps1",
+      "kind": "provenance",
+      "checks": [],
+      "reason": "Necessary baseline line-ending override; reconstruct exact tested implementation bytes from Git base."
+    },
+    {
+      "source": "tools/Review-Slint.py",
+      "kind": "provenance",
+      "checks": [],
+      "reason": "Necessary baseline line-ending override; reconstruct exact tested implementation bytes from Git base."
+    },
+    {
+      "source": "tools/Review-SlintInputs.py",
+      "kind": "provenance",
+      "checks": [],
+      "reason": "Necessary baseline line-ending override; reconstruct exact tested implementation bytes from Git base."
+    },
+    {
+      "source": "tools/Test-P2-06.ps1",
+      "kind": "provenance",
+      "checks": [],
+      "reason": "Necessary baseline line-ending override; reconstruct exact tested implementation bytes from Git base."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "original_journal": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m4\\P4-05\\acceptance-1794684060198338000\\acceptance.json",
+  "original_journal_sha256": "2a9eacb2787adb45c80826c79df128ec6980bd5aa1791c9a9b988784f2a720d1",
+  "changes": {
+    "tools/Review-P4-05.py": {
+      "before": "a8b9baa85e593bc5010f0ef7256ba162612db40da543afa8cfb461e6504871be",
+      "after": "e5e25ccac9ade01ef16139a0c43c4cf20ca8628b96aa0dc7bcdc6ef3ece1bacf"
+    },
+    "tools/Test-P4-05.py": {
+      "before": "79b0ac58e13a0832c1bbe9d5c6a521779906ca25952f8c5fe09f213558bf755d",
+      "after": "6551a8c90ad23bdb9a7a5840d6d2463515856eaeeffa81b7765fd0352d639516"
+    }
+  },
+  "tool_context_identical": true,
+  "all_original_passed_artifacts_unchanged": true,
+  "guest_compiler_inputs_unchanged": true,
+  "guest_reviews": [
+    {
+      "id": "surface-720",
+      "artifact_directory": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-720-1794683916894536700-91144",
+      "kernel_sha256": "b4c20734c61f17976bb0e879814028708b9ea819c0f1ef6eb6ebe0ec53d83c99",
+      "iso_sha256": "b62c60d404406a41cb86f88deb7ac21e072433cb5f0849393d733577161c179b"
+    },
+    {
+      "id": "surface-1080",
+      "artifact_directory": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-1080-1794684344781489700-91552",
+      "kernel_sha256": "b4c20734c61f17976bb0e879814028708b9ea819c0f1ef6eb6ebe0ec53d83c99",
+      "iso_sha256": "60184e691d97342c42acd4d6e9f1cc93a56a3581ae9eff19be68915886324bbe"
+    },
+    {
+      "id": "surface-move",
+      "artifact_directory": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-move-1794684428062512600-96636",
+      "kernel_sha256": "c6a088d86c703bdc328408da7972df7a568cf41be8001bb6bc47515164691d85",
+      "iso_sha256": "3ad961be8192c96f4cbfaedc7c8e180f40d57f4fddee3f650bcca3ae9c32454f"
+    },
+    {
+      "id": "surface-hide",
+      "artifact_directory": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-hide-1794684513785256400-83908",
+      "kernel_sha256": "bbe6c8af4413b51aca2a24be1c01f22312f4d0b812560711861d4748a38dfb4f",
+      "iso_sha256": "69e131160d5976d790208aa973caffd509c8a92f60d890bf92775d0ec12c9654"
+    },
+    {
+      "id": "surface-remove",
+      "artifact_directory": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-remove-1794684596056313700-89868",
+      "kernel_sha256": "a8b9d8abba79db77173ff0161c64795e8d683117c06dc6bd047bf5c5bc52b1a5",
+      "iso_sha256": "fa79ae881f3e2f044db7f75ac9ddc6dea0ed6a07372a8d86a567d89da57c965b"
+    },
+    {
+      "id": "surface-denied",
+      "artifact_directory": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-denied-1794684681130948400-91536",
+      "kernel_sha256": "f7fd7c63a35d5585907cd7efbf55b39b4841bd8e7bb3bc58973462cf142768d4",
+      "iso_sha256": "ad54e72cc7304268b07dd8d3f906e0f4861c33b60ba6e1b00c9d05dc4d0368f6"
+    },
+    {
+      "id": "surface-death",
+      "artifact_directory": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\surface-death-1794684767000593300-95544",
+      "kernel_sha256": "214bd3676acb513daf1c47c30c0983f86cc2ea9c47ac6ea219a11cb9a0a5d611",
+      "iso_sha256": "e6a87934de8e606430ed6671c1dc9122e68a84012e0401e8696490727b198196"
+    }
+  ],
+  "failed_review_corrected_without_guest_reexecution": {
+    "id": "surface-failure",
+    "kernel_sha256": "1ce98a3344fd076550471cefb85088ff74b360faa92ff62ff220b6a7955bf3ef",
+    "iso_sha256": "94622ea4480456601743c111c05cc082689922a1e297d105475052d3abdf84e9",
+    "actual_initial_unwind": 513,
+    "actual_compositor_panic": 90
+  },
+  "rerun": [
+    "surface-oracle-tests"
+  ],
+  "limits_and_counts_changed": false,
+  "standing_waiver": false
+}

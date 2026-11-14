@@ -11,6 +11,8 @@ mod paging;
 #[cfg(feature = "static-loader-test")]
 mod runtime_loader;
 mod runtime_memory;
+#[cfg(feature = "surface-runtime")]
+mod surface_guest;
 mod timer;
 #[cfg(any(feature = "user-boundary-test", feature = "desktop-runtime"))]
 mod user_entry;

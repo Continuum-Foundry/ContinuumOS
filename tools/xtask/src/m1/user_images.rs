@@ -23,6 +23,8 @@ pub(super) fn build(
     desktop: bool,
     devices: bool,
     display: bool,
+    surfaces: bool,
+    scenario: u64,
 ) -> Result<PathBuf> {
     let runtime_ids = runtime_ids(dir)?;
     let source = if desktop {
@@ -90,6 +92,13 @@ pub(super) fn build(
             ))
             .arg("-o")
             .arg(&image);
+        if surfaces {
+            c.args(["--cfg", "surface_runtime", "-C", "strip=debuginfo"])
+                .env("CONTINUUM_SURFACE_SCENARIO", scenario.to_string());
+            if scenario != 0 {
+                c.args(["--cfg", "surface_probe"]);
+            }
+        }
         if display {
             c.args(["--cfg", "display_probe"]);
         }
@@ -98,6 +107,9 @@ pub(super) fn build(
         }
         capture(&mut c, dir, &format!("{name}-build"), 60)?;
         let bytes = read(&image)?;
+        if bytes.len() > 1024 * 1024 {
+            return Err("User image exceeds the unchanged 1 MiB loader limit".into());
+        }
         let inspection = elf::inspect(&bytes, "userland-link")?;
         for (toolname, args) in [
             (
@@ -187,7 +199,7 @@ pub(super) fn build(
     fs::write(&path, descriptors).map_err(|e| e.to_string())?;
     write_json(
         &dir.join("user-images.json"),
-        &json!({"schema_version":1,"target":"x86_64-unknown-none","code_model":"small","relocation":"static","red_zone":false,"panic":"abort","opt_level":1,"entry":"fixture_entry","compiler_sha256":digest(&Path::new(&sysroot).join("bin").join(crate::executable("rustc")))?,"audit_tools_sha256":audits,"source_sha256":digest(&root().join(source))?,"runtime_source_sha256":digest(&root().join("experiments/user-images/runtime.rs"))?,"runtime_ids_sha256":digest(&runtime_ids)?,"linker_sha256":digest(&root().join("experiments/user-images/link.ld"))?,"images":images,"trusted_descriptors_sha256":digest(&path)?,"user_execution":execution || scheduler,"scheduler":scheduler,"required_cpu_features":if scheduler {7}else{0}}),
+        &json!({"schema_version":1,"target":"x86_64-unknown-none","code_model":"small","relocation":"static","red_zone":false,"panic":"abort","opt_level":1,"entry":"fixture_entry","compiler_sha256":digest(&Path::new(&sysroot).join("bin").join(crate::executable("rustc")))?,"audit_tools_sha256":audits,"source_sha256":digest(&root().join(source))?,"runtime_source_sha256":digest(&root().join("experiments/user-images/runtime.rs"))?,"runtime_ids_sha256":digest(&runtime_ids)?,"linker_sha256":digest(&root().join("experiments/user-images/link.ld"))?,"images":images,"trusted_descriptors_sha256":digest(&path)?,"strip_dependency_debuginfo":surfaces,"surface_runtime":surfaces,"surface_scenario":scenario,"user_execution":execution || scheduler,"scheduler":scheduler,"required_cpu_features":if scheduler {7}else{0}}),
     )?;
     Ok(path)
 }
@@ -251,6 +263,9 @@ pub(super) fn build_sdk(dir: &Path, runtime: bool, stress: bool) -> Result<PathB
         let bytes = read(&path)?;
         if bytes.len() > 1048576 {
             return Err("Public SDK ELF exceeds unchanged 1 MiB loader file bound".into());
+        }
+        if bytes.len() > 1024 * 1024 {
+            return Err("User image exceeds the unchanged 1 MiB loader limit".into());
         }
         let inspection = elf::inspect(&bytes, "userland-link")?;
         let undefined = capture(

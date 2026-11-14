@@ -90,3 +90,13 @@ filtered-backdrop cache or new dependency was needed. Primary 1080p/scale-1 trac
 All M1 and final hosted regressions pass. The evidence supports continuing the
 software path to guest qualification while keeping remaining misses visible.
 This ADR remains **Proposed**; M4 guest and distribution gates are unchanged.
+
+## P4-04 bounded guest output — 2026-11-14
+
+[Checked software-scanout acceptance](../../evidence/phase-4/P4-04/final-1794635215585403600/README.md) now proves exact initial clear
+and RGB/corner/clipping patterns from independently bootable 720p/1080p optical
+images. The temporary trusted kernel mediator uses checked supervisor UC mappings
+and synchronous row copies with source release, without GPU or firmware calls.
+This supports continuing the software path into P4-05 composition. Guest toolkit,
+damage/pacing, input, reload and efficiency gates remain open; this broader ADR
+remains **Proposed**. Screenshots establish displayed bytes, not VSync or latency.

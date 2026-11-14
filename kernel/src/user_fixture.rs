@@ -17,6 +17,7 @@ pub(super) struct Hooks {
     pub expected_result: fn(u64, usize) -> Option<u64>,
     pub object_waves: Option<u64>,
     pub process_state: fn(u64, u64) -> u64,
+    pub display_copy: fn(u64, u64, u64, u64, u64, u64, u64),
     pub desktop_mode: fn(usize, u64) -> u64,
     pub desktop_stop_control: fn(u64, u64) -> bool,
 }
@@ -34,6 +35,7 @@ const BOUNDARY: Hooks = Hooks {
     expected_result: |_, _| None,
     object_waves: None,
     process_state: |_, state| state,
+    display_copy: |_, _, _, _, _, _, _| {},
     desktop_mode: |_, _| 0,
     desktop_stop_control: |_, _| false,
 };
@@ -74,6 +76,22 @@ pub(super) fn install_desktop() {
         before_operation: scheduling::check_fp_policy,
         scheduled: scheduling::active,
         operation: |op, f| {
+            let c = current();
+            if let Some(result) = crate::display_guest::call(
+                op,
+                c.case - 100,
+                continuum_kernel::device::Owner {
+                    process: c.id.slot as u64 + 1,
+                    generation: c.id.generation,
+                },
+                f.rdi,
+                f.rsi,
+                f.rdx,
+                f.r10,
+                |a, b| copy(a, b, false),
+            ) {
+                return Some(result.map_err(|_| ACCESSDENIED));
+            }
             #[cfg(feature = "device-test")]
             {
                 let c = current();
@@ -142,6 +160,22 @@ pub(super) fn install_desktop() {
         },
         ..hooks
     };
+    #[cfg(feature = "display-test")]
+    let hooks = Hooks {
+        display_copy: |process, generation, g, width, height, placement, copy_ns| {
+            if placement >> 32 == height - 1 {
+                record(
+                    "m1.display_pattern",
+                    "display",
+                    "ok",
+                    format_args!(
+                        "process={process} generation={generation} output_generation={g} rows={height} width={width} source_released=true copy_ns={copy_ns} scanout_observed=false"
+                    ),
+                );
+            }
+        },
+        ..hooks
+    };
     unsafe {
         HOOKS.0.get().write(hooks);
     }
@@ -179,6 +213,7 @@ mod scheduled {
         expected_result: |_, _| None,
         object_waves: None,
         process_state: |_, state| state,
+        display_copy: |_, _, _, _, _, _, _| {},
         desktop_mode: |_, _| 0,
         desktop_stop_control: |_, _| false,
         operation,

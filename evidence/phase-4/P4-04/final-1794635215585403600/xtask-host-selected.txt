@@ -1,0 +1,27 @@
+
+running 22 tests
+test m1::build::tests::image_bounds_include_bss_and_orphan_load_memory ... ok
+test m1::build::tests::rejects_vector_and_fp_code ... ok
+test m1::inputs::tests::locked_kernel_loader_and_firmware_inputs_fail_closed ... ok
+test m1::inputs::tests::rejects_missing_and_changed_inputs ... ok
+test m1::launch::deadline_tests::slower_host_deadline_is_scoped_to_two_fixed_stress_flavors ... ok
+test m1::observe::tests::append_reader_reads_only_new_bytes_and_rejects_truncation_and_overflow ... ok
+test m1::observe::tests::native_observer_fixture_child ... ignored, native child entry exercised by the observer lifecycle parent test
+test m1::observe::tests::process_success_failure_timeout_and_log_limit_are_reaped ... ok
+test m1::observe::tests::qmp_nested_paths_are_complete_json_lines ... ok
+test m1::observe::tests::qmp_no_iso_protocol_diagnostic ... ignored, explicit one-VM no-ISO QMP protocol diagnostic
+test m1::package::tests::windows_paths_are_translated_without_shell_quoting ... ok
+test m1::records::rate_window_oracle::tests::boundary_between_or_inside_calls_does_not_fake_a_failure ... ok
+test m1::records::rate_window_oracle::tests::four_then_quota_and_next_epoch_reset ... ok
+test m1::records::rate_window_oracle::tests::rejects_early_quota_fifth_success_bad_status_and_clock ... ok
+test m1::records::tests::expected_rejection_needs_exact_error_and_exit_and_no_ready_marker ... ok
+test m1::records::tests::fatal_requires_exact_hardware_context_symbol_and_exit ... ok
+test m1::records::tests::live_validation_matches_full_capture_at_record_and_partial_boundaries ... ok
+test m1::records::tests::protection_and_real_double_fault_require_owned_context ... ok
+test m1::records::tests::rejects_false_or_incomplete_success ... ok
+test m1::records::tests::streaming_matches_full_validation_across_chunks_and_failures ... ok
+test m1::records::tests::streaming_retained_log_benchmark ... ignored, explicit retained-log host benchmark
+test m1::suite::tests::iso_comparison_rejects_unexplained_changes ... ok
+
+test result: ok. 19 passed; 0 failed; 3 ignored; 0 measured; 19 filtered out; finished in 15.39s
+

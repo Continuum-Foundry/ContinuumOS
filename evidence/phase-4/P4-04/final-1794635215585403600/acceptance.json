@@ -1,0 +1,939 @@
+{
+  "schema_version": 1,
+  "story": "P4-04",
+  "status": "passed",
+  "scope": "selected story acceptance, local Codex self-review",
+  "source_commit": "33f086940df5e18d404a4148ab46ed6ed0ae5791",
+  "local_acceptance": "build\\m4\\P4-04\\acceptance-1794635215585403600\\acceptance.json",
+  "original_acceptance_sha256": "9db5957485c5f164f70be7903e89d43f49e6a4b781f28e501eb62a8718605826",
+  "plan": {
+    "scope": "story",
+    "execute": [
+      "kernel-host",
+      "display-host",
+      "xtask-host",
+      "runner-tests",
+      "prerequisites",
+      "display-720",
+      "display-1080",
+      "display-flavors",
+      "ordinary",
+      "boot-metadata",
+      "scanout-memory",
+      "scanout-guard",
+      "memory",
+      "timer",
+      "boundary",
+      "scheduler",
+      "capabilities",
+      "sdk-runtime",
+      "docs",
+      "governance",
+      "hygiene"
+    ],
+    "covered_by": {},
+    "command_groups": 21,
+    "vm_launches": 20,
+    "vm_launches_by_check": {
+      "kernel-host": 0,
+      "display-host": 0,
+      "xtask-host": 0,
+      "runner-tests": 0,
+      "prerequisites": 0,
+      "display-720": 1,
+      "display-1080": 1,
+      "display-flavors": 0,
+      "ordinary": 1,
+      "boot-metadata": 4,
+      "scanout-memory": 1,
+      "scanout-guard": 1,
+      "memory": 1,
+      "timer": 1,
+      "boundary": 4,
+      "scheduler": 3,
+      "capabilities": 1,
+      "sdk-runtime": 1,
+      "docs": 0,
+      "governance": 0,
+      "hygiene": 0
+    },
+    "unknown_launch_counts": [],
+    "full_suites": [],
+    "separate_metadata_builds": 18,
+    "execution_budget": {
+      "max_vm_launches": 20,
+      "allow_full_suites": false
+    }
+  },
+  "checks": [
+    {
+      "id": "kernel-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "deadline_seconds": 180,
+      "elapsed_ms": 11125,
+      "resumed": false,
+      "command": {
+        "name": "kernel-host",
+        "arguments": [
+          "cargo",
+          "test",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--lib"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:47:01.420359+00:00",
+        "finished_utc": "2026-11-14T05:47:12.550501+00:00",
+        "timed_out": false,
+        "deadline_seconds": 180,
+        "cleanup_reaped": true,
+        "elapsed_ms": 11125
+      },
+      "full_artifact_inventory_sha256": "a8581f12adbb74d6c14e04f83e8f2805b1fcc859d509ddf85d6d3ed458070b66",
+      "artifact_files": 1,
+      "stdout_sha256": "afe5f4c54f67661719f77f747df338da2adada71f051719a3e452128e35c9a3e",
+      "original_review_sha256": "97a3d9ad01ed360150e898f938f20eadff92a271c5305c4c17a8e9b05e040e3b"
+    },
+    {
+      "id": "display-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib",
+        "--features",
+        "display-test"
+      ],
+      "deadline_seconds": 180,
+      "elapsed_ms": 4500,
+      "resumed": false,
+      "command": {
+        "name": "display-host",
+        "arguments": [
+          "cargo",
+          "test",
+          "--locked",
+          "--offline",
+          "-p",
+          "continuum-kernel",
+          "--lib",
+          "--features",
+          "display-test"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:47:15.693053+00:00",
+        "finished_utc": "2026-11-14T05:47:20.180164+00:00",
+        "timed_out": false,
+        "deadline_seconds": 180,
+        "cleanup_reaped": true,
+        "elapsed_ms": 4500
+      },
+      "full_artifact_inventory_sha256": "d2ce7656339a52935cd626487e52b7cf740c81be06d2f933c65846a5ad59bd75",
+      "artifact_files": 1,
+      "stdout_sha256": "8cfab665123af03afd1c787c41dcebca01d89332dca45a68de867462375582c2",
+      "original_review_sha256": "97a3d9ad01ed360150e898f938f20eadff92a271c5305c4c17a8e9b05e040e3b"
+    },
+    {
+      "id": "xtask-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--bin",
+        "xtask",
+        "m1::"
+      ],
+      "deadline_seconds": 300,
+      "elapsed_ms": 20062,
+      "resumed": false,
+      "command": {
+        "name": "xtask-host",
+        "arguments": [
+          "cargo",
+          "test",
+          "--locked",
+          "--offline",
+          "-p",
+          "xtask",
+          "--bin",
+          "xtask",
+          "m1::"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:47:23.496126+00:00",
+        "finished_utc": "2026-11-14T05:47:43.555531+00:00",
+        "timed_out": false,
+        "deadline_seconds": 300,
+        "cleanup_reaped": true,
+        "elapsed_ms": 20062
+      },
+      "full_artifact_inventory_sha256": "4ae9b08ee6d4d9c68ccb6030c2e0850a2686694ef941480661a1af329698130f",
+      "artifact_files": 1,
+      "stdout_sha256": "ee22f6247bd78fd4274baeae936ece655f5f21842673e02d50049c87b778407f",
+      "original_review_sha256": "97a3d9ad01ed360150e898f938f20eadff92a271c5305c4c17a8e9b05e040e3b"
+    },
+    {
+      "id": "runner-tests",
+      "status": "fresh-pass",
+      "arguments": [
+        "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-StoryValidation.py"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_ms": 1063,
+      "resumed": false,
+      "command": {
+        "name": "runner-tests",
+        "arguments": [
+          "${USERPROFILE}\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "tools/Test-StoryValidation.py"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:47:46.634237+00:00",
+        "finished_utc": "2026-11-14T05:47:47.696243+00:00",
+        "timed_out": false,
+        "deadline_seconds": 60,
+        "cleanup_reaped": true,
+        "elapsed_ms": 1063
+      },
+      "full_artifact_inventory_sha256": "a01e3e2bb479a804137b00c4e54c465e7d7177fb93e8f44ce6387598d5e2a33d",
+      "artifact_files": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_review_sha256": "97a3d9ad01ed360150e898f938f20eadff92a271c5305c4c17a8e9b05e040e3b"
+    },
+    {
+      "id": "prerequisites",
+      "status": "fresh-pass",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ],
+      "deadline_seconds": 1800,
+      "elapsed_ms": 255796,
+      "resumed": false,
+      "command": {
+        "name": "prerequisites",
+        "arguments": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "tools/Recheck-P2Prerequisites.ps1"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:47:51.173613+00:00",
+        "finished_utc": "2026-11-14T05:52:06.962578+00:00",
+        "timed_out": false,
+        "deadline_seconds": 1800,
+        "cleanup_reaped": true,
+        "elapsed_ms": 255796
+      },
+      "full_artifact_inventory_sha256": "7538ae1cc99a787a9991eeec21a55af32b2cfb859167811115a8c390ed30c242",
+      "artifact_files": 1,
+      "stdout_sha256": "03c3498e799e8dfcb042e0d3e925181ba4391d7609e87c8237a8e93254999db1",
+      "original_review_sha256": "97a3d9ad01ed360150e898f938f20eadff92a271c5305c4c17a8e9b05e040e3b"
+    },
+    {
+      "id": "display-720",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "display-720"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 73937,
+      "resumed": false,
+      "command": {
+        "name": "display-720",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "display-720"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:52:10.375583+00:00",
+        "finished_utc": "2026-11-14T05:53:24.313483+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 73937
+      },
+      "full_artifact_inventory_sha256": "aee2a34a72657001bda5d00e7d61b89fe97176410e10c72469a24aba9bc6efb1",
+      "artifact_files": 155,
+      "stdout_sha256": "ba85a5cb1d9578058aa6d5df758bb4cfc5333a7204ef15c3ee359c93a80281ca",
+      "original_review_sha256": "903830bc7bf1b58b35925068657d820e61cb69df3f2c20eabe7efabd1b91f12b"
+    },
+    {
+      "id": "display-1080",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "display-1080"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 62266,
+      "resumed": false,
+      "command": {
+        "name": "display-1080",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "display-1080"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:53:28.776586+00:00",
+        "finished_utc": "2026-11-14T05:54:31.039606+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 62266
+      },
+      "full_artifact_inventory_sha256": "55746c9a54f80c3c9904afc6daea0396534f1ef79584fed02f618d3993026142",
+      "artifact_files": 155,
+      "stdout_sha256": "2e41a9798528e0ffbbd226183cbe1f633635f73e798741145782c6c8f5f391f3",
+      "original_review_sha256": "d2e3e1a1d7929698c3794a18f3a492e15de6dbb0eea6128e8f5e12cc7ec33b50"
+    },
+    {
+      "id": "display-flavors",
+      "status": "fresh-pass",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Check-P4-04Flavors.ps1",
+        "-Descriptors",
+        "${WORKSPACE}\\build\\m1\\display-1080-1794635609943377300-38400",
+        "-Output",
+        "${WORKSPACE}\\build\\m4\\P4-04\\acceptance-1794635215585403600\\flavors"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 21453,
+      "resumed": false,
+      "command": {
+        "name": "display-flavors",
+        "arguments": [
+          "pwsh",
+          "-NoProfile",
+          "-File",
+          "tools/Check-P4-04Flavors.ps1",
+          "-Descriptors",
+          "${WORKSPACE}\\build\\m1\\display-1080-1794635609943377300-38400",
+          "-Output",
+          "${WORKSPACE}\\build\\m4\\P4-04\\acceptance-1794635215585403600\\flavors"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:54:36.307318+00:00",
+        "finished_utc": "2026-11-14T05:54:57.757447+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 21453
+      },
+      "full_artifact_inventory_sha256": "b4098fe04f6637f200da098277587233f20aaf5accebf7aab9a93c5f2abaa735",
+      "artifact_files": 20,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_review_sha256": "7ccc7f90242843afbf2512c708d9c13fc23e3bdd0c5623dee2b2bc28cb15f9ac"
+    },
+    {
+      "id": "ordinary",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 66750,
+      "resumed": false,
+      "command": {
+        "name": "ordinary",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "run",
+          "--profile",
+          "vm-baseline"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:55:00.826999+00:00",
+        "finished_utc": "2026-11-14T05:56:07.584967+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 66750
+      },
+      "full_artifact_inventory_sha256": "498c22109854882b15c45958301ba2f50f57e0bff3fb8f17907cdd07a6c4f3c1",
+      "artifact_files": 151,
+      "stdout_sha256": "1efa6920f81c18f35defb2623365b8432cebb990daf590daee3e2943a3bf6513",
+      "original_review_sha256": "fe558ecb5bd72fa69736aafb7af4a1835d31cc445a729000babf5f22824b781b"
+    },
+    {
+      "id": "boot-metadata",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "boot-metadata"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 140297,
+      "resumed": false,
+      "command": {
+        "name": "boot-metadata",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "boot-metadata"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:56:11.722316+00:00",
+        "finished_utc": "2026-11-14T05:58:32.018566+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 140297
+      },
+      "full_artifact_inventory_sha256": "f727b0805d8780c988607082a63eaf7f1fc60653159e600e5700becbb9708a79",
+      "artifact_files": 289,
+      "stdout_sha256": "a00141dac00850c960fea27e1f1f0824bed467bf48de2fba2d402c36b484a98b",
+      "original_review_sha256": "15612e2b10942086e964e6eb438c3df30af64bae9c3cb9bcd207ac4ab0ea1e91"
+    },
+    {
+      "id": "scanout-memory",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "memory-ownership"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 43344,
+      "resumed": false,
+      "command": {
+        "name": "scanout-memory",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "memory-ownership"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:58:36.265328+00:00",
+        "finished_utc": "2026-11-14T05:59:19.606943+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 43344
+      },
+      "full_artifact_inventory_sha256": "264ecdf1357b1fc8b1b9a67448abe2ecb8bfd7ea71fe398a33d4089e55c4c5f3",
+      "artifact_files": 102,
+      "stdout_sha256": "2b15551d0f2448540d80d82639c7dacb63338e5430640fd9528dc0f5bb56811b",
+      "original_review_sha256": "9aed6bcc237dc100be9de7c965307cdd06abd1950ce2783acd8e10edcc30eeb8"
+    },
+    {
+      "id": "scanout-guard",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "guard-fault"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 45890,
+      "resumed": false,
+      "command": {
+        "name": "scanout-guard",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "guard-fault"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T05:59:22.499089+00:00",
+        "finished_utc": "2026-11-14T06:00:08.395406+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 45890
+      },
+      "full_artifact_inventory_sha256": "13f2628237e6f902bf55a2870a8aae0fee0c5897f580775299d9d473304b1ae7",
+      "artifact_files": 102,
+      "stdout_sha256": "87c06076e6cacdd807547ab82a86b639c5fb41f96612f7c19d034e8bd804b9c0",
+      "original_review_sha256": "47d224086c23a24c09c9f34a7f9e74447a21f8509b34b66cc3265037d2cefc8b"
+    },
+    {
+      "id": "memory",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 51906,
+      "resumed": false,
+      "command": {
+        "name": "memory",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "owned-memory"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T06:00:12.041867+00:00",
+        "finished_utc": "2026-11-14T06:01:03.947370+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 51906
+      },
+      "full_artifact_inventory_sha256": "7cbeff2c9d9793ea14f5b179963cd5092d590bb4d1ef0e1429764f9b30f20b49",
+      "artifact_files": 102,
+      "stdout_sha256": "e193a698b668e6c2467a37b7ce75a8fcbd4346900e53092cf6b461afeba71c9f",
+      "original_review_sha256": "ec0ba11353609f3ebf81f8c5138addbd11b1cd71ee30d87deec349f3a698e894"
+    },
+    {
+      "id": "timer",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "timer-progress"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 46954,
+      "resumed": false,
+      "command": {
+        "name": "timer",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "timer-progress"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T06:01:07.460801+00:00",
+        "finished_utc": "2026-11-14T06:01:54.423045+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 46954
+      },
+      "full_artifact_inventory_sha256": "f53050174ed6a8d518b41910fcf67db9d5add358b1e683586440d8e58552a095",
+      "artifact_files": 102,
+      "stdout_sha256": "9d76c395f1b1329091089135f1c72cc8685e9a0095d1acdf640c12dc0b2f385d",
+      "original_review_sha256": "19831bfb350e7a913088fe16926a787bdc9890d80acaa2dd177fab96a5a85c0a"
+    },
+    {
+      "id": "boundary",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 147921,
+      "resumed": false,
+      "command": {
+        "name": "boundary",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "user-boundary"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T06:01:58.799263+00:00",
+        "finished_utc": "2026-11-14T06:04:26.713884+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 147921
+      },
+      "full_artifact_inventory_sha256": "8a1cc103149e03ba672b97df5cf2ae08886e165101a8d8eac5ae7d71b0d660c7",
+      "artifact_files": 301,
+      "stdout_sha256": "5bfb5c275e14b1add854c6b67dd8138aa5aa63c8c8f3fc7c589fd1c010cbcaad",
+      "original_review_sha256": "275d19862b243e141675c6442691d854910a16bed2fa76fb53f0e41c01103d5f"
+    },
+    {
+      "id": "scheduler",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "scheduler"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 137625,
+      "resumed": false,
+      "command": {
+        "name": "scheduler",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "scheduler"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T06:04:34.112726+00:00",
+        "finished_utc": "2026-11-14T06:06:51.726226+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 137625
+      },
+      "full_artifact_inventory_sha256": "76028a5e7d7bd7fbeeffa898d5f98036a7d90aab39bb62dc22ce96706e800983",
+      "artifact_files": 251,
+      "stdout_sha256": "7a98278fef5d920c0cfae4e2bc6263f9875f0a0304155da262be3a8dcdaf1125",
+      "original_review_sha256": "34cbde2771634e1a5670dabf3b34bd45325876e29052b4e830416c7de6389381"
+    },
+    {
+      "id": "capabilities",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "capabilities"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 59422,
+      "resumed": false,
+      "command": {
+        "name": "capabilities",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "capabilities"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T06:06:56.154366+00:00",
+        "finished_utc": "2026-11-14T06:07:55.577199+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 59422
+      },
+      "full_artifact_inventory_sha256": "cc138119bf595cece7d3cec8f7497829c2607b640d2725040fa2e21a60342d19",
+      "artifact_files": 151,
+      "stdout_sha256": "de177d98e4bd291b8db2c8b6a21b46e26ab450300b94dd0474a8c13e648c8a09",
+      "original_review_sha256": "de8e18e756d53ebfe24407fc94b2e887563ff9fde82e37c79df4d1ec8ef3d0b9"
+    },
+    {
+      "id": "sdk-runtime",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-runtime"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 70062,
+      "resumed": false,
+      "command": {
+        "name": "sdk-runtime",
+        "arguments": [
+          "cargo",
+          "xtask",
+          "test",
+          "--suite",
+          "m1",
+          "--case",
+          "sdk-runtime"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T06:07:59.526928+00:00",
+        "finished_utc": "2026-11-14T06:09:09.585643+00:00",
+        "timed_out": false,
+        "deadline_seconds": 600,
+        "cleanup_reaped": true,
+        "elapsed_ms": 70062
+      },
+      "full_artifact_inventory_sha256": "f29de86f4602a76b01c41e6ac65478ce5f04904f7a9006f4dd28670598240fe5",
+      "artifact_files": 318,
+      "stdout_sha256": "9f11f7c00db3c3bc372627f7dafcd3c61d3488235a12dfd2ad0a4381be8b6182",
+      "original_review_sha256": "4f5fac43ccc50b25822604e7ba3c99472727ea66a734379abbcfe4ed8887fdb1"
+    },
+    {
+      "id": "docs",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-docs.cjs"
+      ],
+      "deadline_seconds": 120,
+      "elapsed_ms": 609,
+      "resumed": false,
+      "command": {
+        "name": "docs",
+        "arguments": [
+          "node",
+          "audit/check-docs.cjs"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T06:09:13.900189+00:00",
+        "finished_utc": "2026-11-14T06:09:14.519750+00:00",
+        "timed_out": false,
+        "deadline_seconds": 120,
+        "cleanup_reaped": true,
+        "elapsed_ms": 609
+      },
+      "full_artifact_inventory_sha256": "bf354952c954f32f83e3ae0d3caf24da742fb95c52a0906993d7d51ab00371e1",
+      "artifact_files": 1,
+      "stdout_sha256": "42a133275095e8a960ccaaae141860dc99beedd7cdbd7c47221d931010b1feda",
+      "original_review_sha256": "97a3d9ad01ed360150e898f938f20eadff92a271c5305c4c17a8e9b05e040e3b"
+    },
+    {
+      "id": "governance",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-governance.cjs"
+      ],
+      "deadline_seconds": 120,
+      "elapsed_ms": 12234,
+      "resumed": false,
+      "command": {
+        "name": "governance",
+        "arguments": [
+          "node",
+          "audit/check-governance.cjs"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T06:09:17.773418+00:00",
+        "finished_utc": "2026-11-14T06:09:30.018647+00:00",
+        "timed_out": false,
+        "deadline_seconds": 120,
+        "cleanup_reaped": true,
+        "elapsed_ms": 12234
+      },
+      "full_artifact_inventory_sha256": "eda3e7b498330a8ab70724edf8b4f9e2468032a0fc0fd78f02e6ae200c3e00ab",
+      "artifact_files": 1,
+      "stdout_sha256": "d63ded7e481c21daa8973f503adaf6506aebf81b97fa072b5a4d863388c6a083",
+      "original_review_sha256": "97a3d9ad01ed360150e898f938f20eadff92a271c5305c4c17a8e9b05e040e3b"
+    },
+    {
+      "id": "hygiene",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-repository-hygiene.cjs"
+      ],
+      "deadline_seconds": 1800,
+      "elapsed_ms": 2391,
+      "resumed": false,
+      "command": {
+        "name": "hygiene",
+        "arguments": [
+          "node",
+          "audit/check-repository-hygiene.cjs"
+        ],
+        "exit_code": 0,
+        "started_utc": "2026-11-14T06:09:33.614439+00:00",
+        "finished_utc": "2026-11-14T06:09:36.002804+00:00",
+        "timed_out": false,
+        "deadline_seconds": 1800,
+        "cleanup_reaped": true,
+        "elapsed_ms": 2391
+      },
+      "full_artifact_inventory_sha256": "f7552544349beac408edee85a1787a434390b7ddd17939e61afdc0557a53396f",
+      "artifact_files": 1,
+      "stdout_sha256": "4c29b585c879c0c0798a4bbff4143fafd9ca0b24d88002ae325fd0d2c3f478a4",
+      "original_review_sha256": "97a3d9ad01ed360150e898f938f20eadff92a271c5305c4c17a8e9b05e040e3b"
+    }
+  ],
+  "display": [
+    {
+      "status": "passed",
+      "build_id": "5b5daaacf803274194b9d9f3c7ae9ee49f281dc6b6bc77e3e2220d7fdb46d73f",
+      "kernel_sha256": "aad1aeb3a50951ebcc4f02d1790f54cf03fc93edc54de9785e012e186549ae61",
+      "iso_sha256": "d7ceb57f7bd17c069abbe0f6ec873762f2f9f990e58161fd68fd62430746bd8a",
+      "capture_sha256": "99421c7640c36db7d6e385526ebb7f98c3bd234f13612433d64421032c10a1e2",
+      "blank_capture_sha256": "847b7f79e03d5c6627ebab623434be40bbabe552c8a3566755c717d621598486",
+      "reference_sha256": "99421c7640c36db7d6e385526ebb7f98c3bd234f13612433d64421032c10a1e2",
+      "width": 1280,
+      "height": 720,
+      "descriptor": {
+        "version": "5",
+        "build": "5b5daaacf803274194b9d9f3c7ae9ee49f281dc6b6bc77e3e2220d7fdb46d73f",
+        "session": "337714e4c58ee0a405d80a2b35fdbc5d703284597c1152380570ae8f63f6fc4a",
+        "session_origin": "host",
+        "seq": "85",
+        "stage": "display",
+        "outcome": "ok",
+        "emergency": "false",
+        "width": "1280",
+        "height": "720",
+        "pitch": "5120",
+        "bpp": "32",
+        "red": "16",
+        "green": "8",
+        "blue": "0",
+        "physical": "0x80000000",
+        "bytes": "3686400",
+        "mapped_bytes": "3686400",
+        "cache": "uc",
+        "user": "false",
+        "writable": "true",
+        "nx": "true",
+        "initial_clear": "complete",
+        "padding": "zero",
+        "fence": "cpu-copy",
+        "vsync": "false"
+      },
+      "criterion_mutations": 5,
+      "scope": "CPU reference / synchronous copy / QEMU displayed pixels; no scanout timing or VSync"
+    },
+    {
+      "status": "passed",
+      "build_id": "5b5daaacf803274194b9d9f3c7ae9ee49f281dc6b6bc77e3e2220d7fdb46d73f",
+      "kernel_sha256": "aad1aeb3a50951ebcc4f02d1790f54cf03fc93edc54de9785e012e186549ae61",
+      "iso_sha256": "57e48b94c782e50bfd9dfdbf728f66f75a5c695a9df0764d702391a3dc6b1e57",
+      "capture_sha256": "5a1d91c0773ca3f07029cb94b72da031fff4524792c1314b516545a3b0b8e81d",
+      "blank_capture_sha256": "a8aaf2a0a91b2ff218775a0d2b6a229c9c4488dce4f835689a24559f9f414490",
+      "reference_sha256": "5a1d91c0773ca3f07029cb94b72da031fff4524792c1314b516545a3b0b8e81d",
+      "width": 1920,
+      "height": 1080,
+      "descriptor": {
+        "version": "5",
+        "build": "5b5daaacf803274194b9d9f3c7ae9ee49f281dc6b6bc77e3e2220d7fdb46d73f",
+        "session": "d03d2f0d403615181cc64eb7cfe209af4a18618fcc1a0cc3a69e44fd83bb52c1",
+        "session_origin": "host",
+        "seq": "85",
+        "stage": "display",
+        "outcome": "ok",
+        "emergency": "false",
+        "width": "1920",
+        "height": "1080",
+        "pitch": "7680",
+        "bpp": "32",
+        "red": "16",
+        "green": "8",
+        "blue": "0",
+        "physical": "0x80000000",
+        "bytes": "8294400",
+        "mapped_bytes": "8294400",
+        "cache": "uc",
+        "user": "false",
+        "writable": "true",
+        "nx": "true",
+        "initial_clear": "complete",
+        "padding": "zero",
+        "fence": "cpu-copy",
+        "vsync": "false"
+      },
+      "criterion_mutations": 5,
+      "scope": "CPU reference / synchronous copy / QEMU displayed pixels; no scanout timing or VSync"
+    }
+  ],
+  "not_selected": {
+    "M1": "Four metadata boots, owned-memory, memory ownership, actual guard fault and timer leaf cases; full milestone exit remains at M4.",
+    "M2": "No hosted render/text/model code or assets changed.",
+    "M3": "Selected boundary/scheduler/capability/SDK-runtime and all separate flavors cover affected execution; IPC/policy/route contracts unchanged.",
+    "prerequisites": "Selected fresh ten-check tooling/Phase 0 prerequisite gate."
+  }
+}

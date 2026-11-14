@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "story": "P4-04",
+  "scope": "story",
+  "impact": {
+    "subsystems": [
+      "checked boot scanout UC/NX mapping and incarnation-bound mediated row copies",
+      "display test build, optical mode configuration and QMP stdio capture",
+      "desktop private-launch staging order: config mapped before large heap, with unchanged heaps, allocation inventories, retries and limits"
+    ],
+    "consumers": [
+      "P4-05 compositor/display-role backend",
+      "ordinary seven-role runtime and prior device/runtime features"
+    ],
+    "rationale": "New display row/copy behavior and config-before-heap desktop admission, plus focused boot/page/exception/timer and shared-boundary regressions. The display guest retains the complete nine-owner/900-cycle desktop fixture and original bounds. IPC, policy, SDK contract and hosted UI assets are unchanged.",
+    "broad_m1": false,
+    "broad_m2": false,
+    "broad_m3": false,
+    "shared_boundary_scheduler": true,
+    "uncertain_families": []
+  },
+  "selected": [
+    {
+      "id": "kernel-host",
+      "reason": "Core broker/DMA and all ordinary kernel host checks."
+    },
+    {
+      "id": "display-host",
+      "reason": "Display validation, pixel conversion, clipping, guarded padded stores and broker lifecycle."
+    },
+    {
+      "id": "xtask-host",
+      "reason": "Changed build/package/launch/serial parser and unchanged host oracles."
+    },
+    {
+      "id": "runner-tests",
+      "reason": "Launch budgets, failure/resume and selection rules."
+    },
+    {
+      "id": "prerequisites",
+      "reason": "Recheck tooling/Phase 0 before the new device harness."
+    },
+    {
+      "id": "boot-metadata",
+      "reason": "Four actual optical metadata/session/module/serial-only boots."
+    },
+    {
+      "id": "scanout-memory",
+      "reason": "Owned page policy, WP/NX and reservation regressions."
+    },
+    {
+      "id": "scanout-guard",
+      "reason": "Actual exception containment and serial fatal diagnosis."
+    },
+    {
+      "id": "memory",
+      "reason": "Physical frame runs, protection and exact settlements."
+    },
+    {
+      "id": "timer",
+      "reason": "Returning IRQ entry and timer progress after the new vector."
+    },
+    {
+      "id": "boundary",
+      "reason": "Separate four-guest syscall and process fault regressions."
+    },
+    {
+      "id": "scheduler",
+      "reason": "Traced, untraced and missing-SSE2 scheduling paths."
+    },
+    {
+      "id": "capabilities",
+      "reason": "Unchanged typed memory/handle enforcement."
+    },
+    {
+      "id": "sdk-runtime",
+      "reason": "Independent public SDK and portable runtime execution."
+    },
+    {
+      "id": "docs",
+      "reason": "Final documentation and contract links."
+    },
+    {
+      "id": "governance",
+      "reason": "Governance and historical evidence preservation."
+    },
+    {
+      "id": "hygiene",
+      "reason": "Final staged compact-evidence and repository policy."
+    }
+  ],
+  "not_selected": {
+    "M1": "Four metadata boots, owned-memory, memory ownership, actual guard fault and timer leaf cases; full milestone exit remains at M4.",
+    "M2": "No hosted render/text/model code or assets changed.",
+    "M3": "Selected boundary/scheduler/capability/SDK-runtime and all separate flavors cover affected execution; IPC/policy/route contracts unchanged.",
+    "prerequisites": "Selected fresh ten-check tooling/Phase 0 prerequisite gate."
+  },
+  "historical_references": [],
+  "execution_budget": {
+    "max_vm_launches": 20,
+    "allow_full_suites": false
+  }
+}

@@ -104,6 +104,8 @@ extern "C" fn main() {
     let role = word(0);
     let cap = word(1) as usize;
     let mode = word(5);
+    #[cfg(display_probe)]
+    display(role);
     #[cfg(device_probe)]
     unsafe {
         for slot in 0..3 {
@@ -245,6 +247,49 @@ extern "C" fn main() {
     }
     loop {
         pause();
+    }
+}
+#[cfg(display_probe)]
+fn display(role:u64) {
+    let call=|op,a,b,c,g|unsafe{syscall(op,a,b,c,g)};
+    if role!=1 {
+        for op in [0x4100,0x4101,0x4102,0x4103,0x4104] {check(call(op,0,0,1,1).0==ACCESSDENIED);}
+        return;
+    }
+    let (status,g)=call(0x4100,0,0,0,0);check(status==0);
+    let (status,size)=call(0x4101,0,0,0,g);check(status==0);
+    let w=size as u32 as usize;let h=(size>>32) as usize;
+    check([(1280,720),(1920,1080)].contains(&(w,h)));
+    check(call(0x4101,0,0,0,g+1).0==ACCESSDENIED);
+    for op in [0x4103,0x4104] {check(call(op,0,0,0,g).0==ACCESSDENIED);}
+    check(call(0x4102,0,0,1,g).0==ACCESSDENIED);
+    check(call(0x4102,0,0,1921,g).0==ACCESSDENIED);
+    let mut row=[0u8;1920*4];
+    // CPU RGBX pattern is independently reconstructed by the host oracle.
+    for y in 0..h {
+        for x in 0..w {
+            let rgb=if x<8 || y<8 || x>=w-8 || y>=h-8 {[255,255,255]}
+                else if y<40 && x<40 {[255,0,255]}
+                else if y<40 && x>=w-40 {[0,255,255]}
+                else if y>=h-40 && x<40 {[255,255,0]}
+                else if y>=h-40 && x>=w-40 {[255,128,0]}
+                else {match x*6/w {0=>[255,0,0],1=>[0,255,0],2=>[0,0,255],3=>[17,34,51],4=>[128,64,192],_=>[0,0,0]}};
+            row[x*4..x*4+3].copy_from_slice(&rgb);row[x*4+3]=255;
+        }
+        check(call(0x4102,row.as_ptr() as u64,(y as u64)<<32,w as u64,g)==(0,w as u64));
+        if y==h/2 {
+            let clipped=[11u8,22,33,255,11,22,33,255,11,22,33,255,11,22,33,255];
+            for x in [-2i32,w as i32-2] {
+                let placement=((y as u64)<<32)|u64::from(x as u32);
+                check(call(0x4102,clipped.as_ptr() as u64,placement,4,g)==(0,4));
+            }
+            for outside in [-1i32,h as i32] {
+                check(call(0x4102,clipped.as_ptr() as u64,u64::from(outside as u32)<<32,4,g)==(0,4));
+            }
+        }
+        // Returned copy fence releases source; reuse immediately cannot change scanout.
+        row.fill(0xad);
+        check(call(THREAD_YIELD,word(3),0,0,0).0==0);
     }
 }
 #[panic_handler]

@@ -157,6 +157,45 @@ fn zero(p: PhysAddr, hhdm: u64) -> Result<()> {
     }
     Ok(())
 }
+/// Bootstrap-only scanout window. No WB direct alias exists; never user mapped.
+#[cfg(feature = "desktop-runtime")]
+pub(crate) fn scanout(
+    output: continuum_kernel::display::Output,
+    fail_after: Option<u64>,
+) -> Result<u64> {
+    const BASE: u64 = 0xffff_c400_0000_0000;
+    let bits = core::arch::x86_64::__cpuid(0x80000008).eax & 255;
+    need((32..=52).contains(&bits) && output.pages.end() <= (1u64 << bits))?;
+    let tables = unsafe { &mut *TABLES.0.get() };
+    let mut count = 0;
+    let mapped = (|| {
+        for offset in (0..output.pages.len).step_by(PAGE as usize) {
+            if fail_after == Some(count) {
+                return Err(error("display", "injected_map"));
+            }
+            tables.map(
+                VirtAddr(BASE + offset),
+                PhysAddr(output.pages.base + offset),
+                Permission::Device,
+            )?;
+            count += 1;
+            invalidate(BASE + offset);
+            need(
+                tables.inspect(VirtAddr(BASE + offset))? & !(0x20 | 0x40)
+                    == (output.pages.base + offset) | NX | 0x1b,
+            )?;
+        }
+        Ok(())
+    })();
+    if let Err(e) = mapped {
+        for n in 0..count {
+            tables.unmap(VirtAddr(BASE + n * PAGE))?;
+            invalidate(BASE + n * PAGE);
+        }
+        return Err(e);
+    }
+    Ok(BASE + output.fb.range.base - output.pages.base)
+}
 fn check_zero(address: u64) -> Result<()> {
     // Volatile observations keep the guest experiment independent of compiler
     // reasoning about the earlier zero/dirty stores.

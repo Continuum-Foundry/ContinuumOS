@@ -58,6 +58,21 @@ fn bound(kind: &'static str, role: usize, observed: u64, limit: u64) -> Result<(
     }
     Ok(())
 }
+fn prepare_phase(role: usize, phase: &str, begin: u64) {
+    #[cfg(feature = "desktop-test")]
+    record(
+        "m1.desktop_prepare_phase",
+        "desktop",
+        "ok",
+        format_args!(
+            "role={} phase={phase} cumulative_ns={}",
+            d::ROLES[role],
+            time() - begin
+        ),
+    );
+    #[cfg(not(feature = "desktop-test"))]
+    let _ = (role, phase, begin);
+}
 fn spawn_role(queue: &mut Queue, role: usize, mode: u64, fail: u64) -> Result<ThreadId> {
     let prepare_begin = time();
     unsafe {
@@ -80,6 +95,7 @@ fn spawn_role(queue: &mut Queue, role: usize, mode: u64, fail: u64) -> Result<Th
         )
     })?;
     let space = unsafe { (&*LAUNCHER.0.get()).get(id)?.space };
+    prepare_phase(role, "image", prepare_begin);
     let mut admitted = false;
     let prepared = (|| {
         if fail == 1 {
@@ -105,11 +121,25 @@ fn spawn_role(queue: &mut Queue, role: usize, mode: u64, fail: u64) -> Result<Th
             }
             Ok::<_, continuum_kernel::Error>((grants[0], grants[1], grants[2]))
         })?;
+        prepare_phase(role, "grants", prepare_begin);
         if fail == 2 {
             return Err(error("desktop", "injected-grants"));
         }
         runtime_memory::with(|r, b| {
+            // The page-table builder reconstructs the complete inactive bank on
+            // each map. Map the tiny config before the large heap so config
+            // publication cannot rebuild the same 48/64-MiB heap a second time.
+            let a = r.allocate(b, space, PAGE, PAGE)?.unwrap();
+            for (i, v) in [role as u64, d::HEAPS[role], process, thread, timer, mode]
+                .into_iter()
+                .enumerate()
+            {
+                r.write_staging(b, space, a, i as u64 * 8, &v.to_le_bytes())?;
+            }
+            r.map(b, space, a, d::CONFIG, 0, PAGE, Access::Read)?;
+            prepare_phase(role, "config", prepare_begin);
             let heap = r.allocate(b, space, d::HEAPS[role], PAGE)?.unwrap();
+            prepare_phase(role, "heap_allocate", prepare_begin);
             r.map(
                 b,
                 space,
@@ -119,17 +149,10 @@ fn spawn_role(queue: &mut Queue, role: usize, mode: u64, fail: u64) -> Result<Th
                 d::HEAPS[role],
                 Access::Write,
             )?;
+            prepare_phase(role, "heap_map", prepare_begin);
             if fail == 3 {
                 return Err(error("desktop", "injected-heap"));
             }
-            let a = r.allocate(b, space, PAGE, PAGE)?.unwrap();
-            for (i, v) in [role as u64, d::HEAPS[role], process, thread, timer, mode]
-                .into_iter()
-                .enumerate()
-            {
-                r.write_staging(b, space, a, i as u64 * 8, &v.to_le_bytes())?;
-            }
-            r.map(b, space, a, d::CONFIG, 0, PAGE, Access::Read)?;
             // All large backing is admitted once. Public calls cannot create or
             // replace it; repeated resource work consumes no kernel credits.
             r.constrain(space, d::HEAPS[role] + d::OVERHEAD, 16, 16)?;
@@ -245,6 +268,7 @@ fn reap(role: usize, id: ThreadId, result: u64) -> Result<()> {
     let cleanup_begin = time();
     let t = unsafe { (&mut *TASKS.0.get())[id.slot].take() }.ok_or(error("desktop", "reap"))?;
     need(t.current.id.generation == id.generation)?;
+    crate::display_guest::owner_dead(t.current.id.slot as u64 + 1, id.generation)?;
     #[cfg(feature = "device-test")]
     crate::device_guest::owner_dead(t.current.id.slot as u64 + 1, id.generation)?;
     waiting::terminate(id);

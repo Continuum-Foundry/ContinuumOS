@@ -4,6 +4,8 @@
 mod boot;
 #[cfg(feature = "device-test")]
 mod device_guest;
+#[cfg(feature = "desktop-runtime")]
+mod display_guest;
 mod exceptions;
 mod paging;
 #[cfg(feature = "static-loader-test")]

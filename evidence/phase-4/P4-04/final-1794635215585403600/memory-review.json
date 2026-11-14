@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "scope": "focused memory regression only",
+  "audit": {
+    "fixed_kernel_storage_bytes": 9859072,
+    "active_table_pages": {
+      "0": 6,
+      "1": 4
+    },
+    "private_user_pages": {
+      "0": 20,
+      "1": 16
+    },
+    "cycles": 1000,
+    "resident_after": 0
+  },
+  "mutations": [
+    {
+      "case": "writable-RX",
+      "status": "rejected"
+    },
+    {
+      "case": "supervisor-alias-write",
+      "status": "rejected"
+    },
+    {
+      "case": "guard-mapped",
+      "status": "rejected"
+    },
+    {
+      "case": "settlement-leak",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-cycles",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-table-pages",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.runtime_memory_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.runtime_alias",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.runtime_space",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.runtime_entry",
+      "status": "rejected"
+    },
+    {
+      "case": "missing-m1.runtime_settlement",
+      "status": "rejected"
+    }
+  ],
+  "iso_sha256": "cdfff1b7204e1fa73a808b411e255c673be102f393f0d054f58e44309d5de1a2"
+}

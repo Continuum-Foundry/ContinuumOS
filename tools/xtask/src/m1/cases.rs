@@ -56,6 +56,7 @@ pub(super) fn boot_run(
         let want_modules = if manifest["flavor"] == "normal"
             || manifest["flavor"] == "desktop-test"
             || manifest["flavor"] == "device-test"
+            || manifest["flavor"] == "display-test"
             || fixture == "static-loader"
             || fixture.starts_with("user-boundary-")
             || fixture.starts_with("scheduler-")
@@ -119,6 +120,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "sdk-runtime" => Flavor::SdkRuntime,
         "desktop-runtime" => Flavor::Desktop,
         "devices" => Flavor::Devices,
+        "display-720" | "display-1080" => Flavor::Display,
         "sdk-stress" => Flavor::Stress,
         "sdk-stress-trace" => Flavor::StressTrace,
         "sdk-stress-supervisor" => Flavor::StressSupervision,
@@ -195,6 +197,20 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         return Ok(
             json!({"compile":"passed","package":"passed","capabilities":"passed","run":run}),
         );
+    }
+    if flavor == Flavor::Display {
+        let run = boot_run(
+            dir,
+            action,
+            dir,
+            &manifest,
+            "desktop-runtime",
+            false,
+            true,
+            false,
+        )?;
+        accepted(&run)?;
+        return Ok(json!({"compile":"passed","display":"passed","run":run}));
     }
     if matches!(flavor, Flavor::Desktop | Flavor::Devices) {
         let run = boot_run(

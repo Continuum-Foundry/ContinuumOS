@@ -1805,3 +1805,50 @@ No force push, merge, release, other destination, new remote build, repository
 setting change or standing exemption is granted. Geographic containment remains
 unverified; this administrative exception is not legal clearance or a finding of
 U.S.-only handling and does not waive applicable law.
+
+## One-time owner exemption — P4-04 framebuffer PR, 2026-11-14
+
+After P4-04 local acceptance and staged closeout, the owner instructed:
+"I give you exemption to make PR and then resume the other chat for me".
+This authorizes one push and one PR for the exact reviewed 198-file task payload
+represented, before this record, by Git tree
+`db3cdb37dd0c8b06a0e3f0c929c21d4f1243d701`, based on
+`33f086940df5e18d404a4148ab46ed6ed0ae5791`, plus this authorization record.
+
+Payload: P4-04 checked boot framebuffer mapping, trusted incarnation/generation
+row-copy authority, synchronous source release and owner teardown; display-test
+CPL3 probes, independent pixel/QMP oracles and selected validation; config-before-
+heap desktop admission and native host lifecycle fixture; current story, runbook,
+requirements, Proposed ADR and handoff; and the compact reviewed 160-file bundle
+at `evidence/phase-4/P4-04/final-1794635215585403600/`. Literal and JSON-escaped
+workspace paths in three evidence excerpts are aliased for export, with original
+and retained hashes recorded. Full exact QMP and failure bytes remain local.
+Guest/build implementation inputs are unchanged from accepted 20-VM/18-flavor
+results. Final host audits rerun after this prose/evidence-only update.
+
+Destination: existing GitHub repository
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/p4-04-framebuffer`, followed by one PR against `main` titled
+"Complete P4-04 checked guest framebuffer". The prepared PR body's SHA-256 is
+`509470baaa0c283853c1b254f907b2bb83e06b089d88105035a107a291f1fd9f`.
+This includes that description and PR metadata. GitHub reports this destination
+as public; repository visibility is unchanged.
+
+Excluded: the paused chat's unrelated retention-policy changes, full generated
+runs/logs/source copies, binaries, ISOs, firmware state, caches, credentials,
+certificates and private keys. Historical evidence is not rewritten. No hosted
+workflow is introduced. Current source/index normalization and mixed-tooling
+attribution remain explicit. No compositor, physical input, guest toolkit/reload,
+VSync/scanout-latency, desktop-efficiency or milestone-exit claim is added.
+The ordinary commit retains and must pass the installed pre-commit check.
+
+The push exemption is exhausted by the first successful push containing this
+record; PR authorization is exhausted by creation of that one PR. For that push
+only, command-local `core.hooksPath=work/p4-04-pr/hooks` may select a directory
+containing an exact copy of the installed pre-commit hook and no pre-push hook.
+The installed `.githooks/pre-push` and configured `.githooks` path remain afterward.
+No force push, merge, release, other destination, new remote build, repository
+setting change or standing exemption is granted. Geographic containment remains
+unverified; this administrative exception is not legal clearance or a finding of
+U.S.-only handling and does not waive applicable law. After PR creation the owner
+also authorizes resuming the paused evidence-retention chat, preserving its edits.

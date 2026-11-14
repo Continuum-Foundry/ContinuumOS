@@ -83,6 +83,10 @@ fn need(ok: bool) -> Result<()> {
         Err(error("user_boundary", "self_check"))
     }
 }
+#[cfg(feature = "desktop-runtime")]
+pub(crate) fn display_copy(p: u64, g: u64, e: u64, w: u64, h: u64, xy: u64, ns: u64) {
+    (fixture::hooks().display_copy)(p, g, e, w, h, xy, ns);
+}
 fn current() -> Current {
     unsafe { CURRENT.0.get().read() }.expect("trusted current")
 }

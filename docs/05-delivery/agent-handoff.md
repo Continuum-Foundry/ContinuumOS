@@ -83,8 +83,15 @@ P4-02 passes [local runtime-admission self-review](../../evidence/phase-4/P4-02/
 
 P4-03 passes [local device-authority/IRQ/DMA self-review](../../evidence/phase-4/P4-03/final-1794185451085334400/README.md): 107-test ordinary/device host suites, 104 CPL3 decisions, 16 actual status-queue completions, reset/quarantine and pending-receive owner-death cleanup, 17 separate metadata flavors and 14 selected VM launches. The temporary kernel mediator has no IOMMU confinement; physical input, display, port transport and rendering remain open. Use the [runbook](phase-4/device-authority-runbook.md).
 
-Continue with [P4-04](phase-4/04-framebuffer-mapping-and-presentation.md).
-P4-04 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
+P4-04 passes [local checked software-scanout self-review](../../evidence/phase-4/P4-04/final-1794635215585403600/README.md):
+110-test ordinary/display host suites, exact 720p/1080p optical pattern and blank
+captures, trusted incarnation/generation row copies, app capture/mapping denials,
+18 separate metadata flavors and 20 selected VM launches. The temporary kernel
+mediator provides synchronous source release; it accepts no compositor, input,
+reload, VSync or desktop efficiency result. See the [runbook](phase-4/framebuffer-runbook.md).
+
+Continue with [P4-05](phase-4/05-surface-leases-and-compositor.md).
+P4-05 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
 through runtime/device foundations, guest UI/input/semantics, protected input and
 B61, authenticated transport, resource publication, faults, metrics and sustained
 reloads before final M4 review. The tested finite runtime profile remains experimental; broader desktop capacities

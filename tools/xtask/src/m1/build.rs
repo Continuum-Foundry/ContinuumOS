@@ -34,6 +34,7 @@ pub(super) enum Flavor {
     Normal,
     Desktop,
     Devices,
+    Display,
     Smoke,
     NoEntry,
     Inject,
@@ -62,6 +63,7 @@ impl Flavor {
             Self::Normal => "normal",
             Self::Desktop => "desktop-test",
             Self::Devices => "device-test",
+            Self::Display => "display-test",
             Self::Smoke => "iso-smoke",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
@@ -90,6 +92,7 @@ impl Flavor {
             Self::Normal => "desktop-runtime",
             Self::Desktop => "desktop-test",
             Self::Devices => "device-test",
+            Self::Display => "display-test",
             Self::Smoke => "emulator-test",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
@@ -373,6 +376,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
         Flavor::Normal
             | Flavor::Desktop
             | Flavor::Devices
+            | Flavor::Display
             | Flavor::StaticLoader
             | Flavor::UserBoundary
             | Flavor::Scheduler
@@ -396,6 +400,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                 Flavor::Normal
                     | Flavor::Desktop
                     | Flavor::Devices
+                    | Flavor::Display
                     | Flavor::Scheduler
                     | Flavor::Capabilities
                     | Flavor::Channels
@@ -415,8 +420,12 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             flavor == Flavor::Supervisor,
             flavor == Flavor::Policy,
             flavor == Flavor::Routes,
-            matches!(flavor, Flavor::Normal | Flavor::Desktop | Flavor::Devices),
+            matches!(
+                flavor,
+                Flavor::Normal | Flavor::Desktop | Flavor::Devices | Flavor::Display
+            ),
             flavor == Flavor::Devices,
+            flavor == Flavor::Display,
         )?)
     } else {
         None
@@ -445,6 +454,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             | Flavor::Normal
             | Flavor::Desktop
             | Flavor::Devices
+            | Flavor::Display
     ) {
         "kernel-stress"
     } else {
@@ -576,6 +586,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                 Flavor::Normal
                     | Flavor::Desktop
                     | Flavor::Devices
+                    | Flavor::Display
                     | Flavor::Scheduler
                     | Flavor::Capabilities
                     | Flavor::Channels

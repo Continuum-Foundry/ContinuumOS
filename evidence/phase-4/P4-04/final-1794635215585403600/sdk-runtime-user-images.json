@@ -1,0 +1,148 @@
+{
+  "code_model": "small",
+  "images": [
+    {
+      "baseline": "x87/SSE2; no AVX/XSAVE/TLS or CPU dispatch",
+      "bytes": 308296,
+      "inspection": {
+        "dynamic_linking": false,
+        "entry": "0x400000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "machine": "x86_64",
+        "relocations": 0,
+        "segments": [
+          {
+            "address": "0x400000",
+            "alignment": 4096,
+            "file_size": 122300,
+            "flags": 5,
+            "memory_size": 122300,
+            "offset": 4096
+          },
+          {
+            "address": "0x41e000",
+            "alignment": 4096,
+            "file_size": 136604,
+            "flags": 4,
+            "memory_size": 136604,
+            "offset": 126976
+          },
+          {
+            "address": "0x440000",
+            "alignment": 4096,
+            "file_size": 5880,
+            "flags": 6,
+            "memory_size": 9624,
+            "offset": 266240
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "name": "user_a",
+      "sha256": "c953363f36f324313a88ddc714d2bf57cef1fa2a4ff23a0477f0b67c6459489f",
+      "simd_mnemonics": [
+        "addsd",
+        "movq",
+        "xorpd"
+      ]
+    },
+    {
+      "baseline": "x87/SSE2; no AVX/XSAVE/TLS or CPU dispatch",
+      "bytes": 158944,
+      "inspection": {
+        "dynamic_linking": false,
+        "entry": "0x400000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "machine": "x86_64",
+        "relocations": 0,
+        "segments": [
+          {
+            "address": "0x400000",
+            "alignment": 4096,
+            "file_size": 87012,
+            "flags": 5,
+            "memory_size": 87012,
+            "offset": 4096
+          },
+          {
+            "address": "0x416000",
+            "alignment": 4096,
+            "file_size": 37956,
+            "flags": 4,
+            "memory_size": 37956,
+            "offset": 94208
+          },
+          {
+            "address": "0x420000",
+            "alignment": 4096,
+            "file_size": 4816,
+            "flags": 6,
+            "memory_size": 9624,
+            "offset": 135168
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "name": "user_b",
+      "sha256": "ab8952dc4c75df8ed6c32c9dca88d34e3f24f9b16bdcf22f59de503a320f6d5d",
+      "simd_mnemonics": []
+    },
+    {
+      "baseline": "x87/SSE2; no AVX/XSAVE/TLS or CPU dispatch",
+      "bytes": 158944,
+      "inspection": {
+        "dynamic_linking": false,
+        "entry": "0x400000",
+        "executed": false,
+        "format": "ELF64-LE",
+        "machine": "x86_64",
+        "relocations": 0,
+        "segments": [
+          {
+            "address": "0x400000",
+            "alignment": 4096,
+            "file_size": 87028,
+            "flags": 5,
+            "memory_size": 87028,
+            "offset": 4096
+          },
+          {
+            "address": "0x416000",
+            "alignment": 4096,
+            "file_size": 37956,
+            "flags": 4,
+            "memory_size": 37956,
+            "offset": 94208
+          },
+          {
+            "address": "0x420000",
+            "alignment": 4096,
+            "file_size": 4816,
+            "flags": 6,
+            "memory_size": 9624,
+            "offset": 135168
+          }
+        ],
+        "type": "ET_EXEC",
+        "unresolved_symbols": 0
+      },
+      "name": "service",
+      "sha256": "118133750b74750d2aa89dea55c8293c8c256293f72289ef0619b7a87c1302aa",
+      "simd_mnemonics": []
+    }
+  ],
+  "public_sdk": true,
+  "red_zone": false,
+  "required_cpu_features": 7,
+  "runtime_ids_sha256": "3ead590b9bcca7b902adc1ede57ef6fd2729cd37d2d96b2dc6b307b8295ed6f0",
+  "scheduler": true,
+  "schema_version": 1,
+  "sdk_version": "0.1.0",
+  "target": "x86_64-unknown-none",
+  "trusted_descriptors_sha256": "82ee2f17393f0ddc3239f9b80396c33488bb2204ffb71cda70595e6f724c6926",
+  "user_execution": true
+}

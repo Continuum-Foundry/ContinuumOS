@@ -1,0 +1,179 @@
+{
+  "scope": "Explicit selected historical tails, never complete streams or passing evidence",
+  "excerpts": [
+    {
+      "local": "build/m4/P4-04/acceptance-1794191416930731700/display-host.stderr.log",
+      "sha256": "c7316ce4d58684f806de0c6502db5f56f28f83bf716d5b9a9265a943821245bc",
+      "selection": "last 12 lines",
+      "text": "   Compiling continuum-kernel v0.1.0 (${WORKSPACE}\\kernel)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.67s\n     Running unittests src\\lib.rs (build\\cargo\\signed\\debug\\deps\\continuum_kernel-21c08dda44434332.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794191416930731700/kernel-host.stderr.log",
+      "sha256": "1bde749d37c28902176b6725f3e38d258c3513d2501e3b51e3d3db1783d51c41",
+      "selection": "last 12 lines",
+      "text": "   Compiling continuum-kernel v0.1.0 (${WORKSPACE}\\kernel)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.65s\n     Running unittests src\\lib.rs (build\\cargo\\signed\\debug\\deps\\continuum_kernel-172e592285f33fd1.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794191416930731700/runner-tests.stderr.log",
+      "sha256": "877e57a42cc02ae9710786016dda593a0e6bd23b4d646562204682a628b84211",
+      "selection": "last 12 lines",
+      "text": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 1.216s\n\nOK"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794191416930731700/xtask-host.stderr.log",
+      "sha256": "ce65990252f3cb030fb26012e25b7fc500fa1ddafd80173c3dce4cb9e032496c",
+      "selection": "last 12 lines",
+      "text": "   Compiling xtask v0.1.0 (${WORKSPACE}\\tools\\xtask)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.85s\n     Running unittests src\\main.rs (build\\cargo\\signed\\debug\\deps\\xtask-cb31c8a23392a25f.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794192568676643800/display-720.stderr.log",
+      "sha256": "c712eb83f79ab28ddf9c91cdd3b174a2519acf4cd7ba3266f4a99504ffe58f96",
+      "selection": "last 12 lines",
+      "text": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.32s\n     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case display-720`\nxtask: VM failed: \"Unexpected fatal diagnostic\"; artifacts retained at ${WORKSPACE}\\build/m1\\display-720-1794193306858115400-82544\nerror: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case display-720` (exit code: 1)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794192568676643800/display-host.stderr.log",
+      "sha256": "8f7a8a9f1afdb9077cca7fce9b6e5e43935db32ad83ff78debd1de8ae86a55cb",
+      "selection": "last 12 lines",
+      "text": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.23s\n     Running unittests src\\lib.rs (build\\cargo\\signed\\debug\\deps\\continuum_kernel-21c08dda44434332.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794192568676643800/kernel-host.stderr.log",
+      "sha256": "c0b5fffc11fd052cb730306e1706441e31d572fd57cc9be5845ea26f06787f84",
+      "selection": "last 12 lines",
+      "text": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.35s\n     Running unittests src\\lib.rs (build\\cargo\\signed\\debug\\deps\\continuum_kernel-172e592285f33fd1.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794192568676643800/prerequisites.stderr.log",
+      "sha256": "454de030fc57c8107000a3aafbf801481f30408acbd0bc7b4859d4772dc18983",
+      "selection": "last 12 lines",
+      "text": "warning: in the working copy of 'docs/05-delivery/phase-4/04-framebuffer-mapping-and-presentation.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'tools/Test-StoryValidation.py', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'tools/story_validation.py', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'tools/xtask/src/main.rs', CRLF will be replaced by LF the next time Git touches it"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794192568676643800/runner-tests.stderr.log",
+      "sha256": "f9cee224bd2f0eb2a2a721c595776b3a99621bb9cc238bb653e1a354ed6bdf45",
+      "selection": "last 12 lines",
+      "text": "...........................\n----------------------------------------------------------------------\nRan 27 tests in 0.699s\n\nOK"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794192568676643800/xtask-host.stderr.log",
+      "sha256": "04faa03b4e297671755934f2b5f8ca484f432c28bdb89ae83b8c6a809fc12336",
+      "selection": "last 12 lines",
+      "text": "   Compiling xtask v0.1.0 (${WORKSPACE}\\tools\\xtask)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.13s\n     Running unittests src\\main.rs (build\\cargo\\signed\\debug\\deps\\xtask-cb31c8a23392a25f.exe)"
+    },
+    {
+      "local": "${WORKSPACE}/build/m1/display-720-1794193306858115400-82544/display-720-run/serial.log",
+      "sha256": "06b821a690d0d59c06456391e51ed747e7edb2ed665bd4e6c066fa80f3d50433",
+      "selection": "last 8 protocol records",
+      "text": "m1.display_call version=5 build=d549e201e50158057f2e5a82c930644c56445cb7811792dff19b257c5894b541 session=1988a1e6887f35717288dce67d3644489fa4a4eae2dcc204af98fbaa0a082ba1 session_origin=host seq=251 stage=display outcome=ok emergency=false op=16644 role=5 process=6 generation=1 supplied_generation=1 accepted=false\nm1.display_call version=5 build=d549e201e50158057f2e5a82c930644c56445cb7811792dff19b257c5894b541 session=1988a1e6887f35717288dce67d3644489fa4a4eae2dcc204af98fbaa0a082ba1 session_origin=host seq=252 stage=display outcome=ok emergency=false op=16643 role=6 process=7 generation=1 supplied_generation=1 accepted=false\nm1.display_call version=5 build=d549e201e50158057f2e5a82c930644c56445cb7811792dff19b257c5894b541 session=1988a1e6887f35717288dce67d3644489fa4a4eae2dcc204af98fbaa0a082ba1 session_origin=host seq=253 stage=display outcome=ok emergency=false op=16644 role=6 process=7 generation=1 supplied_generation=1 accepted=false\nm1.display_call version=5 build=d549e201e50158057f2e5a82c930644c56445cb7811792dff19b257c5894b541 session=1988a1e6887f35717288dce67d3644489fa4a4eae2dcc204af98fbaa0a082ba1 session_origin=host seq=254 stage=display outcome=ok emergency=false op=16642 role=0 process=1 generation=5 supplied_generation=1 accepted=false\nm1.display_call version=5 build=d549e201e50158057f2e5a82c930644c56445cb7811792dff19b257c5894b541 session=1988a1e6887f35717288dce67d3644489fa4a4eae2dcc204af98fbaa0a082ba1 session_origin=host seq=255 stage=display outcome=ok emergency=false op=16644 role=1 process=2 generation=2 supplied_generation=1 accepted=false\nm1.display_call version=5 build=d549e201e50158057f2e5a82c930644c56445cb7811792dff19b257c5894b541 session=1988a1e6887f35717288dce67d3644489fa4a4eae2dcc204af98fbaa0a082ba1 session_origin=host seq=256 stage=display outcome=ok emergency=false op=16642 role=1 process=2 generation=2 supplied_generation=1 accepted=false\nm1.display_call version=5 build=d549e201e50158057f2e5a82c930644c56445cb7811792dff19b257c5894b541 session=1988a1e6887f35717288dce67d3644489fa4a4eae2dcc204af98fbaa0a082ba1 session_origin=host seq=257 stage=display outcome=ok emergency=false op=16642 role=1 process=2 generation=2 supplied_generation=1 accepted=false\nm1.exception version=5 build=d549e201e50158057f2e5a82c930644c56445cb7811792dff19b257c5894b541 session=1988a1e6887f35717288dce67d3644489fa4a4eae2dcc204af98fbaa0a082ba1 session_origin=host seq=258 stage=exceptions outcome=fatal emergency=false vector=14 rip=0xffffffff8002e485 error=0x2 address=0xffffc40000000000 rsp=0xffffffff811ddea0 cs=0x8 flags=0x10007 frame=0xffffffff811dde68"
+    },
+    {
+      "local": "build/m4/P4-04/probe-1794267870664911800/display-720.stderr.log",
+      "sha256": "035b3febfe113e99fda3c0cf862c985a4583cd7ac19c3e5cbff739cf57f33894",
+      "selection": "last 12 lines",
+      "text": "   Compiling xtask v0.1.0 (${WORKSPACE}\\tools\\xtask)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 18.44s\n     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case display-720`"
+    },
+    {
+      "local": "build/m4/P4-04/probe-1794267870664911800/display-host.stderr.log",
+      "sha256": "1ed6c75ef81a07cd67fae72d99960ec58fb071feca266e507f70aaee75ecdf9d",
+      "selection": "last 12 lines",
+      "text": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.45s\n     Running unittests src\\lib.rs (build\\cargo\\signed\\debug\\deps\\continuum_kernel-21c08dda44434332.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/probe-1794267870664911800/kernel-host.stderr.log",
+      "sha256": "1000b82731626fcddb0451d7c3925a7a8f2d2f8024bc6b01515237dcb8e38d67",
+      "selection": "last 12 lines",
+      "text": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.10s\n     Running unittests src\\lib.rs (build\\cargo\\signed\\debug\\deps\\continuum_kernel-172e592285f33fd1.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/probe-1794267870664911800/runner-tests.stderr.log",
+      "sha256": "7d228993e34aa1fb75f80c9aedb99ff2dd4ace15b916d23c87c747bc687557f9",
+      "selection": "last 12 lines",
+      "text": "...........................\n----------------------------------------------------------------------\nRan 27 tests in 0.929s\n\nOK"
+    },
+    {
+      "local": "build/m4/P4-04/probe-1794267870664911800/xtask-host.stderr.log",
+      "sha256": "1bb8ea468a2d493c4e7f1b923e239ddc9d74ea3c1cd5261632636b9ef006b42b",
+      "selection": "last 12 lines",
+      "text": "   Compiling xtask v0.1.0 (${WORKSPACE}\\tools\\xtask)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.63s\n     Running unittests src\\main.rs (build\\cargo\\signed\\debug\\deps\\xtask-cb31c8a23392a25f.exe)"
+    },
+    {
+      "local": "${WORKSPACE}/build/m1/display-720-1794268134620988200-86452/display-720-run/serial.log",
+      "sha256": "27feddf9006069c6a9e2f46c38ef11a2908cd0cfe9a7fa209cf36c03de3ebd07",
+      "selection": "last 8 protocol records",
+      "text": "m1.cap_call version=5 build=e2897426db956a0037ef99bd25b8d8ad16776f3426710f0520f6f0b3ba30c136 session=2385bb36e907fa5b6b5c9dfde07749c5552e42d0c4300008cbadae9d3eea834a session_origin=host seq=631 stage=capabilities outcome=ok emergency=false case=101 process=1 generation=2 operation=5 status=0 value=0 a=0 b=197568495620 c=0\nm1.display_release version=5 build=e2897426db956a0037ef99bd25b8d8ad16776f3426710f0520f6f0b3ba30c136 session=2385bb36e907fa5b6b5c9dfde07749c5552e42d0c4300008cbadae9d3eea834a session_origin=host seq=632 stage=display outcome=ok emergency=false process=2 generation=2 completed=true\nm1.desktop_reap version=5 build=e2897426db956a0037ef99bd25b8d8ad16776f3426710f0520f6f0b3ba30c136 session=2385bb36e907fa5b6b5c9dfde07749c5552e42d0c4300008cbadae9d3eea834a session_origin=host seq=633 stage=desktop outcome=ok emergency=false role=compositor process=1 generation=2 result=0 units=12 refunded=false\nm1.desktop_cleanup version=5 build=e2897426db956a0037ef99bd25b8d8ad16776f3426710f0520f6f0b3ba30c136 session=2385bb36e907fa5b6b5c9dfde07749c5552e42d0c4300008cbadae9d3eea834a session_origin=host seq=634 stage=desktop outcome=ok emergency=false role=compositor elapsed_ns=77159200\nm1.wait_settled version=5 build=e2897426db956a0037ef99bd25b8d8ad16776f3426710f0520f6f0b3ba30c136 session=2385bb36e907fa5b6b5c9dfde07749c5552e42d0c4300008cbadae9d3eea834a session_origin=host seq=635 stage=waits outcome=ok emergency=false records=0 watches=0 halts=0 wakes=161\nm1.desktop_settled version=5 build=e2897426db956a0037ef99bd25b8d8ad16776f3426710f0520f6f0b3ba30c136 session=2385bb36e907fa5b6b5c9dfde07749c5552e42d0c4300008cbadae9d3eea834a session_origin=host seq=636 stage=desktop outcome=ok emergency=false spaces=0 allocations=0 objects=0 handles=0 frames=0 units=12 control=305 editor_ends=3 heap_cycles_per_owner=100 hidden_launches=0 reserve=16777216 observers=false ready_max_ns=257759100 ready_limit_ns=320000000 elapsed_ns=10149298400\nm1.boot_complete version=5 build=e2897426db956a0037ef99bd25b8d8ad16776f3426710f0520f6f0b3ba30c136 session=2385bb36e907fa5b6b5c9dfde07749c5552e42d0c4300008cbadae9d3eea834a session_origin=host seq=637 stage=boot outcome=ok emergency=false reclaimed_bytes=0\nm1.ready version=5 build=e2897426db956a0037ef99bd25b8d8ad16776f3426710f0520f6f0b3ba30c136 session=2385bb36e907fa5b6b5c9dfde07749c5552e42d0c4300008cbadae9d3eea834a session_origin=host seq=638 stage=ready outcome=ok emergency=false baseline=boot-memory-timer reclaimed_bytes=0"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794269421438802100/display-host.stderr.log",
+      "sha256": "49dff423240c896799974484cd416ee8fdfb1101b983f01a6221d2e6ab266995",
+      "selection": "last 12 lines",
+      "text": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.64s\n     Running unittests src\\lib.rs (build\\cargo\\signed\\debug\\deps\\continuum_kernel-21c08dda44434332.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794269421438802100/kernel-host.stderr.log",
+      "sha256": "b93477566f1f5ac3b144860d80d110e3dd204adcbfe471b3998c876ca73f13c0",
+      "selection": "last 12 lines",
+      "text": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.59s\n     Running unittests src\\lib.rs (build\\cargo\\signed\\debug\\deps\\continuum_kernel-172e592285f33fd1.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794269421438802100/prerequisites.stderr.log",
+      "sha256": "454de030fc57c8107000a3aafbf801481f30408acbd0bc7b4859d4772dc18983",
+      "selection": "last 12 lines",
+      "text": "warning: in the working copy of 'docs/05-delivery/phase-4/04-framebuffer-mapping-and-presentation.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'tools/Test-StoryValidation.py', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'tools/story_validation.py', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'tools/xtask/src/main.rs', CRLF will be replaced by LF the next time Git touches it"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794269421438802100/runner-tests.stderr.log",
+      "sha256": "86d99716ea7f6a6019e39bdecb646011257cab9e74dcd1cc28f360acff1912b2",
+      "selection": "last 12 lines",
+      "text": "...........................\n----------------------------------------------------------------------\nRan 27 tests in 3.205s\n\nOK"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794269421438802100/xtask-host.stderr.log",
+      "sha256": "3cb52ba4e403f3547ea2ba70734cb4acec1ae3321c896480dddfbd61e2bbd814",
+      "selection": "last 12 lines",
+      "text": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.50s\n     Running unittests src\\main.rs (build\\cargo\\signed\\debug\\deps\\xtask-cb31c8a23392a25f.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794270587968712200/display-720.stderr.log",
+      "sha256": "e5bed42c4ec42fa6c0ad956dc3198b35269b38a9d055eb6486c9117cf956959a",
+      "selection": "last 12 lines",
+      "text": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.26s\n     Running `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case display-720`\nxtask: VM failed: \"Unexpected guest rejection\"; artifacts retained at ${WORKSPACE}\\build/m1\\display-720-1794271230290202200-45780\nerror: process didn't exit successfully: `pwsh -NoProfile -File ${WORKSPACE}\\tools\\windows\\Invoke-DevExecutable.ps1 build\\cargo\\signed\\debug\\xtask.exe test --suite m1 --case display-720` (exit code: 1)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794270587968712200/display-host.stderr.log",
+      "sha256": "ba6fe068645ce2e08432a7108776ca6fb855032d40e4d91b7e2708b0e5e93547",
+      "selection": "last 12 lines",
+      "text": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.50s\n     Running unittests src\\lib.rs (build\\cargo\\signed\\debug\\deps\\continuum_kernel-21c08dda44434332.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794270587968712200/kernel-host.stderr.log",
+      "sha256": "bfd1d28c907fd6fb337f68d7b77256035f6e9e8cf09c665415992fe60ff8c9e1",
+      "selection": "last 12 lines",
+      "text": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.50s\n     Running unittests src\\lib.rs (build\\cargo\\signed\\debug\\deps\\continuum_kernel-172e592285f33fd1.exe)"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794270587968712200/prerequisites.stderr.log",
+      "sha256": "454de030fc57c8107000a3aafbf801481f30408acbd0bc7b4859d4772dc18983",
+      "selection": "last 12 lines",
+      "text": "warning: in the working copy of 'docs/05-delivery/phase-4/04-framebuffer-mapping-and-presentation.md', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'tools/Test-StoryValidation.py', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'tools/story_validation.py', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'tools/xtask/src/main.rs', CRLF will be replaced by LF the next time Git touches it"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794270587968712200/runner-tests.stderr.log",
+      "sha256": "4266afb46ca7db52f670e638e77711e526c650e17235bdb45845fc4eb0f3e52d",
+      "selection": "last 12 lines",
+      "text": "...........................\n----------------------------------------------------------------------\nRan 27 tests in 0.883s\n\nOK"
+    },
+    {
+      "local": "build/m4/P4-04/acceptance-1794270587968712200/xtask-host.stderr.log",
+      "sha256": "7ffbcb72fd3aa4c68634ece44002f5693d8bb31f6164a6bae011fad04928f459",
+      "selection": "last 12 lines",
+      "text": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.64s\n     Running unittests src\\main.rs (build\\cargo\\signed\\debug\\deps\\xtask-cb31c8a23392a25f.exe)"
+    },
+    {
+      "local": "${WORKSPACE}/build/m1/display-720-1794271230290202200-45780/display-720-run/serial.log",
+      "sha256": "c6e9f4cb8ebc7f1105ce58062d546b1230aac47a05764d1789bdc4af14f0c687",
+      "selection": "last 8 protocol records",
+      "text": "m1.desktop_cleanup version=5 build=3919277eccef1cf7a6dd93c8a434a298169cea7994441a5f1890817e6377fce4 session=a51e438c65d8d697ab604513984eb01f21f7ae842b847abcc4449487257d5a82 session_origin=host seq=460 stage=desktop outcome=ok emergency=false role=editor elapsed_ns=135215000\nm1.wait_resume version=5 build=3919277eccef1cf7a6dd93c8a434a298169cea7994441a5f1890817e6377fce4 session=a51e438c65d8d697ab604513984eb01f21f7ae842b847abcc4449487257d5a82 session_origin=host seq=461 stage=waits outcome=ok emergency=false thread=0 generation=5 ready_ns=9188027100 resume_ns=9340843700 wake_latency_ns=152816600\nm1.wait_call version=5 build=3919277eccef1cf7a6dd93c8a434a298169cea7994441a5f1890817e6377fce4 session=a51e438c65d8d697ab604513984eb01f21f7ae842b847abcc4449487257d5a82 session_origin=host seq=462 stage=waits outcome=ok emergency=false process=0 generation=5 operation=24 status=0 value=0 pending=true deadline_ns=9446868300 observed_ns=9347175900\nm1.wait_resume version=5 build=3919277eccef1cf7a6dd93c8a434a298169cea7994441a5f1890817e6377fce4 session=a51e438c65d8d697ab604513984eb01f21f7ae842b847abcc4449487257d5a82 session_origin=host seq=463 stage=waits outcome=ok emergency=false thread=0 generation=5 ready_ns=9356996700 resume_ns=9357778000 wake_latency_ns=781300\nm1.desktop_launch version=5 build=3919277eccef1cf7a6dd93c8a434a298169cea7994441a5f1890817e6377fce4 session=a51e438c65d8d697ab604513984eb01f21f7ae842b847abcc4449487257d5a82 session_origin=host seq=464 stage=desktop outcome=ok emergency=false role=editor process=2 generation=3 principal=404 authority_session=1001 grants=private-memory heap=67108864 image_stack_tables_cap=2097152 units=11 mode=2\nm1.desktop_prepare version=5 build=3919277eccef1cf7a6dd93c8a434a298169cea7994441a5f1890817e6377fce4 session=a51e438c65d8d697ab604513984eb01f21f7ae842b847abcc4449487257d5a82 session_origin=host seq=465 stage=desktop outcome=ok emergency=false role=editor elapsed_ns=394935300 units=11\nm1.desktop_bound version=5 build=3919277eccef1cf7a6dd93c8a434a298169cea7994441a5f1890817e6377fce4 session=a51e438c65d8d697ab604513984eb01f21f7ae842b847abcc4449487257d5a82 session_origin=host seq=466 stage=desktop outcome=ok emergency=false kind=ready_delay role=compositor observed_ns=407859500 limit_ns=320000000 passed=false\nm1.boot_rejected version=5 build=3919277eccef1cf7a6dd93c8a434a298169cea7994441a5f1890817e6377fce4 session=a51e438c65d8d697ab604513984eb01f21f7ae842b847abcc4449487257d5a82 session_origin=host seq=467 stage=metadata outcome=rejected emergency=false field=desktop reason=ready_delay"
+    }
+  ]
+}

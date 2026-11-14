@@ -1,0 +1,61 @@
+{
+  "schema_version": 2,
+  "story": "retention-policy",
+  "scope": "story",
+  "impact": {
+    "subsystems": [
+      "story retention planning, checkpoint storage accounting, capsule integrity"
+    ],
+    "consumers": [
+      "future story runners",
+      "current P4-04 adapter compatibility",
+      "agents and closeout reviewers"
+    ],
+    "rationale": "Host-only retention and required post-merge cleanup policy on committed P4-04. Include all staged/unstaged/untracked retention inputs. Test read-only cleanup previews, merged-state/evidence checks, release/debug/live-consumer protection, capsule integrity, budgets and current runner compatibility. No kernel/guest behavior changes; no VM or milestone acceptance claimed.",
+    "broad_m1": false,
+    "broad_m2": false,
+    "broad_m3": false,
+    "shared_boundary_scheduler": false,
+    "uncertain_families": []
+  },
+  "selected": [
+    {
+      "id": "retention-tests",
+      "reason": "Capsule integrity plus post-merge cleanup preview: verified evidence, merged-state declaration, protected release/debug/tool artifacts, byte totals and no mutation."
+    },
+    {
+      "id": "runner-tests",
+      "reason": "Affected schema, budget and resume integration; preserves current display-selection tests."
+    },
+    {
+      "id": "docs",
+      "reason": "Retention/validation/agent policy links and invariants."
+    },
+    {
+      "id": "governance",
+      "reason": "Historical evidence availability and governance consistency."
+    },
+    {
+      "id": "hygiene",
+      "reason": "Current Git index audit; no staging or historical evidence modification."
+    }
+  ],
+  "not_selected": {
+    "M1": "Host retention-only change; guest/kernel/toolchain behavior unchanged by this task. No compiler, signer, ISO tool or guest execution needed.",
+    "M2": "Host retention-only change; guest/kernel/toolchain behavior unchanged by this task. No compiler, signer, ISO tool or guest execution needed.",
+    "M3": "Host retention-only change; guest/kernel/toolchain behavior unchanged by this task. No compiler, signer, ISO tool or guest execution needed.",
+    "prerequisites": "Host retention-only change; guest/kernel/toolchain behavior unchanged by this task. No compiler, signer, ISO tool or guest execution needed."
+  },
+  "historical_references": [],
+  "execution_budget": {
+    "max_vm_launches": 0,
+    "allow_full_suites": false
+  },
+  "retention": {
+    "working_set_budget_bytes": 33554432,
+    "capsule_budget_bytes": 8388608,
+    "cleanup_after": "Required after PR merge and verified evidence; retain release/debug/review/resume exceptions. Owner currently defers all deletion.",
+    "required_evidence": "Complete host test/audit outputs, original journal, tested input hashes with exact dirty patch/untracked inputs, preservation proof and retention review.",
+    "source_reconstruction": "Base commit and exact current dirty patch plus necessary untracked tooling/config source, retained once locally; includes pre-existing P4-04 context without claiming its acceptance."
+  }
+}

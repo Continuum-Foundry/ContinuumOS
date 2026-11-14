@@ -17,6 +17,7 @@ import sys
 import time
 
 import p3_acceptance as base
+import evidence_retention as retention
 
 ROOT = base.ROOT
 require, read, save, digest = base.require, base.read, base.save, base.digest
@@ -45,6 +46,7 @@ def catalog():
         # invocation was unbounded. This host bound does not alter guest limits.
         'hygiene': (['node', 'audit/check-repository-hygiene.cjs'], 1800),
         'runner-tests': ([sys.executable, 'tools/Test-StoryValidation.py'], 60),
+        'retention-tests': ([sys.executable, 'tools/Test-EvidenceRetention.py'], 60),
         'child-runner-tests': ([sys.executable, 'tools/Test-P3-14Runner.py'], 60),
         'hygiene-tests': (['node', '--test', 'audit/check-repository-hygiene.test.cjs'], 180),
         'prerequisites': (PS + ['tools/Recheck-P2Prerequisites.ps1'], 1800),
@@ -77,8 +79,9 @@ FAMILIES = ('M1', 'M2', 'M3', 'prerequisites')
 
 
 def validate_manifest(manifest):
-    require(manifest['schema_version'] == 1 and manifest['scope'] == 'story',
+    require(manifest['scope'] == 'story',
             'story runner cannot certify milestone acceptance')
+    retention.policy(manifest)
     require(re.fullmatch(r'P\d+-\d+|[A-Za-z0-9][A-Za-z0-9_-]*', manifest['story']), 'invalid story')
     impact = manifest['impact']
     for key in ('subsystems', 'consumers', 'rationale'):
@@ -129,7 +132,7 @@ def schedule(manifest):
 
 # Counts are actual launches inside each focused xtask case, not command counts.
 # Full M3 remains deliberately unknown here: it owns nested suites and negatives.
-HOST_CHECKS = {'docs', 'governance', 'hygiene', 'runner-tests', 'child-runner-tests',
+HOST_CHECKS = {'docs', 'governance', 'hygiene', 'runner-tests', 'retention-tests', 'child-runner-tests',
                'hygiene-tests', 'prerequisites', 'kernel-host', 'desktop-host',
                'portable', 'ui-host', 'text-host', 'editor-host', 'device-host', 'display-host', 'xtask-host'}
 AUDIT_CHECKS = {'docs', 'governance', 'hygiene'}
@@ -168,11 +171,14 @@ def execution_plan(manifest, checks=None):
     else:
         require(not unknown, 'unknown full-suite count cannot fit a bounded VM budget')
         require(total <= maximum, f'VM launch budget exceeded: {total} > {maximum}')
-    return {'scope': 'story', 'execute': checks, 'covered_by': covered,
+    plan = {'scope': 'story', 'execute': checks, 'covered_by': covered,
             'command_groups': len(checks), 'vm_launches': total, 'vm_launches_by_check': counts,
             'unknown_launch_counts': unknown, 'full_suites': full,
             'separate_metadata_builds': 18 if 'display-flavors' in checks else 17 if 'device-flavors' in checks else 16 if 'flavors' in checks else 0,
             'execution_budget': copy.deepcopy(budget)}
+    if manifest['schema_version'] == 2:
+        plan['retention'] = copy.deepcopy(retention.policy(manifest))
+    return plan
 
 
 def source_snapshot():
@@ -246,6 +252,15 @@ def tree_hashes(path):
     path = Path(path)
     require(path.resolve().is_relative_to(ROOT), 'artifact outside workspace')
     return {str(p.resolve()): digest(p) for p in sorted(path.rglob('*')) if p.is_file()}
+
+
+def command_evidence(check):
+    """Schema-2 commands bind both output streams and their execution record."""
+    stdout = Path(check['stdout'])
+    expected = [stdout, stdout.parent / (check['id'] + '.stderr.log'),
+                stdout.parent / (check['id'] + '-command.json')]
+    require(all(str(p.resolve()) in check['artifact_hashes'] for p in expected),
+            'missing command stdout/stderr/execution evidence')
 
 
 def artifact_path(text, prefix):
@@ -346,7 +361,16 @@ class Session:
     def persist(self):
         save(self.folder / 'acceptance.json', self.report)
 
+    def check_storage(self):
+        policy = retention.policy(self.manifest)
+        if policy is None:
+            return  # Preserve existing journals/plans; no retrospective migration.
+        paths = {p for check in self.report['checks'] for p in check['artifact_hashes']}
+        paths.update(str(p) for p in self.folder.rglob('*') if p.is_file())
+        self.report['working_storage'] = retention.storage(paths, policy['working_set_budget_bytes'])
+
     def check(self, key, args, limit, reviewer=None, execute=None):
+        self.check_storage()
         current = self.snapshot_fn()
         require(implementation_inputs(current) == self.implementation, 'source changed during story validation')
         require(key in self.report['plan']['execute'], 'check was not in the bounded plan')
@@ -359,6 +383,8 @@ class Session:
         if any(str(self.folder) in a for a in args):
             prior = None
         if prior:
+            if self.manifest['schema_version'] == 2:
+                command_evidence(prior)
             require(prior['arguments'] == args and prior['deadline_seconds'] == limit, 'resume command changed')
             require(bool(prior['artifact_hashes']), 'resume lacks retained artifacts')
             require(all(Path(p).is_file() and digest(p) == sha for p, sha in prior['artifact_hashes'].items()), 'resume artifact changed/missing')
@@ -376,6 +402,10 @@ class Session:
             review, artifacts = reviewer(stdout) if reviewer else ({'status': 'passed', 'scope': 'host command'}, [])
             require(review.get('status') == 'passed', 'focused reviewer did not pass')
             hashes = {str(stdout_path.resolve()): digest(stdout_path)}
+            if self.manifest['schema_version'] == 2:
+                for path in (self.folder / (key + '.stderr.log'), self.folder / (key + '-command.json')):
+                    require(path.is_file(), 'missing command stderr/execution evidence')
+                    hashes[str(path.resolve())] = digest(path)
             for artifact in artifacts:
                 hashes.update(tree_hashes(artifact))
             record = {'id': key, 'status': 'fresh-pass', 'arguments': args, 'deadline_seconds': limit,
@@ -387,6 +417,8 @@ class Session:
             require(current == after, 'audit inputs changed during check')
             record['audit_snapshot_sha256'] = snapshot_digest(current)
         self.report['checks'].append(record)
+        self.persist()
+        self.check_storage()
         self.persist()
         print(f"Story check {key}: fresh-pass elapsed_ms={record['elapsed_ms']} resumed={record['resumed']}", flush=True)
         return stdout, record['review']
@@ -402,6 +434,7 @@ class Session:
             self.check(key, args, limit, lambda text, k=key: review_check(k, text, self.folder))
 
     def finish(self, expected):
+        self.check_storage()
         require([c['id'] for c in self.report['checks']] == expected, 'missing/reordered selected checks')
         require(self.report['plan'] == execution_plan(self.manifest, expected), 'execution plan changed')
         current = self.snapshot_fn()
@@ -429,6 +462,8 @@ def review_report(path, expected):
     require([c['id'] for c in report['checks']] == expected, 'missing/reordered selected check')
     require(report.get('covered_by', {}) == schedule(report['manifest'])[1], 'invalid aggregate coverage')
     for check in report['checks']:
+        if report['manifest']['schema_version'] == 2:
+            command_evidence(check)
         require(check['status'] == 'fresh-pass' and check['review'].get('status') == 'passed'
                 and bool(check['artifact_hashes']), 'selected check did not pass')
         require(all(Path(p).is_file() and digest(p) == sha for p, sha in check['artifact_hashes'].items()), 'changed/missing retained artifact')

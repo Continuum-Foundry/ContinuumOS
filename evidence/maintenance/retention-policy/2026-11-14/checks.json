@@ -1,0 +1,135 @@
+{
+  "scope": "Host-only checks from original passed journal; implementation byte hashes unchanged on merged P4-04 base. Final staging audits run separately.",
+  "vm_launches": 0,
+  "tests": {
+    "retention": 11,
+    "runner": 29
+  },
+  "checks": [
+    {
+      "id": "retention-tests",
+      "status": "fresh-pass",
+      "elapsed_ms": 828,
+      "deadline_seconds": 60,
+      "resumed": false,
+      "streams": [
+        {
+          "path": "retention-tests.stdout.txt",
+          "representation": "Complete stream; CRLF normalized to LF for repository text storage; originals remain local.",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_bytes": 0,
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "retained_bytes": 0
+        },
+        {
+          "path": "retention-tests.stderr.txt",
+          "representation": "Complete stream; CRLF normalized to LF for repository text storage; originals remain local.",
+          "raw_sha256": "ada07a8aa71d020f7667219a6f5012e2ae901289c0682c8e53a0c3d39e5a1b94",
+          "raw_bytes": 115,
+          "retained_sha256": "fdfdc0c1d65ab46d1f614f9bbe31b1759d26a43c1f81e18e8a5d34ea20216032",
+          "retained_bytes": 110
+        }
+      ]
+    },
+    {
+      "id": "runner-tests",
+      "status": "fresh-pass",
+      "elapsed_ms": 2125,
+      "deadline_seconds": 60,
+      "resumed": false,
+      "streams": [
+        {
+          "path": "runner-tests.stdout.txt",
+          "representation": "Complete stream; CRLF normalized to LF for repository text storage; originals remain local.",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_bytes": 0,
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "retained_bytes": 0
+        },
+        {
+          "path": "runner-tests.stderr.txt",
+          "representation": "Complete stream; CRLF normalized to LF for repository text storage; originals remain local.",
+          "raw_sha256": "8dee3f131ce77729b81fef1ee73cdd0c8bc5387c4d8eac8cbf92e69651deb395",
+          "raw_bytes": 133,
+          "retained_sha256": "c9e99095e7c709cb8452dec5d9d3b091c7e142182a1c43359837ac822fdb245a",
+          "retained_bytes": 128
+        }
+      ]
+    },
+    {
+      "id": "docs",
+      "status": "fresh-pass",
+      "elapsed_ms": 844,
+      "deadline_seconds": 120,
+      "resumed": false,
+      "streams": [
+        {
+          "path": "docs.stdout.txt",
+          "representation": "Complete stream; CRLF normalized to LF for repository text storage; originals remain local.",
+          "raw_sha256": "a122db8f1d54bdc62ef0b8941a7dc47dd2156b42114efeb2de4dbe907b392d4e",
+          "raw_bytes": 616,
+          "retained_sha256": "a122db8f1d54bdc62ef0b8941a7dc47dd2156b42114efeb2de4dbe907b392d4e",
+          "retained_bytes": 616
+        },
+        {
+          "path": "docs.stderr.txt",
+          "representation": "Complete stream; CRLF normalized to LF for repository text storage; originals remain local.",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_bytes": 0,
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "retained_bytes": 0
+        }
+      ]
+    },
+    {
+      "id": "governance",
+      "status": "fresh-pass",
+      "elapsed_ms": 6265,
+      "deadline_seconds": 120,
+      "resumed": false,
+      "streams": [
+        {
+          "path": "governance.stdout.txt",
+          "representation": "Complete stream; CRLF normalized to LF for repository text storage; originals remain local.",
+          "raw_sha256": "cbcfd825e98834418616d84284593cfcfbf33f52ad198e689015fda2adc7cd03",
+          "raw_bytes": 452,
+          "retained_sha256": "cbcfd825e98834418616d84284593cfcfbf33f52ad198e689015fda2adc7cd03",
+          "retained_bytes": 452
+        },
+        {
+          "path": "governance.stderr.txt",
+          "representation": "Complete stream; CRLF normalized to LF for repository text storage; originals remain local.",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_bytes": 0,
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "retained_bytes": 0
+        }
+      ]
+    },
+    {
+      "id": "hygiene",
+      "status": "fresh-pass",
+      "elapsed_ms": 1953,
+      "deadline_seconds": 1800,
+      "resumed": false,
+      "streams": [
+        {
+          "path": "hygiene.stdout.txt",
+          "representation": "Complete stream; CRLF normalized to LF for repository text storage; originals remain local.",
+          "raw_sha256": "5f0414e7f59f315685df35c6a7b7e548e774b334077450bf8f61e00f803d0568",
+          "raw_bytes": 7317,
+          "retained_sha256": "5f0414e7f59f315685df35c6a7b7e548e774b334077450bf8f61e00f803d0568",
+          "retained_bytes": 7317
+        },
+        {
+          "path": "hygiene.stderr.txt",
+          "representation": "Complete stream; CRLF normalized to LF for repository text storage; originals remain local.",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_bytes": 0,
+          "retained_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "retained_bytes": 0
+        }
+      ]
+    }
+  ]
+}

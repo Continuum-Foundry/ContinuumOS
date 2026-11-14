@@ -44,6 +44,14 @@ interrupted aggregates remain non-passes in the retained story evidence.
 
 ## At the first failure
 
+New story selections also declare working-payload and retained-capsule budgets
+before execution; see [retention policy](evidence-retention.md). Inventory aggregate
+payload/cache use and free space, and verify headroom. The runner checks referenced
+payload/output bytes at command boundaries; it does not impose a disk quota or
+count shared caches. A storage failure stops the attempt without deleting evidence
+or changing guest counts/deadlines. Diagnose and explicitly revise an inadequate
+plan rather than retrying unchanged. Existing schema-1 selections remain readable.
+
 Stop and preserve the report. Classify build/host preflight, guest assertion or
 bound, artifact review, and source/context drift separately. Read the failing
 record and compare affected inputs; do not infer the cause from a timeout.
@@ -71,6 +79,15 @@ compiled code, build fixtures or protocol inputs in those excluded locations.
 Documentation JSON and Markdown contracts outside docs remain execution inputs.
 
 ## PR closeout
+
+For schema-2 stories, select and verify the minimal local capsule before story
+closeout, recording its hash/size, inventory and evidence sufficiency. Capsule
+integrity does not revalidate acceptance. Original payload remains necessary for
+fresh artifact re-review/resume. Cleanup is required after every PR merge, including
+temporary ISOs once evidence is verified. Review exact candidates, retain documented
+release/debug/review/resume exceptions, and record a cleanup receipt or pending
+owner deferral. The current owner instruction defers all deletion; the runner and
+capsule tool delete nothing. Follow the [post-merge procedure](evidence-retention.md#required-cleanup-after-every-merged-pr).
 
 Run the relevant host audits after final documentation and staging. Keep the
 original guest acceptance bundle immutable when later host-only improvements are

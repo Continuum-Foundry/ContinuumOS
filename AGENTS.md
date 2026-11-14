@@ -95,8 +95,15 @@ new-feature counts and deadlines are unchanged; this is not a standing test waiv
   preserve the pre-commit check and leave the push guard installed afterward.
 
 Before retaining new evidence, follow `docs/05-delivery/evidence-retention.md`.
-Keep full generated logs/source copies local; stage a compact reviewed bundle and
-run `node audit/check-repository-hygiene.cjs`. Historical logs/source copies are
+New story selections require schema 2 with working/capsule storage budgets and a
+retention plan. Keep full payload during validation; select and verify the minimal
+local capsule with `tools/evidence_retention.py` at closeout. After every PR merge,
+cleanup is required: verify evidence, preview temporary payload including ISOs,
+retain documented release/debug/review/resume needs, and record removed bytes or
+pending exceptions. Cleanup is reviewed, never an automatic merge hook; the current
+owner instruction defers all deletion. Exact-artifact review/resume requires original bytes.
+Stage a compact reviewed bundle and run `node audit/check-repository-hygiene.cjs`.
+Historical logs/source copies are
 local-only after the owner's cleanup; see `evidence/README.md` before verifying them.
 
 Preserve the user's central intent: an original desktop OS, modern languages,

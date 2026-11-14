@@ -1,0 +1,6 @@
+{
+  "status": "failed-staged-audit-preserved",
+  "local_attempt": "${WORKSPACE}/build/story-validation/retention-policy/1794638519059545700",
+  "finding": "Staged hygiene rejected six new evidence files because Git normalized CRLF while the working-byte checksum manifest still described CRLF. No implementation or acceptance assertion failed.",
+  "repair": "Normalize only the new compact bundle to LF; record original/retained stream hashes and regenerate its checksum manifest over retained bytes. Preserve original logs, prior capsule and failed staging journal locally. Rerun affected final host audits."
+}

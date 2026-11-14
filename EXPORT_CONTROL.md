@@ -1852,3 +1852,46 @@ setting change or standing exemption is granted. Geographic containment remains
 unverified; this administrative exception is not legal clearance or a finding of
 U.S.-only handling and does not waive applicable law. After PR creation the owner
 also authorizes resuming the paused evidence-retention chat, preserving its edits.
+
+
+## One-time owner exemption — retention policy and cleanup tooling, 2026-11-14
+
+After reviewing the prepared retention-only payload and being told that the
+previous P4-04 exemption was exhausted, the owner instructed: "Yes, I grant the
+one-time exemption to push the retention-policy changes and authorization record
+and create the PR against main."
+
+This authorizes one push of local commit
+`d0e222ef73aa06eba4d9d464882a4c513c4481b0` (27-file retention-policy/tooling and
+compact-evidence payload, Git tree `a6c26e3d3eea11c343f6d0efe903503369436b03`),
+based on merged P4-04 commit `61c240faea892287d80deb44e446821db471a8c4`,
+plus this authorization record. Payload: schema-2 retention budgets, checkpoint
+working-payload accounting, complete command-stream hashing, verified explicit
+local capsules, required reviewed cleanup after each PR merge, read-only cleanup
+planning, related agent/validation policies and the compact reviewed bundle at
+`evidence/maintenance/retention-policy/2026-11-14/`. Original test/output bytes and
+failed staging diagnostics remain local; compact stream line-ending normalization
+is explicit. Implementation inputs remain unchanged from the 40 passing host tests.
+
+Destination: existing GitHub repository
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/retention-policy-cleanup`, followed by one PR against `main` titled
+"Bound evidence retention and require post-merge cleanup". Prepared PR body SHA-256:
+`08255473ed32b88ca943abefadeb6e083f60b87c9db4e97d3d496c2900064c9f`. The exemption includes that description and PR metadata.
+
+Excluded: full generated runs/logs, local capsules/source archives, binaries,
+ISOs, caches, credentials, certificates, private keys and unrelated changes.
+Existing P4-04 and historical evidence remain immutable. No cleanup or deletion,
+merge, release, new hosted workflow, repository-setting change or standing remote
+approval is authorized. Final documentation/governance/staged-index hygiene checks
+must pass; the ordinary commit keeps the installed pre-commit check.
+
+The push exemption is exhausted by its first successful push containing this
+record; the PR exemption is exhausted by creation of that one PR. For this push
+only, command-local `core.hooksPath=work/retention-policy-pr/hooks` may select a
+directory containing an exact copy of the installed pre-commit hook and no
+pre-push hook. The installed `.githooks/pre-push` and configured `.githooks` path
+remain unchanged afterward. No force push, other destination or standing bypass
+is granted. Geographic containment remains unverified; this administrative
+exception is not legal clearance or a finding of U.S.-only handling and does not
+waive applicable law.

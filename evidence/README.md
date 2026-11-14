@@ -1,5 +1,11 @@
 # Evidence retained in Git
 
+Future stories follow the [2026-11-14 retention revision](../docs/05-delivery/evidence-retention.md):
+compact committed evidence plus a verified local capsule, with temporary validation
+payload retained only while needed by active consumers. Capsule integrity does not
+revalidate acceptance or replace missing original artifacts for resume. This policy
+revision deletes nothing and does not migrate the historical bundles below.
+
 On 2026-10-20 the owner requested removal of files matching `.gitignore` from
 the repository. **2774 historical log/source-copy files (about 63 MiB) are now
 untracked.** Their local copies were preserved byte for byte; they are also present

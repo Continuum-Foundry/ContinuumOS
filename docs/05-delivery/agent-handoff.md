@@ -59,6 +59,14 @@ hold. Detailed P5–P26 stories await milestone-decomposition requests.
 
 ## Next action
 
+New story selections follow [bounded evidence retention](evidence-retention.md):
+schema 2, explicit working/capsule budgets, verified minimal capsule at closeout
+and required reviewed cleanup after every PR merge, including temporary ISOs once
+evidence is verified. Retain release/debug/review/resume exceptions and record a
+cleanup receipt or pending deferral; the owner currently defers all deletion.
+Preserve original payload for active review/resume;
+capsule integrity is not a fresh acceptance pass. Existing P4-04 work is not migrated.
+
 Use the [bounded run and failure-recovery procedure](validation-run-control.md) before guest execution: preview a counted plan, keep one checkout writer, stop/diagnose the first failure, and resume proven unaffected work. Prose/evidence/staging revisions rerun host audits.
 
 Use [change-based story validation](validation.md#change-based-story-validation)

@@ -45,10 +45,13 @@ P4-02 findings, preflight plan, first-failure procedure and single-writer rule.
 ### Commands and evidence
 
 `tools/story_validation.py` uses a manually authored JSON selection. The manifest
-contains `schema_version: 1`, `story`, `scope: "story"`, `impact` (subsystems,
+contains `schema_version: 2`, `story`, `scope: "story"`, `impact` (subsystems,
 consumers, rationale, explicit broad M1/M2/M3 and shared-boundary flags, uncertain
 families), `selected` check IDs with reasons, `not_selected` family reasons and
-optional `historical_references`. Guest-bearing runs also require an
+optional `historical_references`, plus the predeclared storage budgets and retention
+plan in [evidence retention](evidence-retention.md). Existing schema-1 P4-02,
+P4-03, accepted P4-04 and validation-policy selections remain compatible;
+new stories cannot opt out by using schema 1. Guest-bearing runs also require an
 `execution_budget` with a VM launch ceiling and explicit full-suite opt-in. The
 preview and runner count nested launches in focused cases, include mandatory
 P4-02 repetitions, reject unclassified commands and enforce that ceiling before
@@ -83,8 +86,13 @@ runtime checks once; coverage is recorded as `covered_by`, not another execution
 Host index audits must still be repeated after staging when the index changes.
 
 Reports distinguish `fresh-pass`, `not_selected` with rationale and historical
-references, which confer no current pass. Full raw logs/artifacts stay local;
-compact reports include per-check times and exact hashes. Policy/sample/deadline
+references, which confer no current pass. Full payload stays local during active
+validation; closeout retains a reviewed, verified minimal capsule and compact Git
+bundle. Cleanup is required after each PR merge, with verified evidence and a
+separate review of release/debug/review/resume consumers. Record a cleanup receipt
+or pending owner deferral; the current instruction defers all deletion.
+Capsule integrity cannot substitute for missing bytes in fresh review/resume.
+Compact reports include per-check times and exact hashes. Policy/sample/deadline
 changes require their own explicit decision, not a manifest omission.
 
 `--resume <acceptance.json>` creates a separate attempt from a failed,

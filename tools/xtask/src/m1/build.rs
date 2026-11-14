@@ -35,6 +35,7 @@ pub(super) enum Flavor {
     Desktop,
     Devices,
     Display,
+    Surfaces,
     Smoke,
     NoEntry,
     Inject,
@@ -64,6 +65,7 @@ impl Flavor {
             Self::Desktop => "desktop-test",
             Self::Devices => "device-test",
             Self::Display => "display-test",
+            Self::Surfaces => "surface-test",
             Self::Smoke => "iso-smoke",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
@@ -89,10 +91,11 @@ impl Flavor {
     }
     fn features(self) -> &'static str {
         match self {
-            Self::Normal => "desktop-runtime",
+            Self::Normal => "surface-runtime",
             Self::Desktop => "desktop-test",
             Self::Devices => "device-test",
             Self::Display => "display-test",
+            Self::Surfaces => "surface-test",
             Self::Smoke => "emulator-test",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
@@ -354,6 +357,9 @@ pub(super) fn source_inputs() -> Result<BTreeMap<String, String>> {
     Ok(sources)
 }
 pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
+    build_surface(dir, flavor, 0)
+}
+pub(super) fn build_surface(dir: &Path, flavor: Flavor, scenario: u64) -> Result<Value> {
     check_pin()?;
     let user_descriptors = if matches!(
         flavor,
@@ -377,6 +383,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             | Flavor::Desktop
             | Flavor::Devices
             | Flavor::Display
+            | Flavor::Surfaces
             | Flavor::StaticLoader
             | Flavor::UserBoundary
             | Flavor::Scheduler
@@ -401,6 +408,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     | Flavor::Desktop
                     | Flavor::Devices
                     | Flavor::Display
+                    | Flavor::Surfaces
                     | Flavor::Scheduler
                     | Flavor::Capabilities
                     | Flavor::Channels
@@ -422,10 +430,16 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             flavor == Flavor::Routes,
             matches!(
                 flavor,
-                Flavor::Normal | Flavor::Desktop | Flavor::Devices | Flavor::Display
+                Flavor::Normal
+                    | Flavor::Desktop
+                    | Flavor::Devices
+                    | Flavor::Display
+                    | Flavor::Surfaces
             ),
             flavor == Flavor::Devices,
             flavor == Flavor::Display,
+            matches!(flavor, Flavor::Normal | Flavor::Surfaces),
+            scenario,
         )?)
     } else {
         None
@@ -455,6 +469,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             | Flavor::Desktop
             | Flavor::Devices
             | Flavor::Display
+            | Flavor::Surfaces
     ) {
         "kernel-stress"
     } else {
@@ -479,6 +494,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
             "--target-dir",
         ])
         .arg(dir.join("cargo"));
+    c.env("CONTINUUM_SURFACE_SCENARIO", scenario.to_string());
     if !flavor.features().is_empty() {
         c.args(["--features", flavor.features()]);
     }
@@ -587,6 +603,7 @@ pub(super) fn build(dir: &Path, flavor: Flavor) -> Result<Value> {
                     | Flavor::Desktop
                     | Flavor::Devices
                     | Flavor::Display
+                    | Flavor::Surfaces
                     | Flavor::Scheduler
                     | Flavor::Capabilities
                     | Flavor::Channels

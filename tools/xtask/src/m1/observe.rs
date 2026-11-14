@@ -177,9 +177,12 @@ pub(super) fn observe(
             }
         }
         if !captured
-            && capture_tail
+            && (capture_tail
                 .windows(b"m1.display_pattern".len())
                 .any(|w| w == b"m1.display_pattern")
+                || capture_tail
+                    .windows(b"surface-final-presented".len())
+                    .any(|w| w == b"surface-final-presented"))
         {
             let filename = dir.join("display.ppm");
             if let Some(input) = child.0.stdin.as_mut() {

@@ -205,3 +205,11 @@ is synchronous CPU copy plus MFENCE, with no retained pointer or VSync promise.
 These operations do not freeze a public display/message family or extend the SDK.
 P4-05 must retain authority and copy lifetimes while adding surface leases and
 composition; see the [runbook](../05-delivery/phase-4/framebuffer-runbook.md).
+
+## P4-05 accepted experimental implementation
+
+The experimental copied lease/geometry operations and private user-mode compositor
+are described in the [surface runbook](../05-delivery/phase-4/surfaces-runbook.md).
+They do not extend the frozen SDK or admit multiple resource generations, input,
+selected toolkit rendering or live reload. The [independent optical/authority/lifetime gate](../../evidence/phase-4/P4-05/final-1794685886700026500/README.md) passes
+local self-review for this exact subset; no new public family or SDK ABI is frozen.

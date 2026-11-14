@@ -115,7 +115,7 @@ pub(super) fn launch(
             .map(String::from),
         );
     }
-    if flavor == "display-test" {
+    if matches!(flavor, "display-test" | "surface-test") {
         args.extend(["-qmp".into(), "stdio".into()]);
     }
     if test {
@@ -181,7 +181,7 @@ pub(super) fn launch(
     write_json(&dir.join("launch-manifest.json"), &launch_manifest)?;
     let mut c = Command::new(pins.file("qemu")?);
     c.args(&args);
-    if flavor == "display-test" {
+    if matches!(flavor, "display-test" | "surface-test") {
         c.stdin(std::process::Stdio::piped());
     }
     let mut report = observe(

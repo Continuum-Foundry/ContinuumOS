@@ -1,0 +1,60 @@
+{
+  "status": "development failures; no acceptance",
+  "findings": [
+    {
+      "kind": "sandbox-context",
+      "outcome": "failed host diagnostic",
+      "evidence": "initial tool output",
+      "reason": "Signing certificate inaccessible in sandbox; rerun in approved elevated signer context. No signing or security settings changed."
+    },
+    {
+      "kind": "host-stack",
+      "outcome": "failed host diagnostic",
+      "reason": "Initial discovery omitted RUST_MIN_STACK=16777216 and existing object test overflowed; corrected prescribed stack passes 115 tests."
+    },
+    {
+      "kind": "command-usage",
+      "outcome": "failed compile command",
+      "evidence": "work/p4-05-compile-development.log",
+      "reason": "vm-baseline is a run profile, not a build profile; documented build --profile dev passes."
+    },
+    {
+      "kind": "module-admission",
+      "outcome": "failed optical probe",
+      "acceptance": "build/m4/P4-05/probe-1794640495843344000/acceptance.json",
+      "artifacts": "build/m1/surface-720-1794640980309975500-85864",
+      "reason": "User ELF exceeds unchanged 1 MiB MAX_IMAGE because linked alloc dependencies carry non-loadable debug sections. Paging module-size check rejects before owned memory readiness; not a timeout. Surface user links now strip dependency debuginfo and host build rejects oversize ELF before launch. Original bytes preserved."
+    },
+    {
+      "kind": "guest-deadline",
+      "outcome": "failed optical guest; not acceptance",
+      "acceptance": "build/m4/P4-05/acceptance-1794682995850382400/acceptance.json",
+      "artifacts": "build/m1/surface-720-1794683417082323700-82744",
+      "reason": "Both clients complete negative cases and initial frame is submitted. The initial frame spans roughly 5.96\u201312.85 seconds of observed guest elapsed time with 720 voluntary row yields. The 30-second host limit ends during the second full copy; final retained observation is guest elapsed 18.84 seconds. No deadlock/root cause is inferred from timeout alone. Retain full serial; new registered observer records exact frame row counts and times, and user composition cooperates once per 16 rows while preserving every copied row, both frames and all original limits."
+    },
+    {
+      "kind": "self-review",
+      "outcome": "repaired before next probe",
+      "reason": "Seed IDs by persistent display grant incarnation to prevent compositor-restart ID reuse; preserve inherited ordinary reviewer defaults while adding explicit surface-runtime adapter; bind client ELF hashes to optical payload and independently reconcile physical backing."
+    },
+    {
+      "kind": "reviewer-compatibility",
+      "outcome": "original aggregate remains failed; explicit unchanged-artifact continuation",
+      "acceptance": "build/m4/P4-05/acceptance-1794684060198338000/acceptance.json",
+      "proof": "work/p4-05-reviewer-compatibility-proof.json",
+      "reason": "The actual compositor exits 90 as expected, but the reviewer also matched the earlier partial-start unwind result 513. Restrict normalization to the real compositor reap, retain initial 513, and add a host regression. Exact two-file host-only diff, unchanged guest compiler sources, tool context and passed artifacts are verified; corrected panic optical review passes without guest reexecution."
+    },
+    {
+      "kind": "resume-context",
+      "outcome": "guard rejected before guest execution",
+      "evidence": "work/p4-05-continuation-console.log",
+      "reason": "A combined bridge-plus-wrapper invocation dot-sourced Enter-Dev twice and duplicated the PATH prefix. The strict guard rejected that context. The continuation is invoked from a fresh PowerShell process with Enter-Dev exactly once; no bypass/context relaxation is used."
+    },
+    {
+      "kind": "ordinary-owner-death-repair",
+      "outcome": "prior continuation intentionally interrupted; final source reruns selected gate",
+      "acceptance": "build/m4/P4-05/acceptance-1794685171039192000/acceptance.json",
+      "reason": "Self-review found ordinary cleanup removed dead client surfaces without presenting exposure until another client request. A shared retire_dead helper now immediately presents when inventory changes in ordinary service; the real owner-death case uses that exact helper. Only terminal test capture suppresses later teardown repaint after the tested frame. Prior nine surface/ordinary/display/memory passes remain historical; interrupted boundary work is not acceptance."
+    }
+  ]
+}

@@ -80,7 +80,8 @@ fn spawn_role(queue: &mut Queue, role: usize, mode: u64, fail: u64) -> Result<Th
     }
     let slot = unsafe { (&*TASKS.0.get()).iter().position(Option::is_none) }
         .ok_or(error("desktop", "slots"))?;
-    let context = d::Graph::context(role)?;
+    let mut context = d::Graph::context(role)?;
+    context.session = (fixture::hooks().desktop_session)(role, mode);
     let module = role % 3;
     let id = runtime_memory::with(|r, b| unsafe {
         (&mut *LAUNCHER.0.get()).launch_verified_context(
@@ -268,6 +269,8 @@ fn reap(role: usize, id: ThreadId, result: u64) -> Result<()> {
     let cleanup_begin = time();
     let t = unsafe { (&mut *TASKS.0.get())[id.slot].take() }.ok_or(error("desktop", "reap"))?;
     need(t.current.id.generation == id.generation)?;
+    #[cfg(feature = "surface-runtime")]
+    crate::surface_guest::dead(peer(t.current.id)?, role as u64);
     crate::display_guest::owner_dead(t.current.id.slot as u64 + 1, id.generation)?;
     #[cfg(feature = "device-test")]
     crate::device_guest::owner_dead(t.current.id.slot as u64 + 1, id.generation)?;
@@ -689,4 +692,29 @@ pub(crate) fn run() -> Result<()> {
     }
     #[cfg(feature = "desktop-test")]
     return Ok(());
+}
+
+#[cfg(feature = "surface-runtime")]
+pub(crate) fn peer(id: ProcessId) -> Result<continuum_kernel::surface_mailbox::Peer> {
+    let context = unsafe { (&*LAUNCHER.0.get()).get(id)?.context };
+    Ok(continuum_kernel::surface_mailbox::Peer {
+        process: id.slot as u64 + 1,
+        incarnation: id.generation,
+        principal: context.principal,
+        session: context.session,
+    })
+}
+#[cfg(feature = "surface-runtime")]
+pub(crate) fn peer_live(p: continuum_kernel::surface_mailbox::Peer) -> bool {
+    p.process
+        .checked_sub(1)
+        .and_then(|slot| usize::try_from(slot).ok())
+        .and_then(|slot| {
+            peer(ProcessId {
+                slot,
+                generation: p.incarnation,
+            })
+            .ok()
+        })
+        == Some(p)
 }

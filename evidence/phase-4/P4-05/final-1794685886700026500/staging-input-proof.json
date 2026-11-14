@@ -1,0 +1,137 @@
+{
+  "scope": "All 520 tested implementation paths compared with intended index. No unrelated payload; prose/evidence are audited separately.",
+  "paths": 520,
+  "exact_matches": 499,
+  "text_normalizations": [
+    {
+      "path": "audit/contract-validation-results.json",
+      "tested_working_sha256": "7b06deed714812714d377fdecd3b8d605bcb033d0efb90b5f36d6d732172ff17",
+      "index_sha256": "f9b87dedd9d545b8d09096e7965fc49c8b884a68fdc5b1f9f9b91a08d4bd3cef",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "config/p4-05-validation.json",
+      "tested_working_sha256": "e5ed3d502db41be22f43070f5ba915737c2da45c2c14c2630095c353354a47c9",
+      "index_sha256": "3a3669d3557f02745f1fbd7214c565a4d9c6c6bd56e5d9a6e9efd27d29b1e800",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "docs/assets/continuumos-roadmap.svg",
+      "tested_working_sha256": "258c40bcd99f96250ad7176520f89b432ed49e434a05066af8d0459eee96c3c3",
+      "index_sha256": "ec31e20792541881bfe1d9e46132703c3a1353196dfbf6e499030821de1ce82c",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "experiments/user-images/desktop.rs",
+      "tested_working_sha256": "06cc1f7443b668b2a879b392576b0ea4e6a862a6a18fd9dedda1a15f31576d06",
+      "index_sha256": "2407fb7fc2343934dd28c2fd259f19c1a1825d778b905f1ed1f991d9e2298cec",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "fixtures/m2/slint-v1/README.md",
+      "tested_working_sha256": "959abaf6abf9740118026d519ba8682c223f4f389cc1b9d21a2e608273b77b38",
+      "index_sha256": "c83259b008ea29ffac5d4522fc0f249e9fc0f9b25494a2a35699ab345629ac35",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "fixtures/m2/slint-v1/goldens.json",
+      "tested_working_sha256": "a1ba206ccaa39b9f37b27f61dd128436131267d099b5068fff15a9fb2125db7a",
+      "index_sha256": "69b7c90be51e63c2bb3a96d63ff5db50f2982b639fb38dd86de92ab1abce60a4",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "kernel/Cargo.toml",
+      "tested_working_sha256": "8c3f7b76648126f1f0a9628ff29751eb23c4da95e816bf35dcc0f7a7b1579900",
+      "index_sha256": "be79c5471d3e9428447c27d83bb0d3f887447c7f9d102b208c0e8759f1afadd5",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "kernel/README.md",
+      "tested_working_sha256": "756885739782bc03c6fbbebe949b0842c3c32c8373c7afc889e5c09dda03152c",
+      "index_sha256": "6bad4b4fe3ec4df1968144a406f1660e924aebc15b99b6a434cb82850222d928",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/Check-P4-05Flavors.ps1",
+      "tested_working_sha256": "b1fe1a5b25d3ad69dd67db966c1accad15b2aba291b2d1f06da72c84cad68cae",
+      "index_sha256": "840f0cb36297ce5fcd6965c7794fb1078705404a58c6a84a369286fefdaa5818",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/Preview-Slint.ps1",
+      "tested_working_sha256": "2f0e12a5eee040fb6b3282d694eb0a3bca2dcb10ec77424da2bcf6fb0c2af2ec",
+      "index_sha256": "0b16b25796f168c90a450593649cddf2463e0c7ad9146a52d16522ade160320b",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/Review-P4-02.py",
+      "tested_working_sha256": "3345bba19eecc212769baf9c08feaa445a20bec08ad41f7c8d52a02b5b6bea68",
+      "index_sha256": "0c12f7cfde1781cd62a2fb8f80c092450f3a0cd1948d37edf59d2ff974b063dd",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/Review-P4-05.py",
+      "tested_working_sha256": "e5e25ccac9ade01ef16139a0c43c4cf20ca8628b96aa0dc7bcdc6ef3ece1bacf",
+      "index_sha256": "e2d33db5c32bf06beab6fafd533ecafeb4ad0d90b3e3e93cec74272f1014705d",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/Review-Slint.py",
+      "tested_working_sha256": "792ea0617a3f6181c6f07b23cdbe9f76ee9b57ec6689a8c8337ce0b50785b729",
+      "index_sha256": "d8ba0ba477026634e0496259885f42c43f60ef1dfcb06f172e1b798b8e4099f9",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/Review-SlintInputs.py",
+      "tested_working_sha256": "34adc9d96764536ae8b9df567c46751228aa6be48278f0e7bc35bff9a9a1229d",
+      "index_sha256": "69cb273dea92ede5683b0222d5ffc3354b8aff4ff73a37da75d3485f0ec700e5",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/Test-P2-06.ps1",
+      "tested_working_sha256": "599f6273775d21ec558dd34c0aa85bf5cea86ec51104f9e8fab616c9b894bf90",
+      "index_sha256": "1d56cb73c20fe4e7bb27445dae07a74cd6d88d61e4ca1a34f184b15fd48774fe",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/Test-P4-05.ps1",
+      "tested_working_sha256": "0c96bd7e146d59acd4a2634dce41136ea88a1589c3f943a48ea8275d43c3ef7b",
+      "index_sha256": "0c339ace6ceddb25e6becd7e3bf2982ac7902159c69e3cc21250fefc0340c5fd",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/Test-P4-05.py",
+      "tested_working_sha256": "6551a8c90ad23bdb9a7a5840d6d2463515856eaeeffa81b7765fd0352d639516",
+      "index_sha256": "f36bb15d67379927dfa73c4e7be5cc25a70aea1e95b76a9cec23a85d2dc29fa3",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/p4_surface_acceptance.py",
+      "tested_working_sha256": "b6ab6f70a35518814395fdafc26d536069c1dc7ff058c1e7cc9e5e4b4dfe9708",
+      "index_sha256": "110953cbce8a53ac99065a6d855baab5b4afc6d2c5017220a701ceee4c32d2a9",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/story_validation.py",
+      "tested_working_sha256": "51c498619433b7722ba3088f8f9f70a0462fffaa6b20edb035439462b1708780",
+      "index_sha256": "db264afd2f1e29c91f0d0842fa1b3ed0cc4cb3ae8e25a23c3ed7ff7606123f01",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/xtask/src/m1/records.rs",
+      "tested_working_sha256": "0c5ae2d400c5290504c97ec69e892d7eef23d70c61cfe34447305733131c4913",
+      "index_sha256": "922e36d9c659f3541df9016fb9a73c3f00cbd0d18908306695d5082a2c7d70cf",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    },
+    {
+      "path": "tools/xtask/src/main.rs",
+      "tested_working_sha256": "a88d8cc893e1c056b7bfd62ac6127992a757b8d6b14a52fc28f5d0002f9888a2",
+      "index_sha256": "2a542b286c549910b3a7beb31359d7ebb135bd7e1d4e9fb2487755c16c4250b1",
+      "relation": "Git text CRLF/LF normalization only; exact tested bytes retained in capsule source reconstruction."
+    }
+  ],
+  "working_map_sha256": "e1e97f874c119c82df29e7ab5d736fb3f4c12d3caf2762cae6b12047037e96c7",
+  "index_map_sha256": "fc027e7a33d3df090ac8b2c4ab72071fa02615c63fd7d9d95c67612772ff42b6",
+  "clean_checkout_reproducibility_claim": false,
+  "reconstruction": "Base commit plus patch and exact changed/new working-byte overrides in the verified local capsule."
+}

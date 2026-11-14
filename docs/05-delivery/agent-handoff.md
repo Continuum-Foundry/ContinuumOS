@@ -98,8 +98,12 @@ captures, trusted incarnation/generation row copies, app capture/mapping denials
 mediator provides synchronous source release; it accepts no compositor, input,
 reload, VSync or desktop efficiency result. See the [runbook](phase-4/framebuffer-runbook.md).
 
-Continue with [P4-05](phase-4/05-surface-leases-and-compositor.md).
-P4-05 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
+P4-05 passes [local copied surface/composition self-review](../../evidence/phase-4/P4-05/final-1794685886700026500/README.md):
+nine exact optical cases, incarnation/session-bound copied leases, full redraw
+exposure repair, bounded failure/cancellation and exact settlements. The 22-launch
+selected gate and 20 metadata flavors pass without altered limits or counts.
+Continue with [P4-06](phase-4/06-input-device-and-event-routing.md).
+P4-06 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
 through runtime/device foundations, guest UI/input/semantics, protected input and
 B61, authenticated transport, resource publication, faults, metrics and sustained
 reloads before final M4 review. The tested finite runtime profile remains experimental; broader desktop capacities

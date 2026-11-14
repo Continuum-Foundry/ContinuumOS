@@ -1,6 +1,6 @@
 //! Named story tests; every launch gets its own immutable configured ISO.
 use super::{
-    build::{Flavor, build},
+    build::{Flavor, build, build_surface},
     inputs::preflight,
     launch::launch,
     package::package,
@@ -57,6 +57,7 @@ pub(super) fn boot_run(
             || manifest["flavor"] == "desktop-test"
             || manifest["flavor"] == "device-test"
             || manifest["flavor"] == "display-test"
+            || manifest["flavor"] == "surface-test"
             || fixture == "static-loader"
             || fixture.starts_with("user-boundary-")
             || fixture.starts_with("scheduler-")
@@ -121,6 +122,10 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "desktop-runtime" => Flavor::Desktop,
         "devices" => Flavor::Devices,
         "display-720" | "display-1080" => Flavor::Display,
+        "surface-720" | "surface-1080" | "surface-move" | "surface-hide" | "surface-remove"
+        | "surface-denied" | "surface-death" | "surface-failure" | "surface-stall" => {
+            Flavor::Surfaces
+        }
         "sdk-stress" => Flavor::Stress,
         "sdk-stress-trace" => Flavor::StressTrace,
         "sdk-stress-supervisor" => Flavor::StressSupervision,
@@ -140,7 +145,22 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         | "acpi-corrupt" | "timer-unsupported" | "timer-calibration" => Flavor::Timer,
         _ => Flavor::Normal,
     };
-    let manifest = build(dir, flavor)?;
+    let manifest = if flavor == Flavor::Surfaces {
+        let scenario = match action {
+            "surface-720" | "surface-1080" => 1,
+            "surface-move" => 2,
+            "surface-hide" => 3,
+            "surface-remove" => 4,
+            "surface-denied" => 5,
+            "surface-death" => 6,
+            "surface-failure" => 7,
+            "surface-stall" => 8,
+            _ => return Err("Unknown surface scenario".into()),
+        };
+        build_surface(dir, flavor, scenario)?
+    } else {
+        build(dir, flavor)?
+    };
     if action == "build" {
         return Ok(json!({"compile":"passed","package":"not_run","boot":"not_run"}));
     }
@@ -198,7 +218,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
             json!({"compile":"passed","package":"passed","capabilities":"passed","run":run}),
         );
     }
-    if flavor == Flavor::Display {
+    if matches!(flavor, Flavor::Display | Flavor::Surfaces) {
         let run = boot_run(
             dir,
             action,

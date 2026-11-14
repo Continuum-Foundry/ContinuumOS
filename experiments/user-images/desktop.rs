@@ -3,6 +3,12 @@
 include!(env!("CONTINUUM_RUNTIME_IDS"));
 #[path = "../../kernel/src/reclaiming_heap.rs"]
 mod reclaiming_heap;
+#[cfg(surface_runtime)]
+mod surface;
+#[cfg(surface_runtime)]
+mod surface_runtime;
+#[cfg(surface_probe)]
+mod surface_client;
 use core::{
     alloc::{GlobalAlloc, Layout},
     arch::global_asm,
@@ -228,6 +234,8 @@ extern "C" fn main() {
             .0 == 0,
         );
     }
+    #[cfg(surface_runtime)]
+    surface_runtime::run(role,mode);
     if mode != 0 {
         if role == 4 {
             match mode {

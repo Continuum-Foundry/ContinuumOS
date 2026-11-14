@@ -137,3 +137,13 @@ references agree exactly. This accepts neither atomic full-frame presentation no
 VSync, scanout latency, toolkit/compositor integration or whole-desktop efficiency.
 P4-05 receives the [bounded backend](../05-delivery/phase-4/framebuffer-runbook.md);
 the hosted renderer's remaining guest gates are unchanged.
+
+## P4-05 bounded user-mode composition — 2026-11-14
+
+[Copied surface acceptance](../../evidence/phase-4/P4-05/final-1794685886700026500/README.md) now proves user-mode private
+snapshots, scoped ownership, integer placement/clips/z-order, premultiplied
+encoded-sRGB blending and full exposure repair on the checked scanout backend.
+Ordinary client death schedules its own repair frame; compositor failure retains
+explicit cancellation/partial-frame limits. This supports the software path into
+P4-06/P4-07, without accepting toolkit/text/input, data reload, VSync or desktop
+efficiency. See the [surface runbook](../05-delivery/phase-4/surfaces-runbook.md).

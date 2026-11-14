@@ -18,6 +18,7 @@ pub(super) struct Hooks {
     pub object_waves: Option<u64>,
     pub process_state: fn(u64, u64) -> u64,
     pub display_copy: fn(u64, u64, u64, u64, u64, u64, u64),
+    pub desktop_session: fn(usize, u64) -> u64,
     pub desktop_mode: fn(usize, u64) -> u64,
     pub desktop_stop_control: fn(u64, u64) -> bool,
 }
@@ -36,12 +37,15 @@ const BOUNDARY: Hooks = Hooks {
     object_waves: None,
     process_state: |_, state| state,
     display_copy: |_, _, _, _, _, _, _| {},
+    desktop_session: |_, _| 1001,
     desktop_mode: |_, _| 0,
     desktop_stop_control: |_, _| false,
 };
 static HOOKS: Local<Hooks> = Local(UnsafeCell::new(BOUNDARY));
 #[cfg(feature = "desktop-test")]
 static DESKTOP_OPERATION: Local<u64> = Local(UnsafeCell::new(0));
+#[cfg(feature = "surface-test")]
+static SURFACE_SCANOUT: Local<[u64; 4]> = Local(UnsafeCell::new([0; 4]));
 pub(super) fn hooks() -> Hooks {
     // Single CPU; registration precedes user entry and never overlaps dispatch.
     unsafe { HOOKS.0.get().read() }
@@ -77,6 +81,20 @@ pub(super) fn install_desktop() {
         scheduled: scheduling::active,
         operation: |op, f| {
             let c = current();
+            #[cfg(feature = "surface-runtime")]
+            if let Some(result) = crate::surface_guest::call(
+                op,
+                c.case - 100,
+                scheduling::desktop::peer(c.id).expect("current peer"),
+                f.rdi,
+                f.rsi,
+                f.rdx,
+                f.r10,
+                |a, b, write| copy(a, b, write),
+                scheduling::desktop::peer_live,
+            ) {
+                return Some(result.map_err(|_| ACCESSDENIED));
+            }
             if let Some(result) = crate::display_guest::call(
                 op,
                 c.case - 100,
@@ -160,6 +178,59 @@ pub(super) fn install_desktop() {
         },
         ..hooks
     };
+    #[cfg(feature = "surface-test")]
+    let hooks = Hooks {
+        display_copy: |process,
+                       incarnation,
+                       output_generation,
+                       width,
+                       height,
+                       placement,
+                       copy_ns| {
+            let y = placement >> 32;
+            let state = unsafe { &mut *SURFACE_SCANOUT.0.get() };
+            if y == 0 {
+                state[0] += 1;
+                state[1] = crate::timer::sample_ns();
+                state[2] = 0;
+                state[3] = 0;
+            }
+            need(placement as u32 == 0 && y == state[2]).expect("ordered complete surface rows");
+            state[2] += 1;
+            state[3] += copy_ns;
+            if y + 1 == height {
+                record(
+                    "m1.surface_frame",
+                    "desktop",
+                    "ok",
+                    format_args!(
+                        "process={process} incarnation={incarnation} output_generation={output_generation} frame={} rows={} width={width} height={height} elapsed_ns={} copy_ns={} source_released=true",
+                        state[0],
+                        state[2],
+                        crate::timer::sample_ns() - state[1],
+                        state[3]
+                    ),
+                );
+            }
+        },
+        desktop_session: |role, mode| if role == 4 && mode == 2 { 2002 } else { 1001 },
+        expected_result: |attempt, role| {
+            Some(
+                if role == 1 && option_env!("CONTINUUM_SURFACE_SCENARIO") == Some("7") {
+                    90
+                } else if role == 1 && option_env!("CONTINUUM_SURFACE_SCENARIO") == Some("8") {
+                    0x300
+                } else if role == 4 {
+                    [42, 90, 0x300][attempt as usize]
+                } else if role == 5 {
+                    91
+                } else {
+                    0
+                },
+            )
+        },
+        ..hooks
+    };
     #[cfg(feature = "display-test")]
     let hooks = Hooks {
         display_copy: |process, generation, g, width, height, placement, copy_ns| {
@@ -214,6 +285,7 @@ mod scheduled {
         object_waves: None,
         process_state: |_, state| state,
         display_copy: |_, _, _, _, _, _, _| {},
+        desktop_session: |_, _| 1001,
         desktop_mode: |_, _| 0,
         desktop_stop_control: |_, _| false,
         operation,

@@ -44,8 +44,8 @@ const BOUNDARY: Hooks = Hooks {
 static HOOKS: Local<Hooks> = Local(UnsafeCell::new(BOUNDARY));
 #[cfg(feature = "desktop-test")]
 static DESKTOP_OPERATION: Local<u64> = Local(UnsafeCell::new(0));
-#[cfg(feature = "surface-test")]
-static SURFACE_SCANOUT: Local<[u64; 4]> = Local(UnsafeCell::new([0; 4]));
+#[cfg(any(feature = "surface-test", feature = "input-test"))]
+static SURFACE_SCANOUT: Local<[u64; 5]> = Local(UnsafeCell::new([0; 5]));
 pub(super) fn hooks() -> Hooks {
     // Single CPU; registration precedes user entry and never overlaps dispatch.
     unsafe { HOOKS.0.get().read() }
@@ -81,6 +81,20 @@ pub(super) fn install_desktop() {
         scheduled: scheduling::active,
         operation: |op, f| {
             let c = current();
+            #[cfg(feature = "input-runtime")]
+            if let Some(result) = crate::input_guest::call(
+                op,
+                c.case - 100,
+                scheduling::desktop::peer(c.id).expect("current peer"),
+                f.rdi,
+                f.rsi,
+                f.rdx,
+                f.r10,
+                |a, b, w| copy(a, b, w),
+                scheduling::desktop::peer_live,
+            ) {
+                return Some(result.map_err(|_| ACCESSDENIED));
+            }
             #[cfg(feature = "surface-runtime")]
             if let Some(result) = crate::surface_guest::call(
                 op,
@@ -178,7 +192,18 @@ pub(super) fn install_desktop() {
         },
         ..hooks
     };
-    #[cfg(feature = "surface-test")]
+    #[cfg(feature = "input-test")]
+    let hooks = Hooks {
+        record_event: |event| {
+            !matches!(
+                event,
+                "m1.wait_park" | "m1.wait_complete" | "m1.wait_wake" | "m1.wait_call"
+            )
+        },
+        desktop_session: |role, mode| if role == 4 && mode == 2 { 2002 } else { 1001 },
+        ..hooks
+    };
+    #[cfg(any(feature = "surface-test", feature = "input-test"))]
     let hooks = Hooks {
         display_copy: |process,
                        incarnation,
@@ -194,6 +219,7 @@ pub(super) fn install_desktop() {
                 state[1] = crate::timer::sample_ns();
                 state[2] = 0;
                 state[3] = 0;
+                state[4] = crate::timer::elapsed().expect("frame elapsed clock");
             }
             need(placement as u32 == 0 && y == state[2]).expect("ordered complete surface rows");
             state[2] += 1;
@@ -204,11 +230,13 @@ pub(super) fn install_desktop() {
                     "desktop",
                     "ok",
                     format_args!(
-                        "process={process} incarnation={incarnation} output_generation={output_generation} frame={} rows={} width={width} height={height} elapsed_ns={} copy_ns={} source_released=true",
+                        "process={process} incarnation={incarnation} output_generation={output_generation} frame={} rows={} width={width} height={height} elapsed_ns={} copy_ns={} started_ns={} finished_ns={} source_released=true",
                         state[0],
                         state[2],
                         crate::timer::sample_ns() - state[1],
-                        state[3]
+                        state[3],
+                        state[4],
+                        crate::timer::elapsed().expect("frame elapsed clock")
                     ),
                 );
             }

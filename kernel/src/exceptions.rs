@@ -161,7 +161,7 @@ unsafe fn install() {
             );
         }
         (*IDT.0.get())[64] = Gate::new(crate::timer::timer_vector as *const () as u64, 0);
-        #[cfg(feature = "device-test")]
+        #[cfg(any(feature = "device-test", feature = "input-runtime"))]
         {
             (*IDT.0.get())[66] = Gate::new(crate::timer::device_vector as *const () as u64, 0);
         }

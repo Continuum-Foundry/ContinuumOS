@@ -213,3 +213,15 @@ are described in the [surface runbook](../05-delivery/phase-4/surfaces-runbook.m
 They do not extend the frozen SDK or admit multiple resource generations, input,
 selected toolkit rendering or live reload. The [independent optical/authority/lifetime gate](../../evidence/phase-4/P4-05/final-1794685886700026500/README.md) passes
 local self-review for this exact subset; no new public family or SDK ABI is frozen.
+
+## P4-06 accepted experimental input boundary
+
+[Local input acceptance](../../evidence/phase-4/P4-06/final-1794706382942464300/README.md) adds private operations 0x4300–0x4303:
+trusted compositor raw-event copy, peer-bound CIN0 publication, app receipt and
+device reset. Current trusted process/incarnation/principal/session bindings
+authorize every call; app payload IDs cannot select another physical recipient.
+The [runbook](../05-delivery/phase-4/input-runbook.md) specifies explicit bytes,
+reserved zeros, bounded backpressure and cancellation semantics. This is a
+co-located compositor/input experiment, not a new frozen SDK family. No Rust
+layout, retained user pointer, protected focus or replaceable input process is
+accepted. P4-19 must review any later public-contract freeze.

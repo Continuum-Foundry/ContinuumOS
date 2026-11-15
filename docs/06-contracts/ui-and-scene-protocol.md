@@ -129,3 +129,16 @@ Frame opportunities and lease release remain distinct. Kernel display-grant
 incarnations seed non-reused ID ranges across compositor starts. This accepts
 neither SceneCommit, zero-copy, toolkit selection, safe code replacement nor a new
 ABI freeze. See the [runbook](../05-delivery/phase-4/surfaces-runbook.md).
+
+## P4-06 copied input subset
+
+The [input runbook](../05-delivery/phase-4/input-runbook.md) records the accepted
+experimental CIN0 96-byte event codec. Device acquisition sequence/time, output,
+surface input-scene and focus epochs are separate. Paint-only updates preserve
+the input scene; geometry, visibility and lifetime changes cancel held state.
+The compositor derives recipients from trusted current ownership/geometry.
+Physical key events and US ASCII text remain separate; cancellation clears all
+held state and reports discarded broker-queue entries. Kernel publication and
+actual app receipt are separately observed in fixtures. Proposed InputEvents and
+SceneCommit families remain broader and unfrozen; scaled guest painting,
+protected focus, toolkit semantics and reload continuity remain later gates.

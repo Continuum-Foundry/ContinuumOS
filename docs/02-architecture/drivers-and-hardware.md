@@ -77,3 +77,19 @@ so the architecture cannot quietly become permanently monolithic.
 ## P4-03 measured VM primitive subset
 
 The [local acceptance](../../evidence/phase-4/P4-03/final-1794185451085334400/README.md) qualifies the temporary kernel mediator for the pinned Q35 root-bus modern VirtIO keyboard/tablet and serial discovery/reset subset. The [runbook](../05-delivery/phase-4/device-authority-runbook.md) records full-width BAR checks, UC supervisor mappings, incarnation-bound grants, actual queue/IRQ observations, finite DMA quarantine and reset-before-reclaim. Tablet no-op status sentinels prove queue mechanics, not tablet feedback or pointer delivery; serial port/control delivery is open. Kernel/device DMA remains trusted without IOMMU confinement. No general driver architecture or public ABI is accepted by this result. P4-04/P4-06/P4-12 retain presentation/input/transport and extraction work.
+
+## P4-06 bounded physical input — 2026-11-14
+
+[Local acceptance](../../evidence/phase-4/P4-06/final-1794706382942464300/README.md) qualifies scoped modern VirtIO keyboard/tablet
+queues and private copied CIN0 events on the pinned VM. Key state, US ASCII text,
+hit testing and focus/capture policy execute in CPL3 alongside the compositor,
+which owns current geometry. The temporary kernel mediator retains trusted
+discovery, MMIO/IRQ, DMA/reset and checked copies. See the
+[input runbook](../05-delivery/phase-4/input-runbook.md).
+
+The separate input role retains its bounded lifecycle workload; independently
+replaceable input-process extraction is not accepted. Co-location enlarges the
+trusted boundary and requires fresh bindings after compositor failure. Protected
+focus/privacy (P4-10), toolkit, live replacement and broader driver architecture
+remain open. The broader decision remains Proposed; no public ABI is frozen and
+this result supplies no security certification or desktop efficiency claim.

@@ -2,11 +2,13 @@
 #![no_main]
 
 mod boot;
-#[cfg(feature = "device-test")]
+#[cfg(any(feature = "device-test", feature = "input-runtime"))]
 mod device_guest;
 #[cfg(feature = "desktop-runtime")]
 mod display_guest;
 mod exceptions;
+#[cfg(feature = "input-runtime")]
+mod input_guest;
 mod paging;
 #[cfg(feature = "static-loader-test")]
 mod runtime_loader;

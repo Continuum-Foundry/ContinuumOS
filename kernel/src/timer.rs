@@ -7,9 +7,9 @@ use core::{
 };
 static BUFFER: Local<[u8; p::MAX_TABLE]> = Local(core::cell::UnsafeCell::new([0; p::MAX_TABLE]));
 static APIC: AtomicU64 = AtomicU64::new(0);
-#[cfg(feature = "device-test")]
+#[cfg(any(feature = "device-test", feature = "input-runtime"))]
 static DEVICE_IOAPIC: AtomicU64 = AtomicU64::new(0);
-#[cfg(feature = "device-test")]
+#[cfg(any(feature = "device-test", feature = "input-runtime"))]
 pub(crate) fn device_route(irq: u8, masked: bool) -> Result<()> {
     need((1..24).contains(&irq), "device_irq")?;
     let io = DEVICE_IOAPIC.load(Ordering::Relaxed);
@@ -73,7 +73,7 @@ global_asm!(include_str!("timer-entry.S"), interrupt = sym interrupt);
 unsafe extern "C" {
     pub fn timer_vector();
     pub fn spurious_vector();
-    #[cfg(feature = "device-test")]
+    #[cfg(any(feature = "device-test", feature = "input-runtime"))]
     pub fn device_vector();
     fn timer_sentinels() -> u64;
 }
@@ -117,7 +117,7 @@ fn msr(id: u32) -> u64 {
     (hi as u64) << 32 | lo as u64
 }
 extern "C" fn interrupt(vector: u64, _cs: u64, _frame: *mut u8) {
-    #[cfg(feature = "device-test")]
+    #[cfg(any(feature = "device-test", feature = "input-runtime"))]
     if vector == 66 {
         crate::device_guest::interrupt();
         unsafe {
@@ -257,7 +257,7 @@ pub fn establish(mode: u64) -> Result<()> {
     let a = crate::paging::device(ap, 0)?;
     let h = crate::paging::device(hp, 1)?;
     let io = crate::paging::device(io, 2)?;
-    #[cfg(feature = "device-test")]
+    #[cfg(any(feature = "device-test", feature = "input-runtime"))]
     DEVICE_IOAPIC.store(io, Ordering::Relaxed);
     APIC.store(a, Ordering::Relaxed);
     unsafe {

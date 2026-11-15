@@ -55,7 +55,7 @@ pub fn decode(b: &[u8]) -> Result<Message<'_>> {
         return Err(INVALID);
     }
     let kind = u16::from_le_bytes(b[12..14].try_into().unwrap());
-    if !(1..=9).contains(&kind)
+    if !(1..=12).contains(&kind)
         || (kind != 3 && b.len() != HEADER)
         || u64_at(b, 16) == 0
         || u64_at(b, 24) == 0
@@ -126,7 +126,7 @@ struct Lease {
     filled: usize,
     pixels: Vec<u8>,
 }
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Geometry {
     pub x: i32,
     pub y: i32,
@@ -139,6 +139,7 @@ struct Surface {
     owner: Peer,
     extent: Extent,
     revision: u64,
+    input_scene: u64,
     next_generation: u64,
     geometry: Geometry,
     leases: [Option<Lease>; MAX_LEASES],
@@ -158,6 +159,21 @@ fn zeroed(bytes: usize) -> Result<Vec<u8>> {
     Ok(v)
 }
 impl Broker {
+    pub fn input_windows(&self) -> [Option<super::input::Window>; MAX_SURFACES] {
+        core::array::from_fn(|i| {
+            self.surfaces[i]
+                .as_ref()
+                .filter(|s| s.active.is_some())
+                .map(|s| super::input::Window {
+                    id: s.id,
+                    peer: s.owner,
+                    scene: s.input_scene,
+                    geometry: s.geometry,
+                    width: s.extent.width as u32,
+                    height: s.extent.height as u32,
+                })
+        })
+    }
     pub const fn new() -> Self {
         Self {
             surfaces: [const { None }; MAX_SURFACES],
@@ -243,6 +259,7 @@ impl Broker {
                     owner,
                     extent: e,
                     revision: 0,
+                    input_scene: 0,
                     next_generation: 0,
                     geometry: Geometry {
                         x: 0,
@@ -346,11 +363,14 @@ impl Broker {
                         }
                     }
                 }
+                // Painting preserves the hit-test root when extent/geometry are unchanged.
+                let next_input_scene = s.input_scene.max(1);
                 if let Some(old) = s.active {
                     s.leases[old].as_mut().unwrap().state = State::Released;
                 }
                 s.leases[i].as_mut().unwrap().state = State::InUse;
                 s.active = Some(i);
+                s.input_scene = next_input_scene;
                 s.revision = u64_at(b, 8);
                 Ok(s.revision)
             }
@@ -364,6 +384,7 @@ impl Broker {
                 }
                 let s = self.surface(owner, m.surface)?;
                 s.extent.damage(b)?;
+                s.input_scene = s.input_scene.checked_add(1).ok_or(CAPACITY)?;
                 s.geometry = Geometry {
                     x: u32_at(b, 16) as i32,
                     y: u32_at(b, 20) as i32,
@@ -751,5 +772,45 @@ mod tests {
         put32(&mut extra, 92, 1);
         put64(&mut extra, 96, 4);
         assert_eq!(call(&mut b, A, &extra), Err(CAPACITY));
+    }
+    #[test]
+    fn repaint_preserves_input_focus_but_geometry_changes_cancel_old_pressed_state() {
+        let mut surfaces = Broker::new();
+        let id = create(&mut surfaces, A, 1, 1, 4);
+        let one = acquire(&mut surfaces, A, id);
+        write(&mut surfaces, A, id, one, &[255, 0, 0, 255]).unwrap();
+        commit(&mut surfaces, A, id, one, 1, 1, 1, 1, 4).unwrap();
+        let mut input = super::super::input::Broker::new(4, 4);
+        input.windows(surfaces.input_windows()).unwrap();
+        input.focus(A, id, 1).unwrap();
+        while input.peek(A, id, 1).unwrap().is_some() {
+            input.consumed(A, id, 1).unwrap();
+        }
+        input.raw(0, 1, 1, 1, 30, 1).unwrap();
+        input.raw(0, 2, 2, 0, 0, 0).unwrap();
+        let two = acquire(&mut surfaces, A, id);
+        write(&mut surfaces, A, id, two, &[0, 255, 0, 255]).unwrap();
+        commit(&mut surfaces, A, id, two, 2, 2, 1, 1, 4).unwrap();
+        assert_eq!(surfaces.input_windows()[0].unwrap().scene, 1);
+        input.windows(surfaces.input_windows()).unwrap();
+        assert_eq!(
+            input.peek(A, id, 1).unwrap().unwrap().kind,
+            super::super::input::KEY
+        );
+        while input.peek(A, id, 1).unwrap().is_some() {
+            input.consumed(A, id, 1).unwrap();
+        }
+        input.raw(0, 3, 3, 1, 30, 0).unwrap();
+        input.raw(0, 4, 4, 0, 0, 0).unwrap();
+        assert_eq!(input.peek(A, id, 1).unwrap().unwrap().value, 0);
+        let mut m = message(5, id);
+        put32(&mut m, 80, 1);
+        put32(&mut m, 92, 1);
+        put32(&mut m, 112, 1);
+        put32(&mut m, 116, 1);
+        call(&mut surfaces, A, &m).unwrap();
+        input.windows(surfaces.input_windows()).unwrap();
+        let event = input.peek(A, id, 2).unwrap().unwrap();
+        assert_eq!((event.kind, event.code), (super::super::input::CANCEL, 3));
     }
 }

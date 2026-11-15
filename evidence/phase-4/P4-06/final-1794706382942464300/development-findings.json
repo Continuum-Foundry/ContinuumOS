@@ -1,0 +1,46 @@
+{
+  "failures": [
+    {
+      "attempt": "probe-1794690429590436800",
+      "outcome": "failed",
+      "diagnosis": "frames: busy at input startup: DMA was admitted before desktop frame quota. Moved admission after frame reservation and unwind checks; accounted additional 64 KiB outside 16 MiB recovery reserve."
+    },
+    {
+      "attempt": "probe-1794701060007281100",
+      "outcome": "failed",
+      "diagnosis": "Input broker local exceeded bounded service stack and faulted at guard page. Moved broker to single-owner private BSS; source/ELF and final native teardown independently reviewed."
+    },
+    {
+      "attempt": "device-probe-1794701729485893300",
+      "outcome": "failed",
+      "diagnosis": "Duplicate diagnostic session field rejected by independent raw parser. Renamed authority_session so transport session remains unambiguous."
+    },
+    {
+      "attempt": "device-probe-1794702063018478500",
+      "outcome": "failed",
+      "diagnosis": "Deadline after physical assertions: wrong-session fixture waited for already exited compositor. Made denial ordering explicit while service live."
+    },
+    {
+      "attempt": "device-probe-1794702285030289800",
+      "outcome": "failed",
+      "diagnosis": "Deadline after physical assertions. Trace retained 612 redundant wait-call records, 594 actual resumes and 172 repeated denials. Input-only fixture removes redundant wait-call logging and repeats bad-copy probe only until actual denial. No sole timeout cause inferred; original deadline/counts unchanged."
+    },
+    {
+      "attempt": "acceptance-1794704700341775700",
+      "outcome": "interrupted-before-guests",
+      "diagnosis": "Stopped before guests for review-found input-scene bug: paint-only changes must preserve focus; geometry invalidates it. Process-tree receipt retained. Added portable repaint/release versus geometry-cancel check and ran final source selected gate."
+    },
+    {
+      "attempt": "acceptance-1794705366932871300",
+      "outcome": "failed",
+      "diagnosis": "Ordinary execution passed, reviewer incorrectly required distinct bytes for identical ordinary client programs. Exact three-file reviewer-only repair, immutable failed anchor and original blobs retained. Changed reviewer/runner tests reran; input/ordinary and metadata carried only with exact source/context/hash proof and full fresh independent review."
+    },
+    {
+      "attempt": "earlier-development-context",
+      "outcome": "non-acceptance",
+      "diagnosis": "Initial host test without required RUST_MIN_STACK overflowed; sandbox signing lacked certificate access. Correct approved context and 16 MiB host test stack used in acceptance. Neither failure counts as a pass."
+    }
+  ],
+  "original_payload": "All exact native payload remains local; early failures are not guaranteed fully reconstructible from final source patches. Final 531 execution inputs are fully reconstructed.",
+  "deletion": "none; owner defers deletion"
+}

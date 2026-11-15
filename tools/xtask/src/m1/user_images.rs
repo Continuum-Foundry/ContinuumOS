@@ -24,6 +24,7 @@ pub(super) fn build(
     devices: bool,
     display: bool,
     surfaces: bool,
+    input: bool,
     scenario: u64,
 ) -> Result<PathBuf> {
     let runtime_ids = runtime_ids(dir)?;
@@ -92,6 +93,9 @@ pub(super) fn build(
             ))
             .arg("-o")
             .arg(&image);
+        if input {
+            c.args(["--cfg", "input_runtime"]);
+        }
         if surfaces {
             c.args(["--cfg", "surface_runtime", "-C", "strip=debuginfo"])
                 .env("CONTINUUM_SURFACE_SCENARIO", scenario.to_string());

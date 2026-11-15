@@ -320,3 +320,15 @@ captures, bounded pressure/death/failure handling and exact resource settlement.
 Nine optical cases, 22 selected VM launches and 20 metadata flavors pass. No
 physical input, selected guest toolkit, reload, VSync or efficiency-target result
 is accepted; only the prior SDK subset remains frozen.
+
+## P4-06 physical-input/routing subset
+
+P4-06 [passes local self-review](../../evidence/phase-4/P4-06/final-1794706382942464300/README.md) for bounded R08/R10/R14/R15/R17 input
+delivery in the pinned VM: modern VirtIO keyboard/tablet, US ASCII physical key
+and text separation, current authorized surface routing and cancellation on
+overflow/reset/geometry/death. Native input progresses during software scanout;
+this is not a latency or desktop efficiency measurement. CPL3 policy is co-located
+with the compositor; the temporary kernel mediator retains trusted DMA/IRQ/copy
+mechanics. Initial output is 720p at scale 1; rational scale arithmetic has portable
+tests only. Protected input, toolkit, editing, reload and M4 exit remain open.
+The overall requirements and 256 MiB whole-desktop target are not closed.

@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "scope": "one reviewer/runner-only compatibility correction; no guest implementation, command, manifest, bounds or tool-context change",
+  "previous_acceptance": "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m4\\P4-06\\acceptance-1794705366932871300\\acceptance.json",
+  "previous_sha256": "774ad7e14471749e3735a699a80b18fbaac7ded2de238a9e0f77b2772e72d8ee",
+  "changed_inputs": [
+    {
+      "path": "tools/Review-P4-06.py",
+      "old_sha256": "df363585f1f8ff8c00f8e2e53dd112b4e7b6bc92e666a4fe1ab385beed36d929",
+      "new_sha256": "fa174013938432ee04b496b547b1601faf50c59fac76ed223b2fd2e0df84e395",
+      "original_blob": "C:\\Users\\archi\\Documents\\ContinuumOS\\work\\p4-06\\source-overrides\\df363585f1f8ff8c00f8e2e53dd112b4e7b6bc92e666a4fe1ab385beed36d929"
+    },
+    {
+      "path": "tools/Test-P4-06.py",
+      "old_sha256": "6ca4a08fded647ddabb401037790ee072e09739af0d303dd958a367fa8f61b08",
+      "new_sha256": "c1e3b1bf6a4d61d9b806495f5378c84bf643b181f3c98535d7b9241c3b6aa673",
+      "original_blob": "C:\\Users\\archi\\Documents\\ContinuumOS\\work\\p4-06\\source-overrides\\6ca4a08fded647ddabb401037790ee072e09739af0d303dd958a367fa8f61b08"
+    },
+    {
+      "path": "tools/p4_input_acceptance.py",
+      "old_sha256": "8305464f2b23891b82e3c7d67f0c99d6701e762d2fc9090d70ce8c00bf64be7b",
+      "new_sha256": "19b7133a746af84b5ed530dbb03e12dc838620b80276f0ac514184fba7d93cad",
+      "original_blob": "C:\\Users\\archi\\Documents\\ContinuumOS\\work\\p4-06\\source-overrides\\8305464f2b23891b82e3c7d67f0c99d6701e762d2fc9090d70ce8c00bf64be7b"
+    }
+  ],
+  "reason": "Ordinary images may have identical bytes; require byte-distinct independently linked fixture clients only. Old failed aggregate is preserved.",
+  "ordinary_adoption": {
+    "original_command_sha256": "e2fc2ed19068fc899dbb3af3d9ea40083c3be0d2c24413d5f6351d3b50180797",
+    "stdout_sha256": "2ae3401bb4724303cca7d762cf6874bc07d7cb34bb3b95ffc013da664133c342",
+    "artifact_count": 154,
+    "review": {
+      "status": "passed",
+      "scope": "ordinary input-runtime readiness; no synthetic test policy or key/text diagnostic stream",
+      "build_id": "02b8c18c87a23684f806cfeab7ee3d352caf9b0616dfbcfe7f441ef41b01ae9b",
+      "iso_sha256": "9690b0580fff8db71dd96f5546ec54ee955c1bda242f88a9a9fc37b628439f45"
+    },
+    "hash_observation": "Original command/case/ISO/ELF/source identities verified; full artifact hashes recorded at this fresh corrected review. The failed aggregate had stopped before recording an ordinary pass."
+  }
+}

@@ -456,7 +456,13 @@ pub fn identity(args: &Text<1024>) -> Result<(&str, &str)> {
 #[cfg(test)]
 mod tests;
 
+#[path = "../../experiments/user-images/input.rs"]
+#[cfg(test)]
+pub mod input;
 #[cfg(test)]
 #[path = "../../experiments/user-images/surface.rs"]
 mod surface;
 pub mod surface_mailbox;
+
+#[path = "../../experiments/user-images/input_wire.rs"]
+pub mod input_wire;

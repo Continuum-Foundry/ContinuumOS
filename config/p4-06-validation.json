@@ -1,0 +1,115 @@
+{
+  "schema_version": 2,
+  "story": "P4-06",
+  "scope": "story",
+  "impact": {
+    "subsystems": [
+      "bounded reusable VirtIO event rings and descriptor ownership",
+      "user-mode US ASCII key state, compositor geometry routing, focus/capture/cancellation",
+      "private trusted input copy operations and experimental input ISO"
+    ],
+    "consumers": [
+      "P4-07 editing input",
+      "P4-08 windows",
+      "P4-10 protected input"
+    ],
+    "rationale": "Input-runtime is enabled in the ordinary ISO, with two scoped 32 KiB DMA runs explicitly added outside private process accounting. IRQ entry, private syscall dispatch, copied input, input scene revisions and descriptor reuse affect ordinary/input/surface/device consumers. Keep staged, unstaged, untracked and deleted inputs in the source lock. Select real input/repeat/render-pressure/33-report overflow/stale-release/owner-death/held-key reset plus ordinary, device, surface, scanout, timer, memory and narrow boundary/scheduler/capability/channel/SDK regressions. No blanket full milestone reruns, count or deadline waiver. Input-only logging omits wait-call duplicates while retaining all actual resume/latency, lifecycle, bound and event observations.",
+    "broad_m1": false,
+    "broad_m2": false,
+    "broad_m3": false,
+    "shared_boundary_scheduler": true,
+    "uncertain_families": []
+  },
+  "selected": [
+    {
+      "id": "kernel-host",
+      "reason": "Affected kernel-host checks; preserve prior feature semantics."
+    },
+    {
+      "id": "timer",
+      "reason": "Shared INTx vector and ordinary timer progress."
+    },
+    {
+      "id": "device-host",
+      "reason": "DMA check/completion/recycle/reset transitions."
+    },
+    {
+      "id": "surface-host",
+      "reason": "Private copy transport, broker ownership, bytes/lease admission, wire and full-redraw oracle checks."
+    },
+    {
+      "id": "input-oracle-tests",
+      "reason": "Independent literal physical source stream and fail-closed reviewer mutations, separate from model tests."
+    },
+    {
+      "id": "xtask-host",
+      "reason": "Affected xtask-host checks; preserve prior feature semantics."
+    },
+    {
+      "id": "runner-tests",
+      "reason": "Affected runner-tests checks; preserve prior feature semantics."
+    },
+    {
+      "id": "retention-tests",
+      "reason": "Affected retention-tests checks; preserve prior feature semantics."
+    },
+    {
+      "id": "prerequisites",
+      "reason": "Fresh approved signer/compiler/Phase 0/tool preflights before new optical build harness."
+    },
+    {
+      "id": "memory",
+      "reason": "Copied boundary/pinning and teardown backing."
+    },
+    {
+      "id": "boundary",
+      "reason": "Affected boundary checks; preserve prior feature semantics."
+    },
+    {
+      "id": "scheduler",
+      "reason": "Affected scheduler checks; preserve prior feature semantics."
+    },
+    {
+      "id": "capabilities",
+      "reason": "Affected capabilities checks; preserve prior feature semantics."
+    },
+    {
+      "id": "channels",
+      "reason": "Existing general copied IPC/authority remains compatible."
+    },
+    {
+      "id": "sdk-runtime",
+      "reason": "Affected sdk-runtime checks; preserve prior feature semantics."
+    },
+    {
+      "id": "docs",
+      "reason": "Affected docs checks; preserve prior feature semantics."
+    },
+    {
+      "id": "governance",
+      "reason": "Affected governance checks; preserve prior feature semantics."
+    },
+    {
+      "id": "hygiene",
+      "reason": "Affected hygiene checks; preserve prior feature semantics."
+    }
+  ],
+  "not_selected": {
+    "M1": "No broad boot/paging/interrupt change. Ordinary runtime, existing scanout, owned-memory and shared-boundary leaf cases are selected. Full gate remains at M4 exit.",
+    "M2": "Hosted toolkit/text/action code and assets unchanged.",
+    "M3": "No general IPC/rights/policy/wait/route/SDK change; focused memory, boundary, scheduler, capability, channel and SDK-runtime plus separate metadata flavors.",
+    "prerequisites": "Selected fresh Phase 0/signing/tool gate."
+  },
+  "historical_references": [],
+  "execution_budget": {
+    "max_vm_launches": 17,
+    "allow_full_suites": false
+  },
+  "retention": {
+    "working_set_budget_bytes": 4294967296,
+    "capsule_budget_bytes": 67108864,
+    "cleanup_after": "Required after PR merge and verified evidence; retain documented release/debug/review/resume exceptions. Owner defers all deletion.",
+    "required_evidence": "Complete selected command stdout/stderr, guest serial/QMP, pixel references/captures, reviews, identities, source reconstruction and meaningful failures.",
+    "source_reconstruction": "main 9da91f4644d8e5492ff50b29bcbc948bd71a03e9 plus exact staged/unstaged patches and necessary new P4-06 inputs; P4-05 prerequisite is now committed."
+  }
+}

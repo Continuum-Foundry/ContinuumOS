@@ -6,6 +6,12 @@ mod reclaiming_heap;
 #[cfg(surface_runtime)]
 mod surface;
 #[cfg(surface_runtime)]
+mod input;
+#[cfg(surface_runtime)]
+mod input_wire;
+#[cfg(input_runtime)]
+mod input_runtime;
+#[cfg(surface_runtime)]
 mod surface_runtime;
 #[cfg(surface_probe)]
 mod surface_client;

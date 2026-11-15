@@ -116,6 +116,7 @@ pub(super) fn package(
         || manifest["flavor"] == "device-test"
         || manifest["flavor"] == "display-test"
         || manifest["flavor"] == "surface-test"
+        || manifest["flavor"] == "input-test"
         || fixture == "static-loader"
         || fixture.starts_with("user-boundary-")
         || fixture.starts_with("scheduler-")
@@ -136,7 +137,10 @@ pub(super) fn package(
             ));
         }
     }
-    if manifest["flavor"] == "display-test" || manifest["flavor"] == "surface-test" {
+    if manifest["flavor"] == "display-test"
+        || manifest["flavor"] == "surface-test"
+        || manifest["flavor"] == "input-test"
+    {
         let size = if dir.to_string_lossy().contains("display-1080")
             || dir.to_string_lossy().contains("surface-1080")
         {

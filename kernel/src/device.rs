@@ -349,6 +349,12 @@ impl Dma {
     }
     /// A checked used entry transfers that payload, never the live ring itself.
     pub fn complete(&mut self, head: u32, len: u32, capacity: u32) -> Result<()> {
+        self.check_completion(head, len, capacity)?;
+        self.outstanding &= !(1 << head);
+        self.completed |= 1 << head;
+        Ok(())
+    }
+    pub fn check_completion(&self, head: u32, len: u32, capacity: u32) -> Result<()> {
         if head >= QUEUE_SIZE as u32
             || len > capacity
             || !matches!(self.state, DmaState::Device | DmaState::Stopping)
@@ -356,8 +362,21 @@ impl Dma {
         {
             return Err(error("dma", "completion"));
         }
-        self.outstanding &= !(1 << head);
-        self.completed |= 1 << head;
+        Ok(())
+    }
+    /// Cancellation/death stops admission. It cannot retract a published buffer.
+    /// Return a CPU-owned completed descriptor to a live queue. The architecture
+    /// adapter must copy/validate its payload before publishing it again.
+    pub fn recycle(&mut self, head: u16) -> Result<()> {
+        if head as usize >= QUEUE_SIZE
+            || self.state != DmaState::Device
+            || self.completed & (1 << head) == 0
+            || self.outstanding & (1 << head) != 0
+        {
+            return Err(error("dma", "recycle"));
+        }
+        self.completed &= !(1 << head);
+        self.outstanding |= 1 << head;
         Ok(())
     }
     /// Cancellation/death stops admission. It cannot retract a published buffer.
@@ -386,6 +405,27 @@ impl Dma {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn reusable_dma_completion_never_refunds_device_retention_or_recycles_unowned_heads() {
+        let mut retained = Retention::EMPTY;
+        let mut dma = retained.admit(4096, 32768, 4096).unwrap();
+        assert!(dma.recycle(0).is_err());
+        dma.submit(0).unwrap();
+        for _ in 0..70000 {
+            dma.check_completion(0, 8, 8).unwrap();
+            dma.complete(0, 8, 8).unwrap();
+            assert!(dma.complete(0, 8, 8).is_err());
+            dma.recycle(0).unwrap();
+            assert!(dma.recycle(0).is_err());
+        }
+        assert_eq!(retained.inventory(), (1, 32768));
+        dma.stop();
+        assert!(dma.recycle(0).is_err());
+        dma.reset_observed().unwrap();
+        assert!(dma.recycle(0).is_err());
+        retained.release(dma).ok().unwrap();
+        assert_eq!(retained.inventory(), (0, 0));
+    }
     const OWNER: Owner = Owner {
         process: 402,
         generation: 1,

@@ -106,6 +106,9 @@ pub(super) fn observe(
     let mut captured = false;
     let mut blank_captured = false;
     let mut capture_tail = Vec::new();
+    let mut input_tail = Vec::new();
+    let mut input_step = 0usize;
+    let mut flood_step = 0usize;
     let mut qmp_journal =
         fs::File::create_new(dir.join("qmp-requests.jsonl")).map_err(|e| e.to_string())?;
     if let Some(input) = child.0.stdin.as_mut() {
@@ -149,6 +152,86 @@ pub(super) fn observe(
             Err(e) => {
                 error = Some(e);
                 break None;
+            }
+        }
+        if child.0.stdin.is_some() && (input_step < 14 || flood_step < 33) {
+            input_tail.extend_from_slice(&appended);
+            let marker = format!("input-inject-{input_step}");
+            if input_tail
+                .windows(marker.len())
+                .any(|w| w == marker.as_bytes())
+            {
+                // QMP input-send-event enters QEMU's actual VirtIO HID path.
+                // Coordinates and key identities below are an independent host fixture.
+                let key = |q: &str, down: bool| json!({"type":"key","data":{"down":down,"key":{"type":"qcode","data":q}}});
+                let pointer = |x, y, down| {
+                    vec![
+                        json!({"type":"abs","data":{"axis":"x","value":x}}),
+                        json!({"type":"abs","data":{"axis":"y","value":y}}),
+                        json!({"type":"btn","data":{"down":down,"button":"left"}}),
+                    ]
+                };
+                let release = || vec![json!({"type":"btn","data":{"down":false,"button":"left"}})];
+                let events = match input_step {
+                    0 => vec![key("shift", true)],
+                    1 => vec![key("shift_r", true)],
+                    2 => vec![key("shift", false)],
+                    3 | 4 => vec![key("a", true)],
+                    5 => vec![key("a", false)],
+                    6 => vec![key("shift_r", false)],
+                    7 | 9 => pointer(3075, 4558, true),
+                    8 => {
+                        let mut e = pointer(12810, 18230, false);
+                        e.insert(
+                            2,
+                            json!({"type":"btn","data":{"down":true,"button":"right"}}),
+                        );
+                        e
+                    }
+                    10 => vec![
+                        json!({"type":"btn","data":{"down":false,"button":"left"}}),
+                        json!({"type":"btn","data":{"down":false,"button":"right"}}),
+                    ],
+                    12 => release(),
+                    11 => pointer(7174, 8660, true),
+                    13 => vec![key("shift", true)],
+                    _ => return Err("Unexpected input step".into()),
+                };
+                let command = json!({"execute":"input-send-event","arguments":{"events":events},"id":100+input_step});
+                let response = qmp_request(
+                    child.0.stdin.as_mut().unwrap(),
+                    &mut qmp_journal,
+                    &out,
+                    &command,
+                    start + deadline,
+                )?;
+                if response.get("error").is_some() {
+                    return Err(format!("Physical input injection failed: {response}"));
+                }
+                input_step += 1;
+            }
+            if flood_step < 33 {
+                let marker = format!("input-flood-{flood_step:02}");
+                if input_tail
+                    .windows(marker.len())
+                    .any(|w| w == marker.as_bytes())
+                {
+                    let command = json!({"execute":"input-send-event","arguments":{"events":[{"type":"key","data":{"down":flood_step<32,"key":{"type":"qcode","data":"a"}}}]},"id":200+flood_step});
+                    let response = qmp_request(
+                        child.0.stdin.as_mut().unwrap(),
+                        &mut qmp_journal,
+                        &out,
+                        &command,
+                        start + deadline,
+                    )?;
+                    if response.get("error").is_some() {
+                        return Err(format!("Physical flood injection failed: {response}"));
+                    }
+                    flood_step += 1;
+                }
+            }
+            if input_tail.len() > 65536 {
+                input_tail.drain(..input_tail.len() - 65536);
             }
         }
         if child.0.stdin.is_some() && !captured {

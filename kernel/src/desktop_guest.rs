@@ -271,6 +271,8 @@ fn reap(role: usize, id: ThreadId, result: u64) -> Result<()> {
     need(t.current.id.generation == id.generation)?;
     #[cfg(feature = "surface-runtime")]
     crate::surface_guest::dead(peer(t.current.id)?, role as u64);
+    #[cfg(feature = "input-runtime")]
+    crate::input_guest::dead(peer(t.current.id)?, role as u64);
     crate::display_guest::owner_dead(t.current.id.slot as u64 + 1, id.generation)?;
     #[cfg(feature = "device-test")]
     crate::device_guest::owner_dead(t.current.id.slot as u64 + 1, id.generation)?;
@@ -365,8 +367,13 @@ pub(crate) fn run() -> Result<()> {
     // Reserve is withheld from this graph for its entire lifetime, even after
     // owners exit. Physical availability is checked before admitting any image.
     let available = crate::paging::runtime_available_bytes();
-    d::Graph::preflight(available)?;
-    crate::paging::runtime_quota((d::Graph::required() / PAGE) as usize)?;
+    let input_backing = if cfg!(feature = "input-runtime") {
+        65536
+    } else {
+        0
+    };
+    d::Graph::preflight(available.saturating_sub(input_backing))?;
+    crate::paging::runtime_quota(((d::Graph::required() + input_backing) / PAGE) as usize)?;
     let mut queue = Queue::EMPTY;
     #[cfg(feature = "desktop-test")]
     {
@@ -412,6 +419,8 @@ pub(crate) fn run() -> Result<()> {
             }
         }
     }
+    #[cfg(feature = "input-runtime")]
+    crate::device_guest::input::initialize()?;
     start_graph(&mut queue, None)?;
     unsafe {
         for t in (&mut *TASKS.0.get()).iter_mut().flatten() {
@@ -672,6 +681,8 @@ pub(crate) fn run() -> Result<()> {
     }
     #[cfg(feature = "desktop-test")]
     {
+        #[cfg(feature = "input-runtime")]
+        crate::device_guest::input::stop()?;
         need(control > 10 && editor_ends == 3)?;
         need(
             runtime_memory::with(|r, _| r.inventory()) == empty

@@ -912,3 +912,7 @@ pub(crate) fn call(
     );
     Some(result.map_err(|_| 3)) // replaced by caller with frozen AccessDenied
 }
+
+#[cfg(feature = "input-runtime")]
+#[path = "input_device.rs"]
+pub(crate) mod input;

@@ -126,7 +126,7 @@ pub fn device(base: u64, slot: u64) -> Result<u64> {
     need(tables.inspect(VirtAddr(v))? & !(0x20 | 0x40) == base | NX | 0x1b)?;
     Ok(v)
 }
-#[cfg(feature = "device-test")]
+#[cfg(any(feature = "device-test", feature = "input-runtime"))]
 pub(crate) fn driver_page(base: u64, slot: u64) -> Result<u64> {
     let info = unsafe { &*crate::BOOT_INFO.0.get() };
     continuum_kernel::device::mmio_page(info.regions(), base)?;
@@ -138,7 +138,7 @@ pub(crate) fn driver_page(base: u64, slot: u64) -> Result<u64> {
     need(tables.inspect(VirtAddr(v))? & !(0x20 | 0x40) == base | NX | 0x1b)?;
     Ok(v)
 }
-#[cfg(feature = "device-test")]
+#[cfg(any(feature = "device-test", feature = "input-runtime"))]
 pub(crate) fn driver_unmap(slot: u64) -> Result<()> {
     need(slot < 48)?;
     let v = SCRATCH + PAGE * (16 + slot);

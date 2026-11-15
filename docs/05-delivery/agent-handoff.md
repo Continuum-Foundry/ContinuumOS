@@ -102,8 +102,13 @@ P4-05 passes [local copied surface/composition self-review](../../evidence/phase
 nine exact optical cases, incarnation/session-bound copied leases, full redraw
 exposure repair, bounded failure/cancellation and exact settlements. The 22-launch
 selected gate and 20 metadata flavors pass without altered limits or counts.
-Continue with [P4-06](phase-4/06-input-device-and-event-routing.md).
-P4-06 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
+P4-06 passes [local physical-input/routing self-review](../../evidence/phase-4/P4-06/final-1794706382942464300/README.md):
+scoped VirtIO keyboard/tablet input, CPL3 key/text/focus/capture, cancellation on
+overflow/reset/geometry/death, native rendering-pressure progress and exact teardown.
+The broker is co-located with the compositor; independent input-role extraction,
+protected focus, toolkit, reload and efficiency remain open.
+Continue with [P4-07](phase-4/07-selected-ui-fonts-and-guest-rendering.md).
+P4-07 through P4-19 remain Not started. Follow the [ordered epic](phase-4/README.md)
 through runtime/device foundations, guest UI/input/semantics, protected input and
 B61, authenticated transport, resource publication, faults, metrics and sustained
 reloads before final M4 review. The tested finite runtime profile remains experimental; broader desktop capacities

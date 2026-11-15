@@ -1,0 +1,3607 @@
+{
+  "schema_version": 1,
+  "story": "P4-03",
+  "status": "passed",
+  "review": "local Codex self-review; no external certification",
+  "build_id": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+  "kernel_sha256": "69918c0989aa8b472a9baddcbdb40ca714a0315237ecce96069db9dab29a523f",
+  "iso_sha256": "13f403e78d05269f133fb02f2002da5e4b9d45f1fec5fc1929b939801e657ce5",
+  "serial_sha256": "86c8f5938f71d3fda2f4850da68fa52db98f0b208323c63b1bc3a35b4d1abf6f",
+  "reviewer_negatives": 155,
+  "images": [
+    {
+      "sha256": "724b17684d1acf686c1e7523566c10e432c67cd482a45409a10468f5884e62e7",
+      "load_pages": 28,
+      "load_segments": 3
+    },
+    {
+      "sha256": "724b17684d1acf686c1e7523566c10e432c67cd482a45409a10468f5884e62e7",
+      "load_pages": 28,
+      "load_segments": 3
+    },
+    {
+      "sha256": "724b17684d1acf686c1e7523566c10e432c67cd482a45409a10468f5884e62e7",
+      "load_pages": 28,
+      "load_segments": 3
+    }
+  ],
+  "device_records": [
+    {
+      "event": "m1.device_admission",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "190",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "devices": "3",
+        "bytes": "98304",
+        "fourth_denied": "true",
+        "failed_backing_released": "true",
+        "before_frames": "0",
+        "after_frames": "0",
+        "active_dma": "false"
+      }
+    },
+    {
+      "event": "m1.device_bar",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "191",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "bar": "4",
+        "low": "12",
+        "high": "192"
+      }
+    },
+    {
+      "event": "m1.device_discovered",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "192",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "bdf": "32",
+        "id": "4178",
+        "base": "824633720832",
+        "bytes": "16384",
+        "irq": "20",
+        "uc": "true",
+        "user": "false",
+        "iommu": "false"
+      }
+    },
+    {
+      "event": "m1.device_authority",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "193",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "forged": "true",
+        "stale": "true",
+        "overlap": "true",
+        "over_rights": "true",
+        "duplicate_irq": "true",
+        "cancelled": "true",
+        "all_denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_bar",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "194",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "bar": "4",
+        "low": "16396",
+        "high": "192"
+      }
+    },
+    {
+      "event": "m1.device_discovered",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "195",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "bdf": "40",
+        "id": "4178",
+        "base": "824633737216",
+        "bytes": "16384",
+        "irq": "21",
+        "uc": "true",
+        "user": "false",
+        "iommu": "false"
+      }
+    },
+    {
+      "event": "m1.device_authority",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "196",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "forged": "true",
+        "stale": "true",
+        "overlap": "true",
+        "over_rights": "true",
+        "duplicate_irq": "true",
+        "cancelled": "true",
+        "all_denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_bar",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "197",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "2",
+        "bar": "4",
+        "low": "32780",
+        "high": "192"
+      }
+    },
+    {
+      "event": "m1.device_discovered",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "198",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "2",
+        "bdf": "48",
+        "id": "4163",
+        "base": "824633753600",
+        "bytes": "16384",
+        "irq": "22",
+        "uc": "true",
+        "user": "false",
+        "iommu": "false"
+      }
+    },
+    {
+      "event": "m1.device_authority",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "199",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "2",
+        "forged": "true",
+        "stale": "true",
+        "overlap": "true",
+        "over_rights": "true",
+        "duplicate_irq": "true",
+        "cancelled": "true",
+        "all_denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "200",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_features",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "201",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "offered": "1104611901440",
+        "selected": "4294967296",
+        "required_unknown_denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_feedback",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "202",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "led_advertised": "true",
+        "kind": "17",
+        "unsupported_led_denied": "false",
+        "semantic_claim": "false"
+      }
+    },
+    {
+      "event": "m1.device_queue",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "203",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "0",
+        "size": "8",
+        "base": "4096",
+        "bytes": "32768",
+        "desc": "4096",
+        "avail": "8192",
+        "used": "12288",
+        "payload": "16384",
+        "notify_offset": "0"
+      }
+    },
+    {
+      "event": "m1.device_queue",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "204",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "size": "8",
+        "base": "4096",
+        "bytes": "32768",
+        "desc": "20480",
+        "avail": "24576",
+        "used": "28672",
+        "payload": "32768",
+        "notify_offset": "4"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "205",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "head": "0",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "206",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "head": "1",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "207",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "head": "2",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "208",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "head": "3",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "209",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "entries": "4",
+        "irq_expected": "true",
+        "irqs": "1",
+        "lost_irq_poll": "false",
+        "malformed_denied": "true",
+        "chain_negatives": "5",
+        "irq_latch": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "210",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_settled",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "211",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "masked": "false",
+        "retained_bytes": "0",
+        "frames": "0",
+        "reset_before_release": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "212",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_features",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "213",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "offered": "1104611901440",
+        "selected": "4294967296",
+        "required_unknown_denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_queue",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "214",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "0",
+        "size": "8",
+        "base": "4096",
+        "bytes": "32768",
+        "desc": "4096",
+        "avail": "8192",
+        "used": "12288",
+        "payload": "16384",
+        "notify_offset": "0"
+      }
+    },
+    {
+      "event": "m1.device_queue",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "215",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "size": "8",
+        "base": "4096",
+        "bytes": "32768",
+        "desc": "20480",
+        "avail": "24576",
+        "used": "28672",
+        "payload": "32768",
+        "notify_offset": "4"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "216",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "head": "0",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "217",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "head": "1",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "218",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "head": "2",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "219",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "head": "3",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "220",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "entries": "4",
+        "irq_expected": "false",
+        "irqs": "0",
+        "lost_irq_poll": "true",
+        "malformed_denied": "true",
+        "chain_negatives": "5",
+        "irq_latch": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "221",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "complete": "false",
+        "retained": "true",
+        "timeout_ns": "100000000"
+      }
+    },
+    {
+      "event": "m1.device_quarantine",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "222",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "devices": "1",
+        "bytes": "32768",
+        "cap_bytes": "16777216",
+        "cap_devices": "3",
+        "released": "false"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "223",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_settled",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "224",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "masked": "true",
+        "retained_bytes": "0",
+        "frames": "0",
+        "reset_before_release": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "225",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_features",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "226",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "offered": "1104611901440",
+        "selected": "4294967296",
+        "required_unknown_denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_feedback",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "227",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "led_advertised": "false",
+        "kind": "0",
+        "unsupported_led_denied": "true",
+        "semantic_claim": "false"
+      }
+    },
+    {
+      "event": "m1.device_queue",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "228",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "0",
+        "size": "8",
+        "base": "4096",
+        "bytes": "32768",
+        "desc": "4096",
+        "avail": "8192",
+        "used": "12288",
+        "payload": "16384",
+        "notify_offset": "0"
+      }
+    },
+    {
+      "event": "m1.device_queue",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "229",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "1",
+        "size": "8",
+        "base": "4096",
+        "bytes": "32768",
+        "desc": "20480",
+        "avail": "24576",
+        "used": "28672",
+        "payload": "32768",
+        "notify_offset": "4"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "230",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "1",
+        "head": "0",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "231",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "1",
+        "head": "1",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "232",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "1",
+        "head": "2",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "233",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "1",
+        "head": "3",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "234",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "entries": "4",
+        "irq_expected": "true",
+        "irqs": "1",
+        "lost_irq_poll": "false",
+        "malformed_denied": "true",
+        "chain_negatives": "5",
+        "irq_latch": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "235",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_settled",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "236",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "masked": "false",
+        "retained_bytes": "0",
+        "frames": "0",
+        "reset_before_release": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "237",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_features",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "238",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "offered": "1104611901440",
+        "selected": "4294967296",
+        "required_unknown_denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_queue",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "239",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "0",
+        "size": "8",
+        "base": "4096",
+        "bytes": "32768",
+        "desc": "4096",
+        "avail": "8192",
+        "used": "12288",
+        "payload": "16384",
+        "notify_offset": "0"
+      }
+    },
+    {
+      "event": "m1.device_queue",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "240",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "1",
+        "size": "8",
+        "base": "4096",
+        "bytes": "32768",
+        "desc": "20480",
+        "avail": "24576",
+        "used": "28672",
+        "payload": "32768",
+        "notify_offset": "4"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "241",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "1",
+        "head": "0",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "242",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "1",
+        "head": "1",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "243",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "1",
+        "head": "2",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used_entry",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "244",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "queue": "1",
+        "head": "3",
+        "bytes": "8",
+        "capacity": "8"
+      }
+    },
+    {
+      "event": "m1.device_used",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "245",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "entries": "4",
+        "irq_expected": "false",
+        "irqs": "0",
+        "lost_irq_poll": "true",
+        "malformed_denied": "true",
+        "chain_negatives": "5",
+        "irq_latch": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "246",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "complete": "false",
+        "retained": "true",
+        "timeout_ns": "100000000"
+      }
+    },
+    {
+      "event": "m1.device_quarantine",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "247",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "devices": "1",
+        "bytes": "32768",
+        "cap_bytes": "16777216",
+        "cap_devices": "3",
+        "released": "false"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "248",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_settled",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "249",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "1",
+        "masked": "true",
+        "retained_bytes": "0",
+        "frames": "0",
+        "reset_before_release": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "250",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "2",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_features",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "251",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "2",
+        "offered": "1104611901446",
+        "selected": "4294967296",
+        "required_unknown_denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "252",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "2",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_ready",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "253",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "devices": "3",
+        "queue_setups": "8",
+        "used_entries": "16",
+        "quarantine_probes": "2",
+        "retained_bytes": "0",
+        "frames": "0",
+        "iommu": "false"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "349",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "1",
+        "process": "2",
+        "generation": "2",
+        "slot": "0",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "350",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_features",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "351",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "offered": "1104611901440",
+        "selected": "4294967296",
+        "required_unknown_denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_queue",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "352",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "0",
+        "size": "8",
+        "base": "5939200",
+        "bytes": "32768",
+        "desc": "5939200",
+        "avail": "5943296",
+        "used": "5947392",
+        "payload": "5951488",
+        "notify_offset": "0"
+      }
+    },
+    {
+      "event": "m1.device_queue",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "353",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "queue": "1",
+        "size": "8",
+        "base": "5939200",
+        "bytes": "32768",
+        "desc": "5955584",
+        "avail": "5959680",
+        "used": "5963776",
+        "payload": "5967872",
+        "notify_offset": "4"
+      }
+    },
+    {
+      "event": "m1.device_feedback",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "354",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "led_advertised": "true",
+        "kind": "17",
+        "unsupported_led_denied": "false",
+        "semantic_claim": "false"
+      }
+    },
+    {
+      "event": "m1.device_lease",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "355",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "bytes": "32768",
+        "outstanding": "8",
+        "device_owned": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "356",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "0",
+        "offset": "0",
+        "width": "0",
+        "denied": "false"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "357",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "3",
+        "process": "4",
+        "generation": "2",
+        "slot": "0",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "358",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "5",
+        "generation": "1",
+        "slot": "0",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "359",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "4",
+        "process": "5",
+        "generation": "1",
+        "slot": "0",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "360",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "4",
+        "process": "5",
+        "generation": "1",
+        "slot": "0",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "361",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "5",
+        "generation": "1",
+        "slot": "1",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "362",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "4",
+        "process": "5",
+        "generation": "1",
+        "slot": "1",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "363",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "4",
+        "process": "5",
+        "generation": "1",
+        "slot": "1",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "364",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "5",
+        "generation": "1",
+        "slot": "2",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "365",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "4",
+        "process": "5",
+        "generation": "1",
+        "slot": "2",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "366",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "0",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "367",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "0",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "368",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "0",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "369",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "1",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "370",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "1",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "371",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "1",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "372",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "2",
+        "offset": "0",
+        "width": "0",
+        "denied": "false"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "373",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "2",
+        "offset": "0",
+        "width": "4",
+        "denied": "false"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "374",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "6",
+        "process": "7",
+        "generation": "1",
+        "slot": "0",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "375",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "6",
+        "process": "7",
+        "generation": "1",
+        "slot": "0",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "376",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "6",
+        "process": "7",
+        "generation": "1",
+        "slot": "0",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "377",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "6",
+        "process": "7",
+        "generation": "1",
+        "slot": "1",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "378",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "6",
+        "process": "7",
+        "generation": "1",
+        "slot": "1",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "379",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "6",
+        "process": "7",
+        "generation": "1",
+        "slot": "1",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "380",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "6",
+        "process": "7",
+        "generation": "1",
+        "slot": "2",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "381",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "6",
+        "process": "7",
+        "generation": "1",
+        "slot": "2",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "382",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "6",
+        "process": "7",
+        "generation": "1",
+        "slot": "2",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "383",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "0",
+        "process": "1",
+        "generation": "5",
+        "slot": "0",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "384",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "0",
+        "process": "1",
+        "generation": "5",
+        "slot": "0",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "385",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "0",
+        "process": "1",
+        "generation": "5",
+        "slot": "0",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "386",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "0",
+        "process": "1",
+        "generation": "5",
+        "slot": "1",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "387",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "0",
+        "process": "1",
+        "generation": "5",
+        "slot": "1",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "388",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "0",
+        "process": "1",
+        "generation": "5",
+        "slot": "1",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "389",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "0",
+        "process": "1",
+        "generation": "5",
+        "slot": "2",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "390",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "0",
+        "process": "1",
+        "generation": "5",
+        "slot": "2",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "391",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "0",
+        "process": "1",
+        "generation": "5",
+        "slot": "2",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "392",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "1",
+        "process": "2",
+        "generation": "2",
+        "slot": "0",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "393",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "1",
+        "process": "2",
+        "generation": "2",
+        "slot": "0",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "394",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "1",
+        "process": "2",
+        "generation": "2",
+        "slot": "1",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "395",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "1",
+        "process": "2",
+        "generation": "2",
+        "slot": "1",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "396",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "1",
+        "process": "2",
+        "generation": "2",
+        "slot": "1",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "397",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "1",
+        "process": "2",
+        "generation": "2",
+        "slot": "2",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "398",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "1",
+        "process": "2",
+        "generation": "2",
+        "slot": "2",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "399",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "0",
+        "offset": "0",
+        "width": "4",
+        "denied": "false"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "400",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "0",
+        "offset": "16384",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "401",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "0",
+        "offset": "1",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "402",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "0",
+        "offset": "18446744073709551615",
+        "width": "1",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "403",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "0",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "404",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16387",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "0",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "405",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "1",
+        "offset": "0",
+        "width": "0",
+        "denied": "false"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "406",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "1",
+        "offset": "0",
+        "width": "4",
+        "denied": "false"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "407",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "3",
+        "process": "4",
+        "generation": "2",
+        "slot": "0",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "408",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "3",
+        "process": "4",
+        "generation": "2",
+        "slot": "0",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "409",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "3",
+        "process": "4",
+        "generation": "2",
+        "slot": "1",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "410",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "3",
+        "process": "4",
+        "generation": "2",
+        "slot": "1",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "411",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "3",
+        "process": "4",
+        "generation": "2",
+        "slot": "1",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "412",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "3",
+        "process": "4",
+        "generation": "2",
+        "slot": "2",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "413",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "3",
+        "process": "4",
+        "generation": "2",
+        "slot": "2",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "414",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "3",
+        "process": "4",
+        "generation": "2",
+        "slot": "2",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "415",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "3",
+        "process": "4",
+        "generation": "2",
+        "slot": "18446744073709551615",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "416",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "4",
+        "process": "5",
+        "generation": "1",
+        "slot": "2",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "417",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "5",
+        "generation": "1",
+        "slot": "18446744073709551615",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "418",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "2",
+        "offset": "16384",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "419",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "2",
+        "offset": "1",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "420",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "2",
+        "offset": "18446744073709551615",
+        "width": "1",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "421",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "2",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "422",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16387",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "2",
+        "offset": "0",
+        "width": "0",
+        "denied": "false"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "423",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "2",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "424",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "5",
+        "process": "6",
+        "generation": "1",
+        "slot": "18446744073709551615",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "425",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "6",
+        "process": "7",
+        "generation": "1",
+        "slot": "18446744073709551615",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "426",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "0",
+        "process": "1",
+        "generation": "5",
+        "slot": "18446744073709551615",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "427",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "1",
+        "offset": "16384",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "428",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "1",
+        "offset": "1",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "429",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "1",
+        "offset": "18446744073709551615",
+        "width": "1",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "430",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "1",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "431",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16387",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "1",
+        "offset": "0",
+        "width": "0",
+        "denied": "false"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "432",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "1",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "433",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "2",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "434",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "2",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "435",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "1",
+        "process": "2",
+        "generation": "2",
+        "slot": "2",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "436",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "1",
+        "process": "2",
+        "generation": "2",
+        "slot": "18446744073709551615",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "437",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "2",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "438",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "2",
+        "process": "3",
+        "generation": "2",
+        "slot": "18446744073709551615",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_reset",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "446",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "complete": "true",
+        "retained": "false",
+        "status": "0",
+        "masked": "true"
+      }
+    },
+    {
+      "event": "m1.device_owner_dead",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "447",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "slot": "0",
+        "process": "3",
+        "generation": "2",
+        "reset_complete": "true",
+        "released_bytes": "32768",
+        "pending_eventq": "true",
+        "eventq_used": "0",
+        "eventq_submitted": "4"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "518",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "2",
+        "generation": "3",
+        "slot": "0",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "519",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "4",
+        "process": "2",
+        "generation": "3",
+        "slot": "0",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "520",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "4",
+        "process": "2",
+        "generation": "3",
+        "slot": "0",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "521",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "2",
+        "generation": "3",
+        "slot": "1",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "522",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "4",
+        "process": "2",
+        "generation": "3",
+        "slot": "1",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "523",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "4",
+        "process": "2",
+        "generation": "3",
+        "slot": "1",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "525",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "2",
+        "generation": "3",
+        "slot": "2",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "526",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "4",
+        "process": "2",
+        "generation": "3",
+        "slot": "2",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "527",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "4",
+        "process": "2",
+        "generation": "3",
+        "slot": "2",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "528",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "2",
+        "generation": "3",
+        "slot": "18446744073709551615",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "626",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "2",
+        "generation": "4",
+        "slot": "0",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "627",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "4",
+        "process": "2",
+        "generation": "4",
+        "slot": "0",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "628",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "4",
+        "process": "2",
+        "generation": "4",
+        "slot": "0",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "629",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "2",
+        "generation": "4",
+        "slot": "1",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "630",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "4",
+        "process": "2",
+        "generation": "4",
+        "slot": "1",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "631",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "4",
+        "process": "2",
+        "generation": "4",
+        "slot": "1",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "632",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "2",
+        "generation": "4",
+        "slot": "2",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "633",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16385",
+        "role": "4",
+        "process": "2",
+        "generation": "4",
+        "slot": "2",
+        "offset": "0",
+        "width": "4",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "634",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16386",
+        "role": "4",
+        "process": "2",
+        "generation": "4",
+        "slot": "2",
+        "offset": "1",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_call",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "635",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "op": "16384",
+        "role": "4",
+        "process": "2",
+        "generation": "4",
+        "slot": "18446744073709551615",
+        "offset": "0",
+        "width": "0",
+        "denied": "true"
+      }
+    },
+    {
+      "event": "m1.device_final",
+      "fields": {
+        "version": "5",
+        "build": "35d79eb1a226acd65c6365978cafdbc87a1656bda2ad96590be701ab186bdf31",
+        "session": "5ea50ecc8e76719d9fa1b9bf5cdb4156aa71af741d90d9dc0ed0e6766c26170c",
+        "session_origin": "host",
+        "seq": "767",
+        "stage": "device",
+        "outcome": "ok",
+        "emergency": "false",
+        "grants": "0",
+        "dma_bytes": "0",
+        "leases": "0",
+        "frames": "0"
+      }
+    }
+  ]
+}

@@ -45,3 +45,6 @@ stress-supervisor-test = ["sdk-test"]
 
 surface-runtime = ["desktop-runtime"]
 surface-test = ["surface-runtime", "desktop-test"]
+
+input-runtime = ["surface-runtime"]
+input-test = ["input-runtime", "desktop-test"]

@@ -107,3 +107,19 @@ remains **Proposed**. Screenshots establish displayed bytes, not VSync or latenc
 private copied leases, reference-correct overlap/exposure and bounded teardown.
 No renderer/thread CPU or pacing target is accepted. The broader ADR remains
 **Proposed** pending guest toolkit, input, reload and efficiency gates.
+
+## P4-06 bounded physical input — 2026-11-14
+
+[Local acceptance](../../evidence/phase-4/P4-06/final-1794706382942464300/README.md) qualifies scoped modern VirtIO keyboard/tablet
+queues and private copied CIN0 events on the pinned VM. Key state, US ASCII text,
+hit testing and focus/capture policy execute in CPL3 alongside the compositor,
+which owns current geometry. The temporary kernel mediator retains trusted
+discovery, MMIO/IRQ, DMA/reset and checked copies. See the
+[input runbook](../05-delivery/phase-4/input-runbook.md).
+
+The separate input role retains its bounded lifecycle workload; independently
+replaceable input-process extraction is not accepted. Co-location enlarges the
+trusted boundary and requires fresh bindings after compositor failure. Protected
+focus/privacy (P4-10), toolkit, live replacement and broader driver architecture
+remain open. The broader decision remains Proposed; no public ABI is frozen and
+this result supplies no security certification or desktop efficiency claim.

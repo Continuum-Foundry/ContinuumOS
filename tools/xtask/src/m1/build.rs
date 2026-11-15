@@ -36,6 +36,7 @@ pub(super) enum Flavor {
     Devices,
     Display,
     Surfaces,
+    Input,
     Smoke,
     NoEntry,
     Inject,
@@ -66,6 +67,7 @@ impl Flavor {
             Self::Devices => "device-test",
             Self::Display => "display-test",
             Self::Surfaces => "surface-test",
+            Self::Input => "input-test",
             Self::Smoke => "iso-smoke",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
@@ -91,11 +93,12 @@ impl Flavor {
     }
     fn features(self) -> &'static str {
         match self {
-            Self::Normal => "surface-runtime",
+            Self::Normal => "input-runtime",
             Self::Desktop => "desktop-test",
             Self::Devices => "device-test",
             Self::Display => "display-test",
             Self::Surfaces => "surface-test",
+            Self::Input => "input-test",
             Self::Smoke => "emulator-test",
             Self::NoEntry => "fault-before-entry",
             Self::Inject => "boot-inject",
@@ -384,6 +387,7 @@ pub(super) fn build_surface(dir: &Path, flavor: Flavor, scenario: u64) -> Result
             | Flavor::Devices
             | Flavor::Display
             | Flavor::Surfaces
+            | Flavor::Input
             | Flavor::StaticLoader
             | Flavor::UserBoundary
             | Flavor::Scheduler
@@ -409,6 +413,7 @@ pub(super) fn build_surface(dir: &Path, flavor: Flavor, scenario: u64) -> Result
                     | Flavor::Devices
                     | Flavor::Display
                     | Flavor::Surfaces
+                    | Flavor::Input
                     | Flavor::Scheduler
                     | Flavor::Capabilities
                     | Flavor::Channels
@@ -435,10 +440,12 @@ pub(super) fn build_surface(dir: &Path, flavor: Flavor, scenario: u64) -> Result
                     | Flavor::Devices
                     | Flavor::Display
                     | Flavor::Surfaces
+                    | Flavor::Input
             ),
             flavor == Flavor::Devices,
             flavor == Flavor::Display,
-            matches!(flavor, Flavor::Normal | Flavor::Surfaces),
+            matches!(flavor, Flavor::Normal | Flavor::Surfaces | Flavor::Input),
+            matches!(flavor, Flavor::Normal | Flavor::Input),
             scenario,
         )?)
     } else {
@@ -470,6 +477,7 @@ pub(super) fn build_surface(dir: &Path, flavor: Flavor, scenario: u64) -> Result
             | Flavor::Devices
             | Flavor::Display
             | Flavor::Surfaces
+            | Flavor::Input
     ) {
         "kernel-stress"
     } else {
@@ -604,6 +612,7 @@ pub(super) fn build_surface(dir: &Path, flavor: Flavor, scenario: u64) -> Result
                     | Flavor::Devices
                     | Flavor::Display
                     | Flavor::Surfaces
+                    | Flavor::Input
                     | Flavor::Scheduler
                     | Flavor::Capabilities
                     | Flavor::Channels
@@ -648,8 +657,10 @@ pub(super) fn build_surface(dir: &Path, flavor: Flavor, scenario: u64) -> Result
             } else {
                 audit_disassembly(&text)?;
             }
-            inspection["returning_interrupt_entry"] =
-                audit_interrupt_entry(&text, flavor == Flavor::Devices)?;
+            inspection["returning_interrupt_entry"] = audit_interrupt_entry(
+                &text,
+                matches!(flavor, Flavor::Normal | Flavor::Devices | Flavor::Input),
+            )?;
         }
     }
     let commit = output(

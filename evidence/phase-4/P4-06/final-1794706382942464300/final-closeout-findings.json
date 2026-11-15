@@ -1,0 +1,20 @@
+{
+  "branch": {
+    "status": "main; git pull --ff-only completed",
+    "tested_base": "9da91f4644d8e5492ff50b29bcbc948bd71a03e9",
+    "merged_main": "179629414c5d5ab24d4723eea8e28fbf1e937559",
+    "identical_tree": "543ca7120d6ebd0151666765606f436b328ea504",
+    "method": "Verified main fast-forward ancestry and identical base trees; advanced inactive main ref to origin/main, switched with staged changes preserved, pulled ff-only. No implementation input changed."
+  },
+  "host_failure": {
+    "journal": "build/m4/P4-06/acceptance-1794708198565674600/acceptance.json",
+    "sha256": "a57bf874f4ef07a3c4dcb0745b5833341a318cfcd3916f7c828dd7a9e731122f",
+    "status": "failed",
+    "diagnosis": "Governance rejected newly authored checksum manifest with wrong container schema (manifest.files absent). Corrected evidence metadata only to existing algorithm/files schema; no execution implementation, guest bounds or counts changed.",
+    "raw": [
+      "governance.stdout.log",
+      "governance.stderr.log"
+    ],
+    "disposition": "Original failed closure journal and streams remain local; canonical guest-execution capsule is immutable. Final closure locator records subsequent pass."
+  }
+}

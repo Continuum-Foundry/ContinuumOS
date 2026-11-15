@@ -42,7 +42,9 @@ P4-04 passes local checked software-scanout self-review; see
 `evidence/phase-4/P4-04/final-1794635215585403600/README.md`. Exact 720p/1080p ISO captures pass; synchronous copy accepts no compositor, input, reload, VSync or desktop efficiency result.
 P4-05 passes local copied-surface/compositor self-review; see
 `evidence/phase-4/P4-05/final-1794685886700026500/README.md`. Nine optical cases, bounded leases/authority/exposure and exact teardown pass; input, toolkit, reload, VSync and desktop efficiency remain open.
-P4-06 is next; P4-06 through P4-19 remain Not started.
+P4-06 passes local physical-input/routing self-review; see
+`evidence/phase-4/P4-06/final-1794706382942464300/README.md`. Scoped VirtIO keyboard/tablet, CPL3 focus/capture, bounded cancellation and exact teardown pass. The broker is co-located with the compositor; independent extraction, protected focus, toolkit, reload and desktop efficiency remain open.
+P4-07 is next; P4-07 through P4-19 remain Not started.
 
 Read `docs/README.md`, `docs/00-overview/requirements.md`, and
 `docs/05-delivery/agent-handoff.md` before implementing anything. Claude and other

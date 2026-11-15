@@ -1,6 +1,6 @@
 # P4-06 — Deliver physical keyboard and pointer input
 
-Issue type: Story. Epic: P4. Status: Not started. Owner: Platform/Input.
+Issue type: Story. Epic: P4. Status: Done. Owner: Platform/Input.
 Depends on: P4-03,P4-05. Backlog: B16 input.
 Requirements: R08/R10/R14/R15/R17. Test families: T04/T05/T06/T11.
 Labels: `phase-4`, `input`, `focus`.
@@ -27,15 +27,15 @@ window with no stuck keys or accidental activation after reset or layout changes
 
 ## Acceptance criteria
 
-- [ ] Real VM key/pointer input reaches the authorized guest window with ordered
+- [x] Real VM key/pointer input reaches the authorized guest window with ordered
   press/release/modifier/text behavior and correct scaled hit testing.
-- [ ] Focus/capture changes, device reset and queue overflow leave no stuck state
+- [x] Focus/capture changes, device reset and queue overflow leave no stuck state
   and cannot activate a moved/removed control on stale release.
-- [ ] Forged input injection, another surface's capture and wrong-session delivery
+- [x] Forged input injection, another surface's capture and wrong-session delivery
   deny through trusted caller checks.
-- [ ] Device negotiation/descriptor/IRQ failures remain bounded; healthy control
+- [x] Device negotiation/descriptor/IRQ failures remain bounded; healthy control
   and serial diagnostics progress without a busy-poll rendering loop.
-- [ ] Guest device/routing evidence and independent event/state assertions pass
+- [x] Guest device/routing evidence and independent event/state assertions pass
   separately from synthetic model tests and affected prior regressions.
 
 ## Tests and evidence
@@ -50,3 +50,25 @@ No native IME, persistent regional settings or protected login authority yet.
 P4-07/P4-08 integrate real editing/window actions; P4-10 owns sensitive focus/privacy.
 Read [input contract](../../06-contracts/ui-and-scene-protocol.md#inputevents).
 Apply the [epic definition of done](README.md#evidence-and-story-completion).
+
+## Accepted local subset
+
+The [criterion review](../../../evidence/phase-4/P4-06/final-1794706382942464300/README.md) passes the selected story gate and independent
+native artifact review. Scoped modern VirtIO keyboard/tablet queues feed an
+explicit copied CIN0 boundary and a CPL3 broker co-located with the compositor.
+The native fixture confirms 104 raw samples, modifier/repeat/text ordering,
+captured multi-button movement, stale geometry/owner-death suppression, overflow
+and deliberately missing-release reset, with four complete frames and exact
+process/object/frame/DMA teardown. Authority negatives and malformed/expired
+streams have separate portable and native evidence; see the criterion matrix.
+
+Initial guest hit testing uses the accepted 720p scale-1 output. Rational 3/2
+conversion is portable-test evidence only; scaled rendering remains P4-11.
+Seventeen reviewed VM runs (two exact-input runs reused with fresh review), 22
+separate metadata builds and affected host checks pass with original bounds.
+No full milestone suite or standing waiver is used.
+
+The [input runbook](input-runbook.md) records private bytes, manual replay,
+unsafe ownership, two-second unconfirmed-gesture limit and extraction handoff.
+No independently replaceable input process, protected focus, IME, toolkit,
+editing workflow, reload, VSync or desktop efficiency result is accepted.

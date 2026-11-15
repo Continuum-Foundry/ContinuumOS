@@ -115,7 +115,18 @@ pub(super) fn launch(
             .map(String::from),
         );
     }
-    if matches!(flavor, "display-test" | "surface-test") {
+    if matches!(flavor, "normal" | "input-test") {
+        args.extend(
+            [
+                "-device",
+                "virtio-keyboard-pci,disable-legacy=on,addr=4",
+                "-device",
+                "virtio-tablet-pci,disable-legacy=on,addr=5",
+            ]
+            .map(String::from),
+        );
+    }
+    if matches!(flavor, "display-test" | "surface-test" | "input-test") {
         args.extend(["-qmp".into(), "stdio".into()]);
     }
     if test {
@@ -181,7 +192,7 @@ pub(super) fn launch(
     write_json(&dir.join("launch-manifest.json"), &launch_manifest)?;
     let mut c = Command::new(pins.file("qemu")?);
     c.args(&args);
-    if matches!(flavor, "display-test" | "surface-test") {
+    if matches!(flavor, "display-test" | "surface-test" | "input-test") {
         c.stdin(std::process::Stdio::piped());
     }
     let mut report = observe(

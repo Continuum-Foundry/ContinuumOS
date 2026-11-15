@@ -47,6 +47,8 @@ fn present(broker: &mut s::Broker, width: usize, height: usize, frame: &mut [u8]
         // Each copy remains synchronous. Cooperate once per 16 rows rather than
         // introducing a scheduling opportunity on every scanline.
         if y % 16 == 15 || y + 1 == height {
+            #[cfg(input_runtime)]
+            super::input_runtime::tick(broker);
             check(call(super::THREAD_YIELD, word(3), 0, 0, 0).0 == 0);
         }
     }
@@ -81,6 +83,7 @@ fn scenario() -> u64 {
         [b'6'] => 6,
         [b'7'] => 7,
         [b'8'] => 8,
+        [b'9'] => 9,
         _ => 0,
     }
 }
@@ -88,7 +91,7 @@ pub fn run(role: u64, mode: u64) {
     #[cfg(surface_probe)]
     {
         if role != 1 {
-            if role == 4 && mode == 2 && scenario() < 7 {
+            if role == 4 && mode == 2 && (scenario() < 7 || scenario() == 9) {
                 super::surface_client::wrong_session();
             } else if (role == 3 || role == 4) && mode == 1 {
                 super::surface_client::run(role, scenario());
@@ -119,6 +122,10 @@ pub fn run(role: u64, mode: u64) {
         check(false);
         s::Broker::new()
     });
+    #[cfg(input_runtime)]
+    super::input_runtime::initialize(w as u32, h as u32);
+    #[cfg(input_runtime)]
+    let mut copy_probe_done = false;
     let mut peers = [None; 2];
     let mut sequences = [0; 2];
     #[cfg(surface_probe)]
@@ -127,16 +134,61 @@ pub fn run(role: u64, mode: u64) {
     let mut ready = [None; 2];
     #[cfg(surface_probe)]
     let mut finished = false;
+    #[cfg(all(input_runtime, surface_probe))]
+    let (mut stale_announced, mut owner_dead, mut reset_done, mut held_announced) =
+        (false, false, false, false);
     loop {
         #[cfg(surface_probe)]
         let repair = !finished; // The terminal capture is fixed while fixture teardown finishes.
         #[cfg(not(surface_probe))]
         let repair = true;
         retire_dead(&mut broker, w, h, frame, g, repair);
+        #[cfg(input_runtime)]
+        super::input_runtime::tick(&broker);
+        #[cfg(all(input_runtime, surface_probe))]
+        {
+            if super::input_runtime::pressure() {
+                present(&mut broker, w, h, frame, g);
+                log(b"input-render-pressure-passed");
+            }
+            let seen = super::input_runtime::seen(1);
+            if seen >= 16 && !stale_announced {
+                stale_announced = true;
+                log(b"input-stale-release-passed");
+                log(b"input-inject-11");
+            }
+            if !owner_dead && peers[1].is_some_and(|p| !live(p)) {
+                owner_dead = true;
+                log(b"input-owner-death-passed");
+                log(b"input-inject-12");
+            }
+            if owner_dead && seen >= 22 && !held_announced {
+                let target = broker
+                    .input_windows()
+                    .into_iter()
+                    .flatten()
+                    .find(|w| w.peer.principal == 403)
+                    .unwrap();
+                super::input_runtime::bind(target.peer, target.id, target.scene);
+                held_announced = true;
+                log(b"input-inject-13");
+            }
+        }
+
         #[cfg(surface_probe)]
         {
-            let result = call(0x4201, 0, 4144, 0, 0);
-            check(result == (0, 0) || result.0 == super::ACCESSDENIED);
+            #[cfg(input_runtime)]
+            let probe = !copy_probe_done;
+            #[cfg(not(input_runtime))]
+            let probe = true;
+            if probe {
+                let result = call(0x4201, 0, 4144, 0, 0);
+                check(result == (0, 0) || result.0 == super::ACCESSDENIED);
+                #[cfg(input_runtime)]
+                if result.0 == super::ACCESSDENIED {
+                    copy_probe_done = true;
+                }
+            }
         }
         let mut packet = [0u8; 4144];
         let (status, n) = call(
@@ -215,8 +267,24 @@ pub fn run(role: u64, mode: u64) {
         }
         #[cfg(surface_probe)]
         if m.kind == 9 {
+            #[cfg(input_runtime)]
+            if !reset_done {
+                check(owner_dead && held_announced);
+                check(call(0x4303, 0, 0, 0, 0).0 == 0);
+                super::input_runtime::reset();
+                super::input_runtime::tick(&broker);
+                reset_done = true;
+                log(b"input-device-reset-passed");
+                reply(ticket, 0, 0, m.request);
+                continue;
+            }
             check(done[client].is_none());
             done[client] = Some((ticket, m.request));
+            #[cfg(input_runtime)]
+            if done[0].is_none() || !owner_dead {
+                continue;
+            }
+            #[cfg(not(input_runtime))]
             if done.iter().any(Option::is_none) {
                 continue;
             }
@@ -247,9 +315,26 @@ pub fn run(role: u64, mode: u64) {
             for (t, r) in done.into_iter().flatten() {
                 reply(t, 0, 0, r);
             }
+            #[cfg(input_runtime)]
+            {
+                broker.retain_live(|_| false);
+                unsafe {
+                    ALLOCATOR.dealloc(pointer, layout);
+                }
+                super::input_runtime::shutdown();
+                log(b"input-inventory-zero");
+                break;
+            }
             finished = true;
             continue;
         }
+        #[cfg(input_runtime)]
+        let result = if m.kind >= 10 {
+            super::input_runtime::request(peer, m)
+        } else {
+            broker.request(peer, m)
+        };
+        #[cfg(not(input_runtime))]
         let result = broker.request(peer, m);
         #[cfg(surface_probe)]
         let last = finished && peer.session == 2002;

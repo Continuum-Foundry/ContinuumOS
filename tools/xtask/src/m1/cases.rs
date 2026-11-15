@@ -58,6 +58,7 @@ pub(super) fn boot_run(
             || manifest["flavor"] == "device-test"
             || manifest["flavor"] == "display-test"
             || manifest["flavor"] == "surface-test"
+            || manifest["flavor"] == "input-test"
             || fixture == "static-loader"
             || fixture.starts_with("user-boundary-")
             || fixture.starts_with("scheduler-")
@@ -121,6 +122,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         "sdk-runtime" => Flavor::SdkRuntime,
         "desktop-runtime" => Flavor::Desktop,
         "devices" => Flavor::Devices,
+        "input" => Flavor::Input,
         "display-720" | "display-1080" => Flavor::Display,
         "surface-720" | "surface-1080" | "surface-move" | "surface-hide" | "surface-remove"
         | "surface-denied" | "surface-death" | "surface-failure" | "surface-stall" => {
@@ -145,9 +147,10 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         | "acpi-corrupt" | "timer-unsupported" | "timer-calibration" => Flavor::Timer,
         _ => Flavor::Normal,
     };
-    let manifest = if flavor == Flavor::Surfaces {
+    let manifest = if matches!(flavor, Flavor::Surfaces | Flavor::Input) {
         let scenario = match action {
             "surface-720" | "surface-1080" => 1,
+            "input" => 9,
             "surface-move" => 2,
             "surface-hide" => 3,
             "surface-remove" => 4,
@@ -232,7 +235,7 @@ pub(super) fn perform(action: &str, dir: &Path) -> Result<Value> {
         accepted(&run)?;
         return Ok(json!({"compile":"passed","display":"passed","run":run}));
     }
-    if matches!(flavor, Flavor::Desktop | Flavor::Devices) {
+    if matches!(flavor, Flavor::Desktop | Flavor::Devices | Flavor::Input) {
         let run = boot_run(
             dir,
             action,

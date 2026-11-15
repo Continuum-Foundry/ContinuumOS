@@ -174,6 +174,11 @@ pub fn run(role: u64, scenario: u64) {
     );
     c.start(8, 0);
     check(c.exchange(128).0 == 0);
+    #[cfg(input_runtime)]
+    {
+        input_client(&mut c, role, s);
+        return;
+    }
     // Snapshot ownership survives mutation of every original chunk and request.
     c.start(3, s);
     put64(&mut c.bytes, 64, l);
@@ -277,6 +282,14 @@ pub fn run(role: u64, scenario: u64) {
 }
 
 pub fn wrong_session() {
+    #[cfg(input_runtime)]
+    {
+        for op in 0x4300..=0x4303 {
+            check(call(op, 0, 0, 0, 0).0 == super::ACCESSDENIED);
+        }
+        log(b"input-wrong-session-denied");
+        return;
+    }
     let mut c = Client::new();
     c.start(8, 0);
     check(c.exchange(128).0 == 2);
@@ -288,4 +301,164 @@ pub fn wrong_session() {
     put64(&mut c.bytes, 96, 4);
     check(c.exchange(128).0 == 2);
     log(b"surface-wrong-session-denied");
+}
+
+#[cfg(input_runtime)]
+fn input_client(c: &mut Client, role: u64, s: u64) {
+    // Injection and another surface's capture cannot bypass trusted endpoint roles.
+    for op in [0x4300, 0x4301, 0x4303] {
+        check(call(op, 0, 0, 0, 0).0 == super::ACCESSDENIED);
+    }
+    c.start(11, s);
+    put64(&mut c.bytes, 64, 2);
+    check(c.exchange(128).0 == 2);
+    c.start(10, s);
+    put64(&mut c.bytes, 64, 999);
+    check(c.exchange(128).0 == 2);
+    if role == 3 {
+        c.start(10, s);
+        put64(&mut c.bytes, 64, 2);
+        check(c.exchange(128).0 == 0);
+        log(b"input-inject-0");
+    }
+    let mut sequence = 0;
+    let mut stage = 0;
+    let mut pointer_stage = 0;
+    let mut flooding = false;
+    let mut overflow_done = false;
+    let mut held_seen = false;
+    loop {
+        let mut bytes = [0u8; 96];
+        let (e, n) = call(0x4302, bytes.as_mut_ptr() as u64, 96, 0, 0);
+        check(e == 0);
+        if n == 0 {
+            pause();
+            continue;
+        }
+        check(n == 96 && &bytes[..8] == b"CIN0\0\0\x60\0" && bytes[88..] == [0; 8]);
+        let w = |n| u64::from_le_bytes(bytes[n..n + 8].try_into().unwrap());
+        let d = |n| u32::from_le_bytes(bytes[n..n + 4].try_into().unwrap());
+        check(w(8) > sequence && w(24) > 0 && w(32) == s);
+        sequence = w(8);
+        let kind = u16::from_le_bytes(bytes[64..66].try_into().unwrap());
+        let code = u16::from_le_bytes(bytes[66..68].try_into().unwrap());
+        let value = d(68);
+        if role == 3 {
+            let matches = match stage {
+                0 => kind == 1 && code == 42 && value == 1,
+                1 => kind == 1 && code == 54 && value == 1,
+                2 => kind == 1 && code == 42 && value == 0,
+                3 => kind == 2 && d(84) == 65 && value == 1,
+                4 => kind == 2 && d(84) == 65 && value == 2,
+                5 => kind == 1 && code == 30 && value == 0,
+                6 => kind == 1 && code == 54 && value == 0,
+                _ => false,
+            };
+            if matches {
+                check(d(80) == if stage < 6 { 1 } else { 0 });
+                stage += 1;
+                if stage < 7 {
+                    log(match stage {
+                        1 => b"input-inject-1",
+                        2 => b"input-inject-2",
+                        3 => b"input-inject-3",
+                        4 => b"input-inject-4",
+                        5 => b"input-inject-5",
+                        _ => b"input-inject-6",
+                    });
+                } else {
+                    c.start(12, s);
+                    put64(&mut c.bytes, 64, 2);
+                    check(c.exchange(128).0 == 0);
+                    log(b"input-flood-00");
+                    flooding = true;
+                    let (e, start) = call(super::CLOCK_NOW, 0, 0, 0, 0);
+                    check(e == 0);
+                    loop {
+                        let (e, now) = call(super::CLOCK_NOW, 0, 0, 0, 0);
+                        check(e == 0);
+                        if now - start >= 2_000_000_000 {
+                            break;
+                        }
+                        pause();
+                    }
+                }
+            }
+            if flooding && !overflow_done && kind == 5 && code == 1 {
+                check(d(80) == 0);
+                log(b"input-overflow-passed");
+                loop {
+                    c.start(10, s);
+                    put64(&mut c.bytes, 64, 2);
+                    let e = c.exchange(128).0;
+                    if e == 0 {
+                        break;
+                    }
+                    check(e == 4);
+                    pause();
+                }
+                overflow_done = true;
+                log(b"input-inject-7");
+            }
+            if overflow_done && !held_seen && kind == 1 && code == 42 && value == 1 {
+                check(d(80) == 1);
+                held_seen = true;
+                c.start(9, 0);
+                check(c.exchange(128).0 == 0);
+            }
+            if overflow_done && held_seen && kind == 5 && code == 6 {
+                check(d(80) == 0);
+                log(b"input-reset-held-key-passed");
+                c.start(9, 0);
+                check(c.exchange(128).0 == 0);
+                log(b"input-client-passed");
+                break;
+            }
+        } else if kind == 4 && code == 272 {
+            match (pointer_stage, value) {
+                (0, 1) => {
+                    check(d(72) < 160 && d(76) < 120 && w(40) == 2);
+                    c.start(11, s);
+                    put64(&mut c.bytes, 64, 2);
+                    check(c.exchange(128).0 == 0);
+                    for low in 1..=4 {
+                        let id = (s & !0xffff_ffff) | low;
+                        if id != s {
+                            c.start(11, id);
+                            put64(&mut c.bytes, 64, 2);
+                            check(c.exchange(128).0 == 2);
+                        }
+                    }
+                    pointer_stage = 1;
+                    log(b"input-inject-8");
+                }
+                (1, 0) => {
+                    check(d(72) > 160 && d(76) > 120);
+                    pointer_stage = 2;
+                    log(b"input-client-pointer-passed");
+                    log(b"input-inject-9");
+                }
+                (2, 1) => {
+                    c.start(11, s);
+                    put64(&mut c.bytes, 64, 2);
+                    check(c.exchange(128).0 == 0);
+                    c.geometry(s, 240, 160, 2, true, [8, 4, 144, 108]);
+                    c.start(11, s);
+                    put64(&mut c.bytes, 64, 2);
+                    check(c.exchange(128).0 == 2);
+                    pointer_stage = 3;
+                    log(b"input-inject-10");
+                }
+                (3, 1) => {
+                    check(w(40) == 3);
+                    c.start(11, s);
+                    put64(&mut c.bytes, 64, 3);
+                    check(c.exchange(128).0 == 0);
+                    log(b"input-owner-exiting");
+                    super::exit(42);
+                }
+                _ => check(false),
+            }
+        }
+    }
 }

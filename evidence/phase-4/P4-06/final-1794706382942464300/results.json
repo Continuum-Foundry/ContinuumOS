@@ -1,0 +1,373 @@
+{
+  "status": "passed",
+  "execution_journal": "build/m4/P4-06/acceptance-1794706382942464300/acceptance.json",
+  "sha256": "aa99140881022638f798e5412b1c45357fdb6f24a51644746f28c4b6ef5513e3",
+  "working_storage": {
+    "files": 2243,
+    "bytes": 1847006919,
+    "budget_bytes": 4294967296,
+    "scope": "journal and referenced check artifacts; shared caches/toolchains excluded"
+  },
+  "checks": [
+    {
+      "id": "kernel-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib"
+      ],
+      "deadline_seconds": 180,
+      "elapsed_ms": 3218,
+      "resumed": true
+    },
+    {
+      "id": "device-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib",
+        "--features",
+        "device-test"
+      ],
+      "deadline_seconds": 180,
+      "elapsed_ms": 12344,
+      "resumed": true
+    },
+    {
+      "id": "surface-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "continuum-kernel",
+        "--lib",
+        "--features",
+        "surface-test"
+      ],
+      "deadline_seconds": 180,
+      "elapsed_ms": 10937,
+      "resumed": true
+    },
+    {
+      "id": "xtask-host",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "xtask",
+        "--bin",
+        "xtask",
+        "m1::"
+      ],
+      "deadline_seconds": 300,
+      "elapsed_ms": 29985,
+      "resumed": true
+    },
+    {
+      "id": "input-oracle-tests",
+      "status": "fresh-pass",
+      "arguments": [
+        "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-P4-06.py"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_ms": 266,
+      "resumed": false
+    },
+    {
+      "id": "runner-tests",
+      "status": "fresh-pass",
+      "arguments": [
+        "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-StoryValidation.py"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_ms": 1703,
+      "resumed": false
+    },
+    {
+      "id": "retention-tests",
+      "status": "fresh-pass",
+      "arguments": [
+        "C:\\Users\\archi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/Test-EvidenceRetention.py"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_ms": 1110,
+      "resumed": true
+    },
+    {
+      "id": "prerequisites",
+      "status": "fresh-pass",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Recheck-P2Prerequisites.ps1"
+      ],
+      "deadline_seconds": 1800,
+      "elapsed_ms": 247703,
+      "resumed": true
+    },
+    {
+      "id": "input",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "input"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 80172,
+      "resumed": true
+    },
+    {
+      "id": "input-flavors",
+      "status": "fresh-pass",
+      "arguments": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "tools/Check-P4-06Flavors.ps1",
+        "-Descriptors",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m1\\input-1794705727251134900-114916",
+        "-Output",
+        "C:\\Users\\archi\\Documents\\ContinuumOS\\build\\m4\\P4-06\\acceptance-1794705366932871300\\flavors"
+      ],
+      "deadline_seconds": 900,
+      "elapsed_ms": 46312,
+      "resumed": true
+    },
+    {
+      "id": "ordinary",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "run",
+        "--profile",
+        "vm-baseline"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 76485,
+      "resumed": true
+    },
+    {
+      "id": "devices",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "devices"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 86344,
+      "resumed": false
+    },
+    {
+      "id": "surface-720",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "surface-720"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 99438,
+      "resumed": false
+    },
+    {
+      "id": "display-720",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "display-720"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 83500,
+      "resumed": false
+    },
+    {
+      "id": "timer",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "timer-progress"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 80938,
+      "resumed": false
+    },
+    {
+      "id": "memory",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "owned-memory"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 57766,
+      "resumed": false
+    },
+    {
+      "id": "boundary",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "user-boundary"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 178469,
+      "resumed": false
+    },
+    {
+      "id": "scheduler",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "scheduler"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 137062,
+      "resumed": false
+    },
+    {
+      "id": "capabilities",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "capabilities"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 67328,
+      "resumed": false
+    },
+    {
+      "id": "channels",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "channels"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 96594,
+      "resumed": false
+    },
+    {
+      "id": "sdk-runtime",
+      "status": "fresh-pass",
+      "arguments": [
+        "cargo",
+        "xtask",
+        "test",
+        "--suite",
+        "m1",
+        "--case",
+        "sdk-runtime"
+      ],
+      "deadline_seconds": 600,
+      "elapsed_ms": 89406,
+      "resumed": false
+    },
+    {
+      "id": "docs",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-docs.cjs"
+      ],
+      "deadline_seconds": 120,
+      "elapsed_ms": 594,
+      "resumed": false
+    },
+    {
+      "id": "governance",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-governance.cjs"
+      ],
+      "deadline_seconds": 120,
+      "elapsed_ms": 16454,
+      "resumed": false
+    },
+    {
+      "id": "hygiene",
+      "status": "fresh-pass",
+      "arguments": [
+        "node",
+        "audit/check-repository-hygiene.cjs"
+      ],
+      "deadline_seconds": 1800,
+      "elapsed_ms": 1875,
+      "resumed": false
+    }
+  ],
+  "vm_reviewed": 17,
+  "fresh_vm_in_final_attempt": 15,
+  "reused_vm_independently_reviewed": 2,
+  "separate_metadata_builds": 22
+}

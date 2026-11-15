@@ -1939,3 +1939,51 @@ No force push, merge, release, other destination, new remote build, repository
 setting change or standing exemption is granted. Geographic containment remains
 unverified; this administrative exception is not legal clearance or a finding of
 U.S.-only handling and does not waive applicable law.
+
+## One-time owner exemption — P4-06 physical input, 2026-11-14
+
+After completed local P4-06 acceptance and staged closeout, the owner instructed:
+"I give you exemption to make PR". This authorizes one push and one PR for the
+exact reviewed 117-file staged payload represented before this record by Git
+tree `9dbf8c7e0e483b2ee67fa58eb925bf4d8ec4fc45`, based on merged P4-05 main
+`179629414c5d5ab24d4723eea8e28fbf1e937559`, plus this authorization record.
+
+Payload: scoped VirtIO keyboard/tablet queues and checked DMA/IRQ/copy lifetimes;
+private CIN0 routing and compositor-co-located CPL3 key/text/focus/capture policy;
+reset/overflow/geometry/death cancellation and native input/rendering fixtures;
+selected acceptance/oracles and separate metadata builds; current story, contracts,
+runbook, requirements, Proposed architecture notes and handoff; and the compact
+reviewed 71-file evidence bundle at
+`evidence/phase-4/P4-06/final-1794706382942464300/`.
+Bounded project-workspace paths in reviewed context/command/provenance records
+are included; full environment dumps and unrelated personal paths are excluded.
+Implementation inputs remain those accepted by 17 reviewed VM runs (15 fresh in
+the final execution attempt, two exact-input runs reused with fresh review),
+22 metadata flavors and selected host checks. Final host audits rerun for this
+prose-only authorization addition; unchanged guest execution is not repeated.
+
+Destination: existing public GitHub repository
+`https://github.com/Continuum-Foundry/ContinuumOS.git`, branch
+`codex/p4-06-input-routing`, followed by one PR against `main` titled
+"Complete P4-06 physical input and guest event routing".
+Prepared PR body SHA-256:
+`115f50d5502ddb3c237f338f859cb6949542c9fb6e7d89ff94b853e8bead120f`.
+This includes that description and PR metadata. Visibility is unchanged.
+
+Excluded: unrelated changes, full generated runs/logs/source archives, local
+capsules, binaries, ISOs, firmware state, caches, credentials, certificates and
+private keys. Historical evidence remains unchanged. No new hosted workflow,
+protected input, independent input-process extraction, toolkit/editing, reload,
+VSync, desktop efficiency or M4-exit claim is introduced. No evidence deletion is
+authorized or performed. The ordinary commit retains and must pass the installed
+pre-commit check.
+
+The push exemption is exhausted by the first successful push containing this
+record; PR authorization is exhausted by creation of that one PR. For that push
+only, command-local `core.hooksPath=work/p4-06-pr/hooks` may select a directory
+containing an exact copy of the installed pre-commit hook and no pre-push hook.
+The installed `.githooks/pre-push` and configured `.githooks` path remain afterward.
+No force push, merge, release, other destination, new remote build, repository
+setting change or standing exemption is granted. Geographic containment remains
+unverified; this administrative exception is not legal clearance or a finding of
+U.S.-only handling and does not waive applicable law.

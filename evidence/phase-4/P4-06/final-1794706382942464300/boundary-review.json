@@ -1,0 +1,343 @@
+{
+  "status": "passed",
+  "scope": "focused boundary regression only",
+  "audit": [
+    {
+      "group": 0,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 68,
+      "nested_irqs": 5,
+      "user_irqs": 48,
+      "settled_frames": 0
+    },
+    {
+      "group": 1,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 71,
+      "nested_irqs": 5,
+      "user_irqs": 50,
+      "settled_frames": 0
+    },
+    {
+      "group": 2,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 68,
+      "nested_irqs": 5,
+      "user_irqs": 45,
+      "settled_frames": 0
+    },
+    {
+      "group": 3,
+      "runs": 9,
+      "healthy_runs": 5,
+      "healthy_replacements": 4,
+      "offenders": 4,
+      "calls": 71,
+      "nested_irqs": 5,
+      "user_irqs": 46,
+      "settled_frames": 0
+    }
+  ],
+  "mutations": [
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/reason",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_end/principal",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_settlement/frames",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/user_irqs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_ready/copy_recovery",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_call/entry_flags",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_fault/cs",
+      "status": "rejected"
+    },
+    {
+      "case": "m1.user_start/generation",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_start",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_end",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_settlement",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_call",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_fault",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_bad_return",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_irq",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_ready",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_inventory",
+      "status": "rejected"
+    },
+    {
+      "case": "missing m1.user_runtime",
+      "status": "rejected"
+    }
+  ],
+  "codegen": {
+    "status": "passed",
+    "scope": "Full independent codegen observations retained in capsule; compact digest here.",
+    "sha256": "a55c2fee30d80ca65498b7f547f794f432f5f4e2e433978605511c5c9242d8ad",
+    "source": "work/p4-06/boundary-review-full.json",
+    "entries": 2
+  }
+}

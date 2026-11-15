@@ -970,7 +970,8 @@ fn parse_chunk(
                     return Err("Unexpected display record".into());
                 }
             }
-            "m1.device_bar"
+            "m1.input_ready"
+            | "m1.device_bar"
             | "m1.device_discovered"
             | "m1.device_features"
             | "m1.device_reset"
@@ -990,12 +991,17 @@ fn parse_chunk(
                 if !p.memory
                     || stage != "device"
                     || outcome != "ok"
-                    || expected.fixture != "desktop-runtime"
+                    || !matches!(expected.fixture, "desktop-runtime" | "desktop-ordinary")
                 {
                     return Err("Unexpected device record".into());
                 }
             }
-            "m1.surface_frame"
+            "m1.input_received"
+            | "m1.input_raw"
+            | "m1.input_delivery"
+            | "m1.input_denied"
+            | "m1.input_stopped"
+            | "m1.surface_frame"
             | "m1.surface_request"
             | "m1.surface_response"
             | "m1.surface_denied"
